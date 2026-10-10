@@ -400,7 +400,7 @@ public enum Props {
         WallVentLouver.self,
         WindowAcUnit.self,
         WindowBoxPlanter.self,
-        SedanCar.self, DeliveryVan.self, CityBus.self, PickupTruck.self, MiniExcavator.self,
+        SedanCar.self, DeliveryVan.self, CityBus.self, MiniExcavator.self,
         TowerCrane.self, RoadWorkSign.self, SoccerGoal.self, TennisNet.self, SubwayEntrance.self, DoubleArmLamp.self, PayStation.self, Newsstand.self, FuelCanopy.self, PublicArtSphere.self, OutdoorStage.self, ParkPavilion.self, BikeShelter.self, BinEnclosure.self, SiameseConnection.self, CurbRamp.self, LoadingDock.self, SmallWindTurbine.self, CageLadder.self, GlassGreenhouse.self,
         CrossbodyBag.self, LeatherStrap.self,
         RoseWindowTracery.self,
@@ -472,6 +472,8 @@ public enum Props {
         Hubcap.self,
         LugNutSet.self,
         WheelLockKey.self,
+        CompactSedan.self,
+        PickupTruck.self,
         // realityhd:prop
     ]
 }

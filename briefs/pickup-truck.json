@@ -1,0 +1,50 @@
+{
+  "budget": 15000,
+  "id": "pickup-truck",
+  "kind": "prop",
+  "materials": [
+    "paint.car-clearcoat",
+    "glass.tinted",
+    "rubber.truck-tire",
+    "metal.aluminum-brushed",
+    "metal.chrome",
+    "metal.painted",
+    "plastic.black",
+    "plastic.matte",
+    "emissive.signal-red",
+    "emissive.signal-orange"
+  ],
+  "name": "Pickup truck",
+  "notes": "front faces +Z, driver on +X. Specs: 2024 Ford F-150 SuperCrew 5.5 ft box: 3683 mm wheelbase, 5885 mm length, 2029 mm width, 1961 mm height Width includes mirrors (2.03 m body).",
+  "parts": [
+    "clearcoat painted cab and bed (part body, lift slide 0...0.18 m)",
+    "chrome grille, headlights, tail lamps",
+    "tailgate (tailgate, hinge 0...90)",
+    "under-bed spare (spareWinch, lower slide 0...0.3 m) with winch cable",
+    "jack stowed behind rear seat",
+    "suspension.<wheel> droop (mimic of body lift)",
+    "wheel.frontLeft/frontRight/rearLeft/rearRight detach slide 0...0.4 m",
+    "wheel.<wheel>.lug0..lug5 unscrew slide 0...0.05 m"
+  ],
+  "references": [],
+  "size": [
+    2.34,
+    1.98,
+    6.0
+  ],
+  "style": "2024 F-150 XLT class, metallic clearcoat, chrome grille, black running boards, light dust.",
+  "summary": "Full-size SuperCrew pickup at 1:1 (F-150 class, 3683 mm wheelbase): boxy cab and 5.5 ft bed, tailgate, four live wheels with six lug nuts each, under-bed spare on a winch cable, jack behind the rear seat.",
+  "tags": [
+    "prop",
+    "vehicle",
+    "articulated",
+    "street",
+    "road",
+    "metal",
+    "glass",
+    "rubber"
+  ],
+  "theme": "Roadside",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

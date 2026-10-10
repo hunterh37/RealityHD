@@ -1,0 +1,54 @@
+{
+  "budget": 15000,
+  "id": "compact-sedan",
+  "kind": "prop",
+  "materials": [
+    "paint.car-clearcoat",
+    "glass.tinted",
+    "glass.pane",
+    "rubber.tire",
+    "metal.aluminum-brushed",
+    "metal.chrome",
+    "metal.steel",
+    "plastic.dash",
+    "plastic.black",
+    "plastic.matte",
+    "carpet.tile",
+    "emissive.signal-red",
+    "emissive.signal-orange"
+  ],
+  "name": "Compact sedan",
+  "notes": "front faces +Z, driver on +X. Parametric wheelbase, track, tireDiameter vars. Theme Roadside (tire change). Width includes mirrors (1.84 m body). Specs: 2024 Toyota Camry: 2825 mm wheelbase, 4915 mm length, 1840 mm width, 1445 mm height; 2024 Honda Civic sedan: 2735 mm wheelbase",
+  "parts": [
+    "clearcoat painted unibody with hood, roof, A/B/C pillars, bumpers, wheel arches (part body, lift slide 0...0.15 m)",
+    "windshield, side and rear glass",
+    "headlights and tail lamps",
+    "dash with hazard button (hazardButton, push slide) and parking brake lever (parkingBrake, 0...30)",
+    "trunk lid (trunkLid, hinge 0...80), trunk floor cover (trunkFloor, hinge 0...85), spare well with temporary spare",
+    "pinch-weld jack point notches behind front and ahead of rear wheels",
+    "suspension.<wheel> droop (mimic of body lift)",
+    "wheel.frontLeft/frontRight/rearLeft/rearRight detach slide 0...0.35 m",
+    "wheel.<wheel>.lug0..lug4 unscrew slide 0...0.05 m"
+  ],
+  "references": [],
+  "size": [
+    2.07,
+    1.45,
+    4.92
+  ],
+  "style": "current generic mid-size sedan, deep blue metallic clearcoat, clean, light road film on the rockers.",
+  "summary": "Mid-size four-door sedan at 1:1 (Camry/Civic class): lofted clearcoat body, glass, lamps, four live wheels with five lug nuts each, articulated trunk, jack points and a lift state.",
+  "tags": [
+    "prop",
+    "vehicle",
+    "articulated",
+    "street",
+    "road",
+    "metal",
+    "glass",
+    "rubber"
+  ],
+  "theme": "Roadside",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
