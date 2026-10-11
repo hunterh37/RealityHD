@@ -1,5 +1,5 @@
 {
-  "budget": 14000,
+  "budget": 13000,
   "id": "refrigerator",
   "kind": "prop",
   "materials": [
@@ -11,7 +11,7 @@
     "emissive.panel"
   ],
   "name": "French-door refrigerator",
-  "notes": "Rig: left-door, right-door hinge Y 0...110; freezer slide +Z 0...0.45. Option interior light on while either door > 5 deg (RigLight point). States: closed, left-open, right-open, both-open, freezer-open.",
+  "notes": "Rig: left-door and right-door hinges Y (outer edges), 0...110. States: closed, left-open, right-open, both-open. Handles included in depth.",
   "parts": [
     "brushed stainless doors with rounded edges and bar handles",
     "pull-out freezer drawer below",
@@ -30,13 +30,14 @@
   "summary": "French-door refrigerator, 36 in: stainless doors with bar handles, freezer drawer, lit interior with glass shelves and door bins.",
   "tags": [
     "prop",
+    "floorplan",
     "kitchen",
-    "metal",
     "appliance",
-    "container",
+    "metal",
+    "interior",
     "articulated"
   ],
   "theme": "Kitchen",
   "threshold": 0.85,
-  "tolerance": 0.08
+  "tolerance": 0.05
 }
