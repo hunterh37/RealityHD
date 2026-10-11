@@ -527,6 +527,7 @@ public enum Props {
         LaunchPad.self,
         RadarSensor.self,
         HeatShield.self,
+        LaunchTower.self,
         // realityhd:prop
     ]
 }
