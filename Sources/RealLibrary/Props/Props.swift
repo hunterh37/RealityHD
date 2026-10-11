@@ -521,6 +521,7 @@ public enum Props {
         FuselageSection.self,
         BatteryPack.self,
         NoseCone.self,
+        Windsock.self,
         // realityhd:prop
     ]
 }
