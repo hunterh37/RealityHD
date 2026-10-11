@@ -529,6 +529,7 @@ public enum Props {
         HeatShield.self,
         LaunchTower.self,
         CameraSensor.self,
+        RunwaySegment.self,
         // realityhd:prop
     ]
 }
