@@ -27,6 +27,13 @@ public struct Surface: Sendable {
     public var triangleCount: Int { indices.count / 3 }
     public var isEmpty: Bool { indices.isEmpty }
 
+    /// Reserve room for `v` more vertices (the channels `add` writes) and `i` more indices.
+    public mutating func reserve(vertices v: Int, indices i: Int) {
+        let n = positions.count + v
+        positions.reserveCapacity(n); normals.reserveCapacity(n); uvs.reserveCapacity(n)
+        extra.reserveCapacity(n); occlusion.reserveCapacity(n); indices.reserveCapacity(indices.count + i)
+    }
+
     @discardableResult
     public mutating func add(_ p: V3, _ n: V3, _ uv: V2, extra e: V2 = .zero) -> UInt32 {
         positions.append(p); normals.append(n); uvs.append(uv); extra.append(e); occlusion.append(1)
@@ -38,23 +45,30 @@ public struct Surface: Sendable {
     }
 
     public mutating func append(_ o: Surface, _ x: Xform = .identity) {
-        let base = UInt32(positions.count)
-        if x == .identity {
+        let base = UInt32(positions.count), count = o.positions.count, identity = x == .identity
+        // In-place loops with reserved capacity: no temporary arrays from map / Array(repeating:).
+        positions.reserveCapacity(positions.count + count); normals.reserveCapacity(normals.count + count)
+        if identity {
             positions += o.positions; normals += o.normals
         } else {
-            positions += o.positions.map(x.point); normals += o.normals.map(x.normal)
+            for p in o.positions { positions.append(x.point(p)) }
+            for n in o.normals { normals.append(x.normal(n)) }
         }
         uvs += o.uvs
-        extra += o.extra.count == o.positions.count ? o.extra : Array(repeating: .zero, count: o.positions.count)
-        occlusion += o.occlusion.count == o.positions.count ? o.occlusion : Array(repeating: 1, count: o.positions.count)
+        if o.extra.count == count { extra += o.extra } else { extra.append(contentsOf: repeatElement(.zero, count: count)) }
+        if o.occlusion.count == count { occlusion += o.occlusion } else { occlusion.append(contentsOf: repeatElement(1, count: count)) }
         if !o.splat.isEmpty || !splat.isEmpty {
-            if splat.count < Int(base) { splat += Array(repeating: 0, count: Int(base) - splat.count) }
-            splat += o.splat.count == o.positions.count ? o.splat : Array(repeating: 0, count: o.positions.count)
+            if splat.count < Int(base) { splat.append(contentsOf: repeatElement(0, count: Int(base) - splat.count)) }
+            if o.splat.count == count { splat += o.splat } else { splat.append(contentsOf: repeatElement(0, count: count)) }
         }
         if !o.tangents.isEmpty && tangents.count == base {
-            tangents += x == .identity ? o.tangents : o.tangents.map { V4(x.direction(V3($0.x, $0.y, $0.z)), $0.w) }
+            if identity { tangents += o.tangents } else {
+                tangents.reserveCapacity(tangents.count + o.tangents.count)
+                for t in o.tangents { tangents.append(V4(x.direction(V3(t.x, t.y, t.z)), t.w)) }
+            }
         } else { tangents = [] }
-        indices += o.indices.map { $0 + base }
+        indices.reserveCapacity(indices.count + o.indices.count)
+        for i in o.indices { indices.append(i + base) }
     }
 
     public func transformed(_ x: Xform) -> Surface { var s = Surface(material: material); s.append(self, x); return s }
@@ -76,15 +90,22 @@ public struct Surface: Sendable {
             acc[a] += n; acc[b] += n; acc[c] += n
         }
         if weldSeams {
-            var groups: [SIMD3<Int32>: [Int]] = [:]
-            groups.reserveCapacity(positions.count)
+            // Group vertices by quantized position as linked lists in index order (no array per vertex);
+            // sums run in ascending index order as before.
+            var ends: [SIMD3<Int32>: (head: Int, tail: Int)] = [:]
+            ends.reserveCapacity(positions.count)
+            var next = [Int](repeating: -1, count: positions.count)
+            var isHead = [Bool](repeating: false, count: positions.count)
             for (i, p) in positions.enumerated() {
                 let q = (p * 1e4).rounded(.toNearestOrAwayFromZero)
-                groups[SIMD3<Int32>(Int32(q.x), Int32(q.y), Int32(q.z)), default: []].append(i)
+                let k = SIMD3<Int32>(Int32(q.x), Int32(q.y), Int32(q.z))
+                if let e = ends[k] { next[e.tail] = i; ends[k] = (e.head, i) } else { ends[k] = (i, i); isHead[i] = true }
             }
-            for (_, g) in groups where g.count > 1 {
-                let s = g.reduce(V3.zero) { $0 + acc[$1] }
-                for i in g { acc[i] = s }
+            for h in positions.indices where isHead[h] && next[h] >= 0 {
+                var s = V3.zero, j = h
+                while j >= 0 { s = s + acc[j]; j = next[j] }
+                j = h
+                while j >= 0 { acc[j] = s; j = next[j] }
             }
         }
         normals = acc.map { $0.normalized }

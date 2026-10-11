@@ -158,11 +158,19 @@ public struct CityLayout: Sendable {
         }
         var rng = SeededRNG(seed: spec.seed &+ 77)
         let pts = streetPoints(every: spec.treeSpacing)
+        // Builds are deterministic per seed: three tree seeds and one lamp seed repeat along the street,
+        // so build each once and share the LOD model.
+        let tree = MapleTree().with { $0.autumn = 0.15 }
+        var trees: [UInt64: LODModel] = [:]
+        var lamp: LODModel?
         for (i, p) in pts.enumerated() {
             if i % 2 == 0 {
-                scene.add(MapleTree().with { $0.autumn = 0.15 }, at: place(p.x, p.y, y: 0.1, yaw: rng.float(0...360), scale: 0.6), seed: spec.seed &+ UInt64(100 + i % 3))
+                let at = place(p.x, p.y, y: 0.1, yaw: rng.float(0...360), scale: 0.6), seed = spec.seed &+ UInt64(100 + i % 3)
+                if trees[seed] == nil { trees[seed] = tree.build(seed: seed) }
+                scene.singles.append(.init(asset: trees[seed]!, at: at))
             } else {
-                scene.add(StreetLamp(), at: place(p.x, p.y, y: 0.15, yaw: 0), seed: spec.seed &+ 7)
+                if lamp == nil { lamp = StreetLamp().build(seed: spec.seed &+ 7) }
+                scene.singles.append(.init(asset: lamp!, at: place(p.x, p.y, y: 0.15, yaw: 0)))
             }
         }
     }
