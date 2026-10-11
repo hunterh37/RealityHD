@@ -97,12 +97,14 @@ public struct AlpineMeadow: RealSceneBuilder {
         let sections = 7
         let step = 2 * asin(6 / 2 / arcR)
         var ends: [V2] = []
+        // Every section is the same cliff and seed: build once, place it `sections` times.
+        let cliff = CliffFace().with { $0.height = cliffHeight; $0.depth = 2.4; $0.material = "rock.granite-bare"; $0.endTaper = 0; $0.endBulge = 0 }
+            .build(seed: seed &+ 2)
         for i in 0..<sections {
-            let cliff = CliffFace().with { $0.height = cliffHeight; $0.depth = 2.4; $0.material = "rock.granite-bare"; $0.endTaper = 0; $0.endBulge = 0 }
             let a = (Float(i) - Float(sections - 1) / 2) * step
             let c = V2(sin(a) * arcR, cliffZ + arcR - cos(a) * arcR)
             let lo = stride(from: -3, through: 3, by: 1).map { (d: Float) in meadow(c.x + d * cos(a), c.y + d * sin(a) + 1.2) }.min() ?? 0
-            scene.add(cliff, at: Xform(translation: V3(c.x, lo - 0.15, c.y), rotation: simd_quatf(angle: -a, axis: .up)), seed: seed &+ 2)
+            scene.singles.append(.init(asset: cliff, at: Xform(translation: V3(c.x, lo - 0.15, c.y), rotation: simd_quatf(angle: -a, axis: .up))))
             if i == 0 || i == sections - 1 { ends.append(c + V2(cos(a), sin(a)) * (i == 0 ? -3.6 : 3.6)) }
         }
         // Outcrops close off the ends of the band.
