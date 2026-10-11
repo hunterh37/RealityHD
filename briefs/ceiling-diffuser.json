@@ -1,0 +1,41 @@
+{
+  "budget": 3500,
+  "id": "ceiling-diffuser",
+  "kind": "prop",
+  "materials": [
+    "metal.powder-white:F6F6F3",
+    "metal.galvanized",
+    "metal.chrome",
+    "metal.aluminum-brushed",
+    "decal.soap-residue"
+  ],
+  "name": "Square ceiling supply diffuser",
+  "notes": "Static. Ceiling asset: face flush at y = 2.598 (2 mm proud of ceiling plane 2.6), cones recess up to y = 2.698.",
+  "parts": [
+    "24 in square flange frame",
+    "three concentric stepped cones",
+    "center cap",
+    "sheet metal plenum collar",
+    "edge lip rolls",
+    "mounting screws"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    0.1,
+    0.6
+  ],
+  "style": "white baked enamel, new",
+  "summary": "24 in square four-way ceiling supply diffuser: white flange, three stepped louver cones, center cap, sheet-metal collar.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "interior",
+    "ceiling",
+    "hvac",
+    "metal"
+  ],
+  "theme": "Lighting",
+  "threshold": 0.8,
+  "tolerance": 0.05
+}
