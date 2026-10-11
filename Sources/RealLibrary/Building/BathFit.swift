@@ -57,4 +57,23 @@ public enum BathFit {
             m.add(Prim.tube(lever, radii: lever.indices.map { i in i < lever.count - 2 ? Float(0.0058) : Float(0.0072) }, sides: hi ? 10 : 6, seamTile: 0.03, material: finish))
         }
     }
+
+    /// Undermount oval basin seen through a counter hole: lip just inside the hole at `topY`, coved wall to
+    /// `topY - depth`, chrome drain and a dark overflow slot at the rear wall. `size` is the hole (x, z).
+    public static func undermountBasin(_ m: inout Model, center c: V3, size: V2, topY: Float, depth: Float = 0.15,
+                                       radius: Float = 0.15, hi: Bool = true, material: MaterialKey = "ceramic.vitreous") {
+        let seg = hi ? 5 : 3
+        func ring(_ w: Float, _ d: Float, _ r: Float, _ y: Float) -> [V3] {
+            Prim.ring(Shape2D.roundedRect(w, d, radius: min(r, min(w, d) / 2 - 0.001), segments: seg), y: y, offset: V3(c.x, 0, c.z))
+        }
+        let rows: [[V3]] = [ring(size.x - 0.003, size.y - 0.003, radius, topY - 0.0005), ring(size.x - 0.012, size.y - 0.012, radius, topY - 0.03),
+                            ring(size.x - 0.045, size.y - 0.045, radius - 0.02, topY - depth * 0.55), ring(size.x - 0.12, size.y - 0.1, radius - 0.06, topY - depth * 0.92),
+                            ring(size.x - 0.16, size.y - 0.13, radius - 0.08, topY - depth)]
+        m.add(Prim.loft(rows, capEnd: true, material: material))
+        let dc = V3(c.x, topY - depth, c.z + 0.01)
+        m.add(Prim.lathe([V2(0.001, 0.0005), V2(0.024, 0.0005), V2(0.026, 0.002), V2(0.022, 0.0042), V2(0.001, 0.0042)], segments: hi ? 20 : 10, seamTile: 0.05, material: "metal.chrome"), Xform(translation: dc))
+        m.add(Prim.lathe([V2(0.001, 0.0042), V2(0.016, 0.0042), V2(0.017, 0.0062), V2(0.001, 0.0068)], segments: hi ? 16 : 8, seamTile: 0.05, material: "metal.stainless"), Xform(translation: dc))
+        m.add(Prim.roundedBox(V3(0.03, 0.012, 0.003), radius: 0.0012, bevelSegments: 1, material: "plastic.black"),
+              Xform(translation: V3(c.x, topY - 0.035, c.z - (size.y - 0.012) / 2 + 0.006), rotation: simd_quatf(degrees: -10, axis: V3(1, 0, 0))))
+    }
 }
