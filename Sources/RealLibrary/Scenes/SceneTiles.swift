@@ -40,25 +40,26 @@ public extension RealScene {
         core.batchStatics = batchStatics; core.batchCell = batchCell ?? self.batchCell
 
         var tiles: [RealTileCoord: RealScene] = [:]
-        func tile(_ c: RealTileCoord) -> RealScene {
-            if let t = tiles[c] { return t }
+        // Create on first use, then mutate in place (copying a tile out and back per static was quadratic).
+        func ensureTile(_ c: RealTileCoord) {
+            guard tiles[c] == nil else { return }
             var t = RealScene(name: "\(name):\(c)")
             t.farGround = nil
             t.batchStatics = batchStatics; t.batchCell = batchCell ?? self.batchCell
-            return t
+            tiles[c] = t
         }
         for var s in statics {
             s.bake = false
             let b = s.asset.levels[0].bounds
             if s.asset.levels[0].boundsDiagonal * s.at.scale.max() > limit { core.singles.append(s); continue }
             let c = grid.coord(s.at.point((b.min + b.max) / 2))
-            var t = tile(c); t.singles.append(s); tiles[c] = t
+            ensureTile(c); tiles[c]!.singles.append(s)
         }
         for f in fields {
             var split: [RealTileCoord: [simd_float4x4]] = [:]
             for m in f.transforms { split[grid.coord(SIMD3(m.columns.3.x, m.columns.3.y, m.columns.3.z)), default: []].append(m) }
             for (c, list) in split {
-                var t = tile(c); t.fields.append(.init(asset: f.asset, transforms: list, options: f.options)); tiles[c] = t
+                ensureTile(c); tiles[c]!.fields.append(.init(asset: f.asset, transforms: list, options: f.options))
             }
         }
         return RealTiledScene(grid: grid, core: core, tiles: tiles)
