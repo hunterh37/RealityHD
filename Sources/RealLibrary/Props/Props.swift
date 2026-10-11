@@ -541,6 +541,7 @@ public enum Props {
         Parachute.self,
         GantryCrane.self,
         EngineProp.self,
+        CanyonWall.self,
         // realityhd:prop
     ]
 }

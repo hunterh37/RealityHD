@@ -22,3 +22,15 @@ import Testing
         }
     }
 }
+
+@Suite struct CanyonWallCourseTests {
+    @Test func canyonFaceAndPillarStayInBudget() {
+        var face = CanyonWall(); face.height = 200
+        face.polyline = [V2(-70, 0), V2(-70, 400), V2(80, 800), V2(80, 1200)]
+        #expect(face.build(seed: 5).levels[0].triangleCount <= CanyonWall.budget)
+        var pillar = CanyonWall(); pillar.kind = .pillar; pillar.radius = 12; pillar.height = 200
+        let m = pillar.build(seed: 5).levels[0]
+        #expect(m.triangleCount <= CanyonWall.budget)
+        #expect(m.bounds.max.y > 120)
+    }
+}
