@@ -455,6 +455,7 @@ public enum Props {
         ArtDecoSunburstPanel.self,
         CoffeeTable.self,
         EndTable.self,
+        ConsoleTable.self,
         // realityhd:prop
     ]
 }
