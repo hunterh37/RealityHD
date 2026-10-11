@@ -534,6 +534,7 @@ public enum Props {
         Imu.self,
         Blockhouse.self,
         ViewingPlatform.self,
+        PartRack.self,
         // realityhd:prop
     ]
 }
