@@ -27,6 +27,8 @@ enum DoorKit {
         var faceT: Float { casingT + 0.0025 }
         /// False for a pocket opening: no jamb leg or stop on the -X side.
         var leftJamb = true
+        /// False for an arched head built by the caller.
+        var withHead = true
         var withStop = true, withHeadJamb = true, bead = true
         var material: MaterialKey
         /// Overall width and height of the casing set.
@@ -59,7 +61,7 @@ enum DoorKit {
             if withStop {
                 add(box(V3(openW - 2 * stopW, stopW, stopT), V3(0, hy - stopW / 2, stopZ - stopT / 2), material, r: 0))
             }
-            for sz: Float in [-1, 1] {
+            for sz: Float in withHead ? [-1, 1] : [] {
                 let zc = sz * (D / 2 + casingT / 2) - sz * 0.0005
                 let headW = openW + 2 * (reveal + casingW)
                 add(box(V3(headW, casingW, casingT), V3(0, hy + reveal + casingW / 2, zc), material, r: 0.003, seg: 2))
