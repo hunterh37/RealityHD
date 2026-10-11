@@ -1,12 +1,12 @@
 {
-  "budget": 10000,
+  "budget": 12500,
   "id": "fuel-tank-l",
   "kind": "prop",
   "materials": [
     "metal.aluminum-brushed",
     "metal.steel",
     "metal.painted:F2F2F0",
-    "metal.painted:1C1C1E"
+    "metal.powdercoat:1C1C1E"
   ],
   "name": "Fuel tank, large",
   "notes": "Vision Spacecraft part. Size [x, y, z] metres; deployed parts may exceed it.",
