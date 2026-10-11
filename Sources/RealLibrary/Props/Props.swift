@@ -459,6 +459,7 @@ public enum Props {
         BunkBed.self,
         Crib.self,
         Nightstand.self,
+        Dresser.self,
         // realityhd:prop
     ]
 }
