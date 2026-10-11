@@ -532,6 +532,7 @@ public enum Props {
         RunwaySegment.self,
         Decoupler.self,
         Imu.self,
+        Blockhouse.self,
         // realityhd:prop
     ]
 }

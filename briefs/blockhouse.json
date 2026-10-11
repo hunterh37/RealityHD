@@ -1,0 +1,46 @@
+{
+  "budget": 12000,
+  "id": "blockhouse",
+  "kind": "prop",
+  "materials": [
+    "concrete.rough",
+    "glass.tinted",
+    "metal.painted",
+    "metal.galvanized",
+    "metal.rust"
+  ],
+  "name": "Blockhouse",
+  "notes": "",
+  "parts": [
+    "concrete block",
+    "stepped roof",
+    "viewing slits",
+    "armored glass",
+    "slit frames",
+    "blast door",
+    "door baffle wall",
+    "roof vents",
+    "antenna mast",
+    "cable conduit",
+    "pour joints",
+    "rain stains"
+  ],
+  "references": [],
+  "size": [
+    8.56,
+    7.81,
+    8.06
+  ],
+  "style": "range control blockhouse, board-formed concrete, rust-stained, armored view slits facing the pad",
+  "summary": "Range blockhouse, 8 x 6 m: thick concrete box under a stepped roof, armored view slits facing the pad, steel blast door behind a baffle wall, roof vents and antenna.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "outdoor",
+    "concrete",
+    "building"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
