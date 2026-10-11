@@ -520,6 +520,7 @@ public enum Props {
         DebrisRock.self,
         FuselageSection.self,
         BatteryPack.self,
+        NoseCone.self,
         // realityhd:prop
     ]
 }
