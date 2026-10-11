@@ -523,6 +523,7 @@ public enum Props {
         NoseCone.self,
         Windsock.self,
         SolarPanel.self,
+        LidarSensor.self,
         // realityhd:prop
     ]
 }
