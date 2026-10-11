@@ -11,7 +11,7 @@
     "emissive.warm"
   ],
   "name": "Countertop microwave",
-  "notes": "Rig: door hinge Y -100...0 (left edge); turntable hinge Y 0...360 (mimic not needed). Options: display (clock/time), cavity light. States: closed, open, running.",
+  "notes": "Rig: door hinge Y (left edge) -100...0; turntable spins. States: closed, open. Handle included in depth.",
   "parts": [
     "stainless wrap with vent slots",
     "black door with screened window",
@@ -30,13 +30,14 @@
   "summary": "Countertop microwave, 1.2 cu ft: stainless wrap, screened window door with pull handle, keypad and clock, glass turntable.",
   "tags": [
     "prop",
+    "floorplan",
     "kitchen",
-    "metal",
     "appliance",
-    "electronics",
+    "metal",
+    "interior",
     "articulated"
   ],
   "theme": "Kitchen",
   "threshold": 0.85,
-  "tolerance": 0.08
+  "tolerance": 0.05
 }

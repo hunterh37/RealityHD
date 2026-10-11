@@ -455,6 +455,7 @@ public enum Props {
         ArtDecoSunburstPanel.self,
         Refrigerator.self,
         Dishwasher.self,
+        Microwave.self,
         // realityhd:prop
     ]
 }
