@@ -519,6 +519,7 @@ public enum Props {
         GapWall.self,
         DebrisRock.self,
         FuselageSection.self,
+        BatteryPack.self,
         // realityhd:prop
     ]
 }
