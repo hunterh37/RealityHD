@@ -130,20 +130,30 @@ public enum Prim {
 
     /// Cube-sphere: six subdivided cube faces projected to a sphere. Per-face UVs (meters) avoid the
     /// pole pinching of UV spheres. `displace(dir) -> radius` shapes rocks/boulders.
+    static let cubeFaces: [(V3, V3, V3)] = [
+        (V3(1, 0, 0), V3(0, 0, -1), V3(0, 1, 0)), (V3(-1, 0, 0), V3(0, 0, 1), V3(0, 1, 0)),
+        (V3(0, 1, 0), V3(1, 0, 0), V3(0, 0, -1)), (V3(0, -1, 0), V3(1, 0, 0), V3(0, 0, 1)),
+        (V3(0, 0, 1), V3(1, 0, 0), V3(0, 1, 0)), (V3(0, 0, -1), V3(-1, 0, 0), V3(0, 1, 0)),
+    ]
+    /// Tangent-warped grid gives near-uniform cell area on the sphere.
+    @inline(__always) static func cubeSphereDirection(_ nrm: V3, _ u: V3, _ v: V3, _ i: Int, _ j: Int, _ n: Int) -> V3 {
+        let a = tan((Float(i) / Float(n) * 2 - 1) * .pi / 4), b = tan((Float(j) / Float(n) * 2 - 1) * .pi / 4)
+        return simd_normalize(nrm + u * a + v * b)
+    }
+    /// Every vertex direction `cubeSphere(subdivisions: n)` passes to its radius closure, in call order.
+    public static func cubeSphereDirections(subdivisions n: Int) -> [V3] {
+        var out: [V3] = []; out.reserveCapacity(6 * (n + 1) * (n + 1))
+        for (nrm, u, v) in cubeFaces { for j in 0...n { for i in 0...n { out.append(cubeSphereDirection(nrm, u, v, i, j, n)) } } }
+        return out
+    }
+
     public static func cubeSphere(subdivisions n: Int, material: MaterialKey, radius: (V3) -> V3) -> Surface {
         var s = Surface(material: material)
         s.reserve(vertices: 6 * (n + 1) * (n + 1), indices: 6 * n * n * 6)
-        let faces: [(V3, V3, V3)] = [
-            (V3(1, 0, 0), V3(0, 0, -1), V3(0, 1, 0)), (V3(-1, 0, 0), V3(0, 0, 1), V3(0, 1, 0)),
-            (V3(0, 1, 0), V3(1, 0, 0), V3(0, 0, -1)), (V3(0, -1, 0), V3(1, 0, 0), V3(0, 0, 1)),
-            (V3(0, 0, 1), V3(1, 0, 0), V3(0, 1, 0)), (V3(0, 0, -1), V3(-1, 0, 0), V3(0, 1, 0)),
-        ]
-        for (nrm, u, v) in faces {
+        for (nrm, u, v) in cubeFaces {
             let base = UInt32(s.positions.count)
             for j in 0...n { for i in 0...n {
-                // Tangent-warped grid gives near-uniform cell area on the sphere.
-                let a = tan((Float(i) / Float(n) * 2 - 1) * .pi / 4), b = tan((Float(j) / Float(n) * 2 - 1) * .pi / 4)
-                let dir = simd_normalize(nrm + u * a + v * b)
+                let dir = cubeSphereDirection(nrm, u, v, i, j, n)
                 let p = radius(dir)
                 s.add(p, dir, V2(simd_dot(p, u), simd_dot(p, v)))
             }}

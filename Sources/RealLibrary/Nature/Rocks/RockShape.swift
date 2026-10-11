@@ -54,17 +54,18 @@ public struct RockShape: Sendable {
             let s = powf(q.x, p) + powf(q.y, p) + powf(q.z, p)
             return powf(max(s, 1e-9), -1 / p)
         }
-        var planes: [(V3, Float)] = []
+        var planeList: [(V3, Float)] = []
         for _ in 0..<facets {
             var n = rng.unitVector(); n.y *= verticalFacets ? 0.05 : 0.7
             n = simd_normalize(n)
-            planes.append((n, ell(n) * rng.float(facetDepth)))
+            planeList.append((n, ell(n) * rng.float(facetDepth)))
         }
         for _ in 0..<chips {
             var n = rng.unitVector(); n.y = verticalFacets ? n.y * 0.05 : abs(n.y) * 0.6 - 0.1
             n = simd_normalize(n)
-            planes.append((n, ell(n) * rng.float(0.86...0.95)))
+            planeList.append((n, ell(n) * rng.float(0.86...0.95)))
         }
+        let planes = planeList
         let topCut = flatTop > 0 ? e.y * rng.float(0.35...0.55) : 0
         let bed = bedHeight, bedPhase = rng.float(0...1)
         func smin(_ a: Float, _ b: Float, _ k: Float) -> Float {
@@ -116,6 +117,23 @@ public struct RockShape: Sendable {
         // Cube-sphere directions repeat across LODs (grid i/n of a coarser level equals 2i/2n bit for bit)
         // and along face seams; radius is pure, so evaluate each distinct direction once.
         var memo: [SIMD3<UInt32>: Float] = [:]
+        // radius is pure: evaluate every distinct direction of all LODs up front, in parallel.
+        do {
+            var unique: [V3] = []
+            for n in Set(lods) { for d in Prim.cubeSphereDirections(subdivisions: n) {
+                let key = SIMD3<UInt32>(d.x.bitPattern, d.y.bitPattern, d.z.bitPattern)
+                if memo.updateValue(0, forKey: key) == nil { unique.append(d) }
+            }}
+            var radii = [Float](repeating: 0, count: unique.count)
+            let dirs = unique, chunk = 256
+            radii.withUnsafeMutableBufferPointer { out in
+                let outPtr = out
+                DispatchQueue.concurrentPerform(iterations: (dirs.count + chunk - 1) / chunk) { c in
+                    for k in (c * chunk)..<min(dirs.count, (c + 1) * chunk) { outPtr[k] = radius(dirs[k]) }
+                }
+            }
+            for (d, r) in zip(dirs, radii) { memo[SIMD3<UInt32>(d.x.bitPattern, d.y.bitPattern, d.z.bitPattern)] = r }
+        }
         func shape(_ d: V3) -> V3 {
             let key = SIMD3<UInt32>(d.x.bitPattern, d.y.bitPattern, d.z.bitPattern)
             let rd: Float
