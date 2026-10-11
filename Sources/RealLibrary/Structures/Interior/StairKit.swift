@@ -19,9 +19,21 @@ struct StairFlight {
     var stub: Float = 0.075
     var newelStart = true
     var newelEnd = true
+    /// Newel and rail anchors along the run (m); nil keeps the defaults at the flight ends.
+    var startU: Float? = nil
+    var endU: Float? = nil
+    /// Rail start when there is no start newel (a post built by the neighboring flight).
+    var railStartU: Float? = nil
+    /// Base height of the end newel (default: top landing) and an override for its top.
+    var endBaseY: Float? = nil
+    var endPostTopY: Float? = nil
+    /// The first tread and riser stop at the start newel.
+    var shortenFirst = true
     /// Rail height above the nosing line (m).
     var railHeight: Float = 0.9
     var lod = 0
+    /// Nosing roundover segments on LOD 0.
+    var treadSeg = 2
     var treadMats: [MaterialKey] = ["wood.oak:BE9A68", "wood.oak:A98458", "wood.oak:C9A674", "wood.oak:B08C5E"]
     var riserMat: MaterialKey = "wood.painted-shaker-worn:E6E1D3"
     var stringerMat: MaterialKey = "wood.painted-shaker-worn:E4DFD2"
@@ -32,7 +44,7 @@ struct StairFlight {
 
     var slope: Float { rise / going }
     /// Run length of the flight including the landing plate.
-    var length: Float { Float(risers - 1) * going + nose + stub }
+    var length: Float { Float(risers - 1) * going + nose + (stub > 0 ? stub : riserT + 0.012) }
     var topY: Float { Float(risers) * rise }
     /// Rail top surface height at run position `u`.
     func railTop(_ u: Float) -> Float { slope * u + rise + railHeight }
@@ -71,7 +83,7 @@ struct StairFlight {
         var rng = SeededRNG(seed: seed)
         var m = Model(name: "stair")
         let W = width, hw = W / 2
-        let seg = lod == 0 ? 2 : 1
+        let seg = lod == 0 ? treadSeg : 1
         func box(_ size: V3, _ c: V3, _ mat: MaterialKey, r: Float = 0.002, seg sg: Int? = nil) {
             m.add(Prim.roundedBox(size, radius: min(r, min(size.x, size.y, size.z) * 0.45), bevelSegments: sg ?? 1, material: mat), Xform(translation: c))
         }
@@ -115,7 +127,7 @@ struct StairFlight {
             if i < risers {
                 var tl = leftOpen ? -hw + 0.01 : xl, tr = rightOpen ? hw - 0.01 : xr
                 var rl = xl, rr = xr
-                if i == 1 && newelStart {
+                if i == 1 && newelStart && shortenFirst {
                     if rightOpen { tr = hw - nw - 0.012; rr = hw - nw - 0.012 }
                     if leftOpen { tl = -hw + nw + 0.012; rl = -hw + nw + 0.012 }
                 }
@@ -141,7 +153,7 @@ struct StairFlight {
         for sd in sides where sd.open {
             let x = sd.s * (hw - 0.057)
             let pu = nw / 2 + 0.012
-            let uA = newelStart ? pu : 0.0, uB = newelEnd ? length - pu : Float(risers - 1) * going + nose
+            let uA = railStartU ?? (newelStart ? (startU ?? pu) : 0.0), uB = newelEnd ? (endU ?? length - pu) : Float(risers - 1) * going + nose
             let railR = Float(0.0225)
             let a = P(x, railTop(uA) - railR, uA), b = P(x, railTop(uB) - railR, uB)
             // Molded rail: flat underside, rounded top and shoulders. Profile x is vertical (follows `up`), y horizontal.
@@ -158,7 +170,7 @@ struct StairFlight {
             let lowPoly: [V2] = [V2(0, 0), V2(0.016, 0), V2(0.016, 0.07), V2(0.011, 0.16), V2(0.011, 0.6), V2(0.017, 0.7), V2(0.017, 0.84), V2(0, 0.84)]
             let prof = lod == 0 ? proto : lowPoly
             let bal = Prim.lathe(prof, segments: lod == 0 ? 8 : 5, seamTile: 0.05, material: balusterMat)
-            for i in 2..<risers {
+            for i in ((newelStart && shortenFirst) ? 2 : 1)..<risers {
                 for d: Float in [0.07, 0.07 + going / 2] {
                     let u = Float(i - 1) * going + d
                     if u < uA + nw / 2 + 0.03 || u > uB - nw / 2 - 0.03 { continue }
@@ -168,20 +180,69 @@ struct StairFlight {
                 }
             }
             // Newel posts with caps and ball finials.
-            func newel(_ u: Float, _ y0: Float) {
-                let top = railTop(u) + 0.06
+            func newel(_ u: Float, _ y0: Float, top topOverride: Float? = nil, foot: Bool = false) {
+                let top = topOverride ?? (railTop(u) + 0.06)
                 box(V3(nw, top - y0, nw), P(x, (y0 + top) / 2, u), railMat, r: 0.006)
                 box(V3(nw + 0.024, 0.028, nw + 0.024), P(x, top + 0.006, u), railMat, r: 0.007)
                 let ball = Prim.lathe([V2(0, 0), V2(0.03, 0.004), V2(0.038, 0.03), V2(0.03, 0.058), V2(0.01, 0.07), V2(0, 0.072)], segments: lod == 0 ? 16 : 8, seamTile: 0.1, material: railMat)
                 m.add(ball, Xform(translation: P(x, top + 0.02, u)))
                 if lod == 0 {
                     box(V3(nw + 0.014, 0.05, nw + 0.014), P(x, y0 + 0.28, u), railMat, r: 0.004)
+                    if foot { box(V3(nw + 0.02, 0.12, nw + 0.02), P(x, y0 + 0.06, u), railMat, r: 0.005) }
                 }
             }
-            if newelStart { newel(pu, 0) }
-            if newelEnd { newel(length - pu, topY - 0.01) }
+            if newelStart { newel(startU ?? pu, 0) }
+            if newelEnd { newel(endU ?? length - pu, endBaseY ?? topY - 0.01, top: endPostTopY, foot: endBaseY != nil && endBaseY! < 0.02) }
         }
         groundAO(&m, height: 0.25, floor: 0.7)
+        return m
+    }
+}
+
+/// Landing platform for turning stairs: oak boards on rim beams, painted fascia on open edges, baseboard on walls.
+/// World coordinates: x from `x0` to `x1`, z from `zFront` (nosing edge) back to `zBack` (smaller z), top at `topY`.
+struct StairLanding {
+    var x0: Float, x1: Float, zFront: Float, zBack: Float, topY: Float
+    var wallLeft = true, wallRight = false, wallBack = true
+    /// Fascia boards on open edges: front only where `frontFasciaX` spans, right edge when `fasciaRight`.
+    var frontFasciaX: ClosedRange<Float>? = nil
+    var fasciaRight = false
+    var boardMats: [MaterialKey] = ["wood.oak:BE9A68", "wood.oak:A98458", "wood.oak:C9A674", "wood.oak:B08C5E"]
+    var paint: MaterialKey = "wood.painted-shaker:EAE6DA"
+    var paintWorn: MaterialKey = "wood.painted-shaker-worn:E4DFD2"
+    var lod = 0
+    let thick: Float = 0.035
+
+    func build() -> Model {
+        var m = Model(name: "landing")
+        func box(_ s: V3, _ c: V3, _ mat: MaterialKey, r: Float = 0.003) {
+            m.add(Prim.roundedBox(s, radius: min(r, min(s.x, s.y, s.z) * 0.45), bevelSegments: 1, material: mat), Xform(translation: c))
+        }
+        let w = x1 - x0, d = zFront - zBack, cx = (x0 + x1) / 2
+        let nb = max(2, Int((d / 0.2).rounded()))
+        let bd = d / Float(nb)
+        for i in 0..<nb {
+            let zc = zFront - bd * (Float(i) + 0.5)
+            box(V3(w, thick, bd - 0.002), V3(cx, topY - thick / 2, zc), boardMats[(i * 3 + 1) % boardMats.count], r: 0.004)
+        }
+        // Rim beams and joists under the platform.
+        let bh: Float = 0.16
+        let by = topY - thick - bh / 2
+        for (zc, hd) in [(zBack + 0.02, Float(0.04)), (zFront - 0.06, Float(0.04)), ((zFront + zBack) / 2, Float(0.04))] {
+            m.add(cuboid(V3(w - 0.01, bh, hd), material: "wood.lumber-pine"), Xform(translation: V3(cx, by, zc)))
+        }
+        if let fx = frontFasciaX {
+            box(V3(fx.upperBound - fx.lowerBound, bh + thick, 0.02), V3((fx.lowerBound + fx.upperBound) / 2, topY - (bh + thick) / 2, zFront - 0.012), paintWorn, r: 0.002)
+        }
+        if fasciaRight {
+            box(V3(0.02, bh + thick, d), V3(x1 - 0.012, topY - (bh + thick) / 2, (zFront + zBack) / 2), paintWorn, r: 0.002)
+        }
+        if lod == 0 {
+            // Baseboard against the walls.
+            if wallLeft { box(V3(0.012, 0.09, d), V3(x0 + 0.006, topY + 0.045, (zFront + zBack) / 2), paint, r: 0.003) }
+            if wallRight { box(V3(0.012, 0.09, d), V3(x1 - 0.006, topY + 0.045, (zFront + zBack) / 2), paint, r: 0.003) }
+            if wallBack { box(V3(w, 0.09, 0.012), V3(cx, topY + 0.045, zBack + 0.006), paint, r: 0.003) }
+        }
         return m
     }
 }
