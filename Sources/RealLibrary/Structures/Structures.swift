@@ -80,6 +80,7 @@ public enum Structures {
         AwningWindow.self,
         SliderWindow.self,
         WindowSeat.self,
+        Staircase.self,
         // realityhd:structure
     ]
 }
