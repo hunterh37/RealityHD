@@ -1,5 +1,5 @@
 {
-  "budget": 12000,
+  "budget": 9000,
   "id": "dishwasher",
   "kind": "prop",
   "materials": [
@@ -10,7 +10,7 @@
     "emissive.indicator"
   ],
   "name": "Built-in dishwasher",
-  "notes": "Rig: door hinge X 0...90 (pivot at front bottom); lower-rack slide +Z 0...0.42 (parent none, rails); upper-rack slide +Z 0...0.38. Option: indicator LED. States: closed, open, racks-out, running.",
+  "notes": "Rig: door hinge X 0...90 at the bottom front edge. States: closed, open. Handle included in depth.",
   "parts": [
     "stainless door with top control strip and pocket handle",
     "tub with spray arms",
@@ -29,12 +29,14 @@
   "summary": "Built-in 24 in dishwasher: stainless door with top controls, stainless tub, sliding wire racks with tines and cutlery basket.",
   "tags": [
     "prop",
+    "floorplan",
     "kitchen",
-    "metal",
     "appliance",
+    "metal",
+    "interior",
     "articulated"
   ],
   "theme": "Kitchen",
   "threshold": 0.85,
-  "tolerance": 0.08
+  "tolerance": 0.05
 }
