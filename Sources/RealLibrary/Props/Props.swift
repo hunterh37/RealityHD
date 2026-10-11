@@ -458,6 +458,7 @@ public enum Props {
         ConsoleTable.self,
         TvConsole.self,
         FlatTv.self,
+        DiningTable.self,
         // realityhd:prop
     ]
 }

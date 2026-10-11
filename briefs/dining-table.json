@@ -1,0 +1,23 @@
+{
+  "budget": 8500,
+  "id": "dining-table",
+  "kind": "prop",
+  "materials": ["wood.oak", "wood.endgrain", "metal.screw-zinc"],
+  "name": "Oak dining table",
+  "notes": "Static. Pack B2: long axis on X, seats six (two each side, one each end).",
+  "parts": [
+    "five solid oak planks with hairline joints",
+    "breadboard ends with pegs",
+    "tapered square legs",
+    "aprons with cross rails",
+    "diagonal corner braces"
+  ],
+  "references": [],
+  "size": [1.8, 0.76, 0.9],
+  "style": "farmhouse oak, oiled, seat-height 0.76 m",
+  "summary": "Oak dining table, 1.8 m: plank top with breadboard ends and pegs, tapered legs, aprons, cross rails and corner braces.",
+  "tags": ["prop", "floorplan", "dining", "furniture", "wood", "interior"],
+  "theme": "Dining",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}
