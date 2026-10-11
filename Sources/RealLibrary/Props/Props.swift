@@ -456,6 +456,7 @@ public enum Props {
         FabricSofa.self,
         SectionalSofa.self,
         Loveseat.self,
+        ClubChair.self,
         // realityhd:prop
     ]
 }
