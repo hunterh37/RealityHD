@@ -535,6 +535,7 @@ public enum Props {
         Blockhouse.self,
         ViewingPlatform.self,
         PartRack.self,
+        EngineSolidSmall.self,
         // realityhd:prop
     ]
 }
