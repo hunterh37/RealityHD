@@ -79,6 +79,7 @@ public enum Structures {
         InteriorDoor.self,
         FrontDoor.self,
         PatioDoor.self,
+        PocketDoor.self,
         // realityhd:structure
     ]
 }

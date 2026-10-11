@@ -25,6 +25,8 @@ enum DoorKit {
         var stopT: Float = 0.012, stopW: Float = 0.014, stopZ: Float = 0
         /// Depth of casing faces beyond the wall plane (m), used to size the wall.
         var faceT: Float { casingT + 0.0025 }
+        /// False for a pocket opening: no jamb leg or stop on the -X side.
+        var leftJamb = true
         var withStop = true, withHeadJamb = true, bead = true
         var material: MaterialKey
         /// Overall width and height of the casing set.
@@ -36,7 +38,7 @@ enum DoorKit {
             func add(_ p: Piece) { m.add(p.0, p.1) }
             for sx: Float in [-1, 1] {
                 // Jamb leg across the wall.
-                add(box(V3(jambT, hy + jambT, D), V3(sx * (hx + jambT / 2), (hy + jambT) / 2, 0), material, r: 0))
+                if leftJamb || sx > 0 { add(box(V3(jambT, hy + jambT, D), V3(sx * (hx + jambT / 2), (hy + jambT) / 2, 0), material, r: 0)) }
                 for sz: Float in [-1, 1] {
                     let zc = sz * (D / 2 + casingT / 2) - sz * 0.0005
                     // Side casing board and its back band.
@@ -47,7 +49,7 @@ enum DoorKit {
                         add(vbox(V3(0.012, hy + reveal - 0.01, 0.004), V3(sx * (hx + reveal + casingW - 0.006), (hy + reveal) / 2, zc + sz * (casingT / 2 + 0.0005)), material, r: 0))
                     }
                 }
-                if withStop {
+                if withStop && (leftJamb || sx > 0) {
                     add(vbox(V3(stopW, hy, stopT), V3(sx * (hx - stopW / 2), hy / 2, stopZ - stopT / 2), material, r: 0))
                 }
             }
