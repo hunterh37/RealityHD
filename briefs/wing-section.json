@@ -26,7 +26,7 @@
     1.42
   ],
   "style": "light aircraft composite wing, clean paint-free carbon with aluminium hardware",
-  "summary": "Parametric tapered wing section (span, sweep, taper, dihedral knobs), 3.9 m span default: NACA 2412 carbon skin, aluminium root rib, tip cap and a hinged aileron.",
+  "summary": "Parametric tapered wing section, 3.9 m span default: NACA 2412 carbon skin, aluminium root rib, tip cap and a hinged aileron.",
   "tags": [
     "prop",
     "aerospace",

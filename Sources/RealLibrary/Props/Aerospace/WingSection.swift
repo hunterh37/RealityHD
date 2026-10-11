@@ -7,7 +7,7 @@ import Foundation
 /// hinge brackets along the 75 % chord line. Span runs along +X (root at -X), leading edge faces +Z.
 public struct WingSection: RealArticulated {
     public static let id = "wing-section"
-    public static let summary = "Parametric tapered wing section (span, sweep, taper, dihedral knobs), 3.9 m span default: NACA 2412 carbon skin, aluminium root rib, tip cap and a hinged aileron."
+    public static let summary = "Parametric tapered wing section, 3.9 m span default: NACA 2412 carbon skin, aluminium root rib, tip cap and a hinged aileron."
     public static let tags = ["prop", "aerospace", "articulated"]
     public static let budget = 12000
     public static let author = "realityhd"

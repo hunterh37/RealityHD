@@ -515,6 +515,7 @@ public enum Props {
         FuelTankM.self,
         FuelTankL.self,
         ProbeCore.self,
+        LandingGear.self,
         // realityhd:prop
     ]
 }
