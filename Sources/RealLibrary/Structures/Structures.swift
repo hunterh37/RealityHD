@@ -84,6 +84,7 @@ public enum Structures {
         BarnDoor.self,
         InteriorFrenchDoors.self,
         CasedOpening.self,
+        SlidingClosetDoors.self,
         // realityhd:structure
     ]
 }
