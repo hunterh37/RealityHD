@@ -6,7 +6,7 @@ import Foundation
 /// Both carry a red obstruction light on the top cap.
 public struct Pylon: RealAsset {
     public static let id = "pylon"
-    public static let summary = "Course pylon, radius 0.3 to 3 m, height 3 to 150 m: banded orange and white painted cone on a rubber ballast skirt with a red obstruction light; above 20 m a seven-band triangular lattice tower."
+    public static let summary = "Course pylon, radius 0.3-3 m, height 3-150 m: banded painted cone on a rubber skirt with red light; lattice tower above 20 m."
     public static let tags = ["prop", "aerospace", "outdoor", "barrier", "metal"]
     public static let budget = 15_000
     public static let author = "realityhd"

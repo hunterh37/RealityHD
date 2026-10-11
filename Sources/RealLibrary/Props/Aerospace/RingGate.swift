@@ -6,7 +6,7 @@ import Foundation
 /// on a galvanized A-frame stand with concrete ballast feet (`showBase = false` for gates above 20 m).
 public struct RingGate: RealAsset {
     public static let id = "ring-gate"
-    public static let summary = "Flight-course ring gate, 8 m outer diameter, 3.5 m inner radius: orange and white banded torus with flange collars, inner LED strip, galvanized A-frame stand on ballast feet."
+    public static let summary = "Course ring gate, 8 m outer diameter, 3.5 m inner radius: orange and white banded torus, LED strip, galvanized A-frame stand."
     public static let tags = ["prop", "aerospace", "outdoor", "barrier", "metal"]
     public static let budget = 15_000
     public static let author = "realityhd"

@@ -6,7 +6,7 @@ import Foundation
 /// a concrete anchor block with an eye bolt. Course balloons set `tetherLength` to the flight altitude.
 public struct ObstacleBalloon: RealAsset {
     public static let id = "obstacle-balloon"
-    public static let summary = "Tethered obstacle balloon, radius 2 to 8 m: glossy red gored envelope with white band, load patch and four-line bridle to a galvanized confluence ring, tether to a concrete anchor block."
+    public static let summary = "Tethered obstacle balloon, radius 2-8 m: red gored envelope with white band, four-line bridle, tether to a concrete anchor."
     public static let tags = ["prop", "aerospace", "outdoor", "barrier", "plastic"]
     public static let budget = 12_000
     public static let author = "realityhd"
