@@ -1,12 +1,13 @@
 {
-  "budget": 15000,
+  "budget": 10800,
   "id": "queen-bed",
   "kind": "prop",
   "materials": [
     "wood.oak",
+    "wood.plywood",
     "fabric.upholstery:9A9590",
     "fabric.linen",
-    "fabric.linen:E8E4DC",
+    "fabric.linen:D9D2C3",
     "fabric.wool:6F7A70"
   ],
   "name": "Made queen bed",
@@ -30,12 +31,14 @@
   "summary": "Made queen bed: upholstered headboard, oak frame, mattress, rumpled duvet over the sides, pillows and a folded throw.",
   "tags": [
     "prop",
+    "floorplan",
     "bedroom",
     "furniture",
     "fabric",
-    "wood"
+    "wood",
+    "interior"
   ],
   "theme": "Bedroom",
   "threshold": 0.85,
-  "tolerance": 0.08
+  "tolerance": 0.05
 }
