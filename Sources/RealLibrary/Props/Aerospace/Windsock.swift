@@ -30,6 +30,8 @@ public struct Windsock: RealArticulated {
         var rig = Rig(name: Self.id, lods: 2, switchDistances: [30])
         let H = mastHeight
         let hoopX: Float = 0.42
+        // mast offset so the asset is centred over mast and level sock
+        let ox = -(hoopX + sockLength) / 2
         for l in 0..<2 {
             let segs = l == 0 ? 24 : 10
             var m = Model(name: Self.id)
@@ -49,19 +51,21 @@ public struct Windsock: RealArticulated {
                           Xform(translation: V3(cos(a) * 0.065, 0.32, sin(a) * 0.065), rotation: simd_quatf(angle: -a, axis: V3(0, 1, 0))))
                 }
             }
-            rig.base[l] = m
+            var shifted = Model(name: Self.id)
+            shifted.add(m, Xform(translation: V3(ox, 0, 0)))
+            rig.base[l] = shifted
         }
         let top = H + 0.3 - 0.12
-        rig.part("head", pivot: V3(0, top, 0), joint: .hinge(axis: V3(0, 1, 0), -180...180))
-        rig.part("sock", parent: "head", pivot: V3(hoopX, top + 0.05, 0), joint: .hinge(axis: V3(0, 0, 1), -80...0))
+        rig.part("head", pivot: V3(ox, top, 0), joint: .hinge(axis: V3(0, 1, 0), -180...180))
+        rig.part("sock", parent: "head", pivot: V3(ox + hoopX, top + 0.05, 0), joint: .hinge(axis: V3(0, 0, 1), -80...0))
         // head: swivel collar, arm, hoop and a small finial
-        rig.add(Prim.cylinder(radius: 0.07, height: 0.2, bevel: 0.01, segments: 16, material: metal), Xform(translation: V3(0, top - 0.04, 0)), to: "head")
-        rig.add(Prim.tube([V3(0, top + 0.05, 0), V3(hoopX, top + 0.05, 0)], radii: [0.025, 0.025], sides: 8, seamTile: 0.2, material: metal), to: "head")
+        rig.add(Prim.cylinder(radius: 0.07, height: 0.2, bevel: 0.01, segments: 16, material: metal), Xform(translation: V3(ox, top - 0.04, 0)), to: "head")
+        rig.add(Prim.tube([V3(ox, top + 0.05, 0), V3(ox + hoopX, top + 0.05, 0)], radii: [0.025, 0.025], sides: 8, seamTile: 0.2, material: metal), to: "head")
         rig.add(Prim.lathe([V2(0.03, 0), V2(0.03, 0.06), V2(0, 0.12)], segments: 12, seamTile: 0.2, material: metal),
-                Xform(translation: V3(0, top + 0.16, 0)), to: "head")
+                Xform(translation: V3(ox, top + 0.16, 0)), to: "head")
         // sock: banded frustum along +X from the hoop, inner face too, hoop and tail rings
         let toX = simd_quatf(degrees: -90, axis: V3(0, 0, 1))
-        let o = V3(hoopX, top + 0.05, 0)
+        let o = V3(ox + hoopX, top + 0.05, 0)
         for l in 0..<2 {
             let segs = l == 0 ? 28 : 12
             for b in 0..<bands {
