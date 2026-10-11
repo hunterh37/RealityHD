@@ -1,0 +1,38 @@
+{
+  "budget": 8000,
+  "id": "radar-sensor",
+  "kind": "prop",
+  "materials": [
+    "plastic.white",
+    "metal.aluminum-brushed",
+    "metal.anodized",
+    "metal.steel",
+    "plastic.matte",
+    "label.inspection"
+  ],
+  "name": "Radar sensor",
+  "notes": "VisionSpacecraft specs/04, specs/14",
+  "parts": [
+    "radome",
+    "back shell",
+    "mount bracket",
+    "connector",
+    "fasteners"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    0.33,
+    0.16
+  ],
+  "style": "airborne radar antenna with white radome",
+  "summary": "Airborne radar unit, 0.3 m dish: white domed radome on a finned aluminium back shell, carried on a base bracket with a coax connector.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "electronics"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

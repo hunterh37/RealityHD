@@ -525,6 +525,7 @@ public enum Props {
         SolarPanel.self,
         LidarSensor.self,
         LaunchPad.self,
+        RadarSensor.self,
         // realityhd:prop
     ]
 }
