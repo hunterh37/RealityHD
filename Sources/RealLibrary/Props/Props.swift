@@ -461,6 +461,7 @@ public enum Props {
         DryingRack.self,
         IroningBoard.self,
         LaundryBasket.self,
+        LaundryHamper.self,
         // realityhd:prop
     ]
 }
