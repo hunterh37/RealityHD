@@ -540,6 +540,7 @@ public enum Props {
         AerospaceWorkbench.self,
         Parachute.self,
         GantryCrane.self,
+        EngineProp.self,
         // realityhd:prop
     ]
 }
