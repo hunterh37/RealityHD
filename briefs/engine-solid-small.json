@@ -1,0 +1,39 @@
+{
+  "budget": 9000,
+  "id": "engine-solid-small",
+  "kind": "prop",
+  "materials": [
+    "metal.painted:F2F2F0",
+    "metal.steel",
+    "metal.heat-tint-cold",
+    "ablative.char",
+    "emissive.flame"
+  ],
+  "name": "Solid motor, small",
+  "notes": "Vision Spacecraft part. Size [x, y, z] metres; deployed parts may exceed it.",
+  "parts": [
+    "case",
+    "nose-cap",
+    "nozzle",
+    "skirt",
+    "attach-lugs",
+    "flame"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    1.8,
+    0.6
+  ],
+  "style": "photoreal aerospace flight hardware, clean with light handling wear",
+  "summary": "Small solid rocket motor, 0.6 m by 1.8 m: white steel case with an ogive cap, attach lugs, aft skirt and a charred nozzle; burning state shows the flame.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "metal",
+    "articulated"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

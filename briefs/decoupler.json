@@ -1,0 +1,37 @@
+{
+  "budget": 8000,
+  "id": "decoupler",
+  "kind": "prop",
+  "materials": [
+    "metal.aluminum-brushed",
+    "metal.steel",
+    "metal.painted:E8C21C",
+    "metal.painted:1C1C1E"
+  ],
+  "name": "Decoupler",
+  "notes": "Vision Spacecraft part. Size [x, y, z] metres; deployed parts may exceed it.",
+  "parts": [
+    "upper-ring",
+    "lower-ring",
+    "pyro-bolts",
+    "springs",
+    "hazard-band"
+  ],
+  "references": [],
+  "size": [
+    1.25,
+    0.2,
+    1.25
+  ],
+  "style": "photoreal aerospace flight hardware, clean with light handling wear",
+  "summary": "Stack decoupler, 1.25 m: two aluminum rings held by pyro bolts with separation springs and a yellow and black hazard band.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "metal",
+    "articulated"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

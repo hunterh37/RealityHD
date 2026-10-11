@@ -1,0 +1,38 @@
+{
+  "budget": 10000,
+  "id": "fuel-tank-l",
+  "kind": "prop",
+  "materials": [
+    "metal.aluminum-brushed",
+    "metal.steel",
+    "metal.painted:F2F2F0",
+    "metal.painted:1C1C1E"
+  ],
+  "name": "Fuel tank, large",
+  "notes": "Vision Spacecraft part. Size [x, y, z] metres; deployed parts may exceed it.",
+  "parts": [
+    "barrel",
+    "stack-rings",
+    "weld-seams",
+    "stringers",
+    "fill-port",
+    "roll-stripes"
+  ],
+  "references": [],
+  "size": [
+    1.25,
+    4.0,
+    1.25
+  ],
+  "style": "photoreal aerospace flight hardware, clean with light handling wear",
+  "summary": "Liquid fuel tank, 1.25 m by 4 m: brushed aluminum barrel with weld seams, stringers, roll stripes, stack rings top and bottom, fill port.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "metal",
+    "container"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

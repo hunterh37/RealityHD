@@ -1,0 +1,35 @@
+{
+  "budget": 8000,
+  "id": "heat-shield",
+  "kind": "prop",
+  "materials": [
+    "ablative.char",
+    "ablative.char-light",
+    "metal.aluminum-brushed",
+    "metal.steel"
+  ],
+  "name": "Heat shield",
+  "notes": "Vision Spacecraft part. Size [x, y, z] metres; deployed parts may exceed it.",
+  "parts": [
+    "ablator-dish",
+    "carrier-ring",
+    "tiles",
+    "bolts"
+  ],
+  "references": [],
+  "size": [
+    1.25,
+    0.15,
+    1.25
+  ],
+  "style": "photoreal aerospace flight hardware, clean with light handling wear",
+  "summary": "Ablative heat shield, 1.25 m: charred PICA dish in hex tiles on an aluminum carrier ring with bolts.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "metal"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

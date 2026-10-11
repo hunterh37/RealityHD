@@ -1,0 +1,38 @@
+{
+  "budget": 8000,
+  "id": "probe-core",
+  "kind": "prop",
+  "materials": [
+    "metal.aluminum-brushed",
+    "insulation.foil-gold",
+    "metal.steel",
+    "plastic.black",
+    "emissive.led-green"
+  ],
+  "name": "Probe core",
+  "notes": "Vision Spacecraft part. Size [x, y, z] metres; deployed parts may exceed it.",
+  "parts": [
+    "avionics-ring",
+    "foil-blanket",
+    "antenna",
+    "stack-rings",
+    "status-light"
+  ],
+  "references": [],
+  "size": [
+    1.25,
+    0.4,
+    1.25
+  ],
+  "style": "photoreal aerospace flight hardware, clean with light handling wear",
+  "summary": "Uncrewed probe core, 1.25 m: aluminum avionics ring wrapped in gold MLI foil with access panels, stack rings, whip antenna and status light.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "metal",
+    "electronics"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

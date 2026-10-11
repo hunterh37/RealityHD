@@ -510,6 +510,7 @@ public enum Props {
         Pylon.self,
         ObstacleBalloon.self,
         Elevon.self,
+        CommandPod.self,
         // realityhd:prop
     ]
 }
