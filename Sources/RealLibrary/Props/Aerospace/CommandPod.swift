@@ -11,7 +11,7 @@ public struct CommandPod: RealArticulated {
     public static let tags = ["prop", "aerospace", "metal", "vehicle", "articulated"]
     public static let budget = 15000
     public static let author = "realityhd"
-    public static let preview = PreviewHint(azimuth: 24, elevation: 14, distance: 3.2, studio: true)
+    public static let preview = PreviewHint(azimuth: 24, elevation: 14, distance: 1.0, studio: true)
 
     /// Base (heat shield) diameter in meters.
     public var diameter: Float = 1.25
