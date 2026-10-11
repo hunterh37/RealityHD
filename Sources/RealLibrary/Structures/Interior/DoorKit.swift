@@ -118,21 +118,26 @@ enum DoorKit {
     /// Hinge column: butt hinges (five knuckles, frame 1/3/5 and leaf 2/4) with finials, frame plate and leaf plate.
     /// `side` is the hinge side (-1 left): the leaf lies toward -side. Pin at (pinX, pinZ).
     static func hinges(_ rig: inout Rig, leaf: String, side: Float, pinX: Float, pinZ: Float, ys: [Float],
-                       length: Float = 0.089, knuckle: Float = 0.0055, plate: Float = 0.026, mat: MaterialKey) {
+                       length: Float = 0.089, knuckle: Float = 0.0055, plate: Float = 0.026, mat: MaterialKey,
+                       fixedPart: String? = nil, finials: Bool = true, knuckleSegments: Int = 10) {
         let seg = length / 5
         for hy in ys {
             for k in 0..<5 {
                 let y0 = hy - length / 2 + Float(k) * seg + 0.0004
-                let s = Prim.cylinder(radius: knuckle, height: seg - 0.0008, bevel: 0.0007, segments: 10, bevelSegments: 1, material: mat)
+                let s = Prim.cylinder(radius: knuckle, height: seg - 0.0008, bevel: 0.0007, segments: knuckleSegments, bevelSegments: 1, material: mat)
                 let x = Xform(translation: V3(pinX, y0, pinZ))
-                if k % 2 == 0 { rig.base[0].add(s, x); rig.base[1].add(s, x) } else { rig.add(s, x, to: leaf) }
+                if k % 2 == 0 {
+                    if let fp = fixedPart { rig.add(s, x, to: fp) } else { rig.base[0].add(s, x); rig.base[1].add(s, x) }
+                } else { rig.add(s, x, to: leaf) }
             }
-            for (fy, flip) in [(hy + length / 2, false), (hy - length / 2, true)] {
+            for (fy, flip) in (finials ? [(hy + length / 2, false), (hy - length / 2, true)] : []) {
                 let f = Prim.lathe([V2(0, 0), V2(knuckle * 0.98, 0), V2(knuckle * 0.8, 0.0025), V2(knuckle * 0.45, 0.0045), V2(0, 0.0052)], segments: 14, seamTile: 0.05, material: mat)
                 rig.base[0].add(f, Xform(translation: V3(pinX, fy, pinZ), rotation: flip ? simd_quatf(degrees: 180, axis: V3(1, 0, 0)) : .identity))
             }
             // Plates: the jamb plate sits at the pin, the leaf plate on the leaf edge, both running back from the pin.
-            rig.base[0].add(cuboid(V3(0.002, length - 0.002, plate), material: mat), Xform(translation: V3(pinX + side * 0.0016, hy, pinZ - plate / 2 - 0.003)))
+            let fplate = cuboid(V3(0.002, length - 0.002, plate), material: mat)
+            let fx = Xform(translation: V3(pinX + side * 0.0016, hy, pinZ - plate / 2 - 0.003))
+            if let fp = fixedPart { rig.add(fplate, fx, to: fp, lods: 0...0) } else { rig.base[0].add(fplate, fx) }
             rig.add(cuboid(V3(0.002, length - 0.002, plate), material: mat), Xform(translation: V3(pinX - side * 0.0016, hy, pinZ - plate / 2 - 0.003)), to: leaf, lods: 0...0)
         }
     }
