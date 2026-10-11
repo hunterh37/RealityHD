@@ -460,6 +460,7 @@ public enum Props {
         Crib.self,
         Nightstand.self,
         Dresser.self,
+        TallboyChest.self,
         // realityhd:prop
     ]
 }
