@@ -37,7 +37,6 @@ public enum AssetTag {
         "utility", "electrical", "ppe",
         // insects: life-size articulated bugs; locomotion tags for spawners and behaviors
         "insect", "flying", "crawling", "jumping", "glowing",
-        // aerospace: craft parts and range props
         // aerospace: launch range, hangar and flight-course obstacles
         "aerospace",
     ])
