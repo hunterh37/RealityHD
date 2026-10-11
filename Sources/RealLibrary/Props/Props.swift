@@ -509,6 +509,7 @@ public enum Props {
         WingSection.self,
         Pylon.self,
         ObstacleBalloon.self,
+        Elevon.self,
         // realityhd:prop
     ]
 }
