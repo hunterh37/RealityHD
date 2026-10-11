@@ -1,0 +1,17 @@
+{
+  "budget": 6500,
+  "id": "drying-rack",
+  "kind": "prop",
+  "materials": ["metal.enamel:EFEFEA", "plastic.matte:3A3D42", "rubber.tire", "metal.screw-zinc", "plastic.orange", "plastic.white", "fabric.canvas:6F93A8"],
+  "name": "Folding drying rack",
+  "notes": "Static open pose: A-frame body with two wings folded up at 55 degrees; width 0.7 m along the rails, depth 0.55 m including feet and wing tips.",
+  "parts": ["two tubular A-frame end frames with floor bars", "eight fixed rails across the body", "front and back wings folded up on hinge clips", "wing rails and side bars", "plastic hinge clips and end caps", "rubber feet", "a few clothespins on the lower rail", "draped hand towel"],
+  "references": [],
+  "size": [0.7, 1.0, 0.55],
+  "style": "White powder-coated steel tube, scuffed at the feet and clip joints.",
+  "summary": "Folding wing drying rack: white tubular A-frame with eight rails, two wings folded up on clips, rubber feet and clothespins.",
+  "tags": ["prop", "floorplan", "laundry", "metal", "interior"],
+  "theme": "Laundry",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}
