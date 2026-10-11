@@ -462,6 +462,7 @@ public enum Props {
         CornerBaseCabinet.self,
         WashingMachine.self,
         ClothesDryer.self,
+        UtilitySink.self,
         // realityhd:prop
     ]
 }
