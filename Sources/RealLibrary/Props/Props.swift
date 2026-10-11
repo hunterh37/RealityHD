@@ -511,6 +511,10 @@ public enum Props {
         ObstacleBalloon.self,
         Elevon.self,
         CommandPod.self,
+        FuelTankS.self,
+        FuelTankM.self,
+        FuelTankL.self,
+        ProbeCore.self,
         // realityhd:prop
     ]
 }
