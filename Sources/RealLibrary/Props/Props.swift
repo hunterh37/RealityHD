@@ -455,6 +455,7 @@ public enum Props {
         ArtDecoSunburstPanel.self,
         QueenBed.self,
         KingBed.self,
+        TwinBed.self,
         // realityhd:prop
     ]
 }
