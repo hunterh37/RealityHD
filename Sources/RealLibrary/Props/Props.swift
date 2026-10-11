@@ -522,6 +522,7 @@ public enum Props {
         BatteryPack.self,
         NoseCone.self,
         Windsock.self,
+        SolarPanel.self,
         // realityhd:prop
     ]
 }
