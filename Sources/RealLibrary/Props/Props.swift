@@ -457,6 +457,7 @@ public enum Props {
         Dishwasher.self,
         Microwave.self,
         WallOven.self,
+        WineCooler.self,
         // realityhd:prop
     ]
 }
