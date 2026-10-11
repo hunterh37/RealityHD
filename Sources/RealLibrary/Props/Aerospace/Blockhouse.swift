@@ -6,7 +6,7 @@ import Foundation
 /// vents, an antenna mast and a cable conduit. Rust streaks run down from the slit frames.
 public struct Blockhouse: RealAsset {
     public static let id = "blockhouse"
-    public static let summary = "Range blockhouse, 8 x 6 m: thick concrete box under a stepped roof, armored view slits facing the pad, steel blast door behind a baffle wall, roof vents and antenna."
+    public static let summary = "Range blockhouse, 8 x 6 m: thick concrete box, stepped roof, armored view slits facing the pad, blast door behind a baffle wall, roof vents, antenna."
     public static let tags = ["prop", "aerospace", "outdoor", "concrete", "building"]
     public static let budget = 12_000
     public static let author = "realityhd"
