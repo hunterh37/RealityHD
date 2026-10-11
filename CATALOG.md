@@ -958,6 +958,7 @@ Live with `RealityHD.articulated(id)` or `scene.addLive`; bake one state with `b
 | [`city-block`](docs/scenes/city-block.png) | urban, street, outdoor, showcase | realityhd | Street of procedurally generated buildings in eight styles, sidewalks, asphalt road, street trees and lamps. |
 | [`lineman-yard`](docs/scenes/lineman-yard.png) | utility, urban, outdoor | hunter | Utility service yard: concrete lot, chain-link fence and gate, steel line shop, pole stacks, cable reels, truck stalls. |
 | [`lineman-district`](docs/scenes/lineman-district.png) | utility, urban, street, outdoor | hunter | Drivable city loop of four blocks: road tiles, sidewalks, generated buildings, signals, overhead pole line, job-site pole, service yard. |
+| [`aerospace-range`](docs/scenes/aerospace-range.png) | aerospace, desert, outdoor | hunter | Desert launch range: pad and service tower, blockhouse, runway with windsock, ring gate, pylons, gap wall, balloon and debris, seen from the viewing platform. |
 
 ## Materials
 
