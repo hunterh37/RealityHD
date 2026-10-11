@@ -1,0 +1,40 @@
+{
+  "budget": 7500,
+  "id": "toilet",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "plastic.gloss",
+    "metal.chrome",
+    "plastic.white"
+  ],
+  "name": "Close-coupled toilet",
+  "notes": "Static pack asset (seat and lid down). Front +Z, back at z=-0.35, rim at 0.385 m, seat top 0.43 m, tank top 0.79 m.",
+  "parts": [
+    "elongated skirted bowl with floor flange",
+    "tank with overhanging lid",
+    "chrome front flush lever",
+    "duroplast seat ring and closed lid on hinge posts",
+    "bolt caps",
+    "tank-to-bowl seam"
+  ],
+  "references": [],
+  "size": [
+    0.38,
+    0.79,
+    0.7
+  ],
+  "style": "two-piece vitreous china",
+  "summary": "Two-piece elongated toilet: skirted bowl, tank and lid, chrome front lever, seat and lid down.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bathroom",
+    "plumbing",
+    "ceramic",
+    "interior"
+  ],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}
