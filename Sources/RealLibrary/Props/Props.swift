@@ -460,6 +460,7 @@ public enum Props {
         ReclinerChair.self,
         Ottoman.self,
         DiningChair.self,
+        BarStool.self,
         // realityhd:prop
     ]
 }
