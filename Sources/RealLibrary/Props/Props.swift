@@ -454,6 +454,7 @@ public enum Props {
         WallMailbox.self,
         ArtDecoSunburstPanel.self,
         FabricSofa.self,
+        SectionalSofa.self,
         // realityhd:prop
     ]
 }
