@@ -463,6 +463,7 @@ public enum Props {
         CeilingDiffuser.self,
         Thermostat.self,
         SmokeDetector.self,
+        LightSwitch.self,
         // realityhd:prop
     ]
 }
