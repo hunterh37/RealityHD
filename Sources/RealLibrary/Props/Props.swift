@@ -533,6 +533,7 @@ public enum Props {
         Decoupler.self,
         Imu.self,
         Blockhouse.self,
+        ViewingPlatform.self,
         // realityhd:prop
     ]
 }
