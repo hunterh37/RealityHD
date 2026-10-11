@@ -163,4 +163,42 @@ public enum BathFit {
         }
         return s
     }
+
+    /// Wall-mounted shower arm and round head. `wall` is the point on the wall surface (wall faces +Z); the arm
+    /// leaves the wall, rises and ends in a head tilted `tilt` degrees down. Head center ends about
+    /// `reach` m from the wall.
+    public static func showerHead(_ m: inout Model, wall w: V3, reach: Float = 0.2, headRadius: Float = 0.085, tilt: Float = 18,
+                                  finish: MaterialKey = "metal.chrome", hi: Bool = true) {
+        let seg = hi ? 24 : 12
+        m.add(Prim.lathe([V2(0.001, 0), V2(0.036, 0), V2(0.036, 0.003), V2(0.03, 0.009), V2(0.017, 0.016), V2(0.001, 0.016)], segments: seg, seamTile: 0.05, material: finish),
+              Xform(translation: w, rotation: simd_quatf(degrees: 90, axis: V3(1, 0, 0))))
+        let arm = catmull([w + V3(0, 0, 0.012), w + V3(0, 0, 0.07), w + V3(0, 0.012, reach * 0.62), w + V3(0, 0.03, reach)], per: hi ? 5 : 2)
+        m.add(Prim.tube(arm, radii: Array(repeating: 0.0095, count: arm.count), sides: hi ? 14 : 8, seamTile: 0.05, material: finish))
+        let c = arm[arm.count - 1]
+        m.add(Prim.lathe([V2(0.001, 0), V2(0.016, 0), V2(0.018, 0.012), V2(0.012, 0.024), V2(0.001, 0.026)], segments: hi ? 16 : 8, seamTile: 0.05, material: finish),
+              Xform(translation: c + V3(0, -0.012, 0)))
+        // Head: slightly domed disc facing down and out.
+        let q = simd_quatf(degrees: -tilt, axis: V3(1, 0, 0))
+        let h = headRadius
+        m.add(Prim.lathe([V2(0.001, 0), V2(h - 0.004, 0), V2(h, 0.003), V2(h, 0.011), V2(h - 0.012, 0.018), V2(0.03, 0.021), V2(0.001, 0.021)], segments: seg, seamTile: 0.05, material: finish),
+              Xform(translation: c + V3(0, -0.03, 0), rotation: q))
+        // Silicone nozzle rings on the face.
+        if hi {
+            for r in [h * 0.35, h * 0.62, h * 0.85] {
+                m.add(Prim.lathe([V2(r - 0.003, -0.0004), V2(r + 0.003, -0.0004), V2(r + 0.003, 0.0006), V2(r - 0.003, 0.0006)], segments: 32, seamTile: 0.05, material: "rubber.silicone:262626"),
+                      Xform(translation: c + V3(0, -0.03, 0), rotation: q))
+            }
+        }
+    }
+
+    /// Round valve escutcheon with a lever handle on a wall facing +Z. `at` is the point on the wall.
+    public static func valveTrim(_ m: inout Model, at w: V3, finish: MaterialKey = "metal.chrome", hi: Bool = true) {
+        let seg = hi ? 24 : 10
+        m.add(Prim.lathe([V2(0.001, 0), V2(0.058, 0), V2(0.058, 0.003), V2(0.05, 0.009), V2(0.034, 0.014), V2(0.001, 0.014)], segments: seg, seamTile: 0.05, material: finish),
+              Xform(translation: w, rotation: simd_quatf(degrees: 90, axis: V3(1, 0, 0))))
+        m.add(Prim.lathe([V2(0.001, 0), V2(0.018, 0), V2(0.016, 0.018), V2(0.012, 0.028), V2(0.001, 0.029)], segments: hi ? 16 : 8, seamTile: 0.05, material: finish),
+              Xform(translation: w + V3(0, 0, 0.014), rotation: simd_quatf(degrees: 90, axis: V3(1, 0, 0))))
+        let lever = catmull([w + V3(0, 0, 0.04), w + V3(0.01, 0.002, 0.05), w + V3(0.04, 0.002, 0.058), w + V3(0.065, 0, 0.058)], per: hi ? 4 : 2)
+        m.add(Prim.tube(lever, radii: lever.indices.map { i in i < lever.count - 2 ? Float(0.0065) : Float(0.0085) }, sides: hi ? 12 : 6, seamTile: 0.03, material: finish))
+    }
 }

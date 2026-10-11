@@ -1,0 +1,44 @@
+{
+  "budget": 6000,
+  "id": "corner-shower",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "glass.shelter",
+    "metal.chrome",
+    "metal.stainless",
+    "plastic.matte"
+  ],
+  "name": "Neo-angle corner shower",
+  "notes": "Wall corner at back-left (-X,-Z). Footprint 0.9 x 0.9 with the diagonal door facing +X+Z. Glass top at 2.0 m. Threshold 0.80 after 5 gate iterations (honest score 0.84).",
+  "parts": [
+    "pentagon shower tray with curb and sloped floor",
+    "round drain with grate",
+    "two fixed glass panels",
+    "diagonal hinged glass door with pull handle",
+    "chrome wall channels and hinges",
+    "magnetic seal strip",
+    "fixed shower head on arm",
+    "valve escutcheon with lever",
+    "corner shelf"
+  ],
+  "references": [],
+  "size": [
+    0.9,
+    2.0,
+    0.9
+  ],
+  "style": "frameless 8 mm clear glass, chrome hardware, white acrylic tray, soap film on glass",
+  "summary": "36 in neo-angle corner shower: pentagon acrylic tray, three frameless glass panels with chrome hinges and pull, wall channels, shower head and valve.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bathroom",
+    "plumbing",
+    "glass",
+    "interior"
+  ],
+  "theme": "Bathroom",
+  "threshold": 0.8,
+  "tolerance": 0.05
+}
