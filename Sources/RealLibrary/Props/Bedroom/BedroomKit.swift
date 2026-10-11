@@ -21,7 +21,7 @@ enum BedroomKit {
     /// close to the mattress sides and foot, with fbm wrinkles. Local origin at the top-center of the mattress plan
     /// (x across, z along); the top surface sits at y = 0.
     static func drape(width w: Float, length len: Float, thick: Float, hang: Float, material: MaterialKey,
-                      subdivisions: Int, wrinkle: Float, seed: UInt32, skirt: Float = 0.2) -> Surface {
+                      subdivisions: Int, wrinkle: Float, seed: UInt32, skirt: Float = 0.2, pleat: Float = 1) -> Surface {
         let ex: Float = 0.12
         var s = Prim.superellipsoid(V3(w + 2 * ex, thick + hang, len + 2 * ex), exponent: 5, subdivisions: subdivisions, material: material)
         let hy = (thick + hang) / 2
@@ -32,13 +32,13 @@ enum BedroomKit {
             // Fold wrinkles: noise displaces mostly along y on top and along x on the hanging sides.
             let nz = Noise.fbm(V3(p.x * 3.5, p.y * 4, p.z * 3.2), octaves: 3, seed: seed)
             let topW = smoothstep(-0.02, 0.0, q.y + 0.0)
-            q.y += (nz - 0.5) * wrinkle * (0.4 + 0.6 * topW)
+            let ex2 = smoothstep(0.55, 1.0, max(ax / (w / 2), az / (len / 2)))
+            q.y += (nz - 0.5) * wrinkle * (0.4 + 0.6 * topW) * (1 - 0.7 * ex2)
             let fold = Noise.fbm(V3(p.z * 9, p.y * 3, 0), octaves: 2, seed: seed &+ 7)
-            if ax > w / 2 { q.x = sgn(p.x) * (w / 2 + 0.016 + (ax - w / 2) * skirt + max(0, fold) * wrinkle * 0.3 + (0.5 + 0.5 * sin(p.z * 13 + fold * 5)) * 0.016 * smoothstep(0.0, -0.12, q.y)) }
+            if ax > w / 2 { q.x = sgn(p.x) * (w / 2 + 0.016 + (ax - w / 2) * skirt + pleat * max(0, fold) * wrinkle * 0.3 + pleat * (0.5 + 0.5 * sin(p.z * 13 + fold * 5)) * 0.016 * smoothstep(0.0, -0.12, q.y)) }
             if az > len / 2 { q.z = sgn(p.z) * (len / 2 + 0.016 + (az - len / 2) * skirt) }
             // Soften the shoulder: lower the surface a little as it approaches the edge.
-            let ex2 = smoothstep(0.55, 1.0, max(ax / (w / 2), az / (len / 2)))
-            if q.y > -0.05 { q.y -= ex2 * 0.03 }
+            if q.y > -0.05 { q.y -= ex2 * 0.02 }
             return q
         }
         return s
@@ -75,6 +75,8 @@ struct BedSpec {
     var mattressWidth: Float, mattressLength: Float
     var mattressHeight: Float = 0.28
     var wood: MaterialKey = "wood.oak"
+    /// Worn variant for legs and rails that take knocks (paint finishes).
+    var woodWorn: MaterialKey? = nil
     /// Upholstered headboard material; nil builds a solid wood panel headboard.
     var upholstery: MaterialKey? = nil
     var channels: Int = 7
@@ -84,10 +86,13 @@ struct BedSpec {
     var duvet: MaterialKey = "fabric.linen:D9D2C3"
     var throwBlanket: MaterialKey? = nil
     var pillowCount: Int = 2
+    var pillowMaxWidth: Float = 0.74
     var pillowCase: MaterialKey = "fabric.linen:F7F5F0"
     var decor: [MaterialKey] = []
     /// Made bed (true) shows duvet; false leaves the bare mattress.
     var made: Bool = true
+    /// Scales outward pleats of the hanging skirt (narrow frames need less).
+    var pleat: Float = 1
 }
 
 extension BedroomKit {
@@ -109,14 +114,14 @@ extension BedroomKit {
         for sx: Float in [-1, 1] {
             for (zi, z) in [-L / 2 + 0.035, L / 2 - 0.025].enumerated() {
                 let tall: Float = zi == 0 ? (sp.upholstery == nil ? sp.headHeight : 0.34) : (sp.footboardHeight > 0 ? sp.footboardHeight + 0.06 : legTop)
-                m.add(BedroomKit.taperedLeg(height: tall, top: zi == 0 ? 0.06 : 0.05, bottom: zi == 0 ? 0.045 : 0.04, material: wood),
+                m.add(BedroomKit.taperedLeg(height: tall, top: zi == 0 ? 0.06 : 0.05, bottom: zi == 0 ? 0.045 : 0.04, material: sp.woodWorn ?? wood),
                       Xform(translation: V3(sx * legX, 0, z)))
             }
         }
         // --- Side rails and deck
         for sx: Float in [-1, 1] {
             let (b, x) = board(from: V3(sx * (W / 2 - railT / 2 - 0.005), (railTop + railBot) / 2, -L / 2 + 0.07),
-                               to: V3(sx * (W / 2 - railT / 2 - 0.005), (railTop + railBot) / 2, L / 2 - 0.07), width: railTop - railBot, thick: railT, up: V3(sx, 0, 0), bevel: 0.004, material: wood)
+                               to: V3(sx * (W / 2 - railT / 2 - 0.005), (railTop + railBot) / 2, L / 2 - 0.07), width: railTop - railBot, thick: railT, up: V3(sx, 0, 0), bevel: 0.004, material: sp.woodWorn ?? wood)
             m.add(b, x)
         }
         m.add(cuboid(V3(W - 2 * railT - 0.01, 0.02, L - headT - 0.06), material: "wood.plywood"),
@@ -153,6 +158,16 @@ extension BedroomKit {
             let hb: Float = sp.headHeight
             m.add(Prim.roundedBox(V3(W - 0.1, hb - 0.2, headT - 0.03), radius: 0.006, bevelSegments: 2, material: wood),
                   Xform(translation: V3(0, 0.2 + (hb - 0.2) / 2 - 0.03, -L / 2 + 0.04)))
+            // Raised panel and bead on the front face, plus a top cap.
+            let pw = W - 0.26, ph = hb - 0.2 - 0.22
+            m.add(Prim.roundedBox(V3(pw, ph, 0.012), radius: 0.004, bevelSegments: 2, material: wood),
+                  Xform(translation: V3(0, 0.2 + (hb - 0.2) / 2 - 0.05, zHead - 0.005)))
+            if detail {
+                let loop = Shape2D.roundedRect(pw - 0.02, ph - 0.02, radius: 0.01, segments: 3).map { V3($0.x, 0.2 + (hb - 0.2) / 2 - 0.05 + $0.y, zHead + 0.0005) }
+                m.add(Prim.sweep(Shape2D.circle(0.0025, segments: 5), along: loop, closedPath: true, caps: false, material: wood))
+            }
+            m.add(plank(W - 0.02, headT - 0.02, 0.03, bevel: 0.007, material: wood),
+                  Xform(translation: V3(0, hb - 0.015, -L / 2 + 0.04)))
         }
         // --- Footboard
         if sp.footboardHeight > 0 {
@@ -187,7 +202,7 @@ extension BedroomKit {
         let duvetLen = mL - 0.40
         let dz = headZ + 0.40 + duvetLen / 2 + 0.005
         let duvetS = BedroomKit.drape(width: mW, length: duvetLen, thick: 0.1, hang: 0.34, material: sp.duvet,
-                                      subdivisions: detail ? 12 : 6, wrinkle: 0.06, seed: s32, skirt: 0.14)
+                                      subdivisions: detail ? 12 : 6, wrinkle: 0.06, seed: s32, skirt: 0.14, pleat: sp.pleat)
         m.add(duvetS, Xform(translation: V3(0, mTop - 0.012 + 0.0, dz)))
         // Top sheet folded back over the duvet at the pillow end.
         let foldZ = headZ + 0.40 + 0.09
@@ -202,7 +217,7 @@ extension BedroomKit {
         // --- Pillows against the headboard
         let pw: Float = min(0.72, (mW - 0.1) / Float(max(1, sp.pillowCount) / 1 > 1 ? Float(sp.pillowCount) : 1) - (sp.pillowCount > 1 ? 0.02 : 0))
         let pc = max(1, sp.pillowCount)
-        let pwUse = pc == 1 ? min(0.58, mW - 0.1) : min(0.74, (mW - 0.06) / Float(pc) - 0.01)
+        let pwUse = pc == 1 ? min(0.58, mW - 0.1) : min(sp.pillowMaxWidth, (mW - 0.06) / Float(pc) - 0.01)
         _ = pw
         for i in 0..<pc {
             let x = (Float(i) - Float(pc - 1) / 2) * (pwUse + 0.015)
@@ -221,7 +236,7 @@ extension BedroomKit {
         if let th = sp.throwBlanket {
             let tl: Float = 0.42
             let tz = headZ + mL - tl / 2 - 0.02
-            m.add(BedroomKit.drape(width: mW - 0.03, length: tl, thick: 0.035, hang: 0.26, material: th, subdivisions: detail ? 7 : 4, wrinkle: 0.012, seed: s32 &+ 5, skirt: 0.1),
+            m.add(BedroomKit.drape(width: mW - 0.03, length: tl, thick: 0.035, hang: 0.26, material: th, subdivisions: detail ? 7 : 4, wrinkle: 0.012, seed: s32 &+ 5, skirt: 0.1, pleat: sp.pleat),
                   Xform(translation: V3(0, mTop + 0.1 - 0.012 + 0.02, tz)))
         }
         groundAO(&m, height: 0.18, floor: 0.5)
