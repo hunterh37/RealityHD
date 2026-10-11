@@ -460,6 +460,7 @@ public enum Props {
         WineCooler.self,
         PantryCabinet.self,
         CornerBaseCabinet.self,
+        WashingMachine.self,
         // realityhd:prop
     ]
 }

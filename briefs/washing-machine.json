@@ -1,5 +1,5 @@
 {
-  "budget": 12000,
+  "budget": 9000,
   "id": "washing-machine",
   "kind": "prop",
   "materials": [
@@ -11,7 +11,7 @@
     "screen.ui"
   ],
   "name": "Front-load washer",
-  "notes": "Rig: door hinge Y -170...0; drawer slide +Z 0...0.2; dial hinge Z 0...330; drum hinge Z (state spin pose only). Option display on. States: closed, door-open, drawer-open, running.",
+  "notes": "Rig: door hinge Y (left edge of the round door) -170...0; dial. States: closed, door-open. Door dome included in depth.",
   "parts": [
     "white cabinet",
     "control panel with dial and display",
@@ -31,12 +31,14 @@
   "summary": "Front-load washer, 27 in: white cabinet, dial and display, detergent drawer, porthole door, gasket, steel drum.",
   "tags": [
     "prop",
+    "floorplan",
     "laundry",
-    "metal",
     "appliance",
+    "metal",
+    "interior",
     "articulated"
   ],
   "theme": "Laundry",
   "threshold": 0.85,
-  "tolerance": 0.08
+  "tolerance": 0.05
 }
