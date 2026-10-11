@@ -453,6 +453,7 @@ public enum Props {
         ShutterHoldBackSet.self,
         WallMailbox.self,
         ArtDecoSunburstPanel.self,
+        AreaRug.self,
         // realityhd:prop
     ]
 }
