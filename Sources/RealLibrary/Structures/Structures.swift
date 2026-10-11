@@ -82,6 +82,7 @@ public enum Structures {
         WindowSeat.self,
         Staircase.self,
         LShapedStaircase.self,
+        UShapedStaircase.self,
         // realityhd:structure
     ]
 }
