@@ -455,6 +455,7 @@ public enum Props {
         ArtDecoSunburstPanel.self,
         CeilingFan.self,
         PendantLight.self,
+        Chandelier.self,
         // realityhd:prop
     ]
 }
