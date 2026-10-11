@@ -7,7 +7,7 @@ import Foundation
 /// and left side stay open. Glass tops at 2.0 m.
 public struct WalkInShower: RealAsset {
     public static let id = "walk-in-shower"
-    public static let summary = "60 x 36 in walk-in shower: low-profile tray with drain, fixed frameless glass panel with wall channel and stabilizer bar, rain head, slide-bar hand shower, valve."
+    public static let summary = "60 x 36 in walk-in shower: low-profile tray, fixed frameless glass panel with stabilizer bar, rain head, slide-bar hand shower and valve."
     public static let tags = ["prop", "floorplan", "bathroom", "plumbing", "glass", "interior"]
     public static let budget = 7000
     public static let author = "realityhd"
