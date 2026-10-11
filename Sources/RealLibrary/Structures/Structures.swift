@@ -77,6 +77,7 @@ public enum Structures {
         DormerWindow.self,
         BucketTruck.self,
         PictureWindow.self,
+        AwningWindow.self,
         // realityhd:structure
     ]
 }
