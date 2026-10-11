@@ -1,0 +1,43 @@
+{
+  "budget": 7000,
+  "id": "crib",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-shaker",
+    "wood.painted-shaker-worn",
+    "fabric.linen",
+    "fabric.linen:F1ECE0",
+    "fabric.linen:C9DAE6"
+  ],
+  "name": "Baby crib",
+  "notes": "",
+  "parts": [
+    "four posts with finials",
+    "vertical slats on four sides",
+    "top rails",
+    "mattress with fitted sheet",
+    "folded blanket",
+    "mattress support deck",
+    "legs with stretchers"
+  ],
+  "references": [],
+  "size": [
+    0.72,
+    1.0,
+    1.33
+  ],
+  "style": "white painted crib",
+  "summary": "Baby crib with turned slats, four posts with finials, drop-free rails, mattress, fitted sheet and a folded blanket.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bedroom",
+    "furniture",
+    "wood",
+    "interior",
+    "fabric"
+  ],
+  "theme": "Bedroom",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

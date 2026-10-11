@@ -457,6 +457,7 @@ public enum Props {
         KingBed.self,
         TwinBed.self,
         BunkBed.self,
+        Crib.self,
         // realityhd:prop
     ]
 }
