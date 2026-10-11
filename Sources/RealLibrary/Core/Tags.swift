@@ -37,6 +37,8 @@ public enum AssetTag {
         "utility", "electrical", "ppe",
         // insects: life-size articulated bugs; locomotion tags for spawners and behaviors
         "insect", "flying", "crawling", "jumping", "glowing",
+        // floor planning: room-scale furnishing, fixtures and building interior elements; `floorplan` marks every asset in the pack
+        "floorplan", "living", "dining", "bedroom", "bathroom", "laundry", "home", "hvac", "plumbing", "stair", "commercial", "retail",
     ])
 
     /// Scene tags: any vocabulary tag plus these.
