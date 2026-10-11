@@ -118,3 +118,17 @@ Source: `Shaders/OfficeShaders.swift`; specs: `Library/Office.swift`.
 `screen.ui` uses tileSize 1 (one image per UV unit; tests require tileSize > 0). `paving.slab` keeps
 `antiTile` off: the second sample would misalign the joints. Feature sizes: carpet loops ~4 mm,
 pavers 60 cm with 6 mm joints, terrazzo chips 5-20 mm, veneer leaves 15 cm.
+
+## Aerospace programs
+
+Source: `Shaders/AerospaceShaders.swift`; specs: `Library/Aerospace.swift`.
+
+| program | colorA / B / C | knobs x y z w | keys |
+|---|---|---|---|
+| `carbonWeave` | fiber / sheen / resin gap | tows per tile, sheen, roughness, gap width. 2x2 twill, warp along U | `composite.carbon` |
+| `foilCrinkle` | bright foil / dark reflection / crease | facets per tile, crease depth, roughness, wrinkles (metallic) | `insulation.foil-gold` |
+
+Heat levels use variants: `ablative.char-light`, `ablative.char`, `ablative.char-heavy` (charcoal program) and
+`metal.heat-tint-cold`, `metal.heat-tint-hot` (engine bell; `metal.heat-tint` is the cookware pan tint).
+`RealHeat.ablativeKey(heat:)` / `heatTintKey(kelvin:)` pick a key; `RealHeat.blackbody(kelvin:)` gives the
+glow color. Runtime (RealKit, PBR copies): `cache.ablativeMaterial(heat: 0...1)`, `cache.engineBellMaterial(kelvin:)`.
