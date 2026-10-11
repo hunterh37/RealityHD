@@ -461,6 +461,7 @@ public enum Props {
         PantryCabinet.self,
         CornerBaseCabinet.self,
         WashingMachine.self,
+        ClothesDryer.self,
         // realityhd:prop
     ]
 }
