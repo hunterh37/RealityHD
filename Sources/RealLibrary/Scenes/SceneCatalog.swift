@@ -44,6 +44,7 @@ public enum SceneCatalog {
                 LinemanYard.self,
                 LinemanDistrict.self,
                 AerospaceRange.self,
+                AerospaceHangar.self,
                 // realityhd:scene
     ]
 

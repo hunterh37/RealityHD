@@ -29,6 +29,7 @@ enum DemoScene: String, CaseIterable, Identifiable, Codable, Hashable {
     case linemanYard = "lineman-yard"
     case linemanDistrict = "lineman-district"
     case aerospaceRange = "aerospace-range"
+    case aerospaceHangar = "aerospace-hangar"
     var id: String { rawValue }
     var title: String {
         switch self {
@@ -57,6 +58,7 @@ enum DemoScene: String, CaseIterable, Identifiable, Codable, Hashable {
         case .linemanYard: "Lineman Yard"
         case .linemanDistrict: "Lineman District"
         case .aerospaceRange: "Aerospace Range"
+        case .aerospaceHangar: "Aerospace Hangar"
         }
     }
     var detail: String {
@@ -86,6 +88,7 @@ enum DemoScene: String, CaseIterable, Identifiable, Codable, Hashable {
         case .linemanYard: "Utility service yard: steel line shop, pole stacks, cable reels, truck stalls."
         case .linemanDistrict: "Four-block city loop with an overhead pole line, job-site pole and the service yard."
         case .aerospaceRange: "Desert launch range: pad, tower, blockhouse, runway and course obstacles from the viewing platform."
+        case .aerospaceHangar: "Hangar bay: gantry crane over a fuel tank, capsule, engine, wing, part racks and avionics bench."
         }
     }
     /// Sky picked when the scene is opened from the menu.

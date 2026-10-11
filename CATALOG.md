@@ -959,6 +959,7 @@ Live with `RealityHD.articulated(id)` or `scene.addLive`; bake one state with `b
 | [`lineman-yard`](docs/scenes/lineman-yard.png) | utility, urban, outdoor | hunter | Utility service yard: concrete lot, chain-link fence and gate, steel line shop, pole stacks, cable reels, truck stalls. |
 | [`lineman-district`](docs/scenes/lineman-district.png) | utility, urban, street, outdoor | hunter | Drivable city loop of four blocks: road tiles, sidewalks, generated buildings, signals, overhead pole line, job-site pole, service yard. |
 | [`aerospace-range`](docs/scenes/aerospace-range.png) | aerospace, desert, outdoor | hunter | Desert launch range: pad and service tower, blockhouse, runway with windsock, ring gate, pylons, gap wall, balloon and debris, seen from the viewing platform. |
+| [`aerospace-hangar`](docs/scenes/aerospace-hangar.png) | aerospace, interior, industrial | hunter | Hangar bay: gantry crane over a fuel tank, capsule and engine on the floor, wing on sawhorses, part racks, avionics workbench and tool chest. |
 
 ## Materials
 
