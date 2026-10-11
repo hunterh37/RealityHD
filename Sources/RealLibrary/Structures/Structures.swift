@@ -78,6 +78,7 @@ public enum Structures {
         BucketTruck.self,
         InteriorDoor.self,
         FrontDoor.self,
+        PatioDoor.self,
         // realityhd:structure
     ]
 }

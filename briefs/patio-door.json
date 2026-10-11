@@ -1,0 +1,44 @@
+{
+  "budget": 5000,
+  "id": "patio-door",
+  "kind": "structure",
+  "materials": [
+    "metal.anodized-black",
+    "glass.pane",
+    "rubber.silicone",
+    "metal.satin-aluminum",
+    "plastic.black","decal.rubber-scuff"
+  ],
+  "name": "Sliding patio door",
+  "notes": "Origin bottom center of the opening, fixed panel at -Z track, slider at +Z track moves -X. States closed, open.",
+  "parts": [
+    "extruded black aluminum frame with head, jambs and sill",
+    "fixed panel on the outer track",
+    "sliding panel with interlock stile",
+    "twin sill tracks with weep slots",
+    "hook handle with lever",
+    "strike plate on the jamb",
+    "silicone glazing gaskets and pile weatherstrip"
+  ],
+  "references": [],
+  "size": [
+    1.83,
+    2.1,
+    0.18
+  ],
+  "style": "residential 6 ft vinyl-clad look in black anodized aluminum, light wear on the handle and track",
+  "summary": "Six-foot sliding patio door: black aluminum frame, fixed and sliding glass panels on twin sill tracks, hook handle, rubber interlock.",
+  "tags": [
+    "structure",
+    "floorplan",
+    "home",
+    "glass",
+    "metal",
+    "interior",
+    "door",
+    "articulated"
+  ],
+  "theme": "Interior",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}
