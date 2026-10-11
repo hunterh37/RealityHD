@@ -1,22 +1,26 @@
 {
-  "budget": 12000,
+  "budget": 11500,
   "id": "wardrobe",
   "kind": "prop",
   "materials": [
-    "wood.painted-shaker",
+    "wood.painted-shaker:A9A08F",
+    "wood.painted-shaker-worn:A9A08F",
     "metal.brushed-nickel",
-    "wood.plywood",
+    "metal.chrome",
     "fabric.linen",
-    "fabric.wool"
+    "fabric.wool",
+    "fabric.canvas"
   ],
-  "name": "Two-door wardrobe",
-  "notes": "Rig: left-door, right-door hinge Y +-110; drawer slide +Z 0...0.4. States: closed, open, drawer-open.",
+  "name": "Wardrobe",
+  "notes": "",
   "parts": [
-    "tall case with crown",
-    "two paneled doors",
-    "hanging rail with hangers and shirts",
-    "shelf",
-    "bottom drawer"
+    "crown moulding and plinth",
+    "two shaker doors with nickel pulls",
+    "bottom drawer with pull",
+    "hanging rail with hangers and garments",
+    "top shelf with folded linens",
+    "painted interior and back",
+    "hinge knuckles"
   ],
   "references": [],
   "size": [
@@ -24,17 +28,18 @@
     2.0,
     0.6
   ],
-  "style": "painted wardrobe",
-  "summary": "Painted two-door wardrobe, 2 m: paneled doors, hanging rail with hangers and shirts, shelf, bottom drawer.",
+  "style": "cream painted shaker armoire, nickel hardware, stocked with clothes",
+  "summary": "Two-door painted wardrobe with a bottom drawer, hanging rail with garments, top shelf and nickel pulls; doors and drawer open.",
   "tags": [
     "prop",
+    "floorplan",
     "bedroom",
     "furniture",
     "wood",
-    "container",
+    "interior",
     "articulated"
   ],
   "theme": "Bedroom",
   "threshold": 0.85,
-  "tolerance": 0.08
+  "tolerance": 0.05
 }
