@@ -1,0 +1,45 @@
+{
+  "budget": 7500,
+  "id": "ironing-board",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat:D8D8D4",
+    "fabric.canvas:B9C7D6",
+    "metal.basket-mesh",
+    "metal.satin-aluminum",
+    "rubber.tire",
+    "metal.chrome",
+    "metal.screw-zinc"
+  ],
+  "name": "Folding ironing board",
+  "notes": "Static open pose, 1.37 m long along X, tapered nose at +X with iron rest. Top surface 0.91 m with the iron rest. Scissor legs cross under the middle.",
+  "parts": [
+    "tapered steel board with padded canvas cover and drawstring",
+    "stainless iron rest at the nose with grooves and rubber stops",
+    "two U-frame scissor legs with pivot bolts",
+    "rubber-sleeved foot bars",
+    "side slide rails with hinge and slider brackets",
+    "height lever",
+    "safety hook",
+    "cover edge welt"
+  ],
+  "references": [],
+  "size": [
+    1.37,
+    0.91,
+    0.38
+  ],
+  "style": "Standard steel ironing board, blue-grey cover, light scorch near the rest.",
+  "summary": "Open ironing board: tapered padded top, stainless iron rest, white tube scissor legs with rubber foot bars, slide rails and height lever.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "laundry",
+    "metal",
+    "fabric",
+    "interior"
+  ],
+  "theme": "Laundry",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}
