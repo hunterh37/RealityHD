@@ -177,6 +177,8 @@ public enum Prim {
     public static func card(width: Float, height: Float, cell: (origin: V2, size: V2), material: MaterialKey,
                             normal: V3? = nil, extra: V2 = .zero) -> Surface {
         var s = Surface(material: material)
+        s.positions.reserveCapacity(4); s.normals.reserveCapacity(4); s.uvs.reserveCapacity(4)
+        s.extra.reserveCapacity(4); s.occlusion.reserveCapacity(4); s.indices.reserveCapacity(6)
         let n = normal ?? V3(0, 0, 1)
         let w = width / 2, o = cell.origin, z = cell.size
         let a = s.add(V3(-w, 0, 0), n, V2(o.x, o.y), extra: extra)

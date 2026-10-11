@@ -38,23 +38,30 @@ public struct Surface: Sendable {
     }
 
     public mutating func append(_ o: Surface, _ x: Xform = .identity) {
-        let base = UInt32(positions.count)
-        if x == .identity {
+        let base = UInt32(positions.count), count = o.positions.count, identity = x == .identity
+        // In-place loops with reserved capacity: no temporary arrays from map / Array(repeating:).
+        positions.reserveCapacity(positions.count + count); normals.reserveCapacity(normals.count + count)
+        if identity {
             positions += o.positions; normals += o.normals
         } else {
-            positions += o.positions.map(x.point); normals += o.normals.map(x.normal)
+            for p in o.positions { positions.append(x.point(p)) }
+            for n in o.normals { normals.append(x.normal(n)) }
         }
         uvs += o.uvs
-        extra += o.extra.count == o.positions.count ? o.extra : Array(repeating: .zero, count: o.positions.count)
-        occlusion += o.occlusion.count == o.positions.count ? o.occlusion : Array(repeating: 1, count: o.positions.count)
+        if o.extra.count == count { extra += o.extra } else { extra.append(contentsOf: repeatElement(.zero, count: count)) }
+        if o.occlusion.count == count { occlusion += o.occlusion } else { occlusion.append(contentsOf: repeatElement(1, count: count)) }
         if !o.splat.isEmpty || !splat.isEmpty {
-            if splat.count < Int(base) { splat += Array(repeating: 0, count: Int(base) - splat.count) }
-            splat += o.splat.count == o.positions.count ? o.splat : Array(repeating: 0, count: o.positions.count)
+            if splat.count < Int(base) { splat.append(contentsOf: repeatElement(0, count: Int(base) - splat.count)) }
+            if o.splat.count == count { splat += o.splat } else { splat.append(contentsOf: repeatElement(0, count: count)) }
         }
         if !o.tangents.isEmpty && tangents.count == base {
-            tangents += x == .identity ? o.tangents : o.tangents.map { V4(x.direction(V3($0.x, $0.y, $0.z)), $0.w) }
+            if identity { tangents += o.tangents } else {
+                tangents.reserveCapacity(tangents.count + o.tangents.count)
+                for t in o.tangents { tangents.append(V4(x.direction(V3(t.x, t.y, t.z)), t.w)) }
+            }
         } else { tangents = [] }
-        indices += o.indices.map { $0 + base }
+        indices.reserveCapacity(indices.count + o.indices.count)
+        for i in o.indices { indices.append(i + base) }
     }
 
     public func transformed(_ x: Xform) -> Surface { var s = Surface(material: material); s.append(self, x); return s }
