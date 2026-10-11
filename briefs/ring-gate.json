@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "ring-gate",
+  "kind": "prop",
+  "materials": [
+    "metal.painted",
+    "metal.galvanized",
+    "emissive.signal-white",
+    "concrete.rough"
+  ],
+  "name": "Ring gate",
+  "notes": "",
+  "parts": [
+    "ring",
+    "stripe bands",
+    "inner LED strip",
+    "flange joints",
+    "base frame",
+    "foot pads"
+  ],
+  "references": [],
+  "size": [
+    8,
+    9,
+    2.8
+  ],
+  "style": "flight-course gate, painted aluminium torus in orange and white bands, galvanized A-frame stand, light field wear",
+  "summary": "Flight-course ring gate, 8 m outer diameter, 3.5 m inner radius: orange and white banded torus with inner LED strip on a galvanized A-frame stand.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "outdoor",
+    "barrier",
+    "metal"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
