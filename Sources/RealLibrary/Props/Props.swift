@@ -460,6 +460,7 @@ public enum Props {
         FlatTv.self,
         DiningTable.self,
         RoundDiningTable.self,
+        Sideboard.self,
         // realityhd:prop
     ]
 }
