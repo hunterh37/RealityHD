@@ -517,6 +517,7 @@ public enum Props {
         ProbeCore.self,
         LandingGear.self,
         GapWall.self,
+        DebrisRock.self,
         // realityhd:prop
     ]
 }
