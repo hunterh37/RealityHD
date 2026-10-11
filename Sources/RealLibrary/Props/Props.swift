@@ -461,6 +461,7 @@ public enum Props {
         DiningTable.self,
         RoundDiningTable.self,
         Sideboard.self,
+        ChinaCabinet.self,
         // realityhd:prop
     ]
 }

@@ -1,0 +1,23 @@
+{
+  "budget": 12000,
+  "id": "china-cabinet",
+  "kind": "prop",
+  "materials": ["wood.mahogany", "glass.pane", "wood.plywood", "metal.brass-aged", "ceramic.stoneware"],
+  "name": "China cabinet",
+  "notes": "Static: doors and drawers closed. Pack B2: front faces +Z, back at -Z. Upper case is set back from the lower case.",
+  "parts": [
+    "stepped crown molding",
+    "upper case with two glazed doors and muntin grid",
+    "interior shelves with display plates",
+    "lower case with two drawers and two shaker doors",
+    "plinth base and brass hardware"
+  ],
+  "references": [],
+  "size": [1.0, 1.9, 0.45],
+  "style": "traditional mahogany china hutch, aged brass hardware",
+  "summary": "Mahogany china cabinet, 1.0 m wide: glazed upper doors over shelves with plates, lower drawers and doors, crown molding, plinth.",
+  "tags": ["prop", "floorplan", "dining", "furniture", "wood", "glass", "interior"],
+  "theme": "Dining",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}
