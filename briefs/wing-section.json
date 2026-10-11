@@ -1,0 +1,38 @@
+{
+  "budget": 12000,
+  "id": "wing-section",
+  "kind": "prop",
+  "materials": [
+    "composite.carbon",
+    "metal.aluminum-brushed",
+    "metal.steel",
+    "metal.anodized-worn"
+  ],
+  "name": "Wing section",
+  "notes": "VisionSpacecraft specs/04, specs/14",
+  "parts": [
+    "NACA 2412 skin",
+    "root rib plate",
+    "tip cap",
+    "aileron",
+    "aileron hinges",
+    "spar line rivets",
+    "access panels"
+  ],
+  "references": [],
+  "size": [
+    4.04,
+    0.34,
+    1.42
+  ],
+  "style": "light aircraft composite wing, clean paint-free carbon with aluminium hardware",
+  "summary": "Parametric tapered wing section (span, sweep, taper, dihedral knobs), 3.9 m span default: NACA 2412 carbon skin, aluminium root rib, tip cap and a hinged aileron.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "articulated"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

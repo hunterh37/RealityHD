@@ -506,6 +506,7 @@ public enum Props {
         ZebraCrosswalk.self,
         FinTrapezoid.self,
         RingGate.self,
+        WingSection.self,
         // realityhd:prop
     ]
 }
