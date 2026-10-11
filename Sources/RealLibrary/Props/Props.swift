@@ -458,6 +458,7 @@ public enum Props {
         Loveseat.self,
         ClubChair.self,
         ReclinerChair.self,
+        Ottoman.self,
         // realityhd:prop
     ]
 }
