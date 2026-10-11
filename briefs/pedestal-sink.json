@@ -1,0 +1,41 @@
+{
+  "budget": 6500,
+  "id": "pedestal-sink",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "metal.chrome",
+    "plastic.matte",
+    "metal.stainless"
+  ],
+  "name": "Pedestal sink",
+  "notes": "Front +Z, wall behind at z=-0.21, rim 0.79 m, backsplash top 0.83 m.",
+  "parts": [
+    "basin with rolled rim and backsplash",
+    "pedestal column with floor flare",
+    "chrome centerset faucet with lever handles",
+    "pop-up drain and lift rod",
+    "overflow slot",
+    "angle stops and supply lines",
+    "caulk bead"
+  ],
+  "references": [],
+  "size": [
+    0.5,
+    0.85,
+    0.42
+  ],
+  "style": "white vitreous china, polished chrome",
+  "summary": "Pedestal lavatory: vitreous china basin with backsplash and column, chrome centerset faucet, pop-up drain and angle stops.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bathroom",
+    "plumbing",
+    "ceramic",
+    "interior"
+  ],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}
