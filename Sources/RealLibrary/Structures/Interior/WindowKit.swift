@@ -59,7 +59,8 @@ enum WindowKit {
         }
         p.append(box(V3(frameW - 2 * jw + 0.002, jw, 2 * jz), V3(0, headTop - jw / 2, 0), frame, r: 0.002, seg: seg))
         p.append(box(V3(frameW + 2 * casing - 0.024 + 0.04, 0.06, 0.016), V3(0, headTop - 0.01, cz - 0.002), trim, r: 0.003, seg: seg))
-        p.append(box(V3(W - 0.0, 0.02, 0.028), V3(0, H - 0.01, jz + 0.014), trim, r: 0.004, seg: seg))
+        let capD = min(0.028, depth - jz)
+        p.append(box(V3(W - 0.0, 0.02, capD), V3(0, H - 0.01, jz + capD / 2), trim, r: 0.004, seg: seg))
         p.append(box(V3(frameW + 0.07, 0.022, 0.014), V3(0, headTop + 0.008, -jz - 0.007), sillMat, r: 0.002, seg: seg))
         p.append(box(V3(frameW + 0.09, 0.01, 0.026), V3(0, headTop + 0.025, -jz - 0.012), sillMat, r: 0.003, seg: seg))
         return (p, Opening(ox: ox, y0: sillTop, y1: headTop - jw, jz: jz))
