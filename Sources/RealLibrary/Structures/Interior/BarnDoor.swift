@@ -4,7 +4,7 @@ import Foundation
 /// Sliding barn door, 1.9 m x 2.3 m x 0.1 m overall: five vertical walnut planks (950 x 2150 x 32 mm, 1.5 mm joints) braced by a
 /// Z of top, bottom and diagonal battens, two black steel strap hangers with wheels riding a flat top rail (1.9 m, 50 x 8 mm) on four
 /// standoff posts with end stops, a vertical bar pull and a floor guide. Origin at the bottom center of the opening; the slab hangs
-/// 20 mm above the floor and slides toward +X along the rail (rail spans x -0.5...1.4).
+/// 20 mm above the floor and slides toward +X along the rail (rail spans x -0.54...1.36).
 public struct BarnDoor: RealArticulated {
     public static let id = "barn-door"
     public static let summary = "Sliding barn door: five-plank walnut slab with Z-brace battens, black strap hangers on a flat top rail with standoffs, floor guide and pull."
@@ -21,7 +21,7 @@ public struct BarnDoor: RealArticulated {
     public var steel: MaterialKey = "metal.powdercoat:202225"
     public var bolt: MaterialKey = "metal.steel"
     /// Slide travel along +X (m).
-    public var travel: Float = 0.9
+    public var travel: Float = 0.88
     public init() {}
 
     public func rig(seed: UInt64) -> Rig {
@@ -33,7 +33,7 @@ public struct BarnDoor: RealArticulated {
         let bz1: Float = 0.026                                 // batten front
         let railZ0: Float = 0.030, railZ1: Float = 0.038
         let railTop: Float = 2.24, railH: Float = 0.05
-        let rx0: Float = -0.5, rx1 = rx0 + railLength
+        let rx0: Float = -0.54, rx1 = rx0 + railLength
         let wallZ: Float = -0.038
         let wheelR: Float = 0.03
 

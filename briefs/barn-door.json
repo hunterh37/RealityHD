@@ -9,7 +9,7 @@
     "plastic.black"
   ],
   "name": "Sliding barn door",
-  "notes": "Origin bottom center of the opening; slab covers it at rest. Rail runs x -0.5...1.4 (1.9 m). Slab slides +X 0...0.9. States closed, open.",
+  "notes": "Origin bottom center of the opening; slab covers it at rest. Rail runs x -0.54...1.36 (1.9 m). Slab slides +X 0...0.88. States closed, open.",
   "parts": [
     "five-plank slab with Z-brace battens",
     "black steel strap hangers with wheels",
