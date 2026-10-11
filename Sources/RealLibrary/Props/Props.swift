@@ -537,6 +537,7 @@ public enum Props {
         PartRack.self,
         EngineSolidSmall.self,
         EngineLiquidSmall.self,
+        AerospaceWorkbench.self,
         // realityhd:prop
     ]
 }
