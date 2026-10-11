@@ -531,6 +531,7 @@ public enum Props {
         CameraSensor.self,
         RunwaySegment.self,
         Decoupler.self,
+        Imu.self,
         // realityhd:prop
     ]
 }
