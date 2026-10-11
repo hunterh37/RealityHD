@@ -6,7 +6,7 @@ import Foundation
 /// caulk bead. Back at z = -0.3, front +Z, rim at 0.34 m, faucet top at 0.4 m.
 public struct Bidet: RealAsset {
     public static let id = "bidet"
-    public static let summary = "Floor-mounted bidet: skirted elongated china bowl, deck-mounted chrome faucet with two lever handles, pop-up drain."
+    public static let summary = "Floor-mounted bidet: skirted elongated vitreous china bowl, deck-mounted chrome faucet with two lever handles, pop-up drain."
     public static let tags = ["prop", "floorplan", "bathroom", "plumbing", "ceramic", "interior"]
     public static let budget = 5500
     public static let author = "realityhd"
