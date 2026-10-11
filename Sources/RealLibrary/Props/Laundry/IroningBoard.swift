@@ -33,7 +33,7 @@ public struct IroningBoard: RealAsset {
         }
         let halfL = size.x / 2, halfW = size.z / 2
         func outline(_ inset: Float) -> [V2] {
-            let pts: [V2] = [V2(-halfL, -halfW), V2(0.1, -halfW), V2(0.45, -0.12), V2(0.65, -0.055), V2(halfL, 0), V2(0.65, 0.055), V2(0.45, 0.12), V2(0.1, halfW), V2(-halfL, halfW)]
+            let pts: [V2] = [V2(-halfL, -halfW), V2(0.1, -halfW), V2(0.45, -0.12), V2(0.65, -0.055), V2(halfL + 0.007, 0), V2(0.65, 0.055), V2(0.45, 0.12), V2(0.1, halfW), V2(-halfL, halfW)]
             return Shape2D.offset(Shape2D.rounded(pts, radius: 0.035, segments: lite ? 2 : 4), -inset)
         }
         let flat = simd_quatf(degrees: 90, axis: V3(1, 0, 0))   // outline XY -> world XZ
@@ -100,8 +100,8 @@ public struct IroningBoard: RealAsset {
                   Xform(translation: V3(pivot.x, pivot.y, sz * (zB - 0.01)), rotation: simd_quatf(from: V3(0, 1, 0), to: V3(0, 0, sz))))
         }
         // Height lever (rod and rubber grip) under the nose end, and safety hook near the hinge.
-        tube([V3(0.3, 0.846, zB), V3(0.34, 0.80, zB + 0.03), V3(0.38, 0.78, zB + 0.06)], 0.0055, "metal.chrome")
-        box(V3(0.05, 0.016, 0.016), 0.006, "rubber.tire", at: V3(0.405, 0.775, zB + 0.07), rot: simd_quatf(degrees: -20, axis: V3(0, 0, 1)))
+        tube([V3(0.3, 0.846, zB), V3(0.34, 0.80, zB + 0.02), V3(0.38, 0.78, zB + 0.04)], 0.0055, "metal.chrome")
+        box(V3(0.05, 0.016, 0.016), 0.006, "rubber.tire", at: V3(0.405, 0.775, zB + 0.05), rot: simd_quatf(degrees: -20, axis: V3(0, 0, 1)))
         tube([V3(-0.30, 0.846, -zA), V3(-0.30, 0.8, -zA - 0.015), V3(-0.27, 0.77, -zA - 0.015)], 0.0045, "metal.chrome")
         // Light scorch near the rest.
         m.add(Prim.extrude(Shape2D.rounded([V2(0.36, -0.03), V2(0.43, -0.02), V2(0.44, 0.03), V2(0.37, 0.04)], radius: 0.015, segments: 2), depth: 0.0006, bevel: 0.0002, bevelSegments: 1, material: "fabric.canvas:8B7B5A"),
