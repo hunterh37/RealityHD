@@ -461,6 +461,7 @@ public enum Props {
         VanityLightBar.self,
         MiniSplitIndoorUnit.self,
         CeilingDiffuser.self,
+        Thermostat.self,
         // realityhd:prop
     ]
 }
