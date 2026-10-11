@@ -77,6 +77,7 @@ public enum Structures {
         DormerWindow.self,
         BucketTruck.self,
         InteriorDoor.self,
+        FrontDoor.self,
         // realityhd:structure
     ]
 }

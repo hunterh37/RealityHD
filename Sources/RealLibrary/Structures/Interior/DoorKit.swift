@@ -72,28 +72,44 @@ enum DoorKit {
     }
 
     /// Recessed panel with a stuck bead (and optional raised field) filling the rectangle between rails and stiles.
-    static func panel(_ rig: inout Rig, to part: String, x0: Float, x1: Float, y0: Float, y1: Float, zc: Float, T: Float,
-                      mat: MaterialKey, raised: Bool, detail: Bool = true) {
+    /// Returns pieces flagged `true` when they belong to LOD0 only.
+    static func panelPieces(x0: Float, x1: Float, y0: Float, y1: Float, zc: Float, mat: MaterialKey, raised: Bool,
+                            bead: Float = 0.016, bd: Float = 0.010, beadRadius: Float = 0.0035, raisedSeg: Int = 2) -> [(Surface, Xform, Bool)] {
+        var out: [(Surface, Xform, Bool)] = []
         let w = x1 - x0, h = y1 - y0, cx = (x0 + x1) / 2, cy = (y0 + y1) / 2
         let tp: Float = raised ? 0.012 : 0.009
         let p = box(V3(w + 0.006, h + 0.006, tp), V3(cx, cy, zc), mat, r: 0)
-        rig.add(p.0, p.1, to: part)
-        let bead: Float = 0.016, bd: Float = 0.010
+        out.append((p.0, p.1, false))
         for side: Float in [-1, 1] {
             let z = zc + side * (tp / 2 + bd / 2 - 0.001)
-            // Sticking: four bead strips around the panel opening (mitre approximated by overlapping ends).
             let ends: [(V3, V3)] = [
                 (V3(w, bead, bd), V3(cx, y1 - bead / 2, z)), (V3(w, bead, bd), V3(cx, y0 + bead / 2, z)),
                 (V3(bead, h - 2 * bead + 0.004, bd), V3(x0 + bead / 2, cy, z)), (V3(bead, h - 2 * bead + 0.004, bd), V3(x1 - bead / 2, cy, z)),
             ]
             for (sz, c) in ends {
-                let b = box(sz, c, mat, r: 0.0035, seg: 1)
-                rig.add(b.0, b.1, to: part, lods: 0...0)
+                let b = box(sz, c, mat, r: beadRadius, seg: 1)
+                out.append((b.0, b.1, true))
             }
             if raised {
-                let f = box(V3(w - 2 * bead - 0.03, h - 2 * bead - 0.03, 0.012), V3(cx, cy, zc + side * (tp / 2 + 0.003)), mat, r: 0.004, seg: 2)
-                rig.add(f.0, f.1, to: part)
+                let f = box(V3(w - 2 * bead - 0.03, h - 2 * bead - 0.03, 0.012), V3(cx, cy, zc + side * (tp / 2 + 0.003)), mat, r: 0.004, seg: raisedSeg)
+                out.append((f.0, f.1, false))
             }
+        }
+        return out
+    }
+
+    static func panel(_ rig: inout Rig, to part: String, x0: Float, x1: Float, y0: Float, y1: Float, zc: Float, T: Float,
+                      mat: MaterialKey, raised: Bool, detail: Bool = true, beadRadius: Float = 0.0035, raisedSeg: Int = 2) {
+        for (s, x, only0) in panelPieces(x0: x0, x1: x1, y0: y0, y1: y1, zc: zc, mat: mat, raised: raised, beadRadius: beadRadius, raisedSeg: raisedSeg) {
+            rig.add(s, x, to: part, lods: only0 ? 0...0 : nil)
+        }
+    }
+
+    /// Adds pieces to both base LODs (detail pieces only to LOD0).
+    static func addBase(_ rig: inout Rig, _ pieces: [(Surface, Xform, Bool)]) {
+        for (s, x, only0) in pieces {
+            rig.base[0].add(s, x)
+            if !only0 { rig.base[1].add(s, x) }
         }
     }
 
@@ -105,7 +121,7 @@ enum DoorKit {
         for hy in ys {
             for k in 0..<5 {
                 let y0 = hy - length / 2 + Float(k) * seg + 0.0004
-                let s = Prim.cylinder(radius: knuckle, height: seg - 0.0008, bevel: 0.0007, segments: 14, bevelSegments: 1, material: mat)
+                let s = Prim.cylinder(radius: knuckle, height: seg - 0.0008, bevel: 0.0007, segments: 10, bevelSegments: 1, material: mat)
                 let x = Xform(translation: V3(pinX, y0, pinZ))
                 if k % 2 == 0 { rig.base[0].add(s, x); rig.base[1].add(s, x) } else { rig.add(s, x, to: leaf) }
             }
@@ -133,7 +149,7 @@ enum DoorKit {
             let face = side > 0 ? zFront : zBack
             let n = V3(0, 0, side)
             let roseProfile = [V2(0, 0), V2(0.026, 0), V2(0.026, 0.0035), V2(0.0245, 0.0068), V2(0.021, 0.0082), V2(0, 0.0082)]
-            let rose = Prim.lathe(roseProfile, segments: 32, seamTile: 0.05, material: mat)
+            let rose = Prim.lathe(roseProfile, segments: 24, seamTile: 0.05, material: mat)
             rig.add(rose, Xform(translation: V3(px, y, face), rotation: facing(n)), to: leaf)
             let dir = -freeSign   // toward the hinge
             let ctrl: [V3] = [V3(0, 0, 0.003), V3(0, 0, 0.022), V3(dir * 0.006, 0, 0.034), V3(dir * 0.03, 0, 0.041),
@@ -143,7 +159,7 @@ enum DoorKit {
                 let t = Float(i) / Float(path.count - 1)
                 return t < 0.15 ? 0.0075 : (t > 0.93 ? 0.0088 - (t - 0.93) * 0.05 : 0.0088)
             }
-            rig.add(Prim.tube(path, radii: radii, sides: 14, seamTile: 0.05, material: mat), to: "handle")
+            rig.add(Prim.tube(path, radii: radii, sides: 10, seamTile: 0.05, material: mat), to: "handle")
             rig.add(Prim.cylinder(radius: 0.0105, height: 0.007, bevel: 0.0018, segments: 18, bevelSegments: 1, material: mat),
                     Xform(translation: V3(px, y, face + side * 0.006), rotation: facing(n)), to: "handle")
         }
