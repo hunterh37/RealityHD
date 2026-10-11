@@ -57,6 +57,7 @@ public enum Prim {
     /// when the profile starts/ends at radius 0. `seamTile` quantizes U so tiling textures wrap cleanly.
     public static func lathe(_ profile: [V2], segments: Int = 32, seamTile: Float = 0.25, material: MaterialKey, swapUV: Bool = false) -> Surface {
         var s = Surface(material: material)
+        s.reserve(vertices: profile.count * (segments + 1), indices: max(0, profile.count - 1) * segments * 6)
         let maxR = profile.map(\.x).max() ?? 0.1
         // Small parts: true circumference (a seam is invisible at that size); larger ones quantize so tiles wrap.
         let circ = 2 * .pi * maxR
@@ -131,6 +132,7 @@ public enum Prim {
     /// pole pinching of UV spheres. `displace(dir) -> radius` shapes rocks/boulders.
     public static func cubeSphere(subdivisions n: Int, material: MaterialKey, radius: (V3) -> V3) -> Surface {
         var s = Surface(material: material)
+        s.reserve(vertices: 6 * (n + 1) * (n + 1), indices: 6 * n * n * 6)
         let faces: [(V3, V3, V3)] = [
             (V3(1, 0, 0), V3(0, 0, -1), V3(0, 1, 0)), (V3(-1, 0, 0), V3(0, 0, 1), V3(0, 1, 0)),
             (V3(0, 1, 0), V3(1, 0, 0), V3(0, 0, -1)), (V3(0, -1, 0), V3(1, 0, 0), V3(0, 0, 1)),
@@ -159,6 +161,7 @@ public enum Prim {
     /// Heightfield grid centered at origin, XZ extent `size`, UV in meters.
     public static func terrain(size: V2, segments: Int, material: MaterialKey, height: (V2) -> Float) -> Surface {
         var s = Surface(material: material)
+        s.reserve(vertices: (segments + 1) * (segments + 1), indices: segments * segments * 6)
         for j in 0...segments { for i in 0...segments {
             let x = (Float(i) / Float(segments) - 0.5) * size.x, z = (Float(j) / Float(segments) - 0.5) * size.y
             s.add(V3(x, height(V2(x, z)), z), .up, V2(x, -z))
@@ -177,8 +180,7 @@ public enum Prim {
     public static func card(width: Float, height: Float, cell: (origin: V2, size: V2), material: MaterialKey,
                             normal: V3? = nil, extra: V2 = .zero) -> Surface {
         var s = Surface(material: material)
-        s.positions.reserveCapacity(4); s.normals.reserveCapacity(4); s.uvs.reserveCapacity(4)
-        s.extra.reserveCapacity(4); s.occlusion.reserveCapacity(4); s.indices.reserveCapacity(6)
+        s.reserve(vertices: 4, indices: 6)
         let n = normal ?? V3(0, 0, 1)
         let w = width / 2, o = cell.origin, z = cell.size
         let a = s.add(V3(-w, 0, 0), n, V2(o.x, o.y), extra: extra)
