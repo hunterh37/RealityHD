@@ -9,24 +9,21 @@ public enum Noise {
         return h
     }
 
-    /// 12 edge gradients of a cube as (axis a, axis b, sign a, sign b): grad = sa * d[a] + sb * d[b].
-    /// Table lookup instead of a 12-way switch (the branch mispredicts on hashed input).
-    @usableFromInline static let gradTable: [(UInt8, UInt8, Float, Float)] = [
-        (0, 1, 1, 1), (0, 1, -1, 1), (0, 1, 1, -1), (0, 1, -1, -1),
-        (0, 2, 1, 1), (0, 2, -1, 1), (0, 2, 1, -1), (0, 2, -1, -1),
-        (1, 2, 1, 1), (1, 2, -1, 1), (1, 2, 1, -1), (1, 2, -1, -1),
-    ]
-
+    /// 12 edge gradients of a cube: index i = h % 12, pair (x,y) | (x,z) | (y,z) by i >> 2,
+    /// sign of the first axis from bit 0, second from bit 1. grad = sa * d[a] + sb * d[b].
+    /// Computed with selects (no table load, no branch on hashed input).
     @inlinable static func grad(_ h: UInt32, _ d: V3) -> Float {
-        let g = gradTable[Int(h % 12)]
-        return g.2 * d[Int(g.0)] + g.3 * d[Int(g.1)]
+        let i = h % 12, pair = i >> 2
+        let a = pair == 2 ? d.y : d.x, b = pair == 0 ? d.y : d.z
+        let sa: Float = i & 1 == 0 ? 1 : -1, sb: Float = i & 2 == 0 ? 1 : -1
+        return sa * a + sb * b
     }
 
     /// Perlin gradient noise in roughly [-1, 1].
-    public static func perlin(_ p: V3, seed: UInt32 = 0) -> Float {
+    @inlinable public static func perlin(_ p: V3, seed: UInt32 = 0) -> Float {
         let f = p.rounded(.down), i = SIMD3<Int32>(Int32(f.x), Int32(f.y), Int32(f.z)), d = p - f
         let u = d * d * d * (d * (d * 6 - 15) + 10)
-        func g(_ ox: Int32, _ oy: Int32, _ oz: Int32) -> Float {
+        @inline(__always) func g(_ ox: Int32, _ oy: Int32, _ oz: Int32) -> Float {
             grad(hash(i.x + ox, i.y + oy, i.z + oz, seed), d - V3(Float(ox), Float(oy), Float(oz)))
         }
         let x00 = lerp(g(0, 0, 0), g(1, 0, 0), u.x), x10 = lerp(g(0, 1, 0), g(1, 1, 0), u.x)
@@ -34,14 +31,14 @@ public enum Noise {
         return lerp(lerp(x00, x10, u.y), lerp(x01, x11, u.y), u.z)
     }
 
-    public static func fbm(_ p: V3, octaves: Int = 4, lacunarity: Float = 2.03, gain: Float = 0.5, seed: UInt32 = 0) -> Float {
+    @inlinable public static func fbm(_ p: V3, octaves: Int = 4, lacunarity: Float = 2.03, gain: Float = 0.5, seed: UInt32 = 0) -> Float {
         var sum: Float = 0, amp: Float = 0.5, q = p
         for o in 0..<octaves { sum += amp * perlin(q, seed: seed &+ UInt32(o)); q *= lacunarity; amp *= gain }
         return sum
     }
 
     /// Ridged multifractal: sharp crests, good for rock ridges and erosion.
-    public static func ridged(_ p: V3, octaves: Int = 4, seed: UInt32 = 0) -> Float {
+    @inlinable public static func ridged(_ p: V3, octaves: Int = 4, seed: UInt32 = 0) -> Float {
         var sum: Float = 0, amp: Float = 0.5, q = p, weight: Float = 1
         for o in 0..<octaves {
             var n = 1 - abs(perlin(q, seed: seed &+ UInt32(o)))

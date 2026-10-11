@@ -5,6 +5,8 @@ public typealias V3 = SIMD3<Float>
 public typealias V4 = SIMD4<Float>
 
 @inlinable public func lerp<T: FloatingPoint>(_ a: T, _ b: T, _ t: T) -> T { a + (b - a) * t }
+/// Concrete Float overload: callers in other modules otherwise reach the generic through protocol witnesses.
+@inlinable public func lerp(_ a: Float, _ b: Float, _ t: Float) -> Float { a + (b - a) * t }
 @inlinable public func lerp(_ a: V3, _ b: V3, _ t: Float) -> V3 { a + (b - a) * t }
 @inlinable public func saturate(_ x: Float) -> Float { min(max(x, 0), 1) }
 @inlinable public func smoothstep(_ e0: Float, _ e1: Float, _ x: Float) -> Float {

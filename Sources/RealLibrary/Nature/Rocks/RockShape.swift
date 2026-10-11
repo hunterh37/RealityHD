@@ -113,8 +113,14 @@ public struct RockShape: Sendable {
             return r
         }
         let flatY = -e.y * flatBase
+        // Cube-sphere directions repeat across LODs (grid i/n of a coarser level equals 2i/2n bit for bit)
+        // and along face seams; radius is pure, so evaluate each distinct direction once.
+        var memo: [SIMD3<UInt32>: Float] = [:]
         func shape(_ d: V3) -> V3 {
-            var p = d * radius(d)
+            let key = SIMD3<UInt32>(d.x.bitPattern, d.y.bitPattern, d.z.bitPattern)
+            let rd: Float
+            if let c = memo[key] { rd = c } else { rd = radius(d); memo[key] = rd }
+            var p = d * rd
             if p.y < flatY { p.y = flatY + (p.y - flatY) * 0.12 }
             return p
         }

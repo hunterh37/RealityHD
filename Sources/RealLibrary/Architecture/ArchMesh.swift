@@ -21,11 +21,15 @@ public struct MeshBucket: Sendable {
         for i in 1..<(pts.count - 1) { n += simd_cross(pts[i] - pts[0], pts[i + 1] - pts[0]) }
         guard simd_length(n) > 1e-9 else { return }
         n = simd_normalize(n)
-        var s = surfaces[mat] ?? Surface(material: mat)
+        // Mutate in place through the default subscript: copying out and storing back duplicated the
+        // whole surface on every polygon (copy-on-write with the dictionary still holding it).
+        Self.append(&surfaces[mat, default: Surface(material: mat)], pts, n)
+    }
+
+    private static func append(_ s: inout Surface, _ pts: [V3], _ n: V3) {
         let base = UInt32(s.positions.count)
-        for p in pts { s.add(p, n, Self.uv(p, n)) }
+        for p in pts { s.add(p, n, uv(p, n)) }
         for i in 1..<(pts.count - 1) { s.tri(base, base + UInt32(i), base + UInt32(i + 1)) }
-        surfaces[mat] = s
     }
 
     /// Polygon flipped as needed so its normal points along `facing`.
@@ -67,9 +71,7 @@ public struct MeshBucket: Sendable {
 
     public mutating func add(_ m: Model, _ x: Xform = .identity) {
         for s in m.surfaces {
-            var t = surfaces[s.material] ?? Surface(material: s.material)
-            t.append(s, x)
-            surfaces[s.material] = t
+            surfaces[s.material, default: Surface(material: s.material)].append(s, x)
         }
     }
 
