@@ -459,6 +459,7 @@ public enum Props {
         RecessedDownlight.self,
         TrackLighting.self,
         VanityLightBar.self,
+        MiniSplitIndoorUnit.self,
         // realityhd:prop
     ]
 }
