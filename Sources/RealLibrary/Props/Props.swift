@@ -458,6 +458,7 @@ public enum Props {
         Chandelier.self,
         RecessedDownlight.self,
         TrackLighting.self,
+        VanityLightBar.self,
         // realityhd:prop
     ]
 }
