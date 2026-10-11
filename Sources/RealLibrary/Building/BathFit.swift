@@ -76,4 +76,91 @@ public enum BathFit {
         m.add(Prim.roundedBox(V3(0.03, 0.012, 0.003), radius: 0.0012, bevelSegments: 1, material: "plastic.black"),
               Xform(translation: V3(c.x, topY - 0.035, c.z - (size.y - 0.012) / 2 + 0.006), rotation: simd_quatf(degrees: -10, axis: V3(1, 0, 0))))
     }
+
+    /// Stone vanity top with several rounded-rect basin cutouts (`KitchenFit.counterSlab` takes one). Same
+    /// edge profile; top and bottom faces are keyhole-triangulated so the stone stays one piece. Top at y =
+    /// `thickness`, centered on X/Z. Hole centers are in slab-local (x, z).
+    public static func vanityTop(width: Float, depth: Float, thickness th: Float, ease: Float = 0.003, corner: Float = 0.004,
+                                 holes: [(center: V2, size: V2, radius: Float)], material: MaterialKey) -> Surface {
+        var s = KitchenFit.counterSlab(width: width, depth: depth, thickness: th, ease: ease, corner: corner, hole: nil, material: material)
+        let n = 4
+        let outerTop = KitchenFit.rrect(center: .zero, size: V2(width - 2 * ease, depth - 2 * ease), radius: max(0.0005, corner - ease), n: n)
+        s.indices.removeLast(2 * outerTop.count * 3)
+        let eb = ease * 0.5
+        let he = min(0.002, ease)
+        let topOuter = outerTop.map { $0.p }
+        let botOuter = outerTop.map { $0.p + $0.n * (ease - eb) }
+        // Keyhole polygon builder: outer ring (CCW) plus holes (CW) bridged to the rear corners.
+        func face(outer: [V2], holeRings: [[V2]], y: Float, up: Bool) {
+            var poly: [V2] = outer
+            // Rear corners of the outer ring: the points with the most negative z, left and right.
+            for h in holeRings.indices {
+                let ring = holeRings[h]
+                let cx = ring.map(\.x).reduce(0, +) / Float(ring.count)
+                // Bridge to the outer vertex nearest the rear corner on the hole's side.
+                let target = V2(cx < 0 ? -9 : 9, -9)
+                let hv = ring.indices.min { simd_distance_squared(ring[$0], target) < simd_distance_squared(ring[$1], target) }!
+                let oiOuter = outer.indices.filter { outer[$0].y < 0 }.min { simd_distance_squared(outer[$0], target) < simd_distance_squared(outer[$1], target) }!
+                let oi = poly.firstIndex { $0 == outer[oiOuter] }!
+                var hole: [V2] = []
+                for k in 0...ring.count { hole.append(ring[(hv + ring.count - k) % ring.count]) }   // clockwise, closed
+                poly.insert(contentsOf: hole + [poly[oi]], at: oi + 1)
+            }
+            let nn = V3(0, up ? 1 : -1, 0)
+            let ids = poly.map { s.add(V3($0.x, y, $0.y), nn, $0) }
+            // Ear clipping runs in (x, -z) so counter-clockwise means up.
+            let tris = Shape2D.triangulate(poly.map { V2($0.x, -$0.y) })
+            var k = 0
+            while k + 2 < tris.count {
+                let a = ids[Int(tris[k])], b = ids[Int(tris[k + 1])], c = ids[Int(tris[k + 2])]
+                if up { s.tri(a, b, c) } else { s.tri(a, c, b) }
+                k += 3
+            }
+        }
+        let topHoles = holes.map { h in KitchenFit.rrect(center: h.center, size: h.size + V2(2 * he, 2 * he), radius: h.radius + he, n: n).map { $0.p } }
+        let botHoles = holes.map { h in KitchenFit.rrect(center: h.center, size: h.size, radius: h.radius, n: n).map { $0.p } }
+        face(outer: topOuter, holeRings: topHoles, y: th, up: true)
+        face(outer: botOuter, holeRings: botHoles, y: 0, up: false)
+        // Hole walls with an eased top lip, normals toward the hole center.
+        for h in holes {
+            let ringAt: (Float, Float) -> [V3] = { grow, y in
+                KitchenFit.rrect(center: h.center, size: h.size + V2(2 * grow, 2 * grow), radius: h.radius + grow, n: n).map { V3($0.p.x, y, $0.p.y) }
+            }
+            let wall = Prim.loft([ringAt(0, 0), ringAt(0, th - he), ringAt(he * 0.3, th - he * 0.35), ringAt(he, th)], material: material).flipped()
+            s.append(wall)
+        }
+        s.computeTangents()
+        return s
+    }
+
+    /// Leaner five-piece shaker front than `KitchenFit.shakerFront` (one bevel segment, plain recessed panel)
+    /// for pieces with many fronts. Front face at z = c.z facing +Z, centered on X/Y.
+    public static func shakerLean(_ m: inout Model, width w: Float, height h: Float, t: Float = 0.019, frame: Float = 0.06,
+                                  at c: V3, material: MaterialKey, bottomRail: MaterialKey? = nil) {
+        let fz = c.z - t / 2
+        let edge: Float = 0.0025
+        for sx: Float in [-1, 1] {
+            m.add(Prim.roundedBox(V3(frame, h, t), radius: edge, bevelSegments: 1, material: material), Xform(translation: V3(c.x + sx * (w / 2 - frame / 2), c.y, fz)))
+        }
+        for sy: Float in [-1, 1] {
+            m.add(Prim.roundedBox(V3(w - 2 * frame - 0.0006, frame, t), radius: edge, bevelSegments: 1, material: sy < 0 ? (bottomRail ?? material) : material),
+                  Xform(translation: V3(c.x, c.y + sy * (h / 2 - frame / 2), fz)))
+        }
+        m.add(Prim.roundedBox(V3(w - 2 * frame + 0.004, h - 2 * frame + 0.004, 0.006), radius: 0.001, bevelSegments: 1, material: material),
+              Xform(translation: V3(c.x, c.y, c.z - 0.012)))
+    }
+
+    /// Lean bar pull (8-sided bar, 6-sided posts), along +X, posts toward -Z to a mounting face at z = 0.
+    public static func pull(length: Float = 0.128, standoff: Float = 0.022, radius: Float = 0.0055, overhang: Float = 0.02, material: MaterialKey) -> Surface {
+        var s = Surface(material: material)
+        let half = length / 2
+        let bar = Prim.lathe([V2(0.001, 0), V2(radius * 0.8, 0), V2(radius, 0.002), V2(radius, length + 2 * overhang - 0.002), V2(radius * 0.8, length + 2 * overhang), V2(0.001, length + 2 * overhang)],
+                             segments: 8, seamTile: 0.05, material: material)
+        s.append(bar, Xform(translation: V3(-half - overhang, 0, standoff), rotation: simd_quatf(degrees: -90, axis: V3(0, 0, 1))))
+        for x in [-half, half] {
+            s.append(Prim.lathe([V2(0.001, 0), V2(radius * 0.85, 0), V2(radius * 0.85, standoff), V2(0.001, standoff)], segments: 6, seamTile: 0.05, material: material),
+                     Xform(translation: V3(x, 0, 0), rotation: simd_quatf(degrees: 90, axis: V3(1, 0, 0))))
+        }
+        return s
+    }
 }

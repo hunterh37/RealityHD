@@ -457,6 +457,7 @@ public enum Props {
         Bidet.self,
         PedestalSink.self,
         BathroomVanity.self,
+        DoubleVanity.self,
         // realityhd:prop
     ]
 }
