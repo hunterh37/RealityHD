@@ -461,6 +461,7 @@ public enum Props {
         AlcoveBathtub.self,
         FreestandingBathtub.self,
         CornerShower.self,
+        WalkInShower.self,
         // realityhd:prop
     ]
 }
