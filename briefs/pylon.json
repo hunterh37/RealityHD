@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "pylon",
+  "kind": "prop",
+  "materials": [
+    "metal.painted",
+    "rubber",
+    "emissive.signal-red",
+    "metal.galvanized"
+  ],
+  "name": "Course pylon",
+  "notes": "",
+  "parts": [
+    "banded cone",
+    "base ring",
+    "ballast skirt",
+    "top cap",
+    "obstruction light",
+    "lattice tower (height > 20 m)"
+  ],
+  "references": [],
+  "size": [
+    0.96,
+    3.0,
+    0.96
+  ],
+  "style": "air-race course marker, painted aviation orange and white, scuffed base; lattice tower variant above 20 m",
+  "summary": "Course pylon, radius 0.3 to 3 m, height 3 to 150 m: banded orange and white painted cone with ballast skirt and red obstruction light; above 20 m a banded triangular lattice tower.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "outdoor",
+    "barrier",
+    "metal"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
