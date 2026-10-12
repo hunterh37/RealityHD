@@ -1,0 +1,38 @@
+{
+  "budget": 15000,
+  "id": "queen-anne-spindle-frieze",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "wood.weathered"
+  ],
+  "name": "Queen Anne spindle frieze",
+  "notes": "",
+  "parts": [
+    "top rail with cap moulding",
+    "bottom rail",
+    "turned spindles",
+    "sawn corner brackets",
+    "central pendant drop",
+    "dowel pegs"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    0.45,
+    0.08
+  ],
+  "style": "architectural facade customizer, Queen Anne Victorian",
+  "summary": "Queen Anne spindle frieze, 2.4 m: turned spindles between a top rail and a bottom rail, with sawn corner brackets and a central drop.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "wood",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
