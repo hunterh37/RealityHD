@@ -546,6 +546,7 @@ public enum Props {
         ShojiSlidingPanel.self,
         BrutalistConcreteFinPanel.self,
         BreezeBlockWall.self,
+        CortenSteelCladdingPanel.self,
         // realityhd:prop
     ]
 }
