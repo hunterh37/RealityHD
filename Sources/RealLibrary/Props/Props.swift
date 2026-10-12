@@ -542,6 +542,7 @@ public enum Props {
         GantryCrane.self,
         EngineProp.self,
         CanyonWall.self,
+        ArtNouveauWhiplashRailing.self,
         // realityhd:prop
     ]
 }
