@@ -1,0 +1,45 @@
+{
+  "budget": 14000,
+  "id": "dutch-door",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-shaker-worn",
+    "wood.painted-exterior",
+    "wood.oak",
+    "metal.wrought-iron",
+    "metal.brass-aged",
+    "metal.screw-zinc"
+  ],
+  "name": "Dutch door",
+  "notes": "",
+  "parts": [
+    "two independent leaves split at 1.07 m with 4 mm gap",
+    "raised-and-fielded panels with ovolo sticking moulding",
+    "rounded shelf cap on lower leaf",
+    "stiles 100 mm, bottom rail 190 mm",
+    "iron strap hinges on pintles",
+    "Suffolk thumb latch on each leaf",
+    "barrel bolt linking leaves",
+    "casing with drip cap and oak threshold",
+    "brass kick plate with screws"
+  ],
+  "references": [],
+  "size": [
+    0.95,
+    2.1,
+    0.06
+  ],
+  "style": "architectural facade customizer, Colonial: green painted pine leaves, white casing, worn at kick plate and sill",
+  "summary": "Colonial Dutch door, 0.95 x 2.1 m: split four-panel leaves, shelf cap, strap hinges, thumb latches, barrel bolt.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "door",
+    "wood",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

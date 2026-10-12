@@ -18,6 +18,9 @@ struct ImmersiveSceneView: View {
     @State private var spots: [RealScene.Spot] = []
     /// Grabbable being dragged and its offset from the pinch point (parent space).
     @State private var dragging: (entity: Entity, offset: SIMD3<Float>)?
+    /// Live keypads, displays and lamps of the siphon bar (`siphon-cafe`).
+    @State private var siphon: HalogenSiphonBarRuntime?
+    @State private var brewTask: Task<Void, Never>?
 
     var body: some View {
         RealityView { content, attachments in
@@ -42,6 +45,8 @@ struct ImmersiveSceneView: View {
                 guard model.tapTeleport else { return }
                 let p = value.convert(value.location3D, from: .local, to: .scene)
                 teleport(toScenePoint: p)
+            } else if siphon?.handleTap(value.entity) == true {
+                return
             } else {
                 value.entity.realToggle()
             }
@@ -67,6 +72,13 @@ struct ImmersiveSceneView: View {
             apply(step)
         }
         .onChange(of: model.resetGrabsToken) { resetGrabs(anchor) }
+        .onChange(of: model.brewToken) {
+            guard let siphon, let bar = siphon.root.parent else { return }
+            brewTask?.cancel()
+            let globe = bar.findEntity(named: SiphonCafeLayout.globeName(0))
+            brewTask = Task { await siphon.runBrew(side: "left", globe: globe) }
+        }
+        .onDisappear { siphon?.stop(); brewTask?.cancel() }
         .onDisappear { model.spots = [] }
         .task { await RealViewerTracker.shared.start() }
         .task { await captureMotion() }
@@ -97,6 +109,8 @@ struct ImmersiveSceneView: View {
             model.spots = spots.map(\.name)
             if let cam = scene.camera { anchor.transform = Self.viewerTransform(eye: cam.eye, target: cam.target, extraYaw: config.yaw) }
             env.illuminate(world)
+            siphon?.stop(); siphon = nil
+            if config.scene == .siphonCafe { attachSiphon(world) }
             var cueError = ""
             if Self.cueEnabled {
                 do { model.grabCount = try await RealGrabCue.attach(under: world) } catch { model.grabCount = 0; cueError = " grab cue: \(error)" }
@@ -111,6 +125,22 @@ struct ImmersiveSceneView: View {
             model.status = "error: \(error)"
         }
         model.loading = false
+    }
+
+    /// Wires the siphon bar: globes and flasks ride on the bar when it is carried, keys drive the model.
+    private func attachSiphon(_ world: Entity) {
+        guard let bar = world.findEntity(named: SiphonCafeLayout.barName), let live = HalogenSiphonBarRuntime(root: bar) else { return }
+        live.limitGrabToChassis()
+        for s in 0..<2 {
+            for name in [SiphonCafeLayout.flaskName(s), SiphonCafeLayout.globeName(s)] {
+                guard let e = world.findEntity(named: name) else { continue }
+                e.setParent(live.root, preservingWorldTransform: true)
+                if var g = e.components[RealGrabComponent.self] { g.home = e.transform; e.components.set(g) }
+            }
+        }
+        live.onChange = { c in model.siphonReadout = "L \(c.left.display) \(c.left.mode.rawValue)   R \(c.right.display) \(c.right.mode.rawValue)" }
+        live.start()
+        siphon = live
     }
 
     static let floorName = "teleport-floor"

@@ -1,0 +1,45 @@
+{
+  "budget": 6000,
+  "id": "coffee-scale",
+  "kind": "prop",
+  "materials": [
+    "plastic.matte:1C1C1E",
+    "plastic.medical-grey-worn:202022",
+    "rubber.silicone:1A1A1B",
+    "plastic.matte:A6B0A2",
+    "plastic.matte:141516",
+    "plastic.matte:85907F", "plastic.gloss:1C0F08",
+    "plastic.gloss:0B0B0C"
+  ],
+  "name": "Coffee brewing scale",
+  "notes": "",
+  "parts": [
+    "rounded black matte body",
+    "raised platform",
+    "rubber ring on platform",
+    "front LCD window with weight and time digits",
+    "greyed unlit LCD segments",
+    "power/tare button",
+    "timer button",
+    "rubber feet"
+  ],
+  "references": [],
+  "size": [
+    0.19,
+    0.03,
+    0.12
+  ],
+  "style": "Modern pour-over scale, matte black, light fingerprints near the buttons.",
+  "summary": "Coffee brewing scale, 190 x 120 x 30 mm black matte body, rubber-ringed platform, LCD weight and timer, two front buttons.",
+  "tags": [
+    "prop",
+    "kitchen",
+    "plastic",
+    "electronics",
+    "tool",
+    "handheld"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

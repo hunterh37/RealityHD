@@ -1,0 +1,41 @@
+{
+  "budget": 10000,
+  "id": "mansard-hooded-dormer",
+  "kind": "prop",
+  "materials": [
+    "paint.stucco",
+    "wood.painted-exterior",
+    "metal.roofing",
+    "glass.clear"
+  ],
+  "name": "Mansard hooded dormer",
+  "notes": "",
+  "parts": [
+    "segmental pedimented hood",
+    "fluted pilasters",
+    "two-over-two arched sash",
+    "console brackets",
+    "slate cheeks",
+    "lead-roll hood roof",
+    "sill and apron"
+  ],
+  "references": [],
+  "size": [
+    1.3,
+    1.9,
+    1.0
+  ],
+  "style": "architectural facade customizer, Second Empire",
+  "summary": "Second Empire mansard dormer, 1.3 m: pedimented hood, pilastered jambs, arched-head sash, slate cheeks, lead roll cresting.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roof",
+    "wood",
+    "window"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
