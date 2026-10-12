@@ -546,6 +546,7 @@ public enum Props {
         MissionShapedParapet.self,
         BarrelTileEaveStrip.self,
         PrairieArtGlassWindow.self,
+        PuebloVigasBeamEnds.self,
         // realityhd:prop
     ]
 }
