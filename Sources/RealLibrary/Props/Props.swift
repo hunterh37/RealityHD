@@ -544,6 +544,7 @@ public enum Props {
         CanyonWall.self,
         CastStoneOgeeWindowHood.self,
         DiocletianWindow.self,
+        CorbelledChimneyStack.self,
         // realityhd:prop
     ]
 }
