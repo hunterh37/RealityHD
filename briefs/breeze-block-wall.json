@@ -1,0 +1,39 @@
+{
+  "budget": 40000,
+  "id": "breeze-block-wall",
+  "kind": "prop",
+  "materials": [
+    "masonry.cmu",
+    "concrete.smooth",
+    "paint.stucco",
+    "metal.galvanized"
+  ],
+  "name": "Breeze Block Wall",
+  "notes": "",
+  "parts": [
+    "square pierced blocks 0.2 m",
+    "circle and quatrefoil openings",
+    "mortar joints",
+    "steel reinforcing pilasters",
+    "top cap course",
+    "base plinth",
+    "weathering"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    2.4,
+    0.2
+  ],
+  "style": "architectural facade customizer, Mid-century Modern, painted concrete screen block",
+  "summary": "Breeze block wall, 2.4 x 2.4 m: stacked square decorative concrete screen blocks with a pierced circle-and-diamond pattern.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

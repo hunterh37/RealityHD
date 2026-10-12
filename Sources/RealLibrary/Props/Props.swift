@@ -545,6 +545,7 @@ public enum Props {
         MoorishHorseshoeArchWindow.self,
         ShojiSlidingPanel.self,
         BrutalistConcreteFinPanel.self,
+        BreezeBlockWall.self,
         // realityhd:prop
     ]
 }
