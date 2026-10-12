@@ -544,6 +544,7 @@ public enum Props {
         CanyonWall.self,
         ArtNouveauWhiplashRailing.self,
         MissionShapedParapet.self,
+        BarrelTileEaveStrip.self,
         // realityhd:prop
     ]
 }
