@@ -543,6 +543,7 @@ public enum Props {
         EngineProp.self,
         CanyonWall.self,
         CastIronStorefrontColumn.self,
+        CarriageCoachLamp.self,
         // realityhd:prop
     ]
 }
