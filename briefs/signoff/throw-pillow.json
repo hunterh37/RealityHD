@@ -1,0 +1,22 @@
+{
+  "automated" : 0.972242,
+  "date" : "2026-10-11",
+  "final" : 0.83022213,
+  "fingerprint" : "01932d3801d39c11",
+  "id" : "throw-pillow",
+  "iterations" : 2,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 7,
+    "construction" : 8,
+    "edges" : 8,
+    "grounding" : 7,
+    "materials" : 7,
+    "proportion" : 8,
+    "silhouette" : 8,
+    "wear" : 7
+  },
+  "seed" : 1,
+  "threshold" : 0.8,
+  "vision" : 0.75374997
+}
