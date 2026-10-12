@@ -86,6 +86,14 @@ public enum Structures {
         InteriorFrenchDoors.self,
         CasedOpening.self,
         SlidingClosetDoors.self,
+        PictureWindow.self,
+        AwningWindow.self,
+        SliderWindow.self,
+        WindowSeat.self,
+        Staircase.self,
+        LShapedStaircase.self,
+        UShapedStaircase.self,
+        SpiralStaircase.self,
         // realityhd:structure
     ]
 }
