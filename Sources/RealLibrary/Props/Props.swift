@@ -652,6 +652,7 @@ public enum Props {
         AreaRug.self,
         ThrowPillow.self,
         CubicleWorkstation.self,
+        AlarmClock.self,
         // realityhd:prop
     ]
 }

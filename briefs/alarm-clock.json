@@ -1,14 +1,15 @@
 {
-  "budget": 1500,
+  "budget": 2500,
   "id": "alarm-clock",
   "kind": "prop",
   "materials": [
     "plastic.matte:2A2A2C",
-    "screen.clock",
-    "emissive.led-red"
+    "screen.off",
+    "emissive.led-red",
+    "rubber.silicone:2A2A2A"
   ],
   "name": "Digital alarm clock",
-  "notes": "Rig: snooze slide -Y 0...0.004; digits option off/on. States: off, on.",
+  "notes": "Static. Floorplan pack B12.",
   "parts": [
     "wedge body",
     "dimmable LED digits",
@@ -25,13 +26,14 @@
   "summary": "Bedside digital alarm clock: wedge body, red LED time digits, snooze bar.",
   "tags": [
     "prop",
+    "floorplan",
     "bedroom",
     "electronics",
     "plastic",
-    "handheld",
-    "articulated"
+    "interior",
+    "handheld"
   ],
   "theme": "Bedroom",
-  "threshold": 0.85,
+  "threshold": 0.8,
   "tolerance": 0.08
 }
