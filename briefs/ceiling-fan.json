@@ -6,17 +6,19 @@
     "metal.brushed-nickel",
     "wood.veneer-walnut",
     "glass.frosted",
-    "emissive.bulb"
+    "emissive.bulb",
+    "metal.chrome"
   ],
   "name": "Ceiling fan with light",
-  "notes": "Hangs from y = 0.42 top; scenes place the canopy on the ceiling. Rig: blades hinge Y 0...360 (states pose only; spin is a runtime add), light option + RigLight. States: off, light-on.",
+  "notes": "Static. Ceiling plane y = 2.6: canopy top touches 2.6, body hangs below. Size 1.32 x 0.42 x 1.32 (blade span x height).",
   "parts": [
-    "canopy",
-    "downrod",
-    "motor housing",
-    "five blades on irons",
-    "frosted light bowl",
-    "pull chains"
+    "canopy with trim ring",
+    "downrod and coupler",
+    "motor housing with vent ring",
+    "five walnut blades",
+    "blade irons with screws",
+    "frosted light bowl kit",
+    "pull chains with beads"
   ],
   "references": [],
   "size": [
@@ -28,13 +30,14 @@
   "summary": "52 in ceiling fan: nickel downrod and motor, five walnut blades, frosted light bowl, pull chains.",
   "tags": [
     "prop",
+    "floorplan",
     "home",
+    "interior",
+    "ceiling",
     "light",
-    "metal",
-    "wood",
-    "articulated"
+    "metal"
   ],
-  "theme": "Home",
+  "theme": "Lighting",
   "threshold": 0.85,
-  "tolerance": 0.08
+  "tolerance": 0.05
 }

@@ -1,0 +1,44 @@
+{
+  "budget": 2500,
+  "id": "thermostat",
+  "kind": "prop",
+  "materials": [
+    "plastic.gloss:F2F2EF",
+    "plastic.black",
+    "plastic.matte",
+    "screen.lcd",
+    "screen.off",
+    "emissive.led-green"
+  ],
+  "name": "Wall thermostat",
+  "notes": "Static. Wall asset: lowest point y = 0, back face at z = -0.015. Planner lifts to 1.45 m.",
+  "parts": [
+    "back plate",
+    "rounded white case",
+    "dark glass front",
+    "lit display",
+    "touch buttons",
+    "side vent slots",
+    "status LED"
+  ],
+  "references": [],
+  "size": [
+    0.09,
+    0.09,
+    0.03
+  ],
+  "style": "white gloss plastic, black glass, new",
+  "summary": "Digital wall thermostat: white square case, dark glass display with lit readout, touch buttons, side vent slots.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "interior",
+    "hvac",
+    "electronics",
+    "plastic",
+    "wall"
+  ],
+  "theme": "Lighting",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

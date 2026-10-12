@@ -629,6 +629,17 @@ public enum Props {
         WashingMachine.self,
         ClothesDryer.self,
         UtilitySink.self,
+        CeilingFan.self,
+        PendantLight.self,
+        Chandelier.self,
+        RecessedDownlight.self,
+        TrackLighting.self,
+        VanityLightBar.self,
+        MiniSplitIndoorUnit.self,
+        CeilingDiffuser.self,
+        Thermostat.self,
+        SmokeDetector.self,
+        LightSwitch.self,
         // realityhd:prop
     ]
 }
