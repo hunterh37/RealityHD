@@ -117,7 +117,7 @@ struct ForestApp: App {
 A reference photo goes in, a procedural Swift asset comes out. Left: the photo. Right: the
 `halogen-siphon-bar` prop that the agent loop built from it (no mesh or texture files).
 
-![Reference photo and generated halogen-siphon-bar prop](docs/compare/halogen-siphon-bar.jpg)
+![Reference photo and generated halogen-siphon-bar prop](docs/compare/halogen-siphon-bar-v2.jpg)
 
 ### Prompting Claude Code
 
