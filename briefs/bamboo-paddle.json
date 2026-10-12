@@ -1,0 +1,36 @@
+{
+  "budget": 2500,
+  "id": "bamboo-paddle",
+  "kind": "prop",
+  "materials": [
+    "wood.beech-spoon"
+  ],
+  "name": "Bamboo siphon paddle",
+  "notes": "Coffee stain is the splat layer wood.beech-spoon-stained.",
+  "parts": [
+    "flat paddle blade 22 mm wide",
+    "thin rounded paddle end",
+    "tapered handle",
+    "raised bamboo node ring",
+    "coffee stain on blade tip",
+    "grain along length"
+  ],
+  "references": [],
+  "size": [
+    0.19,
+    0.006,
+    0.022
+  ],
+  "style": "New-ish natural bamboo, lightly oiled; brown coffee stain on the paddle end only.",
+  "summary": "Bamboo siphon stirring paddle, 190 mm: flat tapered blade with rounded tip, node ring on the handle, coffee stain on the blade.",
+  "tags": [
+    "prop",
+    "kitchen",
+    "wood",
+    "tool",
+    "handheld"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

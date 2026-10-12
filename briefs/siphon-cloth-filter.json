@@ -1,0 +1,38 @@
+{
+  "id": "siphon-cloth-filter",
+  "kind": "prop",
+  "name": "Siphon cloth filter",
+  "summary": "Spare siphon cloth filter: flannel-wrapped steel disc, gathered drawstring, ball chain and spring hook lying beside it.",
+  "tags": [
+    "prop",
+    "kitchen",
+    "fabric",
+    "metal",
+    "handheld"
+  ],
+  "size": [
+    0.106,
+    0.013,
+    0.07
+  ],
+  "tolerance": 0.12,
+  "parts": [
+    "off-white flannel-wrapped disc",
+    "stainless frame boss in the centre",
+    "gathered drawstring underneath with tied ends",
+    "fine ball chain curled on the table",
+    "coil spring with hook at the chain end",
+    "light coffee stain on the flannel"
+  ],
+  "materials": [
+    "paper.exam",
+    "fabric.linen",
+    "metal.stainless"
+  ],
+  "budget": 8500,
+  "style": "Used flannel filter, off-white with a pale coffee stain at the centre.",
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "references": [],
+  "notes": "Siphon glassware for halogen-siphon-bar."
+}

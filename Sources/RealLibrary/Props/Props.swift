@@ -547,6 +547,23 @@ public enum Props {
         CorbelledChimneyStack.self,
         SteppedGableParapet.self,
         CopperBayWindowHood.self,
+        TudorHalfTimberPanel.self,
+        GingerbreadBargeboard.self,
+        QueenAnneSpindleFrieze.self,
+        MansardHoodedDormer.self,
+        TurnedPorchBalusterRun.self,
+        DutchDoor.self,
+        PalladianWindow.self,
+        GothicPointedArchDoor.self,
+        BahamaShutter.self,
+        CraftsmanTaperedColumn.self,
+        BambooPaddle.self,
+        CoffeeBeanBag.self,
+        SiphonUpperGlobe.self,
+        CoffeeCupSaucer.self,
+        CoffeeScale.self,
+        SiphonClothFilter.self,
+        SiphonLowerFlask.self,
         // realityhd:prop
     ]
 }

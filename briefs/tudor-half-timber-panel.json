@@ -1,0 +1,40 @@
+{
+  "budget": 13500,
+  "id": "tudor-half-timber-panel",
+  "kind": "prop",
+  "materials": [
+    "wood.oak",
+    "wood.weathered",
+    "paint.stucco"
+  ],
+  "name": "Tudor half-timber panel",
+  "notes": "",
+  "parts": [
+    "oak sill plate",
+    "corner posts",
+    "mid rail and head plate",
+    "curved and straight braces",
+    "vertical studs",
+    "stucco infill panels",
+    "oak peg heads",
+    "jettied overhang"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    2.4,
+    0.18
+  ],
+  "style": "architectural facade customizer, Tudor Revival",
+  "summary": "Tudor Revival half-timber wall panel, 2.4 m: oak sill, posts, rails, braces and studs over rough lime stucco infill, pegged joints.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

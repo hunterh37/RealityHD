@@ -1,0 +1,38 @@
+{
+  "id": "siphon-lower-flask",
+  "kind": "prop",
+  "name": "Siphon lower flask",
+  "summary": "Round-bottomed borosilicate siphon lower flask with rolled neck lip, white cup marks and optional water fill.",
+  "tags": [
+    "prop",
+    "kitchen",
+    "glass",
+    "container",
+    "handheld",
+    "water"
+  ],
+  "size": [
+    0.116,
+    0.15,
+    0.116
+  ],
+  "tolerance": 0.12,
+  "parts": [
+    "round borosilicate bowl, slightly flattened base",
+    "straight neck tube",
+    "rolled lip",
+    "white printed 1/2/3 cup lines and digits",
+    "water fill inside"
+  ],
+  "materials": [
+    "glass.clear",
+    "paint.measure-red",
+    "food.water"
+  ],
+  "budget": 9000,
+  "style": "Hario TCA-3 lower flask, clean glass with fired-on white capacity marks.",
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "references": [],
+  "notes": "Siphon glassware for halogen-siphon-bar."
+}
