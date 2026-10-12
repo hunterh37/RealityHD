@@ -609,6 +609,16 @@ public enum Props {
         TallboyChest.self,
         Wardrobe.self,
         VanityTable.self,
+        Toilet.self,
+        Bidet.self,
+        PedestalSink.self,
+        BathroomVanity.self,
+        DoubleVanity.self,
+        AlcoveBathtub.self,
+        FreestandingBathtub.self,
+        CornerShower.self,
+        WalkInShower.self,
+        MedicineCabinet.self,
         // realityhd:prop
     ]
 }
