@@ -542,13 +542,11 @@ public enum Props {
         GantryCrane.self,
         EngineProp.self,
         CanyonWall.self,
-<<<<<<< HEAD
         TudorHalfTimberPanel.self,
         GingerbreadBargeboard.self,
         QueenAnneSpindleFrieze.self,
         MansardHoodedDormer.self,
         TurnedPorchBalusterRun.self,
-=======
         DutchDoor.self,
         PalladianWindow.self,
         GothicPointedArchDoor.self,
@@ -561,7 +559,6 @@ public enum Props {
         CoffeeScale.self,
         SiphonClothFilter.self,
         SiphonLowerFlask.self,
->>>>>>> origin/main
         // realityhd:prop
     ]
 }
