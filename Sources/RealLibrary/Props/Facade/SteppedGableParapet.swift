@@ -8,7 +8,7 @@ public struct SteppedGableParapet: RealAsset {
     public static let id = "stepped-gable-parapet"
     public static let summary = "Dutch Colonial stepped gable parapet, 2.4 x 1.4 m: brick wall, sandstone copings on each step, string course, oculus, iron wall anchors, ball finial."
     public static let tags = ["prop", "architecture", "facade", "roof", "brick", "stone"]
-    public static let budget = 14000
+    public static let budget = 15000
     public static let author = "realityhd"
     public static let preview = PreviewHint(azimuth: 26, elevation: 12, distance: 3.6)
 

@@ -6,7 +6,7 @@ import Foundation
 /// keystone and a weathered projecting sill with drip. Wall plane at z = 0, piece projecting toward +Z.
 public struct DiocletianWindow: RealAsset {
     public static let id = "diocletian-window"
-    public static let summary = "Neoclassical Diocletian (thermal) window, 1.8 m: semicircular opening with two mullions into three lights, moulded stone architrave, impost blocks, keystone, sill."
+    public static let summary = "Neoclassical Diocletian (thermal) window, 1.8 m: semicircular opening, two mullions, moulded stone architrave, impost blocks, keystone, sill."
     public static let tags = ["prop", "architecture", "facade", "window", "stone", "glass"]
     public static let budget = 12000
     public static let author = "realityhd"

@@ -1,5 +1,5 @@
 {
-  "budget": 12000,
+  "budget": 15000,
   "id": "stepped-gable-parapet",
   "kind": "prop",
   "materials": [
@@ -29,7 +29,7 @@
     0.35
   ],
   "style": "architectural facade customizer, Flemish/Dutch Colonial",
-  "summary": "Flemish crow-stepped gable parapet, 2.4 m: red brick wall with stone coping on each step, quoined edges, ball finials, iron wall anchors.",
+  "summary": "Dutch Colonial stepped gable parapet, 2.4 x 1.4 m: brick wall, sandstone copings on each step, string course, oculus, iron wall anchors, ball finial.",
   "tags": [
     "prop",
     "architecture",
