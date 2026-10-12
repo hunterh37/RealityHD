@@ -543,6 +543,7 @@ public enum Props {
         EngineProp.self,
         CanyonWall.self,
         TudorHalfTimberPanel.self,
+        GingerbreadBargeboard.self,
         // realityhd:prop
     ]
 }
