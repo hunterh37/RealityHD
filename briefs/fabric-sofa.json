@@ -1,5 +1,5 @@
 {
-  "budget": 14000,
+  "budget": 9500,
   "id": "fabric-sofa",
   "kind": "prop",
   "materials": [
@@ -8,7 +8,7 @@
     "fabric.upholstery:7A7D80"
   ],
   "name": "Three-seat fabric sofa",
-  "notes": "",
+  "notes": "Floor planning pack B1. Front +Z, back at -Z, seat centered on X=0.",
   "parts": [
     "track arms",
     "three loose seat cushions with welts and sag",
@@ -26,12 +26,14 @@
   "summary": "Three-seat fabric sofa, 2.15 m: track arms, loose seat and back cushions with welts, tapered walnut legs.",
   "tags": [
     "prop",
+    "floorplan",
     "living",
     "furniture",
     "fabric",
+    "wood",
     "interior"
   ],
   "theme": "Living",
   "threshold": 0.85,
-  "tolerance": 0.08
+  "tolerance": 0.05
 }

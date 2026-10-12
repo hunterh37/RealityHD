@@ -579,6 +579,16 @@ public enum Props {
         CoffeeScale.self,
         SiphonClothFilter.self,
         SiphonLowerFlask.self,
+        FabricSofa.self,
+        SectionalSofa.self,
+        Loveseat.self,
+        ClubChair.self,
+        ReclinerChair.self,
+        Ottoman.self,
+        DiningChair.self,
+        BarStool.self,
+        HighChair.self,
+        EntryBench.self,
         // realityhd:prop
     ]
 }

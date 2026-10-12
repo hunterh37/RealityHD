@@ -1,0 +1,17 @@
+{
+  "budget": 9800,
+  "id": "high-chair",
+  "kind": "prop",
+  "materials": ["wood.beech-stained", "wood.beech-stained:D6B27C", "laminate.white", "fabric.webbing:3E8E9E", "vinyl.seat-grey", "metal.stainless-smudged"],
+  "name": "Child high chair",
+  "notes": "Floor planning pack B1. Seat top 0.5 m, tray removable but modelled in place. Front +Z. Legs splay to 0.55 x 0.6.",
+  "parts": ["raked rear posts with slat back", "splayed front legs", "padded seat with crotch post", "removable tray with raised rim and insert", "tray side rails", "footrest plank", "three-point harness with buckle", "apron rails"],
+  "references": [],
+  "size": [0.55, 0.9, 0.6],
+  "style": "beech wooden high chair, scuffed tray rim, teal harness",
+  "summary": "Child high chair: splayed wooden legs, slat back, padded seat, tray with rim, footrest, three-point harness.",
+  "tags": ["prop", "floorplan", "dining", "furniture", "wood", "fabric", "interior"],
+  "theme": "Dining",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}
