@@ -619,6 +619,16 @@ public enum Props {
         CornerShower.self,
         WalkInShower.self,
         MedicineCabinet.self,
+        Refrigerator.self,
+        Dishwasher.self,
+        Microwave.self,
+        WallOven.self,
+        WineCooler.self,
+        PantryCabinet.self,
+        CornerBaseCabinet.self,
+        WashingMachine.self,
+        ClothesDryer.self,
+        UtilitySink.self,
         // realityhd:prop
     ]
 }
