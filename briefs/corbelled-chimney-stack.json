@@ -1,0 +1,43 @@
+{
+  "budget": 12000,
+  "id": "corbelled-chimney-stack",
+  "kind": "prop",
+  "materials": [
+    "brick.red",
+    "brick.common",
+    "stone.sandstone",
+    "stone.limestone-sooted",
+    "metal.tinned-copper"
+  ],
+  "name": "Corbelled chimney stack",
+  "notes": "",
+  "parts": [
+    "brick base with vitrified header diamonds",
+    "sandstone weathering",
+    "four corbel courses",
+    "twin twisted octagonal shafts",
+    "moulded shaft caps",
+    "stone cap with drip",
+    "lead flashing apron",
+    "soot staining at the top"
+  ],
+  "references": [],
+  "size": [
+    0.9,
+    2.4,
+    0.9
+  ],
+  "style": "architectural facade customizer, Tudor Revival",
+  "summary": "Tudor Revival chimney stack, 0.9 x 2.4 m: red brick base with diaper header diamonds, corbelled courses, twin twisted octagonal shafts, stone cap.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roof",
+    "brick",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
