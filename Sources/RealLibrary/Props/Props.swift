@@ -546,6 +546,7 @@ public enum Props {
         GingerbreadBargeboard.self,
         QueenAnneSpindleFrieze.self,
         MansardHoodedDormer.self,
+        TurnedPorchBalusterRun.self,
         // realityhd:prop
     ]
 }
