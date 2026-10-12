@@ -547,6 +547,13 @@ public enum Props {
         GothicPointedArchDoor.self,
         BahamaShutter.self,
         CraftsmanTaperedColumn.self,
+        BambooPaddle.self,
+        CoffeeBeanBag.self,
+        SiphonUpperGlobe.self,
+        CoffeeCupSaucer.self,
+        CoffeeScale.self,
+        SiphonClothFilter.self,
+        SiphonLowerFlask.self,
         // realityhd:prop
     ]
 }
