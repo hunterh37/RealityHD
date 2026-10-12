@@ -599,6 +599,16 @@ public enum Props {
         Sideboard.self,
         ChinaCabinet.self,
         KitchenIsland.self,
+        QueenBed.self,
+        KingBed.self,
+        TwinBed.self,
+        BunkBed.self,
+        Crib.self,
+        Nightstand.self,
+        Dresser.self,
+        TallboyChest.self,
+        Wardrobe.self,
+        VanityTable.self,
         // realityhd:prop
     ]
 }
