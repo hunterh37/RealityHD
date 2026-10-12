@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "cast-stone-ogee-window-hood",
+  "kind": "prop",
+  "materials": [
+    "stone.cast-stone",
+    "stone.limestone-sooted",
+    "metal.tinned-copper"
+  ],
+  "name": "Cast stone ogee window hood",
+  "notes": "",
+  "parts": [
+    "ogee cyma recta cornice",
+    "frieze with raised panel",
+    "two scrolled consoles with volutes",
+    "acanthus leaves",
+    "keyblock",
+    "palmette crest",
+    "lead cap flashing",
+    "bed mould and fillets"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    0.7,
+    0.18
+  ],
+  "style": "architectural facade customizer, Italianate",
+  "summary": "Italianate cast stone window hood, 1.2 m: ogee cornice over frieze, two scrolled consoles, keyblock, palmette crest, lead cap flashing.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
