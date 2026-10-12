@@ -542,11 +542,26 @@ public enum Props {
         GantryCrane.self,
         EngineProp.self,
         CanyonWall.self,
+<<<<<<< HEAD
         TudorHalfTimberPanel.self,
         GingerbreadBargeboard.self,
         QueenAnneSpindleFrieze.self,
         MansardHoodedDormer.self,
         TurnedPorchBalusterRun.self,
+=======
+        DutchDoor.self,
+        PalladianWindow.self,
+        GothicPointedArchDoor.self,
+        BahamaShutter.self,
+        CraftsmanTaperedColumn.self,
+        BambooPaddle.self,
+        CoffeeBeanBag.self,
+        SiphonUpperGlobe.self,
+        CoffeeCupSaucer.self,
+        CoffeeScale.self,
+        SiphonClothFilter.self,
+        SiphonLowerFlask.self,
+>>>>>>> origin/main
         // realityhd:prop
     ]
 }

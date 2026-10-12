@@ -1,0 +1,49 @@
+{
+  "budget": 15000,
+  "id": "gothic-pointed-arch-door",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "wood.oak:5B3F28",
+    "wood.oak:7A5C40",
+    "wood.oak:4A3322",
+    "wood.oak:8E7A62",
+    "metal.wrought-iron",
+    "metal.cast-iron",
+    "metal.brass-aged",
+    "stone.granite-moss",
+    "metal.rust"
+  ],
+  "name": "Gothic pointed arch door",
+  "notes": "",
+  "parts": [
+    "equilateral pointed arch opening in ashlar surround with chamfered jambs",
+    "hood mould (label) with carved label stops",
+    "vertical oak plank leaves with V-joints",
+    "iron strap hinges with nail heads and clenched studs",
+    "ring pull and lock plate",
+    "stone voussoirs and impost mouldings",
+    "worn stone threshold step"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    2.9,
+    0.25
+  ],
+  "style": "architectural facade customizer, Gothic Revival: oak plank door in a limestone pointed-arch surround with hood mould",
+  "summary": "Gothic Revival pointed-arch door, 1.2 x 2.9 m: oak plank leaf, strap hinges, voussoir surround, hood mould with label stops.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "door",
+    "stone",
+    "wood",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
