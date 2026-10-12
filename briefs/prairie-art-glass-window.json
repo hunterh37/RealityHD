@@ -1,0 +1,44 @@
+{
+  "budget": 10000,
+  "id": "prairie-art-glass-window",
+  "kind": "prop",
+  "materials": [
+    "wood.walnut",
+    "metal.galvanized-aged",
+    "plastic.amber",
+    "glass.emerald",
+    "glass.pane",
+    "stone.limestone"
+  ],
+  "name": "Prairie art glass window",
+  "notes": "",
+  "parts": [
+    "oak frame",
+    "zinc came lattice",
+    "vertical banding",
+    "amber and green glass panes",
+    "clear glass field",
+    "projecting stone sill",
+    "mitred stop"
+  ],
+  "references": [],
+  "size": [
+    0.9,
+    1.4,
+    0.1
+  ],
+  "style": "architectural facade customizer, Prairie School, oak casement with zinc-came leaded art glass in geometric pattern",
+  "summary": "Prairie School art glass window, 0.9 x 1.4 m: oak frame, zinc came geometric lattice, green amber and clear glass, stone sill.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "decor",
+    "wood",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
