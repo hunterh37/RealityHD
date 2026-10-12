@@ -1,0 +1,44 @@
+{
+  "budget": 12000,
+  "id": "stepped-gable-parapet",
+  "kind": "prop",
+  "materials": [
+    "brick.red",
+    "brick.common",
+    "stone.sandstone",
+    "stone.limestone",
+    "metal.wrought-iron"
+  ],
+  "name": "Stepped gable parapet",
+  "notes": "",
+  "parts": [
+    "crow-stepped brick profile",
+    "stone coping on every step",
+    "corner quoins",
+    "string course",
+    "oculus with keyblocks",
+    "apex finial plinth and ball",
+    "step ball finials",
+    "iron wall anchors",
+    "stone date cartouche"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    1.4,
+    0.35
+  ],
+  "style": "architectural facade customizer, Flemish/Dutch Colonial",
+  "summary": "Flemish crow-stepped gable parapet, 2.4 m: red brick wall with stone coping on each step, quoined edges, ball finials, iron wall anchors.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roof",
+    "brick",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
