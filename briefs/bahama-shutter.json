@@ -1,0 +1,46 @@
+{
+  "budget": 15000,
+  "id": "bahama-shutter",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-shaker-worn:3F7A70",
+    "wood.painted-shaker-worn:6A7F6F",
+    "wood.painted-exterior:E9E3D2",
+    "wood.painted-shaker-worn:B9B2A0",
+    "wood.weathered",
+    "metal.wrought-iron",
+    "metal.screw-zinc",
+    "metal.rust"
+  ],
+  "name": "Bahama shutter",
+  "notes": "",
+  "parts": [
+    "mortised pine frame: stiles, top rail, mid rail, drip-lipped bottom rail with pegged joints",
+    "fixed louvre slats tilted 38 degrees with rounded edges and bead stops",
+    "two barrel hinges with screwed leaves joining panel to header",
+    "painted header board with cove cap and screws",
+    "two prop-stay rods with pivot ball and wall eyes",
+    "bottom-rail pull handle",
+    "lap siding and sill behind the panel",
+    "sun-faded paint gradient, chipped and splash-grimed at the foot, rust bleed under hinges"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.4,
+    0.12
+  ],
+  "style": "architectural facade customizer, Caribbean/Colonial: top-hinged louvred awning shutter cracked open on its hinge line, faded teal painted pine",
+  "summary": "Bahama (Colonial) shutter, 1.2 x 1.4 m: top-hinged louvred panel, barrel hinges and prop stays on a header board.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "shutter",
+    "wood",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

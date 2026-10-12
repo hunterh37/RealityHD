@@ -545,6 +545,7 @@ public enum Props {
         DutchDoor.self,
         PalladianWindow.self,
         GothicPointedArchDoor.self,
+        BahamaShutter.self,
         // realityhd:prop
     ]
 }
