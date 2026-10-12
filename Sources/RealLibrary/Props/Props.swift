@@ -544,6 +544,7 @@ public enum Props {
         CanyonWall.self,
         CastIronStorefrontColumn.self,
         CarriageCoachLamp.self,
+        GasLampWallBracket.self,
         // realityhd:prop
     ]
 }
