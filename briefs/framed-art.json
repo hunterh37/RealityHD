@@ -1,0 +1,41 @@
+{
+  "budget": 6000,
+  "id": "framed-art",
+  "kind": "prop",
+  "materials": [
+    "wood.walnut",
+    "paint.wall",
+    "glass.clear",
+    "metal.brass"
+  ],
+  "name": "framed art",
+  "notes": "",
+  "parts": [
+    "stepped walnut moulding frame with mitered corners",
+    "off-white mat with beveled window",
+    "landscape print (layered hills, sun)",
+    "glass pane in rabbet",
+    "backing board with wire hanger and screw eyes",
+    "rubber bumpers"
+  ],
+  "references": [],
+  "size": [
+    0.9,
+    0.6,
+    0.035
+  ],
+  "style": "walnut frame with cream mat around a muted landscape print, matte finish, lightly aged",
+  "summary": "Wall art, 0.9 x 0.6 m: walnut stepped frame, cream matted landscape print under glass, wire hanger on the back.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "home",
+    "decor",
+    "wood",
+    "wall",
+    "interior"
+  ],
+  "theme": "Home",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

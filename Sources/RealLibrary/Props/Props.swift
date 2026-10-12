@@ -653,6 +653,11 @@ public enum Props {
         ThrowPillow.self,
         CubicleWorkstation.self,
         AlarmClock.self,
+        WallOutlet.self,
+        StepStool.self,
+        FramedArt.self,
+        BenchDeskPair.self,
+        CoffeeMaker.self,
         // realityhd:prop
     ]
 }

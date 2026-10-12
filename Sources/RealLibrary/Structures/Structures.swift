@@ -94,6 +94,7 @@ public enum Structures {
         LShapedStaircase.self,
         UShapedStaircase.self,
         SpiralStaircase.self,
+        Fireplace.self,
         // realityhd:structure
     ]
 }
