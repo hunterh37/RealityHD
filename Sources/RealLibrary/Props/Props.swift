@@ -546,6 +546,7 @@ public enum Props {
         DiocletianWindow.self,
         CorbelledChimneyStack.self,
         SteppedGableParapet.self,
+        CopperBayWindowHood.self,
         // realityhd:prop
     ]
 }
