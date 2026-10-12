@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "art-nouveau-whiplash-railing",
+  "kind": "prop",
+  "materials": [
+    "metal.wrought-iron",
+    "metal.painted:2F4A3C",
+    "metal.bronze-cast",
+    "metal.rust"
+  ],
+  "name": "Art Nouveau whiplash railing",
+  "notes": "",
+  "parts": [
+    "bottom rail",
+    "top rail",
+    "bronze handrail cap",
+    "end posts with whiplash curl finials",
+    "tapered whiplash flat-bar curves",
+    "paired tendril scrolls",
+    "rivet collars",
+    "floor plates"
+  ],
+  "references": [],
+  "size": [
+    1.8,
+    1.0,
+    0.06
+  ],
+  "style": "architectural facade customizer, Art Nouveau, painted wrought iron with verdigris wear",
+  "summary": "Art Nouveau balcony railing, 1.8 m: flat-bar frame, tapered whiplash curves, bronze handrail, rivets.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "decor",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
