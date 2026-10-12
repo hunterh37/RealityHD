@@ -30,6 +30,7 @@ enum DemoScene: String, CaseIterable, Identifiable, Codable, Hashable {
     case linemanDistrict = "lineman-district"
     case aerospaceRange = "aerospace-range"
     case aerospaceHangar = "aerospace-hangar"
+    case siphonCafe = "siphon-cafe"
     var id: String { rawValue }
     var title: String {
         switch self {
@@ -59,6 +60,7 @@ enum DemoScene: String, CaseIterable, Identifiable, Codable, Hashable {
         case .linemanDistrict: "Lineman District"
         case .aerospaceRange: "Aerospace Range"
         case .aerospaceHangar: "Aerospace Hangar"
+        case .siphonCafe: "Siphon Café"
         }
     }
     var detail: String {
@@ -88,6 +90,7 @@ enum DemoScene: String, CaseIterable, Identifiable, Codable, Hashable {
         case .linemanYard: "Utility service yard: steel line shop, pole stacks, cable reels, truck stalls."
         case .linemanDistrict: "Four-block city loop with an overhead pole line, job-site pole and the service yard."
         case .aerospaceRange: "Desert launch range: pad, tower, blockhouse, runway and course obstacles from the viewing platform."
+        case .siphonCafe: "Halogen siphon bar on a café terrace. Tap keys (heat, extract, keep warm, output, time); grab globes, flasks, cups, kettle."
         case .aerospaceHangar: "Hangar bay: gantry crane over a fuel tank, capsule, engine, wing, part racks and avionics bench."
         }
     }
@@ -153,6 +156,10 @@ final class DemoModel {
     var grabCount = 0
     /// Bumped to put every grabbed object back.
     var resetGrabsToken = 0
+    /// Bumped to run the scripted siphon brew (`siphon-cafe`).
+    var brewToken = 0
+    /// Live siphon bar readout, "L 98C  R ----".
+    var siphonReadout = ""
     var showHUD = UserDefaults.standard.bool(forKey: "demo.hud") {
         didSet { UserDefaults.standard.set(showHUD, forKey: "demo.hud") }
     }

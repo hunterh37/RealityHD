@@ -69,6 +69,10 @@ struct MenuView: View {
                             }
                         }
                         Button("Put back grabbed objects") { model.resetGrabsToken += 1 }
+                        if model.open?.scene == .siphonCafe {
+                            Button("Brew on the left station") { model.brewToken += 1 }
+                            Text(model.siphonReadout).font(.footnote.monospaced())
+                        }
                     }
                     Section {
                         Button("Exit Scene", role: .destructive) { Task { await exit() } }

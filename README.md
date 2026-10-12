@@ -17,6 +17,7 @@ every PBR texture is synthesized on the GPU.
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Quick start](#quick-start)
+- [Photo to asset](#photo-to-asset)
 - [Demo app](#demo-app)
 - [Usage](#usage)
 - [Gallery](#gallery)
@@ -109,6 +110,60 @@ struct ForestApp: App {
         .immersionStyle(selection: .constant(.full), in: .full)
     }
 }
+```
+
+## Photo to asset
+
+A reference photo goes in, a procedural Swift asset comes out. Left: the photo. Right: the
+`halogen-siphon-bar` prop that the agent loop built from it (no mesh or texture files).
+
+![Reference photo and generated halogen-siphon-bar prop](docs/compare/halogen-siphon-bar-v2.jpg)
+
+### Prompting Claude Code
+
+Open Claude Code in this repo. The `realityhd-prop` skill runs brief, scaffold, build, lint, vision
+gate, sign-off, thumbnail and catalog. Example prompts:
+
+With your own photo (attach it or give a path):
+
+> Add a prop from this photo: ~/Desktop/espresso-grinder.jpg. Match the size and materials.
+
+> /realityhd-prop make this lamp photoreal [image attached]
+
+Without a photo (the agent searches for a matching reference image first):
+
+> Add a vintage rotary telephone prop. Find a reference photo and match it.
+
+> Model a cast iron skillet, 30 cm, find a product photo for proportions.
+
+Scenes and materials:
+
+> Build a scene "bakery-counter" with the kitchen props, interior lighting, camera at the register.
+
+> Add a material wood.walnut-oiled like wood.oak, darker and warmer.
+
+### Using a generated asset
+
+Every asset in the catalog, including new ones, loads by id:
+
+```swift
+import RealKit; import RealLibrary
+
+RealityHD.setup(.balanced)
+let env = try RealityHD.environment(.afternoon, skybox: false)
+let siphon = try await RealityHD.entity("halogen-siphon-bar", seed: 1)
+env.illuminate(siphon)
+content.add(env.root)
+content.add(siphon)
+```
+
+### By hand
+
+```sh
+swift run -q realityhd brief my-prop --theme Kitchen --name "My prop"   # fill briefs/my-prop.json
+swift run -q realityhd new prop my-prop --brief briefs/my-prop.json      # write build(seed:)
+swift run -q realityhd gate my-prop --ref photo.jpg                      # side-by-side + scores
+swift run -q realityhd thumbs my-prop && swift run -q realityhd catalog
 ```
 
 ## Demo app

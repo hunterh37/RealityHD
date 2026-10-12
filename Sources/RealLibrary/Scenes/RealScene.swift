@@ -215,6 +215,16 @@ public struct RealScene {
         rigs.append(.init(rig: asset.rig(seed: seed), at: at, state: state, interactive: interactive, grabbable: grabbable ?? A.handheld, name: name))
     }
 
+    /// A static asset kept as its own entity that a hand can pick up and move (cups, glassware, tools).
+    /// Built as a one-state rig so it shares the live path: `name` names the entity.
+    public mutating func addGrabbable<A: RealAsset>(_ asset: A, at: Xform = .identity, seed: UInt64, name: String? = nil) {
+        let lod = asset.build(seed: seed)
+        var rig = Rig(name: A.id, lods: lod.levels.count, switchDistances: lod.switchDistances)
+        rig.base = lod.levels
+        rig.states = [RigState("rest")]
+        rigs.append(.init(rig: rig, at: at, state: "rest", interactive: false, grabbable: true, name: name))
+    }
+
     /// A one-off model (paths, pads, walls) that is not a catalog asset. `bake`: receive scene AO.
     public mutating func add(_ model: Model, at: Xform = .identity, bake: Bool = false) {
         singles.append(.init(asset: LODModel(model), at: at, bake: bake))

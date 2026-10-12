@@ -1,0 +1,39 @@
+{
+  "budget": 5000,
+  "id": "coffee-cup-saucer",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "ceramic.bisque:E6E0D2",
+    "plastic.gloss:24130A"
+  ],
+  "name": "Coffee cup and saucer",
+  "notes": "Height = 5 mm saucer well + 65 mm cup.",
+  "parts": [
+    "thrown cup body with rolled rim",
+    "loop handle",
+    "cup foot ring",
+    "saucer with raised rim",
+    "saucer well",
+    "unglazed foot ring",
+    "black coffee surface"
+  ],
+  "references": [],
+  "size": [
+    0.14,
+    0.07,
+    0.14
+  ],
+  "style": "Contemporary white caf\u00e9 porcelain, clean glaze, unglazed foot rings.",
+  "summary": "White glazed porcelain coffee cup on a saucer: 75 mm cup with loop handle, 140 mm saucer with a well, black coffee inside.",
+  "tags": [
+    "prop",
+    "kitchen",
+    "ceramic",
+    "container",
+    "handheld"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

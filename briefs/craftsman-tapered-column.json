@@ -1,0 +1,52 @@
+{
+  "budget": 15000,
+  "id": "craftsman-tapered-column",
+  "kind": "prop",
+  "materials": [
+    "stone.wall-block",
+    "stone.sandstone",
+    "stone.granite-paver",
+    "stone.granite-moss",
+    "stone.cast-stone",
+    "stone.cast-grey",
+    "wood.painted-shaker-worn:6B7355",
+    "wood.painted-shaker-worn:8A8A74",
+    "wood.painted-shaker-worn:757E5D",
+    "wood.painted-shaker-worn:49513B",
+    "wood.painted-exterior:DAD3BE",
+    "wood.weathered",
+    "metal.wrought-iron"
+  ],
+  "name": "Craftsman tapered column",
+  "notes": "",
+  "parts": [
+    "battered rubble stone pier, seven courses with alternating through-corners over a mortar core",
+    "cast-stone cap slab with drip chamfer",
+    "wood plinth block with ovolo base moulding",
+    "tapered box shaft of four butt-jointed boards",
+    "raised flat panel on each face",
+    "cove necking, flared capital and abacus slab",
+    "bolted architrave seat block",
+    "iron anchor straps with bolts at the plinth",
+    "splash-grimed foot, rain streaks, chipped paint, mossy lowest stones"
+  ],
+  "references": [],
+  "size": [
+    0.45,
+    2.7,
+    0.45
+  ],
+  "style": "architectural facade customizer, Craftsman: tapered square porch column on a stone pier, with cap and bracket",
+  "summary": "Craftsman tapered porch column, 0.45 x 2.7 m: rubble stone pier, plinth, butt-jointed tapered wood shaft with panels, capital.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ornament",
+    "wood",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
