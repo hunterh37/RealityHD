@@ -1,0 +1,40 @@
+{
+  "budget": 14500,
+  "id": "cast-iron-storefront-column",
+  "kind": "prop",
+  "materials": [
+    "metal.painted",
+    "metal.cast-iron",
+    "metal.rust"
+  ],
+  "name": "Cast-iron storefront column",
+  "notes": "",
+  "parts": [
+    "cast plinth base with torus and scotia mouldings",
+    "fluted shaft with arrises",
+    "astragal bead rings at shaft ends",
+    "Corinthian-style foliate capital with abacus",
+    "bolted joint flanges with hex bolts",
+    "cast seam lines",
+    "paint chips and rust at base"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    3.2,
+    0.3
+  ],
+  "style": "architectural facade customizer, Victorian Commercial, 1870s foundry cast iron, painted dark green with rust at base",
+  "summary": "Victorian cast-iron storefront column, 3.2 m: moulded plinth, fluted shaft with astragal rings, foliate capital, bolted flanges.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}
