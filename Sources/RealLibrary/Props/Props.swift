@@ -589,6 +589,16 @@ public enum Props {
         BarStool.self,
         HighChair.self,
         EntryBench.self,
+        CoffeeTable.self,
+        EndTable.self,
+        ConsoleTable.self,
+        TvConsole.self,
+        FlatTv.self,
+        DiningTable.self,
+        RoundDiningTable.self,
+        Sideboard.self,
+        ChinaCabinet.self,
+        KitchenIsland.self,
         // realityhd:prop
     ]
 }

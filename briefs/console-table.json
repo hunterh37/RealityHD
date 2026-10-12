@@ -1,0 +1,23 @@
+{
+  "budget": 7600,
+  "id": "console-table",
+  "kind": "prop",
+  "materials": ["wood.veneer-oak", "wood.oak", "wood.plywood", "metal.brass-aged"],
+  "name": "Entry console table",
+  "notes": "Static. Pack B2: front faces +Z, back against the wall at -Z.",
+  "parts": [
+    "oak veneer top with eased edge",
+    "apron with two shallow drawers",
+    "brass bar pulls",
+    "tapered splayed legs",
+    "lower shelf with rails"
+  ],
+  "references": [],
+  "size": [1.2, 0.8, 0.35],
+  "style": "light oak entry console, satin finish",
+  "summary": "Narrow oak entry console with two shallow drawers, brass bar pulls, tapered legs and a lower shelf.",
+  "tags": ["prop", "floorplan", "living", "furniture", "wood", "interior"],
+  "theme": "Living",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

@@ -1,0 +1,23 @@
+{
+  "budget": 9000,
+  "id": "round-dining-table",
+  "kind": "prop",
+  "materials": ["wood.veneer-walnut", "wood.walnut", "metal.brass-aged", "rubber.plate"],
+  "name": "Round pedestal dining table",
+  "notes": "Static. Pack B2: 1.2 m round top, seats four.",
+  "parts": [
+    "round veneered top with eased edge",
+    "apron ring under the top",
+    "turned pedestal column with beads",
+    "four swept feet with brass toe caps",
+    "cross bracket and mounting plate with screws"
+  ],
+  "references": [],
+  "size": [1.2, 0.76, 1.2],
+  "style": "traditional walnut pedestal table, oiled",
+  "summary": "Round walnut pedestal dining table, 1.2 m: veneered top, turned column, four swept feet with brass toe caps and a cross bracket.",
+  "tags": ["prop", "floorplan", "dining", "furniture", "wood", "interior"],
+  "theme": "Dining",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}
