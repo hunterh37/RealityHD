@@ -1,0 +1,42 @@
+{
+  "budget": 10000,
+  "id": "barrel-tile-eave-strip",
+  "kind": "prop",
+  "materials": [
+    "ceramic.terracotta",
+    "ceramic.terracotta:B8603F",
+    "wood.cedar-weathered",
+    "paint.stucco:E3D2B3"
+  ],
+  "name": "Barrel tile eave strip",
+  "notes": "",
+  "parts": [
+    "pan tiles",
+    "tapered cover tiles",
+    "bird-stop eave closure",
+    "wood fascia",
+    "rafter tails",
+    "tile nail heads",
+    "stucco wall edge"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.3,
+    0.45
+  ],
+  "style": "architectural facade customizer, Spanish Colonial Revival, fired clay barrel tile with lichen weathering",
+  "summary": "Spanish barrel tile eave, 2.0 m: pan and cover tiles, bird-stop closures, fascia board, exposed rafter tails.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "decor",
+    "stone",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
