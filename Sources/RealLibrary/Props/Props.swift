@@ -640,6 +640,15 @@ public enum Props {
         Thermostat.self,
         SmokeDetector.self,
         LightSwitch.self,
+        WaterHeater.self,
+        GasFurnace.self,
+        ElectricalPanel.self,
+        Radiator.self,
+        FloorRegister.self,
+        DryingRack.self,
+        IroningBoard.self,
+        LaundryBasket.self,
+        LaundryHamper.self,
         // realityhd:prop
     ]
 }
