@@ -77,6 +77,15 @@ public enum Structures {
         DormerWindow.self,
         BucketTruck.self,
         Hangar.self,
+        InteriorDoor.self,
+        FrontDoor.self,
+        PatioDoor.self,
+        PocketDoor.self,
+        BifoldClosetDoor.self,
+        BarnDoor.self,
+        InteriorFrenchDoors.self,
+        CasedOpening.self,
+        SlidingClosetDoors.self,
         // realityhd:structure
     ]
 }

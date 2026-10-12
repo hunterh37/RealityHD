@@ -1,0 +1,47 @@
+{
+  "budget": 10000,
+  "id": "front-door",
+  "kind": "structure",
+  "materials": [
+    "wood.painted-shaker-worn:1F3A4A",
+    "wood.painted-shaker:D9D4C7",
+    "glass.frosted",
+    "metal.brass-aged",
+    "wood.oak",
+    "plastic.black","decal.rubber-scuff"
+  ],
+  "name": "Entry door with sidelight",
+  "notes": "Origin bottom center of rough opening, hinge on -X, leaf swings in toward +Z, sidelight on +X. Rig: leaf hinge 0...100; lever. States closed, ajar, open.",
+  "parts": [
+    "six raised panels with stiles, rails and lock rail",
+    "frosted sidelight with panel, beads and glazing stops",
+    "brick mould casing both faces",
+    "three brass hinges",
+    "lever with rose",
+    "deadbolt with keyed cylinder and thumbturn",
+    "kick plate",
+    "oak sill with weatherstrip"
+  ],
+  "references": [],
+  "size": [
+    1.35,
+    2.25,
+    0.2
+  ],
+  "style": "painted navy fiberglass-look craftsman entry, brass hardware, worn paint at the handle and kick",
+  "summary": "Six-panel entry door with a frosted sidelight: painted navy raised-panel slab, brick mould casing, brass handle, deadbolt, kick plate, sill.",
+  "tags": [
+    "structure",
+    "floorplan",
+    "home",
+    "wood",
+    "glass",
+    "metal",
+    "interior",
+    "door",
+    "articulated"
+  ],
+  "theme": "Interior",
+  "threshold": 0.8,
+  "tolerance": 0.05
+}

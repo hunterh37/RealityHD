@@ -1,0 +1,38 @@
+{
+  "budget": 5000,
+  "id": "cased-opening",
+  "kind": "structure",
+  "materials": [
+    "wood.painted-shaker-worn:D6CFC0",
+    "wood.painted-shaker:D6CFC0",
+    "decal.rubber-scuff"
+  ],
+  "name": "Cased opening",
+  "notes": "Origin bottom center of opening, clear opening 0.80 m wide. var arch swaps the flat head for a segmental arch.",
+  "parts": [
+    "split jamb legs and head",
+    "flat casing with bead both faces",
+    "head cap with deeper projection",
+    "plinth blocks at the floor",
+    "arch option with segmental head"
+  ],
+  "references": [],
+  "size": [
+    0.94,
+    2.1,
+    0.15
+  ],
+  "style": "painted white pine trim, light scuffs at the plinth blocks",
+  "summary": "Cased doorway with no leaf: split jamb, flat casing with bead and back band on both faces, head cap, plinth blocks; optional arched head.",
+  "tags": [
+    "structure",
+    "floorplan",
+    "home",
+    "wood",
+    "interior",
+    "door"
+  ],
+  "theme": "Interior",
+  "threshold": 0.8,
+  "tolerance": 0.05
+}
