@@ -8,7 +8,7 @@ public struct BreezeBlockWall: RealAsset {
     public static let id = "breeze-block-wall"
     public static let summary = "Mid-century breeze block wall, 2.4 x 2.4 m: stack-bond pierced screen blocks with circle and quatrefoil openings, steel posts, plinth and cap."
     public static let tags = ["prop", "architecture", "facade", "stone"]
-    public static let budget = 40000
+    public static let budget = 15000
     public static let author = "realityhd"
     public static let preview = PreviewHint(azimuth: 28, elevation: 8, distance: 4.4)
 
@@ -29,10 +29,10 @@ public struct BreezeBlockWall: RealAsset {
     public init() {}
 
     private func circleBlock(_ b: Float, _ d: Float, r: Float, mat: MaterialKey) -> Surface {
-        pierced(b, d, r: r, n: 18, mat: mat) { _ in 1 }
+        pierced(b, d, r: r, n: 12, mat: mat) { _ in 1 }
     }
     private func quatrefoil(_ b: Float, _ d: Float, r: Float, mat: MaterialKey) -> Surface {
-        pierced(b, d, r: r, n: 26, mat: mat) { a in 0.5 + 0.5 * pow(abs(cos(2 * a)), 0.8) }
+        pierced(b, d, r: r, n: 18, mat: mat) { a in 0.5 + 0.5 * pow(abs(cos(2 * a)), 0.8) }
     }
     /// Square block outline with an opening joined to the bottom edge by a 4 mm casting slit (extrude has no holes).
     private func pierced(_ b: Float, _ d: Float, r: Float, n: Int, mat: MaterialKey, radius k: (Float) -> Float) -> Surface {
@@ -43,7 +43,7 @@ public struct BreezeBlockWall: RealAsset {
             let a = -Float.pi / 2 - dl - (2 * Float.pi - 2 * dl) * Float(i) / Float(n - 1)
             pts.append(V2(r * k(a) * cos(a), r * k(a) * sin(a)))
         }
-        return Prim.extrude(Shape2D.deduped(pts), depth: d, bevel: 0.0015, bevelSegments: 1, material: mat)
+        return Prim.extrude(Shape2D.deduped(pts), depth: d, bevel: 0, bevelSegments: 1, material: mat)
     }
 
     public func build(seed: UInt64) -> LODModel {
@@ -59,14 +59,14 @@ public struct BreezeBlockWall: RealAsset {
         FA.box(&m, V3(W, plinth, D), V3(0, plinth / 2, 0), "masonry.cmu", r: 0.004)
         FA.box(&m, V3(W - 2 * post, cap, D), V3(0, H - cap / 2, 0), concrete, r: 0.004)
         FA.box(&m, V3(W - 2 * post - 0.01, 0.004, D), V3(0, H - cap - 0.002, 0), concrete, r: 0.001)
-        // Mortar: recessed 4 mm from the block faces, horizontal beds and vertical heads.
+        // Mortar beds and heads as plain prisms (cheap), recessed 4 mm from the block faces, horizontal beds and vertical heads.
         for r in 0...courses {
             let y = plinth + Float(r) * ph
-            FA.box(&m, V3(W - 2 * post, 0.006, D - 0.008), V3(0, y, 0), mortar, r: 0.001)
+            m.add(Prim.extrude([V2(-0.5, -0.003), V2(0.5, -0.003), V2(0.5, 0.003), V2(-0.5, 0.003)].map { V2($0.x * (W - 2 * post), $0.y) }, depth: D - 0.008, bevel: 0, material: mortar), Xform(translation: V3(0, y, 0)))
         }
         for c in 1..<columns {
             let x = -W / 2 + post + Float(c) * pw
-            FA.box(&m, V3(0.006, H - plinth - cap, D - 0.008), V3(x, plinth + (H - plinth - cap) / 2, 0), mortar, r: 0.001)
+            m.add(Prim.extrude([V2(-0.003, 0), V2(0.003, 0), V2(0.003, H - plinth - cap), V2(-0.003, H - plinth - cap)], depth: D - 0.008, bevel: 0, material: mortar), Xform(translation: V3(x, plinth, 0)))
         }
 
         // Blocks: circle and quatrefoil alternating in a checkerboard; a turquoise accent diagonal and a grimy few.

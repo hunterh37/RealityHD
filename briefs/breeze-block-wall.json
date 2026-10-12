@@ -1,5 +1,5 @@
 {
-  "budget": 40000,
+  "budget": 15000,
   "id": "breeze-block-wall",
   "kind": "prop",
   "materials": [
@@ -26,7 +26,7 @@
     0.2
   ],
   "style": "architectural facade customizer, Mid-century Modern, painted concrete screen block",
-  "summary": "Breeze block wall, 2.4 x 2.4 m: stacked square decorative concrete screen blocks with a pierced circle-and-diamond pattern.",
+  "summary": "Mid-century breeze block wall, 2.4 x 2.4 m: stack-bond pierced screen blocks with circle and quatrefoil openings, steel posts, plinth and cap.",
   "tags": [
     "prop",
     "architecture",

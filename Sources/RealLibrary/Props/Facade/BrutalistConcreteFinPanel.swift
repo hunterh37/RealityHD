@@ -8,7 +8,7 @@ public struct BrutalistConcreteFinPanel: RealAsset {
     public static let id = "brutalist-concrete-fin-panel"
     public static let summary = "Brutalist precast concrete fin panel, 1.2 x 3.0 m: slab with four deep chamfered fins, board-formed ribs, form ties and lifting sockets."
     public static let tags = ["prop", "architecture", "facade", "stone"]
-    public static let budget = 24000
+    public static let budget = 15000
     public static let author = "realityhd"
     public static let preview = PreviewHint(azimuth: 38, elevation: 6, distance: 3.9)
 

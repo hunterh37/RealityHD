@@ -8,7 +8,7 @@ public struct CortenSteelCladdingPanel: RealAsset {
     public static let id = "corten-steel-cladding-panel"
     public static let summary = "Corten steel cladding panel, 1.2 x 2.4 m: folded pans with standing seams, reveal joints, clip rails, stainless fasteners and rust run-off."
     public static let tags = ["prop", "architecture", "facade", "metal"]
-    public static let budget = 16000
+    public static let budget = 15000
     public static let author = "realityhd"
     public static let preview = PreviewHint(azimuth: 28, elevation: 8, distance: 3.8)
 

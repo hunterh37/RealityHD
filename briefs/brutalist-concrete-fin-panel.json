@@ -1,5 +1,5 @@
 {
-  "budget": 24000,
+  "budget": 15000,
   "id": "brutalist-concrete-fin-panel",
   "kind": "prop",
   "materials": [
@@ -26,7 +26,7 @@
     0.45
   ],
   "style": "architectural facade customizer, Brutalism, board-formed weathered precast concrete",
-  "summary": "Brutalist concrete fin panel, 1.2 x 3.0 m: board-formed precast fins with tie-hole cones and lifting sockets.",
+  "summary": "Brutalist precast concrete fin panel, 1.2 x 3.0 m: slab with four deep chamfered fins, board-formed ribs, form ties and lifting sockets.",
   "tags": [
     "prop",
     "architecture",
