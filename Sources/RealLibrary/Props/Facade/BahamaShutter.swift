@@ -9,7 +9,7 @@ import Foundation
 public struct BahamaShutter: RealAsset {
     public static let id = "bahama-shutter"
     public static let summary = "Bahama (Colonial) shutter, 1.2 x 1.4 m: top-hinged louvred panel, barrel hinges and prop stays on a header board."
-    public static let tags = ["prop", "architecture", "facade", "shutter", "wood", "metal"]
+    public static let tags = ["prop", "architecture", "facade", "window", "wood", "metal"]
     public static let budget = 15_000
     public static let author = "realityhd"
     public static let preview = PreviewHint(azimuth: 28, elevation: 8, distance: 1.7)
