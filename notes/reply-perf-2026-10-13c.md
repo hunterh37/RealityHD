@@ -22,3 +22,10 @@ The simulator tick does not include GPU time, so render-side hitches stay unmeas
 Vision Pro (off-head, 45 Hz): forest-glade steps p99 22.2 ms, 0 frames over 25 ms. Off-head 45 Hz also
 reads as slow to a 90 fps governor; measure adaptive behavior on-head. Post-fix device run blocked:
 `devicectl process launch` hung (headset asleep).
+
+Recheck 2026-10-13 (sim, Release, -steps 0.5, 30 s, same build otherwise):
+  origin/main  hospital adapt 0.77 at walk start, recovers 0.84 -> 0.90 -> 0.98 -> 1.00 mid-walk; lodsw 249 burst
+  this branch  hospital adapt 1.00 held; lodsw max 35; forest-glade max 31
+Per-system probe (temp, removed): LOD max 2.8 ms, perf 2.4 ms, stream 0.6 ms, articulation 0.1 ms per frame.
+Walk frames on branch: p99 11.1 ms all scenes tested; max 44 ms (hospital, one frame in 40 s).
+GPU-side hitches stay unmeasured in the simulator; device run needs the Vision Pro online.
