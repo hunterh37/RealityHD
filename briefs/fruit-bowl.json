@@ -1,5 +1,5 @@
 {
-  "budget": 8000,
+  "budget": 14000,
   "id": "fruit-bowl",
   "kind": "prop",
   "materials": [
@@ -9,7 +9,7 @@
     "food.banana-peel-section"
   ],
   "name": "Fruit bowl",
-  "notes": "Static.",
+  "notes": "",
   "parts": [
     "wide stoneware bowl on a foot",
     "apples with stems",
