@@ -663,6 +663,7 @@ public enum Props {
         BeanBag.self,
         BuiltInBookcase.self,
         ChangingTable.self,
+        CheckoutCounter.self,
         // realityhd:prop
     ]
 }
