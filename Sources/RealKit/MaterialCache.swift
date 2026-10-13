@@ -382,7 +382,7 @@ public extension Model {
         let keys = self.surfaces.filter { !$0.isEmpty }.map(\.material)
         var mats: [any RealityKit.Material] = []
         for k in keys { mats.append(await cache.materialAsync(k)) }
-        let e = ModelEntity(mesh: try meshResource(), materials: mats)
+        let e = ModelEntity(mesh: try await meshResourceAsync(), materials: mats)
         e.name = name
         return e
     }
