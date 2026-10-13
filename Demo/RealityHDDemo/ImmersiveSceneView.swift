@@ -216,9 +216,14 @@ struct ImmersiveSceneView: View {
     /// Slow pan (yaw about the viewer) and dolly (forward along -Z) from launch args, for capture.
     private func captureMotion() async {
         let d = UserDefaults.standard
-        let pan = d.float(forKey: "pan"), dolly = d.float(forKey: "dolly")
-        guard pan != 0 || dolly != 0 else { return }
+        let pan = d.float(forKey: "pan"), dolly = d.float(forKey: "dolly"), steps = d.double(forKey: "steps")
+        guard pan != 0 || dolly != 0 || steps > 0 else { return }
         while model.loading || anchor.children.isEmpty { try? await Task.sleep(for: .milliseconds(50)) }
+        // -steps <s>: one animated forward step (the menu's walk control) every s seconds.
+        if steps > 0 {
+            while !Task.isCancelled { apply(.forward); try? await Task.sleep(for: .seconds(steps)) }
+            return
+        }
         let base = anchor.transform.matrix
         let t0 = Date()
         while !Task.isCancelled {
@@ -253,7 +258,7 @@ struct ImmersiveSceneView: View {
             let s = RealityHD.stats
             samples.append(["t": Date().timeIntervalSince(start), "fps": s.fps, "ms": s.frameMs, "worst": s.worstFrameMs,
                             "tris": Double(s.triangles), "draws": Double(s.drawCalls), "casters": Double(s.shadowCasters),
-                            "meshes": Double(s.meshEntities), "lodsw": Double(s.lodSwitches), "texMB": Double(s.textureMB)])
+                            "meshes": Double(s.meshEntities), "lodsw": Double(s.lodSwitches), "texMB": Double(s.textureMB), "adapt": Double(s.adaptiveScale)])
         }
         let dir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appending(path: "bench")
         try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
