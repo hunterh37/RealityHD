@@ -1,16 +1,17 @@
 {
-  "budget": 4000,
+  "budget": 14000,
   "id": "toaster",
   "kind": "prop",
   "materials": [
-    "metal.stainless",
+    "metal.stainless-smudged",
     "plastic.black",
     "metal.chrome",
     "food.bread-crust-toasted",
-    "food.bread-crumb"
+    "food.bread-toast",
+    "rubber.silicone"
   ],
   "name": "Two-slot toaster",
-  "notes": "Static; lever up; bread slices visible in slots.",
+  "notes": "Static; lever up; toasted slices standing in slots.",
   "parts": [
     "rounded stainless body",
     "two slots with guards",
@@ -26,15 +27,14 @@
     0.17
   ],
   "style": "retro-modern 2-slot toaster",
-  "summary": "Two-slot stainless toaster: rounded body, carriage lever, browning dial, crumb tray, two slices that drop with the lever.",
+  "summary": "Two-slot stainless toaster: rounded body, carriage lever, browning dial, crumb tray, two toasted slices in the slots.",
   "tags": [
     "prop",
     "floorplan",
     "kitchen",
     "appliance",
     "metal",
-    "interior",
-    "handheld"
+    "interior"
   ],
   "theme": "Kitchen",
   "threshold": 0.85,
