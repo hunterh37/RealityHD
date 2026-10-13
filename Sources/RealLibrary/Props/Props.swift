@@ -660,6 +660,7 @@ public enum Props {
         CoffeeMaker.self,
         DrinkingGlass.self,
         FruitBowl.self,
+        FloorLamp.self,
         // realityhd:prop
     ]
 }
