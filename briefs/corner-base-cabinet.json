@@ -1,0 +1,45 @@
+{
+  "budget": 8000,
+  "id": "corner-base-cabinet",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-shaker:A3AD98",
+    "stone.quartz",
+    "metal.brushed-nickel",
+    "plastic.matte:1C1C1E",
+    "wood.plywood"
+  ],
+  "name": "Blind corner base cabinet",
+  "notes": "Static. Back against -Z wall, left leg against -X wall; notch (x,z in 0.15..0.45) is the open inner corner. Top overhangs door faces 20 mm.",
+  "parts": [
+    "L-shaped carcass with two 24 in deep legs",
+    "shaker door on the +Z inner face",
+    "shaker door on the +X inner face",
+    "brushed nickel bar pulls",
+    "L-shaped quartz countertop with eased edge",
+    "recessed L toe kick",
+    "finished end panels",
+    "door reveals"
+  ],
+  "references": [],
+  "size": [
+    0.9,
+    0.9,
+    0.9
+  ],
+  "style": "sage painted shaker kitchen base, quartz top, wall corner at back left (-X, -Z), notch at front right",
+  "summary": "L-shaped blind corner base cabinet, 36 in legs: painted shaker doors on both inner faces, nickel pulls, quartz L top, toe kick.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "kitchen",
+    "furniture",
+    "wood",
+    "stone",
+    "metal",
+    "interior"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

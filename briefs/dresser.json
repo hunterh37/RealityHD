@@ -1,0 +1,39 @@
+{
+  "budget": 7500,
+  "id": "dresser",
+  "kind": "prop",
+  "materials": [
+    "wood.oak",
+    "wood.plywood",
+    "metal.brass-aged"
+  ],
+  "name": "Dresser",
+  "notes": "",
+  "parts": [
+    "overhanging top",
+    "two columns of three drawers",
+    "raised panels with bead",
+    "brass cup pulls",
+    "tapered feet",
+    "plywood interior and back"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    0.8,
+    0.5
+  ],
+  "style": "oak, satin finish, aged brass",
+  "summary": "Six-drawer oak dresser in two columns with an overhanging top, raised drawer panels, brass cup pulls and short tapered feet.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bedroom",
+    "furniture",
+    "wood",
+    "interior"
+  ],
+  "theme": "Bedroom",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

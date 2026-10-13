@@ -1,0 +1,23 @@
+{
+  "budget": 10000,
+  "id": "sideboard",
+  "kind": "prop",
+  "materials": ["wood.painted-shaker", "wood.veneer-walnut", "metal.brass-aged", "wood.plywood"],
+  "name": "Dining sideboard",
+  "notes": "Static: doors and drawers closed. Pack B2: front faces +Z.",
+  "parts": [
+    "walnut veneer top with eased edge",
+    "painted case with two shaker doors",
+    "center bank of three shaker drawers",
+    "brass knobs and bar pulls",
+    "short tapered legs"
+  ],
+  "references": [],
+  "size": [1.6, 0.85, 0.45],
+  "style": "painted sage shaker sideboard with walnut top, brass hardware",
+  "summary": "Painted shaker sideboard with a walnut top, two doors, three center drawers, brass pulls and short tapered legs.",
+  "tags": ["prop", "floorplan", "dining", "furniture", "wood", "interior"],
+  "theme": "Dining",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

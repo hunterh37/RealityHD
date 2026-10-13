@@ -1,0 +1,22 @@
+{
+  "automated" : 0.98438466,
+  "date" : "2026-10-11",
+  "final" : 0.8588471,
+  "fingerprint" : "2743115975743281",
+  "id" : "track-lighting",
+  "iterations" : 3,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 8,
+    "edges" : 7,
+    "grounding" : 7,
+    "materials" : 8,
+    "proportion" : 9,
+    "silhouette" : 9,
+    "wear" : 6
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.79125
+}

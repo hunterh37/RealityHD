@@ -39,6 +39,8 @@ public enum AssetTag {
         "insect", "flying", "crawling", "jumping", "glowing",
         // aerospace: launch range, hangar and flight-course obstacles
         "aerospace",
+        // floor planning: room-scale furnishing, fixtures and building interior elements; `floorplan` marks every asset in the pack
+        "floorplan", "living", "dining", "bedroom", "bathroom", "laundry", "home", "hvac", "plumbing", "stair", "commercial", "retail",
     ])
 
     /// Scene tags: any vocabulary tag plus these.

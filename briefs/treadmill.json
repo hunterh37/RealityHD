@@ -1,0 +1,57 @@
+{
+  "budget": 15000,
+  "id": "treadmill",
+  "kind": "prop",
+  "materials": [
+    "rubber.floor-mat",
+    "rubber.silicone-gray",
+    "rubber.silicone",
+    "plastic.matte",
+    "plastic.black",
+    "plastic.gloss",
+    "plastic.white",
+    "metal.aluminum-brushed",
+    "metal.steel",
+    "metal.chrome",
+    "glass.tinted",
+    "wood.plywood",
+    "emissive.led-green",
+    "emissive.signal-orange",
+    "emissive.signal-white"
+  ],
+  "name": "Treadmill",
+  "notes": "Static.",
+  "parts": [
+    "running belt and deck",
+    "side foot rails",
+    "motor hood",
+    "front and rear rollers",
+    "curved uprights",
+    "handlebars with grips",
+    "console with display and keys",
+    "pulse sensors",
+    "safety key",
+    "bottle holder",
+    "feet"
+  ],
+  "references": [],
+  "size": [
+    0.85,
+    1.4,
+    1.8
+  ],
+  "style": "home gym treadmill, charcoal and silver",
+  "summary": "Home treadmill: rubber belt, ribbed foot rails, motor hood, uprights, handrails and a console with display.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "commercial",
+    "metal",
+    "plastic",
+    "rubber",
+    "interior"
+  ],
+  "theme": "Commercial",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

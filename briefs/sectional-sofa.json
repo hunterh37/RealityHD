@@ -1,0 +1,17 @@
+{
+  "budget": 11500,
+  "id": "sectional-sofa",
+  "kind": "prop",
+  "materials": ["fabric.linen:6E7276", "fabric.linen:5F6367", "wood.walnut", "metal.brushed-nickel"],
+  "name": "L-shaped sectional sofa",
+  "notes": "Floor planning pack B1. Chaise on the right by default; chaiseLeft mirrors it. Front +Z, back at -Z.",
+  "parts": ["left track arm", "stitched back rail", "three loose seat cushions on the long run", "chaise seat cushion", "four leaning back cushions", "tapered walnut legs", "welts and seam creases"],
+  "references": [],
+  "size": [2.9, 0.85, 1.7],
+  "style": "modern low-profile sectional, lived-in",
+  "summary": "L-shaped sectional, 2.9 m: left track arm, chaise on the right, welted loose cushions, tapered walnut legs.",
+  "tags": ["prop", "floorplan", "living", "furniture", "fabric", "interior"],
+  "theme": "Living",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

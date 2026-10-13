@@ -1,0 +1,23 @@
+{
+  "budget": 8500,
+  "id": "flat-tv",
+  "kind": "prop",
+  "materials": ["plastic.matte", "screen.off", "metal.anodized-black", "metal.aluminum-brushed", "emissive.led-red", "rubber.plate"],
+  "name": "55 in flat-screen TV",
+  "notes": "Threshold 0.80: black glass limits reflection and wear scores. Static, powered off. Pack B2: screen faces +Z; feet at floor y=0; includes stand feet and rear power cord.",
+  "parts": [
+    "thin-bezel glass panel (screen off)",
+    "rear chassis bulge with vents, ports and VESA screws",
+    "two metal outrigger feet with necks",
+    "standby LED and logo plate",
+    "power cord with strain relief"
+  ],
+  "references": [],
+  "size": [1.23, 0.78, 0.26],
+  "style": "2020s 55 in LED TV, black, brushed metal feet",
+  "summary": "55 in LED flat-screen TV on two outrigger feet: thin bezel, powered-off glass, ribbed rear chassis, ports, VESA screws and power cord.",
+  "tags": ["prop", "floorplan", "living", "electronics", "plastic", "interior"],
+  "theme": "Living",
+  "threshold": 0.8,
+  "tolerance": 0.05
+}

@@ -1,0 +1,49 @@
+{
+  "budget": 15000,
+  "id": "upright-piano",
+  "kind": "prop",
+  "materials": [
+    "plastic.gloss",
+    "plastic.matte",
+    "metal.brass",
+    "metal.brass-aged",
+    "metal.steel",
+    "paper.sheet",
+    "fabric.canvas",
+    "rubber.silicone",
+    "plastic.pencil-lacquer"
+  ],
+  "name": "Upright piano",
+  "notes": "Static.",
+  "parts": [
+    "black case with lid",
+    "end panels with key cheeks",
+    "52 white and 36 black keys",
+    "key slip",
+    "music desk with sheet",
+    "upper and lower panels",
+    "plinth with casters",
+    "three pedals",
+    "brass badge"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    1.2,
+    0.65
+  ],
+  "style": "console upright, black polyester finish, fallboard open",
+  "summary": "Upright piano, 88 keys: polished black case, open keyboard, music desk with score, brass pedals and casters.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "living",
+    "wood",
+    "metal",
+    "plastic",
+    "interior"
+  ],
+  "theme": "Living",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

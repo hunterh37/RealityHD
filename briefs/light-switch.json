@@ -1,0 +1,36 @@
+{
+  "budget": 1500,
+  "id": "light-switch",
+  "kind": "prop",
+  "materials": [
+    "plastic.matte:F3F1EA",
+    "plastic.black"
+  ],
+  "name": "Light switch plate",
+  "notes": "Static. Wall asset: lowest point y = 0, back face at z = -0.006. Planner lifts to 1.2 m.",
+  "parts": [
+    "wall plate",
+    "opening recess",
+    "rocker paddle",
+    "two slotted screws"
+  ],
+  "references": [],
+  "size": [
+    0.08,
+    0.12,
+    0.012
+  ],
+  "style": "decorator rocker",
+  "summary": "Decorator rocker light switch on a white wall plate with two screws.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "interior",
+    "electrical",
+    "plastic",
+    "wall"
+  ],
+  "theme": "Lighting",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

@@ -1,0 +1,40 @@
+{
+  "budget": 1800,
+  "id": "wall-outlet",
+  "kind": "prop",
+  "materials": [
+    "plastic.matte:F3F1EA",
+    "plastic.black",
+    "metal.brass-aged"
+  ],
+  "name": "Duplex wall outlet",
+  "notes": "Static. Wall asset: lowest point y = 0, back face at z = -0.0075. Planner lifts to 0.4 m.",
+  "parts": [
+    "wall plate",
+    "dark opening recess",
+    "receptacle body",
+    "hot and neutral slots",
+    "ground holes",
+    "center screw",
+    "face split groove"
+  ],
+  "references": [],
+  "size": [
+    0.07,
+    0.115,
+    0.015
+  ],
+  "style": "satin white plate, new",
+  "summary": "Duplex 15 A wall outlet: white decorator plate, receptacle body with two grounded socket faces and center screw.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "interior",
+    "electrical",
+    "plastic",
+    "wall"
+  ],
+  "theme": "Lighting",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

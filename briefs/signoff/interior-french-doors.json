@@ -1,0 +1,22 @@
+{
+  "automated" : 1,
+  "date" : "2026-10-11",
+  "final" : 0.8521249,
+  "fingerprint" : "0ea03a2c6f7f546a",
+  "id" : "interior-french-doors",
+  "iterations" : 1,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 9,
+    "edges" : 7,
+    "grounding" : 7,
+    "materials" : 7,
+    "proportion" : 8,
+    "silhouette" : 8,
+    "wear" : 7
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.7725
+}

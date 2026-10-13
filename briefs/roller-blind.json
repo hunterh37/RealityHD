@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "roller-blind",
+  "kind": "prop",
+  "materials": [
+    "fabric.linen:E2DAC8",
+    "metal.powdercoat:F0EEE8",
+    "metal.stainless",
+    "plastic.matte:E8E6E0"
+  ],
+  "name": "Roller blind",
+  "notes": "Floor planning pack C. Wall mounted, lowest point at y=0, back at -Z.",
+  "parts": [
+    "aluminum cassette headrail",
+    "end brackets and clutch",
+    "fabric drop with roll",
+    "bottom hem bar with end caps",
+    "ball chain loop"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.5,
+    0.08
+  ],
+  "style": "off-white linen blind in a white cassette",
+  "summary": "Roller window blind, 1.2 x 1.5 m: linen-look fabric, aluminum cassette, bottom bar, ball chain.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "home",
+    "decor",
+    "fabric",
+    "metal",
+    "wall",
+    "interior"
+  ],
+  "theme": "Home",
+  "threshold": 0.85,
+  "tolerance": 0.06
+}
