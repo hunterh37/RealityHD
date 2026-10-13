@@ -1,0 +1,41 @@
+{
+  "budget": 11000,
+  "id": "changing-table",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-shaker:F1EEE6",
+    "wood.oak",
+    "fabric.upholstery",
+    "wood.plywood",
+    "metal.brass"
+  ],
+  "name": "changing table",
+  "notes": "",
+  "parts": [
+    "changing top with raised guard rails on three sides",
+    "contoured vinyl-covered pad with safety strap",
+    "two open shelves under the top with baskets",
+    "solid side panels and tapered legs",
+    "wall-side back rail",
+    "wicker or fabric storage baskets"
+  ],
+  "references": [],
+  "size": [
+    0.9,
+    1.0,
+    0.55
+  ],
+  "style": "white nursery changing table with oak legs and a quilted pad",
+  "summary": "Changing table, 0.9 x 1.0 x 0.55 m: rail-guarded top with contoured pad and strap, two shelves with baskets, oak legs.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bedroom",
+    "furniture",
+    "wood",
+    "interior"
+  ],
+  "theme": "Bedroom",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}
