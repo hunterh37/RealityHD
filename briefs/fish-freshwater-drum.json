@@ -1,0 +1,48 @@
+{
+  "budget": 10000,
+  "id": "fish-freshwater-drum",
+  "kind": "prop",
+  "materials": [
+    "fish.drum-skin",
+    "fish.drum-fin",
+    "fish.eye-silver",
+    "fish.mouth"
+  ],
+  "name": "Freshwater drum",
+  "notes": "",
+  "parts": [
+    "body",
+    "tail",
+    "jaw",
+    "eye",
+    "dorsal fin",
+    "anal fin",
+    "caudal fin",
+    "pectoral fins",
+    "pelvic fins",
+    "gill cover",
+    "lateral line",
+    "scales"
+  ],
+  "references": [
+    "MulberryRiver/notes/reference/fish/fish-freshwater-drum.jpg"
+  ],
+  "size": [
+    0.35,
+    0.162,
+    0.086
+  ],
+  "style": "live freshwater fish fresh from an Ozark stream, wet glossy skin, natural coloration",
+  "summary": "Freshwater drum (Aplodinotus grunniens), 0.35 m: silvery humpbacked body, blunt rounded snout over a subterminal mouth, long two-part dorsal, rounded tail.",
+  "tags": [
+    "prop",
+    "fish",
+    "handheld",
+    "articulated",
+    "outdoor",
+    "water"
+  ],
+  "theme": "Fish",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

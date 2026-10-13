@@ -692,6 +692,16 @@ public enum Props {
         Treadmill.self,
         SkampBoat.self,
         TrollingMotor.self,
+        FishSmallmouthBass.self,
+        FishSpottedBass.self,
+        FishLargemouthBass.self,
+        FishOzarkBass.self,
+        FishLongearSunfish.self,
+        FishGreenSunfish.self,
+        FishBluegill.self,
+        FishChannelCatfish.self,
+        FishFlatheadCatfish.self,
+        FishFreshwaterDrum.self,
         // realityhd:prop
     ]
 }

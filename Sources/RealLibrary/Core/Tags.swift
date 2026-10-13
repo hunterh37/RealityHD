@@ -43,6 +43,8 @@ public enum AssetTag {
         "floorplan", "living", "dining", "bedroom", "bathroom", "laundry", "home", "hvac", "plumbing", "stair", "commercial", "retail",
         // river pack: Ozark river settings and small boats
         "river", "boat",
+        // fishing: life-size articulated freshwater fish
+        "fish",
     ])
 
     /// Scene tags: any vocabulary tag plus these.
