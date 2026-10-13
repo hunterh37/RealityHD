@@ -41,6 +41,8 @@ public enum AssetTag {
         "aerospace",
         // floor planning: room-scale furnishing, fixtures and building interior elements; `floorplan` marks every asset in the pack
         "floorplan", "living", "dining", "bedroom", "bathroom", "laundry", "home", "hvac", "plumbing", "stair", "commercial", "retail",
+        // fishing: life-size articulated freshwater fish
+        "fish",
     ])
 
     /// Scene tags: any vocabulary tag plus these.

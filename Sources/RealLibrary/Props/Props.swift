@@ -690,6 +690,16 @@ public enum Props {
         WallMirror.self,
         UprightPiano.self,
         Treadmill.self,
+        FishSmallmouthBass.self,
+        FishSpottedBass.self,
+        FishLargemouthBass.self,
+        FishOzarkBass.self,
+        FishLongearSunfish.self,
+        FishGreenSunfish.self,
+        FishBluegill.self,
+        FishChannelCatfish.self,
+        FishFlatheadCatfish.self,
+        FishFreshwaterDrum.self,
         // realityhd:prop
     ]
 }
