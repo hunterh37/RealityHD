@@ -544,13 +544,6 @@ Rigged, animated birds and ground animals (`import RealityHDAnimals`). Each bird
 individual feather cards; `WildlifeWorld` lands them on perches taken from placed props and on an open palm.
 Preview: `swift run animalpreview <species> --pose perched`. Details in [docs/ANIMALS.md](docs/ANIMALS.md).
 
-| | | | |
-|---|---|---|---|
-| ![american-goldfinch](docs/assets/animal-american-goldfinch.png)<br>`american-goldfinch` | ![american-robin](docs/assets/animal-american-robin.png)<br>`american-robin` | ![baltimore-oriole](docs/assets/animal-baltimore-oriole.png)<br>`baltimore-oriole` | ![black-capped-chickadee](docs/assets/animal-black-capped-chickadee.png)<br>`black-capped-chickadee` |
-| ![blue-jay](docs/assets/animal-blue-jay.png)<br>`blue-jay` | ![cedar-waxwing](docs/assets/animal-cedar-waxwing.png)<br>`cedar-waxwing` | ![eastern-bluebird](docs/assets/animal-eastern-bluebird.png)<br>`eastern-bluebird` | ![mourning-dove](docs/assets/animal-mourning-dove.png)<br>`mourning-dove` |
-| ![northern-cardinal](docs/assets/animal-northern-cardinal.png)<br>`northern-cardinal` | ![ruby-throated-hummingbird](docs/assets/animal-ruby-throated-hummingbird.png)<br>`ruby-throated-hummingbird` |     |     |
-
-| | | | |
 |---|---|---|---|
 | ![eastern-chipmunk](docs/assets/animal-eastern-chipmunk.png)<br>`eastern-chipmunk` | ![eastern-cottontail](docs/assets/animal-eastern-cottontail.png)<br>`eastern-cottontail` | ![eastern-gray-squirrel](docs/assets/animal-eastern-gray-squirrel.png)<br>`eastern-gray-squirrel` | ![european-hedgehog](docs/assets/animal-european-hedgehog.png)<br>`european-hedgehog` |
 
