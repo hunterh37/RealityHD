@@ -40,6 +40,29 @@ public enum RealInstancing {
     }
 
     /// - Parameter transforms: world-space (relative to the returned entity) instance transforms.
+    /// Streamed tiles instance the same asset build in every tile: upload its mesh once and share it.
+    private static var meshCache: [MeshKey: MeshResource] = [:]
+    private struct MeshKey: Hashable {
+        var name: String; var vertices: Int; var indices: Int
+        var lo: SIMD3<Float>; var hi: SIMD3<Float>; var first: SIMD3<Float>; var last: SIMD3<Float>; var materials: [String]
+        init(_ m: Model) {
+            let live = m.surfaces.filter { !$0.isEmpty }
+            name = m.name; vertices = live.reduce(0) { $0 + $1.vertexCount }; indices = live.reduce(0) { $0 + $1.indices.count }
+            let b = m.bounds; lo = b.min; hi = b.max
+            first = live.first?.positions.first ?? .zero; last = live.last?.positions.last ?? .zero
+            materials = live.map { "\($0.material)" }
+        }
+    }
+    @MainActor
+    static func sharedMesh(_ m: Model) async throws -> MeshResource {
+        let key = MeshKey(m)
+        if let r = meshCache[key] { return r }
+        let r = try await m.meshResourceAsync()
+        if meshCache.count > 256 { meshCache.removeAll() }
+        meshCache[key] = r
+        return r
+    }
+
     public static func field(_ asset: LODModel, transforms: [simd_float4x4], name: String = "field",
                              options: Options = Options(), materials: RealMaterialCache? = nil) async throws -> Entity {
         let cache = materials ?? .shared
@@ -57,7 +80,7 @@ public enum RealInstancing {
         var lodBounds: [BoundingBox] = []
         var perInstanceShader = true
         for m in asset.levels {
-            meshes.append(try m.meshResource())
+            meshes.append(try await Self.sharedMesh(m))
             var ms: [any RealityKit.Material] = []
             for s in m.surfaces where !s.isEmpty {
                 let mat: any RealityKit.Material
