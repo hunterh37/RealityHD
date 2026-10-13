@@ -1,0 +1,38 @@
+{
+  "budget": 15000,
+  "id": "curtain-pair",
+  "kind": "prop",
+  "materials": [
+    "fabric.drapery",
+    "wood.walnut",
+    "metal.brass-aged"
+  ],
+  "name": "Curtain pair",
+  "notes": "",
+  "parts": [
+    "ceiling-height rod with finials and end brackets",
+    "two floor-length pleated curtain panels",
+    "rings and clips",
+    "tiebacks",
+    "hem weights"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    2.3,
+    0.15
+  ],
+  "style": "linen pinch-pleat drapes, oatmeal, open and tied back",
+  "summary": "Floor-length curtain pair, 2.0 m wide: brass rod with finials, pleated linen panels on rings, tied back at each side.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "decor",
+    "fabric",
+    "wall",
+    "interior"
+  ],
+  "theme": "Decor",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

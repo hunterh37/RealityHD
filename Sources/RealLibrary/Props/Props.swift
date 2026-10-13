@@ -662,6 +662,7 @@ public enum Props {
         FruitBowl.self,
         FloorLamp.self,
         FloorMirror.self,
+        CurtainPair.self,
         // realityhd:prop
     ]
 }
