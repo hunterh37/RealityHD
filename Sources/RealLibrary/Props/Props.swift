@@ -665,6 +665,7 @@ public enum Props {
         WallClock.self,
         WallMirror.self,
         UprightPiano.self,
+        Treadmill.self,
         // realityhd:prop
     ]
 }
