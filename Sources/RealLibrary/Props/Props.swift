@@ -661,6 +661,7 @@ public enum Props {
         TvRemote.self,
         Toaster.self,
         TableLamp.self,
+        TowelBar.self,
         // realityhd:prop
     ]
 }
