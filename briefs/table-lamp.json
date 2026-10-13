@@ -1,0 +1,49 @@
+{
+  "budget": 14400,
+  "id": "table-lamp",
+  "kind": "prop",
+  "materials": [
+    "ceramic.cobalt",
+    "ceramic.bisque",
+    "metal.brass-aged",
+    "metal.brass",
+    "fabric.linen",
+    "fabric.canvas",
+    "fabric.wool",
+    "glass.frosted",
+    "plastic.white",
+    "plastic.matte"
+  ],
+  "name": "Table lamp",
+  "notes": "Static.",
+  "parts": [
+    "glazed ceramic base",
+    "brass neck and cap",
+    "socket and bulb",
+    "harp and finial",
+    "tapered linen shade with trim",
+    "shade spider",
+    "cord with switch"
+  ],
+  "references": [],
+  "size": [
+    0.36,
+    0.6,
+    0.36
+  ],
+  "style": "traditional glazed-ceramic bedside lamp, switched off",
+  "summary": "Table lamp: glazed ceramic baluster base, brass fittings, linen drum shade, cord with inline switch.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "living",
+    "light",
+    "ceramic",
+    "fabric",
+    "metal",
+    "interior"
+  ],
+  "theme": "Living",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
