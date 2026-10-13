@@ -21,10 +21,20 @@ struct ImmersiveSceneView: View {
     /// Live keypads, displays and lamps of the siphon bar (`siphon-cafe`).
     @State private var siphon: HalogenSiphonBarRuntime?
     @State private var brewTask: Task<Void, Never>?
+    @State private var benchSub: EventSubscription?
 
     var body: some View {
         RealityView { content, attachments in
             content.add(root)
+            // Bench: count real render frames. A spinning 1 mm entity keeps RealityKit updating every frame,
+            // so deltaTime measures frames and not idle spans.
+            if UserDefaults.standard.double(forKey: "bench") > 0 {
+                let tick = Entity(); tick.name = "bench-tick"; content.add(tick)
+                benchSub = content.subscribe(to: SceneEvents.Update.self) { e in
+                    tick.orientation = simd_quatf(angle: Float(e.deltaTime), axis: [0, 1, 0]) * tick.orientation
+                    BenchFrames.shared.add(e.deltaTime)
+                }
+            }
             // HUD only when enabled at open: reparenting the hosting entity while a previous space is
             // being torn down aborts in CoreRE.
             if model.showHUD, let hud = attachments.entity(for: "hud") {
@@ -248,6 +258,7 @@ struct ImmersiveSceneView: View {
         while model.loading || anchor.children.isEmpty { try? await Task.sleep(for: .milliseconds(10)); beat() }
         let buildMs = Int(Date().timeIntervalSince(t0) * 1000)
         let loadGaps = gaps; gaps = []
+        BenchFrames.shared.reset()
         var samples: [[String: Double]] = []
         let start = Date()
         var next = start.addingTimeInterval(0.5)
@@ -266,7 +277,8 @@ struct ImmersiveSceneView: View {
             ["max": g.max() ?? 0, "over50": Double(g.filter { $0 > 50 }.count), "sumOver50": g.filter { $0 > 50 }.reduce(0, +)]
         }
         let out: [String: Any] = ["scene": config.scene.rawValue, "buildMs": buildMs, "status": model.status, "samples": samples,
-                                  "loadStall": stall(loadGaps), "walkStall": stall(gaps)]
+                                  "loadStall": stall(loadGaps), "walkStall": stall(gaps),
+                                  "frames": BenchFrames.shared.summary]
         if let data = try? JSONSerialization.data(withJSONObject: out, options: [.prettyPrinted, .sortedKeys]) {
             try? data.write(to: dir.appending(path: "\(config.scene.rawValue).json"))
         }
@@ -279,5 +291,20 @@ struct ImmersiveSceneView: View {
         let rot = simd_quatf(angle: yaw, axis: SIMD3(0, 1, 0))   // rotating by +yaw (CCW) brings it back to -Z
         let feet = SIMD3(eye.x, eye.y - standingHeight, eye.z)
         return Transform(scale: .one, rotation: rot, translation: -rot.act(feet))
+    }
+}
+
+/// Per-frame deltas while benching (`-bench`): hitch counts over the walk phase.
+@MainActor final class BenchFrames {
+    static let shared = BenchFrames()
+    var dts: [Double] = []
+    func reset() { dts.removeAll() }
+    func add(_ dt: Double) { dts.append(dt * 1000) }
+    var summary: [String: Double] {
+        let s = dts.sorted()
+        func pct(_ p: Double) -> Double { s.isEmpty ? 0 : s[min(s.count - 1, Int(Double(s.count) * p))] }
+        return ["n": Double(s.count), "p50": pct(0.5), "p99": pct(0.99), "max": s.last ?? 0,
+                "over25": Double(s.filter { $0 > 25 }.count), "over50": Double(s.filter { $0 > 50 }.count),
+                "sumOver25": s.filter { $0 > 25 }.reduce(0, +)]
     }
 }

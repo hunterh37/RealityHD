@@ -134,6 +134,14 @@ public struct RealPerformance: Codable, Sendable, Hashable {
     nonisolated(unsafe) public private(set) static var generation: UInt64 = 0
     /// Adaptive governor multiplier (1 = no reduction). Runtime only, never persisted.
     nonisolated(unsafe) public internal(set) static var adaptiveScale: Float = 1
+    /// The governor ignores frames until this wall time (CFAbsoluteTime). Mesh uploads push it forward:
+    /// frames spent building a scene are load stalls, and counting them cut the scale to its floor before
+    /// the first walk, then the 8 % recoveries every 4 s re-switched LOD, culling and shadows mid-walk.
+    nonisolated(unsafe) public internal(set) static var adaptiveHoldUntil: Double = 0
+    /// Holds the adaptive governor for `seconds` from now (mesh uploads call this).
+    public static func holdAdaptive(_ seconds: Double = 1.5) {
+        adaptiveHoldUntil = max(adaptiveHoldUntil, CFAbsoluteTimeGetCurrent() + seconds)
+    }
     /// Largest sun shadow distance in use (meters, 0 = unknown). Meshes well past it stop casting.
     nonisolated(unsafe) public internal(set) static var shadowReach: Float = 0
 
@@ -371,6 +379,10 @@ public struct RealPerformanceSystem: System {
         // restore it in steps while walking (mass LOD/cull toggles mid-walk).
         if dt > RealGovernor.gap {
             window = 0; frames = 0; worst = 0
+            governor.reset()
+        } else if now < RealPerformance.adaptiveHoldUntil {
+            // Meshes uploading: stats count the frame, the governor does not.
+            frames += 1; window += dt; worst = max(worst, dt)
             governor.reset()
         } else {
             frames += 1; window += dt; worst = max(worst, dt)
