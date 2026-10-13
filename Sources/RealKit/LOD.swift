@@ -196,3 +196,17 @@ public extension Model {
                                 size: size, lod: lod, shadowEligible: shadowEligible, lodShift: lodShift)
     }
 }
+
+/// Cooperative pacing for long main-actor builds: `await pace()` suspends once `budget` seconds of main-thread
+/// work have run since the last suspension, so input, UI and CA commits get a turn between entities.
+@MainActor
+public struct RealLoadPacer {
+    public var budget: Double
+    private var last = CFAbsoluteTimeGetCurrent()
+    public init(budget: Double = 0.008) { self.budget = budget }
+    public mutating func pace() async {
+        guard CFAbsoluteTimeGetCurrent() - last >= budget else { return }
+        await Task.yield()
+        last = CFAbsoluteTimeGetCurrent()
+    }
+}

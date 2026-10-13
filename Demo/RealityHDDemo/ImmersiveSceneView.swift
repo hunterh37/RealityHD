@@ -82,6 +82,7 @@ struct ImmersiveSceneView: View {
         .onDisappear { model.spots = [] }
         .task { await RealViewerTracker.shared.start() }
         .task { await captureMotion() }
+        .task { await benchRecord() }
         .onDisappear { RealViewerTracker.shared.stop() }
     }
 
@@ -138,7 +139,11 @@ struct ImmersiveSceneView: View {
                 if var g = e.components[RealGrabComponent.self] { g.home = e.transform; e.components.set(g) }
             }
         }
-        live.onChange = { c in model.siphonReadout = "L \(c.left.display) \(c.left.mode.rawValue)   R \(c.right.display) \(c.right.mode.rawValue)" }
+        // 10 Hz ticks: assign only on change so the menu is not invalidated every tick.
+        live.onChange = { c in
+            let s = "L \(c.left.display) \(c.left.mode.rawValue)   R \(c.right.display) \(c.right.mode.rawValue)"
+            if model.siphonReadout != s { model.siphonReadout = s }
+        }
         live.start()
         siphon = live
     }
@@ -222,6 +227,43 @@ struct ImmersiveSceneView: View {
             let move = Transform(scale: .one, rotation: rot, translation: rot.act(SIMD3(0, 0, dolly * t)))
             anchor.transform = Transform(matrix: move.matrix * base)
             try? await Task.sleep(for: .milliseconds(16))
+        }
+    }
+
+    /// Launch arg `-bench <seconds>`: after the scene loads, samples `RealityHD.stats` every 0.5 s and writes
+    /// `Library/Caches/bench/<scene>.json` (build ms, samples, summary). Pair with `-pan`/`-dolly` to move.
+    private func benchRecord() async {
+        let seconds = UserDefaults.standard.double(forKey: "bench")
+        guard seconds > 0 else { return }
+        let t0 = Date()
+        // Main-thread stalls: gaps in a 10 ms main-actor heartbeat (load phase, then walk phase).
+        var gaps: [Double] = []
+        var last = Date()
+        func beat() { let now = Date(); gaps.append(now.timeIntervalSince(last) * 1000); last = now }
+        while model.loading || anchor.children.isEmpty { try? await Task.sleep(for: .milliseconds(10)); beat() }
+        let buildMs = Int(Date().timeIntervalSince(t0) * 1000)
+        let loadGaps = gaps; gaps = []
+        var samples: [[String: Double]] = []
+        let start = Date()
+        var next = start.addingTimeInterval(0.5)
+        while Date().timeIntervalSince(start) < seconds, !Task.isCancelled {
+            try? await Task.sleep(for: .milliseconds(10)); beat()
+            guard Date() >= next else { continue }
+            next = next.addingTimeInterval(0.5)
+            let s = RealityHD.stats
+            samples.append(["t": Date().timeIntervalSince(start), "fps": s.fps, "ms": s.frameMs, "worst": s.worstFrameMs,
+                            "tris": Double(s.triangles), "draws": Double(s.drawCalls), "casters": Double(s.shadowCasters),
+                            "meshes": Double(s.meshEntities), "lodsw": Double(s.lodSwitches), "texMB": Double(s.textureMB)])
+        }
+        let dir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appending(path: "bench")
+        try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+        func stall(_ g: [Double]) -> [String: Double] {
+            ["max": g.max() ?? 0, "over50": Double(g.filter { $0 > 50 }.count), "sumOver50": g.filter { $0 > 50 }.reduce(0, +)]
+        }
+        let out: [String: Any] = ["scene": config.scene.rawValue, "buildMs": buildMs, "status": model.status, "samples": samples,
+                                  "loadStall": stall(loadGaps), "walkStall": stall(gaps)]
+        if let data = try? JSONSerialization.data(withJSONObject: out, options: [.prettyPrinted, .sortedKeys]) {
+            try? data.write(to: dir.appending(path: "\(config.scene.rawValue).json"))
         }
     }
 
