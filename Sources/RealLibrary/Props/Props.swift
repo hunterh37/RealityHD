@@ -665,6 +665,7 @@ public enum Props {
         LockersBank.self,
         PhoneBoothPod.self,
         LoungeSeating.self,
+        RestaurantBooth.self,
         // realityhd:prop
     ]
 }
