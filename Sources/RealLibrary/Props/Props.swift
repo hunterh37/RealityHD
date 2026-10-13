@@ -664,6 +664,7 @@ public enum Props {
         BuiltInBookcase.self,
         ChangingTable.self,
         CheckoutCounter.self,
+        ClosetOrganizer.self,
         // realityhd:prop
     ]
 }
