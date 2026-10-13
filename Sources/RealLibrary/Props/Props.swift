@@ -674,6 +674,14 @@ public enum Props {
         HallTree.self,
         CopierMfp.self,
         GondolaShelf.self,
+        PlateStack.self,
+        StandingDesk.self,
+        ShoeRack.self,
+        RollerBlind.self,
+        LockersBank.self,
+        PhoneBoothPod.self,
+        LoungeSeating.self,
+        RestaurantBooth.self,
         // realityhd:prop
     ]
 }
