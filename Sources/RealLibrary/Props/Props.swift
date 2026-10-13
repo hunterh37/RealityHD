@@ -663,6 +663,7 @@ public enum Props {
         ShoeRack.self,
         RollerBlind.self,
         LockersBank.self,
+        PhoneBoothPod.self,
         // realityhd:prop
     ]
 }
