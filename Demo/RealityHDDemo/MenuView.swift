@@ -7,7 +7,7 @@ struct MenuView: View {
     @Environment(\.openImmersiveSpace) private var openSpace
     @Environment(\.dismissImmersiveSpace) private var dismissSpace
     /// Capture mode: the window stays open (dismissing it recenters the simulator view) but draws nothing.
-    @State private var hidden = UserDefaults.standard.bool(forKey: "hideMenu")
+    @State private var hidden = UserDefaults.standard.bool(forKey: "hideMenu") || UserDefaults.standard.string(forKey: "Route") != nil
 
     var body: some View {
         @Bindable var model = model
@@ -87,6 +87,9 @@ struct MenuView: View {
         .opacity(hidden ? 0 : 1)
         .glassBackgroundEffect(displayMode: hidden ? .never : .always)
         .persistentSystemOverlays(hidden ? .hidden : .automatic)
+        #if DEBUG
+        .director { DemoRoutes.register($0, model: model, enter: { await enter($0) }) }
+        #endif
         .task {
             // Launch arguments for captures: -scene forest-glade -sky golden -seed 2 -yaw -30 -hideMenu YES -pan 3 -dolly 0.3
             let d = UserDefaults.standard
