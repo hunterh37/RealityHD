@@ -37,5 +37,5 @@
   ],
   "theme": "Home",
   "threshold": 0.85,
-  "tolerance": 0.05
+  "tolerance": 0.15
 }

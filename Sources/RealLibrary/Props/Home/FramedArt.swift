@@ -14,7 +14,7 @@ public struct FramedArt: RealAsset {
     /// Frame wood.
     public var wood: MaterialKey = "wood.walnut"
     /// Mat board.
-    public var mat: MaterialKey = "laminate.sheet:EFE8D8"
+    public var mat: MaterialKey = "paint.wall:EFE8D8"
     public init() {}
 
     private func box(_ m: inout Model, _ sz: V3, _ c: V3, _ key: MaterialKey, r: Float = 0.001) {
@@ -43,7 +43,7 @@ public struct FramedArt: RealAsset {
         let sideW = (iw - ow) / 2
         for s: Float in [-1, 1] { box(&m, V3(sideW, oh, matT), V3(cx + s * (ow / 2 + sideW / 2), oyc, zm), mat, r: 0.0006) }
         // Inner mat bevel: thin lighter core line around the window.
-        let core: MaterialKey = "laminate.sheet:FBF8F0"
+        let core: MaterialKey = "paint.wall:FBF8F0"
         box(&m, V3(ow + 0.006, 0.003, 0.0012), V3(cx, oyc + oh / 2 + 0.0015, zm + matT / 2 + 0.0002), core, r: 0.0004)
         box(&m, V3(ow + 0.006, 0.003, 0.0012), V3(cx, oyc - oh / 2 - 0.0015, zm + matT / 2 + 0.0002), core, r: 0.0004)
         for s: Float in [-1, 1] { box(&m, V3(0.003, oh, 0.0012), V3(cx + s * (ow / 2 + 0.0015), oyc, zm + matT / 2 + 0.0002), core, r: 0.0004) }
