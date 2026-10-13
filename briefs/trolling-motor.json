@@ -17,11 +17,13 @@
     "clamp bracket with screws",
     "motor pod",
     "skeg",
-    "two-blade prop"
+    "two-blade prop",
+    "battery leads",
+    "depth collar"
   ],
   "references": [],
   "size": [
-    0.55,
+    0.65,
     1.19,
     0.15
   ],

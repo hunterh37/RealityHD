@@ -32,7 +32,7 @@ public struct GravelBar: RealAsset {
         let ns = UInt32(truncatingIfNeeded: seed) &+ 3
         let a = length / 2, b = width / 2
         let t = sqrt((x / a) * (x / a) + (z / b) * (z / b))
-        return surfaceHeight(V2(x, z), t: t, ns: ns)
+        return surfaceHeight(V2(x, z), t: t, ns: ns) + 0.14
     }
 
     func surfaceHeight(_ p: V2, t: Float, ns: UInt32) -> Float {
@@ -94,6 +94,8 @@ public struct GravelBar: RealAsset {
         }
         for var s in [cob0, wet0] where !s.isEmpty { s.occlusion = s.positions.map { _ in 0.85 }; m0.add(s) }
         for var s in [cob1, wet1] where !s.isEmpty { s.occlusion = s.positions.map { _ in 0.85 }; m1.add(s) }
-        return LODModel(levels: [m0, m1], switchDistances: lodDistances)
+        // Lift so the sunken toe sits at y = 0.
+        let up = Xform(translation: V3(0, 0.14, 0))
+        return LODModel(levels: [m0.transformed(up), m1.transformed(up)], switchDistances: lodDistances)
     }
 }

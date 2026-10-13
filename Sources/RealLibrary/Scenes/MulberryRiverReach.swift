@@ -105,7 +105,7 @@ public struct MulberryRiverReach: RealSceneBuilder {
         for (x, len, k) in [(Float(34), Float(30), UInt64(4)), (166, 20, 5)] {
             let s = path.sample(atX: x)
             let yaw = -atan2(s.tangent.y, s.tangent.x) * 180 / .pi
-            scene.add(GravelBar().with { $0.length = len; $0.width = len * 0.34 }, at: place(x, s.center.y + s.width / 2 + len * 0.1, y: -0.32, yaw: yaw), seed: seed &+ k)
+            scene.add(GravelBar().with { $0.length = len; $0.width = len * 0.34 }, at: place(x, s.center.y + s.width / 2 + len * 0.1, y: -0.46, yaw: yaw), seed: seed &+ k)
         }
 
         // Riverbed cobble where the water is shallow enough to see the bottom, and along the waterline.

@@ -12,14 +12,14 @@ public extension TreeSpecies {
             BranchLevel(density: 1.6, span: 0.15...1, lengthRatio: 0.48, profile: .dome, downAngle: 52, downAngleSpread: 16, curve: 34, gravity: 0.04, radiusRatio: 0.5, wobble: 0.07, stubChance: 0.1),
             BranchLevel(density: 2.6, span: 0.2...1, lengthRatio: 0.34, profile: .tapered, downAngle: 48, downAngleSpread: 18, curve: 24, gravity: 0.08, radiusRatio: 0.55, wobble: 0.05),
         ],
-        leaves: LeafParams(cardSize: V2(0.7, 0.7), density: 5, span: 0.25...1, crownNormalBlend: 0.7, tipCluster: 0.6, sunBias: 0.25),
+        leaves: LeafParams(cardSize: V2(0.82, 0.82), density: 5, span: 0.25...1, crownNormalBlend: 0.7, tipCluster: 0.6, sunBias: 0.25),
         barkTile: 0.7).with { $0.woodLevels = 1; $0.roots = 1.2 }
 
     /// River birch (Betula nigra), ~15 m: leaning trunk with salmon papery bark, irregular open crown of
     /// arching branches, small toothed leaves (4 to 8 cm).
     static let riverBirch = TreeSpecies(
         name: "river-birch", bark: "bark.river-birch", leaf: "leaf.river-birch", height: 15, trunkRadius: 0.26, trunkTipRatio: 0.06,
-        trunkFraction: 0.55, trunkCurve: 18, trunkWobble: 0.025, flare: 0.4, flareLobes: 4,
+        trunkFraction: 0.55, trunkCurve: 9, trunkWobble: 0.025, flare: 0.4, flareLobes: 4,
         levels: [
             BranchLevel(density: 5, span: 0.1...1, lengthRatio: 0.5, downAngle: 40, downAngleSpread: 14, curve: 30, gravity: 0.04, radiusRatio: 0.55, wobble: 0.07),
             BranchLevel(density: 3.6, span: 0.2...1, lengthRatio: 0.45, downAngle: 45, downAngleSpread: 16, curve: 28, gravity: -0.04, radiusRatio: 0.5, wobble: 0.05, stubChance: 0.06),

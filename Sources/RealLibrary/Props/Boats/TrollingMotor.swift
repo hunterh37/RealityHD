@@ -82,6 +82,12 @@ public struct TrollingMotor: RealArticulated {
             rig.add(Prim.torus(major: 0.019, minor: 0.0025, segments: 16, sides: 5, material: grip),
                     Xform(translation: V3(0.26 + Float(i) * 0.025, shaftTop + 0.045, 0), rotation: simd_quatf(degrees: 90, axis: V3(0, 0, 1))), to: "tiller")
         }
+        // Battery leads: a twin cable leaving the back of the head and looping down past the bracket.
+        let cable = catmull([V3(-0.12, shaftTop + 0.03, 0.01), V3(-0.17, shaftTop - 0.05, 0.03), V3(-0.16, mh + 0.15, 0.05), V3(-0.2, mh, 0.06), V3(-0.26, mh - 0.12, 0.04)], per: 5)
+        rig.add(Prim.tube(cable, radii: cable.map { _ in 0.004 }, sides: 6, seamTile: 0.05, material: "rubber.plate:1C1C1C"), to: "head")
+        // Depth collar with a knob on the shaft above the bracket.
+        rig.add(Prim.cylinder(radius: 0.019, height: 0.035, bevel: 0.004, segments: 14, material: body), Xform(translation: V3(0, mh + 0.2, 0)), to: "shaft")
+        rig.add(Prim.cylinder(radius: 0.011, height: 0.03, bevel: 0.003, segments: 10, material: grip), Xform(translation: V3(0.018, mh + 0.217, 0), rotation: simd_quatf(degrees: -90, axis: V3(0, 0, 1))), to: "shaft")
         // Center the rest-pose footprint on X (the tiller and bracket reach forward and aft of the shaft).
         let shift = Xform(translation: V3(-centerOffset, 0, 0))
         for l in rig.base.indices { rig.base[l] = rig.base[l].transformed(shift) }

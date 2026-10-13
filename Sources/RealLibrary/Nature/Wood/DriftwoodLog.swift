@@ -23,8 +23,8 @@ public struct DriftwoodLog: RealAsset {
     public func build(seed: UInt64) -> LODModel {
         FallenLog().with {
             $0.length = length; $0.buttDiameter = buttDiameter; $0.topDiameter = topDiameter
-            $0.peeled = 0.6; $0.branchStubs = branchStubs; $0.sink = 0.03
-            $0.bark = bark; $0.wood = wood; $0.end = "wood.driftwood-end"
+            $0.peeled = 0.6; $0.branchStubs = branchStubs; $0.sink = 0
+            $0.bark = bark; $0.wood = wood; $0.end = "wood.endgrain-weathered"
         }.build(seed: seed)
     }
 }
