@@ -543,6 +543,7 @@ Props:
 Rigged, animated birds and ground animals (`import RealityHDAnimals`). Each bird has about 40 joints and
 individual feather cards; `WildlifeWorld` lands them on perches taken from placed props and on an open palm.
 Preview: `swift run animalpreview <species> --pose perched`. Details in [docs/ANIMALS.md](docs/ANIMALS.md).
+| | | | |
 
 |---|---|---|---|
 | ![eastern-chipmunk](docs/assets/animal-eastern-chipmunk.png)<br>`eastern-chipmunk` | ![eastern-cottontail](docs/assets/animal-eastern-cottontail.png)<br>`eastern-cottontail` | ![eastern-gray-squirrel](docs/assets/animal-eastern-gray-squirrel.png)<br>`eastern-gray-squirrel` | ![european-hedgehog](docs/assets/animal-european-hedgehog.png)<br>`european-hedgehog` |
