@@ -1,0 +1,36 @@
+{
+  "budget": 5800,
+  "id": "rod-blank-fiberglass",
+  "kind": "prop",
+  "materials": [
+    "composite.fiberglass-blank",
+    "metal.chrome",
+    "ceramic.guide-insert",
+    "thread.wrap-epoxy"
+  ],
+  "name": "Fiberglass rod blank",
+  "notes": "reference photo: ../MulberryRiver/notes/reference/tackle/rod-blank-fiberglass.jpg (compare runs use --ref)",
+  "parts": [
+    "blank",
+    "guides",
+    "tip-top",
+    "hook keeper"
+  ],
+  "references": [],
+  "size": [
+    1.801,
+    0.065,
+    0.033
+  ],
+  "style": "honey solid fiberglass blank, classic slow action",
+  "summary": "Solid fiberglass blank 1.8 m, honey colour, with guides and tip-top.",
+  "tags": [
+    "prop",
+    "fishing",
+    "handheld",
+    "tool"
+  ],
+  "theme": "Tackle",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

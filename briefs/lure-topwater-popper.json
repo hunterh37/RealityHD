@@ -1,0 +1,36 @@
+{
+  "budget": 12000,
+  "id": "lure-topwater-popper",
+  "kind": "prop",
+  "materials": [
+    "paint.lure",
+    "paint.lure-holo",
+    "metal.hook"
+  ],
+  "name": "Topwater popper",
+  "notes": "reference photo: ../MulberryRiver/notes/reference/tackle/lure-topwater-popper.jpg (compare runs use --ref)",
+  "parts": [
+    "body",
+    "cupped face",
+    "eyes",
+    "treble hooks",
+    "feather tail"
+  ],
+  "references": [],
+  "size": [
+    0.106,
+    0.025,
+    0.048
+  ],
+  "style": "topwater popper, bone white with red throat",
+  "summary": "Topwater popper 70 mm body: cupped mouth, painted eyes, two trebles, feathered rear hook.",
+  "tags": [
+    "prop",
+    "fishing",
+    "handheld",
+    "plastic"
+  ],
+  "theme": "Tackle",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

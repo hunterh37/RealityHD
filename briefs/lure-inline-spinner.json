@@ -1,0 +1,37 @@
+{
+  "budget": 5300,
+  "id": "lure-inline-spinner",
+  "kind": "prop",
+  "materials": [
+    "metal.spinner-nickel",
+    "paint.lure",
+    "metal.hook"
+  ],
+  "name": "Inline spinner",
+  "notes": "reference photo: ../MulberryRiver/notes/reference/tackle/lure-inline-spinner.jpg (compare runs use --ref)",
+  "parts": [
+    "shaft",
+    "clevis",
+    "blade",
+    "beads",
+    "body",
+    "treble hook"
+  ],
+  "references": [],
+  "size": [
+    0.081,
+    0.013,
+    0.02
+  ],
+  "style": "size 3 inline spinner, nickel blade, red beads",
+  "summary": "Inline spinner 75 mm: wire shaft, nickel French blade on a clevis, beads, brass body, dressed treble.",
+  "tags": [
+    "prop",
+    "fishing",
+    "handheld",
+    "metal"
+  ],
+  "theme": "Tackle",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

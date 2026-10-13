@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "rod-baitcasting",
+  "kind": "prop",
+  "materials": [
+    "composite.graphite-blank",
+    "foam.eva",
+    "metal.anodized-gunmetal",
+    "metal.chrome",
+    "ceramic.guide-insert",
+    "thread.wrap-epoxy"
+  ],
+  "name": "Baitcasting rod",
+  "notes": "reference photo: ../MulberryRiver/notes/reference/tackle/rod-baitcasting.jpg (compare runs use --ref)",
+  "parts": [
+    "blank",
+    "handle",
+    "reel-seat",
+    "guides",
+    "tip-top",
+    "trigger"
+  ],
+  "references": [],
+  "size": [
+    2.101,
+    0.061,
+    0.028
+  ],
+  "style": "7 ft medium-heavy casting rod, black EVA grips, trigger seat, small micro guides on top",
+  "summary": "Casting rod, 2.1 m: graphite blank, EVA grips, trigger reel seat, ten small guides on top.",
+  "tags": [
+    "prop",
+    "fishing",
+    "handheld",
+    "articulated",
+    "tool"
+  ],
+  "theme": "Tackle",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

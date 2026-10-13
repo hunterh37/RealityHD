@@ -1,0 +1,40 @@
+{
+  "budget": 11500,
+  "id": "reel-spinning",
+  "kind": "prop",
+  "materials": [
+    "metal.anodized-gunmetal",
+    "plastic.black",
+    "metal.chrome",
+    "plastic.line"
+  ],
+  "name": "Spinning reel",
+  "notes": "reference photo: ../MulberryRiver/notes/reference/tackle/reel-spinning.jpg (compare runs use --ref)",
+  "parts": [
+    "body",
+    "spool",
+    "handle",
+    "bail",
+    "foot",
+    "rotor",
+    "drag knob"
+  ],
+  "references": [],
+  "size": [
+    0.121,
+    0.119,
+    0.079
+  ],
+  "style": "2500-size spinning reel, gunmetal and black, generic",
+  "summary": "2500 spinning reel standing on its foot: gearbox body, rotor, wire bail, skirted spool with line, crank handle.",
+  "tags": [
+    "prop",
+    "fishing",
+    "handheld",
+    "articulated",
+    "metal"
+  ],
+  "theme": "Tackle",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
