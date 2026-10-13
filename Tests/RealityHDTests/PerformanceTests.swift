@@ -130,3 +130,21 @@ import simd
         #expect(l.map(\.name) == ["l11", "l10", "l9"])
     }
 }
+
+@Suite struct GovernorTests {
+    let perf = RealPerformance(.balanced).with { $0.adaptive = true; $0.targetFPS = 90 }
+
+    @Test func idleGapDoesNotCutScale() {
+        var g = RealGovernor(); var s: Float = 1
+        for _ in 0..<200 { s = g.step(1 / 95.0, perf, scale: s) }
+        s = g.step(3.0, perf, scale: s)                       // RealityKit idle span
+        for _ in 0..<200 { s = g.step(1 / 95.0, perf, scale: s) }
+        #expect(s == 1)
+    }
+
+    @Test func slowFramesStillCutScale() {
+        var g = RealGovernor(); var s: Float = 1
+        for _ in 0..<60 { s = g.step(1 / 60.0, perf, scale: s) }
+        #expect(s < 1)
+    }
+}

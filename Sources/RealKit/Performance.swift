@@ -352,8 +352,7 @@ public struct RealPerformanceSystem: System {
     private var generation: UInt64 = .max
     private var sunScale: Float = -1
     private var window: Double = 0, frames = 0, worst: Double = 0
-    private var ema: Double = 0
-    private var slowFor: Double = 0, fastFor: Double = 0, cooldown: Double = 0
+    private var governor = RealGovernor()
 
     public init(scene: RealityKit.Scene) {}
 
@@ -366,10 +365,17 @@ public struct RealPerformanceSystem: System {
         if Self.primary == nil || (Self.primary != me && now - Self.primaryStamp > 2) { Self.primary = me; Self.primaryMeshes = 0 }
         if Self.primary == me { Self.primaryStamp = now }
         let isPrimary = Self.primary == me
-        frames += 1; window += dt; worst = max(worst, dt)
-        ema = ema == 0 ? dt : ema * 0.9 + dt * 0.1
-
-        if perf.adaptive, isPrimary { govern(dt, perf) }
+        // RealityKit skips system updates while nothing in the scene changes, so one deltaTime can span
+        // seconds of idle (about 4 Hz ticks of 250 ms in the simulator). Such a gap is not a frame: counting it put multi-second "worst frames" in the
+        // stats and made the governor cut LOD and draw distance whenever the viewer stood still, then
+        // restore it in steps while walking (mass LOD/cull toggles mid-walk).
+        if dt > RealGovernor.gap {
+            window = 0; frames = 0; worst = 0
+            governor.reset()
+        } else {
+            frames += 1; window += dt; worst = max(worst, dt)
+            if perf.adaptive, isPrimary { RealPerformance.adaptiveScale = governor.step(dt, perf, scale: RealPerformance.adaptiveScale) }
+        }
 
         if RealPerformance.generation != generation {
             generation = RealPerformance.generation
@@ -395,7 +401,7 @@ public struct RealPerformanceSystem: System {
             RealPerformance.shadowReach = reach
         }
 
-        guard window >= Self.collectWindow else { return }
+        guard window >= Self.collectWindow, frames > 0 else { return }
         guard RealStats.collecting else {
             guard isPrimary else { window = 0; frames = 0; worst = 0; return }
             // Timing only: no entity walk.
@@ -429,18 +435,31 @@ public struct RealPerformanceSystem: System {
             st.textureMB = RealMaterialCache.shared.textureBytes / 1_048_576
         }
     }
+}
 
-    /// Steps the adaptive scale down after 0.75 s of long frames, up after 4 s at target (6 s after a drop).
-    private mutating func govern(_ dt: Double, _ perf: RealPerformance) {
+/// Adaptive frame-rate governor: steps the scale down after 0.75 s of long frames, up after 4 s at target
+/// (6 s after a drop). Feed it frame deltas only; `gap` and longer are idle spans, not frames.
+public struct RealGovernor: Sendable {
+    public static let gap: Double = 0.2
+    var ema: Double = 0
+    var slowFor: Double = 0, fastFor: Double = 0, cooldown: Double = 0
+    public init() {}
+
+    /// Forgets frame history (after an idle gap) but keeps the cooldown.
+    public mutating func reset() { ema = 0; slowFor = 0; fastFor = 0 }
+
+    public mutating func step(_ dt: Double, _ perf: RealPerformance, scale current: Float) -> Float {
+        guard dt > 0, dt <= Self.gap else { reset(); return current }
+        ema = ema == 0 ? dt : ema * 0.9 + dt * 0.1
         let budget = 1 / max(30, perf.targetFPS)
         cooldown = max(0, cooldown - dt)
         if ema > budget * 1.12 { slowFor += dt; fastFor = 0 } else if ema < budget * 1.04 { fastFor += dt; slowFor = 0 }
-        var scale = RealPerformance.adaptiveScale
+        var scale = current
         if slowFor > 0.75, scale > perf.minAdaptiveScale {
             scale = max(perf.minAdaptiveScale, scale * 0.88); slowFor = 0; cooldown = 6
         } else if fastFor > 4, cooldown == 0, scale < 1 {
             scale = min(1, scale * 1.08); fastFor = 0
         }
-        RealPerformance.adaptiveScale = scale
+        return scale
     }
 }
