@@ -1,0 +1,40 @@
+{
+  "budget": 14000,
+  "id": "gondola-shelf",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat",
+    "wood.pegboard",
+    "paper.sheet",
+    "plastic.black"
+  ],
+  "name": "Gondola shelf",
+  "notes": "",
+  "parts": [
+    "powder-coated upright pegboard back panel",
+    "steel uprights with slots",
+    "adjustable shelves with lips",
+    "base shelf with kick plate",
+    "price rails and tags",
+    "stocked boxed goods"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.6,
+    0.5
+  ],
+  "style": "retail store gondola, light grey, stocked with boxed goods",
+  "summary": "Retail gondola shelf, 1.2 x 1.6 x 0.5 m: slotted steel uprights, perforated back panel, five lipped shelves with price rails and stocked boxes.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "commercial",
+    "metal",
+    "interior",
+    "container"
+  ],
+  "theme": "Commercial",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
