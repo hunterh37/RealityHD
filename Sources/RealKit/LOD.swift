@@ -77,35 +77,63 @@ public struct RealLODSystem: System {
         while cursor < end {
             let e = pending[cursor]
             cursor += 1
-            guard e.isActive, var lod = e.components[RealLODComponent.self] else { continue }
-            let p = e.convert(position: lod.center, to: nil)
-            let d = simd_distance(p, viewer)
-            let culled = perf.hidden(distance: d, cullDistance: lod.cullDistance, groundCover: lod.groundCover, size: lod.size, adaptive: adapt)
-            // Switch distances scale with the bias; hysteresis works on the scaled distance.
-            let ed = d / bias
-            var level = lod.switchDistances.firstIndex(where: { ed < $0 }) ?? lod.switchDistances.count
-            // Hysteresis: only move to a coarser level once past the boundary by the margin.
-            if lod.current >= 0, level != lod.current {
-                let boundary = level > lod.current ? lod.switchDistances[lod.current] : lod.switchDistances[level]
-                if abs(ed - boundary) < boundary * lod.hysteresis { level = lod.current }
-            }
-            // Casters past 1.5x the shadow reach (plus their own size) cannot shade anything the cascade draws.
-            var shadowsOff = lod.shadowsOff
-            if reach > 0, lod.size.isFinite {
-                let edge = reach * 1.5 + lod.size
-                if d > edge { shadowsOff = true } else if d < edge * 0.9 { shadowsOff = false }
-            } else { shadowsOff = false }
-            if level != lod.current || culled != lod.culled || shadowsOff != lod.shadowsOff {
-                Self.apply(level: level, culled: culled, shadowsOff: shadowsOff, under: e)
-                if level != lod.current { switches += 1 }
-                lod.current = level
-                lod.culled = culled
-                lod.shadowsOff = shadowsOff
-                e.components.set(lod)
-            }
+            guard e.isActive else { continue }
+            if Self.evaluate(e, viewer: viewer, perf: perf, adapt: adapt, bias: bias, reach: reach) == .switched { switches += 1 }
         }
         if cursor >= pending.count { pending.removeAll(keepingCapacity: true); cursor = 0 }
         RealPerformanceSystem.lodSwitchCounter += switches
+    }
+}
+
+extension RealLODSystem {
+    enum Outcome { case unchanged, updated, switched }
+
+    /// Picks the level, cull and shadow state of one LOD entity from the viewer position (world space).
+    @discardableResult
+    static func evaluate(_ e: Entity, viewer: SIMD3<Float>, perf: RealPerformance, adapt: Float, bias: Float, reach: Float) -> Outcome {
+        guard var lod = e.components[RealLODComponent.self] else { return .unchanged }
+        let p = e.convert(position: lod.center, to: nil)
+        let d = simd_distance(p, viewer)
+        let culled = perf.hidden(distance: d, cullDistance: lod.cullDistance, groundCover: lod.groundCover, size: lod.size, adaptive: adapt)
+        // Switch distances scale with the bias; hysteresis works on the scaled distance.
+        let ed = d / bias
+        var level = lod.switchDistances.firstIndex(where: { ed < $0 }) ?? lod.switchDistances.count
+        // Hysteresis: only move to a coarser level once past the boundary by the margin.
+        if lod.current >= 0, level != lod.current {
+            let boundary = level > lod.current ? lod.switchDistances[lod.current] : lod.switchDistances[level]
+            if abs(ed - boundary) < boundary * lod.hysteresis { level = lod.current }
+        }
+        // Casters past 1.5x the shadow reach (plus their own size) cannot shade anything the cascade draws.
+        var shadowsOff = lod.shadowsOff
+        if reach > 0, lod.size.isFinite {
+            let edge = reach * 1.5 + lod.size
+            if d > edge { shadowsOff = true } else if d < edge * 0.9 { shadowsOff = false }
+        } else { shadowsOff = false }
+        guard level != lod.current || culled != lod.culled || shadowsOff != lod.shadowsOff else { return .unchanged }
+        apply(level: level, culled: culled, shadowsOff: shadowsOff, under: e)
+        // The first assignment (current -1) is not a switch.
+        let switched = lod.current >= 0 && level != lod.current
+        lod.current = level
+        lod.culled = culled
+        lod.shadowsOff = shadowsOff
+        e.components.set(lod)
+        return switched ? .switched : .updated
+    }
+
+    /// Sets LOD levels under `root` before it joins a scene, so the first rendered frame shows the right
+    /// levels and the system's first pass finds nothing to change. `root` must already have its final
+    /// transform relative to the scene origin; `viewer` is in that space (default `RealViewer.position`).
+    @MainActor public static func prime(_ root: Entity, viewer: SIMD3<Float>? = nil) {
+        let perf = RealPerformance.active, adapt = RealPerformance.adaptiveScale
+        if viewer == nil { RealViewer.refresh() }
+        let v = viewer ?? RealViewer.position
+        let bias = max(0.05, perf.lodBias * adapt), reach = RealPerformance.shadowReach
+        func walk(_ e: Entity) {
+            guard e.isEnabled else { return }
+            if e.components.has(RealLODComponent.self) { evaluate(e, viewer: v, perf: perf, adapt: adapt, bias: bias, reach: reach) }
+            for c in e.children { walk(c) }
+        }
+        walk(root)
     }
 }
 
