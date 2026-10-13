@@ -340,6 +340,14 @@ public struct RealPerformanceSystem: System {
     static let sunQuery = EntityQuery(where: .has(RealSunComponent.self))
     nonisolated(unsafe) static var lodSwitchCounter = 0
     static var collectWindow: Double { max(0.25, RealStats.collectInterval) }
+    /// Every RealityKit scene (menu window, HUD attachment host, immersive space) runs its own instance.
+    /// Only the scene with the most costed meshes publishes stats and drives the adaptive governor;
+    /// otherwise an empty window scene overwrote the counts with zeros and fed its own frame times to
+    /// the governor.
+    nonisolated(unsafe) static var primary: ObjectIdentifier?
+    nonisolated(unsafe) static var primaryMeshes = 0
+    /// Wall time of the primary's last update; a primary silent for 2 s (space closed) is replaced.
+    nonisolated(unsafe) static var primaryStamp: Double = 0
 
     private var generation: UInt64 = .max
     private var sunScale: Float = -1
@@ -353,10 +361,15 @@ public struct RealPerformanceSystem: System {
         let dt = context.deltaTime
         guard dt > 0 else { return }
         let perf = RealPerformance.active
+        let me = ObjectIdentifier(context.scene)
+        let now = CFAbsoluteTimeGetCurrent()
+        if Self.primary == nil || (Self.primary != me && now - Self.primaryStamp > 2) { Self.primary = me; Self.primaryMeshes = 0 }
+        if Self.primary == me { Self.primaryStamp = now }
+        let isPrimary = Self.primary == me
         frames += 1; window += dt; worst = max(worst, dt)
         ema = ema == 0 ? dt : ema * 0.9 + dt * 0.1
 
-        if perf.adaptive { govern(dt, perf) }
+        if perf.adaptive, isPrimary { govern(dt, perf) }
 
         if RealPerformance.generation != generation {
             generation = RealPerformance.generation
@@ -384,6 +397,7 @@ public struct RealPerformanceSystem: System {
 
         guard window >= Self.collectWindow else { return }
         guard RealStats.collecting else {
+            guard isPrimary else { window = 0; frames = 0; worst = 0; return }
             // Timing only: no entity walk.
             let fps = Double(frames) / window, frameMs = window / Double(frames) * 1000, worstMs = worst * 1000
             window = 0; frames = 0; worst = 0
@@ -399,6 +413,10 @@ public struct RealPerformanceSystem: System {
             meshes += 1; tris += c.triangles * c.instances; draws += c.drawCalls; inst += c.instances
             if e.components[DynamicLightShadowComponent.self]?.castsShadow ?? true { casters += 1 }
         }
+        if isPrimary || meshes > Self.primaryMeshes {
+            Self.primary = me; Self.primaryMeshes = meshes; Self.primaryStamp = now
+        }
+        guard Self.primary == me else { window = 0; frames = 0; worst = 0; return }
         let fps = Double(frames) / window, frameMs = window / Double(frames) * 1000, worstMs = worst * 1000
         let switches = Int(Double(Self.lodSwitchCounter) / window)
         Self.lodSwitchCounter = 0
