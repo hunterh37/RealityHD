@@ -34,6 +34,14 @@ public enum Nature {
         FallenLog.self,
         RootStump.self,
         Ladybug.self, StagBeetle.self, RhinoBeetle.self, JewelBeetle.self, DungBeetle.self, Monarch.self, Swallowtail.self, Morpho.self, LunaMoth.self, Firefly.self, HoneyBee.self, Bumblebee.self, Dragonfly.self, Damselfly.self, Cicada.self, Grasshopper.self, Cricket.self, Katydid.self, Mantis.self, StickInsect.self, GardenAnt.self, Caterpillar.self, PillBug.self, Centipede.self,
+        SycamoreTree.self,
+        RiverBirch.self,
+        ShortleafPine.self,
+        RiverCane.self,
+        LimestoneBluff.self,
+        RiverCobble.self,
+        GravelBar.self,
+        DriftwoodLog.self,
         // realityhd:nature
     ]
 }

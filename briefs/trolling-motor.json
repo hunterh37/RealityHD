@@ -1,0 +1,41 @@
+{
+  "budget": 9000,
+  "id": "trolling-motor",
+  "kind": "prop",
+  "materials": [
+    "plastic.gloss:1A1A1C",
+    "plastic.matte:202022",
+    "rubber.plate",
+    "metal.stainless"
+  ],
+  "name": "Clamp-on trolling motor",
+  "notes": "MulberryRiver river pack. Reference compared with gate --ref (compare.png): briefs/refs/trolling-motor/Minn_Kota-Trolling_Outboard-001.jpg (not committed; sources in MulberryRiver notes/reference).",
+  "parts": [
+    "control head",
+    "twist tiller grip",
+    "composite shaft",
+    "clamp bracket with screws",
+    "motor pod",
+    "skeg",
+    "two-blade prop"
+  ],
+  "references": [],
+  "size": [
+    0.55,
+    1.19,
+    0.15
+  ],
+  "style": "glossy black composite, used",
+  "summary": "Clamp-on electric trolling motor, 1.25 m: composite shaft, control head with twist tiller, clamp bracket, motor pod, two-blade prop.",
+  "tags": [
+    "prop",
+    "vehicle",
+    "boat",
+    "river",
+    "plastic",
+    "articulated"
+  ],
+  "theme": "Boats",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
