@@ -664,6 +664,7 @@ public enum Props {
         FloorMirror.self,
         CurtainPair.self,
         HallTree.self,
+        CopierMfp.self,
         // realityhd:prop
     ]
 }
