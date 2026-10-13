@@ -66,7 +66,11 @@ public struct RealScene {
     public func entity(materials: RealMaterialCache? = nil) async throws -> Entity {
         let root = Entity()
         root.name = name
-        for f in fields { root.addChild(try await RealInstancing.field(f.asset, transforms: f.transforms, options: f.options, materials: materials)) }
+        var pacer = RealLoadPacer()
+        for f in fields {
+            root.addChild(try await RealInstancing.field(f.asset, transforms: f.transforms, options: f.options, materials: materials))
+            await pacer.pace()
+        }
         if let farGround {
             let far = Model(name: "far-ground", surfaces: [Prim.terrain(size: V2(4000, 4000), segments: 8, material: farGround) { _ in -0.25 }])
             let e = try await far.modelEntityAsync(materials: materials)
@@ -79,9 +83,10 @@ public struct RealScene {
         if batchStatics || perf.forceBatching {
             for g in Self.batches(statics, cell: batchCell, detailSize: perf.detailSize) {
                 root.addChild(try await Self.upload(g.asset, at: .identity, materials: materials))
+                await pacer.pace()
             }
         } else {
-            for s in statics { root.addChild(try await Self.upload(s.asset, at: s.at, materials: materials)) }
+            for s in statics { root.addChild(try await Self.upload(s.asset, at: s.at, materials: materials)); await pacer.pace() }
         }
         for r in rigs {
             let e = try await r.rig.entityAsync(name: r.name, state: r.state, materials: materials, interactive: r.interactive, grabbable: r.grabbable)
@@ -89,6 +94,7 @@ public struct RealScene {
             // Grab home is the placed pose, so `resetGrab()` returns the object to its spot in the scene.
             if var g = e.components[RealGrabComponent.self] { g.home = e.transform; e.components.set(g) }
             root.addChild(e)
+            await pacer.pace()
         }
         for l in Self.budgetLights(lights, max: perf.maxSceneLights) {
             let e = Entity()
