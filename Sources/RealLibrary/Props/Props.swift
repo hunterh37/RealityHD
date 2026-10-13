@@ -665,6 +665,7 @@ public enum Props {
         ChangingTable.self,
         CheckoutCounter.self,
         ClosetOrganizer.self,
+        ClothingRack.self,
         // realityhd:prop
     ]
 }
