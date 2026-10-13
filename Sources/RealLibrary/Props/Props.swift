@@ -663,6 +663,7 @@ public enum Props {
         TableLamp.self,
         TowelBar.self,
         WallClock.self,
+        WallMirror.self,
         // realityhd:prop
     ]
 }
