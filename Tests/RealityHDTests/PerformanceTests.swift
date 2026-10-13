@@ -147,4 +147,10 @@ import simd
         for _ in 0..<60 { s = g.step(1 / 60.0, perf, scale: s) }
         #expect(s < 1)
     }
+
+    @Test @MainActor func meshUploadHoldsGovernor() throws {
+        let before = RealPerformance.adaptiveHoldUntil
+        _ = try PerformanceTests.asset().levels[0].lowLevelMesh()
+        #expect(RealPerformance.adaptiveHoldUntil > max(before, CFAbsoluteTimeGetCurrent()))
+    }
 }

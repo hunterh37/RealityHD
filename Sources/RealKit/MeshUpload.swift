@@ -38,6 +38,7 @@ public extension Model {
         let desc = LowLevelMesh.Descriptor(vertexCapacity: vCount, vertexAttributes: attrs,
                                            vertexLayouts: [.init(bufferIndex: 0, bufferStride: MemoryLayout<RFVertex>.stride)],
                                            indexCapacity: iCount, indexType: .uint32)
+        RealPerformance.holdAdaptive()
         let mesh = try LowLevelMesh(descriptor: desc)
         var parts: [LowLevelMesh.Part] = []
         mesh.withUnsafeMutableBytes(bufferIndex: 0) { raw in
