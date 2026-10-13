@@ -11,7 +11,7 @@ public extension MaterialLibrary {
             MaterialSpec(key: "fish.\(k)", program: .fishSkin).with {
                 $0.colorA = linear(a, 1 - 0.95 * op + 0.0); $0.colorB = linear(b); $0.colorC = linear(c)
                 $0.knobs = V4(rows, bnd, pat, str); $0.seed = seed; $0.tileSize = 0; $0.resolution = 1024
-                $0.normalStrength = rows > 0 ? 0.9 : 0.6; $0.roughness = 0.3; $0.clearcoat = 0.6
+                $0.normalStrength = rows > 0 ? 0.9 : 0.6; $0.roughness = 0.28; $0.clearcoat = 0.85
             }
         }
         func fin(_ k: String, _ a: UInt32, _ b: UInt32, _ c: UInt32, rays: Float, margin: Float, blotch: Float = 0, seed: UInt32) -> MaterialSpec {
@@ -53,7 +53,7 @@ public extension MaterialLibrary {
             fin("ear-flap-longear", 0x0E0E10, 0x16161A, 0xE8E0C8, rays: 4, margin: 0.05, seed: 9131),
             fin("ear-flap-black", 0x0C0C0E, 0x121214, 0x1A1A1E, rays: 4, margin: 0, seed: 9133),
             fin("barbel", 0x3A3C3E, 0x4A4C4E, 0x2A2C2E, rays: 4, margin: 0, seed: 9132),
-            eye("eye-red", 0xB4261A, pupil: 0.48, seed: 9141),
+            eye("eye-red", 0x8E3424, pupil: 0.48, seed: 9141),
             eye("eye-amber", 0xA2701E, pupil: 0.5, seed: 9142),
             eye("eye-dark", 0x3A3020, pupil: 0.55, seed: 9143),
             eye("eye-silver", 0xC8C6B8, pupil: 0.5, seed: 9144),

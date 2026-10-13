@@ -93,11 +93,11 @@ S fishSkin(float2 uv, constant RFParams &P) {
     float edgeV = opV + 0.035 * (t - 0.45) * (t - 0.45) * 4.0 - 0.01;
     float headZ = smoothstep(edgeV - 0.002, edgeV + 0.03, v);
     float rim = 1.0 - smoothstep(0.0, 0.008, fabs(v - edgeV));
-    c *= 1.0 - 0.35 * rim * step(0.08, t) * (1.0 - step(0.9, t));
-    if (scaled) c *= mix(1.0, 0.95, headZ);
+    c *= 1.0 - 0.22 * rim * step(0.08, t) * (1.0 - step(0.9, t));
     S s = defaults();
-    if (scaled && r.hit && headZ < 0.98) {
-        float tone = 0.9 + 0.2 * r.fid2;
+    if (scaled && r.hit) {
+        float mot = fbm(float2(t * 0.5, v), int2(10, 30), 3, sd + 91u);
+        float tone = 0.84 + 0.3 * r.fid2 + 0.18 * mot;
         // Iridescent shift: scale edges lean blue-green, centres warm, per-scale variation.
         float edge = smoothstep(0.75, 1.0, fabs(r.an)) + (1.0 - smoothstep(0.0, 0.25, r.al));
         float3 iri = mix(float3(0.92, 1.0, 1.08), float3(1.06, 1.0, 0.9), r.fid);
@@ -106,7 +106,7 @@ S fishSkin(float2 uv, constant RFParams &P) {
         s.height = 0.35 + 0.30 * (1.0 - smoothstep(0.0, 1.0, r.al)) - 0.08 * (1.0 - r.shadow);
         s.ao = saturate(0.55 + 0.45 * r.shadow);
         s.rough = 0.26 + 0.12 * r.fid2 + 0.1 * saturate(edge);
-        s.height = mix(s.height, 0.5, headZ);
+        s.height = mix(s.height, 0.5, headZ * 0.55);
     } else {
         // Scaleless skin: fine wrinkles and pores, wet sheen.
         float wr = fbm(float2(t * 0.5, v), int2(24, 80), 3, sd + 71u);
@@ -114,6 +114,9 @@ S fishSkin(float2 uv, constant RFParams &P) {
         s.height = 0.5 + 0.12 * wr; s.ao = 1.0; s.rough = 0.22 + 0.08 * wr;
     }
     // Guanine silvering on the lower flank (drum and bass bellies).
+    // Mucus film: wet streaks drop roughness.
+    float wet = fbm(float2(t * 0.5, v), int2(3, 8), 3, sd + 77u);
+    s.rough = clamp(s.rough * (0.75 + 0.4 * wet), 0.12, 0.5);
     s.metal = under * (pat == 0 ? 0.35 : 0.08);
     s.albedo = c;
     return s;
@@ -133,6 +136,8 @@ S fishFin(float2 uv, constant RFParams &P) {
     float margin = smoothstep(1.0 - P.f.z - 0.05, 1.0 - P.f.z + 0.02, uv.x + n * 0.04);
     c = mix(c, P.colorC.rgb, margin * step(0.001, P.f.z));
     c *= 0.8 + 0.2 * smoothstep(0.0, 0.25, uv.x);
+    // Thin membrane toward the margin reads lighter (fake translucency).
+    c = mix(c, c * 1.3 + 0.04, (1.0 - rayM) * smoothstep(0.3, 0.9, uv.x) * 0.6);
     // Optional dark blotch at the rear base (bluegill dorsal spot): f.w strength.
     float bl = 1.0 - smoothstep(0.18, 0.3, length(float2(uv.x - 0.35, (uv.y - 0.15) * 0.8)));
     c = mix(c, P.colorA.rgb * 0.25, bl * P.f.w);
@@ -150,7 +155,8 @@ S fishEye(float2 uv, constant RFParams &P) {
     float pr = P.f.x;                                     // pupil radius (0..1 of disc)
     float ang = atan2(d.y, d.x);
     float fib = fbm(float2(ang / 6.2831853 + 0.5, r), int2(48, 3), 3, sd + 3u);
-    float3 iris = P.colorA.rgb * (0.75 + 0.5 * fib) * mix(1.2, 0.7, r);
+    float3 iris = P.colorA.rgb * (0.75 + 0.5 * fib) * mix(1.1, 0.7, r);
+    iris = mix(iris, float3(dot(iris, float3(0.3, 0.5, 0.2))), 0.3);
     float3 rim = P.colorC.rgb;
     float pupil = 1.0 - smoothstep(pr - 0.03, pr + 0.02, r);
     float ring = smoothstep(0.86, 0.96, r);
