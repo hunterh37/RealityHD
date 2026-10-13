@@ -661,6 +661,7 @@ public enum Props {
         PlateStack.self,
         StandingDesk.self,
         ShoeRack.self,
+        RollerBlind.self,
         // realityhd:prop
     ]
 }
