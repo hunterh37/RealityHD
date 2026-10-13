@@ -1,11 +1,13 @@
 {
-  "budget": 1500,
+  "budget": 5600,
   "id": "tv-remote",
   "kind": "prop",
   "materials": [
     "plastic.black",
-    "rubber.silicone:2A2A2A",
-    "emissive.led-red"
+    "rubber.silicone",
+    "glass.tinted",
+    "emissive.led-red",
+    "plastic.matte"
   ],
   "name": "TV remote",
   "notes": "Static.",

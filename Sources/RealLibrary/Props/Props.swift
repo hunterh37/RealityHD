@@ -682,6 +682,14 @@ public enum Props {
         PhoneBoothPod.self,
         LoungeSeating.self,
         RestaurantBooth.self,
+        TvRemote.self,
+        Toaster.self,
+        TableLamp.self,
+        TowelBar.self,
+        WallClock.self,
+        WallMirror.self,
+        UprightPiano.self,
+        Treadmill.self,
         // realityhd:prop
     ]
 }

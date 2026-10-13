@@ -1,0 +1,41 @@
+{
+  "budget": 9600,
+  "id": "towel-bar",
+  "kind": "prop",
+  "materials": [
+    "metal.chrome",
+    "fabric.canvas",
+    "fabric.curtain",
+    "metal.steel"
+  ],
+  "name": "Towel bar",
+  "notes": "Static.",
+  "parts": [
+    "chrome bar",
+    "two arms with rosettes",
+    "end caps",
+    "set screws",
+    "folded terry towel",
+    "border band"
+  ],
+  "references": [],
+  "size": [
+    0.66,
+    0.2,
+    0.1
+  ],
+  "style": "polished chrome bathroom hardware, towel folded over",
+  "summary": "Towel bar: 60 cm chrome bar on two wall-plate brackets with a terry hand towel folded over it.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bathroom",
+    "wall",
+    "metal",
+    "fabric",
+    "interior"
+  ],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
