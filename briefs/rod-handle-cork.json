@@ -1,0 +1,36 @@
+{
+  "budget": 4000,
+  "id": "rod-handle-cork",
+  "kind": "prop",
+  "materials": [
+    "cork.grip",
+    "cork.grip-worn",
+    "metal.anodized-gunmetal"
+  ],
+  "name": "Cork rod handle",
+  "notes": "reference photo: ../MulberryRiver/notes/reference/tackle/rod-handle-cork.jpg (compare runs use --ref)",
+  "parts": [
+    "rear grip",
+    "fore grip",
+    "butt cap",
+    "winding check",
+    "seat gap"
+  ],
+  "references": [],
+  "size": [
+    0.46,
+    0.027,
+    0.027
+  ],
+  "style": "specie cork full grip, lightly hand-darkened",
+  "summary": "Full cork spinning handle 0.45 m: butt cap, rear grip, gap for the seat, fore grip, winding check.",
+  "tags": [
+    "prop",
+    "fishing",
+    "handheld",
+    "tool"
+  ],
+  "theme": "Tackle",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

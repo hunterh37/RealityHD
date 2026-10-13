@@ -45,6 +45,8 @@ public enum AssetTag {
         "river", "boat",
         // fishing: life-size articulated freshwater fish
         "fish",
+        // fishing tackle: rods, rod components, reels and lures (MulberryRiver)
+        "fishing",
     ])
 
     /// Scene tags: any vocabulary tag plus these.
