@@ -1,6 +1,7 @@
 import Foundation
 import Testing
 import simd
+import RealityKit
 @testable import RealCore
 @testable import RealKit
 @testable import RealLibrary
@@ -73,6 +74,18 @@ import simd
         let cover = b.with { $0.groundCoverDistance = 0.5 }
         #expect(cover.level(distance: 20, switchDistances: sw, cullDistance: 30, groundCover: true) == nil)
         #expect(cover.level(distance: 20, switchDistances: sw, cullDistance: 30, groundCover: false) == 1)
+    }
+
+    @MainActor @Test func primeSetsLevelsBeforeTheSceneJoins() throws {
+        let parent = Entity()
+        let near = try Self.asset().entity(), mid = try Self.asset().entity(), far = try Self.asset().entity()
+        near.position = [0, 0, -2]; mid.position = [0, 0, -20]; far.position = [0, 0, -60]
+        for e in [near, mid, far] { parent.addChild(e) }
+        parent.position = [0, 0, -1]   // final placement is applied before priming
+        RealLODSystem.prime(parent, viewer: [0, 1.6, 0])
+        func on(_ e: Entity) -> [String] { e.children.filter { $0.isEnabled }.map { $0.name } }
+        #expect(on(near) == ["lod0"]); #expect(on(mid) == ["lod1"]); #expect(on(far) == ["lod2"])
+        #expect(far.components[RealLODComponent.self]?.current == 2)
     }
 
     @Test func shadowPolicy() {

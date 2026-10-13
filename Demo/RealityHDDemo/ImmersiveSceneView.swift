@@ -127,6 +127,8 @@ struct ImmersiveSceneView: View {
                 do { model.grabCount = try await RealGrabCue.attach(under: world) } catch { model.grabCount = 0; cueError = " grab cue: \(error)" }
             }
             root.addChild(env.root)
+            // Levels picked here: the system's first pass otherwise switches every LOD entity in one frame.
+            RealLODSystem.prime(anchor)
             root.addChild(anchor)
             model.builtWith = perf
             let cost = scene.estimate(settings: perf)

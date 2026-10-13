@@ -29,3 +29,13 @@ Recheck 2026-10-13 (sim, Release, -steps 0.5, 30 s, same build otherwise):
 Per-system probe (temp, removed): LOD max 2.8 ms, perf 2.4 ms, stream 0.6 ms, articulation 0.1 ms per frame.
 Walk frames on branch: p99 11.1 ms all scenes tested; max 44 ms (hospital, one frame in 40 s).
 GPU-side hitches stay unmeasured in the simulator; device run needs the Vision Pro online.
+
+LOD priming (Apple Vision Pro sim 33C8E6B2, Release, -steps 0.5):
+RealLODSystem's first pass evaluated every LOD entity in one frame at the first step after reveal
+(forest-glade 925 entities, park-path 445; first-step frame 27-49 ms). `RealLODSystem.prime(root)` now
+sets levels before the root joins the scene; the demo primes the anchor after placement. The first
+assignment no longer counts as a switch.
+  before  forest-glade lodsw 925 at t 1.0 s, first-step frame 27-49 ms; park-path lodsw 445
+  after   forest-glade lodsw max 25, park-path 15, hospital 23, autumn-woods 19; walk max frame 11.1 ms all four
+Test: PerformanceTests.primeSetsLevelsBeforeTheSceneJoins. swift test: 102 run; GPUSmokeTests
+testOvercastSkyIsGreyAndFinite fails on HEAD without this change too (0.597 vs < 0.472).
