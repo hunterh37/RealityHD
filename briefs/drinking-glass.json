@@ -1,17 +1,19 @@
 {
-  "budget": 1200,
+  "budget": 4200,
   "id": "drinking-glass",
   "kind": "prop",
   "materials": [
     "glass.clear",
-    "fluid.tap-water"
+    "glass.water-clear"
   ],
   "name": "Drinking glass",
-  "notes": "Static; water fill knob.",
+  "notes": "",
   "parts": [
     "thick heavy base",
     "thin rim",
-    "optional water fill"
+    "tapered wall",
+    "water fill with meniscus",
+    "ice cube"
   ],
   "references": [],
   "size": [
@@ -19,7 +21,7 @@
     0.12,
     0.08
   ],
-  "style": "tumbler",
+  "style": "tumbler, clear, half full",
   "summary": "Clear glass tumbler, 330 ml: thick base, thin rim, optional water fill level knob.",
   "tags": [
     "prop",

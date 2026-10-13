@@ -666,6 +666,14 @@ public enum Props {
         CheckoutCounter.self,
         ClosetOrganizer.self,
         ClothingRack.self,
+        DrinkingGlass.self,
+        FruitBowl.self,
+        FloorLamp.self,
+        FloorMirror.self,
+        CurtainPair.self,
+        HallTree.self,
+        CopierMfp.self,
+        GondolaShelf.self,
         // realityhd:prop
     ]
 }

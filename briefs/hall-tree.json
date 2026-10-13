@@ -1,0 +1,40 @@
+{
+  "budget": 10000,
+  "id": "hall-tree",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-shaker",
+    "wood.oak",
+    "metal.brass-aged",
+    "metal.galvanized"
+  ],
+  "name": "Hall tree",
+  "notes": "",
+  "parts": [
+    "upright back panel with arched top and mirror",
+    "hooks",
+    "top shelf with finials",
+    "storage bench with hinged seat",
+    "lower shoe shelf",
+    "umbrella tray"
+  ],
+  "references": [],
+  "size": [
+    0.8,
+    1.8,
+    0.4
+  ],
+  "style": "entryway hall tree, painted white with oak seat",
+  "summary": "Entry hall tree, 0.8 x 1.8 x 0.4 m: paneled back with coat hooks and top shelf, bench seat, lower shoe shelf and drip tray.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "decor",
+    "wood",
+    "furniture",
+    "interior"
+  ],
+  "theme": "Decor",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
