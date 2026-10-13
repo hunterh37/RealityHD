@@ -74,6 +74,15 @@ public extension Model {
     @MainActor
     func meshResource() throws -> MeshResource { try MeshResource(from: lowLevelMesh()) }
 
+    /// Same mesh as `meshResource()`, with finalize and vertex packing run off the main actor: the main
+    /// actor only copies the packed buffers into the LowLevelMesh. Use for streamed / runtime builds.
+    @MainActor
+    func meshResourceAsync() async throws -> MeshResource {
+        let model = self
+        let packed = await Task.detached(priority: .userInitiated) { PackedMesh(model) }.value
+        return try await MeshResource(from: packed.lowLevelMesh())
+    }
+
     /// ModelEntity with cached PBR materials (textures generated on first use).
     @MainActor
     func modelEntity(materials: RealMaterialCache? = nil) throws -> ModelEntity {
@@ -82,5 +91,60 @@ public extension Model {
         let e = ModelEntity(mesh: try meshResource(), materials: keys.map { cache.material($0) })
         e.name = name
         return e
+    }
+}
+
+/// Interleaved vertex and index data for one Model, built on any thread.
+struct PackedMesh: Sendable {
+    struct Part: Sendable { var start: Int; var count: Int; var bounds: BoundingBox }
+    var vertices: [RFVertex] = []
+    var indices: [UInt32] = []
+    var parts: [Part] = []
+
+    init(_ model: Model) {
+        let surfaces = model.finalized().surfaces.filter { !$0.isEmpty }
+        vertices.reserveCapacity(surfaces.reduce(0) { $0 + $1.vertexCount })
+        indices.reserveCapacity(surfaces.reduce(0) { $0 + $1.indices.count })
+        var base: UInt32 = 0
+        for s in surfaces {
+            for i in 0..<s.vertexCount {
+                let n = s.normals[i], t4 = s.tangents[i], t = SIMD3(t4.x, t4.y, t4.z)
+                vertices.append(RFVertex(s.positions[i], n, t, simd_cross(n, t) * t4.w, s.uvs[i], SIMD2(s.extra[i].x, s.occlusion[i]), s.extra[i].y,
+                                         splat: s.splat.isEmpty ? 0 : s.splat[i]))
+            }
+            let start = indices.count
+            for i in s.indices { indices.append(i + base) }
+            let b = s.bounds
+            parts.append(Part(start: start, count: s.indices.count, bounds: BoundingBox(min: b.min, max: b.max)))
+            base += UInt32(s.vertexCount)
+        }
+    }
+
+    @MainActor
+    func lowLevelMesh() throws -> LowLevelMesh {
+        let attrs: [LowLevelMesh.Attribute] = [
+            .init(semantic: .position, format: .float3, offset: 0),
+            .init(semantic: .normal, format: .float3, offset: 12),
+            .init(semantic: .tangent, format: .float3, offset: 24),
+            .init(semantic: .bitangent, format: .float3, offset: 36),
+            .init(semantic: .uv0, format: .float2, offset: 48),
+            .init(semantic: .uv1, format: .float2, offset: 56),
+            .init(semantic: .uv2, format: .float2, offset: 64),
+        ]
+        let desc = LowLevelMesh.Descriptor(vertexCapacity: vertices.count, vertexAttributes: attrs,
+                                           vertexLayouts: [.init(bufferIndex: 0, bufferStride: MemoryLayout<RFVertex>.stride)],
+                                           indexCapacity: indices.count, indexType: .uint32)
+        RealPerformance.holdAdaptive()
+        let mesh = try LowLevelMesh(descriptor: desc)
+        mesh.withUnsafeMutableBytes(bufferIndex: 0) { raw in
+            vertices.withUnsafeBytes { src in raw.copyMemory(from: src) }
+        }
+        mesh.withUnsafeMutableIndices { raw in
+            indices.withUnsafeBytes { src in raw.copyMemory(from: src) }
+        }
+        mesh.parts.replaceAll(parts.enumerated().map { i, p in
+            LowLevelMesh.Part(indexOffset: p.start * 4, indexCount: p.count, topology: .triangle, materialIndex: i, bounds: p.bounds)
+        })
+        return mesh
     }
 }
