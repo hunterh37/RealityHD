@@ -81,7 +81,10 @@ public struct RealScene {
         if let bake { statics = await Self.baked(statics, rigs: rigs, fields: fields, settings: bake) }
         let perf = RealPerformance.active
         if batchStatics || perf.forceBatching {
-            for g in Self.batches(statics, cell: batchCell, detailSize: perf.detailSize) {
+            // Merging is pure CPU work over every static vertex: run it off the main actor.
+            let cell = batchCell, detail = perf.detailSize, input = statics
+            let groups = await Task.detached(priority: .userInitiated) { Self.batches(input, cell: cell, detailSize: detail) }.value
+            for g in groups {
                 root.addChild(try await Self.upload(g.asset, at: .identity, materials: materials))
                 await pacer.pace()
             }
