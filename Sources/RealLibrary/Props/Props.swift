@@ -659,6 +659,7 @@ public enum Props {
         BenchDeskPair.self,
         CoffeeMaker.self,
         BarCart.self,
+        BarCounter.self,
         // realityhd:prop
     ]
 }
