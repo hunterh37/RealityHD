@@ -11,14 +11,14 @@ public extension MaterialLibrary {
             MaterialSpec(key: "fish.\(k)", program: .fishSkin).with {
                 $0.colorA = linear(a, 1 - 0.95 * op + 0.0); $0.colorB = linear(b); $0.colorC = linear(c)
                 $0.knobs = V4(rows, bnd, pat, str); $0.seed = seed; $0.tileSize = 0; $0.resolution = 1024
-                $0.normalStrength = rows > 0 ? 0.9 : 0.6; $0.roughness = 0.28; $0.clearcoat = 0.85
+                $0.normalStrength = rows > 0 ? 0.9 : 0.6; $0.wind = 0.01; $0.roughness = 0.28; $0.clearcoat = 0.85
             }
         }
         func fin(_ k: String, _ a: UInt32, _ b: UInt32, _ c: UInt32, rays: Float, margin: Float, blotch: Float = 0, seed: UInt32) -> MaterialSpec {
             MaterialSpec(key: "fish.\(k)", program: .fishFin).with {
                 $0.colorA = linear(a); $0.colorB = linear(b); $0.colorC = linear(c)
                 $0.knobs = V4(rays, 0, margin, blotch); $0.seed = seed; $0.tileSize = 0; $0.resolution = 512
-                $0.normalStrength = 1.2; $0.roughness = 0.4; $0.twoSided = true
+                $0.normalStrength = 1.2; $0.roughness = 0.4; $0.twoSided = true; $0.wind = 0.01
             }
         }
         func eye(_ k: String, _ iris: UInt32, pupil: Float, seed: UInt32) -> MaterialSpec {
