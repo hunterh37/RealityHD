@@ -135,9 +135,9 @@
     "triangles" : 1627000
   },
   "prop-yard" : {
-    "drawCalls" : 4295,
+    "drawCalls" : 4630,
     "shadowTriangles" : 1000,
-    "triangles" : 3411000
+    "triangles" : 3786000
   },
   "rooftop-plank" : {
     "drawCalls" : 400,
