@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "allotment-board-edged-bed",
+  "kind": "prop",
+  "materials": [
+    "wood.weathered",
+    "metal.galvanized-aged",
+    "ground.dirt",
+    "soil.potting",
+    "leaf.hydrangea"
+  ],
+  "name": "Allotment board-edged bed",
+  "notes": "",
+  "parts": [
+    "scaffold board edging",
+    "corner stakes",
+    "galvanized screws",
+    "raked soil fill",
+    "young cabbages",
+    "path margin"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.3,
+    2
+  ],
+  "style": "architectural facade customizer, English Allotment, weathered allotment soil",
+  "summary": "Raised allotment bed edged with weathered scaffold boards screwed to square timber corner stakes, filled with raked soil and young cabbages.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "garden",
+    "outdoor",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
