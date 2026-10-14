@@ -10,7 +10,7 @@ func run() async throws {
     if let tierArg, tier == nil { throw CLIError("unknown tier \(tierArg)") }
     if let tier { RealPerformance.current = RealPerformance(tier) }
     switch args.next() ?? "help" {
-    case "perf": perfCommand(args, tier: tier)
+    case "perf": try perfCommand(args, tier: tier)
     case "list": listCommand(args)
     case "stats": statsCommand(args)
     case "render": try await renderCommand(args)

@@ -1,0 +1,45 @@
+{
+  "budget": 30000,
+  "id": "frog-pond",
+  "kind": "structure",
+  "materials": [
+    "concrete.smooth",
+    "stone.granite-curb",
+    "concrete.rough",
+    "glass.water-clear",
+    "paving.slab",
+    "metal.bronze-cast",
+    "metal.wrought-iron",
+    "glass.frosted"
+  ],
+  "name": "Frog Pond",
+  "notes": "source: https://en.wikipedia.org/wiki/Frog_Pond_(Boston)",
+  "parts": [
+    "oval granite coping",
+    "blue painted concrete floor",
+    "shallow water surface",
+    "central spray jet",
+    "low iron fence with entry gaps",
+    "perimeter paving ring"
+  ],
+  "references": [],
+  "size": [
+    65.2,
+    3.01,
+    45.2
+  ],
+  "style": "Boston Common wading pool in summer: worn granite coping, faded blue paint, 15 cm of water, black low railing",
+  "summary": "Frog Pond, 60 x 40 m oval wading pool: granite coping, blue concrete floor, shallow water, central spray jet and a low fence with gaps.",
+  "tags": [
+    "structure",
+    "park",
+    "outdoor",
+    "water",
+    "stone",
+    "concrete",
+    "city"
+  ],
+  "theme": "City",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

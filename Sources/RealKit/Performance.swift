@@ -324,6 +324,10 @@ public final class RealStats {
     public internal(set) var instances = 0
     public internal(set) var shadowCasters = 0
     public internal(set) var meshEntities = 0
+    /// Triangles and draws of meshes inside the headset view (both eye frustums at device field of view,
+    /// from `RealViewer` position and forward). Zero while `collectVisible` is off.
+    public internal(set) var visibleTriangles = 0
+    public internal(set) var visibleDrawCalls = 0
     /// LOD switches per second.
     public internal(set) var lodSwitches = 0
     public internal(set) var adaptiveScale: Float = 1
@@ -332,11 +336,14 @@ public final class RealStats {
     /// builds that show no overlay; `collectInterval` sets the walk period.
     nonisolated(unsafe) public static var collecting = true
     nonisolated(unsafe) public static var collectInterval: Double = 0.5
+    /// Adds the frustum test (one world-bounds query per costed mesh) to the stats walk.
+    nonisolated(unsafe) public static var collectVisible = true
     init() {}
 
     public var summary: String {
-        String(format: "%.0f fps %.1f ms (max %.1f)  %dk tris  %d draws  %d inst  %d casters  adapt %.2f  tex %dMB",
-               fps, frameMs, worstFrameMs, triangles / 1000, drawCalls, instances, shadowCasters, adaptiveScale, textureMB)
+        String(format: "%.0f fps %.1f ms (max %.1f)  %dk tris (%dk in view)  %d draws (%d in view)  %d inst  %d casters  adapt %.2f  tex %dMB",
+               fps, frameMs, worstFrameMs, triangles / 1000, visibleTriangles / 1000, drawCalls, visibleDrawCalls, instances, shadowCasters,
+               adaptiveScale, textureMB)
     }
 }
 
@@ -425,10 +432,16 @@ public struct RealPerformanceSystem: System {
             }
             return
         }
-        var tris = 0, draws = 0, inst = 0, casters = 0, meshes = 0
+        var tris = 0, draws = 0, inst = 0, casters = 0, meshes = 0, vTris = 0, vDraws = 0
+        let view: ViewVolume? = RealStats.collectVisible
+            ? MainActor.assumeIsolated { RealViewer.refresh(); return ViewVolume(eye: RealViewer.position, forward: RealViewer.forward) } : nil
         for e in context.entities(matching: Self.costQuery, updatingSystemWhen: .rendering) where e.isActive {
             guard let c = e.components[RealRenderCostComponent.self] else { continue }
             meshes += 1; tris += c.triangles * c.instances; draws += c.drawCalls; inst += c.instances
+            if let view {
+                let b = e.visualBounds(relativeTo: nil)
+                if view.intersects(center: b.center, radius: simd_length(b.extents) / 2) { vTris += c.triangles * c.instances; vDraws += c.drawCalls }
+            }
             if e.components[DynamicLightShadowComponent.self]?.castsShadow ?? true { casters += 1 }
         }
         if isPrimary || meshes > Self.primaryMeshes {
@@ -443,6 +456,7 @@ public struct RealPerformanceSystem: System {
             let st = RealStats.shared
             st.fps = fps; st.frameMs = frameMs; st.worstFrameMs = worstMs
             st.triangles = tris; st.drawCalls = draws; st.instances = inst; st.shadowCasters = casters; st.meshEntities = meshes
+            st.visibleTriangles = vTris; st.visibleDrawCalls = vDraws
             st.lodSwitches = switches; st.adaptiveScale = RealPerformance.adaptiveScale
             st.textureMB = RealMaterialCache.shared.textureBytes / 1_048_576
         }

@@ -1,0 +1,157 @@
+{
+  "aerospace-hangar" : {
+    "drawCalls" : 120,
+    "shadowTriangles" : 42000,
+    "triangles" : 114000
+  },
+  "aerospace-range" : {
+    "drawCalls" : 250,
+    "shadowTriangles" : 136000,
+    "triangles" : 484000
+  },
+  "alpine-meadow" : {
+    "drawCalls" : 690,
+    "shadowTriangles" : 547000,
+    "triangles" : 4908000
+  },
+  "autumn-woods" : {
+    "drawCalls" : 315,
+    "shadowTriangles" : 2398000,
+    "triangles" : 2526000
+  },
+  "backyard-landscape" : {
+    "drawCalls" : 185,
+    "shadowTriangles" : 656000,
+    "triangles" : 798000
+  },
+  "ballpark" : {
+    "drawCalls" : 360,
+    "shadowTriangles" : 128000,
+    "triangles" : 1394000
+  },
+  "boston-common" : {
+    "drawCalls" : 820,
+    "shadowTriangles" : 397000,
+    "triangles" : 1988000
+  },
+  "canyon-road" : {
+    "drawCalls" : 305,
+    "shadowTriangles" : 254000,
+    "triangles" : 660000
+  },
+  "city-block" : {
+    "drawCalls" : 195,
+    "shadowTriangles" : 371000,
+    "triangles" : 401000
+  },
+  "conference-room" : {
+    "drawCalls" : 165,
+    "shadowTriangles" : 173000,
+    "triangles" : 194000
+  },
+  "construction-lot" : {
+    "drawCalls" : 225,
+    "shadowTriangles" : 420000,
+    "triangles" : 556000
+  },
+  "cooking-counter" : {
+    "drawCalls" : 190,
+    "shadowTriangles" : 201000,
+    "triangles" : 200000
+  },
+  "er-room" : {
+    "drawCalls" : 365,
+    "shadowTriangles" : 144000,
+    "triangles" : 146000
+  },
+  "executive-office" : {
+    "drawCalls" : 175,
+    "shadowTriangles" : 152000,
+    "triangles" : 166000
+  },
+  "farmyard" : {
+    "drawCalls" : 225,
+    "shadowTriangles" : 363000,
+    "triangles" : 1611000
+  },
+  "forest-glade" : {
+    "drawCalls" : 305,
+    "shadowTriangles" : 1148000,
+    "triangles" : 1760000
+  },
+  "hospital" : {
+    "drawCalls" : 1155,
+    "shadowTriangles" : 361000,
+    "triangles" : 367000
+  },
+  "hospital-lobby" : {
+    "drawCalls" : 280,
+    "shadowTriangles" : 110000,
+    "triangles" : 145000
+  },
+  "lakeside-camp" : {
+    "drawCalls" : 350,
+    "shadowTriangles" : 2229000,
+    "triangles" : 2525000
+  },
+  "lineman-district" : {
+    "drawCalls" : 765,
+    "shadowTriangles" : 683000,
+    "triangles" : 1303000
+  },
+  "lineman-yard" : {
+    "drawCalls" : 110,
+    "shadowTriangles" : 215000,
+    "triangles" : 226000
+  },
+  "office-lobby" : {
+    "drawCalls" : 110,
+    "shadowTriangles" : 78000,
+    "triangles" : 104000
+  },
+  "office-plaza" : {
+    "drawCalls" : 80,
+    "shadowTriangles" : 227000,
+    "triangles" : 239000
+  },
+  "open-office" : {
+    "drawCalls" : 295,
+    "shadowTriangles" : 973000,
+    "triangles" : 1046000
+  },
+  "operating-room" : {
+    "drawCalls" : 440,
+    "shadowTriangles" : 183000,
+    "triangles" : 182000
+  },
+  "park-path" : {
+    "drawCalls" : 155,
+    "shadowTriangles" : 979000,
+    "triangles" : 1627000
+  },
+  "prop-yard" : {
+    "drawCalls" : 4295,
+    "shadowTriangles" : 1000,
+    "triangles" : 3411000
+  },
+  "rooftop-plank" : {
+    "drawCalls" : 400,
+    "shadowTriangles" : 74000,
+    "triangles" : 679000
+  },
+  "siphon-cafe" : {
+    "drawCalls" : 230,
+    "shadowTriangles" : 538000,
+    "triangles" : 387000
+  },
+  "winter-forest" : {
+    "drawCalls" : 180,
+    "shadowTriangles" : 1285000,
+    "triangles" : 1224000
+  },
+  "woodshop" : {
+    "drawCalls" : 430,
+    "shadowTriangles" : 259000,
+    "triangles" : 439000
+  }
+}
