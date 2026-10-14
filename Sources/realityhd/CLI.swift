@@ -58,7 +58,8 @@ realityhd sheet <id> [--seed n]            out/gate/<id>/sheet.png: six views + 
 realityhd gate <id> [--ref img] [--view az,el] [--fit-view] [--verdict file] [--signoff] [--no-sheet] [--views hero,detail] [--threshold t]
                                           vision gate: lint, sheet, reference compare, score, sign-off
 realityhd bench                           release timing (swift run -c release realityhd bench)
-realityhd perf [scene...] [--seed n]      tris, shadow tris, draws, instances at the camera hint per tier
+realityhd perf [scene...] [--seed n] [--all-in-view]   in-view tris, shadow tris, draws per tier
+realityhd perf --budget [--write] [scene...]          balanced in-view cost vs docs/perf-budgets.json
 
 Global: --tier battery|performance|balanced|ultra|cinematic   RealPerformance tier (default balanced).
 

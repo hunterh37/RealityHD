@@ -129,6 +129,73 @@ import RealityKit
         #expect(c.instances == 1600 + 30 + 60, "balanced keeps every grass, tree and static instance")
     }
 
+    @Test func viewVolumeIsTheUnionOfBothEyes() {
+        let v = ViewVolume(eye: V3(0, 1.6, 0), target: V3(0, 1.6, -10))
+        #expect(v.eyes.count == 2)
+        #expect(v.intersects(center: V3(0, 1.6, -5), radius: 0.1))
+        #expect(!v.intersects(center: V3(0, 1.6, 5), radius: 0.1), "behind the head")
+        #expect(v.intersects(center: V3(0, 1.6, 0.3), radius: 0.5), "a sphere around the head touches the view")
+        #expect(v.intersects(center: V3(-5, 1.6, -5), radius: 0.1), "45 degrees left sits inside a 100 degree field")
+        #expect(!v.intersects(center: V3(-10, 1.6, -1), radius: 0.1), "84 degrees left is outside")
+        // A tall caster behind and to the side throws its shadow forward into view.
+        #expect(v.castsIntoView(center: V3(0, 3, 1), radius: 0.5, toLight: simd_normalize(V3(0, 1, 1)), shadowLength: 3))
+        #expect(!v.castsIntoView(center: V3(0, 3, 1), radius: 0.5, toLight: simd_normalize(V3(0, 1, -1)), shadowLength: 3))
+    }
+
+    @Test func frustumEstimateDropsWhatIsBehind() {
+        let s = Self.scene()
+        let all = s.estimate(settings: RealPerformance(.balanced))
+        let seen = s.estimate(settings: RealPerformance(.balanced), view: s.viewVolume())
+        #expect(seen.triangles < all.triangles && seen.triangles > 0)
+        #expect(seen.drawCalls < all.drawCalls)
+        #expect(seen.shadowTriangles <= all.shadowTriangles)
+        var turned = s
+        turned.camera = .init(eye: V3(0, 1.6, 0), target: V3(0, 1, 10), fov: 60)
+        #expect(turned.estimate(settings: RealPerformance(.balanced), view: turned.viewVolume()) != seen, "the view follows the camera")
+    }
+
+    @Test func liveRigsCountOneDrawPerPartMaterial() {
+        var rig = Rig(name: "test-rig", lods: 1, switchDistances: [])
+        var base = Model(name: "base"); base.add(Prim.roundedBox(V3(1, 1, 1), radius: 0.05, bevelSegments: 1, material: "wood.oak"))
+        rig.base = [base]
+        for k in 0..<3 {
+            var m = Model(name: "p\(k)")
+            m.add(Prim.roundedBox(V3(0.2, 0.2, 0.2), radius: 0.02, bevelSegments: 1, material: "wood.oak"))
+            m.add(Prim.roundedBox(V3(0.1, 0.1, 0.1), radius: 0.01, bevelSegments: 1, material: "metal.steel"))
+            rig.parts.append(RigPart(name: "p\(k)", parent: nil, pivot: .identity, joint: .fixed, levels: [m]))
+        }
+        rig.states = [RigState("a"), RigState("b")]
+        var s = RealScene(name: "rig-test")
+        s.farGround = nil
+        s.rigs.append(.init(rig: rig, at: Xform(translation: V3(0, 0, -3)), state: "a", interactive: true))
+        s.camera = .init(eye: V3(0, 1.6, 0), target: V3(0, 0.5, -3), fov: 60)
+        let c = s.estimate(settings: RealPerformance(.balanced), view: s.viewVolume())
+        #expect(c.liveDrawCalls == 1 + 3 * 2 && c.drawCalls == c.liveDrawCalls)
+        #expect(c.meshes == 4)
+    }
+
+    @Test func interiorStaticsOutOfTheSunStopCasting() {
+        var s = RealScene(name: "sun-test")
+        s.farGround = nil
+        // A closed 10 x 3 x 10 box (shell) with one prop inside, and one prop outside in the sun.
+        var shell = Model(name: "shell")
+        shell.add(Prim.roundedBox(V3(10.4, 0.2, 10.4), radius: 0.01, bevelSegments: 1, material: "wood.oak"), Xform(translation: V3(0, 3.1, 0)))
+        for (x, z, w, d) in [(Float(5.1), Float(0), Float(0.2), Float(10.4)), (-5.1, 0, 0.2, 10.4), (0, 5.1, 10.4, 0.2), (0, -5.1, 10.4, 0.2)] {
+            shell.add(Prim.roundedBox(V3(w, 3.2, d), radius: 0.01, bevelSegments: 1, material: "wood.oak"), Xform(translation: V3(x, 0, z)))
+        }
+        s.add(shell, bake: true)
+        s.singles.append(.init(asset: Self.asset(size: 0.5), at: Xform(translation: V3(0, 0, 0))))
+        s.singles.append(.init(asset: Self.asset(size: 0.5), at: Xform(translation: V3(20, 0, 0))))
+        s.lighting = .init(sky: .midday, interior: .office, fog: 0)
+        let r = s.shadowResolved(s.singles)
+        #expect(r.map { $0.castsShadow } == [true, false, true], "shell casts, enclosed prop stops, sunlit prop casts")
+        s.cullSunBlockedCasters = false
+        #expect(s.shadowResolved(s.singles).allSatisfy { $0.castsShadow })
+        s.cullSunBlockedCasters = nil
+        s.lighting.interior = nil
+        #expect(s.shadowResolved(s.singles).allSatisfy { $0.castsShadow }, "exteriors keep every caster")
+    }
+
     @Test func forcedBatchingKeepsSmallObjectsApart() {
         let s = Self.scene()
         let batched = s.uploadedStatics(RealPerformance(.balanced).with { $0.forceBatching = true })

@@ -39,6 +39,14 @@ under 40 % of main-pass tris. Counts are pre-frustum, so true visible load is lo
 
 Exit: per-scene GPU breakdown in `notes/perf-device-<date>.md`. Phases 1-4 are ordered by that breakdown.
 
+Status 2026-10-14: steps 2-4 done. `RealScene.estimate(view:)` culls against `ViewVolume` (both eyes,
+100 x 90 degrees, 64 mm IPD) and drops casters whose shadow cannot reach the view or that sit past 1.5x
+the shadow reach. Live rigs count one draw per part material (hospital 1414 pre-frustum vs 1484 measured).
+`RealStats.visibleTriangles` / `visibleDrawCalls` run the same test on device. `realityhd perf --budget`
+checks `docs/perf-budgets.json` in CI. In-view balanced at the camera: boston-common 1892k tris, 377k
+shadow, 780 draws; forest-glade 1675k / 1093k / 287; lineman-district 1240k / 650k / 724; siphon-cafe
+368k / 512k / 216; hospital 348k / 343k / 1096. Step 1 (on-head trace) is open.
+
 ## Phase 1: shadow pass
 
 Balanced shadow tris equal main tris in hospital, siphon-cafe and lineman-district (99-100 %). Shadows
@@ -52,6 +60,14 @@ in a lit scene cost about a second main pass.
 - Foliage cards and ground cover never cast; trees cast from trunk plus a canopy proxy.
 
 Expected: shadow tris 30-40 % of main in exteriors, under 10 % in interiors.
+
+Status 2026-10-14: interior sun-blocked caster cull done (`RealScene.shadowResolved`, on when
+`lighting.interior` and `lighting.sky` are set): statics with no clear ray to the sun from 27 probes stop
+casting; the shell keeps casting. In-view shadow tris: aerospace-hangar 106k -> 39k, woodshop 420k -> 245k,
+hospital-lobby 137k -> 104k, office-lobby 98k -> 73k; hospital and er-room move under 2 % (their shadow
+tris sit in the shell and live rigs). Shadow proxies are blocked: RealityKit on visionOS exposes no
+shadow-only mesh or material, so a LOD2 caster would also draw in the main pass; check on device whether
+`OpacityComponent(opacity: 0)` keeps a cast before building it. Ground cover already never casts.
 
 ## Phase 2: draw calls
 
