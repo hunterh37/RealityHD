@@ -59,12 +59,12 @@ extension TreeSpecies {
 
 /// Shared steps for the conifer assets.
 enum ConiferBuild {
-    /// Three LODs from one skeleton, with an optional per-level edit.
-    static func lods(_ species: TreeSpecies, seed: UInt64, distances: [Float] = [14, 40], edit: (inout Model, Int) -> Void = { _, _ in }) -> LODModel {
+    /// Four LODs from one skeleton (LOD 3: far cards), with an optional per-level edit.
+    static func lods(_ species: TreeSpecies, seed: UInt64, distances: [Float] = [14, 40, 85], edit: (inout Model, Int) -> Void = { _, _ in }) -> LODModel {
         let g = TreeGenerator(species: species, seed: seed)
-        var levels = [g.model(.lod0), g.model(.lod1), g.model(.lod2)]
+        var levels = [g.model(.lod0), g.model(.lod1), g.model(.lod2), g.model(.lod3)]
         for i in levels.indices { edit(&levels[i], i) }
-        return LODModel(levels: levels, switchDistances: distances)
+        return LODModel(levels: levels, switchDistances: Tree.fourLevel(distances))
     }
 
     /// Splits a surface by triangle: triangles whose centroid passes `take` move to a new surface with `material`.
