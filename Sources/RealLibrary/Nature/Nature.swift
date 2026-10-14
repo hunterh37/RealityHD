@@ -42,6 +42,10 @@ public enum Nature {
         RiverCobble.self,
         GravelBar.self,
         DriftwoodLog.self,
+        SubmergedBoulder.self,
+        EelgrassBed.self,
+        SunkenLog.self,
+        BrushPile.self,
         // realityhd:nature
     ]
 }

@@ -37,6 +37,25 @@ public struct RealScene {
         public var fog: Float?
         /// Sun illuminance multiplier.
         public var sunScale: Float?
+        /// Underwater absorption (river, lake, sea scenes): applied to `RealAtmosphere` before materials build.
+        public var water: Water?
+        public struct Water: Sendable {
+            /// Water surface height, world y.
+            public var level: Float
+            /// Extinction per submerged meter of view ray (clear Ozark stream about 0.25).
+            public var density: Float
+            /// Linear RGB in-scatter color (emissive units).
+            public var color: V3
+            /// Caustic ridge brightness on the bed (emissive units, 0 off).
+            public var caustics: Float
+            public init(level: Float = 0, density: Float = 0.25, color: V3 = V3(0.018, 0.05, 0.036), caustics: Float = 0.25) {
+                self.level = level; self.density = density; self.color = color; self.caustics = caustics
+            }
+            @MainActor public func apply() {
+                RealAtmosphere.waterLevel = level; RealAtmosphere.waterDensity = density; RealAtmosphere.waterColor = color
+                RealAtmosphere.waterCaustics = caustics
+            }
+        }
         public init(sky: SunSky? = nil, interior: InteriorLight? = nil, fog: Float? = nil, sunScale: Float? = nil) {
             self.sky = sky; self.interior = interior; self.fog = fog; self.sunScale = sunScale
         }
@@ -66,6 +85,7 @@ public struct RealScene {
     public func entity(materials: RealMaterialCache? = nil) async throws -> Entity {
         let root = Entity()
         root.name = name
+        lighting.water?.apply()
         var pacer = RealLoadPacer()
         for f in fields {
             root.addChild(try await RealInstancing.field(f.asset, transforms: f.transforms, options: f.options, materials: materials))
