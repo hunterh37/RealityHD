@@ -38,6 +38,10 @@ enum MulberryVegetation {
             return out
         }
 
+        // 24 m tree cells: two per 48 m streamed tile edge (half the draws of 18 m cells, never straddling a tile).
+        let trees = RealInstancing.Options.trees.with { $0.cellSize = 24 }
+        // Cane brakes are 2-3 m tall and dense: hidden past 70 m, sun shadows from LOD 0 only.
+        let caneOptions = RealInstancing.Options.trees.with { $0.cellSize = 12; $0.cullDistance = 70; $0.shadowCasterMaxLOD = 0 }
         // Riparian band: sycamores and river birch, leaning toward the river at the water's edge.
         var syc: [[simd_float4x4]] = [[], [], []], birch: [[simd_float4x4]] = [[], []]
         for p in grid(spacing: 9, band: 1.5...16, keep: 0.75, accept: { !onBluffFace($0) && !onBar($0) }) {
@@ -46,8 +50,8 @@ enum MulberryVegetation {
             if rng.chance(0.55) { syc[v].append(xf(p, scale: 0.75...1.15, sink: 0.15, lean: lean)) }
             else { birch[v % 2].append(xf(p, scale: 0.8...1.1, sink: 0.12, lean: lean)) }
         }
-        for v in 0..<3 { scene.field(SycamoreTree(), seed: seed &+ UInt64(100 + v), transforms: syc[v], options: .trees) }
-        for v in 0..<2 { scene.field(RiverBirch(), seed: seed &+ UInt64(110 + v), transforms: birch[v], options: .trees) }
+        for v in 0..<3 { scene.field(SycamoreTree(), seed: seed &+ UInt64(100 + v), transforms: syc[v], options: trees) }
+        for v in 0..<2 { scene.field(RiverBirch(), seed: seed &+ UInt64(110 + v), transforms: birch[v], options: trees) }
 
         // Hills and the bluff top: oak-hickory with shortleaf pine on the drier slopes.
         var oak: [[simd_float4x4]] = [[], [], []], pine: [[simd_float4x4]] = [[], [], []], sycHill: [simd_float4x4] = []
@@ -59,10 +63,10 @@ enum MulberryVegetation {
         }
         for p in grid(spacing: 8, band: 4...14, keep: 0.8, accept: onBluffFaceTop) { pine[0].append(xf(p, scale: 0.7...1.0, sink: 0.1)) }
         for v in 0..<3 {
-            scene.field(OakTree(), seed: seed &+ UInt64(120 + v), transforms: oak[v], options: .trees)
-            scene.field(ShortleafPine(), seed: seed &+ UInt64(130 + v), transforms: pine[v], options: .trees)
+            scene.field(OakTree(), seed: seed &+ UInt64(120 + v), transforms: oak[v], options: trees)
+            scene.field(ShortleafPine(), seed: seed &+ UInt64(130 + v), transforms: pine[v], options: trees)
         }
-        scene.field(SycamoreTree().with { $0.height = 20 }, seed: seed &+ 140, transforms: sycHill, options: .trees)
+        scene.field(SycamoreTree().with { $0.height = 20 }, seed: seed &+ 140, transforms: sycHill, options: trees)
 
         // River cane brakes on the low south flats, in patches.
         var cane: [simd_float4x4] = []
@@ -70,7 +74,7 @@ enum MulberryVegetation {
             !north(p) && !onBar(p) && Noise.perlin(V3(p.x * 0.05, 7, p.y * 0.05), seed: ns &+ 1) > 0.12 }) {
             cane.append(xf(p, scale: 0.8...1.2, sink: 0.03))
         }
-        scene.field(RiverCane(), seed: seed &+ 150, transforms: cane, options: .trees)
+        scene.field(RiverCane(), seed: seed &+ 150, transforms: cane, options: caneOptions)
 
         // Ground cover on the banks; nothing on the bar, the bluff face or below the waterline.
         let cover = RealInstancing.Options.groundCover(cull: 40)

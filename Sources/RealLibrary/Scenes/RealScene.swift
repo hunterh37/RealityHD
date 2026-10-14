@@ -88,7 +88,7 @@ public struct RealScene {
         lighting.water?.apply()
         var pacer = RealLoadPacer()
         for f in fields {
-            root.addChild(try await RealInstancing.field(f.asset, transforms: f.transforms, options: f.options, materials: materials))
+            root.addChild(try await RealInstancing.field(f.asset, transforms: f.transforms, name: "field:" + f.asset.levels[0].name, options: f.options, materials: materials))
             await pacer.pace()
         }
         if let farGround {

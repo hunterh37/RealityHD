@@ -90,6 +90,44 @@ enum RodKit {
         return s
     }
 
+    /// Roller guide (trolling rods): a cast frame of two cheek plates on a wrapped foot, a brass roller on a
+    /// cross pin at the top, the line runs over the roller. `h` is the roller axis height above the rod axis.
+    static func rollerGuide(x: Float, h: Float, blankR: Float, y: Float, frame: MaterialKey, roller: MaterialKey, wrap wrapMat: MaterialKey) -> [Surface] {
+        var out: [Surface] = []
+        let top = y + blankR, footLen: Float = 0.016, rr: Float = 0.0045, cheek: Float = 0.0062
+        // Saddle foot and the wrap over both ends.
+        out.append(Prim.roundedBox(V3(footLen * 2, 0.0022, blankR * 1.6), radius: 0.0008, bevelSegments: 1, material: frame).transformed(Xform(translation: V3(x, top + 0.0009, 0))))
+        out.append(wrap(x: x - footLen - 0.004, len: 0.008, r: blankR, y: y, mat: wrapMat))
+        out.append(wrap(x: x + footLen - 0.004, len: 0.008, r: blankR, y: y, mat: wrapMat))
+        // Cheek plates: tapered webs from the foot up to the roller boss.
+        for side: Float in [-1, 1] {
+            let web: [V2] = [V2(-footLen * 0.8, 0), V2(footLen * 0.8, 0), V2(rr * 1.3, h - blankR), V2(-rr * 1.3, h - blankR)]
+            out.append(Prim.extrude(Shape2D.rounded(web, radius: 0.0012), depth: 0.0016, bevel: 0.0004, bevelSegments: 1, material: frame)
+                .transformed(Xform(translation: V3(x, top, side * cheek))))
+            out.append(Prim.cylinder(radius: rr * 0.75, height: 0.0024, bevel: 0.0004, segments: 10, bevelSegments: 1, material: frame)
+                .transformed(Xform(translation: V3(x, y + h, side * (cheek + 0.0008)), rotation: simd_quatf(angle: .pi / 2, axis: V3(1, 0, 0)))))
+        }
+        // Roller: crowned brass spool between the cheeks.
+        out.append(Prim.lathe([V2(rr * 0.6, 0), V2(rr, 0.0006), V2(rr * 0.82, cheek), V2(rr, cheek * 2 - 0.0006), V2(rr * 0.6, cheek * 2)], segments: 12, seamTile: 0.01, material: roller)
+            .transformed(Xform(translation: V3(x, y + h, -cheek), rotation: simd_quatf(angle: .pi / 2, axis: V3(1, 0, 0)))))
+        return out
+    }
+
+    /// Roller tip-top: a tube over the blank with a forked frame carrying a brass roller at the line exit.
+    static func rollerTip(x: Float, blankR: Float, y: Float, frame: MaterialKey, roller: MaterialKey) -> [Surface] {
+        let tubeR = blankR + 0.0007, len: Float = 0.03, rr: Float = 0.006, cheek: Float = 0.007
+        var out = [lathe([V2(0, 0), V2(tubeR, 0.0004), V2(tubeR, len - 0.0006), V2(tubeR * 0.9, len)], x0: x - len, y: y, seg: 12, tile: 0.01, frame)]
+        let c = V3(x + 0.004, y + 0.004, 0)
+        for side: Float in [-1, 1] {
+            let web: [V2] = [V2(-0.02, -0.002), V2(-0.004, -0.004), V2(0.004 + 0.004, 0.0), V2(0.004, 0.009), V2(-0.02, 0.003)]
+            out.append(Prim.extrude(Shape2D.rounded(web, radius: 0.0015), depth: 0.0018, bevel: 0.0004, bevelSegments: 1, material: frame)
+                .transformed(Xform(translation: V3(x, y + 0.002, side * cheek))))
+        }
+        out.append(Prim.lathe([V2(rr * 0.6, 0), V2(rr, 0.0006), V2(rr * 0.8, cheek), V2(rr, cheek * 2 - 0.0006), V2(rr * 0.6, cheek * 2)], segments: 12, seamTile: 0.01, material: roller)
+            .transformed(Xform(translation: V3(c.x, c.y, -cheek), rotation: simd_quatf(angle: .pi / 2, axis: V3(1, 0, 0)))))
+        return out
+    }
+
     /// Tip-top: a tube over the blank tip with a small ring standing up.
     static func tipTop(x: Float, ring: Float, blankR: Float, y: Float, frame: MaterialKey, insert: MaterialKey) -> [Surface] {
         let tubeR = blankR + 0.0005, len: Float = 0.009
@@ -132,10 +170,10 @@ enum RodKit {
 
     /// Grip shaped by `shape` ((radius, x) pairs from the rear end), with shallow ring seams every
     /// `ringPitch` meters (cork rings) or none (EVA, ringPitch 0).
-    static func grip(x0: Float, shape: [V2], ringPitch: Float, y: Float, mat: MaterialKey) -> Surface {
+    static func grip(x0: Float, shape: [V2], ringPitch: Float, y: Float, mat: MaterialKey, step: Float = 0.005) -> Surface {
         let L = shape.last!.y
         var prof: [V2] = [V2(0.0071, 0)]
-        let n = max(16, Int(L / 0.005))
+        let n = max(16, Int(L / step))
         for i in 0...n {
             let s = L * Float(i) / Float(n)
             var r = interp(shape, s)
