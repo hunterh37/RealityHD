@@ -504,6 +504,11 @@ public enum Props {
         TurnArrowMarking.self,
         UtilityVaultLid.self,
         ZebraCrosswalk.self,
+        ArtificialTurfTile.self,
+        PeaGravelBed.self,
+        SelfBindingHogginPath.self,
+        DecomposedGranitePath.self,
+        RippledBeachSand.self,
         // realityhd:prop
     ]
 }
