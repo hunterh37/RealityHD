@@ -95,6 +95,13 @@ public enum Structures {
         UShapedStaircase.self,
         SpiralStaircase.self,
         Fireplace.self,
+        SoldiersSailorsMonument.self,
+        ParkmanBandstand.self,
+        FrogPond.self,
+        ShawMemorial.self,
+        MbtaHeadhouse.self,
+        MassachusettsStateHouse.self,
+        ParkStreetChurch.self,
         // realityhd:structure
     ]
 }

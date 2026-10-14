@@ -31,6 +31,7 @@ enum DemoScene: String, CaseIterable, Identifiable, Codable, Hashable {
     case aerospaceRange = "aerospace-range"
     case aerospaceHangar = "aerospace-hangar"
     case siphonCafe = "siphon-cafe"
+    case bostonCommon = "boston-common"
     var id: String { rawValue }
     var title: String {
         switch self {
@@ -61,6 +62,7 @@ enum DemoScene: String, CaseIterable, Identifiable, Codable, Hashable {
         case .aerospaceRange: "Aerospace Range"
         case .aerospaceHangar: "Aerospace Hangar"
         case .siphonCafe: "Siphon Café"
+        case .bostonCommon: "Boston Common"
         }
     }
     var detail: String {
@@ -92,6 +94,7 @@ enum DemoScene: String, CaseIterable, Identifiable, Codable, Hashable {
         case .aerospaceRange: "Desert launch range: pad, tower, blockhouse, runway and course obstacles from the viewing platform."
         case .siphonCafe: "Halogen siphon bar on a café terrace. Tap keys (heat, extract, keep warm, output, time); grab globes, flasks, cups, kettle."
         case .aerospaceHangar: "Hangar bay: gantry crane over a fuel tank, capsule, engine, wing, part racks and avionics bench."
+        case .bostonCommon: "Boston Common from Brewer Fountain: elm malls, Frog Pond, bandstand, monument, State House, Park Street Church."
         }
     }
     /// Sky picked when the scene is opened from the menu.

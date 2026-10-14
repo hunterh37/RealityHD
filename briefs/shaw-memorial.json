@@ -1,0 +1,42 @@
+{
+  "budget": 30000,
+  "id": "shaw-memorial",
+  "kind": "structure",
+  "materials": [
+    "stone.granite-curb:AE978C",
+    "stone.granite-paver",
+    "metal.bronze-weathered",
+    "metal.bronze-weathered:4E6B58"
+  ],
+  "name": "Shaw Memorial",
+  "notes": "",
+  "parts": [
+    "bronze relief panel ~3.4x4.3 m with marching soldiers, horse and rider, drummer boy",
+    "angel figure floating above",
+    "pink granite frame with flanking pilasters and capitals",
+    "entablature with cornice",
+    "base plinth with inscription",
+    "stone terrace platform",
+    "bronze laurel wreaths on the frieze",
+    "bronze laurel wreaths on the frieze"
+  ],
+  "references": [],
+  "size": [
+    7.64,
+    5.75,
+    4.65
+  ],
+  "style": "1897 bronze, verdigris-streaked dark patina, weathered pink Milford granite",
+  "summary": "Saint-Gaudens bronze relief of Shaw and the 54th Massachusetts in a granite aedicule with pilasters, cornice, terrace and balustrade.",
+  "tags": [
+    "structure",
+    "architecture",
+    "stone",
+    "metal",
+    "park",
+    "outdoor"
+  ],
+  "theme": "Architecture",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
