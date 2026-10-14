@@ -104,6 +104,11 @@
     "shadowTriangles" : 215000,
     "triangles" : 226000
   },
+  "mulberry-river" : {
+    "drawCalls" : 900,
+    "shadowTriangles" : 1072000,
+    "triangles" : 2147000
+  },
   "office-lobby" : {
     "drawCalls" : 110,
     "shadowTriangles" : 78000,
