@@ -102,6 +102,7 @@ public enum Structures {
         MbtaHeadhouse.self,
         MassachusettsStateHouse.self,
         ParkStreetChurch.self,
+        LowWaterBridge.self,
         // realityhd:structure
     ]
 }

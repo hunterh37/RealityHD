@@ -1,0 +1,41 @@
+{
+  "budget": 12800,
+  "id": "rod-fly",
+  "kind": "prop",
+  "materials": [
+    "composite.graphite-blank",
+    "cork.grip",
+    "wood.seat-burl",
+    "metal.anodized-gunmetal",
+    "metal.chrome",
+    "thread.wrap-epoxy"
+  ],
+  "name": "Fly rod",
+  "notes": "reference photo: ../MulberryRiver/notes/reference/tackle/rod-fly.jpg (compare runs use --ref)",
+  "parts": [
+    "blank",
+    "handle",
+    "reel-seat",
+    "guides",
+    "tip-top",
+    "ferrule"
+  ],
+  "references": [],
+  "size": [
+    2.6,
+    0.038,
+    0.03
+  ],
+  "style": "8.5 ft 5-weight two-piece fly rod, full-wells cork, burl insert up-locking seat, snake guides",
+  "summary": "Fly rod, 2.6 m: two-piece graphite blank, full-wells cork, wood insert seat, stripper and snake guides.",
+  "tags": [
+    "prop",
+    "fishing",
+    "handheld",
+    "articulated",
+    "tool"
+  ],
+  "theme": "Tackle",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

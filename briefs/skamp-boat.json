@@ -1,0 +1,43 @@
+{
+  "budget": 14000,
+  "id": "skamp-boat",
+  "kind": "prop",
+  "materials": [
+    "metal.boat-paint",
+    "metal.boat-aluminum",
+    "wood.weathered",
+    "plastic.black"
+  ],
+  "name": "Skamp 10 ft jon boat",
+  "notes": "MulberryRiver river pack. Reference compared with gate --ref (compare.png): briefs/refs/skamp-boat/Jon_boat,_2023.jpg (not committed; sources in MulberryRiver notes/reference).",
+  "parts": [
+    "flat bottom hull",
+    "raked bow",
+    "stern transom with motor board",
+    "rolled gunwale rails",
+    "two box bench seats",
+    "floor ribs",
+    "rivet rows",
+    "rod holders",
+    "mushroom anchor and rope",
+    "drain plug"
+  ],
+  "references": [],
+  "size": [
+    3.09,
+    0.6,
+    1.29
+  ],
+  "style": "used riveted aluminum jon boat, olive paint chipped at the chines, mill aluminum inside",
+  "summary": "10 ft aluminum jon boat: flat bottom, raked bow, olive painted hull, rolled gunwales, two bench seats, rod holders, mushroom anchor.",
+  "tags": [
+    "prop",
+    "vehicle",
+    "metal",
+    "boat",
+    "river"
+  ],
+  "theme": "Boats",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

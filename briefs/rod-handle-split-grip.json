@@ -1,0 +1,36 @@
+{
+  "budget": 3700,
+  "id": "rod-handle-split-grip",
+  "kind": "prop",
+  "materials": [
+    "cork.grip",
+    "composite.graphite-blank",
+    "metal.anodized-gunmetal"
+  ],
+  "name": "Split grip rod handle",
+  "notes": "reference photo: ../MulberryRiver/notes/reference/tackle/rod-handle-split-grip.jpg (compare runs use --ref)",
+  "parts": [
+    "rear grip",
+    "fore grip",
+    "butt cap",
+    "exposed blank",
+    "winding check"
+  ],
+  "references": [],
+  "size": [
+    0.418,
+    0.026,
+    0.026
+  ],
+  "style": "split cork rear grip with exposed graphite between",
+  "summary": "Split-grip cork handle 0.41 m: butt cap, two cork pieces with exposed blank, fore grip.",
+  "tags": [
+    "prop",
+    "fishing",
+    "handheld",
+    "tool"
+  ],
+  "theme": "Tackle",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
