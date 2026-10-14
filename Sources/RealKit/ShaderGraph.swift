@@ -118,6 +118,10 @@ public struct RealShaderOptions: Hashable, Sendable {
     /// Rain wetness (`Wetness` 0...1): rough surfaces darken, every surface turns glossy, upward faces
     /// wetter than sides.
     public var wet = false
+    /// Underwater absorption below `WaterLevel`. Off for scenes without water (saves ~30 nodes per pixel).
+    public var water = false
+    /// Animated caustic ridges on submerged upward faces (requires `water`). Off for foliage and cutouts.
+    public var caustics = false
     public init() {}
 }
 
@@ -234,6 +238,7 @@ public enum RealShaderGraph {
             tint = g.node("ND_mix_color3", [("color3f", "fg", topCol), ("color3f", "bg", tint), ("float", "mix", mask)], out: "color3f")
         }
         var fogF: String?
+        var waterHaze: String?
         var opacity: String?
         if o.transparent {
             let uv2 = g.node("ND_texcoord_vector2", [("int", "index", "2")], out: "float2")
@@ -246,7 +251,14 @@ public enum RealShaderGraph {
             let m2 = g.mul(m, m)
             let fres = g.add("0.02", g.mul(g.mul(g.mul(m2, m2), m), "0.98"))
             let base = g.mul(g.param("Opacity"), g.add("1", g.mul(shallow, "-0.75")))
-            opacity = g.node("ND_mix_float", [("float", "fg", "1"), ("float", "bg", base), ("float", "mix", fres)], out: "float")
+            let surfaceOpacity = g.node("ND_mix_float", [("float", "fg", "1"), ("float", "bg", base), ("float", "mix", fres)], out: "float")
+            // Seen from below the surface is a bright ceiling: total internal reflection outside Snell's window (~49 deg).
+            let camY = g.separate("ND_separate3_vector3", "float3", g.node("ND_realitykit_cameraposition_vector3", [], out: "float3"), ["outx", "outy", "outz"])[1]
+            let below = g.node("ND_smoothstep_float", [("float", "in", g.add(g.param("WaterLevel"), g.mul(camY, "-1"))), ("float", "low", "0"), ("float", "high", "0.05")], out: "float")
+            let window = g.node("ND_smoothstep_float", [("float", "in", c), ("float", "low", "0.6"), ("float", "high", "0.78")], out: "float")
+            let ceiling = g.node("ND_mix_float", [("float", "fg", "0.45"), ("float", "bg", "0.97"), ("float", "mix", window)], out: "float")
+            let under = g.node("ND_mix_float", [("float", "fg", ceiling), ("float", "bg", surfaceOpacity), ("float", "mix", g.node("ND_ceil_float", [("float", "in", g.mul(g.param("WaterDensity"), "100"))], out: "float"))], out: "float")
+            opacity = g.node("ND_mix_float", [("float", "fg", under), ("float", "bg", surfaceOpacity), ("float", "mix", below)], out: "float")
         }
         if o.fog {
             let wp = g.node("ND_position_vector3", [("string", "space", "\"world\"")], out: "float3")
@@ -257,6 +269,53 @@ public enum RealShaderGraph {
             let f = g.add("1", g.mul(e, "-1"))
             fogF = f
             tint = g.node("ND_multiply_color3FA", [("color3f", "in1", tint), ("float", "in2", g.add("1", g.mul(f, "-1")))], out: "color3f")
+          if o.water {
+            // Underwater absorption: the part of the view ray below WaterLevel, (max(-yp,0)+max(-yc,0))/|yp-yc|
+            // clamped to 0...1 (1 when both ends are submerged), extinguishes toward WaterColor; light reaching a
+            // submerged point also dims with its own depth. WaterDensity 0 disables.
+            let wps = g.separate("ND_separate3_vector3", "float3", wp, ["outx", "outy", "outz"])
+            let cps = g.separate("ND_separate3_vector3", "float3", cam, ["outx", "outy", "outz"])
+            let yp = g.add(wps[1], g.mul(g.param("WaterLevel"), "-1"))
+            let yc = g.add(cps[1], g.mul(g.param("WaterLevel"), "-1"))
+            let dp = g.node("ND_max_float", [("float", "in1", g.mul(yp, "-1")), ("float", "in2", "0")], out: "float")
+            let dc = g.node("ND_max_float", [("float", "in1", g.mul(yc, "-1")), ("float", "in2", "0")], out: "float")
+            let span = g.node("ND_max_float", [("float", "in1", g.node("ND_absval_float", [("float", "in", g.add(yp, g.mul(yc, "-1")))], out: "float")), ("float", "in2", "0.001")], out: "float")
+            let frac = g.node("ND_clamp_float", [("float", "in", g.node("ND_divide_float", [("float", "in1", g.add(dp, dc)), ("float", "in2", span)], out: "float")), ("float", "low", "0"), ("float", "high", "1")], out: "float")
+            let uwe = g.node("ND_exp_float", [("float", "in", g.mul(g.mul(g.mul(dist, frac), g.param("WaterDensity")), "-1"))], out: "float")
+            let ua = g.add("1", g.mul(uwe, "-1"))
+            let lit = g.node("ND_exp_float", [("float", "in", g.mul(g.mul(dp, g.param("WaterDensity")), "-0.35"))], out: "float")
+            // Red goes first, green last: per-channel extinction over the submerged path.
+            let path = g.mul(g.mul(dist, frac), g.param("WaterDensity"))
+            func ch(_ k: String) -> String { g.node("ND_exp_float", [("float", "in", g.mul(path, k))], out: "float") }
+            let absorb = g.node("ND_combine3_color3", [("float", "in1", ch("-1.7")), ("float", "in2", ch("-0.55")), ("float", "in3", ch("-0.85"))], out: "color3f")
+            tint = g.node("ND_multiply_color3", [("color3f", "in1", tint), ("color3f", "in2", absorb)], out: "color3f")
+            tint = g.node("ND_multiply_color3FA", [("color3f", "in1", tint), ("float", "in2", lit)], out: "color3f")
+            let wc = g.node("ND_multiply_color3FA", [("color3f", "in1", g.param("WaterColor")), ("float", "in2", ua)], out: "color3f")
+            fogF = f
+            waterHaze = wc
+            if o.caustics && !o.transparent {
+                // Caustics: two warped sine ridge fields on world xz, sharpened, on submerged upward faces.
+                let t = g.mul(g.node("ND_time_float", [], out: "float"), "0.7")
+                func ridges(_ k: String, _ ph: String) -> String {
+                    let x = g.mul(wps[0], k), z = g.mul(wps[2], k)
+                    let a = g.sin(g.add(g.add(g.mul(x, "2.1"), g.mul(g.sin(g.add(g.mul(z, "1.7"), t)), "1.3")), g.add(t, ph)))
+                    let b = g.sin(g.add(g.add(g.mul(z, "2.3"), g.mul(g.sin(g.add(g.mul(x, "1.9"), g.mul(t, "-0.8"))), "1.3")), g.mul(t, "-0.9")))
+                    let r = g.add("1", g.mul(g.node("ND_absval_float", [("float", "in", g.add(a, b))], out: "float"), "-0.5"))
+                    let r2 = g.mul(r, r), r4 = g.mul(r2, r2)
+                    return g.mul(r4, r4)
+                }
+                let pat = g.node("ND_max_float", [("float", "in1", ridges("1", "0")), ("float", "in2", ridges("1.63", "2.1"))], out: "float")
+                let wn = g.separate("ND_separate3_vector3", "float3", g.node("ND_normal_vector3", [("string", "space", "\"world\"")], out: "float3"), ["outx", "outy", "outz"])
+                let up = g.node("ND_clamp_float", [("float", "in", wn[1]), ("float", "low", "0"), ("float", "high", "1")], out: "float")
+                let sub = g.node("ND_smoothstep_float", [("float", "in", dp), ("float", "low", "0.02"), ("float", "high", "0.2")], out: "float")
+                let fade = g.node("ND_exp_float", [("float", "in", g.mul(dp, "-0.3"))], out: "float")
+                let camBelow = g.node("ND_smoothstep_float", [("float", "in", dc), ("float", "low", "0"), ("float", "high", "0.05")], out: "float")
+                let view = g.add("0.35", g.mul(camBelow, "0.65"))
+                let k = g.mul(g.mul(g.mul(g.mul(pat, up), sub), fade), g.mul(g.mul(g.param("CausticStrength"), uwe), view))
+                let cc = g.node("ND_multiply_color3FA", [("color3f", "in1", g.param("CausticColor")), ("float", "in2", k)], out: "color3f")
+                waterHaze = g.node("ND_add_color3", [("color3f", "in1", wc), ("color3f", "in2", cc)], out: "color3f")
+            }
+          }
         }
         var nt: String
         if o.flowNormals {
@@ -351,6 +410,9 @@ public enum RealShaderGraph {
             let haze = g.node("ND_multiply_color3FA", [("color3f", "in1", g.param("FogColor")), ("float", "in2", fogF)], out: "color3f")
             emissive = emissive.map { g.node("ND_add_color3", [("color3f", "in1", $0), ("color3f", "in2", haze)], out: "color3f") } ?? haze
         }
+        if let waterHaze {
+            emissive = emissive.map { g.node("ND_add_color3", [("color3f", "in1", $0), ("color3f", "in2", waterHaze)], out: "color3f") } ?? waterHaze
+        }
         if let emissive { surfaceInputs.append(("color3f", "emissiveColor", emissive)) }
         let surface = g.node("ND_realitykit_pbr_surfaceshader", surfaceInputs + [("bool", "hasPremultipliedAlpha", "0")], out: "token")
 
@@ -427,6 +489,11 @@ public enum RealShaderGraph {
                 float inputs:Translucency = 0.6
                 color3f inputs:FogColor = (0.6, 0.65, 0.7)
                 float inputs:FogDensity = 0.01
+                float inputs:WaterLevel = 0
+                float inputs:WaterDensity = 0
+                color3f inputs:WaterColor = (0.02, 0.06, 0.045)
+                float inputs:CausticStrength = 0
+                color3f inputs:CausticColor = (1, 0.97, 0.85)
                 color3f inputs:TopColor = (0.05, 0.09, 0.02)
                 float inputs:TopAmount = 1
                 float inputs:TopLow = 0.55

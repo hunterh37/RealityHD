@@ -19,6 +19,8 @@ public struct MulberryRiverReach: RealSceneBuilder {
     /// Boat position (x, lateral offset from the centerline).
     public var boatAt = V2(-68, 2.5)
     public var path = RiverPath.mulberry()
+    /// Clear green Ozark water: about 6 m visibility, red absorbed first, caustics on the bed.
+    public static let water = RealScene.Lighting.Water(level: 0, density: 0.36, color: V3(0.012, 0.042, 0.032), caustics: 0.55)
     public init() {}
 
     /// Bluff zone along x (north bank).
@@ -66,7 +68,9 @@ public struct MulberryRiverReach: RealSceneBuilder {
                 return 1 - smoothstep(0.4, 1.6, q.y) * (1 - barWeight(p.x) * (1 - smoothstep(6, 18, lat(p))))
             }
             let (bank, bed) = ConiferBuild.split(g, material: "ground.river-gravel-wet") { $0.y < -0.02 }
-            scene.add(Model(name: "mulberry-ground-\(t)", surfaces: [bank, bed]), at: Xform(translation: V3(cx, 0, 0)))
+            // Pools below 2.2 m settle fine silt over the gravel.
+            let (gravel, silt) = ConiferBuild.split(bed, material: "ground.river-silt") { $0.y < -2.2 }
+            scene.add(Model(name: "mulberry-ground-\(t)", surfaces: [bank, gravel, silt]), at: Xform(translation: V3(cx, 0, 0)))
             // Water: shallowness in splat; riffle sections move to the faster, choppier riffle water.
             var w = Prim.terrain(size: V2(tw, 64), segments: 96, material: "water.mulberry") { _ in 0 }
             w.paintSplat { q in 1 - smoothstep(0.1, 3.2, path.bedDepth(V2(q.x + cx, q.z))) }
@@ -137,6 +141,9 @@ public struct MulberryRiverReach: RealSceneBuilder {
             let p = V2(x, zc(x) + off)
             scene.add(DriftwoodLog(), at: place(p.x, p.y, y: y(p) - 0.05, yaw: yaw), seed: seed &+ UInt64(30 + Int(x)))
         }
+
+        MulberryUnderwater.add(to: &scene, reach: self, seed: seed)
+        scene.lighting.water = Self.water
 
         MulberryVegetation.add(to: &scene, reach: self, seed: seed, rng: &rng)
 

@@ -32,6 +32,11 @@ public enum RealInstancing {
         /// Trees and large plants: 18 m cells.
         public static var trees: Options { Options().with { $0.cellSize = 18; $0.tintJitter = 0.12; $0.hueJitter = 0.014 } }
         /// Grass and ground cover: 8 m cells, culled past `cull` meters, no shadows.
+        /// Riverbed and lake-bottom dressing: seen through water absorption only nearby, so no shadows and a
+        /// distance cull.
+        public static func submerged(cull: Float = 60) -> Options {
+            Options().with { $0.cellSize = 12; $0.cullDistance = cull; $0.shadowCasterMaxLOD = -1; $0.tintJitter = 0.12; $0.hueJitter = 0.014 }
+        }
         public static func groundCover(cull: Float = 30) -> Options {
             Options().with { $0.cellSize = 8; $0.cullDistance = cull; $0.shadowCasterMaxLOD = -1; $0.tintJitter = 0.16; $0.hueJitter = 0.02; $0.thinnable = true }
         }

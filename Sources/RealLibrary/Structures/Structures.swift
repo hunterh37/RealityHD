@@ -95,6 +95,7 @@ public enum Structures {
         UShapedStaircase.self,
         SpiralStaircase.self,
         Fireplace.self,
+        LowWaterBridge.self,
         // realityhd:structure
     ]
 }

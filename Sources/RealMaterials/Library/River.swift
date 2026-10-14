@@ -114,7 +114,7 @@ public extension MaterialLibrary {
         },
         /// Wet gravel at the waterline and on the riverbed.
         MaterialSpec(key: "ground.river-gravel-wet", program: .gravel).with {
-            $0.colorA = linear(0x6A6252); $0.colorB = linear(0x48423A); $0.colorC = linear(0x7A6A52)
+            $0.colorA = linear(0x7A6648); $0.colorB = linear(0x4E402E); $0.colorC = linear(0x947A52)
             $0.knobs = V4(0.35, 2.0, 0.1, 0); $0.seed = 77; $0.tileSize = 1.4; $0.normalStrength = 3; $0.resolution = 2048
             $0.antiTile = true; $0.roughness = 0.35; $0.specular = 0.6
         },
@@ -135,6 +135,45 @@ public extension MaterialLibrary {
             $0.knobs = V4(0.35, 0.75, 0, 0); $0.seed = 83; $0.tileSize = 2.0; $0.normalStrength = 4; $0.resolution = 2048
             $0.antiTile = true
             $0.splat = "ground.river-gravel"; $0.splatSoftness = 0.25; $0.splatHeight = 1.6
+        },
+        /// Submerged cobble and boulder under a periphyton film: olive-brown diatom slime on the upper faces, glossy.
+        MaterialSpec(key: "rock.algae-wet", program: .rockRiver).with {
+            $0.colorA = linear(0x4E4A3E); $0.colorB = linear(0x5E5644); $0.colorC = linear(0x7A7262)
+            $0.knobs = V4(0.2, 0.5, 0, 0); $0.seed = 85; $0.tileSize = 0.6; $0.normalStrength = 1.4; $0.triplanar = true
+            $0.roughness = 0.6; $0.specular = 0.35
+            $0.topColor = linear(0x40441C); $0.topAmount = 0.85; $0.topLow = 0.35
+        },
+        /// Bluff limestone fallen into the pool: grey bedded blocks under thick green algae and moss on top.
+        MaterialSpec(key: "rock.limestone-algae", program: .strataRock).with {
+            $0.colorA = linear(0x4E4C46); $0.colorB = linear(0x66635A); $0.colorC = linear(0x3A3934)
+            $0.knobs = V4(0.45, 9, 0.45, 0.5); $0.seed = 87; $0.tileSize = 2.0; $0.normalStrength = 2.6; $0.triplanar = true
+            $0.roughness = 0.65; $0.specular = 0.35
+            $0.topColor = linear(0x2E4212); $0.topAmount = 1; $0.topLow = 0.15
+        },
+        /// Waterlogged wood: bark gone, dark tea-stained grain under a slimy brown-green film.
+        MaterialSpec(key: "wood.waterlogged", program: .woodPlank).with {
+            $0.colorA = linear(0x3A2C1E); $0.colorB = linear(0x1E1610); $0.knobs = V4(0.02, 0.8, 0, 0); $0.seed = 89
+            $0.tileSize = 1.0; $0.normalStrength = 3; $0.roughness = 0.45; $0.specular = 0.55
+            $0.topColor = linear(0x3A3E1A); $0.topAmount = 0.6; $0.topLow = 0.55
+        },
+        /// Pool bottom: fine tan-grey silt and sand with scattered pea gravel, dull.
+        MaterialSpec(key: "ground.river-silt", program: .mud).with {
+            $0.colorA = linear(0x4A4436); $0.colorB = linear(0x6A604A); $0.colorC = linear(0x7E7258)
+            $0.knobs = V4(0.05, 0.3, 0.05, 0); $0.seed = 91; $0.tileSize = 3.0; $0.normalStrength = 2; $0.resolution = 2048
+            $0.antiTile = true; $0.roughness = 0.7
+        },
+        /// Submerged ribbon weed (wild celery, Vallisneria): long dark green straps, translucent, swaying in the current.
+        MaterialSpec(key: "grass.eelgrass", program: .grassBlade).with {
+            $0.colorA = linear(0x22401A); $0.colorB = linear(0x4E6E2A); $0.colorC = linear(0x6E7438)
+            $0.knobs = V4(0.08, 0.3, 6, 0); $0.seed = 93; $0.tileSize = 0; $0.mode = .cutout; $0.twoSided = true
+            $0.resolution = 512; $0.normalStrength = 1.2; $0.roughness = 0.35; $0.specular = 0.5
+            $0.wind = 0.22; $0.translucency = 0.6
+        },
+        /// River concrete: old poured low-water slab, grey aggregate, algae and silt staining the upper faces.
+        MaterialSpec(key: "concrete.river-algae", program: .concrete).with {
+            $0.colorA = linear(0x6E6A60); $0.colorB = linear(0x4E4A42); $0.knobs = V4(0.9, 0.75, 0, 0); $0.seed = 95; $0.tileSize = 1.5
+            $0.normalStrength = 2.4; $0.antiTile = true; $0.roughness = 0.6
+            $0.topColor = linear(0x3A3E1E); $0.topAmount = 0.7; $0.topLow = 0.5
         },
         // realityhd:material.river
     ]
