@@ -1,0 +1,44 @@
+{
+  "budget": 14000,
+  "id": "copper-bay-window-hood",
+  "kind": "prop",
+  "materials": [
+    "metal.copper",
+    "metal.copper-patina",
+    "wood.painted-exterior",
+    "metal.brass-aged"
+  ],
+  "name": "Copper bay window hood",
+  "notes": "",
+  "parts": [
+    "three-facet hipped standing-seam copper roof",
+    "rolled copper hip ridges",
+    "painted timber fascia with cove bed mould",
+    "dentil course under the eave",
+    "copper drip edge",
+    "wall step flashing",
+    "apex finial with ball",
+    "one bright replacement pan",
+    "fastener rosettes",
+    "scrolled timber wall brackets"
+  ],
+  "references": [],
+  "size": [
+    2.2,
+    0.7,
+    0.9
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Victorian canted bay window hood, 2.2 m: standing-seam copper hip roof, rolled hips, bracket-dentil cornice, finial.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "wood",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

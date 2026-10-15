@@ -1,0 +1,36 @@
+{
+  "budget": 15000,
+  "id": "raked-topsoil",
+  "kind": "prop",
+  "materials": [
+    "soil.potting",
+    "ground.gravel",
+    "wood.deadwood"
+  ],
+  "name": "Raked topsoil",
+  "notes": "",
+  "parts": [
+    "topsoil bed",
+    "rake tine furrows",
+    "crumb clods",
+    "stones raked to the surface",
+    "edge spill"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.12,
+    2
+  ],
+  "style": "architectural facade customizer, Vernacular",
+  "summary": "Raked topsoil ground tile, 2 x 2 m: fine tilth combed into parallel rake-tine furrows with clods and small stones.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

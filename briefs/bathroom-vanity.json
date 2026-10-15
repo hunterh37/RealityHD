@@ -1,0 +1,45 @@
+{
+  "budget": 10500,
+  "id": "bathroom-vanity",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-shaker:5C6B73",
+    "wood.painted-shaker-worn:5C6B73",
+    "ceramic.vitreous",
+    "stone.marble-honed",
+    "metal.brushed-nickel",
+    "metal.chrome"
+  ],
+  "name": "Vanity with sink",
+  "notes": "Front +Z, back at z=-0.275. Top at 0.82 m, faucet to 0.88 m. Static (doors closed).",
+  "parts": [
+    "painted carcass with recessed toe kick",
+    "two shaker doors and a false drawer front",
+    "brushed nickel bar pulls",
+    "quartz top with eased edge and backsplash",
+    "undermount oval basin with drain and overflow",
+    "widespread faucet with two lever handles",
+    "lift rod"
+  ],
+  "references": [],
+  "size": [
+    0.92,
+    0.88,
+    0.55
+  ],
+  "style": "36 in transitional shaker vanity, slate-blue paint, worn bottom rails",
+  "summary": "36 in bathroom vanity: painted shaker doors and false drawer, quartz top and backsplash, undermount basin, widespread chrome faucet.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bathroom",
+    "plumbing",
+    "furniture",
+    "stone",
+    "ceramic",
+    "interior"
+  ],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

@@ -17,6 +17,7 @@ every PBR texture is synthesized on the GPU.
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Quick start](#quick-start)
+- [Photo to asset](#photo-to-asset)
 - [Demo app](#demo-app)
 - [Usage](#usage)
 - [Gallery](#gallery)
@@ -109,6 +110,60 @@ struct ForestApp: App {
         .immersionStyle(selection: .constant(.full), in: .full)
     }
 }
+```
+
+## Photo to asset
+
+A reference photo goes in, a procedural Swift asset comes out. Left: the photo. Right: the
+`halogen-siphon-bar` prop that the agent loop built from it (no mesh or texture files).
+
+![Reference photo and generated halogen-siphon-bar prop](docs/compare/halogen-siphon-bar-v2.jpg)
+
+### Prompting Claude Code
+
+Open Claude Code in this repo. The `realityhd-prop` skill runs brief, scaffold, build, lint, vision
+gate, sign-off, thumbnail and catalog. Example prompts:
+
+With your own photo (attach it or give a path):
+
+> Add a prop from this photo: ~/Desktop/espresso-grinder.jpg. Match the size and materials.
+
+> /realityhd-prop make this lamp photoreal [image attached]
+
+Without a photo (the agent searches for a matching reference image first):
+
+> Add a vintage rotary telephone prop. Find a reference photo and match it.
+
+> Model a cast iron skillet, 30 cm, find a product photo for proportions.
+
+Scenes and materials:
+
+> Build a scene "bakery-counter" with the kitchen props, interior lighting, camera at the register.
+
+> Add a material wood.walnut-oiled like wood.oak, darker and warmer.
+
+### Using a generated asset
+
+Every asset in the catalog, including new ones, loads by id:
+
+```swift
+import RealKit; import RealLibrary
+
+RealityHD.setup(.balanced)
+let env = try RealityHD.environment(.afternoon, skybox: false)
+let siphon = try await RealityHD.entity("halogen-siphon-bar", seed: 1)
+env.illuminate(siphon)
+content.add(env.root)
+content.add(siphon)
+```
+
+### By hand
+
+```sh
+swift run -q realityhd brief my-prop --theme Kitchen --name "My prop"   # fill briefs/my-prop.json
+swift run -q realityhd new prop my-prop --brief briefs/my-prop.json      # write build(seed:)
+swift run -q realityhd gate my-prop --ref photo.jpg                      # side-by-side + scores
+swift run -q realityhd thumbs my-prop && swift run -q realityhd catalog
 ```
 
 ## Demo app
@@ -482,22 +537,6 @@ Props:
 | ![anthill](docs/assets/anthill.png)<br>`anthill` | ![bark-slab](docs/assets/bark-slab.png)<br>`bark-slab` | ![bug-net](docs/assets/bug-net.png)<br>`bug-net` | ![capture-net-pod](docs/assets/capture-net-pod.png)<br>`capture-net-pod` |
 | ![field-journal](docs/assets/field-journal.png)<br>`field-journal` | ![flower-bush](docs/assets/flower-bush.png)<br>`flower-bush` | ![liftable-stone](docs/assets/liftable-stone.png)<br>`liftable-stone` | ![milkweed](docs/assets/milkweed.png)<br>`milkweed` |
 | ![specimen-jar](docs/assets/specimen-jar.png)<br>`specimen-jar` | ![wrist-launcher](docs/assets/wrist-launcher.png)<br>`wrist-launcher` |    |    |
-
-### Animals
-
-Rigged, animated birds and ground animals (`import RealityHDAnimals`). Each bird has about 40 joints and
-individual feather cards; `WildlifeWorld` lands them on perches taken from placed props and on an open palm.
-Preview: `swift run animalpreview <species> --pose perched`. Details in [docs/ANIMALS.md](docs/ANIMALS.md).
-
-| | | | |
-|---|---|---|---|
-| ![american-goldfinch](docs/assets/animal-american-goldfinch.png)<br>`american-goldfinch` | ![american-robin](docs/assets/animal-american-robin.png)<br>`american-robin` | ![baltimore-oriole](docs/assets/animal-baltimore-oriole.png)<br>`baltimore-oriole` | ![black-capped-chickadee](docs/assets/animal-black-capped-chickadee.png)<br>`black-capped-chickadee` |
-| ![blue-jay](docs/assets/animal-blue-jay.png)<br>`blue-jay` | ![cedar-waxwing](docs/assets/animal-cedar-waxwing.png)<br>`cedar-waxwing` | ![eastern-bluebird](docs/assets/animal-eastern-bluebird.png)<br>`eastern-bluebird` | ![mourning-dove](docs/assets/animal-mourning-dove.png)<br>`mourning-dove` |
-| ![northern-cardinal](docs/assets/animal-northern-cardinal.png)<br>`northern-cardinal` | ![ruby-throated-hummingbird](docs/assets/animal-ruby-throated-hummingbird.png)<br>`ruby-throated-hummingbird` |     |     |
-
-| | | | |
-|---|---|---|---|
-| ![eastern-chipmunk](docs/assets/animal-eastern-chipmunk.png)<br>`eastern-chipmunk` | ![eastern-cottontail](docs/assets/animal-eastern-cottontail.png)<br>`eastern-cottontail` | ![eastern-gray-squirrel](docs/assets/animal-eastern-gray-squirrel.png)<br>`eastern-gray-squirrel` | ![european-hedgehog](docs/assets/animal-european-hedgehog.png)<br>`european-hedgehog` |
 
 ## Performance
 

@@ -1,0 +1,43 @@
+{
+  "budget": 8000,
+  "id": "ceiling-fan",
+  "kind": "prop",
+  "materials": [
+    "metal.brushed-nickel",
+    "wood.veneer-walnut",
+    "glass.frosted",
+    "emissive.bulb",
+    "metal.chrome"
+  ],
+  "name": "Ceiling fan with light",
+  "notes": "Static. Ceiling plane y = 2.6: canopy top touches 2.6, body hangs below. Size 1.32 x 0.42 x 1.32 (blade span x height).",
+  "parts": [
+    "canopy with trim ring",
+    "downrod and coupler",
+    "motor housing with vent ring",
+    "five walnut blades",
+    "blade irons with screws",
+    "frosted light bowl kit",
+    "pull chains with beads"
+  ],
+  "references": [],
+  "size": [
+    1.32,
+    0.42,
+    1.32
+  ],
+  "style": "52 in fan",
+  "summary": "52 in ceiling fan: nickel downrod and motor, five walnut blades, frosted light bowl, pull chains.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "home",
+    "interior",
+    "ceiling",
+    "light",
+    "metal"
+  ],
+  "theme": "Lighting",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

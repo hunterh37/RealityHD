@@ -1,0 +1,40 @@
+{
+  "budget": 10000,
+  "id": "exposed-aggregate-concrete",
+  "kind": "prop",
+  "materials": [
+    "concrete.rough",
+    "concrete.exposed-aggregate",
+    "rock.river",
+    "ground.dirt",
+    "moss.cushion"
+  ],
+  "name": "Exposed aggregate concrete slab",
+  "notes": "",
+  "parts": [
+    "two cast slabs with tooled expansion joint",
+    "exposed river-pebble aggregate tops",
+    "radiused tooled slab edges",
+    "sawcut control joint",
+    "grit in joints"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.15,
+    2
+  ],
+  "style": "architectural facade customizer, Mid-Century Modern",
+  "summary": "Exposed aggregate concrete tile, 2 x 2 m: four cast bays with tooled smooth margins, washed river-pebble aggregate field, grit-filled expansion joints.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "concrete",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

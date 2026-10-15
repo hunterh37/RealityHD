@@ -1,0 +1,41 @@
+{
+  "budget": 2800,
+  "id": "smoke-detector",
+  "kind": "prop",
+  "materials": [
+    "plastic.matte:F2F0EA",
+    "plastic.black",
+    "emissive.led-green",
+    "label.inspection"
+  ],
+  "name": "Ceiling smoke detector",
+  "notes": "Static. Ceiling plane y = 2.6; base touches it; dome hangs to y = 2.56.",
+  "parts": [
+    "mounting ring",
+    "domed cover",
+    "radial sensing vent slots",
+    "center test button",
+    "status LED",
+    "seam line",
+    "inspection sticker"
+  ],
+  "references": [],
+  "size": [
+    0.13,
+    0.04,
+    0.13
+  ],
+  "style": "off-white plastic, ten years old, new",
+  "summary": "Ceiling smoke alarm: white domed cover with radial sensing vents, test button, status LED and mounting ring.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "interior",
+    "ceiling",
+    "electronics",
+    "plastic"
+  ],
+  "theme": "Lighting",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

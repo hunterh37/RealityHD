@@ -1,0 +1,39 @@
+{
+  "budget": 14000,
+  "id": "allotment-grass-strip-path",
+  "kind": "prop",
+  "materials": [
+    "soil.potting",
+    "ground.dirt",
+    "grass.lawn-thatch",
+    "grass.lawn",
+    "rock.granite-weathered"
+  ],
+  "name": "Allotment grass strip path",
+  "notes": "",
+  "parts": [
+    "mown turf strip",
+    "grass blades",
+    "spade-cut turf edges",
+    "tilled soil bed verges",
+    "barrow-worn line",
+    "soil clods"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.12,
+    2.0
+  ],
+  "style": "architectural facade customizer, English Allotment",
+  "summary": "Allotment grass path 2 x 2 m: mown turf strip with spade-cut edges between bare tilled soil beds.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

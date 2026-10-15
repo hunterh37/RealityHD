@@ -1,0 +1,38 @@
+{
+  "budget": 15000,
+  "id": "mown-lawn-turf",
+  "kind": "prop",
+  "materials": [
+    "grass.lawn",
+    "grass.lawn-thatch",
+    "ground.dirt",
+    "plant.stem",
+    "plastic.matte"
+  ],
+  "name": "Mown lawn turf",
+  "notes": "",
+  "parts": [
+    "soil base slab",
+    "thatch layer",
+    "mown grass blades",
+    "mowing stripe bands",
+    "daisies"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.12,
+    2
+  ],
+  "style": "architectural facade customizer, English Landscape",
+  "summary": "Mown lawn turf tile, 2 x 2 m: cut blades in alternating mower stripes over thatch and a cut soil edge.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

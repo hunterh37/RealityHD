@@ -1,0 +1,23 @@
+{
+  "budget": 9500,
+  "id": "tv-console",
+  "kind": "prop",
+  "materials": ["wood.veneer-oak", "wood.oak", "wood.walnut", "wood.plywood", "metal.brass-aged"],
+  "name": "Media console",
+  "notes": "Static: doors and drawers closed. Pack B2: front faces +Z.",
+  "parts": [
+    "long low veneered case with eased top",
+    "two slatted side doors with frames and knobs",
+    "center open shelf with back panel and cable cutout",
+    "two center drawers with brass bar pulls",
+    "splayed tapered legs with brass caps"
+  ],
+  "references": [],
+  "size": [1.6, 0.56, 0.42],
+  "style": "mid-century oak media console, walnut legs",
+  "summary": "Oak media console, 1.6 m: slatted side doors, center open shelf with cable cutout, two drawers, splayed walnut legs.",
+  "tags": ["prop", "floorplan", "living", "furniture", "wood", "interior"],
+  "theme": "Living",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

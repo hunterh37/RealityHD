@@ -1,0 +1,45 @@
+{
+  "budget": 30000,
+  "id": "park-street-church",
+  "kind": "structure",
+  "materials": [
+    "brick.red",
+    "wood.trim-weathered",
+    "screen.off",
+    "metal.brass-aged",
+    "stone.granite-curb",
+    "metal.roofing"
+  ],
+  "name": "Park Street Church",
+  "notes": "",
+  "parts": [
+    "red brick nave",
+    "stepped tower base",
+    "Ionic porch",
+    "Corinthian upper stage",
+    "white wooden steeple stages",
+    "spire",
+    "arched windows",
+    "clock faces",
+    "cornice",
+    "weathervane"
+  ],
+  "references": [],
+  "size": [
+    22,
+    66,
+    49
+  ],
+  "style": "Peter Banner 1809 Georgian, red brick with white painted wood steeple",
+  "summary": "Park Street Church, Boston: red brick Georgian nave and tower, white multi-stage wooden steeple 66 m, porches, arched windows, clock faces.",
+  "tags": [
+    "structure",
+    "architecture",
+    "building",
+    "brick",
+    "wood"
+  ],
+  "theme": "Architecture",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

@@ -1,0 +1,36 @@
+{
+  "budget": 5800,
+  "id": "rod-blank-graphite",
+  "kind": "prop",
+  "materials": [
+    "composite.graphite-blank",
+    "metal.chrome",
+    "ceramic.guide-insert",
+    "thread.wrap-epoxy"
+  ],
+  "name": "Graphite rod blank",
+  "notes": "reference photo: ../MulberryRiver/notes/reference/tackle/rod-blank-graphite.jpg (compare runs use --ref)",
+  "parts": [
+    "blank",
+    "guides",
+    "tip-top",
+    "hook keeper"
+  ],
+  "references": [],
+  "size": [
+    1.981,
+    0.064,
+    0.033
+  ],
+  "style": "guided graphite blank, gloss clear coat",
+  "summary": "Graphite blank 1.98 m with guides and tip-top, assembled into a handle at runtime.",
+  "tags": [
+    "prop",
+    "fishing",
+    "handheld",
+    "tool"
+  ],
+  "theme": "Tackle",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

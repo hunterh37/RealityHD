@@ -1,0 +1,23 @@
+{
+  "budget": 11000,
+  "id": "kitchen-island",
+  "kind": "prop",
+  "materials": ["wood.painted-shaker", "stone.marble", "wood.plywood", "metal.brass-aged", "wood.walnut"],
+  "name": "Kitchen island",
+  "notes": "Static. Pack B2: counter spans z -0.45...0.45 with a 0.30 m seating overhang on +Z (stool side, beadboard back). Cabinet doors and drawers face -Z (work side). Footprint 1.8 x 0.9.",
+  "parts": [
+    "marble countertop with eased edge and 0.3 m overhang",
+    "navy shaker doors and three-drawer stack on the work side",
+    "beadboard back panel on the seating side",
+    "walnut corbels under the overhang",
+    "finished end panels, toe kick, brass hardware"
+  ],
+  "references": [],
+  "size": [1.8, 0.92, 0.9],
+  "style": "navy painted island with white marble top, brass hardware",
+  "summary": "Kitchen island, 1.8 m: marble top with a 0.3 m seating overhang on +Z, navy shaker cabinets on the work side, beadboard back, corbels, brass pulls.",
+  "tags": ["prop", "floorplan", "kitchen", "furniture", "wood", "stone", "interior"],
+  "theme": "Dining",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

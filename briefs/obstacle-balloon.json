@@ -1,0 +1,42 @@
+{
+  "budget": 12000,
+  "id": "obstacle-balloon",
+  "kind": "prop",
+  "materials": [
+    "plastic.gloss",
+    "fabric.webbing",
+    "metal.galvanized",
+    "concrete.rough",
+    "plastic.black"
+  ],
+  "name": "Obstacle balloon",
+  "notes": "",
+  "parts": [
+    "envelope",
+    "gore seams",
+    "load patch",
+    "bridle lines",
+    "confluence ring",
+    "tether",
+    "ground anchor block",
+    "marker stripe"
+  ],
+  "references": [],
+  "size": [
+    4.09,
+    9.27,
+    4.09
+  ],
+  "style": "tethered obstacle balloon, glossy red PVC with white band, gore seams, dusty anchor",
+  "summary": "Tethered obstacle balloon, radius 2-8 m: red gored envelope with white band, four-line bridle, tether to a concrete anchor.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "outdoor",
+    "barrier",
+    "plastic"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,40 @@
+{
+  "budget": 10000,
+  "id": "pueblo-vigas-beam-ends",
+  "kind": "prop",
+  "materials": [
+    "wood.pole-pine",
+    "wood.endgrain-weathered",
+    "paint.stucco:C69C6D",
+    "wood.deadwood"
+  ],
+  "name": "Pueblo vigas beam ends",
+  "notes": "",
+  "parts": [
+    "peeled round vigas",
+    "weathered endgrain discs with checks",
+    "adobe plaster band with rounded edges",
+    "plaster mounds around beams",
+    "parapet cap",
+    "canale water spout"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    0.3,
+    0.4
+  ],
+  "style": "architectural facade customizer, Pueblo Revival, peeled pine vigas projecting from adobe plaster",
+  "summary": "Pueblo Revival vigas, 2.4 m: six peeled round beam ends of varied diameter through a rounded adobe parapet band, with canale.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "decor",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

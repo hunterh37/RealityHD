@@ -1,0 +1,22 @@
+{
+  "automated" : 0.9999889,
+  "date" : "2026-10-11",
+  "final" : 0.86268365,
+  "fingerprint" : "8ac381dc4af1b646",
+  "id" : "spiral-staircase",
+  "iterations" : 2,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 8,
+    "edges" : 7,
+    "grounding" : 7,
+    "materials" : 8,
+    "proportion" : 8,
+    "silhouette" : 9,
+    "wear" : 7
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.78875
+}

@@ -1,0 +1,37 @@
+{
+  "budget": 3000,
+  "id": "york-stone-flagstone-paving",
+  "kind": "prop",
+  "materials": [
+    "stone.sandstone",
+    "ground.dirt",
+    "moss.cushion"
+  ],
+  "name": "York Stone Flagstone Paving",
+  "notes": "",
+  "parts": [
+    "riven York stone flags in random-length coursed rows",
+    "pointed mortar-free sand joints",
+    "riven surface undulation",
+    "edge spalls",
+    "moss in joints"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.1,
+    2.0
+  ],
+  "style": "architectural facade customizer, English Georgian",
+  "summary": "York stone flagstone paving tile, 2 x 2 m: riven buff sandstone flags in random-length courses on a sand bed with mossy joints.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,46 @@
+{
+  "budget": 15000,
+  "id": "launch-pad",
+  "kind": "prop",
+  "materials": [
+    "concrete.rough",
+    "concrete.smooth",
+    "metal.painted",
+    "metal.galvanized",
+    "ablative.char",
+    "paint.lane-yellow",
+    "metal.cast-iron"
+  ],
+  "name": "Launch pad",
+  "notes": "",
+  "parts": [
+    "concrete deck slabs",
+    "flame trench",
+    "flame deflector",
+    "launch mount ring",
+    "mount legs",
+    "hold-down clamps",
+    "scorch marks",
+    "tie-down rings",
+    "deck markings",
+    "cable trench covers"
+  ],
+  "references": [],
+  "size": [
+    12,
+    2.34,
+    12
+  ],
+  "style": "small-rocket launch pad, weathered concrete, blast scorch, painted steel mount",
+  "summary": "Small-rocket launch pad, 12 m square: concrete deck over a flame trench with steel deflector, launch mount ring with hold-down clamps, scorch and markings.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "outdoor",
+    "concrete",
+    "metal"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,27 @@
+{
+  "budget": 7000,
+  "id": "coffee-table",
+  "kind": "prop",
+  "materials": [
+    "wood.veneer-walnut",
+    "wood.walnut",
+    "metal.brass-aged"
+  ],
+  "name": "Walnut coffee table",
+  "notes": "Static. Pack B2: front faces +Z, base at y=0 centered.",
+  "parts": [
+    "walnut top with rounded corners and eased edge",
+    "apron frame with corner blocks",
+    "splayed tapered legs with brass ferrules",
+    "lower slatted shelf",
+    "shelf stretchers"
+  ],
+  "references": [],
+  "size": [1.1, 0.46, 0.6],
+  "style": "mid-century walnut, oiled, light wear on top edges",
+  "summary": "Mid-century walnut coffee table with a rounded-corner top, tapered splayed legs with brass ferrules and a lower shelf.",
+  "tags": ["prop", "floorplan", "living", "furniture", "wood", "interior"],
+  "theme": "Living",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

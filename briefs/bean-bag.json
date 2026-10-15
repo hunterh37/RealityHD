@@ -1,0 +1,38 @@
+{
+  "budget": 14500,
+  "id": "bean-bag",
+  "kind": "prop",
+  "materials": [
+    "fabric.upholstery",
+    "fabric.canvas",
+    "thread.white"
+  ],
+  "name": "bean bag",
+  "notes": "",
+  "parts": [
+    "slumped teardrop soft body with wrinkles and a seated dent",
+    "contrast piping seam around the base",
+    "top carry handle loop",
+    "stitched panel seams",
+    "zipper tape at the back"
+  ],
+  "references": [],
+  "size": [
+    0.9,
+    0.6,
+    0.9
+  ],
+  "style": "oversized fabric bean bag chair, slightly worn, soft folds",
+  "summary": "Bean bag chair, 0.9 x 0.6 x 0.9 m: slumped fabric body with seat dent, panel seams, piping and carry handle.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "living",
+    "furniture",
+    "fabric",
+    "interior"
+  ],
+  "theme": "Living",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

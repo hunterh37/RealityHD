@@ -1,0 +1,39 @@
+{
+  "budget": 4000,
+  "id": "floor-mirror",
+  "kind": "prop",
+  "materials": [
+    "metal.chrome",
+    "wood.walnut",
+    "wood.plywood"
+  ],
+  "name": "Floor mirror",
+  "notes": "",
+  "parts": [
+    "tall mirror glass with beveled edge",
+    "walnut frame",
+    "rear support strut",
+    "feet",
+    "backing board"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    1.7,
+    0.45
+  ],
+  "style": "leaning full-length mirror, walnut frame, slight lean back",
+  "summary": "Leaning full-length mirror, 0.6 x 1.7 m: walnut stepped frame, beveled silvered glass, plywood back with folding strut.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "decor",
+    "wood",
+    "glass",
+    "wall",
+    "interior"
+  ],
+  "theme": "Decor",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

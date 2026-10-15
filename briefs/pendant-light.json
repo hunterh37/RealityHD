@@ -1,0 +1,45 @@
+{
+  "budget": 4400,
+  "id": "pendant-light",
+  "kind": "prop",
+  "materials": [
+    "metal.painted:1F3A33",
+    "metal.brass-aged",
+    "metal.powder-white",
+    "fabric.webbing",
+    "glass.clear",
+    "emissive.bulb",
+    "plastic.white"
+  ],
+  "name": "Dome pendant light",
+  "notes": "Static. Ceiling plane y = 2.6; canopy top touches it; shade bottom at y = 1.7.",
+  "parts": [
+    "ceiling canopy with set screw",
+    "fabric cord with cord grip",
+    "socket cap and neck",
+    "enamel dome shade",
+    "rolled rim",
+    "inner reflector white",
+    "glass globe bulb with filament"
+  ],
+  "references": [],
+  "size": [
+    0.45,
+    0.9,
+    0.45
+  ],
+  "style": "painted enamel dome, brass fittings, new",
+  "summary": "Dome pendant light: enamel metal shade, glass bulb, fabric cord and ceiling canopy.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "interior",
+    "ceiling",
+    "light",
+    "metal",
+    "glass"
+  ],
+  "theme": "Lighting",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

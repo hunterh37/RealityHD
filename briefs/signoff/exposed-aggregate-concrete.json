@@ -1,0 +1,22 @@
+{
+  "automated" : 0.9945546,
+  "date" : "2026-10-14",
+  "final" : 0.9046566,
+  "fingerprint" : "5f7d4954c6d8898b",
+  "id" : "exposed-aggregate-concrete",
+  "iterations" : 2,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 9,
+    "construction" : 8,
+    "edges" : 9,
+    "grounding" : 9,
+    "materials" : 8,
+    "proportion" : 9,
+    "silhouette" : 9,
+    "wear" : 8
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.85625
+}

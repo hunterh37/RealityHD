@@ -1,0 +1,43 @@
+{
+  "budget": 7500,
+  "id": "bench-desk-pair",
+  "kind": "prop",
+  "materials": [
+    "laminate.white:E4DCCB",
+    "metal.powdercoat:2B2D30",
+    "metal.anodized",
+    "fabric.upholstery:C9CED3",
+    "plastic.matte:2A2B2D",
+    "emissive.indicator"
+  ],
+  "name": "Bench desk pair",
+  "notes": "",
+  "parts": [
+    "two 25 mm laminate desk tops facing each other (four seats)",
+    "center spine with aluminum cable trough and power module",
+    "fabric center divider panel under the tops",
+    "steel T-leg frames with floor feet and glides",
+    "steel modesty panels",
+    "grommets"
+  ],
+  "references": [],
+  "size": [
+    2.8,
+    0.75,
+    1.5
+  ],
+  "style": "Open-plan office bench, black powder-coat frame, light oak laminate, lightly used.",
+  "summary": "Face-to-face open-plan bench desk for four: two laminate tops, black steel T-legs, center cable spine and fabric divider.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "office",
+    "commercial",
+    "furniture",
+    "metal",
+    "interior"
+  ],
+  "theme": "Commercial",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

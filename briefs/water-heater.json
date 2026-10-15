@@ -1,0 +1,17 @@
+{
+  "budget": 12000,
+  "id": "water-heater",
+  "kind": "prop",
+  "materials": ["metal.powdercoat:E3DFD3", "metal.galvanized-aged", "metal.copper", "metal.brass-aged", "metal.cast-iron-worn", "plastic.black", "plastic.yellow", "label.hazard-small", "label.inspection"],
+  "name": "Water heater",
+  "notes": "Wall of the footprint is the 0.55 m square including relief pipe and unions. Top height 1.5 m includes flue stub.",
+  "parts": ["enamel tank jacket with top rim and base skirt", "galvanized draft hood and flue stub", "hot and cold copper nipples with brass unions and shutoff", "brass T&P relief valve with lever and discharge pipe", "gas control with thermostat dial and pilot window", "burner access door with screws", "rating plate and warning labels", "drain valve"],
+  "references": [],
+  "size": [0.55, 1.5, 0.55],
+  "style": "40 gallon gas tank, white enamel jacket, light scuffs near the base.",
+  "summary": "40 gallon gas water heater with enamel jacket, flue draft hood, copper unions, relief valve and discharge pipe, and gas control.",
+  "tags": ["prop", "floorplan", "laundry", "plumbing", "appliance", "metal", "interior"],
+  "theme": "Laundry",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

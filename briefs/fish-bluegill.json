@@ -1,0 +1,50 @@
+{
+  "budget": 10000,
+  "id": "fish-bluegill",
+  "kind": "prop",
+  "materials": [
+    "fish.bluegill-skin",
+    "fish.bluegill-fin",
+    "fish.eye-dark",
+    "fish.mouth",
+    "fish.ear-flap-black"
+  ],
+  "name": "Bluegill",
+  "notes": "",
+  "parts": [
+    "body",
+    "tail",
+    "jaw",
+    "eye",
+    "dorsal fin",
+    "anal fin",
+    "caudal fin",
+    "pectoral fins",
+    "pelvic fins",
+    "gill cover",
+    "lateral line",
+    "scales",
+    "ear flap"
+  ],
+  "references": [
+    "MulberryRiver/notes/reference/fish/fish-bluegill.jpg"
+  ],
+  "size": [
+    0.151,
+    0.097,
+    0.046
+  ],
+  "style": "live freshwater fish fresh from an Ozark stream, wet glossy skin, natural coloration",
+  "summary": "Bluegill (Lepomis macrochirus), 0.15 m: deep olive body with faint bars, yellow-orange breast, black ear flap, long pectorals.",
+  "tags": [
+    "prop",
+    "fish",
+    "handheld",
+    "articulated",
+    "outdoor",
+    "water"
+  ],
+  "theme": "Fish",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

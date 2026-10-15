@@ -1,0 +1,47 @@
+{
+  "budget": 15000,
+  "id": "visitor-kiosk",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior:D8D2C2",
+    "wood.painted-exterior:2E4637",
+    "stone.slate",
+    "glass.pane",
+    "stone.granite-curb",
+    "sign.green-worn",
+    "paint.field-white"
+  ],
+  "name": "Visitor Kiosk",
+  "notes": "",
+  "parts": [
+    "granite base",
+    "painted clapboard walls",
+    "corner boards",
+    "multi-pane windows",
+    "door",
+    "hip roof in slate courses",
+    "cupola-free ridge",
+    "fascia and eaves",
+    "signboard 'Visitor Information'",
+    "roof cap"
+  ],
+  "references": [],
+  "size": [
+    6.05,
+    4.37,
+    4.2
+  ],
+  "style": "contemporary-traditional, green trim, white walls",
+  "summary": "Boston Common Visitor Information Center on Tremont St: small single-storey pavilion with painted wood siding, large windows, hip roof and signage.",
+  "tags": [
+    "prop",
+    "building",
+    "park",
+    "wood",
+    "sign",
+    "roof"
+  ],
+  "theme": "Plaza",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
