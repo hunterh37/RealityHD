@@ -1,0 +1,23 @@
+{
+  "budget": 6000,
+  "id": "end-table",
+  "kind": "prop",
+  "materials": ["wood.veneer-walnut", "wood.walnut", "metal.brass-aged"],
+  "name": "Square end table",
+  "notes": "Static. Pack B2: front (drawer) faces +Z, base at y=0 centered.",
+  "parts": [
+    "veneered top with rounded corners",
+    "apron with face frame",
+    "single drawer with raised front and brass knob",
+    "tapered legs with brass sabots",
+    "lower shelf with end rails"
+  ],
+  "references": [],
+  "size": [0.55, 0.55, 0.55],
+  "style": "mid-century walnut side table, oiled",
+  "summary": "Square walnut end table with a single drawer, brass knob, tapered legs with brass feet and a lower shelf.",
+  "tags": ["prop", "floorplan", "living", "furniture", "wood", "interior"],
+  "theme": "Living",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

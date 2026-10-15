@@ -1,0 +1,34 @@
+{
+  "budget": 6200,
+  "id": "lure-soft-craw",
+  "kind": "prop",
+  "materials": [
+    "plastic.soft-bait"
+  ],
+  "name": "Soft plastic craw",
+  "notes": "reference photo: ../MulberryRiver/notes/reference/tackle/lure-soft-craw.jpg (compare runs use --ref)",
+  "parts": [
+    "body",
+    "claws",
+    "antennae",
+    "legs",
+    "tail"
+  ],
+  "references": [],
+  "size": [
+    0.108,
+    0.014,
+    0.048
+  ],
+  "style": "green pumpkin salted soft plastic craw",
+  "summary": "Soft plastic craw 90 mm: segmented body, two flat pincers, antennae and legs, green pumpkin flake.",
+  "tags": [
+    "prop",
+    "fishing",
+    "handheld",
+    "plastic"
+  ],
+  "theme": "Tackle",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

@@ -1,0 +1,39 @@
+{
+  "id": "siphon-upper-globe",
+  "kind": "prop",
+  "name": "Siphon upper globe",
+  "summary": "Siphon coffee upper glass globe with long stem, rubber gasket, flannel filter and ball chain hook down the stem.",
+  "tags": [
+    "prop",
+    "kitchen",
+    "glass",
+    "handheld"
+  ],
+  "size": [
+    0.132,
+    0.257,
+    0.132
+  ],
+  "tolerance": 0.12,
+  "parts": [
+    "long thin stem tube with open tip",
+    "flared neck",
+    "thin-walled spherical bowl",
+    "rolled rim lip",
+    "black rubber gasket ring on the stem",
+    "flannel cloth filter disc on stainless frame at the bowl bottom",
+    "ball chain and spring hook hanging through the stem"
+  ],
+  "materials": [
+    "glass.clear",
+    "rubber",
+    "metal.stainless",
+    "fabric.linen"
+  ],
+  "budget": 7000,
+  "style": "Hario TCA-3 class borosilicate upper bowl, clean glass, lightly coffee-tinted filter cloth.",
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "references": [],
+  "notes": "Siphon glassware for halogen-siphon-bar."
+}

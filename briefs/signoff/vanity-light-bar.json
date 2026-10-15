@@ -1,0 +1,22 @@
+{
+  "automated" : 1,
+  "date" : "2026-10-11",
+  "final" : 0.8545625,
+  "fingerprint" : "39cb4bb0fded12a0",
+  "id" : "vanity-light-bar",
+  "iterations" : 3,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 8,
+    "edges" : 7,
+    "grounding" : 7,
+    "materials" : 8,
+    "proportion" : 9,
+    "silhouette" : 8,
+    "wear" : 6
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.77625
+}

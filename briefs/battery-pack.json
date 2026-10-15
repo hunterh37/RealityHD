@@ -1,0 +1,43 @@
+{
+  "budget": 12000,
+  "id": "battery-pack",
+  "kind": "prop",
+  "materials": [
+    "metal.anodized-black",
+    "metal.aluminum-brushed",
+    "plastic.matte",
+    "plastic.black",
+    "metal.anodized",
+    "label.hazard",
+    "label.inspection",
+    "metal.steel"
+  ],
+  "name": "Battery pack",
+  "notes": "VisionSpacecraft specs/04, specs/14",
+  "parts": [
+    "aluminium case",
+    "lid",
+    "mount flanges",
+    "power connectors",
+    "vent",
+    "warning label",
+    "handle"
+  ],
+  "references": [],
+  "size": [
+    0.4,
+    0.236,
+    0.3
+  ],
+  "style": "flight battery module, black anodized case, orange HV connectors",
+  "summary": "Li-ion flight battery pack, 0.4 x 0.3 x 0.2 m: ribbed black anodized aluminium case with bolted lid, mounting flanges, HV connectors and a warning label.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "electronics",
+    "metal"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

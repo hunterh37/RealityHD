@@ -1,0 +1,37 @@
+{
+  "budget": 14000,
+  "id": "crazy-paving-irregular-stone",
+  "kind": "prop",
+  "materials": [
+    "stone.sandstone",
+    "stone.limestone",
+    "ground.dirt",
+    "moss.cushion"
+  ],
+  "name": "Crazy Paving Irregular Stone",
+  "notes": "",
+  "parts": [
+    "irregular polygonal stone pieces",
+    "wide mortar/soil joints",
+    "moss and grit in joints",
+    "tone variation across pieces"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.1,
+    2.0
+  ],
+  "style": "architectural facade customizer, Arts and Crafts",
+  "summary": "Crazy paving tile, 2 x 2 m: irregular broken stone pieces laid jigsaw-fashion with wide earth joints and moss.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

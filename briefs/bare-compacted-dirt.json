@@ -1,0 +1,38 @@
+{
+  "budget": 14000,
+  "id": "bare-compacted-dirt",
+  "kind": "prop",
+  "materials": [
+    "ground.dirt",
+    "ground.site",
+    "rock.river",
+    "rock.granite-weathered"
+  ],
+  "name": "Bare compacted dirt",
+  "notes": "",
+  "parts": [
+    "compacted dirt slab",
+    "cart ruts",
+    "embedded pebbles",
+    "boot prints",
+    "dry crust patches"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.1,
+    2.0
+  ],
+  "style": "architectural facade customizer, Vernacular",
+  "summary": "Bare compacted earth tile 2 x 2 m: trodden dirt with shallow ruts, embedded pebbles and boot prints.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

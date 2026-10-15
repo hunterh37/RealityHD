@@ -1,0 +1,38 @@
+{
+  "budget": 10000,
+  "id": "permeable-grass-paver-grid",
+  "kind": "prop",
+  "materials": [
+    "concrete.rough",
+    "soil.sod",
+    "grass.lawn",
+    "ground.gravel"
+  ],
+  "name": "Permeable grass paver grid",
+  "notes": "",
+  "parts": [
+    "concrete grass-crete cells with open pockets",
+    "soil infill",
+    "grass tufts growing in pockets",
+    "worn cell rims",
+    "gravel bedding"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.12,
+    2
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Permeable grass paver tile, 2 x 2 m: 400 mm concrete lattice units with open pockets of soil and growing grass, chamfered webs, worn rims.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "concrete"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

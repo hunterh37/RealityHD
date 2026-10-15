@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "allotment-potato-ridge-rows",
+  "kind": "prop",
+  "materials": [
+    "ground.dirt",
+    "soil.potting",
+    "leaf.privet",
+    "plant.stem"
+  ],
+  "name": "Allotment potato ridge rows",
+  "notes": "",
+  "parts": [
+    "earthed-up ridges",
+    "furrows",
+    "potato haulms",
+    "clods",
+    "stones"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.3,
+    2
+  ],
+  "style": "architectural facade customizer, English Allotment, weathered allotment soil",
+  "summary": "Earthed-up potato ridges: four soil ridges with furrows between, leafy potato haulms along each ridge crest.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "garden",
+    "outdoor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

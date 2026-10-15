@@ -1,0 +1,36 @@
+{
+  "budget": 15000,
+  "id": "dry-cracked-clay",
+  "kind": "prop",
+  "materials": [
+    "ground.infield",
+    "ground.mud",
+    "ground.sand"
+  ],
+  "name": "Dry cracked clay",
+  "notes": "",
+  "parts": [
+    "clay pan heightfield",
+    "polygonal desiccation plates",
+    "shrinkage cracks with dark floor",
+    "curled plate edges",
+    "dust and grit"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.1,
+    2
+  ],
+  "style": "architectural facade customizer, Vernacular",
+  "summary": "Dry clay ground tile, 2 x 2 m: polygonal desiccation plates with curled edges separated by open shrinkage cracks over a dark clay bed.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

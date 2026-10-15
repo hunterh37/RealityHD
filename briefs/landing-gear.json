@@ -1,0 +1,44 @@
+{
+  "budget": 14000,
+  "id": "landing-gear",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat",
+    "metal.chrome",
+    "rubber.tire",
+    "metal.aluminum-cast",
+    "metal.aluminum-brushed",
+    "metal.steel",
+    "rubber"
+  ],
+  "name": "Landing gear",
+  "notes": "VisionSpacecraft specs/04, specs/14",
+  "parts": [
+    "trunnion mount",
+    "oleo strut",
+    "chrome piston",
+    "torque links",
+    "axle fork",
+    "tire",
+    "wheel hub",
+    "retract actuator"
+  ],
+  "references": [],
+  "size": [
+    0.24,
+    0.9,
+    0.38
+  ],
+  "style": "light aircraft main gear, grey paint, chrome oleo, used tire",
+  "summary": "Retractable main landing gear, 0.9 m tall: oleo strut with chrome piston and torque links, fork and rubber tire, swinging up 90 degrees about its trunnion.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "metal",
+    "rubber",
+    "articulated"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

@@ -37,6 +37,16 @@ public enum AssetTag {
         "utility", "electrical", "ppe",
         // insects: life-size articulated bugs; locomotion tags for spawners and behaviors
         "insect", "flying", "crawling", "jumping", "glowing",
+        // aerospace: launch range, hangar and flight-course obstacles
+        "aerospace",
+        // floor planning: room-scale furnishing, fixtures and building interior elements; `floorplan` marks every asset in the pack
+        "floorplan", "living", "dining", "bedroom", "bathroom", "laundry", "home", "hvac", "plumbing", "stair", "commercial", "retail",
+        // river pack: Ozark river settings and small boats
+        "river", "boat",
+        // fishing: life-size articulated freshwater fish
+        "fish",
+        // fishing tackle: rods, rod components, reels and lures (MulberryRiver)
+        "fishing",
     ])
 
     /// Scene tags: any vocabulary tag plus these.

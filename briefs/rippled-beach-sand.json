@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "rippled-beach-sand",
+  "kind": "prop",
+  "materials": [
+    "ground.sand",
+    "rock.river",
+    "stone.limestone",
+    "wood.deadwood",
+    "plant.stem",
+    "plastic.matte"
+  ],
+  "name": "Rippled beach sand",
+  "notes": "",
+  "parts": [
+    "wind ripple marks",
+    "damp darker sand patch",
+    "scattered shells",
+    "pebbles",
+    "driftwood stick",
+    "marram grass tuft",
+    "seaweed wrack strand",
+    "footprint"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.15,
+    2.0
+  ],
+  "style": "architectural facade customizer, Coastal; wind-rippled dune sand with tide wrack",
+  "summary": "Rippled beach sand, 2 x 2 m: wind ripple-marked sand slab with damp low patch, scattered shells, pebbles, driftwood stick and marram tufts.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

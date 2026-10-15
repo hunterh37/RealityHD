@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "lockers-bank",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat:4C6E8E",
+    "metal.galvanized",
+    "metal.brass-aged",
+    "plastic.matte:101112"
+  ],
+  "name": "Locker bank",
+  "notes": "Floor planning pack C. Doors face +Z, back at -Z.",
+  "parts": [
+    "four powder-coated steel doors with louvre vents",
+    "three hinges per door",
+    "latch with padlock hasp",
+    "brass number plates",
+    "sloped top and kick base",
+    "open locker interior with shelf and hooks"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.8,
+    0.5
+  ],
+  "style": "school-gym blue lockers with scuffed edges and one ajar door",
+  "summary": "Bank of four steel lockers, 1.2 m: louvered doors, hinges, latches, number plates, sloped top, one door ajar.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "commercial",
+    "furniture",
+    "metal",
+    "interior"
+  ],
+  "theme": "Commercial",
+  "threshold": 0.85,
+  "tolerance": 0.06
+}

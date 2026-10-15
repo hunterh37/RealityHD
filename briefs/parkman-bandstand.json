@@ -1,0 +1,42 @@
+{
+  "budget": 30000,
+  "id": "parkman-bandstand",
+  "kind": "structure",
+  "materials": [
+    "stone.cast-grey",
+    "wood.painted-exterior",
+    "paint.stucco",
+    "metal.wrought-iron"
+  ],
+  "name": "Parkman Bandstand",
+  "notes": "source: https://en.wikipedia.org/wiki/Parkman_Bandstand",
+  "parts": [
+    "round granite platform",
+    "front steps",
+    "eight Ionic columns",
+    "architrave and frieze ring",
+    "cornice with dentils",
+    "low dome roof",
+    "finial",
+    "wrought iron railing between columns"
+  ],
+  "references": [],
+  "size": [
+    12.0,
+    9.6,
+    13.5
+  ],
+  "style": "1912 Greek Revival round bandstand, white painted columns and entablature, grey stone base, lead-grey dome",
+  "summary": "Round Greek Revival bandstand, 13 m: stone platform with steps, eight Ionic columns, entablature and a low dome, painted white.",
+  "tags": [
+    "structure",
+    "architecture",
+    "park",
+    "outdoor",
+    "stone",
+    "roof"
+  ],
+  "theme": "Architecture",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

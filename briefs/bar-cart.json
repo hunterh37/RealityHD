@@ -1,0 +1,44 @@
+{
+  "budget": 15000,
+  "id": "bar-cart",
+  "kind": "prop",
+  "materials": [
+    "metal.brass",
+    "wood.walnut",
+    "glass.clear",
+    "glass.tinted",
+    "leather.tan",
+    "metal.chrome"
+  ],
+  "name": "bar cart",
+  "notes": "",
+  "parts": [
+    "brass tube frame with four posts and cross rails",
+    "two walnut-edged glass-topped trays with raised gallery rail",
+    "push handle with brass ferrules",
+    "four swivel casters (front two with brake)",
+    "bottles, decanter, tumblers and ice bucket on trays",
+    "bottle rack on lower shelf"
+  ],
+  "references": [],
+  "size": [
+    0.8,
+    0.9,
+    0.45
+  ],
+  "style": "mid-century brass and walnut bar cart, aged brass, smoked glass trays",
+  "summary": "Bar cart, 0.8 x 0.9 x 0.45 m: aged-brass frame, two glass trays with walnut trim, push handle, casters, bottles and glassware.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "dining",
+    "furniture",
+    "metal",
+    "glass",
+    "wood",
+    "interior"
+  ],
+  "theme": "Dining",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

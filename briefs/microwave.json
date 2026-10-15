@@ -1,0 +1,43 @@
+{
+  "budget": 6000,
+  "id": "microwave",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless",
+    "plastic.black",
+    "glass.clear:101010",
+    "glass.clear",
+    "screen.ui",
+    "emissive.warm"
+  ],
+  "name": "Countertop microwave",
+  "notes": "Rig: door hinge Y (left edge) -100...0; turntable spins. States: closed, open. Handle included in depth.",
+  "parts": [
+    "stainless wrap with vent slots",
+    "black door with screened window",
+    "pull handle",
+    "keypad panel with display",
+    "cavity with glass turntable",
+    "four feet"
+  ],
+  "references": [],
+  "size": [
+    0.52,
+    0.31,
+    0.41
+  ],
+  "style": "1.2 cu ft countertop microwave",
+  "summary": "Countertop microwave: stainless shell, window door with bar handle, keypad and dial panel, lit cavity with a glass turntable.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "kitchen",
+    "appliance",
+    "metal",
+    "interior",
+    "articulated"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

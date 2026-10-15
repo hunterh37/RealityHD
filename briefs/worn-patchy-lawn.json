@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "worn-patchy-lawn",
+  "kind": "prop",
+  "materials": [
+    "grass.lawn",
+    "ground.meadow-worn",
+    "ground.dirt",
+    "ground.gravel",
+    "fabric.wool"
+  ],
+  "name": "Worn patchy lawn",
+  "notes": "",
+  "parts": [
+    "soil base",
+    "bare worn patches",
+    "thin mown grass",
+    "desire-line track",
+    "pebbles",
+    "tennis ball"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.12,
+    2
+  ],
+  "style": "architectural facade customizer, Vernacular",
+  "summary": "Worn patchy lawn tile, 2 x 2 m: thin mown grass broken by bare compacted patches and a worn foot track.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

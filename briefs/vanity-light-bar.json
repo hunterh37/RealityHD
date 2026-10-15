@@ -1,0 +1,42 @@
+{
+  "budget": 3800,
+  "id": "vanity-light-bar",
+  "kind": "prop",
+  "materials": [
+    "metal.brushed-nickel",
+    "metal.chrome",
+    "glass.clear",
+    "glass.frosted",
+    "emissive.bulb"
+  ],
+  "name": "Three-light vanity bar",
+  "notes": "Static. Wall asset: lowest point y = 0, back face at z = -0.06. Planner lifts to 1.8 m.",
+  "parts": [
+    "brushed nickel back plate",
+    "cross bar and arms",
+    "three clear glass cylinder shades",
+    "shade cap collars",
+    "bulbs",
+    "mounting screws"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    0.12,
+    0.12
+  ],
+  "style": "brushed nickel, frosted glass, new",
+  "summary": "Wall vanity light bar: brushed nickel back plate and arms, three clear glass cylinder shades with bulbs.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "interior",
+    "light",
+    "metal",
+    "glass",
+    "wall"
+  ],
+  "theme": "Lighting",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

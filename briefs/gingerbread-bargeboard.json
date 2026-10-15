@@ -1,0 +1,38 @@
+{
+  "budget": 14000,
+  "id": "gingerbread-bargeboard",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "wood.weathered"
+  ],
+  "name": "Gingerbread bargeboard",
+  "notes": "",
+  "parts": [
+    "sawn pointed-arch cusped lower edge",
+    "drilled quatrefoils",
+    "pendant drops",
+    "apex finial",
+    "top bevel",
+    "fascia backer rail"
+  ],
+  "references": [],
+  "size": [
+    2.5,
+    0.6,
+    0.04
+  ],
+  "style": "architectural facade customizer, Carpenter Gothic",
+  "summary": "Carpenter Gothic bargeboard, 2.5 m: scroll-sawn board with lancet cusps, drilled quatrefoils, pendant drops and a finial, painted wood.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "wood",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,44 @@
+{
+  "budget": 8000,
+  "id": "runway-segment",
+  "kind": "prop",
+  "materials": [
+    "asphalt.road",
+    "asphalt.worn",
+    "asphalt.sealant",
+    "paint.lane-white",
+    "rubber.tire",
+    "emissive.signal-white",
+    "metal.galvanized"
+  ],
+  "name": "Runway segment",
+  "notes": "",
+  "parts": [
+    "asphalt pavement",
+    "shoulders",
+    "centerline dash",
+    "edge stripes",
+    "edge lights",
+    "tire skid marks",
+    "sealed cracks",
+    "threshold bars (option)"
+  ],
+  "references": [],
+  "size": [
+    30,
+    0.72,
+    34
+  ],
+  "style": "airfield runway tile, sun-faded asphalt, rubber deposits, sealed cracks",
+  "summary": "Runway segment, 30 m along x 30 m wide plus shoulders: asphalt with centerline dash, edge stripes, edge lights, skid marks and sealed cracks; tiles end to end.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "outdoor",
+    "road",
+    "tile"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,24 @@
+{
+  "budget": 9000,
+  "id": "awning-window",
+  "kind": "structure",
+  "materials": ["wood.painted-shaker:E8E3D6", "wood.painted-shaker-worn:D9D5C8", "glass.clear", "rubber", "metal.brushed-nickel"],
+  "name": "Awning window",
+  "notes": "Top-hinged, bottom swings toward +Z. Origin at the sill center. Rig states closed, open.",
+  "parts": [
+    "painted wood frame with sloped exterior sill and drip cap",
+    "interior stool and casing",
+    "glazed sash with insulated glass and glazing beads",
+    "two nickel butt hinges on the top rail",
+    "cam lock, finger pull and sill operator",
+    "weatherstrip"
+  ],
+  "references": [],
+  "size": [0.9, 0.6, 0.15],
+  "style": "painted white wood awning window, lightly aged",
+  "summary": "Top-hinged awning window, 0.9 x 0.6 m: painted wood frame, sill, casing, glazed sash on hinges with cam lock; states closed, open.",
+  "tags": ["structure", "floorplan", "interior", "window", "glass", "wood", "articulated"],
+  "theme": "Interior",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

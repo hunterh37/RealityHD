@@ -1,0 +1,17 @@
+{
+  "budget": 5500,
+  "id": "ottoman",
+  "kind": "prop",
+  "materials": ["fabric.linen:3F5278", "leather.tan", "wood.walnut", "metal.brass-aged"],
+  "name": "Tufted storage ottoman",
+  "notes": "Floor planning pack B1. Front +Z; square, so rotation-safe.",
+  "parts": ["button-tufted lid panel", "piped lid edge", "lid-to-base seam", "box body", "leather side handles", "turned walnut feet"],
+  "references": [],
+  "size": [0.6, 0.42, 0.6],
+  "style": "navy linen storage ottoman, lightly worn lid",
+  "summary": "Tufted square storage ottoman, 60 cm: button-tufted lid, piped edge, leather side handles, walnut feet.",
+  "tags": ["prop", "floorplan", "living", "furniture", "fabric", "interior"],
+  "theme": "Living",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

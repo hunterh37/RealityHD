@@ -1,0 +1,42 @@
+{
+  "budget": 14000,
+  "id": "allotment-straw-mulched-bed",
+  "kind": "prop",
+  "materials": [
+    "straw.hay",
+    "soil.potting",
+    "ground.dirt",
+    "wood.weathered",
+    "wood.endgrain-weathered",
+    "metal.galvanized-aged"
+  ],
+  "name": "Allotment straw mulched bed",
+  "notes": "",
+  "parts": [
+    "tilled soil bed",
+    "matted straw layer",
+    "loose straw stalks",
+    "treated edging boards",
+    "square pegs",
+    "galvanised nails",
+    "trodden verge"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.2,
+    2.0
+  ],
+  "style": "architectural facade customizer, English Allotment",
+  "summary": "Allotment bed 2 x 2 m: soil heaped inside softwood edging boards, mulched with loose wheat straw stalks, corner stakes nailed.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

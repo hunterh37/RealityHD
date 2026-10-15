@@ -1,0 +1,22 @@
+{
+  "automated" : 0.99060327,
+  "date" : "2026-10-13",
+  "final" : 0.85533607,
+  "fingerprint" : "aa953ac129614194",
+  "id" : "phone-booth-pod",
+  "iterations" : 1,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 8,
+    "edges" : 7,
+    "grounding" : 8,
+    "materials" : 8,
+    "proportion" : 9,
+    "silhouette" : 8,
+    "wear" : 6
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.7825
+}

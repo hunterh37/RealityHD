@@ -1,0 +1,37 @@
+{
+  "budget": 10000,
+  "id": "timber-deck-boards",
+  "kind": "prop",
+  "materials": [
+    "wood.cedar-weathered",
+    "wood.lumber-pine",
+    "metal.stainless"
+  ],
+  "name": "Timber deck boards",
+  "notes": "",
+  "parts": [
+    "grooved deck boards with 5 mm gaps",
+    "joists beneath",
+    "stainless deck screws in pairs",
+    "staggered butt joints",
+    "fascia rim board"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.2,
+    2
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Timber deck tile, 2 x 2 m: weathered cedar deck boards with 5 mm gaps on pine joists, paired stainless screws, staggered butt joints, fascia ends.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

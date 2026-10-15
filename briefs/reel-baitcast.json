@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "reel-baitcast",
+  "kind": "prop",
+  "materials": [
+    "metal.anodized-gunmetal",
+    "plastic.black",
+    "metal.chrome",
+    "plastic.line"
+  ],
+  "name": "Baitcast reel",
+  "notes": "reference photo: ../MulberryRiver/notes/reference/tackle/reel-baitcast.jpg (compare runs use --ref)",
+  "parts": [
+    "body",
+    "spool",
+    "handle",
+    "foot",
+    "star drag",
+    "level wind",
+    "thumb bar"
+  ],
+  "references": [],
+  "size": [
+    0.088,
+    0.061,
+    0.096
+  ],
+  "style": "low-profile baitcaster, generic, gunmetal",
+  "summary": "Low-profile baitcast reel: side plates, spool with line, level wind, star drag, double paddle handle.",
+  "tags": [
+    "prop",
+    "fishing",
+    "handheld",
+    "articulated",
+    "metal"
+  ],
+  "theme": "Tackle",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

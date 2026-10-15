@@ -1,0 +1,41 @@
+{
+  "budget": 12000,
+  "id": "engine-prop",
+  "kind": "prop",
+  "materials": [
+    "composite.carbon",
+    "metal.aluminum-brushed",
+    "metal.steel",
+    "metal.powder-white",
+    "metal.anodized-black",
+    "metal.heat-tint-cold"
+  ],
+  "name": "Electric propeller",
+  "notes": "Size is the 3-blade envelope (1.8 m disc), mount 1.25 m.",
+  "parts": [
+    "mount",
+    "adapter",
+    "cowl",
+    "exhaust-stubs",
+    "motor",
+    "spinner",
+    "blades"
+  ],
+  "references": [],
+  "size": [
+    1.55,
+    0.9,
+    1.6
+  ],
+  "style": "photoreal aerospace flight hardware, clean with light handling wear",
+  "summary": "Electric propeller engine, 1.8 m three-blade carbon prop on a spinner, aluminum nacelle and stack mount; spins.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "metal",
+    "articulated"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

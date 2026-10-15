@@ -1,0 +1,34 @@
+{
+  "budget": 14000,
+  "id": "river-cane",
+  "kind": "nature",
+  "materials": [
+    "plant.cane-culm",
+    "leaf.river-cane"
+  ],
+  "name": "River cane brake",
+  "notes": "MulberryRiver river pack. Reference compared with gate --ref (compare.png): briefs/refs/river-cane/Arundinaria_gigantea.jpg (not committed; sources in MulberryRiver notes/reference).",
+  "parts": [
+    "jointed culms",
+    "node rings",
+    "leafy branch fans",
+    "lanceolate leaves"
+  ],
+  "references": [],
+  "size": [
+    2.1,
+    2.5,
+    2.1
+  ],
+  "style": "living native cane, glossy olive culms, fresh spring leaves",
+  "summary": "River cane brake, ~2.6 m: 18-30 straight jointed olive culms with leafy branch fans on the upper nodes, 2 LODs.",
+  "tags": [
+    "nature",
+    "plant",
+    "grass",
+    "river"
+  ],
+  "theme": "Plants",
+  "threshold": 0.85,
+  "tolerance": 0.2
+}

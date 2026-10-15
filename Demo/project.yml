@@ -7,6 +7,9 @@ options:
 packages:
   RealityHD:
     path: ..
+  DicyaninStageDirector:
+    url: https://github.com/hunterh37/DicyaninStageDirector.git
+    from: 0.1.0
 targets:
   RealityHDDemo:
     type: application
@@ -15,6 +18,7 @@ targets:
     dependencies:
       - package: RealityHD
         product: RealityHD
+      - package: DicyaninStageDirector
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.dicyaninlabs.realityhd.demo
