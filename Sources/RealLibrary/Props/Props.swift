@@ -827,6 +827,11 @@ public enum Props {
         ChipSealRoadSurface.self,
         PoachedPaddockMud.self,
         ChalkyFlintSoil.self,
+        StretcherBondBrickPaving.self,
+        PrecastConcreteSlabPaving.self,
+        GravelReinforcedGrassGrid.self,
+        MossyStoneFlagPaving.self,
+        DesertSandDuneGround.self,
         // realityhd:prop
     ]
 }
