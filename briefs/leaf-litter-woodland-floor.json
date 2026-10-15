@@ -1,0 +1,43 @@
+{
+  "budget": 15000,
+  "id": "leaf-litter-woodland-floor",
+  "kind": "prop",
+  "materials": [
+    "ground.leaf-litter",
+    "bark.oak-dry",
+    "moss.cushion",
+    "wood.walnut-oiled",
+    "leaf.oak-fallen",
+    "leaf.beech-fallen",
+    "leaf.maple-fallen"
+  ],
+  "name": "Leaf litter woodland floor",
+  "notes": "",
+  "parts": [
+    "humus soil bed",
+    "fallen oak leaves",
+    "fallen beech leaves",
+    "fallen maple leaves",
+    "twigs and sticks",
+    "acorns",
+    "moss patches"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.12,
+    2.0
+  ],
+  "style": "architectural facade customizer, English Landscape",
+  "summary": "Broadleaf woodland floor tile 2 x 2 m: humus bed under a layer of fallen oak, beech and maple leaves with twigs, acorns and moss.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
