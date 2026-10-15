@@ -1,0 +1,41 @@
+{
+  "budget": 9000,
+  "id": "coffee-bean-bag",
+  "kind": "prop",
+  "materials": [
+    "paper.screwbox-kraft:B08A5E",
+    "metal.galvanized-aged",
+    "plastic.matte:F2EFE6",
+    "plastic.gloss:3B2416"
+  ],
+  "name": "Coffee bean bag",
+  "notes": "Size covers bag plus bean spill to +X; height is the rolled-down bag.",
+  "parts": [
+    "kraft flat-bottom bag body with gusset",
+    "top rolled down twice",
+    "tin-tie wire band with folded ends",
+    "round one-way degassing valve",
+    "blank label rectangle",
+    "paper crinkles",
+    "spill of ~15 roasted beans with centre crease"
+  ],
+  "references": [],
+  "size": [
+    0.205,
+    0.188,
+    0.085
+  ],
+  "style": "Specialty roaster bag, opened and rolled, creased kraft; dark medium-roast beans.",
+  "summary": "250 g kraft paper flat-bottom coffee bag, top rolled with a tin-tie, degassing valve, blank label, beans spilled beside it.",
+  "tags": [
+    "prop",
+    "kitchen",
+    "paper",
+    "container",
+    "food",
+    "handheld"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

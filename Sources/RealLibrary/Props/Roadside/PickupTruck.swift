@@ -12,7 +12,7 @@ import Foundation
 /// States: `parked`, `tailgate-open`, `spare-lowered`, `jacked`, `lugs-loose`, `wheel-off`.
 public struct PickupTruck: RealArticulated {
     public static let id = "pickup-truck"
-    public static let summary = "Full-size SuperCrew pickup at 1:1 (F-150 class, 3683 mm wheelbase): boxy cab and 5.5 ft bed, tailgate, four live wheels with six lug nuts each, under-bed spare on a winch cable, jack behind the rear seat."
+    public static let summary = "Full-size crew-cab pickup at 1:1: boxy cab, 5.5 ft bed, tailgate, four live wheels with six lug nuts, under-bed spare on a winch cable."
     public static let tags = ["prop", "vehicle", "articulated", "street", "road", "metal", "glass", "rubber"]
     public static let budget = 15000
     public static let author = "realityhd"

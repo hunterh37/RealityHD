@@ -1,0 +1,49 @@
+{
+  "budget": 15000,
+  "id": "palladian-window",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior:EFEBE0",
+    "wood.painted-shaker-worn:E6E1D2",
+    "wood.painted-shaker-worn:B7B09E",
+    "glass.clear",
+    "stone.limestone-sooted",
+    "stone.limestone",
+    "wood.weathered",
+    "metal.brass-aged",
+    "metal.screw-zinc",
+    "metal.wrought-iron",
+    "wood.painted-exterior:E3DED2"
+  ],
+  "name": "Palladian window",
+  "notes": "",
+  "parts": [
+    "central round-headed sash with radiating glazing bars and fanlight",
+    "two flanking rectangular sidelights with 3x4 muntins",
+    "Tuscan pilaster pairs with capitals and bases between lights",
+    "entablature over sidelights: architrave, frieze, dentil cornice",
+    "archivolt with keystone over the centre arch",
+    "limestone sill with drip groove and apron",
+    "glazing with putty-line stops and sash lock"
+  ],
+  "references": [],
+  "size": [
+    1.8,
+    2.6,
+    0.22
+  ],
+  "style": "architectural facade customizer, Georgian/Palladian: white painted pine casing, 12-pane sashes, limestone sill",
+  "summary": "Georgian Palladian window, 1.8 x 2.6 m: arched centre sash and two sidelights, pilasters, impost entablatures, keystone, stone sill.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "window",
+    "trim",
+    "wood",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

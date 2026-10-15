@@ -1,0 +1,46 @@
+{
+  "budget": 9000,
+  "id": "interior-french-doors",
+  "kind": "structure",
+  "materials": [
+    "wood.painted-shaker-worn:D6CFC0",
+    "wood.painted-shaker:D6CFC0",
+    "glass.pane",
+    "metal.brushed-nickel",
+    "metal.hinge-satin-nickel",
+    "plastic.black"
+  ],
+  "name": "Interior French doors",
+  "notes": "Origin bottom center of opening, leaves hinged at each jamb swing toward +Z. States closed, ajar (right leaf 35), open.",
+  "parts": [
+    "two glazed leaves with stiles and rails",
+    "muntin grid with fifteen lites per leaf",
+    "split jamb and casing both faces",
+    "three hinges per leaf",
+    "lever with rose on the active leaf",
+    "flush bolts and strike on the passive leaf",
+    "astragal at the meeting stiles"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    2.1,
+    0.15
+  ],
+  "style": "painted white pine French pair, satin nickel hardware, light wear at the lever",
+  "summary": "Interior French door pair in a cased opening: two 15-lite glazed leaves with muntins, three hinges each, lever, flush bolts, astragal, casing.",
+  "tags": [
+    "structure",
+    "floorplan",
+    "home",
+    "wood",
+    "glass",
+    "metal",
+    "interior",
+    "door",
+    "articulated"
+  ],
+  "theme": "Interior",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

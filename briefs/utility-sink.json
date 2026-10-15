@@ -1,0 +1,44 @@
+{
+  "budget": 7000,
+  "id": "utility-sink",
+  "kind": "prop",
+  "materials": [
+    "plastic.matte:C4C7C4",
+    "metal.galvanized",
+    "metal.chrome",
+    "plastic.white",
+    "plastic.matte:1C1C1E"
+  ],
+  "name": "Laundry utility sink",
+  "notes": "Static. Faucet peak reaches the full 0.9 m height.",
+  "parts": [
+    "deep plastic tub with rounded rim",
+    "galvanized steel legs with cross rails",
+    "gooseneck faucet with hot and cold handles",
+    "back ledge",
+    "drain strainer",
+    "white P-trap tube",
+    "washboard ribs on the inner wall",
+    "rubber foot caps"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    0.9,
+    0.5
+  ],
+  "style": "light grey polypropylene utility tub, galvanized frame, mild water spotting on chrome",
+  "summary": "Freestanding laundry utility sink: deep plastic tub with washboard ribs on a galvanized steel leg frame, gooseneck faucet with two handles, drain and P-trap.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "laundry",
+    "plumbing",
+    "plastic",
+    "metal",
+    "interior"
+  ],
+  "theme": "Laundry",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

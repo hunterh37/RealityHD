@@ -1,0 +1,40 @@
+{
+  "budget": 7000,
+  "id": "tallboy-chest",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-shaker:B7C4BC",
+    "wood.painted-shaker-worn:B7C4BC",
+    "wood.plywood",
+    "metal.brushed-nickel"
+  ],
+  "name": "Tallboy chest",
+  "notes": "",
+  "parts": [
+    "overhanging top",
+    "five graduated drawers",
+    "raised panels with bead",
+    "brushed nickel bar pulls",
+    "tapered legs",
+    "plywood interior and back"
+  ],
+  "references": [],
+  "size": [
+    0.8,
+    1.3,
+    0.45
+  ],
+  "style": "sage painted shaker, nickel pulls, worn top",
+  "summary": "Five-drawer painted tallboy chest of drawers with raised panels, nickel bar pulls and tapered legs.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bedroom",
+    "furniture",
+    "wood",
+    "interior"
+  ],
+  "theme": "Bedroom",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

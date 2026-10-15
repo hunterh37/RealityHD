@@ -1,0 +1,24 @@
+{
+  "budget": 12000,
+  "id": "u-shaped-staircase",
+  "kind": "structure",
+  "materials": ["wood.oak", "wood.painted-shaker", "wood.painted-shaker-worn", "wood.lumber-pine"],
+  "name": "U-shaped staircase",
+  "notes": "Rise 3.0 m, 16 risers: eleven up to a half landing along -Z, five back along +Z. Two 1.0 m flights with a 0.1 m well. Size Y is the bounding height including newels above the upper floor.",
+  "parts": [
+    "eleven risers and ten oak treads to a half landing",
+    "oak landing platform 2.1 x 1.0 m on rim beams with fascia and baseboard",
+    "five risers climbing back to the upper floor",
+    "wall skirt stringers on the outer sides, cut stringers on the well side",
+    "turned balusters and oak handrails on the well side of both flights",
+    "corner newel carried to the floor, foot and top newels with ball finials"
+  ],
+  "references": [],
+  "size": [2.1, 4.03, 3.6],
+  "style": "colonial staircase, oak treads, white risers and balusters",
+  "summary": "U-shaped staircase, 16 risers, 3.0 m rise, half landing: oak treads and landing, painted risers, wall and cut stringers, balusters, handrail.",
+  "tags": ["structure", "floorplan", "interior", "stair", "wood"],
+  "theme": "Interior",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

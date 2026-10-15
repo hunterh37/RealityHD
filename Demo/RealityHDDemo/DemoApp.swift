@@ -9,6 +9,7 @@ enum DemoScene: String, CaseIterable, Identifiable, Codable, Hashable {
     case constructionLot = "construction-lot"
     case farmyard = "farmyard"
     case lakesideCamp = "lakeside-camp"
+    case mulberryRiver = "mulberry-river"
     case autumnWoods = "autumn-woods"
     case alpineMeadow = "alpine-meadow"
     case canyonRoad = "canyon-road"
@@ -28,6 +29,10 @@ enum DemoScene: String, CaseIterable, Identifiable, Codable, Hashable {
     case backyardLandscape = "backyard-landscape"
     case linemanYard = "lineman-yard"
     case linemanDistrict = "lineman-district"
+    case aerospaceRange = "aerospace-range"
+    case aerospaceHangar = "aerospace-hangar"
+    case siphonCafe = "siphon-cafe"
+    case bostonCommon = "boston-common"
     var id: String { rawValue }
     var title: String {
         switch self {
@@ -36,6 +41,7 @@ enum DemoScene: String, CaseIterable, Identifiable, Codable, Hashable {
         case .constructionLot: "Construction Lot"
         case .farmyard: "Farmyard"
         case .lakesideCamp: "Lakeside Camp"
+        case .mulberryRiver: "Mulberry River"
         case .autumnWoods: "Autumn Woods"
         case .alpineMeadow: "Alpine Meadow"
         case .canyonRoad: "Canyon Road"
@@ -55,6 +61,10 @@ enum DemoScene: String, CaseIterable, Identifiable, Codable, Hashable {
         case .backyardLandscape: "Backyard Landscape"
         case .linemanYard: "Lineman Yard"
         case .linemanDistrict: "Lineman District"
+        case .aerospaceRange: "Aerospace Range"
+        case .aerospaceHangar: "Aerospace Hangar"
+        case .siphonCafe: "Siphon Café"
+        case .bostonCommon: "Boston Common"
         }
     }
     var detail: String {
@@ -64,6 +74,7 @@ enum DemoScene: String, CaseIterable, Identifiable, Codable, Hashable {
         case .constructionLot: "Fenced building site: brick shell with scaffold, mixer, sandbags, cones on the street."
         case .farmyard: "Red barn corner, rail-fence paddock, hay bales and trough, grass and wildflower fields."
         case .lakesideCamp: "Tent, fire ring and canoe on a pond bank, ringed by spruce, pine and birch."
+        case .mulberryRiver: "Ozark river from a jon boat: green pool under a limestone bluff, gravel bar, riffles, sycamores."
         case .autumnWoods: "Red maple, gold aspen, beech and oak over leaf litter, a dirt path winding through."
         case .alpineMeadow: "Flower meadow and pebble stream below a cliff band, conifers and peaks behind."
         case .canyonRoad: "Desert highway between sandstone buttes, saguaro and dunes."
@@ -83,6 +94,10 @@ enum DemoScene: String, CaseIterable, Identifiable, Codable, Hashable {
         case .backyardLandscape: "Designed backyard: paver patio with fire pit and Adirondack chairs, pergola, retaining wall, beds, path lights."
         case .linemanYard: "Utility service yard: steel line shop, pole stacks, cable reels, truck stalls."
         case .linemanDistrict: "Four-block city loop with an overhead pole line, job-site pole and the service yard."
+        case .aerospaceRange: "Desert launch range: pad, tower, blockhouse, runway and course obstacles from the viewing platform."
+        case .siphonCafe: "Halogen siphon bar on a café terrace. Tap keys (heat, extract, keep warm, output, time); grab globes, flasks, cups, kettle."
+        case .aerospaceHangar: "Hangar bay: gantry crane over a fuel tank, capsule, engine, wing, part racks and avionics bench."
+        case .bostonCommon: "Boston Common from Brewer Fountain: elm malls, Frog Pond, bandstand, monument, State House, Park Street Church."
         }
     }
     /// Sky picked when the scene is opened from the menu.
@@ -147,6 +162,10 @@ final class DemoModel {
     var grabCount = 0
     /// Bumped to put every grabbed object back.
     var resetGrabsToken = 0
+    /// Bumped to run the scripted siphon brew (`siphon-cafe`).
+    var brewToken = 0
+    /// Live siphon bar readout, "L 98C  R ----".
+    var siphonReadout = ""
     var showHUD = UserDefaults.standard.bool(forKey: "demo.hud") {
         didSet { UserDefaults.standard.set(showHUD, forKey: "demo.hud") }
     }

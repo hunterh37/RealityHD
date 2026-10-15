@@ -1,0 +1,44 @@
+{
+  "budget": 9000,
+  "id": "washing-machine",
+  "kind": "prop",
+  "materials": [
+    "metal.enamel",
+    "glass.clear",
+    "metal.stainless",
+    "rubber.silicone:9AA0A4",
+    "plastic.white",
+    "screen.ui"
+  ],
+  "name": "Front-load washer",
+  "notes": "Rig: door hinge Y (left edge of the round door) -170...0; dial. States: closed, door-open. Door dome included in depth.",
+  "parts": [
+    "white cabinet",
+    "control panel with dial and display",
+    "detergent drawer",
+    "round door with glass porthole",
+    "rubber boot gasket",
+    "perforated stainless drum",
+    "leveling feet"
+  ],
+  "references": [],
+  "size": [
+    0.69,
+    0.98,
+    0.79
+  ],
+  "style": "27 in front loader",
+  "summary": "Front-load washing machine, 27 in: white cabinet, porthole door with chrome ring and glass dome, drawer, display and dial fascia.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "laundry",
+    "appliance",
+    "metal",
+    "interior",
+    "articulated"
+  ],
+  "theme": "Laundry",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

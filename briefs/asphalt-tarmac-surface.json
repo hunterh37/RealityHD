@@ -1,0 +1,38 @@
+{
+  "budget": 10000,
+  "id": "asphalt-tarmac-surface",
+  "kind": "prop",
+  "materials": [
+    "asphalt.road",
+    "asphalt.sealant",
+    "ground.gravel",
+    "rock.granite-bare"
+  ],
+  "name": "Asphalt tarmac surface",
+  "notes": "",
+  "parts": [
+    "rolled asphalt wearing course",
+    "rectangular patch repair with sealed seams",
+    "crack-seal bands",
+    "embedded chippings",
+    "sub-base edge"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.1,
+    2
+  ],
+  "style": "architectural facade customizer, Municipal",
+  "summary": "Asphalt tarmac tile, 2 x 2 m: rolled wearing course, saw-cut patch repair with sealed seams, tar crack-seal bands, loose chippings, layered edge.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

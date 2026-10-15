@@ -1,0 +1,41 @@
+{
+  "budget": 10000,
+  "id": "floor-lamp",
+  "kind": "prop",
+  "materials": [
+    "metal.brass-aged",
+    "fabric.linen",
+    "emissive.warm",
+    "metal.painted"
+  ],
+  "name": "Floor lamp",
+  "notes": "",
+  "parts": [
+    "weighted round base",
+    "slim brushed brass pole",
+    "switch and cord",
+    "fabric drum shade",
+    "inner diffuser and bulb",
+    "finial"
+  ],
+  "references": [],
+  "size": [
+    0.45,
+    1.65,
+    0.45
+  ],
+  "style": "mid-century brass floor lamp with linen drum shade",
+  "summary": "Floor lamp, 1.65 m: round weighted base, brass pole with inline switch and cord, linen drum shade with warm bulb.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "living",
+    "light",
+    "metal",
+    "fabric",
+    "interior"
+  ],
+  "theme": "Living",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

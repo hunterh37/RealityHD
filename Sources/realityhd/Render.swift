@@ -87,6 +87,8 @@ func render(_ id: String, to out: String, _ o: RenderOptions) async throws -> St
             root.addChild(fe)
         }
         preview.frame(focus, azimuth: o.azimuth, elevation: o.elevation, distanceScale: o.distance)
+        // Close-ups of a part of a long asset: explicit camera.
+        if let eye = o.eye, let at = o.at { preview.look(from: eye, at: at, fov: 40) }
     }
     env.illuminate(root)
     preview.add(root)

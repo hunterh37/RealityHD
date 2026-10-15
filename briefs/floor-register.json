@@ -1,0 +1,40 @@
+{
+  "budget": 2500,
+  "id": "floor-register",
+  "kind": "prop",
+  "materials": [
+    "metal.cast-iron-worn",
+    "metal.galvanized-aged",
+    "metal.painted:1E1E20",
+    "metal.chrome",
+    "metal.screw-zinc"
+  ],
+  "name": "Floor register",
+  "notes": "Flush stamped steel grille with a duct sleeve below; top face at y 0.02.",
+  "parts": [
+    "cast-iron frame with rolled edge",
+    "angled louver fins",
+    "slide damper lever on the front bar",
+    "galvanized duct sleeve below the grille",
+    "four mounting screws"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    0.02,
+    0.15
+  ],
+  "style": "Dark cast-iron grate finish, worn at the edges, one fin bent.",
+  "summary": "Flush floor heating register: cast-iron frame, angled louver fins with one bent, damper slide, galvanized sleeve and corner screws.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "home",
+    "hvac",
+    "metal",
+    "interior"
+  ],
+  "theme": "Home",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

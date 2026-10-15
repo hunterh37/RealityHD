@@ -1,0 +1,47 @@
+{
+  "budget": 9600,
+  "id": "bunk-bed",
+  "kind": "prop",
+  "materials": [
+    "wood.beech-stained",
+    "wood.plywood",
+    "fabric.linen",
+    "fabric.linen:8FA5B8",
+    "fabric.linen:B7A58B",
+    "metal.steel",
+    "wood.pine-aged"
+  ],
+  "name": "Bunk bed",
+  "notes": "",
+  "parts": [
+    "four square posts with caps",
+    "lower and upper side rails and decks",
+    "upper guard rails with ladder gap",
+    "side ladder with round rungs",
+    "two mattresses with tape edge",
+    "two duvets with drape",
+    "two pillows",
+    "hex bolts through posts",
+    "cross slats under decks"
+  ],
+  "references": [],
+  "size": [
+    1.05,
+    1.7,
+    2.1
+  ],
+  "style": "stained pine, bedded, kids room",
+  "summary": "Twin-over-twin pine bunk bed: four posts, guard rails, ladder, two mattresses with duvets and pillows.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bedroom",
+    "furniture",
+    "wood",
+    "interior",
+    "fabric"
+  ],
+  "theme": "Bedroom",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

@@ -37,10 +37,28 @@ public enum RealTextureDiskCache {
 
     static func url(_ key: String) -> URL { directory.appendingPathComponent(key + ".rftex") }
 
-    static func load(_ s: MaterialSpec, n: Int) -> Data? {
+    /// Read-only mapping of a cache file, rounded up to whole pages so Metal can wrap it without a copy.
+    /// Unmapped by the buffer's deallocator (or on deinit when no buffer took it).
+    final class Mapped: @unchecked Sendable {
+        let base: UnsafeMutableRawPointer
+        let length: Int
+        var owned = true
+        init(base: UnsafeMutableRawPointer, length: Int) { self.base = base; self.length = length }
+        deinit { if owned { munmap(base, length) } }
+    }
+
+    static func load(_ s: MaterialSpec, n: Int) -> Mapped? {
         guard isEnabled else { return nil }
-        guard let d = try? Data(contentsOf: url(key(s, n: n)), options: .alwaysMapped), d.count == layout(s, n: n).totalBytes else { return nil }
-        return d
+        let fd = open(url(key(s, n: n)).path, O_RDONLY)
+        guard fd >= 0 else { return nil }
+        defer { close(fd) }
+        var st = stat()
+        let size = layout(s, n: n).totalBytes
+        guard fstat(fd, &st) == 0, Int(st.st_size) == size else { return nil }
+        let page = Int(getpagesize())
+        let length = (size + page - 1) / page * page
+        guard let p = mmap(nil, length, PROT_READ, MAP_PRIVATE, fd, 0), p != MAP_FAILED else { return nil }
+        return Mapped(base: p, length: length)
     }
 
     /// Encodes copies of every mip of `textures` into a shared buffer on `cb`; the file is written
@@ -71,11 +89,16 @@ public enum RealTextureDiskCache {
     }
 
     /// Encodes uploads of a cache file into `textures` (same order and sizes as when stored).
-    static func encodeLoad(_ data: Data, _ s: MaterialSpec, n: Int, into textures: [MTLTexture], device: MTLDevice, commandBuffer cb: MTLCommandBuffer) -> Bool {
+    /// The mapped file is wrapped with `bytesNoCopy` (no memcpy on the calling thread; pages fault in as the
+    /// blit reads them). The command buffer retains the buffer until it completes.
+    static func encodeLoad(_ file: Mapped, _ s: MaterialSpec, n: Int, into textures: [MTLTexture], device: MTLDevice, commandBuffer cb: MTLCommandBuffer) -> Bool {
         let lay = layout(s, n: n)
-        guard textures.count == lay.formats.count,
-              let buf = data.withUnsafeBytes({ device.makeBuffer(bytes: $0.baseAddress!, length: data.count, options: .storageModeShared) }),
-              let blit = cb.makeBlitCommandEncoder() else { return false }
+        guard textures.count == lay.formats.count, file.length >= lay.totalBytes else { return false }
+        let base = file.base, length = file.length
+        guard let buf = device.makeBuffer(bytesNoCopy: base, length: length, options: .storageModeShared, deallocator: { _, _ in munmap(base, length) })
+        else { return false }
+        file.owned = false
+        guard let blit = cb.makeBlitCommandEncoder() else { return false }
         var off = 0
         for (t, bpp) in zip(textures, lay.formats) {
             for l in 0..<lay.levels {

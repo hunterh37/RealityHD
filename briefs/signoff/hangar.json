@@ -1,0 +1,22 @@
+{
+  "automated" : 0.9999991,
+  "date" : "2026-10-11",
+  "final" : 0.8521247,
+  "fingerprint" : "c672984c4bdf120c",
+  "id" : "hangar",
+  "iterations" : 2,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 8,
+    "edges" : 7,
+    "grounding" : 8,
+    "materials" : 7,
+    "proportion" : 8,
+    "silhouette" : 8,
+    "wear" : 8
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.7725
+}

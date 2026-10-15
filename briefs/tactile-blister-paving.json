@@ -1,0 +1,35 @@
+{
+  "budget": 10000,
+  "id": "tactile-blister-paving",
+  "kind": "prop",
+  "materials": [
+    "concrete.sidewalk",
+    "ground.sand"
+  ],
+  "name": "Tactile blister paving",
+  "notes": "",
+  "parts": [
+    "400 mm buff blister slabs",
+    "rows of flat-topped blisters",
+    "bedding joints",
+    "grit"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.08,
+    2
+  ],
+  "style": "architectural facade customizer, Municipal",
+  "summary": "Tactile blister paving tile, 2 x 2 m: buff 400 mm concrete slabs with flat-topped blister grids, sand-bedded grit joints, scuffed tops.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "concrete"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

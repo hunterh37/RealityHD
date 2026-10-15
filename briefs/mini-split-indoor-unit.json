@@ -1,0 +1,45 @@
+{
+  "budget": 3500,
+  "id": "mini-split-indoor-unit",
+  "kind": "prop",
+  "materials": [
+    "plastic.gloss:F3F3F0",
+    "plastic.black",
+    "plastic.matte",
+    "emissive.led-green",
+    "emissive.signal-orange",
+    "metal.aluminum-brushed"
+  ],
+  "name": "Mini-split indoor unit",
+  "notes": "Static. Wall asset: lowest point y = 0, back face at z = -0.1. Planner lifts to 2.1 m.",
+  "parts": [
+    "curved white case",
+    "top intake grille slots",
+    "lower discharge opening",
+    "motorized louver flap",
+    "vertical deflector vanes",
+    "status display with LED",
+    "seam lines",
+    "pipe cover stub"
+  ],
+  "references": [],
+  "size": [
+    0.9,
+    0.29,
+    0.2
+  ],
+  "style": "white glossy residential head, new",
+  "summary": "Wall-mounted ductless mini-split indoor head: white curved case, top intake grille, louvered discharge, status LED.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "interior",
+    "hvac",
+    "appliance",
+    "plastic",
+    "wall"
+  ],
+  "theme": "Lighting",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

@@ -1,0 +1,42 @@
+{
+  "budget": 11000,
+  "id": "wall-mirror",
+  "kind": "prop",
+  "materials": [
+    "metal.brass-aged",
+    "metal.chrome",
+    "paper.sheet",
+    "metal.steel",
+    "rubber.silicone"
+  ],
+  "name": "Wall mirror",
+  "notes": "Static.",
+  "parts": [
+    "stepped brass frame",
+    "beveled mirror glass",
+    "aged edge ring",
+    "kraft backing board",
+    "D-ring hangers and wire",
+    "bumpers"
+  ],
+  "references": [],
+  "size": [
+    0.8,
+    0.8,
+    0.04
+  ],
+  "style": "round brass framed hall mirror",
+  "summary": "Round wall mirror, 80 cm: aged-brass stepped frame, beveled silvered glass, backing board with hangers.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "decor",
+    "wall",
+    "metal",
+    "glass",
+    "interior"
+  ],
+  "theme": "Decor",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,17 @@
+{
+  "budget": 8500,
+  "id": "loveseat",
+  "kind": "prop",
+  "materials": ["fabric.linen:7D7466", "fabric.linen:6C6458", "wood.walnut", "metal.brass-aged"],
+  "name": "Two-seat loveseat",
+  "notes": "Floor planning pack B1. Front +Z, back at -Z, seat centered on X=0.",
+  "parts": ["rolled arms with piped front disc", "two welted loose seat cushions", "two leaning back cushions", "stitched back rail", "turned walnut feet with brass ferrules"],
+  "references": [],
+  "size": [1.55, 0.84, 0.9],
+  "style": "traditional rolled-arm loveseat, lived-in",
+  "summary": "Two-seat loveseat, 1.55 m: rolled arms, welted loose cushions, turned walnut feet.",
+  "tags": ["prop", "floorplan", "living", "furniture", "fabric", "wood", "interior"],
+  "theme": "Living",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

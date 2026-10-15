@@ -1,0 +1,24 @@
+{
+  "budget": 12000,
+  "id": "spiral-staircase",
+  "kind": "structure",
+  "materials": ["metal.powdercoat", "wood.oak"],
+  "name": "Spiral staircase",
+  "notes": "Rise 3.0 m, 16 risers of 187.5 mm: 15 wedge treads plus the landing. Pole on the origin. Size Y is the bounding height including the handrail above the upper floor.",
+  "parts": [
+    "black steel center pole with base flange and cap",
+    "sleeve spacers between treads",
+    "15 oak wedge treads with nosing, 26 degrees apart",
+    "oak landing sector at the upper floor",
+    "round steel balusters, two per tread",
+    "helical oak handrail"
+  ],
+  "references": [],
+  "size": [1.6, 3.775, 1.6],
+  "style": "black powder-coat steel, oak treads and handrail",
+  "summary": "Spiral staircase, 1.6 m diameter, 3.0 m rise: steel center pole with spacers, 15 oak wedge treads, landing, steel balusters, helical oak handrail.",
+  "tags": ["structure", "floorplan", "interior", "stair", "metal", "wood"],
+  "theme": "Interior",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

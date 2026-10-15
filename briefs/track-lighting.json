@@ -1,0 +1,43 @@
+{
+  "budget": 5200,
+  "id": "track-lighting",
+  "kind": "prop",
+  "materials": [
+    "metal.powder-white",
+    "metal.painted:1C1C1E",
+    "plastic.black",
+    "metal.aluminum-brushed",
+    "emissive.warm",
+    "metal.chrome"
+  ],
+  "name": "Track lighting rail with three heads",
+  "notes": "Static. Ceiling plane y = 2.6; rail top touches it; heads hang to y = 2.4. Rail runs along X.",
+  "parts": [
+    "extruded rail with dark conductor slot",
+    "end caps and mount clips",
+    "three track adapters",
+    "swivel stems",
+    "U yokes with pivot screws",
+    "cylindrical heads with cooling fins",
+    "stepped reflector and lit lens"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    0.2,
+    0.1
+  ],
+  "style": "white powder-coated rail, matte black heads and yokes, new",
+  "summary": "Ceiling track light: 1.2 m white rail with three adjustable cylindrical heads on swivel yokes.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "interior",
+    "ceiling",
+    "light",
+    "metal"
+  ],
+  "theme": "Lighting",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

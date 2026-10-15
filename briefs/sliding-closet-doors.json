@@ -1,0 +1,45 @@
+{
+  "budget": 8500,
+  "id": "sliding-closet-doors",
+  "kind": "structure",
+  "materials": [
+    "wood.painted-shaker-worn:D3CDBE",
+    "wood.painted-shaker:D3CDBE",
+    "metal.satin-aluminum",
+    "metal.brushed-nickel",
+    "plastic.black",
+    "decal.rubber-scuff"
+  ],
+  "name": "Sliding bypass closet doors",
+  "notes": "Origin bottom center of the opening. Front panel (+Z track) slides -X 0...0.85; back panel fixed at left. States closed, open.",
+  "parts": [
+    "two shaker panels with stiles, rails and recessed panels",
+    "head track with two channels",
+    "floor track with twin ridges",
+    "flush finger pulls",
+    "hanger brackets with bolts",
+    "casing both sides with head cap",
+    "overlap at the meeting stiles"
+  ],
+  "references": [],
+  "size": [
+    1.8,
+    2.05,
+    0.1
+  ],
+  "style": "painted white MDF bypass panels, satin aluminum tracks, light wear at the pulls and floor track",
+  "summary": "Six-foot bypass sliding closet doors: two painted shaker panels on separate tracks, head and floor track, flush pulls, hanger brackets, casing.",
+  "tags": [
+    "structure",
+    "floorplan",
+    "home",
+    "wood",
+    "metal",
+    "interior",
+    "door",
+    "articulated"
+  ],
+  "theme": "Interior",
+  "threshold": 0.8,
+  "tolerance": 0.05
+}

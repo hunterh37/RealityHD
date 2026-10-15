@@ -1,0 +1,40 @@
+{
+  "budget": 10000,
+  "id": "windsock",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized",
+    "fabric.nylon",
+    "concrete.rough"
+  ],
+  "name": "Windsock",
+  "notes": "",
+  "parts": [
+    "mast",
+    "base plate",
+    "swivel head",
+    "frame hoop",
+    "sock bands",
+    "tail ring",
+    "guy-free pole cap"
+  ],
+  "references": [],
+  "size": [
+    4.16,
+    6.65,
+    0.93
+  ],
+  "style": "airfield windsock, faded orange and white nylon on galvanized mast",
+  "summary": "Airfield windsock, 6 m galvanized mast on a concrete pad: swivel head and orange and white banded sock, states calm, breeze and gale.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "outdoor",
+    "articulated",
+    "metal",
+    "fabric"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
