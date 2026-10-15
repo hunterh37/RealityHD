@@ -1,0 +1,40 @@
+{
+  "budget": 14000,
+  "id": "clapboard-lap-siding-run",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "wood.painted-shaker-worn",
+    "wood.endgrain-weathered",
+    "metal.cast-iron"
+  ],
+  "name": "Clapboard lap siding run",
+  "notes": "",
+  "parts": [
+    "tapered bevel clapboards, 4 in exposure",
+    "staggered scarf butt joints",
+    "starter strip kicking out the first course",
+    "outside corner board with bead",
+    "nail heads at 16 in stud spacing",
+    "drip cap at the top",
+    "paint wear and checking near the base"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.2,
+    0.03
+  ],
+  "style": "architectural facade customizer, New England Colonial",
+  "summary": "Clapboard lap siding run, 1.2 x 1.2 m: beveled clapboards at 4 in exposure with scarf-jointed butt joints, a corner board and nail heads at each stud line.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
