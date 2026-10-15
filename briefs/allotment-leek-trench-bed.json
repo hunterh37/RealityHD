@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "allotment-leek-trench-bed",
+  "kind": "prop",
+  "materials": [
+    "ground.dirt",
+    "soil.potting",
+    "plant.stem",
+    "wood.weathered"
+  ],
+  "name": "Allotment leek trench bed",
+  "notes": "",
+  "parts": [
+    "dug trench",
+    "spoil bank",
+    "leeks",
+    "dibber holes",
+    "plank path"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.25,
+    2
+  ],
+  "style": "architectural facade customizer, English Allotment, weathered allotment soil",
+  "summary": "Leek bed: a spade-dug trench with the spoil heaped alongside, leeks dibbed in rows with blanched shafts and blue-green fans, a board path.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "garden",
+    "outdoor",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

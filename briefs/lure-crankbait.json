@@ -1,0 +1,38 @@
+{
+  "budget": 12700,
+  "id": "lure-crankbait",
+  "kind": "prop",
+  "materials": [
+    "paint.lure",
+    "paint.lure-holo",
+    "plastic.lip-clear",
+    "metal.hook"
+  ],
+  "name": "Crankbait",
+  "notes": "reference photo: ../MulberryRiver/notes/reference/tackle/lure-crankbait.jpg (compare runs use --ref)",
+  "parts": [
+    "body",
+    "lip",
+    "line tie",
+    "split rings",
+    "treble hooks",
+    "eyes"
+  ],
+  "references": [],
+  "size": [
+    0.092,
+    0.022,
+    0.052
+  ],
+  "style": "medium diving crankbait, shad holographic finish, lying on its side",
+  "summary": "Medium-diving crankbait 65 mm body: holographic shad finish, clear lip, two treble hooks.",
+  "tags": [
+    "prop",
+    "fishing",
+    "handheld",
+    "plastic"
+  ],
+  "theme": "Tackle",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

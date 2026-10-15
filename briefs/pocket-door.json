@@ -1,0 +1,44 @@
+{
+  "budget": 6000,
+  "id": "pocket-door",
+  "kind": "structure",
+  "materials": [
+    "wood.painted-shaker-worn:D6CFC0",
+    "wood.painted-shaker:D6CFC0",
+    "metal.brushed-nickel",
+    "plastic.black",
+    "decal.rubber-scuff"
+  ],
+  "name": "Pocket door",
+  "notes": "Origin bottom center of opening. Slab slides along -X into the wall pocket: joint slide 0...0.8. States closed, open.",
+  "parts": [
+    "two-panel shaker slab with stiles and rails",
+    "casing both sides with head cap",
+    "right jamb with stop and strike",
+    "recessed flush pulls both faces",
+    "edge pull on the leading edge",
+    "floor guide",
+    "open pocket entrance without left jamb"
+  ],
+  "references": [],
+  "size": [
+    0.94,
+    2.1,
+    0.15
+  ],
+  "style": "painted white MDF slab, satin nickel flush pulls, light wear at the pulls",
+  "summary": "Pocket door in a cased opening: painted two-panel slab that slides left into the wall, flush pulls, edge pull, head casing, floor guide.",
+  "tags": [
+    "structure",
+    "floorplan",
+    "home",
+    "wood",
+    "metal",
+    "interior",
+    "door",
+    "articulated"
+  ],
+  "theme": "Interior",
+  "threshold": 0.8,
+  "tolerance": 0.05
+}

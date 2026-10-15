@@ -1,0 +1,34 @@
+{
+  "budget": 15000,
+  "id": "debris-rock",
+  "kind": "prop",
+  "materials": [
+    "rock.granite-bare",
+    "rock.basalt"
+  ],
+  "name": "Debris rock",
+  "notes": "",
+  "parts": [
+    "fractured body",
+    "fracture facets",
+    "chips"
+  ],
+  "references": [],
+  "size": [
+    3.44,
+    3.32,
+    4.02
+  ],
+  "style": "free-floating course debris, fresh fractures, one scorched face",
+  "summary": "Course debris rock, radius 2-8 m, seeded: free-floating fractured granite or basalt block from the boulder shape, facets all round.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "outdoor",
+    "rock",
+    "stone"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.2
+}

@@ -1,0 +1,43 @@
+{
+  "budget": 15000,
+  "id": "gap-wall",
+  "kind": "prop",
+  "materials": [
+    "metal.rack-powdercoat",
+    "metal.galvanized",
+    "metal.signal-yellow",
+    "metal.painted",
+    "emissive.signal-white",
+    "concrete.rough"
+  ],
+  "name": "Gap wall",
+  "notes": "",
+  "parts": [
+    "checker cladding panels",
+    "galvanized core frame",
+    "cap beam",
+    "concrete footing",
+    "hazard-banded jambs",
+    "slot LED strips",
+    "vertical slot"
+  ],
+  "references": [],
+  "size": [
+    24.02,
+    8.12,
+    1.5
+  ],
+  "style": "flight-course barrier, painted steel cladding in orange and white checker, light weathering",
+  "summary": "Course wall, any size: checker-clad galvanized frame on a footing, optional full-height slot with hazard jambs and LED strips.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "outdoor",
+    "barrier",
+    "wall",
+    "metal"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

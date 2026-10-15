@@ -1,0 +1,43 @@
+{
+  "budget": 6000,
+  "id": "barn-door",
+  "kind": "structure",
+  "materials": [
+    "wood.walnut",
+    "metal.powdercoat:202225",
+    "metal.steel",
+    "plastic.black"
+  ],
+  "name": "Sliding barn door",
+  "notes": "Origin bottom center of the opening; slab covers it at rest. Rail runs x -0.54...1.36 (1.9 m). Slab slides +X 0...0.88. States closed, open.",
+  "parts": [
+    "five-plank slab with Z-brace battens",
+    "black steel strap hangers with wheels",
+    "flat top rail on standoffs",
+    "rail end stops",
+    "vertical bar pull",
+    "floor guide",
+    "axle and strap bolts"
+  ],
+  "references": [],
+  "size": [
+    1.9,
+    2.3,
+    0.1
+  ],
+  "style": "dark stained walnut planks, matte black hardware, edge wear at the pull and plank joints",
+  "summary": "Sliding barn door: five-plank walnut slab with Z-brace battens, black strap hangers on a flat top rail with standoffs, floor guide and pull.",
+  "tags": [
+    "structure",
+    "floorplan",
+    "home",
+    "wood",
+    "metal",
+    "interior",
+    "door",
+    "articulated"
+  ],
+  "theme": "Interior",
+  "threshold": 0.8,
+  "tolerance": 0.05
+}

@@ -1,0 +1,17 @@
+{
+  "budget": 9000,
+  "id": "radiator",
+  "kind": "prop",
+  "materials": ["metal.enamel:E9E7DF", "metal.brass-aged", "metal.chrome", "metal.cast-iron-worn", "plastic.black"],
+  "name": "Cast iron radiator",
+  "notes": "Floor standing on two cast legs, 13 sections at 58 mm pitch. Supply valve and floor pipe at the left end, bleed key at the top right.",
+  "parts": ["13 cast-iron column sections, three tubes each", "top and bottom header collars with joint rings", "two cast end legs", "brass angle valve with handwheel and floor pipe", "chrome floor escutcheon", "bleed valve plug at the top right", "blind plug at the lower right"],
+  "references": [],
+  "size": [0.8, 0.65, 0.2],
+  "style": "Old white enamel radiator, chipped paint at the legs and header edges.",
+  "summary": "Cast-iron column radiator: 13 three-column sections with header collars, end legs, brass supply valve with floor pipe and a bleed plug.",
+  "tags": ["prop", "floorplan", "home", "hvac", "metal", "interior"],
+  "theme": "Home",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

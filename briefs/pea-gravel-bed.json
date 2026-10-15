@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "pea-gravel-bed",
+  "kind": "prop",
+  "materials": [
+    "ground.gravel",
+    "rock.river",
+    "wood.weathered",
+    "plastic.matte",
+    "metal.galvanized-aged",
+    "leather.oxblood-worn"
+  ],
+  "name": "Pea gravel bed",
+  "notes": "",
+  "parts": [
+    "rounded pea shingle stones 6-10 mm",
+    "gravel bed surface with rake marks and footprint scuff",
+    "black weed membrane at the edge",
+    "treated timber edging boards",
+    "timber edging pegs with screws",
+    "fallen leaves"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.1,
+    2.0
+  ],
+  "style": "architectural facade customizer, English Landscape; washed flint pea shingle, raked and scuffed",
+  "summary": "Pea gravel bed, 2 x 2 m: 6-10 mm rounded flint pea shingle laid 40 mm deep over membrane, retained by treated timber edging boards on pegs.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

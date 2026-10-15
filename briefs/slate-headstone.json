@@ -1,0 +1,38 @@
+{
+  "budget": 3000,
+  "id": "slate-headstone",
+  "kind": "prop",
+  "materials": [
+    "stone.slate",
+    "stone.slate:6B737B",
+    "concrete.rough:7A8064",
+    "stone.slate:1F2328"
+  ],
+  "name": "Slate Headstone",
+  "notes": "",
+  "parts": [
+    "slate slab with tympanum and shoulder profile",
+    "winged death's head relief in tympanum",
+    "incised border lines",
+    "inscription grooves",
+    "lichen patches"
+  ],
+  "references": [],
+  "size": [
+    0.65,
+    0.92,
+    0.145
+  ],
+  "style": "1700s Welsh/Pennsylvania-style dark blue-grey slate, weathered, lichen, tilted",
+  "summary": "18th-century Boston slate headstone with tympanum and shoulders, winged death's head, lettering grooves and lichen, leaning.",
+  "tags": [
+    "prop",
+    "stone",
+    "antique",
+    "park",
+    "outdoor"
+  ],
+  "theme": "Plaza",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

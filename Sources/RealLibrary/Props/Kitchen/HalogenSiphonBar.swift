@@ -35,7 +35,37 @@ public struct HalogenSiphonBar: RealArticulated {
     public var keyTravel: Float = 0.0018
     /// Time shown on the displays when on.
     public var readout = "0130"
+    /// Glass upper globes in the clamps. Scenes that place `siphon-upper-globe` as a separate,
+    /// removable object set this false.
+    public var globes = true
     public init() {}
+
+    /// Asset-space anchors for apps that put glassware on the bar (station 0 = left, 1 = right).
+    public static let stationX: [Float] = [-0.14, 0.14]
+    /// Centre of burner cup `station` at its rim (where a lower flask sits).
+    public func burnerRim(_ station: Int) -> V3 { V3(Self.stationX[station], body.y + 0.074, -0.03) }
+    /// Where the stem tip of an upper globe held by the clamp of `station` sits.
+    public func globeStemTip(_ station: Int) -> V3 { V3(Self.stationX[station], 0.46 - 0.11, -0.03) }
+    /// Live display segment part, "left-seg2-6": station side, digit 0...3, segment bit 0...6 (a...g).
+    public static func segmentPart(_ side: String, digit: Int, bit: Int) -> String { "\(side)-seg\(digit)-\(bit)" }
+
+    /// One seven-segment bar (same layout as `BedsideKit.segments`) of digit `digit`.
+    static func segmentSurface(bit: Int, digit: Int, origin: V3, u: V3, v: V3, height h: Float, stroke: Float, material: MaterialKey) -> Surface {
+        var s = Surface(material: material)
+        let w = 0.55 * h, t = stroke * h, g = t * 0.35, ym = h / 2, sh: Float = 0.1
+        let x = Float(digit) * 0.72 * h
+        switch bit {
+        case 0: BedsideKit.bar(&s, origin, u, v, x + g + t * 0.5, h - t, x + w - g - t * 0.5, h, shear: sh)
+        case 1: BedsideKit.bar(&s, origin, u, v, x + w - t, ym + g, x + w, h - g, shear: sh)
+        case 2: BedsideKit.bar(&s, origin, u, v, x + w - t, g, x + w, ym - g, shear: sh)
+        case 3: BedsideKit.bar(&s, origin, u, v, x + g + t * 0.5, 0, x + w - g - t * 0.5, t, shear: sh)
+        case 4: BedsideKit.bar(&s, origin, u, v, x, g, x + t, ym - g, shear: sh)
+        case 5: BedsideKit.bar(&s, origin, u, v, x, ym + g, x + t, h - g, shear: sh)
+        default: BedsideKit.bar(&s, origin, u, v, x + g + t * 0.5, ym - t / 2, x + w - g - t * 0.5, ym + t / 2, shear: sh)
+        }
+        s.computeTangents()
+        return s
+    }
 
     static let keyNames = ["up", "down", "out", "time", "timer", "heat", "brew", "warm", "stop"]
 
@@ -179,8 +209,10 @@ public struct HalogenSiphonBar: RealArticulated {
                 let r: Float = 0.066, cy = top + 0.012 + r * 0.92
                 for i in 1...10 { let a = -Float.pi / 2 + 0.4 + Float(i) / 10 * (.pi - 0.55); gp.append(V2(cos(a) * r, cy + sin(a) * r)) }
                 gp.append(V2(0.026, cy + r * 0.985)); gp.append(V2(0.0265, cy + r + 0.006)); gp.append(V2(0.0285, cy + r + 0.008))
-                m.add(Prim.lathe(gp, segments: l == 0 ? 20 : 10, seamTile: 0.3, material: glass), Xform(translation: V3(xs, 0, cupZ)))
-                m.add(Prim.torus(major: 0.0098, minor: 0.0016, segments: l == 0 ? 16 : 8, sides: 5, material: "rubber"), Xform(translation: V3(xs, top - 0.01, cupZ)))
+                if globes {
+                    m.add(Prim.lathe(gp, segments: l == 0 ? 20 : 10, seamTile: 0.3, material: glass), Xform(translation: V3(xs, 0, cupZ)))
+                    m.add(Prim.torus(major: 0.0098, minor: 0.0016, segments: l == 0 ? 16 : 8, sides: 5, material: "rubber"), Xform(translation: V3(xs, top - 0.01, cupZ)))
+                }
             }
             // Vent holes along the rear of the deck.
             if l == 0 {
@@ -233,10 +265,17 @@ public struct HalogenSiphonBar: RealArticulated {
             rig.part(disp, pivot: dc, joint: .fixed, options: 2)
             rig.add(BedsideKit.segments("8888", origin: dc + V3(-0.019, -0.0055, 0), u: ux, v: uy, height: 0.011, stroke: 0.15, material: "plastic.matte:2A0A0A"), to: disp, option: 0, lods: 0...0)
             rig.add(BedsideKit.segments(readout, origin: dc + V3(-0.019, -0.0055, 0), u: ux, v: uy, height: 0.011, stroke: 0.15, material: "emissive.led-red"), to: disp, option: 1)
+            // Live segments for apps (`HalogenSiphonBarRuntime`): one part per segment, option 1 lit.
+            for d in 0..<4 { for b in 0..<7 {
+                let seg = Self.segmentPart(side, digit: d, bit: b)
+                rig.part(seg, pivot: dc, joint: .fixed, options: 2)
+                rig.add(Self.segmentSurface(bit: b, digit: d, origin: dc + V3(-0.019, -0.0055, 0.0002), u: ux, v: uy, height: 0.011, stroke: 0.15, material: "emissive.led-red"),
+                        to: seg, option: 1, lods: 0...0)
+            }}
             let glow = "\(side)-burner"
             let gc = V3(xs, H + 0.0748, cupZ)
             rig.part(glow, pivot: gc, joint: .fixed, options: 2)
-            rig.add(Prim.cylinder(radius: 0.028, height: 0.0008, bevel: 0.0002, segments: 20, bevelSegments: 1, material: "glass.lamp"), Xform(translation: gc + V3(0, -0.0016, 0)), to: glow, option: 1)
+            rig.add(Prim.cylinder(radius: 0.028, height: 0.0008, bevel: 0.0002, segments: 20, bevelSegments: 1, material: "emissive.signal-orange"), Xform(translation: gc + V3(0, -0.0016, 0)), to: glow, option: 1)
             rig.lights.append(RigLight(name: "\(side)-halogen", kind: .point, part: glow, option: 1, position: gc + V3(0, 0.03, 0),
                                        color: V3(1.0, 0.72, 0.42), intensity: 30, attenuationRadius: 0.6))
             states.append(RigState("\(side)-heating", ["\(side)-heat": keyTravel], options: [disp: 1, glow: 1]))

@@ -1,0 +1,50 @@
+{
+  "budget": 9000,
+  "id": "gas-furnace",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat:CFCDC6",
+    "metal.powdercoat:DAD8D0",
+    "metal.galvanized-aged",
+    "metal.cast-iron-worn",
+    "metal.brass-aged",
+    "metal.screw-zinc",
+    "plastic.black",
+    "glass.clear",
+    "label.hazard-small",
+    "label.inspection"
+  ],
+  "name": "Gas furnace",
+  "notes": "Upflow 80 percent cabinet. Footprint 0.55 x 0.70; overall height 1.0 m including the supply plenum.",
+  "parts": [
+    "painted sheet-steel cabinet with rolled edges",
+    "raised-panel blower door with quarter-turn latches",
+    "control door with sight glass and status light",
+    "tapered supply plenum with flange lip",
+    "galvanized flue collar and vent stub",
+    "return-air grille on the side with slats",
+    "black iron gas line with shutoff and drip leg",
+    "wiring junction box",
+    "rating plate and warning labels"
+  ],
+  "references": [],
+  "size": [
+    0.55,
+    1.0,
+    0.7
+  ],
+  "style": "Residential upflow furnace, beige-grey enamel cabinet, mild scuffing at the corners and base.",
+  "summary": "Upflow gas furnace: sheet-steel cabinet with blower and control doors, supply plenum, flue collar, side return grille, gas line and labels.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "laundry",
+    "hvac",
+    "appliance",
+    "metal",
+    "interior"
+  ],
+  "theme": "Laundry",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

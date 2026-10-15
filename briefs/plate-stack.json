@@ -1,0 +1,36 @@
+{
+  "budget": 12000,
+  "id": "plate-stack",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "ceramic.bisque:E6E0D2"
+  ],
+  "name": "Stack of dinner plates",
+  "notes": "Static.",
+  "parts": [
+    "6 rimmed dinner plates with jitter",
+    "foot rings",
+    "glaze sheen",
+    "side plate on top",
+    "one cream-tinted plate"
+  ],
+  "references": [],
+  "size": [
+    0.27,
+    0.09,
+    0.27
+  ],
+  "style": "white everyday stoneware",
+  "summary": "Stack of 6 white glazed dinner plates topped by a side plate, with foot rings and slight offsets.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "kitchen",
+    "ceramic",
+    "interior"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

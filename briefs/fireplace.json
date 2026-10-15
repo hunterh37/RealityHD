@@ -1,0 +1,42 @@
+{
+  "budget": 9600,
+  "id": "fireplace",
+  "kind": "structure",
+  "materials": [
+    "stone.limestone",
+    "wood.oak",
+    "stone.marble-honed",
+    "brick.common",
+    "metal.cast-iron-worn",
+    "wood.charred"
+  ],
+  "name": "fireplace",
+  "notes": "Wall-backed: back face at z = -depth / 2, front +Z. Plan footprint 1.8 x 0.45 (PlanCatalog fireplace).",
+  "parts": [
+    "limestone surround with legs, plinths, header and keystone",
+    "oak mantel shelf on corbels",
+    "firebox opening with firebrick lining and mortar courses",
+    "marble hearth slab",
+    "cast-iron grate with andiron posts",
+    "three logs and ash bed",
+    "chimney breast with flue cap hint"
+  ],
+  "references": [],
+  "size": [
+    1.8,
+    1.3,
+    0.45
+  ],
+  "style": "traditional limestone fireplace with oak mantel, lightly sooted firebrick",
+  "summary": "Interior fireplace, 1.8 x 1.3 x 0.45 m: limestone surround, oak mantel, firebrick firebox with grate and logs, marble hearth.",
+  "tags": [
+    "structure",
+    "floorplan",
+    "interior",
+    "stone",
+    "wall"
+  ],
+  "theme": "Interior",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

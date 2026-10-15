@@ -1,0 +1,17 @@
+{
+  "budget": 7000,
+  "id": "entry-bench",
+  "kind": "prop",
+  "materials": ["wood.beech-stained:D6B27C", "fabric.linen:6E7B6B", "metal.brushed-nickel"],
+  "name": "Entry shoe storage bench",
+  "notes": "Floor planning pack B1. Seat height 0.45 m, front +Z, back at -Z.",
+  "parts": ["tufted seat cushion on a board", "two cut-out end panels", "two slatted shoe shelves", "rear and front rails", "bolts"],
+  "references": [],
+  "size": [1.1, 0.45, 0.38],
+  "style": "light beech entryway bench with a sage linen cushion, lightly scuffed shelves",
+  "summary": "Entry shoe storage bench, 1.1 m: tufted cushion seat, cut-out end panels, two slatted shoe shelves.",
+  "tags": ["prop", "floorplan", "home", "furniture", "wood", "fabric", "interior"],
+  "theme": "Home",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

@@ -1,0 +1,39 @@
+{
+  "budget": 14000,
+  "id": "solar-panel",
+  "kind": "prop",
+  "materials": [
+    "screen.off",
+    "metal.aluminum-brushed",
+    "composite.carbon",
+    "insulation.foil-gold",
+    "metal.steel",
+    "rubber"
+  ],
+  "name": "Solar panel",
+  "notes": "VisionSpacecraft specs/04, specs/14",
+  "parts": [
+    "cell grid",
+    "aluminium frame",
+    "fold hinge",
+    "mount bracket",
+    "harness"
+  ],
+  "references": [],
+  "size": [
+    1.6,
+    0.095,
+    0.6
+  ],
+  "style": "spacecraft deployable panel, dark blue cells, gold foil back",
+  "summary": "Two-leaf deployable solar panel, 1.6 x 0.6 m deployed: silicon cell grid on carbon substrate in aluminium frames, folded about a centre hinge on a root bracket.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "electronics",
+    "articulated"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

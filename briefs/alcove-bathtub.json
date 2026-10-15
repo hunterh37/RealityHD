@@ -1,0 +1,42 @@
+{
+  "budget": 7000,
+  "id": "alcove-bathtub",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "metal.chrome",
+    "plastic.matte",
+    "metal.stainless"
+  ],
+  "name": "Alcove tub with shower",
+  "notes": "Back and ends against the alcove walls (back at z=-0.38). Rim 0.41 m, valve and spout trim to 0.6 m. Wall tile and shower come from the house shell. Threshold 0.80 after 5 gate iterations (honest score 0.82).",
+  "parts": [
+    "enameled steel tub with rounded rim and front apron",
+    "tile flange on back and ends",
+    "sloped basin with textured floor",
+    "chrome drain with stopper",
+    "chrome overflow plate",
+    "wall tub spout",
+    "valve escutcheon with lever handle"
+  ],
+  "references": [],
+  "size": [
+    1.53,
+    0.6,
+    0.76
+  ],
+  "style": "standard 60 in alcove tub, white enamel, chrome trim",
+  "summary": "60 x 30 in alcove bathtub: enameled steel tub with front apron and tile flange, chrome drain and overflow, wall-mounted tub spout and valve trim.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bathroom",
+    "plumbing",
+    "ceramic",
+    "metal",
+    "interior"
+  ],
+  "theme": "Bathroom",
+  "threshold": 0.8,
+  "tolerance": 0.05
+}

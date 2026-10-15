@@ -1,0 +1,41 @@
+{
+  "budget": 6000,
+  "id": "dining-chair",
+  "kind": "prop",
+  "materials": [
+    "wood.beech-stained",
+    "wood.beech-stained:C99E68",
+    "wood.endgrain",
+    "plastic.black"
+  ],
+  "name": "Slat-back dining chair",
+  "notes": "Floor planning pack B1. Seat height 0.46. Front +Z. Slat-back, solid wood seat (reworked from the upholstered household brief).",
+  "parts": [
+    "raked rear posts",
+    "four bowed back slats and top rail",
+    "solid wood seat with rounded edge",
+    "tapered front legs",
+    "apron rails with dowel pegs",
+    "side and front stretchers",
+    "felt-pad glides"
+  ],
+  "references": [],
+  "size": [
+    0.47,
+    0.92,
+    0.55
+  ],
+  "style": "Scandinavian beech slat-back chair, lightly worn seat",
+  "summary": "Slat-back wooden dining chair: raked rear posts, four bowed slats, solid seat, tapered legs, stretchers.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "dining",
+    "furniture",
+    "wood",
+    "interior"
+  ],
+  "theme": "Dining",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}
