@@ -823,6 +823,10 @@ public enum Props {
         SandyLoamSoil.self,
         RedLateriteDirt.self,
         DustyFarmyardDirt.self,
+        MolehillDisturbedLawn.self,
+        ChipSealRoadSurface.self,
+        PoachedPaddockMud.self,
+        ChalkyFlintSoil.self,
         // realityhd:prop
     ]
 }
