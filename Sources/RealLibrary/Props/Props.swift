@@ -810,6 +810,10 @@ public enum Props {
         ScrolledPedimentDoorHood.self,
         SwanNeckPediment.self,
         ArchedPediment.self,
+        AllotmentRhubarbCrownBed.self,
+        AllotmentSquashMoundBed.self,
+        AllotmentSweetcornBlockBed.self,
+        AllotmentPolytunnelSoilBed.self,
         // realityhd:prop
     ]
 }
