@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "artificial-turf-tile",
+  "kind": "prop",
+  "materials": [
+    "plastic.matte",
+    "turf.ballpark",
+    "rubber.tire",
+    "rubber.plate",
+    "ground.sand",
+    "ground.gravel",
+    "metal.galvanized-aged"
+  ],
+  "name": "Artificial turf tile",
+  "notes": "",
+  "parts": [
+    "polyethylene turf blades in tufted stitch rows",
+    "brown thatch curl layer",
+    "rubber crumb and sand infill",
+    "latex-coated backing mat",
+    "compacted grey sub-base",
+    "glued seam with joining tape",
+    "galvanized U-pin edge fixings"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.06,
+    2.0
+  ],
+  "style": "architectural facade customizer, Contemporary; slightly faded synthetic turf with flattened traffic lane",
+  "summary": "Artificial turf tile, 2 x 2 m: tufted polyethylene pile on latex-backed rolls over a sub-base, rubber-crumb infill, taped seam and U-pins.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
