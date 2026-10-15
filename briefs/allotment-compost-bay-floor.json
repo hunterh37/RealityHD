@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "allotment-compost-bay-floor",
+  "kind": "prop",
+  "materials": [
+    "soil.potting",
+    "straw.hay",
+    "bark.oak-dry",
+    "plant.stem"
+  ],
+  "name": "Allotment compost bay floor",
+  "notes": "",
+  "parts": [
+    "compost heap",
+    "straw strands",
+    "prunings",
+    "eggshells",
+    "peelings",
+    "wilted leaves",
+    "brandling worm"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.3,
+    2
+  ],
+  "style": "architectural facade customizer, English Allotment",
+  "summary": "Allotment compost bay floor tile: a low heap of dark crumbly compost with straw, twiggy prunings, eggshells, peelings and wilted cabbage leaves.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "garden",
+    "outdoor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

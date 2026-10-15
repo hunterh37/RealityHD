@@ -1,0 +1,35 @@
+{
+  "budget": 6000,
+  "id": "slate-flag-paving",
+  "kind": "prop",
+  "materials": [
+    "rock.slate",
+    "ground.sand"
+  ],
+  "name": "Slate flag paving",
+  "notes": "",
+  "parts": [
+    "riven slate flags in random coursed lengths",
+    "courses of varied depth",
+    "narrow sand-mortar joints",
+    "cracked flag"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.08,
+    2
+  ],
+  "style": "architectural facade customizer, Welsh Vernacular",
+  "summary": "Slate flag paving, 2 x 2 m: Welsh riven slate flags in random-length courses with narrow pointed joints.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
