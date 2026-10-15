@@ -1,0 +1,35 @@
+{
+  "budget": 15000,
+  "id": "rubber-safety-play-surface",
+  "kind": "prop",
+  "materials": [
+    "rubber.floor-mat",
+    "rubber.tire"
+  ],
+  "name": "Rubber safety play surface",
+  "notes": "",
+  "parts": [
+    "EPDM granule wearing course",
+    "SBR base layer",
+    "coloured inlay band",
+    "cut edge showing two layers",
+    "scuff wear"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.06,
+    2
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Wetpour rubber safety surface tile, 2 x 2 m: EPDM granule top course over black SBR shock pad with a coloured inlay band.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

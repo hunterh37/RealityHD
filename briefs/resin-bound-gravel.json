@@ -1,0 +1,37 @@
+{
+  "budget": 15000,
+  "id": "resin-bound-gravel",
+  "kind": "prop",
+  "materials": [
+    "ground.gravel",
+    "rock.river",
+    "concrete.rough"
+  ],
+  "name": "Resin bound gravel",
+  "notes": "",
+  "parts": [
+    "resin-bound aggregate layer",
+    "2-5 mm gravel aggregate",
+    "UV-stable resin binder sheen",
+    "porous voids",
+    "trowel lap marks"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.05,
+    2
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Resin-bound gravel tile, 2 x 2 m: 18 mm layer of 2-5 mm golden quartz aggregate in clear resin over concrete, trowelled flat and porous.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

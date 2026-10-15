@@ -1,0 +1,38 @@
+{
+  "budget": 15000,
+  "id": "clay-tennis-court-surface",
+  "kind": "prop",
+  "materials": [
+    "ground.infield",
+    "ground.gravel",
+    "plastic.white",
+    "metal.galvanized-aged"
+  ],
+  "name": "Clay tennis court surface",
+  "notes": "",
+  "parts": [
+    "crushed brick top dressing with drag-brush lines",
+    "compacted grit and stone base layers at the edge",
+    "white PVC line tape 50 mm",
+    "line tape nails",
+    "ball skid mark",
+    "footprint scuffs"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.05,
+    2.0
+  ],
+  "style": "architectural facade customizer, Contemporary; red en-tout-cas crushed brick court, line tape and brush marks",
+  "summary": "Clay tennis court surface, 2 x 2 m: crushed brick top dressing on a grit base, nailed line tape, brush marks and a ball skid.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
