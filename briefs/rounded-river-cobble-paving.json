@@ -1,0 +1,35 @@
+{
+  "budget": 15000,
+  "id": "rounded-river-cobble-paving",
+  "kind": "prop",
+  "materials": [
+    "rock.river",
+    "concrete.rough"
+  ],
+  "name": "Rounded river cobble paving",
+  "notes": "",
+  "parts": [
+    "rounded river cobbles set on end",
+    "lime mortar bed",
+    "recessed joints",
+    "mixed stone tones"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.12,
+    2
+  ],
+  "style": "architectural facade customizer, Vernacular",
+  "summary": "Rounded river cobble paving, 2 x 2 m: vernacular rounded river cobbles set close in a lime mortar bed.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
