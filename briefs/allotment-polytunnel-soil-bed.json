@@ -1,0 +1,44 @@
+{
+  "budget": 15000,
+  "id": "allotment-polytunnel-soil-bed",
+  "kind": "prop",
+  "materials": [
+    "ground.dirt",
+    "soil.potting",
+    "fabric.nylon",
+    "rubber.tubing",
+    "plant.stem",
+    "wood.weathered",
+    "plastic.white"
+  ],
+  "name": "Allotment polytunnel soil bed",
+  "notes": "",
+  "parts": [
+    "fine tilth soil beds",
+    "woven weed membrane path",
+    "drip irrigation line",
+    "lettuce seedlings",
+    "plastic label",
+    "board edging",
+    "membrane pegs"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.15,
+    2
+  ],
+  "style": "architectural facade customizer, Contemporary Allotment",
+  "summary": "Polytunnel soil bed tile, 2 x 2 m: two fine-tilth beds either side of a woven membrane path, with drip lines and rows of lettuce seedlings.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "garden",
+    "outdoor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
