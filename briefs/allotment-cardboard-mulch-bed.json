@@ -1,0 +1,45 @@
+{
+  "budget": 15000,
+  "id": "allotment-cardboard-mulch-bed",
+  "kind": "prop",
+  "materials": [
+    "ground.dirt",
+    "paper.screwbox-kraft",
+    "mulch.bark",
+    "rock.redstone",
+    "rock.granite-weathered",
+    "plastic.matte"
+  ],
+  "name": "Allotment cardboard mulch bed",
+  "notes": "",
+  "parts": [
+    "soil base",
+    "overlapping corrugated cardboard sheets",
+    "exposed corrugated flutes on torn edges",
+    "parcel tape remnants",
+    "holding bricks",
+    "stones",
+    "woodchip mulch drift",
+    "weeds pushing through"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.1,
+    2
+  ],
+  "style": "architectural facade customizer, English Allotment, no-dig cardboard sheet mulch",
+  "summary": "2 m square no-dig allotment bed sheet-mulched with overlapping brown corrugated cardboard, weathered and softened, weighed down with bricks and stones and part covered in woodchip.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "garden",
+    "outdoor",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

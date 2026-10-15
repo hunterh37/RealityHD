@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "allotment-dug-over-clods",
+  "kind": "prop",
+  "materials": [
+    "ground.dirt",
+    "soil.potting",
+    "rock.granite-weathered",
+    "rock.river",
+    "grass.dry"
+  ],
+  "name": "Allotment dug-over clods",
+  "notes": "",
+  "parts": [
+    "rough-dug soil heightfield",
+    "large frost-weathering clods",
+    "spade-cut clod faces",
+    "flints and stones",
+    "couch-grass root tufts",
+    "trodden margin"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.2,
+    2
+  ],
+  "style": "architectural facade customizer, English Allotment, autumn rough-dug heavy clay soil",
+  "summary": "2 m square allotment plot rough-dug in autumn: large spade-turned clods left whole for the frost to break, open trenches between spits, flints and couch roots.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "garden",
+    "outdoor",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

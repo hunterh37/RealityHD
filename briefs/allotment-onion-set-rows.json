@@ -1,0 +1,44 @@
+{
+  "budget": 15000,
+  "id": "allotment-onion-set-rows",
+  "kind": "prop",
+  "materials": [
+    "ground.dirt",
+    "food.onion-skin",
+    "plant.stem",
+    "sack.jute",
+    "wood.pine-aged",
+    "plastic.white"
+  ],
+  "name": "Allotment onion set rows",
+  "notes": "",
+  "parts": [
+    "raked tilth heightfield",
+    "onion set bulbs with papery skins",
+    "green onion shoots",
+    "planting rows",
+    "garden line pegs and twine",
+    "row labels",
+    "stones"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.15,
+    2
+  ],
+  "style": "architectural facade customizer, English Allotment, spring-planted onion set rows",
+  "summary": "2 m square allotment bed raked to a fine tilth with five rows of onion sets pushed in with tips showing and green shoots, marked by a garden line and row labels.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "garden",
+    "outdoor",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
