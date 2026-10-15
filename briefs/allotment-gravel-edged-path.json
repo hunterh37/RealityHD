@@ -1,0 +1,46 @@
+{
+  "budget": 15000,
+  "id": "allotment-gravel-edged-path",
+  "kind": "prop",
+  "materials": [
+    "ground.gravel",
+    "rock.river",
+    "wood.weathered",
+    "metal.galvanized-aged",
+    "wood.pine-aged",
+    "ground.dirt",
+    "grass.lawn"
+  ],
+  "name": "Allotment gravel edged path",
+  "notes": "",
+  "parts": [
+    "compacted gravel path",
+    "loose gravel pebbles",
+    "scaffold board edgings",
+    "galvanized end bands",
+    "timber stakes",
+    "soil bed margins",
+    "weeds in the gravel"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.12,
+    2
+  ],
+  "style": "architectural facade customizer, English Allotment, gravel path with scaffold-board edging",
+  "summary": "2 m square allotment path tile: a compacted gravel walk between scaffold-board edgings with galvanized bands and stakes, soil beds either side.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "garden",
+    "outdoor",
+    "wood",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
