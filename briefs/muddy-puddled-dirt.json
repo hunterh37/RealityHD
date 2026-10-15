@@ -1,0 +1,38 @@
+{
+  "budget": 14000,
+  "id": "muddy-puddled-dirt",
+  "kind": "prop",
+  "materials": [
+    "ground.mud",
+    "water.puddle",
+    "rock.river-wet"
+  ],
+  "name": "Muddy puddled dirt",
+  "notes": "",
+  "parts": [
+    "mud slab",
+    "wheel ruts with tread",
+    "standing water pools",
+    "boot prints with rims",
+    "pressed stones",
+    "mud clods"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.12,
+    2.0
+  ],
+  "style": "architectural facade customizer, Vernacular",
+  "summary": "Muddy earth tile 2 x 2 m: churned mud with water-filled ruts and puddles, boot prints and stones.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

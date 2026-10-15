@@ -11,6 +11,8 @@ import RealityKit
 public enum RealGrabCue {
     static let entityName = "grab-cue"
     static var material: ShaderGraphMaterial?
+    /// One unit sphere shared by every dot; each dot scales it to its radius.
+    static var sphere: MeshResource?
 
     /// Shader graph: unlit white, opacity = hover intensity.
     static let usda = """
@@ -85,8 +87,11 @@ public enum RealGrabCue {
         guard !b.isEmpty else { return }
         let diag = simd_length(b.extents)
         let r = min(max(diag * 0.015, 0.005), 0.012)
-        let dot = ModelEntity(mesh: .generateSphere(radius: r), materials: [material])
+        let mesh = sphere ?? MeshResource.generateSphere(radius: 1)
+        sphere = mesh
+        let dot = ModelEntity(mesh: mesh, materials: [material])
         dot.name = entityName
+        dot.scale = SIMD3(repeating: r)
         dot.position = SIMD3(b.center.x, b.max.y + r + 0.02, b.center.z)
         dot.components.set(DynamicLightShadowComponent(castsShadow: false))
         e.addChild(dot)

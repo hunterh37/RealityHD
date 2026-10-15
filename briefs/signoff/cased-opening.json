@@ -1,0 +1,22 @@
+{
+  "automated" : 0.9899822,
+  "date" : "2026-10-11",
+  "final" : 0.8380562,
+  "fingerprint" : "29df6e6143c801c7",
+  "id" : "cased-opening",
+  "iterations" : 1,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 8,
+    "edges" : 7,
+    "grounding" : 7,
+    "materials" : 7,
+    "proportion" : 8,
+    "silhouette" : 8,
+    "wear" : 7
+  },
+  "seed" : 1,
+  "threshold" : 0.8,
+  "vision" : 0.75624996
+}

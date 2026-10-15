@@ -1,0 +1,43 @@
+{
+  "budget": 9000,
+  "id": "bifold-closet-door",
+  "kind": "structure",
+  "materials": [
+    "wood.painted-shaker-worn:E0DACB",
+    "wood.painted-shaker:E0DACB",
+    "metal.brushed-nickel",
+    "plastic.black"
+  ],
+  "name": "Louvered bifold closet door",
+  "notes": "Origin bottom center of the opening. Each pair folds toward +Z: pivot on the jamb, fold hinge mimics -2x. States closed, open.",
+  "parts": [
+    "two bifold pairs of four louvered leaves",
+    "stiles and rails with angled slats",
+    "simple casing both sides with head cap",
+    "head track and top pivot brackets",
+    "bottom pivot plates",
+    "butt hinges between leaves",
+    "finger knobs"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    2.03,
+    0.1
+  ],
+  "style": "painted white pine louvered leaves with satin nickel hinges and light wear at the knobs",
+  "summary": "Four-foot louvered bifold closet door: two folding pairs of painted louvered leaves on a head track, pivots, hinges and finger knobs.",
+  "tags": [
+    "structure",
+    "floorplan",
+    "home",
+    "wood",
+    "metal",
+    "interior",
+    "door",
+    "articulated"
+  ],
+  "theme": "Interior",
+  "threshold": 0.8,
+  "tolerance": 0.05
+}

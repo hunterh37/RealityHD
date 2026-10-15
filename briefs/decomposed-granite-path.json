@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "decomposed-granite-path",
+  "kind": "prop",
+  "materials": [
+    "ground.gravel",
+    "rock.granite",
+    "rock.river",
+    "rock.granite-weathered",
+    "metal.rust"
+  ],
+  "name": "Decomposed granite path",
+  "notes": "",
+  "parts": [
+    "compacted DG surface with fines",
+    "crushed granite grit and chips",
+    "weathering steel edging bands",
+    "edging stakes",
+    "small granite boulder accent",
+    "drainage weep lines"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.1,
+    2.0
+  ],
+  "style": "architectural facade customizer, California Modern; stabilized tan decomposed granite, sun bleached",
+  "summary": "Decomposed granite path, 2 x 2 m: stabilized tan DG fines and granite grit between staked Cor-ten edging, with gravel margins and a boulder.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

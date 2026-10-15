@@ -1,0 +1,35 @@
+{
+  "budget": 3900,
+  "id": "rod-handle-eva",
+  "kind": "prop",
+  "materials": [
+    "foam.eva",
+    "metal.anodized-gunmetal"
+  ],
+  "name": "EVA rod handle",
+  "notes": "reference photo: ../MulberryRiver/notes/reference/tackle/rod-handle-eva.jpg (compare runs use --ref)",
+  "parts": [
+    "rear grip",
+    "fore grip",
+    "butt cap",
+    "winding check",
+    "seat gap"
+  ],
+  "references": [],
+  "size": [
+    0.418,
+    0.028,
+    0.028
+  ],
+  "style": "black EVA foam casting handle",
+  "summary": "EVA casting handle 0.41 m: butt cap, long rear grip, seat gap, short fore grip.",
+  "tags": [
+    "prop",
+    "fishing",
+    "handheld",
+    "tool"
+  ],
+  "theme": "Tackle",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

@@ -1,0 +1,22 @@
+{
+  "budget": 12000,
+  "id": "window-seat",
+  "kind": "structure",
+  "materials": ["wood.painted-shaker:6E7F6B", "wood.painted-shaker-worn:6E7F6B", "wood.plywood", "fabric.linen:CFC6B0", "metal.brass-aged"],
+  "name": "Window seat",
+  "notes": "Back at -Z against the window wall. Seat top 0.55 m with cushion.",
+  "parts": [
+    "painted shaker carcass: gables, toe-kick plinth, back panel, top slab with nosing",
+    "face frame with rails and stiles",
+    "three inset drawers with raised-panel fronts and brass knobs",
+    "buttoned upholstered cushion"
+  ],
+  "references": [],
+  "size": [1.4, 0.55, 0.5],
+  "style": "sage painted built-in bench, linen cushion, aged brass",
+  "summary": "Built-in window seat, 1.4 m: painted shaker carcass with three inset drawers and brass knobs, buttoned upholstered cushion.",
+  "tags": ["structure", "floorplan", "interior", "furniture", "wood", "fabric", "living"],
+  "theme": "Interior",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

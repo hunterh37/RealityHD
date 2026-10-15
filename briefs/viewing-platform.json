@@ -1,0 +1,45 @@
+{
+  "budget": 15000,
+  "id": "viewing-platform",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized",
+    "metal.signal-yellow",
+    "metal.galvanized-aged",
+    "fence.chainlink",
+    "fabric.canvas",
+    "concrete.rough"
+  ],
+  "name": "Viewing platform",
+  "notes": "",
+  "parts": [
+    "columns",
+    "pads",
+    "knee braces",
+    "deck beams",
+    "grated deck",
+    "stair",
+    "handrails",
+    "mesh infill",
+    "sunshade",
+    "viewing scope"
+  ],
+  "references": [],
+  "size": [
+    4.2,
+    4.95,
+    9.19
+  ],
+  "style": "range spectator platform, galvanized steel, yellow rails, sun-faded canvas",
+  "summary": "Spectator viewing platform, 6 x 4 m deck at 2.4 m: galvanized frame, grated deck, stair, mesh-infill handrails, canvas sunshade and a viewing scope.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "outdoor",
+    "metal",
+    "furniture"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

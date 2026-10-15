@@ -1,0 +1,47 @@
+{
+  "budget": 30000,
+  "id": "massachusetts-state-house",
+  "kind": "structure",
+  "materials": [
+    "brick.red",
+    "wood.trim-weathered",
+    "metal.gold-leaf",
+    "screen.off",
+    "stone.granite-curb",
+    "metal.roofing"
+  ],
+  "name": "Massachusetts State House",
+  "notes": "",
+  "parts": [
+    "raised arcaded brick base",
+    "red brick Federal main block",
+    "white Corinthian colonnade loggia",
+    "pediment",
+    "balustrade",
+    "double-hung windows",
+    "cornice",
+    "drum",
+    "gilded dome",
+    "white lantern cupola",
+    "pine cone finial",
+    "wings"
+  ],
+  "references": [],
+  "size": [
+    52,
+    43,
+    29
+  ],
+  "style": "Charles Bulfinch 1798 Federal, red brick and white painted wood trim, gold-leaf dome, weathered",
+  "summary": "Massachusetts State House, Beacon Hill facade block: arcaded brick base, Corinthian loggia, pediment, 16 m gilded dome on a drum, lantern with pine cone.",
+  "tags": [
+    "structure",
+    "architecture",
+    "building",
+    "brick",
+    "metal"
+  ],
+  "theme": "Architecture",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

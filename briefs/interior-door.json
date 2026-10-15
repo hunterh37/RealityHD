@@ -1,0 +1,42 @@
+{
+  "budget": 10000,
+  "id": "interior-door",
+  "kind": "structure",
+  "materials": [
+    "wood.painted-shaker:D6CFC0",
+    "metal.brushed-nickel",
+    "metal.hinge-satin-nickel",
+    "plastic.black","decal.rubber-scuff"
+  ],
+  "name": "Interior panel door",
+  "notes": "Origin bottom center of rough opening, hinge on -X, swings toward +Z. Rig: leaf hinge Y 0...-100 (right-hand rule); lever hinge. States closed, ajar, open.",
+  "parts": [
+    "two-panel shaker slab with stiles and rails",
+    "split jamb with stop",
+    "casing both sides with back band",
+    "three hinges",
+    "lever with rose",
+    "latch and strike"
+  ],
+  "references": [],
+  "size": [
+    0.94,
+    2.1,
+    0.15
+  ],
+  "style": "painted white MDF two-panel door, satin nickel hardware, light wear at the lever",
+  "summary": "Interior two-panel door in a cased frame: painted slab, three hinges, nickel lever, casing both sides; swings 100 degrees.",
+  "tags": [
+    "structure",
+    "floorplan",
+    "home",
+    "wood",
+    "metal",
+    "interior",
+    "door",
+    "articulated"
+  ],
+  "theme": "Interior",
+  "threshold": 0.8,
+  "tolerance": 0.05
+}

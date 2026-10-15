@@ -1,0 +1,42 @@
+{
+  "budget": 13500,
+  "id": "gas-lamp-wall-bracket",
+  "kind": "prop",
+  "materials": [
+    "metal.painted",
+    "metal.cast-iron",
+    "glass.pane",
+    "emissive.warm",
+    "metal.brass-aged"
+  ],
+  "name": "Gas lamp wall bracket",
+  "notes": "",
+  "parts": [
+    "wall plate with bolts",
+    "S-scroll arm with leaf volutes",
+    "lantern base with cup",
+    "four tapered glass panes in iron frame",
+    "gas mantle glowing",
+    "pyramidal hood with chimney vent",
+    "ball finial"
+  ],
+  "references": [],
+  "size": [
+    0.35,
+    0.75,
+    0.45
+  ],
+  "style": "architectural facade customizer, Victorian, cast iron black enamel, brass burner, weathered",
+  "summary": "Victorian gas lamp wall bracket, 0.75 m: cast wall plate, scrolled arm, tapered four-pane lantern, finial and burner.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "light",
+    "metal",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

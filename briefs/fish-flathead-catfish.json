@@ -1,0 +1,51 @@
+{
+  "budget": 10000,
+  "id": "fish-flathead-catfish",
+  "kind": "prop",
+  "materials": [
+    "fish.flathead-skin",
+    "fish.flathead-fin",
+    "fish.eye-amber",
+    "fish.mouth",
+    "fish.barbel"
+  ],
+  "name": "Flathead catfish",
+  "notes": "",
+  "parts": [
+    "body",
+    "tail",
+    "jaw",
+    "eye",
+    "dorsal fin",
+    "anal fin",
+    "caudal fin",
+    "pectoral fins",
+    "pelvic fins",
+    "gill cover",
+    "lateral line",
+    "scales",
+    "adipose fin",
+    "barbels"
+  ],
+  "references": [
+    "MulberryRiver/notes/reference/fish/fish-flathead-catfish.jpg"
+  ],
+  "size": [
+    0.617,
+    0.161,
+    0.184
+  ],
+  "style": "live freshwater fish fresh from an Ozark stream, wet glossy skin, natural coloration",
+  "summary": "Flathead catfish (Pylodictis olivaris), 0.60 m: mottled scaleless body, broad flat head, projecting lower jaw, square tail.",
+  "tags": [
+    "prop",
+    "fish",
+    "handheld",
+    "articulated",
+    "outdoor",
+    "water"
+  ],
+  "theme": "Fish",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

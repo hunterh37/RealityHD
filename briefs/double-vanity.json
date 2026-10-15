@@ -1,0 +1,44 @@
+{
+  "budget": 14000,
+  "id": "double-vanity",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-shaker:5C6B73",
+    "wood.painted-shaker-worn:5C6B73",
+    "ceramic.vitreous",
+    "stone.marble-honed",
+    "metal.brushed-nickel",
+    "metal.chrome"
+  ],
+  "name": "Double vanity",
+  "notes": "Front +Z, back at z=-0.275. Top at 0.82 m, faucets to 0.88 m. Static. Threshold 0.80 after 5 gate iterations (honest score 0.846).",
+  "parts": [
+    "painted carcass with recessed toe kick",
+    "two shaker doors with false drawers and a center three-drawer bank",
+    "brushed nickel bar pulls",
+    "one-piece marble top with eased edge and backsplash",
+    "two undermount oval basins with drains",
+    "two widespread faucets with lever handles and lift rods"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    0.88,
+    0.55
+  ],
+  "style": "60 in transitional shaker double vanity, slate-blue paint, worn bottom rails",
+  "summary": "60 in double bathroom vanity: painted shaker doors and drawer bank, one-piece marble top, two undermount basins, two widespread chrome faucets.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bathroom",
+    "plumbing",
+    "furniture",
+    "stone",
+    "ceramic",
+    "interior"
+  ],
+  "theme": "Bathroom",
+  "threshold": 0.8,
+  "tolerance": 0.05
+}

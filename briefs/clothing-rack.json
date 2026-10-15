@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "clothing-rack",
+  "kind": "prop",
+  "materials": [
+    "metal.chrome",
+    "metal.powdercoat:1E1E20",
+    "fabric.upholstery",
+    "fabric.linen",
+    "plastic.matte"
+  ],
+  "name": "clothing rack",
+  "notes": "",
+  "parts": [
+    "round chrome hang rail with end caps",
+    "two upright posts with height collars",
+    "two splayed leg bases with floor feet and casters",
+    "lower shelf rail",
+    "hangers (wood and plastic) with hanging garments in varied colors",
+    "price tag hangers"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.6,
+    0.5
+  ],
+  "style": "boutique garment rack, chrome rail, filled with garments",
+  "summary": "Clothing rack, 1.2 x 1.6 x 0.5 m: chrome rail on adjustable posts and casters with hangers and hanging garments.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "commercial",
+    "retail",
+    "metal",
+    "interior"
+  ],
+  "theme": "Commercial",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

@@ -1,0 +1,34 @@
+{
+  "budget": 11000,
+  "id": "river-cobble",
+  "kind": "nature",
+  "materials": [
+    "rock.cobble-wet",
+    "rock.ozark-sandstone"
+  ],
+  "name": "Streambed cobble patch",
+  "notes": "MulberryRiver river pack. Reference compared with gate --ref (compare.png): briefs/refs/river-cobble/Paddling_Near_Ozark_Arkansas.jpg (not committed; sources in MulberryRiver notes/reference).",
+  "parts": [
+    "large flat cobbles",
+    "small cobbles",
+    "sandstone cobbles",
+    "imbricated stacking"
+  ],
+  "references": [],
+  "size": [
+    1.4,
+    0.12,
+    1.8
+  ],
+  "style": "water-worn, wet and glossy",
+  "summary": "Streambed cobble patch, ~1.8 m: 10-16 rounded flat cobbles, 8-32 cm, imbricated by the current, wet or dry, 2 LODs.",
+  "tags": [
+    "nature",
+    "rock",
+    "water",
+    "river"
+  ],
+  "theme": "Rocks",
+  "threshold": 0.85,
+  "tolerance": 0.25
+}

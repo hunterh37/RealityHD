@@ -1,0 +1,50 @@
+{
+  "budget": 15000,
+  "id": "gantry-crane",
+  "kind": "prop",
+  "materials": [
+    "metal.signal-yellow",
+    "metal.galvanized",
+    "metal.steel",
+    "metal.painted",
+    "rubber",
+    "metal.cast-iron",
+    "label.hazard"
+  ],
+  "name": "Gantry crane",
+  "notes": "",
+  "parts": [
+    "I-beam",
+    "end plates",
+    "A-frame legs",
+    "base beams",
+    "casters",
+    "braces",
+    "trolley",
+    "chain hoist",
+    "load chain",
+    "hand chain",
+    "hook block",
+    "hook",
+    "capacity plate"
+  ],
+  "references": [],
+  "size": [
+    4.4,
+    3.6,
+    1.9
+  ],
+  "style": "portable hangar gantry crane, safety yellow, red hoist, light shop wear",
+  "summary": "Portable gantry crane, 4 m span: yellow I-beam on A-frame legs with casters, sliding trolley and chain hoist with a lowering hook block.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "interior",
+    "industrial",
+    "articulated",
+    "metal"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

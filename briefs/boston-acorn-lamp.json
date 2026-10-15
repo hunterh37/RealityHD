@@ -1,0 +1,44 @@
+{
+  "budget": 6000,
+  "id": "boston-acorn-lamp",
+  "kind": "prop",
+  "materials": [
+    "metal.wrought-iron",
+    "metal.cast-iron-street",
+    "metal.copper-patina",
+    "glass.lamp",
+    "emissive.warm"
+  ],
+  "name": "Boston Acorn Lamp",
+  "notes": "",
+  "parts": [
+    "moulded base",
+    "fluted column",
+    "collar",
+    "ladder bar",
+    "lantern fitter",
+    "acorn glass globe",
+    "copper cap",
+    "finial",
+    "gas mantle"
+  ],
+  "references": [],
+  "size": [
+    0.74,
+    4.0,
+    0.4
+  ],
+  "style": "painted black cast iron, aged copper cap",
+  "summary": "Boston cast-iron acorn gas lamp post: fluted tapering column on a moulded base, ladder rest bar, acorn glass globe with copper cap and finial.",
+  "tags": [
+    "prop",
+    "light",
+    "metal",
+    "street",
+    "glass",
+    "park"
+  ],
+  "theme": "Lighting",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

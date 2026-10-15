@@ -1,0 +1,40 @@
+{
+  "budget": 9600,
+  "id": "recliner-chair",
+  "kind": "prop",
+  "materials": [
+    "leather.oxblood",
+    "leather.oxblood-worn",
+    "plastic.black",
+    "wood.walnut"
+  ],
+  "name": "Leather recliner",
+  "notes": "Floor planning pack B1. Upright pose only, static. Front +Z.",
+  "parts": [
+    "channel-stitched back",
+    "pillow arms",
+    "seat cushion",
+    "closed footrest front panel",
+    "side release handle",
+    "black plastic base rail"
+  ],
+  "references": [],
+  "size": [
+    0.92,
+    1.02,
+    0.97
+  ],
+  "style": "wall-hugger recliner",
+  "summary": "Leather recliner, upright: channel-stitched back, pillow arms, closed footrest front, side release handle.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "living",
+    "furniture",
+    "leather",
+    "interior"
+  ],
+  "theme": "Living",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

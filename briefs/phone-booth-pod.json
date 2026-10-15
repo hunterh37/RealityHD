@@ -1,0 +1,45 @@
+{
+  "budget": 15000,
+  "id": "phone-booth-pod",
+  "kind": "prop",
+  "materials": [
+    "fabric.upholstery:5E6B74",
+    "metal.anodized",
+    "glass.tinted",
+    "metal.powdercoat:2B2D30",
+    "wood.veneer-oak",
+    "emissive.warm"
+  ],
+  "name": "Office phone booth pod",
+  "notes": "Floor planning pack C. Glass door faces +Z.",
+  "parts": [
+    "aluminum corner posts and plinth",
+    "felt slat acoustic walls",
+    "framed glass door with bar handle",
+    "roof with LED strip and vent",
+    "interior bench and ledge",
+    "power outlet and light"
+  ],
+  "references": [],
+  "size": [
+    1.0,
+    2.3,
+    1.0
+  ],
+  "style": "charcoal felt office pod with oak interior and a glass door",
+  "summary": "Acoustic phone booth pod, 1 x 1 x 2.3 m: felt slat walls, glass door, bench and shelf inside, LED roof.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "commercial",
+    "office",
+    "furniture",
+    "fabric",
+    "glass",
+    "metal",
+    "interior"
+  ],
+  "theme": "Commercial",
+  "threshold": 0.85,
+  "tolerance": 0.06
+}

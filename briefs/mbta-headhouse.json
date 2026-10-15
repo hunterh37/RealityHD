@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "mbta-headhouse",
+  "kind": "structure",
+  "materials": [
+    "stone.granite-curb",
+    "metal.verdigris-roof",
+    "metal.wrought-iron",
+    "concrete.sidewalk",
+    "plastic.white"
+  ],
+  "name": "MBTA Park Street headhouse",
+  "notes": "",
+  "parts": [
+    "granite walls",
+    "copper hip roof",
+    "stair opening",
+    "stairs",
+    "railings",
+    "T sign disk",
+    "sign post",
+    "cornice"
+  ],
+  "references": [],
+  "size": [
+    6.6,
+    5.3,
+    6.4
+  ],
+  "style": "1897 Tremont Street subway kiosk, granite and verdigris copper, weathered",
+  "summary": "Park Street T station headhouse on Boston Common: granite walls, verdigris copper hip roof, stair opening with railings, T sign disk.",
+  "tags": [
+    "structure",
+    "city",
+    "urban",
+    "stone",
+    "park"
+  ],
+  "theme": "City",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

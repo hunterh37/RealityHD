@@ -1,0 +1,44 @@
+{
+  "budget": 15000,
+  "id": "brewer-fountain",
+  "kind": "prop",
+  "materials": [
+    "metal.bronze-cast",
+    "metal.copper-patina",
+    "stone.granite-curb",
+    "glass.water-clear",
+    "concrete.rough"
+  ],
+  "name": "Brewer Fountain",
+  "notes": "source: https://en.wikipedia.org/wiki/Brewer_Fountain",
+  "parts": [
+    "granite basin with coping",
+    "water surface",
+    "pedestal with four seated figures (Neptune, Amphitrite, Acis, Galatea)",
+    "lower bowl",
+    "middle stem with dolphins",
+    "upper bowl",
+    "top spout"
+  ],
+  "references": [],
+  "size": [
+    12.0,
+    6.7,
+    12.0
+  ],
+  "style": "1868 Lienard bronze fountain cast in Paris, dark olive bronze with verdigris streaks, wet granite basin",
+  "summary": "Brewer Fountain, 6.7 m bronze tiered fountain in a 12 m granite basin: four seated figures, two bowls and a top spout.",
+  "tags": [
+    "prop",
+    "park",
+    "outdoor",
+    "urban",
+    "metal",
+    "stone",
+    "water",
+    "decor"
+  ],
+  "theme": "Plaza",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
