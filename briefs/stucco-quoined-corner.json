@@ -1,0 +1,41 @@
+{
+  "budget": 10000,
+  "id": "stucco-quoined-corner",
+  "kind": "prop",
+  "materials": [
+    "concrete.smooth",
+    "stone.cast-stone",
+    "stone.limestone-sooted",
+    "metal.galvanized-aged",
+    "concrete.rough"
+  ],
+  "name": "Stucco quoined corner",
+  "notes": "",
+  "parts": [
+    "stucco corner returns",
+    "alternating long-short quoin blocks",
+    "chamfered quoin arrises",
+    "quoin joint reveals",
+    "stucco weep screed at base",
+    "hairline cracks and dirt streaks",
+    "base plinth band"
+  ],
+  "references": [],
+  "size": [
+    0.5,
+    2.4,
+    0.5
+  ],
+  "style": "architectural facade customizer, Mediterranean",
+  "summary": "Stucco quoined outside corner: smooth stucco returns with alternating long-short cast stone quoins, weep screed and plinth band.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

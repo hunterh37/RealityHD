@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "roughcast-lime-render-panel",
+  "kind": "prop",
+  "materials": [
+    "paint.stucco",
+    "concrete.rough",
+    "metal.stainless",
+    "concrete.exposed-aggregate"
+  ],
+  "name": "Roughcast lime render panel",
+  "notes": "",
+  "parts": [
+    "thrown roughcast surface with pebble aggregate",
+    "smooth trowelled margin border",
+    "bell-cast bead at base",
+    "stainless render stop beads",
+    "exposed scratch coat at chip",
+    "green algae streak below sill line",
+    "lime wash finish"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    2.4,
+    0.04
+  ],
+  "style": "architectural facade customizer, Arts and Crafts",
+  "summary": "Roughcast lime render panel: thrown pebble-aggregate lime render with smooth margins and a bell-cast bead at the base.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

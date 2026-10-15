@@ -835,6 +835,10 @@ public enum Props {
         FishScaleShinglePanel.self,
         OctagonalShinglePanel.self,
         ClapboardLapSidingRun.self,
+        WoodShiplapPanel.self,
+        StuccoQuoinedCorner.self,
+        RoughcastLimeRenderPanel.self,
+        FlemishBondBrickPanel.self,
         // realityhd:prop
     ]
 }
