@@ -1,0 +1,36 @@
+{
+  "budget": 15000,
+  "id": "chalky-flint-soil",
+  "kind": "prop",
+  "materials": [
+    "rock.limestone",
+    "rock.slate"
+  ],
+  "name": "Chalky flint soil",
+  "notes": "",
+  "parts": [
+    "pale chalky rendzina soil",
+    "white chalk lumps",
+    "nodular black flints with white cortex",
+    "knapped flint shards",
+    "plough furrow undulation"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.1,
+    2
+  ],
+  "style": "architectural facade customizer, Vernacular",
+  "summary": "Chalky flint soil tile, 2 x 2 m: thin pale downland soil over chalk, strewn with white chalk lumps and nodular flints with white cortex.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
