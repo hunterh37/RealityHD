@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "dusty-farmyard-dirt",
+  "kind": "prop",
+  "materials": [
+    "ground.dirt",
+    "ground.site",
+    "straw",
+    "rock.river"
+  ],
+  "name": "Dusty farmyard dirt",
+  "notes": "",
+  "parts": [
+    "trodden earth",
+    "hoof prints",
+    "tyre rut",
+    "straw wisps",
+    "grit and pebbles",
+    "dust drift"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.08,
+    2
+  ],
+  "style": "architectural facade customizer, Vernacular",
+  "summary": "Dusty farmyard dirt tile, 2 x 2 m: dry trodden yard earth with hoof prints, scattered straw and grit.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

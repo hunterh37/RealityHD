@@ -1,0 +1,37 @@
+{
+  "budget": 15000,
+  "id": "red-laterite-dirt",
+  "kind": "prop",
+  "materials": [
+    "ground.dirt",
+    "rock.redstone",
+    "ground.sand"
+  ],
+  "name": "Red laterite dirt",
+  "notes": "",
+  "parts": [
+    "laterite crust",
+    "erosion rills",
+    "ironstone nodules",
+    "tyre track",
+    "dust drift"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.08,
+    2
+  ],
+  "style": "architectural facade customizer, Vernacular",
+  "summary": "Red laterite dirt tile, 2 x 2 m: iron-red compacted earth with erosion rills, ironstone nodules and a tyre track.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
