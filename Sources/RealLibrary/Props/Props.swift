@@ -743,6 +743,11 @@ public enum Props {
         LureInlineSpinner.self,
         LureTopwaterPopper.self,
         LureJig.self,
+        YorkStoneFlagstonePaving.self,
+        CrazyPavingIrregularStone.self,
+        HerringboneBrickPaving.self,
+        BasketweaveBrickPaving.self,
+        ScoredConcreteSidewalkSlab.self,
         // realityhd:prop
     ]
 }
