@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "peat-bog-moss",
+  "kind": "prop",
+  "materials": [
+    "ground.dirt",
+    "moss.cushion",
+    "water.puddle",
+    "grass.dry"
+  ],
+  "name": "Peat bog moss",
+  "notes": "",
+  "parts": [
+    "peat heightfield",
+    "sphagnum hummocks",
+    "red and green sphagnum cushions",
+    "bog water hollows",
+    "cotton-grass tufts",
+    "peat crumbs"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.15,
+    2
+  ],
+  "style": "architectural facade customizer, Vernacular",
+  "summary": "Peat bog tile 2 x 2 m: sphagnum moss hummocks, wet peat hollows with bog water, cotton-grass tufts.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "garden",
+    "outdoor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
