@@ -1,0 +1,45 @@
+{
+  "budget": 11500,
+  "id": "wardrobe",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-shaker:A9A08F",
+    "wood.painted-shaker-worn:A9A08F",
+    "metal.brushed-nickel",
+    "metal.chrome",
+    "fabric.linen",
+    "fabric.wool",
+    "fabric.canvas"
+  ],
+  "name": "Wardrobe",
+  "notes": "",
+  "parts": [
+    "crown moulding and plinth",
+    "two shaker doors with nickel pulls",
+    "bottom drawer with pull",
+    "hanging rail with hangers and garments",
+    "top shelf with folded linens",
+    "painted interior and back",
+    "hinge knuckles"
+  ],
+  "references": [],
+  "size": [
+    1.0,
+    2.0,
+    0.6
+  ],
+  "style": "cream painted shaker armoire, nickel hardware, stocked with clothes",
+  "summary": "Two-door painted wardrobe with a bottom drawer, hanging rail with garments, top shelf and nickel pulls; doors and drawer open.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bedroom",
+    "furniture",
+    "wood",
+    "interior",
+    "articulated"
+  ],
+  "theme": "Bedroom",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

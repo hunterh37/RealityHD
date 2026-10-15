@@ -1,0 +1,43 @@
+{
+  "budget": 14500,
+  "id": "built-in-bookcase",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-shaker:E9E5DB",
+    "wood.plywood",
+    "wood.walnut",
+    "book.cloth",
+    "metal.brass"
+  ],
+  "name": "built-in bookcase",
+  "notes": "",
+  "parts": [
+    "painted face frame with crown and base moulding",
+    "fixed shelves with shelf nosing",
+    "vertical stiles and toe kick",
+    "lower closed cabinet doors with shaker panels and knobs",
+    "shelf-filled books with varied heights and colors",
+    "small objects: vase, framed photo, box"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    2.4,
+    0.35
+  ],
+  "style": "painted white built-in bookcase with lower doors, filled shelves, wall-mounted",
+  "summary": "Built-in bookcase, 1.2 x 2.4 x 0.35 m: painted face frame, crown and base trim, shaker lower doors, filled shelves.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "living",
+    "furniture",
+    "wood",
+    "book",
+    "wall",
+    "interior"
+  ],
+  "theme": "Living",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

@@ -1,0 +1,39 @@
+{
+  "budget": 6000,
+  "id": "imu",
+  "kind": "prop",
+  "materials": [
+    "metal.anodized",
+    "metal.aluminum-brushed",
+    "paint.field-white",
+    "label.inspection",
+    "metal.steel",
+    "plastic.matte"
+  ],
+  "name": "IMU",
+  "notes": "VisionSpacecraft specs/04, specs/14",
+  "parts": [
+    "housing",
+    "lid",
+    "mount flanges",
+    "connector",
+    "axis label",
+    "screws"
+  ],
+  "references": [],
+  "size": [
+    0.131,
+    0.052,
+    0.131
+  ],
+  "style": "tactical grade inertial measurement unit",
+  "summary": "Inertial measurement unit, 0.1 m footprint: machined aluminium housing with flanged mounts, screwed lid, axis marking and a circular connector.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "electronics"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

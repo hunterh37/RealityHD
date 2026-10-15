@@ -1,0 +1,53 @@
+{
+  "budget": 30000,
+  "id": "hangar",
+  "kind": "structure",
+  "materials": [
+    "metal.roofing",
+    "metal.painted",
+    "metal.galvanized",
+    "metal.galvanized-aged",
+    "concrete.shop",
+    "concrete.rough",
+    "plastic.fiberglass-yellow",
+    "paint.lane-yellow",
+    "metal.rust"
+  ],
+  "name": "Hangar",
+  "notes": "",
+  "parts": [
+    "barrel roof",
+    "portal arches",
+    "purlins",
+    "front header",
+    "side panels",
+    "sliding door leaves",
+    "door tracks",
+    "back wall",
+    "personnel door",
+    "canopy",
+    "wall lamp",
+    "roof light strips",
+    "interior floor",
+    "bay lines",
+    "apron"
+  ],
+  "references": [],
+  "size": [
+    28,
+    10.75,
+    38.58
+  ],
+  "style": "range hangar, weathered corrugated barrel roof, painted steel arches, rust streaks",
+  "summary": "Arched hangar, 24 x 30 m: corrugated barrel roof on steel arches, boxed door header over sliding doors, skylights, concrete plinth and apron.",
+  "tags": [
+    "structure",
+    "aerospace",
+    "building",
+    "industrial",
+    "metal"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

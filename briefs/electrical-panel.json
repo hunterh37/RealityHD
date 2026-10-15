@@ -1,0 +1,17 @@
+{
+  "budget": 6500,
+  "id": "electrical-panel",
+  "kind": "prop",
+  "materials": ["metal.powdercoat:BFC1C2", "metal.painted:6E7074", "plastic.matte:2B2B2D", "plastic.white", "plastic.orange", "metal.brass-aged", "metal.galvanized-aged", "metal.screw-zinc", "label.inspection", "label.hazard-small", "plastic.black", "glass.clear"],
+  "name": "Electrical panel",
+  "notes": "Wall asset: lowest point y 0 (bottom cable connectors), back face z -0.05, planner mounts at 1.5 m. Trim cover has the breaker window; the lower flip door carries the circuit directory.",
+  "parts": ["grey sheet-steel enclosure with trim cover", "breaker window with two columns of toggle breakers and a main breaker", "lower hinged door with circuit directory card and hinges", "latch and cover screws", "EMT conduit stubs with locknuts on top", "cable connectors on the bottom", "warning label"],
+  "references": [],
+  "size": [0.4, 0.65, 0.1],
+  "style": "Residential 200 A load center, grey enamel, slightly dusty.",
+  "summary": "Wall-mounted residential breaker panel: grey enclosure and trim, two columns of toggle breakers, main breaker, hinged directory door, conduit stubs.",
+  "tags": ["prop", "floorplan", "home", "electrical", "metal", "wall", "interior"],
+  "theme": "Home",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

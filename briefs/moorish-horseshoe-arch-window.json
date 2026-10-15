@@ -1,0 +1,44 @@
+{
+  "budget": 12000,
+  "id": "moorish-horseshoe-arch-window",
+  "kind": "prop",
+  "materials": [
+    "paint.stucco",
+    "stone.limestone-sooted",
+    "brick.red",
+    "wood.deadwood",
+    "glass.tinted",
+    "stone.cast-stone"
+  ],
+  "name": "Moorish Horseshoe Arch Window",
+  "notes": "",
+  "parts": [
+    "stucco wall plate",
+    "raised alfiz rectangular frame",
+    "horseshoe arch voussoirs alternating brick and limestone",
+    "extrados rope moulding",
+    "impost blocks",
+    "engaged colonnettes with flared capitals and bases",
+    "diagonal wood lattice",
+    "glass pane",
+    "stone sill with drip"
+  ],
+  "references": [],
+  "size": [
+    0.9,
+    1.8,
+    0.2
+  ],
+  "style": "architectural facade customizer, Moorish Revival, weathered stucco and sooted limestone",
+  "summary": "Moorish horseshoe arch window, 0.9 x 1.8 m: alternating brick and limestone voussoirs, alfiz frame, colonnettes, lattice and glass.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

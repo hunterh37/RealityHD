@@ -1,0 +1,35 @@
+{
+  "budget": 3000,
+  "id": "driftwood-log",
+  "kind": "nature",
+  "materials": [
+    "wood.driftwood",
+    "wood.driftwood-end",
+    "bark.sycamore-lower"
+  ],
+  "name": "Driftwood log",
+  "notes": "MulberryRiver river pack. Reference compared with gate --ref (compare.png): briefs/refs/driftwood-log/Turner_Bend_Take_Out_and_Boat_Lift.jpg (not committed; sources in MulberryRiver notes/reference).",
+  "parts": [
+    "tapered trunk",
+    "snapped top",
+    "weathered butt",
+    "branch stubs",
+    "bark scraps"
+  ],
+  "references": [],
+  "size": [
+    5.1,
+    0.75,
+    0.8
+  ],
+  "style": "flood-stranded, sun-bleached silver grey, checked",
+  "summary": "Driftwood log, 5 m: bark stripped to silver checked wood, brown bark scraps, snapped top, branch stubs, 3 LODs.",
+  "tags": [
+    "nature",
+    "wood",
+    "river"
+  ],
+  "theme": "Wood",
+  "threshold": 0.85,
+  "tolerance": 0.2
+}

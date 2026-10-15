@@ -1,0 +1,43 @@
+{
+  "budget": 15000,
+  "id": "bar-counter",
+  "kind": "prop",
+  "materials": [
+    "wood.walnut",
+    "wood.painted-shaker-worn:2B3A36",
+    "stone.marble-dark",
+    "metal.brass-aged",
+    "leather.black",
+    "metal.stainless"
+  ],
+  "name": "bar counter",
+  "notes": "",
+  "parts": [
+    "front panel of vertical fluted walnut slats",
+    "marble top with rounded edge and overhang",
+    "foot rail in brass",
+    "back bar shelf stub with bottle rail along the wall side",
+    "service side with stainless drip rail and drawers",
+    "toe kick plinth"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    1.1,
+    0.6
+  ],
+  "style": "hospitality bar, fluted walnut front, dark marble top, brass foot rail",
+  "summary": "Bar counter, 2.4 x 1.1 x 0.6 m: fluted walnut front, dark marble top, brass foot rail, stainless service rail.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "commercial",
+    "furniture",
+    "wood",
+    "wall",
+    "interior"
+  ],
+  "theme": "Commercial",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "long-meadow-grass",
+  "kind": "prop",
+  "materials": [
+    "grass.tall",
+    "grass.dry",
+    "grass.seedhead",
+    "grass.tall-card",
+    "ground.meadow",
+    "ground.dirt",
+    "plant.stem"
+  ],
+  "name": "Long meadow grass",
+  "notes": "",
+  "parts": [
+    "soil base",
+    "thatch floor",
+    "tall grass tufts",
+    "seed heads",
+    "dry blades"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.5,
+    2
+  ],
+  "style": "architectural facade customizer, English Landscape",
+  "summary": "Long meadow grass tile, 2 x 2 m: dense tussocks up to 45 cm with seed heads and dry blades over thatch.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,46 @@
+{
+  "budget": 10000,
+  "id": "wall-clock",
+  "kind": "prop",
+  "materials": [
+    "wood.walnut",
+    "glass.clear",
+    "paper.sheet",
+    "plastic.black",
+    "plastic.matte",
+    "plastic.gloss",
+    "metal.brass",
+    "rubber.silicone"
+  ],
+  "name": "Wall clock",
+  "notes": "Static.",
+  "parts": [
+    "walnut bezel",
+    "glass dome",
+    "white dial",
+    "hour and minute marks",
+    "hour minute and second hands",
+    "center hub",
+    "back plate with hanging slot and battery cap"
+  ],
+  "references": [],
+  "size": [
+    0.31,
+    0.31,
+    0.05
+  ],
+  "style": "quartz kitchen wall clock, walnut ring",
+  "summary": "Round wall clock, 31 cm: walnut bezel, glass dome, white face with hour bars, three hands, hanging slot on the back.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "decor",
+    "wall",
+    "wood",
+    "glass",
+    "interior"
+  ],
+  "theme": "Decor",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

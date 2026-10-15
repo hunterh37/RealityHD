@@ -1,0 +1,43 @@
+{
+  "budget": 7500,
+  "id": "vanity-table",
+  "kind": "prop",
+  "materials": [
+    "wood.mahogany",
+    "metal.brass-aged",
+    "metal.chrome",
+    "glass.tinted",
+    "wood.walnut"
+  ],
+  "name": "Vanity table",
+  "notes": "",
+  "parts": [
+    "top with rounded edge",
+    "three apron drawers with brass knobs",
+    "four turned tapered legs",
+    "arched mirror frame with silvered glass",
+    "two upright posts with brass pivot knobs",
+    "perfume bottle",
+    "trinket tray"
+  ],
+  "references": [],
+  "size": [
+    1.0,
+    1.4,
+    0.45
+  ],
+  "style": "mahogany, aged brass, silvered mirror, lived-in",
+  "summary": "Mahogany dressing table with three apron drawers, turned legs and an arched swivel mirror on posts, with a perfume bottle and trinket tray.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bedroom",
+    "furniture",
+    "wood",
+    "glass",
+    "interior"
+  ],
+  "theme": "Bedroom",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

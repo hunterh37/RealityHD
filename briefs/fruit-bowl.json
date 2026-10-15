@@ -1,0 +1,39 @@
+{
+  "budget": 14000,
+  "id": "fruit-bowl",
+  "kind": "prop",
+  "materials": [
+    "ceramic.stoneware",
+    "food.tomato",
+    "food.lemon",
+    "food.banana-peel-section"
+  ],
+  "name": "Fruit bowl",
+  "notes": "",
+  "parts": [
+    "wide stoneware bowl on a foot",
+    "apples with stems",
+    "lemons",
+    "banana bunch draped over the rim"
+  ],
+  "references": [],
+  "size": [
+    0.32,
+    0.16,
+    0.32
+  ],
+  "style": "glazed stoneware, mixed fruit",
+  "summary": "Stoneware fruit bowl with apples, lemons and a banana bunch over the rim.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "kitchen",
+    "ceramic",
+    "decor",
+    "interior",
+    "food"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

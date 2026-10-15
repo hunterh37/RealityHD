@@ -1,0 +1,36 @@
+{
+  "budget": 15000,
+  "id": "fuselage-section",
+  "kind": "prop",
+  "materials": [
+    "composite.carbon",
+    "metal.aluminum-brushed",
+    "metal.steel",
+    "paint.field-white"
+  ],
+  "name": "Fuselage section",
+  "notes": "VisionSpacecraft specs/04, specs/14",
+  "parts": [
+    "composite skin barrel",
+    "end frames",
+    "stringer seams",
+    "access hatch",
+    "hatch fasteners",
+    "attach bolt ring"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    1.25,
+    1.25
+  ],
+  "style": "UAV fuselage barrel, carbon skin with painted panel and aluminium end rings",
+  "summary": "Cylindrical fuselage section, 1.25 m diameter x 2.0 m: carbon composite skin barrel with machined aluminium end frames, bolt rings and a fastened access hatch.",
+  "tags": [
+    "prop",
+    "aerospace"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

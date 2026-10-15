@@ -365,6 +365,8 @@ public struct TreeGenerator: Sendable {
         public static let lod0 = LODSettings(sidesScale: 1, minSides: 3, maxLevel: 9, leafFraction: 1, leafScale: 1, pointStride: 1)
         public static let lod1 = LODSettings(sidesScale: 0.55, minSides: 3, maxLevel: 1, leafFraction: 0.45, leafScale: 1.45, pointStride: 2)
         public static let lod2 = LODSettings(sidesScale: 0.3, minSides: 3, maxLevel: 0, leafFraction: 0.16, leafScale: 2.4, pointStride: 3)
+        /// Far level: trunk prism and a few large cards that keep the crown silhouette (about a tenth of LOD 2).
+        public static let lod3 = LODSettings(sidesScale: 0.2, minSides: 3, maxLevel: 0, leafFraction: 0.035, leafScale: 4.6, pointStride: 6)
     }
 
     public func model(_ lodIn: LODSettings = .lod0) -> Model {
@@ -551,7 +553,11 @@ public struct TreeGenerator: Sendable {
         let sp = species, lp = sp.leaves
         // When finer levels are culled, the culled twigs' leaves are represented by bigger, sparser cards
         // spread over this branch.
-        let n = max(1, Int((lp.density * b.length * lod.leafFraction * sp.leafDensity).rounded()))
+        let want = lp.density * b.length * lod.leafFraction * sp.leafDensity
+        // Far levels (fraction < 0.1) round stochastically so short branches can carry no card; at least one card
+        // per branch otherwise floored the far crown near LOD 2's count. LOD 0-2 keep the old rule (same output).
+        let n = lod.leafFraction < 0.1 ? Int(want + rng.float(0...0.999)) : max(1, Int(want.rounded()))
+        guard n > 0 else { return }
         let g = lp.atlasGrid, cell = 1 / Float(g)
         let cluster = 1 / (1 + 2 * lp.tipCluster)
         for i in 0..<n {

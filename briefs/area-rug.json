@@ -1,0 +1,36 @@
+{
+  "budget": 7500,
+  "id": "area-rug",
+  "kind": "prop",
+  "materials": [
+    "carpet.rug"
+  ],
+  "name": "Wool area rug",
+  "notes": "",
+  "parts": [
+    "wool pile field",
+    "woven border band pattern in geometry",
+    "bound outer edge",
+    "knotted fringe on short ends",
+    "central medallion"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    0.012,
+    1.7
+  ],
+  "style": "flat-woven neutral wool rug, navy and ivory border, faint wear",
+  "summary": "Wool area rug, 2.4 x 1.7 m, flat: woven border bands, central medallion, bound edge and knotted fringe on the short ends.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "living",
+    "decor",
+    "fabric",
+    "interior"
+  ],
+  "theme": "Living",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

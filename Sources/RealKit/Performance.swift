@@ -134,6 +134,14 @@ public struct RealPerformance: Codable, Sendable, Hashable {
     nonisolated(unsafe) public private(set) static var generation: UInt64 = 0
     /// Adaptive governor multiplier (1 = no reduction). Runtime only, never persisted.
     nonisolated(unsafe) public internal(set) static var adaptiveScale: Float = 1
+    /// The governor ignores frames until this wall time (CFAbsoluteTime). Mesh uploads push it forward:
+    /// frames spent building a scene are load stalls, and counting them cut the scale to its floor before
+    /// the first walk, then the 8 % recoveries every 4 s re-switched LOD, culling and shadows mid-walk.
+    nonisolated(unsafe) public internal(set) static var adaptiveHoldUntil: Double = 0
+    /// Holds the adaptive governor for `seconds` from now (mesh uploads call this).
+    public static func holdAdaptive(_ seconds: Double = 1.5) {
+        adaptiveHoldUntil = max(adaptiveHoldUntil, CFAbsoluteTimeGetCurrent() + seconds)
+    }
     /// Largest sun shadow distance in use (meters, 0 = unknown). Meshes well past it stop casting.
     nonisolated(unsafe) public internal(set) static var shadowReach: Float = 0
 
@@ -316,6 +324,10 @@ public final class RealStats {
     public internal(set) var instances = 0
     public internal(set) var shadowCasters = 0
     public internal(set) var meshEntities = 0
+    /// Triangles and draws of meshes inside the headset view (both eye frustums at device field of view,
+    /// from `RealViewer` position and forward). Zero while `collectVisible` is off.
+    public internal(set) var visibleTriangles = 0
+    public internal(set) var visibleDrawCalls = 0
     /// LOD switches per second.
     public internal(set) var lodSwitches = 0
     public internal(set) var adaptiveScale: Float = 1
@@ -324,11 +336,14 @@ public final class RealStats {
     /// builds that show no overlay; `collectInterval` sets the walk period.
     nonisolated(unsafe) public static var collecting = true
     nonisolated(unsafe) public static var collectInterval: Double = 0.5
+    /// Adds the frustum test (one world-bounds query per costed mesh) to the stats walk.
+    nonisolated(unsafe) public static var collectVisible = true
     init() {}
 
     public var summary: String {
-        String(format: "%.0f fps %.1f ms (max %.1f)  %dk tris  %d draws  %d inst  %d casters  adapt %.2f  tex %dMB",
-               fps, frameMs, worstFrameMs, triangles / 1000, drawCalls, instances, shadowCasters, adaptiveScale, textureMB)
+        String(format: "%.0f fps %.1f ms (max %.1f)  %dk tris (%dk in view)  %d draws (%d in view)  %d inst  %d casters  adapt %.2f  tex %dMB",
+               fps, frameMs, worstFrameMs, triangles / 1000, visibleTriangles / 1000, drawCalls, visibleDrawCalls, instances, shadowCasters,
+               adaptiveScale, textureMB)
     }
 }
 
@@ -340,12 +355,19 @@ public struct RealPerformanceSystem: System {
     static let sunQuery = EntityQuery(where: .has(RealSunComponent.self))
     nonisolated(unsafe) static var lodSwitchCounter = 0
     static var collectWindow: Double { max(0.25, RealStats.collectInterval) }
+    /// Every RealityKit scene (menu window, HUD attachment host, immersive space) runs its own instance.
+    /// Only the scene with the most costed meshes publishes stats and drives the adaptive governor;
+    /// otherwise an empty window scene overwrote the counts with zeros and fed its own frame times to
+    /// the governor.
+    nonisolated(unsafe) static var primary: ObjectIdentifier?
+    nonisolated(unsafe) static var primaryMeshes = 0
+    /// Wall time of the primary's last update; a primary silent for 2 s (space closed) is replaced.
+    nonisolated(unsafe) static var primaryStamp: Double = 0
 
     private var generation: UInt64 = .max
     private var sunScale: Float = -1
     private var window: Double = 0, frames = 0, worst: Double = 0
-    private var ema: Double = 0
-    private var slowFor: Double = 0, fastFor: Double = 0, cooldown: Double = 0
+    private var governor = RealGovernor()
 
     public init(scene: RealityKit.Scene) {}
 
@@ -353,10 +375,26 @@ public struct RealPerformanceSystem: System {
         let dt = context.deltaTime
         guard dt > 0 else { return }
         let perf = RealPerformance.active
-        frames += 1; window += dt; worst = max(worst, dt)
-        ema = ema == 0 ? dt : ema * 0.9 + dt * 0.1
-
-        if perf.adaptive { govern(dt, perf) }
+        let me = ObjectIdentifier(context.scene)
+        let now = CFAbsoluteTimeGetCurrent()
+        if Self.primary == nil || (Self.primary != me && now - Self.primaryStamp > 2) { Self.primary = me; Self.primaryMeshes = 0 }
+        if Self.primary == me { Self.primaryStamp = now }
+        let isPrimary = Self.primary == me
+        // RealityKit skips system updates while nothing in the scene changes, so one deltaTime can span
+        // seconds of idle (about 4 Hz ticks of 250 ms in the simulator). Such a gap is not a frame: counting it put multi-second "worst frames" in the
+        // stats and made the governor cut LOD and draw distance whenever the viewer stood still, then
+        // restore it in steps while walking (mass LOD/cull toggles mid-walk).
+        if dt > RealGovernor.gap {
+            window = 0; frames = 0; worst = 0
+            governor.reset()
+        } else if now < RealPerformance.adaptiveHoldUntil {
+            // Meshes uploading: stats count the frame, the governor does not.
+            frames += 1; window += dt; worst = max(worst, dt)
+            governor.reset()
+        } else {
+            frames += 1; window += dt; worst = max(worst, dt)
+            if perf.adaptive, isPrimary { RealPerformance.adaptiveScale = governor.step(dt, perf, scale: RealPerformance.adaptiveScale) }
+        }
 
         if RealPerformance.generation != generation {
             generation = RealPerformance.generation
@@ -382,8 +420,9 @@ public struct RealPerformanceSystem: System {
             RealPerformance.shadowReach = reach
         }
 
-        guard window >= Self.collectWindow else { return }
+        guard window >= Self.collectWindow, frames > 0 else { return }
         guard RealStats.collecting else {
+            guard isPrimary else { window = 0; frames = 0; worst = 0; return }
             // Timing only: no entity walk.
             let fps = Double(frames) / window, frameMs = window / Double(frames) * 1000, worstMs = worst * 1000
             window = 0; frames = 0; worst = 0
@@ -393,12 +432,22 @@ public struct RealPerformanceSystem: System {
             }
             return
         }
-        var tris = 0, draws = 0, inst = 0, casters = 0, meshes = 0
+        var tris = 0, draws = 0, inst = 0, casters = 0, meshes = 0, vTris = 0, vDraws = 0
+        let view: ViewVolume? = RealStats.collectVisible
+            ? MainActor.assumeIsolated { RealViewer.refresh(); return ViewVolume(eye: RealViewer.position, forward: RealViewer.forward) } : nil
         for e in context.entities(matching: Self.costQuery, updatingSystemWhen: .rendering) where e.isActive {
             guard let c = e.components[RealRenderCostComponent.self] else { continue }
             meshes += 1; tris += c.triangles * c.instances; draws += c.drawCalls; inst += c.instances
+            if let view {
+                let b = e.visualBounds(relativeTo: nil)
+                if view.intersects(center: b.center, radius: simd_length(b.extents) / 2) { vTris += c.triangles * c.instances; vDraws += c.drawCalls }
+            }
             if e.components[DynamicLightShadowComponent.self]?.castsShadow ?? true { casters += 1 }
         }
+        if isPrimary || meshes > Self.primaryMeshes {
+            Self.primary = me; Self.primaryMeshes = meshes; Self.primaryStamp = now
+        }
+        guard Self.primary == me else { window = 0; frames = 0; worst = 0; return }
         let fps = Double(frames) / window, frameMs = window / Double(frames) * 1000, worstMs = worst * 1000
         let switches = Int(Double(Self.lodSwitchCounter) / window)
         Self.lodSwitchCounter = 0
@@ -407,22 +456,36 @@ public struct RealPerformanceSystem: System {
             let st = RealStats.shared
             st.fps = fps; st.frameMs = frameMs; st.worstFrameMs = worstMs
             st.triangles = tris; st.drawCalls = draws; st.instances = inst; st.shadowCasters = casters; st.meshEntities = meshes
+            st.visibleTriangles = vTris; st.visibleDrawCalls = vDraws
             st.lodSwitches = switches; st.adaptiveScale = RealPerformance.adaptiveScale
             st.textureMB = RealMaterialCache.shared.textureBytes / 1_048_576
         }
     }
+}
 
-    /// Steps the adaptive scale down after 0.75 s of long frames, up after 4 s at target (6 s after a drop).
-    private mutating func govern(_ dt: Double, _ perf: RealPerformance) {
+/// Adaptive frame-rate governor: steps the scale down after 0.75 s of long frames, up after 4 s at target
+/// (6 s after a drop). Feed it frame deltas only; `gap` and longer are idle spans, not frames.
+public struct RealGovernor: Sendable {
+    public static let gap: Double = 0.2
+    var ema: Double = 0
+    var slowFor: Double = 0, fastFor: Double = 0, cooldown: Double = 0
+    public init() {}
+
+    /// Forgets frame history (after an idle gap) but keeps the cooldown.
+    public mutating func reset() { ema = 0; slowFor = 0; fastFor = 0 }
+
+    public mutating func step(_ dt: Double, _ perf: RealPerformance, scale current: Float) -> Float {
+        guard dt > 0, dt <= Self.gap else { reset(); return current }
+        ema = ema == 0 ? dt : ema * 0.9 + dt * 0.1
         let budget = 1 / max(30, perf.targetFPS)
         cooldown = max(0, cooldown - dt)
         if ema > budget * 1.12 { slowFor += dt; fastFor = 0 } else if ema < budget * 1.04 { fastFor += dt; slowFor = 0 }
-        var scale = RealPerformance.adaptiveScale
+        var scale = current
         if slowFor > 0.75, scale > perf.minAdaptiveScale {
             scale = max(perf.minAdaptiveScale, scale * 0.88); slowFor = 0; cooldown = 6
         } else if fastFor > 4, cooldown == 0, scale < 1 {
             scale = min(1, scale * 1.08); fastFor = 0
         }
-        RealPerformance.adaptiveScale = scale
+        return scale
     }
 }

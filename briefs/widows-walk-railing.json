@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "widows-walk-railing",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "wood.painted-shaker-worn",
+    "metal.painted"
+  ],
+  "name": "Widow's walk railing",
+  "notes": "",
+  "parts": [
+    "bottom rail with drip edge",
+    "top rail with moulded cap",
+    "turned balusters with vase profile",
+    "square newel posts with panel faces",
+    "urn and ball newel finials",
+    "X lattice mid sections",
+    "painted white wood with weathering"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    0.9,
+    0.1
+  ],
+  "style": "architectural facade customizer, Federal/Coastal Colonial, white painted wood, salt weathering at bottom rail",
+  "summary": "Federal widow's walk railing, 3.0 m: top and bottom rails, turned balusters, newel posts with caps and ball finials, cross-braces.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "wood",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

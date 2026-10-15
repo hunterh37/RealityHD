@@ -1,0 +1,45 @@
+{
+  "budget": 14900,
+  "id": "copier-mfp",
+  "kind": "prop",
+  "materials": [
+    "plastic.matte",
+    "plastic.black",
+    "glass.clear",
+    "screen.ui",
+    "rubber",
+    "metal.galvanized",
+    "paper.sheet"
+  ],
+  "name": "Copier MFP",
+  "notes": "",
+  "parts": [
+    "light-grey cabinet body with dark charcoal trim",
+    "scanner lid with document feeder",
+    "glass platen under the lid",
+    "control panel with touchscreen and keypad",
+    "output tray",
+    "two paper drawers with handles",
+    "bypass tray",
+    "casters"
+  ],
+  "references": [],
+  "size": [
+    0.65,
+    1.1,
+    0.7
+  ],
+  "style": "mid-size office multifunction printer, light grey with charcoal trim, lightly used",
+  "summary": "Office multifunction copier, 0.65 x 1.1 x 0.7 m: light grey body, ADF lid, glass platen, touchscreen panel, output tray, two paper drawers on casters.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "commercial",
+    "office",
+    "plastic",
+    "interior"
+  ],
+  "theme": "Commercial",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

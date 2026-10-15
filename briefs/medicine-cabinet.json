@@ -1,0 +1,42 @@
+{
+  "budget": 3600,
+  "id": "medicine-cabinet",
+  "kind": "prop",
+  "materials": [
+    "metal.powder-white",
+    "metal.chrome",
+    "metal.aluminum-brushed",
+    "decal.soap-residue"
+  ],
+  "name": "Mirrored medicine cabinet",
+  "notes": "Wall mount: lowest point y=0, back face at z=-0.07 (planner lifts to 1.2 m). Static, door closed.",
+  "parts": [
+    "white powder-coated steel box",
+    "aluminum door frame",
+    "beveled mirror pane",
+    "three barrel hinges",
+    "finger pull tab",
+    "magnetic catch",
+    "water spotting on the mirror"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    0.76,
+    0.14
+  ],
+  "style": "surface-mount cabinet, door closed, light water spotting",
+  "summary": "Surface-mount medicine cabinet: white steel box, aluminum-framed beveled mirror door, barrel hinges and a finger pull.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bathroom",
+    "furniture",
+    "glass",
+    "wall",
+    "interior"
+  ],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

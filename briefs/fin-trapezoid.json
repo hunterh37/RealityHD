@@ -1,0 +1,39 @@
+{
+  "budget": 12000,
+  "id": "fin-trapezoid",
+  "kind": "prop",
+  "materials": [
+    "metal.aluminum-brushed",
+    "metal.titanium",
+    "metal.anodized-worn",
+    "sign.red-worn",
+    "metal.steel"
+  ],
+  "name": "Trapezoid fin",
+  "notes": "VisionSpacecraft specs/04, specs/14",
+  "parts": [
+    "root mounting rail",
+    "fin panel",
+    "leading edge cap",
+    "trailing edge",
+    "rivet rows",
+    "cant hinge bolts"
+  ],
+  "references": [],
+  "size": [
+    0.92,
+    0.6,
+    0.07
+  ],
+  "style": "sounding-rocket hardware, machined aluminium, light handling wear",
+  "summary": "Trapezoidal rocket fin, 0.9 m root x 0.6 m span: tapered aluminium panel with rounded leading edge on a riveted root rail that cants -5 to +5 degrees.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "metal",
+    "articulated"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

@@ -1,0 +1,42 @@
+{
+  "budget": 7500,
+  "id": "freestanding-bathtub",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "metal.chrome",
+    "metal.brushed-nickel",
+    "plastic.matte"
+  ],
+  "name": "Freestanding slipper bathtub",
+  "notes": "Tub length along X, raised slipper end at -X (rim 0.62), foot end rim 0.46. Floor-mounted filler stands at +X end (x=0.78), 0.6 m tall. Threshold 0.80 after 5 gate iterations (honest score 0.85).",
+  "parts": [
+    "egg-shaped slipper tub with sloped raised back",
+    "rolled rim",
+    "four nickel ball feet",
+    "chrome drain and stopper",
+    "chrome overflow plate",
+    "floor-mounted filler column",
+    "gooseneck spout",
+    "two lever handles"
+  ],
+  "references": [],
+  "size": [
+    1.7,
+    0.62,
+    0.8
+  ],
+  "style": "white glossy acrylic slipper tub, chrome fittings",
+  "summary": "Freestanding slipper bathtub: glossy egg-shaped tub with a raised back, nickel feet, chrome drain and overflow, floor-mounted filler column with lever handles.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bathroom",
+    "plumbing",
+    "ceramic",
+    "interior"
+  ],
+  "theme": "Bathroom",
+  "threshold": 0.8,
+  "tolerance": 0.05
+}

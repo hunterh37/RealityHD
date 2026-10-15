@@ -1,0 +1,39 @@
+{
+  "budget": 3000,
+  "id": "recessed-downlight",
+  "kind": "prop",
+  "materials": [
+    "plastic.white",
+    "metal.aluminum-brushed",
+    "emissive.panel",
+    "metal.chrome"
+  ],
+  "name": "Recessed downlight",
+  "notes": "Static. Trim face at y = 2.598 (2 mm proud of ceiling plane 2.6), housing above the plane.",
+  "parts": [
+    "flange ring",
+    "ribbed baffle cone",
+    "LED lens",
+    "steel can housing",
+    "junction box",
+    "spring clips"
+  ],
+  "references": [],
+  "size": [
+    0.15,
+    0.05,
+    0.15
+  ],
+  "style": "white matte trim, new",
+  "summary": "4 in recessed LED downlight: white trim flange, ribbed baffle, lit LED lens, steel housing.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "interior",
+    "ceiling",
+    "light"
+  ],
+  "theme": "Lighting",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

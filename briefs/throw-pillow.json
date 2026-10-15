@@ -1,0 +1,36 @@
+{
+  "budget": 4800,
+  "id": "throw-pillow",
+  "kind": "prop",
+  "materials": [
+    "fabric.linen"
+  ],
+  "name": "Throw pillow",
+  "notes": "",
+  "parts": [
+    "plump square cushion body",
+    "piped seam welt around the edge",
+    "pinched corners",
+    "center dimple with button",
+    "linen weave cover"
+  ],
+  "references": [],
+  "size": [
+    0.46,
+    0.16,
+    0.46
+  ],
+  "style": "mustard linen square pillow with contrast piping, lightly used",
+  "summary": "Square throw pillow, 46 cm: plump linen cover, contrast piped seam, pinched corners and a tufted center button.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "living",
+    "decor",
+    "fabric",
+    "interior"
+  ],
+  "theme": "Living",
+  "threshold": 0.8,
+  "tolerance": 0.05
+}

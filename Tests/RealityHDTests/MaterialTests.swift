@@ -19,7 +19,7 @@ import simd
             let s = MaterialLibrary.spec(for: k)
             #expect(s.key == k)
             if s.mode == .cutout { #expect(s.program != nil && s.twoSided, "\(k): cutout needs an atlas program and twoSided") }
-            if s.program != nil && s.mode != .cutout { #expect(s.tileSize > 0, "\(k): tiling materials need tileSize > 0 (meters per repeat)") }
+            if s.program != nil && s.mode != .cutout { #expect(s.tileSize >= 0, "\(k): tiling materials need tileSize > 0 (meters per repeat), or 0 for atlas UVs") }
             #expect((128...4096).contains(s.resolution))
             #expect(s.roughness >= 0 && s.roughness <= 1 && s.metallic >= 0 && s.metallic <= 1)
         }
