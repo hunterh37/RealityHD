@@ -1,0 +1,38 @@
+{
+  "budget": 15000,
+  "id": "indian-sandstone-paving",
+  "kind": "prop",
+  "materials": [
+    "rock.slate",
+    "concrete.smooth",
+    "concrete.rough",
+    "moss.cushion"
+  ],
+  "name": "Indian sandstone paving",
+  "notes": "",
+  "parts": [
+    "riven sandstone flags 900x600, 600x600, 600x290, 290x290",
+    "pointed cement mortar joints 10 mm",
+    "mortar bed",
+    "colour banding between flags",
+    "moss in one unpointed joint"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.06,
+    2.0
+  ],
+  "style": "architectural facade customizer, Contemporary; riven Kandla grey and Raj green Indian sandstone, pointed joints",
+  "summary": "Indian sandstone paving, 2 x 2 m: riven Kandla grey and Raj green sandstone flags in four calibrated sizes, laid on a mortar bed with pointed cement joints.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

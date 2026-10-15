@@ -778,6 +778,10 @@ public enum Props {
         SelfBindingHogginPath.self,
         DecomposedGranitePath.self,
         RippledBeachSand.self,
+        ClayTennisCourtSurface.self,
+        TravertineTilePaving.self,
+        IndianSandstonePaving.self,
+        BarkMulchPlaySurface.self,
         // realityhd:prop
     ]
 }
