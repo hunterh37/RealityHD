@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "allotment-irrigation-furrow-bed",
+  "kind": "prop",
+  "materials": [
+    "ground.dirt",
+    "water.puddle",
+    "ground.mud",
+    "plant.stem",
+    "metal.galvanized-aged"
+  ],
+  "name": "Allotment irrigation furrow bed",
+  "notes": "",
+  "parts": [
+    "parallel irrigation furrows",
+    "raised planting ridges",
+    "standing water in the furrows",
+    "wet darker soil along the water line",
+    "young lettuce on the ridges",
+    "zinc watering can rose resting",
+    "clods and stones"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.15,
+    2
+  ],
+  "style": "architectural facade customizer, Edwardian Allotment",
+  "summary": "Bed cut into parallel irrigation furrows with water standing in them, wet soil lines and young lettuces on the ridges.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

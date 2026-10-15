@@ -773,6 +773,10 @@ public enum Props {
         SelfBindingHogginPath.self,
         DecomposedGranitePath.self,
         RippledBeachSand.self,
+        AllotmentSackingWeedMembraneBed.self,
+        AllotmentPlankWalkwayPath.self,
+        AllotmentAsparagusRidgeBed.self,
+        AllotmentIrrigationFurrowBed.self,
         // realityhd:prop
     ]
 }
