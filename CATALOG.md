@@ -2134,34 +2134,3 @@ Keys accept a hex tint suffix, e.g. `metal.painted:1F4E8C`.
 ## Texture programs
 
 `barkOak` `barkBirch` `barkPine` `leafBroad` `leafNeedle` `grassBlades` `rockGranite` `forestFloor` `woodPlank` `paintedMetal` `rustMetal` `concrete` `asphalt` `plastic` `brick` `grassBlade` `grassCard` `flowers` `fernFrond` `leafLitter` `moss` `fungus` `plantStem` `barkSmooth` `barkAspen` `barkDead` `leafPalmate` `leafLanceolate` `plywood` `galvanized` `straw` `paintedWood` `jute` `gravel` `sand` `mud` `snow` `cobblestone` `dirtPath` `barkScotsPine` `leafPine` `leafFir` `leafCypress` `barkPalm` `leafPalm` `cactusRibs` `leafAgave` `strataRock` `rockSlate` `rockRiver` `fabricWeave` `woodEndGrain` `charcoal` `water` `leather` `brushedMetal` `polishedMetal` `ceramicGlaze` `caneWeave` `carpetTile` `carpetPile` `acousticTile` `paintedWall` `woodVeneer` `screenUI` `pageEdge` `marble` `terrazzo` `pavers` `sansevieria` `laminate` `chairMesh` `pottingSoil` `turf` `infieldClay` `chainLink` `sheetVinyl` `nonwoven` `wallTile` `vitalsUI` `medLabel` `boneCortical` `cartilageHyaline` `muscleFiber` `tendonFiber` `vesselWall` `nerveFascicle` `pegboard` `tapeRule` `pantryFill` `subwayTile` `plankFloor` `gasFlame` `quartzSlab` `fruitSkin` `papery` `rootSkin` `radialFlesh` `poultryFlesh` `foodSmooth` `foodCrumb` `butcherBlock` `seasonedIron` `heatTint` `bakedPatina` `paverHerringbone` `barkMulch` `foodTissue` `chitin` `insectFur` `compoundEye` `insectWing` `insectVeins` `caterpillarBands` `petal` `plumageBody` `plumageHead` `plumageFeather` `furCoat` `quillCoat` `carbonWeave` `foilCrinkle` `barkSycamore` `fishSkin` `fishFin` `fishEye`
-| `metal.heat-tint-cold` | heatTint | 1 | 1024 | opaque | - | metallic map |
-| `metal.heat-tint-hot` | scalar | 1 | - | emissive | - |  |
-
-## Texture programs
-
-| `metal.heat-tint-cold` | heatTint | 1 | 1024 | opaque | - | metallic map |
-| `metal.heat-tint-hot` | scalar | 1 | - | emissive | - |  |
-
-## Texture programs
-
-| `metal.heat-tint-cold` | heatTint | 1 | 1024 | opaque | - | metallic map |
-| `metal.heat-tint-hot` | scalar | 1 | - | emissive | - |  |
-
-## Texture programs
-
-| `metal.heat-tint-cold` | heatTint | 1 | 1024 | opaque | - | metallic map |
-| `metal.heat-tint-hot` | scalar | 1 | - | emissive | - |  |
-
-## Texture programs
-
-| `metal.heat-tint-cold` | heatTint | 1 | 1024 | opaque | - | metallic map |
-| `metal.heat-tint-hot` | scalar | 1 | - | emissive | - |  |
-
-## Texture programs
-
-| `metal.heat-tint-cold` | heatTint | 1 | 1024 | opaque | - | metallic map |
-| `metal.heat-tint-hot` | scalar | 1 | - | emissive | - |  |
-
-## Texture programs
-
-`barkOak` `barkBirch` `barkPine` `leafBroad` `leafNeedle` `grassBlades` `rockGranite` `forestFloor` `woodPlank` `paintedMetal` `rustMetal` `concrete` `asphalt` `plastic` `brick` `grassBlade` `grassCard` `flowers` `fernFrond` `leafLitter` `moss` `fungus` `plantStem` `barkSmooth` `barkAspen` `barkDead` `leafPalmate` `leafLanceolate` `plywood` `galvanized` `straw` `paintedWood` `jute` `gravel` `sand` `mud` `snow` `cobblestone` `dirtPath` `barkScotsPine` `leafPine` `leafFir` `leafCypress` `barkPalm` `leafPalm` `cactusRibs` `leafAgave` `strataRock` `rockSlate` `rockRiver` `fabricWeave` `woodEndGrain` `charcoal` `water` `leather` `brushedMetal` `polishedMetal` `ceramicGlaze` `caneWeave` `carpetTile` `carpetPile` `acousticTile` `paintedWall` `woodVeneer` `screenUI` `pageEdge` `marble` `terrazzo` `pavers` `sansevieria` `laminate` `chairMesh` `pottingSoil` `turf` `infieldClay` `chainLink` `sheetVinyl` `nonwoven` `wallTile` `vitalsUI` `medLabel` `boneCortical` `cartilageHyaline` `muscleFiber` `tendonFiber` `vesselWall` `nerveFascicle` `pegboard` `tapeRule` `pantryFill` `subwayTile` `plankFloor` `gasFlame` `quartzSlab` `fruitSkin` `papery` `rootSkin` `radialFlesh` `poultryFlesh` `foodSmooth` `foodCrumb` `butcherBlock` `seasonedIron` `heatTint` `bakedPatina` `paverHerringbone` `barkMulch` `foodTissue` `chitin` `insectFur` `compoundEye` `insectWing` `insectVeins` `caterpillarBands` `petal` `plumageBody` `plumageHead` `plumageFeather` `furCoat` `quillCoat` `carbonWeave` `foilCrinkle`
