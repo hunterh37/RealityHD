@@ -1,0 +1,38 @@
+{
+  "budget": 15000,
+  "id": "desert-sand-dune-ground",
+  "kind": "prop",
+  "materials": [
+    "ground.sand",
+    "rock.river",
+    "grass.dry"
+  ],
+  "name": "Desert sand dune ground",
+  "notes": "",
+  "parts": [
+    "dune crest",
+    "slip face",
+    "wind ripples",
+    "windward slope",
+    "scattered gravel lag",
+    "dry desert grass tuft",
+    "animal tracks"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.4,
+    2
+  ],
+  "style": "architectural facade customizer, Vernacular",
+  "summary": "Desert sand dune ground tile, 2 x 2 m: a low dune crest with steep slip face, wind ripples on the stoss slope and a dry grass tuft.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

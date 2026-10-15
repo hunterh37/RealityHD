@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "mossy-stone-flag-paving",
+  "kind": "prop",
+  "materials": [
+    "stone.sandstone",
+    "stone.granite-moss",
+    "ground.dirt",
+    "moss.cushion"
+  ],
+  "name": "Mossy stone flag paving",
+  "notes": "",
+  "parts": [
+    "irregular riven stone flags",
+    "wide earth joints",
+    "moss cushions in joints",
+    "moss creeping onto flag edges",
+    "settled flags",
+    "fallen leaves"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.1,
+    2
+  ],
+  "style": "architectural facade customizer, Vernacular",
+  "summary": "Mossy stone flag paving tile, 2 x 2 m: irregular riven gritstone flags on earth with thick moss cushions filling the wide joints.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
