@@ -1,0 +1,37 @@
+{
+  "budget": 15000,
+  "id": "sandy-loam-soil",
+  "kind": "prop",
+  "materials": [
+    "soil.potting",
+    "ground.sand",
+    "rock.river"
+  ],
+  "name": "Sandy loam soil",
+  "notes": "",
+  "parts": [
+    "loam bed",
+    "rake tine furrows",
+    "sandy drift",
+    "pebbles",
+    "crumb aggregates"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.08,
+    2
+  ],
+  "style": "architectural facade customizer, Vernacular",
+  "summary": "Sandy loam soil tile, 2 x 2 m: pale crumbly loam raked smooth with rake tines, small pebbles and dried crust.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
