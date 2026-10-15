@@ -832,6 +832,9 @@ public enum Props {
         GravelReinforcedGrassGrid.self,
         MossyStoneFlagPaving.self,
         DesertSandDuneGround.self,
+        FishScaleShinglePanel.self,
+        OctagonalShinglePanel.self,
+        ClapboardLapSidingRun.self,
         // realityhd:prop
     ]
 }

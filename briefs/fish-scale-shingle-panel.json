@@ -1,0 +1,41 @@
+{
+  "budget": 14000,
+  "id": "fish-scale-shingle-panel",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "wood.painted-shaker-worn",
+    "wood.plywood",
+    "wood.plywood-edge",
+    "metal.cast-iron"
+  ],
+  "name": "Fish-scale shingle panel",
+  "notes": "",
+  "parts": [
+    "round-butt (fish-scale) cedar shingles, 5 in wide, 5 in exposure",
+    "half-width starter shingles at alternate course ends",
+    "tapered shingle thickness with kick-out at the butt",
+    "doubled starter course at the bottom",
+    "beaded casing trim on the sides",
+    "drip cap / frieze board at the top with cut nails",
+    "plywood sheathing backer with exposed edge"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.2,
+    0.04
+  ],
+  "style": "architectural facade customizer, Queen Anne Victorian",
+  "summary": "Fish-scale shingle panel, 1.2 x 1.2 m: staggered courses of round-butt cedar shingles in two paint colors over a sheathing backer, framed by beaded trim.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
