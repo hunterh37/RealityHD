@@ -753,6 +753,11 @@ public enum Props {
         PermeableGrassPaverGrid.self,
         TactileBlisterPaving.self,
         TimberDeckBoards.self,
+        DryCrackedClay.self,
+        RakedTopsoil.self,
+        MownLawnTurf.self,
+        LongMeadowGrass.self,
+        WornPatchyLawn.self,
         // realityhd:prop
     ]
 }
