@@ -797,6 +797,11 @@ public enum Props {
         TravertineTilePaving.self,
         IndianSandstonePaving.self,
         BarkMulchPlaySurface.self,
+        BossagePier.self,
+        BrokenPediment.self,
+        ScrolledPedimentDoorHood.self,
+        SwanNeckPediment.self,
+        ArchedPediment.self,
         // realityhd:prop
     ]
 }

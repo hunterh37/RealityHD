@@ -1,0 +1,37 @@
+{
+  "budget": 12000,
+  "id": "arched-pediment",
+  "kind": "prop",
+  "materials": [
+    "stone.cast-stone",
+    "stone.limestone"
+  ],
+  "name": "Arched pediment",
+  "notes": "",
+  "parts": [
+    "segmental arch",
+    "archivolt",
+    "entablature",
+    "keystone",
+    "impost blocks",
+    "tympanum"
+  ],
+  "references": [],
+  "size": [
+    1.8,
+    0.7,
+    0.3
+  ],
+  "style": "architectural facade customizer, Palladian",
+  "summary": "Arched pediment, 1.8 m: Palladian segmental arch pediment with archivolt, keystone and impost blocks on an entablature.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
