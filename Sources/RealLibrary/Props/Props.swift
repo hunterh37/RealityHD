@@ -763,6 +763,11 @@ public enum Props {
         AllotmentGrassStripPath.self,
         BareCompactedDirt.self,
         MuddyPuddledDirt.self,
+        AllotmentTilledSoilPlot.self,
+        AllotmentBoardEdgedBed.self,
+        AllotmentPotatoRidgeRows.self,
+        AllotmentLeekTrenchBed.self,
+        AllotmentSeedDrillRows.self,
         // realityhd:prop
     ]
 }
