@@ -1,0 +1,22 @@
+{
+  "automated" : 0.99219304,
+  "date" : "2026-10-15",
+  "final" : 0.86076754,
+  "fingerprint" : "94e40bcd7b4dc612",
+  "id" : "bark-mulch-play-surface",
+  "iterations" : 6,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 8,
+    "edges" : 7,
+    "grounding" : 8,
+    "materials" : 8,
+    "proportion" : 8,
+    "silhouette" : 8,
+    "wear" : 8
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.79
+}
