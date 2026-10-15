@@ -162,9 +162,14 @@ import RealityKit
             var m = Model(name: "p\(k)")
             m.add(Prim.roundedBox(V3(0.2, 0.2, 0.2), radius: 0.02, bevelSegments: 1, material: "wood.oak"))
             m.add(Prim.roundedBox(V3(0.1, 0.1, 0.1), radius: 0.01, bevelSegments: 1, material: "metal.steel"))
-            rig.parts.append(RigPart(name: "p\(k)", parent: nil, pivot: .identity, joint: .fixed, levels: [m]))
+            rig.parts.append(RigPart(name: "p\(k)", parent: nil, pivot: .identity, joint: .hinge(0...90), levels: [m]))
         }
         rig.states = [RigState("a"), RigState("b")]
+        var folded = rig
+        for k in folded.parts.indices { folded.parts[k].joint = .fixed }
+        let f = folded.foldingStatics()
+        #expect(f.base[0].surfaces.count == 2 && f.parts.allSatisfy { $0.levels[0].triangleCount == 0 })
+        #expect(f.posed().levels[0].triangleCount == rig.posed().levels[0].triangleCount)
         var s = RealScene(name: "rig-test")
         s.farGround = nil
         s.rigs.append(.init(rig: rig, at: Xform(translation: V3(0, 0, -3)), state: "a", interactive: true))

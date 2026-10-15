@@ -263,6 +263,22 @@ public struct Rig: Sendable {
         return LODModel(levels: levels, switchDistances: switchDistances)
     }
 
+    /// Same rig with the geometry of static parts moved into `base`: a part folds when its joint and every
+    /// ancestor joint are fixed and it has one option. The part stays (empty) so children, lights and
+    /// lookups by name keep working. Saves one entity and one draw per material per folded part.
+    public func foldingStatics() -> Rig {
+        var r = self
+        var still = [Bool](repeating: false, count: parts.count)
+        for (i, p) in parts.enumerated() {
+            let parentStill = p.parent.flatMap(index).map { still[$0] } ?? true
+            still[i] = parentStill && p.joint.kind == .fixed
+            guard still[i], p.optionCount == 1, p.levels.contains(where: { $0.triangleCount > 0 }) else { continue }
+            for l in 0..<lodCount { r.base[l].add(p.levels[min(l, p.levels.count - 1)]) }
+            r.parts[i].levels = p.levels.map { Model(name: $0.name) }
+        }
+        return r
+    }
+
     /// Part geometry with the pivot baked out (part-local frame), per option and LOD.
     public func localGeometry(_ i: Int) -> [[Model]] {
         let inv = parts[i].pivot.inverse
