@@ -1,0 +1,37 @@
+{
+  "budget": 15000,
+  "id": "snow-covered-ground",
+  "kind": "prop",
+  "materials": [
+    "ground.snow",
+    "ground.dirt",
+    "grass.dry"
+  ],
+  "name": "Snow covered ground",
+  "notes": "",
+  "parts": [
+    "snow layer",
+    "drifted ridges",
+    "boot prints",
+    "exposed frozen soil",
+    "grass tips through snow",
+    "ice crust"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.2,
+    2
+  ],
+  "style": "architectural facade customizer, Vernacular",
+  "summary": "Snow covered ground tile, 2 x 2 m: soft drifted snow over frozen soil with boot prints, wind ridges and dry grass tips poking through.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
