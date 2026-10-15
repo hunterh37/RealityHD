@@ -1,0 +1,37 @@
+{
+  "budget": 12000,
+  "id": "travertine-cladding-panel",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone:D9CBB0",
+    "stone.limestone:CDBB98",
+    "metal.stainless",
+    "rubber.silicone-gray"
+  ],
+  "name": "Travertine cladding panel",
+  "notes": "",
+  "parts": [
+    "honed travertine slab",
+    "open pores and vein bands",
+    "2 mm eased arrises",
+    "stainless kerf clips",
+    "silicone perimeter joint"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    0.6,
+    0.04
+  ],
+  "style": "architectural facade customizer, Mid-century Modern",
+  "summary": "Travertine cladding panel, 1.2 x 0.6 m: honed vein-cut slab with open pores, eased arrises, stainless kerf clips and silicone joints.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,39 @@
+{
+  "budget": 12000,
+  "id": "glazed-terracotta-cladding-tile",
+  "kind": "prop",
+  "materials": [
+    "ceramic.celadon:2F6E5E",
+    "ceramic.celadon:C9A84A",
+    "ceramic.bisque",
+    "concrete.smooth:C8C2B4",
+    "metal.galvanized"
+  ],
+  "name": "Glazed terracotta cladding tile",
+  "notes": "",
+  "parts": [
+    "glossy faience glazed face",
+    "stepped chevron and fluted relief",
+    "raised border bead",
+    "glaze crazing and chips showing bisque",
+    "anchor tabs",
+    "mortar joint bed"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    0.6,
+    0.04
+  ],
+  "style": "architectural facade customizer, Art Deco Commercial",
+  "summary": "Glazed terracotta tile, 0.6 m square: stepped chevron relief in glossy faience glaze with crazing, buttered joints and anchor tabs.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
