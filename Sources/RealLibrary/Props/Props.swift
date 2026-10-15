@@ -504,6 +504,11 @@ public enum Props {
         TurnArrowMarking.self,
         UtilityVaultLid.self,
         ZebraCrosswalk.self,
+        AllotmentRaisedSleeperBed.self,
+        AllotmentBrassicaNettedBed.self,
+        AllotmentBeanCaneRowBed.self,
+        AllotmentCompostBayFloor.self,
+        AllotmentFallowWeedyPlot.self,
         // realityhd:prop
     ]
 }
