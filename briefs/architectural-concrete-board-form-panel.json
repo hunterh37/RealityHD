@@ -1,0 +1,37 @@
+{
+  "budget": 12000,
+  "id": "architectural-concrete-board-form-panel",
+  "kind": "prop",
+  "materials": [
+    "concrete.rough:9C978A",
+    "concrete.rough:8A8374",
+    "concrete.smooth:6E6A63",
+    "metal.rust"
+  ],
+  "name": "Board-form concrete panel",
+  "notes": "",
+  "parts": [
+    "board-form 150 mm plank impressions",
+    "form-tie holes with grout plugs",
+    "20 mm chamfered arrises",
+    "lift joint and reveal",
+    "rain streak staining"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    3.0,
+    0.25
+  ],
+  "style": "architectural facade customizer, Brutalism",
+  "summary": "Board-formed architectural concrete panel, 1.5 x 3.0 m: 150 mm timber board impressions, form-tie cones, chamfered edges and lift-joint weathering.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

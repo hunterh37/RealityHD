@@ -849,6 +849,11 @@ public enum Props {
         FlintKnappedPanel.self,
         CobbleWallChimneyBase.self,
         LimestoneAshlarPanel.self,
+        SandstoneAshlarPanel.self,
+        TravertineCladdingPanel.self,
+        TerracottaRainscreenBaguette.self,
+        GlazedTerracottaCladdingTile.self,
+        ArchitecturalConcreteBoardFormPanel.self,
         // realityhd:prop
     ]
 }

@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "sandstone-ashlar-panel",
+  "kind": "prop",
+  "materials": [
+    "stone.sandstone",
+    "stone.sandstone:B89A72",
+    "concrete.smooth:C8C2B4",
+    "metal.rust"
+  ],
+  "name": "Sandstone ashlar panel",
+  "notes": "",
+  "parts": [
+    "rock-faced block faces",
+    "10 mm chisel-drafted margins",
+    "recessed lime mortar joints",
+    "broken-bond coursing",
+    "plinth course with weathered chamfer",
+    "iron cramp plate"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.2,
+    0.2
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Sandstone ashlar wall panel, 1.2 m square: four courses of tooled, rock-faced and margin-drafted blocks in recessed lime mortar joints.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
