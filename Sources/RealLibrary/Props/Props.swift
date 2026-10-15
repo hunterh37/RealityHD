@@ -748,6 +748,11 @@ public enum Props {
         HerringboneBrickPaving.self,
         BasketweaveBrickPaving.self,
         ScoredConcreteSidewalkSlab.self,
+        ExposedAggregateConcrete.self,
+        AsphaltTarmacSurface.self,
+        PermeableGrassPaverGrid.self,
+        TactileBlisterPaving.self,
+        TimberDeckBoards.self,
         // realityhd:prop
     ]
 }
