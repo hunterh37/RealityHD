@@ -123,15 +123,21 @@ public extension RealScene {
             let li = min(perf.level(distance: simd_distance(center, eye), switchDistances: posed.switchDistances, size: .infinity) ?? 0,
                          posed.levels.count - 1)
             let opts = r.rig.options(r.state ?? r.rig.initialState)
-            var pieces: [Model] = [r.rig.base[min(li, r.rig.base.count - 1)]]
-            for p in r.rig.parts {
+            let rig = r.rig.foldingStatics()
+            var pieces: [Model] = [rig.base[min(li, rig.base.count - 1)]]
+            for p in rig.parts {
                 let o = p.option(min(opts[p.name] ?? 0, p.optionCount - 1))
                 pieces.append(o[min(li, o.count - 1)])
             }
             pieces = pieces.filter { $0.triangleCount > 0 }
             let tris = pieces.reduce(0) { $0 + $1.triangleCount }
             if inView(center, size / 2) {
-                let draws = pieces.reduce(0) { $0 + $1.surfaces.filter { !$0.isEmpty }.count }
+                var draws = pieces.reduce(0) { $0 + $1.surfaces.filter { !$0.isEmpty }.count }
+                // Past LOD0 an idle rig shows its merged rest proxy (RealRestProxyComponent) when that saves draws.
+                if li >= 1, rig.lodCount > 1 {
+                    let proxy = posed.levels[li].surfaces.filter { !$0.isEmpty }.count
+                    if draws - proxy >= 4 { draws = proxy }
+                }
                 c.triangles += tris; c.instances += pieces.count; c.meshes += pieces.count
                 c.drawCalls += draws; c.liveDrawCalls += draws
             }

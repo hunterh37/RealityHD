@@ -509,6 +509,11 @@ public enum Props {
         ShinglePebbleBeach.self,
         CrushedLimestoneHardcore.self,
         CinderAshPath.self,
+        GraniteSettCobbles.self,
+        PorcelainOutdoorTilePaving.self,
+        RoundedRiverCobblePaving.self,
+        TerracottaQuarryTilePaving.self,
+        SlateFlagPaving.self,
         FinTrapezoid.self,
         RingGate.self,
         WingSection.self,
@@ -778,6 +783,10 @@ public enum Props {
         SelfBindingHogginPath.self,
         DecomposedGranitePath.self,
         RippledBeachSand.self,
+        ClayTennisCourtSurface.self,
+        TravertineTilePaving.self,
+        IndianSandstonePaving.self,
+        BarkMulchPlaySurface.self,
         // realityhd:prop
     ]
 }

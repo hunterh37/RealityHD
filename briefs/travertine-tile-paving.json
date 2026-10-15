@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "travertine-tile-paving",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "ground.sand",
+    "ground.dirt",
+    "moss.cushion"
+  ],
+  "name": "Travertine tile paving",
+  "notes": "",
+  "parts": [
+    "tumbled travertine tiles in four modular sizes",
+    "natural pits and voids in the face",
+    "rounded tumbled arrises",
+    "sand-filled joints",
+    "sand and screed bed",
+    "one cracked tile"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.05,
+    2.0
+  ],
+  "style": "architectural facade customizer, Mediterranean; tumbled travertine French pattern, ivory and walnut",
+  "summary": "Travertine tile paving, 2 x 2 m: tumbled ivory and walnut travertine in a French pattern, pitted faces, sand joints.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
