@@ -1,0 +1,38 @@
+{
+  "budget": 15000,
+  "id": "basketweave-brick-paving",
+  "kind": "prop",
+  "materials": [
+    "paver.clay",
+    "paver.clay-stained",
+    "ground.sand",
+    "moss.cushion"
+  ],
+  "name": "Basketweave Brick Paving",
+  "notes": "",
+  "parts": [
+    "individual 20x10 cm clay brick pavers",
+    "basketweave pairs alternating direction",
+    "stretcher-course border",
+    "sand joints",
+    "moss in joints"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.1,
+    2.0
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Basketweave brick paving tile, 2 x 2 m: clay brick pavers laid in alternating pairs inside a stretcher border, sand joints.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

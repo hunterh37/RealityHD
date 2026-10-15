@@ -1,0 +1,42 @@
+{
+  "budget": 14000,
+  "id": "allotment-woodchip-path",
+  "kind": "prop",
+  "materials": [
+    "mulch.bark",
+    "soil.potting",
+    "wood.weathered",
+    "wood.endgrain-weathered",
+    "metal.galvanized-aged"
+  ],
+  "name": "Allotment woodchip path",
+  "notes": "",
+  "parts": [
+    "crowned woodchip bed",
+    "loose bark chips",
+    "barrow line",
+    "treated edging boards",
+    "square pegs",
+    "galvanised nails",
+    "soil verges",
+    "spilled chips"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.12,
+    2.0
+  ],
+  "style": "architectural facade customizer, English Allotment",
+  "summary": "Allotment path 2 x 2 m: woodchip strip between treated edging boards on pegs, soil verges either side.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

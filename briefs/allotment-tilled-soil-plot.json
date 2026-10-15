@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "allotment-tilled-soil-plot",
+  "kind": "prop",
+  "materials": [
+    "ground.dirt",
+    "soil.potting",
+    "rock.granite",
+    "grass.dry"
+  ],
+  "name": "Allotment tilled soil plot",
+  "notes": "",
+  "parts": [
+    "dug soil heightfield",
+    "spade-turned clods",
+    "stones",
+    "couch-grass weed tufts",
+    "trodden margin"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.15,
+    2
+  ],
+  "style": "architectural facade customizer, English Allotment, weathered allotment soil",
+  "summary": "2 m square allotment plot of freshly dug soil: spade-turned clods in rows, crumbled tilth, stones and a few weeds, on a worn soil base.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "garden",
+    "outdoor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
