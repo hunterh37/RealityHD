@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "cobbled-sett-dirt-mix",
+  "kind": "prop",
+  "materials": [
+    "ground.dirt",
+    "stone.granite-paver",
+    "stone.granite-curb",
+    "moss.cushion"
+  ],
+  "name": "Cobbled sett and dirt mix",
+  "notes": "",
+  "parts": [
+    "granite setts laid in rows",
+    "missing and lifted setts",
+    "dirt-filled joints",
+    "sunk and tilted setts",
+    "loose dirt patches",
+    "moss in joints"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.12,
+    2.0
+  ],
+  "style": "architectural facade customizer, Vernacular",
+  "summary": "Old granite sett paving 2 x 2 m half lost to dirt: rows of worn setts, gaps, tilted stones and earth-filled joints.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

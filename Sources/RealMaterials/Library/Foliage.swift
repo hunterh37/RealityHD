@@ -73,6 +73,22 @@ public extension MaterialLibrary {
             $0.roughness = 0.55; $0.specular = 0.4
             $0.wind = 0.09; $0.translucency = 0.6
         },
+        // Fallen autumn leaves for forest-floor tiles: browned and russet, no wind, little back-light.
+        MaterialSpec(key: "leaf.oak-fallen", program: .leafBroad).with {
+            $0.colorA = linear(0x3E2A14); $0.colorB = linear(0x5C3E1E); $0.colorC = linear(0x7A6236)
+            $0.knobs = V4(1, 0.08, 2, 0); $0.seed = 21; $0.tileSize = 0; $0.mode = .cutout; $0.twoSided = true; $0.normalStrength = 2.5
+            $0.roughness = 0.75; $0.specular = 0.3; $0.wind = 0; $0.translucency = 0.15
+        },
+        MaterialSpec(key: "leaf.beech-fallen", program: .leafBroad).with {
+            $0.colorA = linear(0x5A3216); $0.colorB = linear(0x7E4A1C); $0.colorC = linear(0x4E3820)
+            $0.knobs = V4(0, 0.06, 2, 0.58); $0.seed = 22; $0.tileSize = 0; $0.mode = .cutout; $0.twoSided = true; $0.normalStrength = 2.5
+            $0.roughness = 0.7; $0.specular = 0.3; $0.wind = 0; $0.translucency = 0.15
+        },
+        MaterialSpec(key: "leaf.maple-fallen", program: .leafPalmate).with {
+            $0.colorA = linear(0x6E2C12); $0.colorB = linear(0x8E5418); $0.colorC = linear(0x4E2C16)
+            $0.seed = 23; $0.tileSize = 0; $0.mode = .cutout; $0.twoSided = true; $0.normalStrength = 2.5
+            $0.roughness = 0.7; $0.specular = 0.3; $0.wind = 0; $0.translucency = 0.2
+        },
         // realityhd:material.foliage
     ]
 }
