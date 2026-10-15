@@ -1,0 +1,37 @@
+{
+  "budget": 14000,
+  "id": "coursed-rubble-stone-panel",
+  "kind": "prop",
+  "materials": [
+    "rock.limestone",
+    "concrete.rough",
+    "moss.cushion"
+  ],
+  "name": "Coursed rubble stone panel",
+  "notes": "",
+  "parts": [
+    "roughly squared oolitic limestone rubble in irregular courses",
+    "larger levelling stones at course breaks",
+    "through-stone ends",
+    "pinning spalls in the joints",
+    "recessed lime mortar bed and perpends",
+    "lichen and soot staining on weathered stones"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.2,
+    0.3
+  ],
+  "style": "architectural facade customizer, Cotswold Vernacular",
+  "summary": "Cotswold coursed rubble wall panel, 1.2 m: roughly squared honey oolitic limestone in irregular courses, recessed lime mortar, through-stones and lichen.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -844,6 +844,11 @@ public enum Props {
         HerringboneBrickInfill.self,
         PolychromeBrickBanding.self,
         RockFacedAshlarPanel.self,
+        CoursedRubbleStonePanel.self,
+        FieldstoneVeneerPanel.self,
+        FlintKnappedPanel.self,
+        CobbleWallChimneyBase.self,
+        LimestoneAshlarPanel.self,
         // realityhd:prop
     ]
 }

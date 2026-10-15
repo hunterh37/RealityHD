@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "cobble-wall-chimney-base",
+  "kind": "prop",
+  "materials": [
+    "rock.river",
+    "concrete.rough",
+    "stone.sandstone",
+    "metal.cast-iron"
+  ],
+  "name": "Cobble wall chimney base",
+  "notes": "",
+  "parts": [
+    "rounded river cobbles on front and returns",
+    "deep struck lime mortar",
+    "dressed sandstone quoin-free rounded corners",
+    "sloped sandstone weathering cap with drip",
+    "cast iron ash cleanout door with frame and latch",
+    "soot staining near the door"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.0,
+    0.5
+  ],
+  "style": "architectural facade customizer, Arts and Crafts",
+  "summary": "Arts and Crafts cobblestone chimney base, 1.2 x 1.0 m: river cobbles in struck mortar, sandstone weathering cap, cast iron cleanout door.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

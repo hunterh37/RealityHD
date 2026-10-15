@@ -1,0 +1,38 @@
+{
+  "budget": 3000,
+  "id": "limestone-ashlar-panel",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "concrete.rough"
+  ],
+  "name": "Limestone ashlar panel",
+  "notes": "",
+  "parts": [
+    "smooth dressed ashlar blocks in stretcher bond",
+    "fine 4 mm lime putty joints",
+    "chamfered rusticated plinth course",
+    "moulded band course with weathered top and drip",
+    "soot and run-off staining",
+    "small arris chips"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.2,
+    0.2
+  ],
+  "style": "architectural facade customizer, Neoclassical",
+  "summary": "Neoclassical limestone ashlar panel, 1.2 m: dressed blocks in stretcher bond over a chamfered plinth, under a moulded band course.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
