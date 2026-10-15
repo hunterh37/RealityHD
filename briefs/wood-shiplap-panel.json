@@ -1,0 +1,39 @@
+{
+  "budget": 10000,
+  "id": "wood-shiplap-panel",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "wood.pine-aged",
+    "metal.steel",
+    "wood.lumber-pine"
+  ],
+  "name": "Wood shiplap panel",
+  "notes": "",
+  "parts": [
+    "painted pine shiplap boards 140 mm exposure",
+    "rabbeted lap joints with nickel shadow gap",
+    "eased board edges",
+    "face nails with filled heads",
+    "furring strips behind",
+    "weathered paint at lower board",
+    "end-grain board ends"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    2.4,
+    0.03
+  ],
+  "style": "architectural facade customizer, Modern Farmhouse",
+  "summary": "Wood shiplap panel: painted pine boards with rabbeted shiplap joints and 6 mm nickel gaps, face-nailed to furring strips.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
