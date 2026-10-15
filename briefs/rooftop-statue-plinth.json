@@ -1,0 +1,45 @@
+{
+  "budget": 15000,
+  "id": "rooftop-statue-plinth",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "stone.granite-moss",
+    "metal.bronze-cast",
+    "metal.galvanized-aged",
+    "metal.steel",
+    "stone.cast-grey"
+  ],
+  "name": "Rooftop statue plinth",
+  "notes": "",
+  "parts": [
+    "plinth base with torus and fillet",
+    "rusticated base course",
+    "panelled die with recessed fields",
+    "raised cartouche on front panel",
+    "cornice cap with dentils and cyma",
+    "bronze statue foot plate",
+    "hex fixing bolts",
+    "lead weathering flashing",
+    "soot and lichen staining"
+  ],
+  "references": [],
+  "size": [
+    0.9,
+    1.2,
+    0.9
+  ],
+  "style": "architectural facade customizer, Beaux-Arts",
+  "summary": "Rooftop statue plinth, 1.2 m: rusticated base course, panelled die with cartouche and swags, cornice cap with dentils, bronze foot plate with fixing bolts.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

@@ -1,0 +1,43 @@
+{
+  "budget": 11000,
+  "id": "balustrade-urn-finial",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "concrete.rough",
+    "metal.cast-iron",
+    "stone.granite-moss",
+    "stone.cast-grey"
+  ],
+  "name": "Balustrade urn finial",
+  "notes": "",
+  "parts": [
+    "square plinth with base and cyma cap",
+    "turned socle with torus and scotia",
+    "gadrooned lower bowl",
+    "urn belly with swag band",
+    "egg-and-dart lip",
+    "domed lid",
+    "flame knop",
+    "iron dowel joint line"
+  ],
+  "references": [],
+  "size": [
+    0.45,
+    0.8,
+    0.45
+  ],
+  "style": "architectural facade customizer, Neoclassical",
+  "summary": "Balustrade urn finial, 0.8 m: plinth with cyma cap, turned socle, gadrooned urn, egg-and-dart lip, domed lid, flame knop in limestone.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
