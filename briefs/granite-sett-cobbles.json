@@ -1,0 +1,36 @@
+{
+  "budget": 15000,
+  "id": "granite-sett-cobbles",
+  "kind": "prop",
+  "materials": [
+    "stone.granite-paver",
+    "ground.sand"
+  ],
+  "name": "Granite sett cobbles",
+  "notes": "",
+  "parts": [
+    "split-face granite setts 200x100 mm",
+    "stretcher courses in half bond",
+    "sand-swept joints",
+    "sand bed",
+    "worn polished sett tops"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.12,
+    2
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Granite sett cobbles, 2 x 2 m: Victorian 200 x 100 mm split granite setts in half-bond courses, sand joints, worn tops.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

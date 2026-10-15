@@ -1,0 +1,37 @@
+{
+  "budget": 15000,
+  "id": "crushed-limestone-hardcore",
+  "kind": "prop",
+  "materials": [
+    "ground.gravel",
+    "rock.limestone",
+    "stone.limestone"
+  ],
+  "name": "Crushed limestone hardcore",
+  "notes": "",
+  "parts": [
+    "compacted fines bed",
+    "angular limestone fragments",
+    "proud lumps",
+    "roller tracks"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.12,
+    2
+  ],
+  "style": "architectural facade customizer, Municipal",
+  "summary": "Crushed limestone hardcore tile 2 x 2 m: compacted angular Type 1 aggregate with fines, roller tracks and proud lumps.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone",
+    "outdoor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

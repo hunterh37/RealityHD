@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "allotment-fallow-weedy-plot",
+  "kind": "prop",
+  "materials": [
+    "ground.dirt",
+    "grass.lawn",
+    "plant.stem",
+    "rock.granite-weathered"
+  ],
+  "name": "Allotment fallow weedy plot",
+  "notes": "",
+  "parts": [
+    "crusted soil",
+    "couch grass",
+    "dandelions",
+    "dock seed spike",
+    "nettles",
+    "clods and stones"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.35,
+    2
+  ],
+  "style": "architectural facade customizer, English Allotment",
+  "summary": "Fallow allotment plot tile: crusted lumpy soil overgrown with couch grass, dandelion rosettes, dock with a seed spike and nettles.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "garden",
+    "outdoor",
+    "grass"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

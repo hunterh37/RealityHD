@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "cinder-ash-path",
+  "kind": "prop",
+  "materials": [
+    "ground.gravel",
+    "rock.basalt",
+    "rock.redstone",
+    "rock.slate"
+  ],
+  "name": "Cinder ash path",
+  "notes": "",
+  "parts": [
+    "cambered ash bed",
+    "porous clinker lumps",
+    "burnt shale",
+    "slag beads",
+    "trodden centre line"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.08,
+    2
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Victorian cinder path tile 2 x 2 m: cambered black ash with porous clinker lumps, slag beads and a trodden centre line.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone",
+    "outdoor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

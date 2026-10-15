@@ -1,0 +1,36 @@
+{
+  "budget": 8000,
+  "id": "terracotta-quarry-tile-paving",
+  "kind": "prop",
+  "materials": [
+    "ceramic.terracotta",
+    "concrete.rough"
+  ],
+  "name": "Terracotta quarry tile paving",
+  "notes": "",
+  "parts": [
+    "325 mm terracotta quarry tiles",
+    "8 mm recessed mortar joints",
+    "mortar bed",
+    "chipped corner",
+    "efflorescence tone shift"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.06,
+    2
+  ],
+  "style": "architectural facade customizer, Mediterranean",
+  "summary": "Terracotta quarry tile paving, 2 x 2 m: Mediterranean 325 mm quarry tiles in a square grid with recessed mortar joints.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
