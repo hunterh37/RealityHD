@@ -1,0 +1,42 @@
+{
+  "budget": 12000,
+  "id": "herringbone-brick-infill",
+  "kind": "prop",
+  "materials": [
+    "wood.cedar-weathered",
+    "wood.endgrain-weathered",
+    "brick.unit-red",
+    "brick.unit-red-dark",
+    "brick.unit-red-light",
+    "brick.unit-header",
+    "brick.mortar-lime"
+  ],
+  "name": "Herringbone brick infill",
+  "notes": "",
+  "parts": [
+    "oak posts, head rail and sill",
+    "pegged mortise and tenon joints with proud oak trenails",
+    "herringbone brick nogging at 45 degrees",
+    "lime mortar joints",
+    "drying checks in the oak",
+    "cut bricks at the frame edge"
+  ],
+  "references": [],
+  "size": [
+    0.8,
+    0.8,
+    0.1
+  ],
+  "style": "architectural facade customizer, Tudor Revival",
+  "summary": "Herringbone brick infill, 0.8 m square: 45-degree herringbone brick nogging set in lime mortar inside a pegged weathered oak frame.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,22 @@
+{
+  "automated" : 0.9988669,
+  "date" : "2026-10-15",
+  "final" : 0.8557909,
+  "fingerprint" : "23e953077f8b720f",
+  "id" : "stack-bond-brick-panel",
+  "iterations" : 5,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 9,
+    "edges" : 7,
+    "grounding" : 8,
+    "materials" : 7,
+    "proportion" : 8,
+    "silhouette" : 8,
+    "wear" : 7
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.77875
+}

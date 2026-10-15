@@ -1,0 +1,47 @@
+{
+  "budget": 12000,
+  "id": "polychrome-brick-banding",
+  "kind": "prop",
+  "materials": [
+    "brick.unit-red",
+    "brick.unit-red-dark",
+    "brick.unit-red-light",
+    "brick.unit-header",
+    "brick.unit-buff",
+    "brick.unit-buff-dark",
+    "brick.unit-blue",
+    "brick.unit-sooted",
+    "brick.mortar-lime",
+    "stone.limestone",
+    "stone.limestone-sooted"
+  ],
+  "name": "Polychrome brick banding",
+  "notes": "",
+  "parts": [
+    "red brick Flemish bond courses",
+    "buff brick band course",
+    "red stretchers with blue-black headers",
+    "blue-black brick band course",
+    "limestone string course with sloped weathering and drip groove",
+    "recessed lime mortar joints",
+    "soot-darkened course under the string course"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.5,
+    0.1
+  ],
+  "style": "architectural facade customizer, High Victorian Gothic",
+  "summary": "Polychrome brick banding, 2.0 m: red brick courses with buff and blue-black bands and a black diaper course under a chamfered limestone string course.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

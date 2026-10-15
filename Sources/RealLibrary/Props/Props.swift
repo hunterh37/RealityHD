@@ -839,6 +839,11 @@ public enum Props {
         StuccoQuoinedCorner.self,
         RoughcastLimeRenderPanel.self,
         FlemishBondBrickPanel.self,
+        EnglishBondBrickPanel.self,
+        StackBondBrickPanel.self,
+        HerringboneBrickInfill.self,
+        PolychromeBrickBanding.self,
+        RockFacedAshlarPanel.self,
         // realityhd:prop
     ]
 }
