@@ -1,0 +1,43 @@
+{
+  "budget": 15000,
+  "id": "wet-tidal-mudflat",
+  "kind": "prop",
+  "materials": [
+    "ground.mud",
+    "water.puddle",
+    "ground.sand",
+    "stone.marble",
+    "rock.slate",
+    "moss.cushion"
+  ],
+  "name": "Wet tidal mudflat",
+  "notes": "",
+  "parts": [
+    "rippled silt heightfield",
+    "ebb runnel",
+    "seawater pools",
+    "lugworm casts",
+    "blow holes",
+    "cockle and mussel shells",
+    "bladder wrack"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.1,
+    2
+  ],
+  "style": "architectural facade customizer, Coastal",
+  "summary": "Tidal mudflat tile 2 x 2 m: rippled wet silt, ebb runnel with seawater, lugworm casts, shells and wrack.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone",
+    "outdoor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

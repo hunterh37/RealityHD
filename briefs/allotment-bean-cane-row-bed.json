@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "allotment-bean-cane-row-bed",
+  "kind": "prop",
+  "materials": [
+    "wood.lumber-maple",
+    "fabric.burlap",
+    "ground.dirt",
+    "plant.stem"
+  ],
+  "name": "Allotment bean cane row bed",
+  "notes": "",
+  "parts": [
+    "raked ridge bed",
+    "runner bean seedlings",
+    "bamboo cane bundle",
+    "jute twine ties",
+    "row label",
+    "path stones"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.2,
+    2
+  ],
+  "style": "architectural facade customizer, English Allotment",
+  "summary": "Allotment double row of young runner beans on a raked ridge, with a twine-tied bundle of bamboo canes laid on the path ready for the A-frame.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "garden",
+    "outdoor",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

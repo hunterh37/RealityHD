@@ -1,0 +1,36 @@
+{
+  "budget": 4000,
+  "id": "porcelain-outdoor-tile-paving",
+  "kind": "prop",
+  "materials": [
+    "ceramic.porcelain-gray",
+    "concrete.smooth"
+  ],
+  "name": "Porcelain outdoor tile paving",
+  "notes": "",
+  "parts": [
+    "20 mm rectified porcelain slabs 1000x500",
+    "half-bond layout",
+    "3 mm grout joints",
+    "mortar bed",
+    "matte anti-slip finish"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.05,
+    2
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Porcelain outdoor tile paving, 2 x 2 m: contemporary 1000 x 500 mm rectified porcelain slabs, half bond, 3 mm grout.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

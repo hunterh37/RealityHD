@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "bark-mulch-play-surface",
+  "kind": "prop",
+  "materials": [
+    "mulch.bark",
+    "wood.deadwood",
+    "wood.weathered",
+    "metal.galvanized-aged",
+    "fabric.burlap"
+  ],
+  "name": "Bark mulch play surface",
+  "notes": "",
+  "parts": [
+    "play-grade bark chips 10-50 mm",
+    "bark mulch bed surface",
+    "scuffed hollow under a swing",
+    "treated timber edging boards",
+    "timber pegs with screws",
+    "geotextile showing in the hollow"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.1,
+    2.0
+  ],
+  "style": "architectural facade customizer, Contemporary; play-grade softwood bark chip safety surface",
+  "summary": "Bark mulch play surface, 2 x 2 m: play-grade softwood bark chips 300 mm deep inside treated timber edging, scuffed into a hollow under a swing.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
