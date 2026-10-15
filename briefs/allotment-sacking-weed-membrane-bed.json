@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "allotment-sacking-weed-membrane-bed",
+  "kind": "prop",
+  "materials": [
+    "fabric.burlap",
+    "rubber.floor-mat",
+    "brick.common",
+    "metal.galvanized",
+    "ground.dirt",
+    "plant.stem"
+  ],
+  "name": "Allotment sacking weed membrane bed",
+  "notes": "",
+  "parts": [
+    "black woven polypropylene weed membrane",
+    "hessian sacking strips",
+    "U-shaped steel ground pins",
+    "cross-cut planting holes with squash seedlings",
+    "bricks weighting the edge",
+    "soil showing at the folded hem",
+    "weeds at the membrane edge"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.08,
+    2
+  ],
+  "style": "architectural facade customizer, Contemporary Allotment",
+  "summary": "Bed under black woven weed membrane and hessian sacking, U-pinned, brick-weighted, courgettes planted through cross-cut holes.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "fabric"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
