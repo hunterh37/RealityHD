@@ -209,8 +209,16 @@ corridor, ER and OR. Apple Vision Pro sim, Release, balanced, `-bench 20 -pan 15
 Frame p99 11.1 ms in all runs; one 122 ms frame in the yaw 180 run with PVS on. Not a room toggle: six
 reruns with a 0.5 s all-rooms warmup kept the same visible set (306k tris, 651 draws throughout) and still
 showed single 33-133 ms frames during `-steps` walks, as PVS-off runs do (66 ms). Warmup dropped.
-Thumbnail unchanged (offline render sees every room through the open portals). Open: CityLayout block PVS
-for districts, on-head trace.
+Thumbnail unchanged (offline render sees every room through the open portals).
+
+Status 2026-10-16: district PVS dropped. city-block is one row of 33 lots on a single street (no block hides
+another); boston-common is open parkland; lineman-district is a 3x3 street grid where every street segment
+sees the next street down each cross street, so a portal graph of street cells reaches every cell within
+two hops from any sidewalk. Building facades face the streets and stay visible. No headroom without
+per-object occlusion, which RealityKit does not expose.
+
+Phase 5 closed in the simulator. Open, device only: phase 0 on-head GPU trace, phase 4 per-family far
+variants and texture streaming by LOD (sized by that trace), phase 5 walk gate on device.
 
 ## Not planned
 
