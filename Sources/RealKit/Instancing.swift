@@ -84,14 +84,15 @@ public enum RealInstancing {
         var mats: [[[any RealityKit.Material]]] = []
         var lodBounds: [BoundingBox] = []
         var perInstanceShader = true
-        for m in asset.levels {
+        for (li, m) in asset.levels.enumerated() {
+            let far = li >= cache.farVariantLOD
             meshes.append(try await Self.sharedMesh(m))
             var ms: [any RealityKit.Material] = []
             for s in m.surfaces where !s.isEmpty {
                 let mat: any RealityKit.Material
                 if !options.asyncMaterials { mat = cache.material(s.material) }
-                else if jitter { mat = await cache.materialAsync(s.material, hueJitter: options.hueJitter, valueJitter: options.tintJitter) }
-                else { mat = await cache.materialAsync(s.material) }
+                else if jitter { mat = await cache.materialAsync(s.material, hueJitter: options.hueJitter, valueJitter: options.tintJitter, far: far) }
+                else { mat = await cache.materialAsync(s.material, far: far) }
                 if jitter && !(mat is ShaderGraphMaterial) { perInstanceShader = false }
                 ms.append(mat)
             }

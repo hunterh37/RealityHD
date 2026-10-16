@@ -209,7 +209,7 @@ public extension LODModel {
         let root = Entity()
         root.name = name
         for (i, m) in levels.enumerated() {
-            let e = try await m.modelEntityAsync(materials: materials)
+            let e = try await m.modelEntityAsync(materials: materials, lod: i)
             e.name = "lod\(i)"
             e.isEnabled = i == 0
             e.realTagCost(m.cost(lod: i, size: levels[0].boundsDiagonal, shadowEligible: castsShadow))

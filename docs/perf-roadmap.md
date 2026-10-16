@@ -145,6 +145,13 @@ grass 1198k -> 473k). Largest remaining field there: `GrassTuft` x21000 at 1103k
   Texture MB in `RealStats` gates it.
 - Translucency and wind only at LOD0-1 (vertex wind already compiles out per variant).
 
+Status 2026-10-16: far variant. `RealMaterialCache.materialAsync(_:far:)` builds a ShaderGraph variant
+with vertex wind and leaf translucency compiled out (cache key `<key>#far`); specs with neither share the
+near material. LOD meshes, instanced fields and rig levels at index >= `farVariantLOD` (2) bind it.
+Triangle and draw counts are unchanged; the win is per-vertex and per-pixel cost on LOD2+ foliage, which
+needs the phase 0 trace to size. Open: per-family far variants (no anti-tile, no splat) after the device
+trace, texture streaming by LOD.
+
 ## Phase 5: world scale
 
 - Streamed tiles for every exterior scene over 1M tris (boston-common, lineman-district, forest-glade),
