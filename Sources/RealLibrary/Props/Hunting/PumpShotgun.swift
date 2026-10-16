@@ -11,7 +11,7 @@ public struct PumpShotgun: RealArticulated {
     public static let tags = ["prop", "hunting", "handheld", "articulated", "wood", "metal"]
     public static let budget = 14000
     public static let author = "realityhd"
-    public static let preview = PreviewHint(azimuth: 28, elevation: 14, distance: 1.6, studio: true)
+    public static let preview = PreviewHint(azimuth: 28, elevation: 14, distance: 1.1, studio: true)
 
     /// Overall length in meters, butt pad to muzzle.
     public var length: Float = 1.26
@@ -40,7 +40,7 @@ public struct PumpShotgun: RealArticulated {
             let outline: [V2] = [V2(0, -0.038), V2(0.08, -0.026), V2(0.18, -0.022), V2(0.26, -0.026), V2(0.30, -0.018), V2(0.33, -0.016),
                                  V2(0.36, -0.040), V2(0.362, -0.100), V2(0.345, -0.135), V2(0.315, -0.145), V2(0.290, -0.125),
                                  V2(0.268, -0.100), V2(0.20, -0.095), V2(0.12, -0.115), V2(0.04, -0.140), V2(0, -0.152)]
-            rig.base[lod].add(HuntKit.profileSolid(outline, radius: 0.006, width: { x in
+            rig.base[lod].add(HuntKit.profileSolid(outline, radius: 0.03, width: { x in
                 x < 0.05 ? 0.040 : lerp(0.040, 0.032, smoothstep(0.05, 0.28, x))
             }, wood), P.at())
             rig.base[lod].add(HuntKit.box(V3(0.012, -0.096, 0), V3(0.024, 0.114, 0.0415), r: 0.004, pad), P.at())
@@ -69,7 +69,7 @@ public struct PumpShotgun: RealArticulated {
 
             // Pump forend on action bars, with the bolt face visible in the port.
             let fore: [V2] = [V2(0.62, -0.016), V2(0.85, -0.016), V2(0.872, -0.030), V2(0.862, -0.052), V2(0.64, -0.058), V2(0.62, -0.050)]
-            rig.add(HuntKit.profileSolid(fore, radius: 0.005, width: { x in lerp(0.040, 0.046, smoothstep(0.62, 0.80, x)) }, wood), P.at(), to: "pump", lods: L)
+            rig.add(HuntKit.profileSolid(fore, radius: 0.02, width: { x in lerp(0.040, 0.046, smoothstep(0.62, 0.80, x)) }, wood), P.at(), to: "pump", lods: L)
             for z: Float in [-0.0135, 0.0135] {
                 rig.add(HuntKit.rod(V3(0.50, -0.0235, z), V3(0.70, -0.0235, z), r: 0.0030, sides: hi ? 8 : 6, brightM), P.at(), to: "pump", lods: L)
             }

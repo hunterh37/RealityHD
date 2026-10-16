@@ -12,7 +12,7 @@ public struct CompoundBow: RealArticulated {
     public static let tags = ["prop", "hunting", "handheld", "articulated", "metal", "plastic"]
     public static let budget = 14000
     public static let author = "realityhd"
-    public static let preview = PreviewHint(azimuth: 75, elevation: 8, distance: 2.1, studio: true)
+    public static let preview = PreviewHint(azimuth: 345, elevation: 10, distance: 1.1, studio: true)
 
     /// Axle-to-axle length in meters.
     public var axleToAxle: Float = 0.762
@@ -45,7 +45,7 @@ public struct CompoundBow: RealArticulated {
             let hi = lod == 0, L = lod...lod
             // Riser: C-shaped, window on the target side, extruded across Z.
             let outline: [V2] = [V2(-0.016, -0.195), V2(0.030, -0.195), V2(0.034, -0.120), V2(0.004, -0.112), V2(0.004, 0.055), V2(0.040, 0.070), V2(0.034, 0.195), V2(-0.016, 0.195)]
-            var rs = Prim.extrude(Shape2D.rounded(outline, radius: 0.008, segments: 5), depth: 0.030, bevel: 0.004, bevelSegments: 2, material: riserM)
+            var rs = Prim.extrude(Shape2D.rounded(outline, radius: 0.016, segments: 6), depth: 0.030, bevel: 0.010, bevelSegments: 3, material: riserM)
             rs.uvs = rs.positions.map { V2($0.x, $0.y) }; rs.computeTangents()
             rig.base[lod].add(rs, P.at())
             rig.base[lod].add(HuntKit.box(V3(-0.0225, -0.040, 0), V3(0.013, 0.100, 0.038), r: 0.004, grip), P.at())
@@ -83,6 +83,12 @@ public struct CompoundBow: RealArticulated {
             rig.base[lod].add(HuntKit.wire([V3(0.004, 0.006, 0), V3(0.020, 0.012, 0), V3(0.034, 0.024, 0)], r: 0.0016, sides: 6, "metal.bolt-bright"), P.at())
             rig.base[lod].add(HuntKit.box(V3(0.034, 0.0245, 0), V3(0.016, 0.004, 0.012), r: 0.001, "metal.bolt-bright"), P.at())
 
+            // Field wear: dried mud caked on the stabilizer weight and lower limb tips.
+            rig.base[lod].add(HuntKit.axial([(0, 0.0128), (0.004, 0.0136), (0.010, 0.0130), (0.016, 0.0138), (0.022, 0.0126), (0.022, 0.0120), (0, 0.0120)], at: V3(0.222, -0.065, 0), seg: hi ? 14 : 8, tile: 0.01, "plastic.grime"), P.at())
+            for (i, (y, z)) in ([(-0.262, 0.012), (-0.285, -0.011), (-0.305, 0.010), (-0.322, -0.009)] as [(Float, Float)]).enumerated() {
+                rig.base[lod].add(Prim.superellipsoid(V3(0.013, 0.016, 0.010), exponent: 2.6, subdivisions: hi ? 5 : 3, material: "plastic.grime"),
+                                  P.at(V3(-0.010 - Float(i) * 0.0015, y, z)))
+            }
             // Cams: eccentric disks with a string groove, between the limb pair.
             for (name, s) in [("cam-top", Float(1)), ("cam-bottom", Float(-1))] {
                 var pts: [V2] = []

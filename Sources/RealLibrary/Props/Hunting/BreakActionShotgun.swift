@@ -11,7 +11,7 @@ public struct BreakActionShotgun: RealArticulated {
     public static let tags = ["prop", "hunting", "handheld", "articulated", "wood", "metal"]
     public static let budget = 14000
     public static let author = "realityhd"
-    public static let preview = PreviewHint(azimuth: 28, elevation: 14, distance: 1.5, studio: true)
+    public static let preview = PreviewHint(azimuth: 28, elevation: 14, distance: 1.1, studio: true)
 
     /// Overall length in meters, butt pad to muzzle.
     public var length: Float = 1.12
@@ -40,7 +40,7 @@ public struct BreakActionShotgun: RealArticulated {
             let outline: [V2] = [V2(0, -0.040), V2(0.08, -0.030), V2(0.18, -0.026), V2(0.26, -0.030), V2(0.30, -0.022), V2(0.33, -0.020),
                                  V2(0.35, -0.045), V2(0.352, -0.100), V2(0.336, -0.135), V2(0.306, -0.146), V2(0.281, -0.125),
                                  V2(0.262, -0.100), V2(0.20, -0.095), V2(0.12, -0.118), V2(0.04, -0.142), V2(0, -0.154)]
-            rig.base[lod].add(HuntKit.profileSolid(outline, radius: 0.006, width: { x in
+            rig.base[lod].add(HuntKit.profileSolid(outline, radius: 0.03, width: { x in
                 x < 0.05 ? 0.042 : lerp(0.042, 0.034, smoothstep(0.05, 0.28, x)) + 0.006 * smoothstep(0.28, 0.33, x)
             }, wood), P.at())
             rig.base[lod].add(HuntKit.box(V3(0.012, -0.097, 0), V3(0.024, 0.116, 0.0435), r: 0.004, pad), P.at())
@@ -67,7 +67,7 @@ public struct BreakActionShotgun: RealArticulated {
             rig.add(HuntKit.box(V3(0.435, -0.0128, 0), V3(0.050, 0.040, 0.028), r: 0.004, steelM), P.at(), to: "barrels", lods: L) // breech block
             rig.add(HuntKit.cyl(V3(1.085, 0.0100, 0), V3(1.085, 0.0150, 0), r: 0.0024, bevel: 0.0008, seg: 10, "metal.cartridge-brass"), P.at(), to: "barrels", lods: L)
             let fore: [V2] = [V2(0.585, -0.031), V2(0.82, -0.031), V2(0.835, -0.044), V2(0.822, -0.058), V2(0.60, -0.060), V2(0.570, -0.050)]
-            rig.add(HuntKit.profileSolid(fore, radius: 0.005, width: { _ in 0.040 }, wood), P.at(), to: "barrels", lods: L)
+            rig.add(HuntKit.profileSolid(fore, radius: 0.02, width: { _ in 0.040 }, wood), P.at(), to: "barrels", lods: L)
             rig.add(HuntKit.cyl(V3(0.575, -0.0425, -0.0225), V3(0.575, -0.0425, 0.0225), r: 0.0030, bevel: 0.0008, seg: 10, actM), P.at(), to: "barrels", lods: L)
             // Top lever: pivot boss and blade pointing toward the shooter.
             rig.add(HuntKit.cyl(V3(0.400, 0.0180, 0), V3(0.400, 0.0305, 0), r: 0.0045, bevel: 0.001, seg: 14, actM), P.at(), to: "top-lever", lods: L)

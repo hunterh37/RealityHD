@@ -45,9 +45,9 @@ enum HuntKit {
     }
 
     /// Side profile (XY outline) extruded across Z, width scaled by `width(x)` meters. Grain follows X.
-    static func profileSolid(_ pts: [V2], radius: Float, width: (Float) -> Float, bevel: Float = 0.004, _ mat: MaterialKey) -> Surface {
+    static func profileSolid(_ pts: [V2], radius: Float, width: (Float) -> Float, bevel: Float = 0.0095, _ mat: MaterialKey) -> Surface {
         let base: Float = 0.04
-        var s = Prim.extrude(Shape2D.rounded(pts, radius: radius, segments: 5), depth: base, bevel: bevel, bevelSegments: 2, material: mat)
+        var s = Prim.extrude(Shape2D.rounded(pts, radius: radius, segments: 5), depth: base, bevel: bevel, bevelSegments: 3, material: mat)
         s.deform { V3($0.x, $0.y, $0.z * width($0.x) / base) }
         return s
     }

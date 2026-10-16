@@ -10,7 +10,7 @@ public struct RifleCartridge: RealAsset {
     public static let tags = ["prop", "hunting", "handheld", "metal"]
     public static let budget = 3500
     public static let author = "realityhd"
-    public static let preview = PreviewHint(azimuth: 35, elevation: 25, distance: 0.32, studio: true)
+    public static let preview = PreviewHint(azimuth: 35, elevation: 25, distance: 1.0, studio: true)
 
     /// Overall length in meters.
     public var overall: Float = 0.0711

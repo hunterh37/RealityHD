@@ -10,7 +10,7 @@ public struct LadderTreeStand: RealAsset {
     public static let tags = ["prop", "hunting", "outdoor", "metal"]
     public static let budget = 15_000
     public static let author = "realityhd"
-    public static let preview = PreviewHint(azimuth: 38, elevation: 14, distance: 1.1)
+    public static let preview = PreviewHint(azimuth: 38, elevation: 22, distance: 1.15)
 
     /// Platform floor height in meters (15 ft).
     public var platformHeight: Float = 4.57
@@ -27,7 +27,7 @@ public struct LadderTreeStand: RealAsset {
     public func build(seed: UInt64) -> LODModel {
         var rng = SeededRNG(seed: seed)
         var m = Model(name: Self.id)
-        let frame = "metal.powdercoat:" + HuntCampKit.hex(frameColor)
+        let frame = "metal.powdercoat-worn:" + HuntCampKit.hex(frameColor)
         let worn = "metal.galvanized-aged"
         let pad = "foam.eva:2F382A"
         let H = platformHeight, tl = tan(lean * .pi / 180)
@@ -50,14 +50,13 @@ public struct LadderTreeStand: RealAsset {
         }
         // Rust and mud at the feet, weld beads at the platform joints.
         for s: Float in [-1, 1] {
-            HuntCampKit.bar(&m, V3(s * lw, 0.02, railZ(0.02)), V3(s * lw, 0.55, railZ(0.55)), w: 0.052, t: 0.034, up: V3(1, 0, 0), mat: "metal.rust", bevel: 0.004)
-            HuntCampKit.bar(&m, V3(s * lw, 2.1, railZ(2.1)), V3(s * lw, 2.28, railZ(2.28)), w: 0.052, t: 0.034, up: V3(1, 0, 0), mat: "metal.rust", bevel: 0.004)
+            HuntCampKit.bar(&m, V3(s * lw, 0.02, railZ(0.02)), V3(s * lw, 0.30, railZ(0.30)), w: 0.052, t: 0.034, up: V3(1, 0, 0), mat: "metal.rust-grime", bevel: 0.004)
         }
         // Rungs: serrated steps, 5 cm deep, every 30 cm.
         var y: Float = 0.34
         while y < H - 0.2 {
             let a = V3(-lw, y, railZ(y)), b = V3(lw, y, railZ(y))
-            HuntCampKit.bar(&m, a, b, w: 0.055, t: 0.016, mat: y < 1.4 ? "metal.rust" : worn, bevel: 0.003)
+            HuntCampKit.bar(&m, a, b, w: 0.055, t: 0.016, mat: y < 1.4 ? "metal.rust-grime" : worn, bevel: 0.003)
             y += 0.305
         }
         // Platform frame at the top of the ladder, tree notch at the back.

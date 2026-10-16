@@ -8,9 +8,9 @@ public struct BoltActionRifle: RealArticulated {
     public static let id = "bolt-action-rifle"
     public static let summary = "Bolt-action hunting rifle, 1.12 m: walnut stock, blued barrel and receiver, 3-9x40 scope, articulated bolt (handle lift, draw back, close)."
     public static let tags = ["prop", "hunting", "handheld", "articulated", "wood", "metal"]
-    public static let budget = 14000
+    public static let budget = 15000
     public static let author = "realityhd"
-    public static let preview = PreviewHint(azimuth: 28, elevation: 14, distance: 1.55, studio: true)
+    public static let preview = PreviewHint(azimuth: 28, elevation: 14, distance: 1.1, studio: true)
 
     /// Overall length in meters, butt pad to muzzle.
     public var length: Float = 1.12
@@ -44,11 +44,14 @@ public struct BoltActionRifle: RealArticulated {
                                  V2(0.62, -0.058), V2(0.50, -0.070), V2(0.42, -0.084), V2(0.388, -0.095), V2(0.368, -0.125),
                                  V2(0.338, -0.142), V2(0.306, -0.128), V2(0.290, -0.100), V2(0.250, -0.094), V2(0.150, -0.112),
                                  V2(0.040, -0.140), V2(0.0, -0.152)]
-            let stock = HuntKit.profileSolid(outline, radius: 0.006, width: { x in
+            let stock = HuntKit.profileSolid(outline, radius: 0.03, width: { x in
                 x < 0.05 ? 0.040 : x < 0.30 ? lerp(0.040, 0.031, smoothstep(0.05, 0.30, x)) : lerp(0.031, 0.042, smoothstep(0.30, 0.55, x))
             }, wood)
             rig.base[lod].add(stock, P.at())
             rig.base[lod].add(HuntKit.box(V3(0.012, -0.096, 0), V3(0.024, 0.114, 0.0415), r: 0.004, pad), P.at())
+            // Forend tip cap and pistol grip cap in dark polymer, with a white-line spacer under each.
+            rig.base[lod].add(HuntKit.box(V3(0.844, -0.0315, 0), V3(0.013, 0.046, 0.0435), r: 0.0035, "plastic.stock-synthetic"), P.at())
+            rig.base[lod].add(HuntKit.box(V3(0.322, -0.137, 0), V3(0.036, 0.009, 0.034), r: 0.0035, rot: simd_quatf(degrees: -24, axis: V3(0, 0, 1)), "plastic.stock-synthetic"), P.at())
             // Barrel: tapered, with a recessed crown.
             let b0: Float = 0.48, bl = 0.56 + barrelLength - b0
             var prof: [(Float, Float)] = [(0, 0), (0, 0.0128)]

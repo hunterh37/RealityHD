@@ -304,8 +304,9 @@ public struct TimberlineBackcountry: RealSceneBuilder {
         scene.field(MushroomCluster(), seed: seed &+ 84, transforms: shrooms, options: cover)
 
         scene.farGround = "ground.forest"
-        let eyeY = y(eye) + 1.65
-        scene.camera = .init(eye: V3(eye.x, eyeY, eye.y), target: V3(-4, eyeY - 1.6, -26), fov: 68)
+        // Hero camera: meadow-edge eye height looking across grass to the whole lake and its far bank.
+        let camE = V2(2, -8)
+        scene.camera = .init(eye: V3(camE.x, y(camE) + 2.6, camE.y), target: V3(lake.x, waterLevel - 0.3, lake.y), fov: 68)
         scene.spots = [
             .init("hunt camp", eye: V3(-8, y(V2(-8, 4)) + 1.65, 4), target: V3(-20, y(blindP) + 1.4, -5)),
             .init("lake", eye: V3(6, y(V2(6, -10)) + 1.65, -10), target: V3(16, 0.3, -26)),

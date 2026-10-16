@@ -1,5 +1,5 @@
 {
-  "budget": 12000,
+  "budget": 15000,
   "id": "bolt-action-rifle",
   "kind": "prop",
   "materials": [
@@ -38,6 +38,6 @@
     "metal"
   ],
   "theme": "Hunting",
-  "threshold": 0.7,
+  "threshold": 0.85,
   "tolerance": 0.15
 }

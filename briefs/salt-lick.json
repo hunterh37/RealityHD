@@ -3,7 +3,7 @@
   "id": "salt-lick",
   "kind": "prop",
   "materials": [
-    "stone.cast-grey",
+    "stone.salt-block",
     "ground.dirt"
   ],
   "name": "Salt lick",
@@ -19,9 +19,9 @@
   ],
   "references": [],
   "size": [
-    0.593,
-    0.22,
-    0.353
+    0.592,
+    0.218,
+    0.359
   ],
   "style": "red-brown trace mineral block, worn and pitted, on trampled mud",
   "summary": "50 lb mineral salt block, 41 x 20.5 cm: pitted red-brown block with a licked-out hollow, broken corner and chip on a mud pad.",

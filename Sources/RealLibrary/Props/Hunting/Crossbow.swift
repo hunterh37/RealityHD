@@ -12,7 +12,7 @@ public struct Crossbow: RealArticulated {
     public static let tags = ["prop", "hunting", "handheld", "articulated", "metal", "plastic"]
     public static let budget = 14000
     public static let author = "realityhd"
-    public static let preview = PreviewHint(azimuth: 40, elevation: 38, distance: 1.7, studio: true)
+    public static let preview = PreviewHint(azimuth: 40, elevation: 38, distance: 1.15, studio: true)
 
     /// Draw length from the fired nock position to the latch in meters.
     public var drawLength: Float = 0.30
@@ -20,7 +20,7 @@ public struct Crossbow: RealArticulated {
     public var limbFlex: Float = 10
     public var stock: MaterialKey = "plastic.stock-synthetic:2A2E22"
     public var limbs: MaterialKey = "paint.bow-camo"
-    public var hardware: MaterialKey = "metal.anodized-gunmetal:1A1B1E"
+    public var hardware: MaterialKey = "metal.anodized-gunmetal:3A3D42"
     public var string: MaterialKey = "fabric.bowstring"
     public init() {}
 
@@ -48,20 +48,20 @@ public struct Crossbow: RealArticulated {
             let outline: [V2] = [V2(0, -0.030), V2(0.08, -0.022), V2(0.20, -0.020), V2(0.27, -0.020), V2(0.78, -0.020), V2(0.800, -0.032),
                                  V2(0.78, -0.050), V2(0.52, -0.052), V2(0.45, -0.075), V2(0.43, -0.090), V2(0.41, -0.145), V2(0.370, -0.155),
                                  V2(0.322, -0.142), V2(0.300, -0.100), V2(0.270, -0.085), V2(0.18, -0.100), V2(0.08, -0.128), V2(0, -0.134)]
-            rig.base[lod].add(HuntKit.profileSolid(outline, radius: 0.006, width: { x in
+            rig.base[lod].add(HuntKit.profileSolid(outline, radius: 0.03, width: { x in
                 x < 0.10 ? 0.040 : x < 0.30 ? lerp(0.040, 0.034, smoothstep(0.10, 0.30, x)) : x < 0.46 ? 0.040 : lerp(0.040, 0.030, smoothstep(0.46, 0.60, x))
             }, stockM), P.at())
             rig.base[lod].add(HuntKit.box(V3(0.006, -0.082, 0), V3(0.014, 0.108, 0.0415), r: 0.004, "rubber.recoil-pad"), P.at())
             // Flight rail with arrow groove, trigger housing, latch, trigger guard.
-            rig.base[lod].add(HuntKit.box(V3(0.570, -0.010, 0), V3(0.600, 0.020, 0.036), r: 0.003, hardM), P.at())
+            rig.base[lod].add(HuntKit.box(V3(0.570, -0.010, 0), V3(0.600, 0.020, 0.036), r: 0.008, hardM), P.at())
             rig.base[lod].add(HuntKit.box(V3(0.570, 0.0003, 0), V3(0.600, 0.0016, 0.0060), r: 0.0005, "plastic.stock-synthetic"), P.at())
-            rig.base[lod].add(HuntKit.box(V3(0.375, -0.032, 0), V3(0.130, 0.036, 0.042), r: 0.005, hardM), P.at())
+            rig.base[lod].add(HuntKit.box(V3(0.375, -0.032, 0), V3(0.130, 0.036, 0.042), r: 0.015, hardM), P.at())
             rig.base[lod].add(HuntKit.box(V3(0.380, 0.0056, 0), V3(0.044, 0.012, 0.030), r: 0.003, "metal.bolt-bright"), P.at())
             rig.base[lod].add(HuntKit.wire([V3(0.350, -0.050, 0), V3(0.352, -0.075, 0), V3(0.385, -0.086, 0), V3(0.420, -0.082, 0), V3(0.436, -0.052, 0)],
                                            r: 0.0034, per: 6, sides: hi ? 10 : 6, hardM), P.at())
             // Prod riser, limb pockets, stirrup, barrel-end bolt retainer.
-            rig.base[lod].add(HuntKit.box(V3(0.752, 0.0, 0), V3(0.090, 0.046, 0.100), r: 0.006, hardM), P.at())
-            for s: Float in [1, -1] { rig.base[lod].add(HuntKit.box(V3(0.738, 0, s * 0.082), V3(0.056, 0.040, 0.044), r: 0.005, hardM), P.at()) }
+            rig.base[lod].add(HuntKit.box(V3(0.752, 0.0, 0), V3(0.090, 0.046, 0.100), r: 0.018, hardM), P.at())
+            for s: Float in [1, -1] { rig.base[lod].add(HuntKit.box(V3(0.738, 0, s * 0.082), V3(0.056, 0.040, 0.044), r: 0.014, hardM), P.at()) }
             rig.base[lod].add(Prim.torus(major: 0.046, minor: 0.0045, segments: hi ? 36 : 16, sides: hi ? 10 : 6, material: hardM).transformed(Xform(rotation: simd_quatf(degrees: 90, axis: V3(0, 0, 1)))),
                               P.at(V3(0.870, -0.012, 0)))
             // Scope.

@@ -1,15 +1,16 @@
 {
-  "budget": 7000,
+  "budget": 11000,
   "id": "trail-camera",
   "kind": "prop",
   "materials": [
-    "plastic.matte",
+    "plastic.trailcam",
     "plastic.black",
-    "glass.lens-clear",
-    "glass.frosted",
-    "glass.led-lens",
+    "glass.curtain",
+    "metal.screw-zinc",
+    "rubber.silicone",
+    "emissive.led-green",
     "fabric.webbing",
-    "metal.screw-zinc"
+    "paper.sheet"
   ],
   "name": "Trail camera",
   "notes": "",
@@ -30,7 +31,7 @@
   "size": [
     0.151,
     0.098,
-    0.097
+    0.085
   ],
   "style": "olive camo polymer trail camera, black latch, nylon strap",
   "summary": "Trail camera, 13.5 x 9.5 cm: camo body, glass lens, PIR window, IR LED arrays, latch, gasket, strap slots and buckle.",

@@ -9,7 +9,7 @@ public struct CrossbowBolt: RealAsset {
     public static let tags = ["prop", "hunting", "handheld", "plastic", "metal"]
     public static let budget = 2000
     public static let author = "realityhd"
-    public static let preview = PreviewHint(azimuth: 30, elevation: 20, distance: 0.55, studio: true)
+    public static let preview = PreviewHint(azimuth: 30, elevation: 20, distance: 0.88, studio: true)
 
     /// Shaft length in meters.
     public var shaftLength: Float = 0.381
@@ -33,6 +33,7 @@ public struct CrossbowBolt: RealAsset {
         add(HuntKit.axial([(0, 0), (0, r * 1.06), (0.004, r * 1.06), (0.004, 0)], at: V3(0.017, 0, 0), seg: 12, tile: 0.02, "plastic.fletching:7FD01A"))
         add(HuntKit.axial([(0, 0), (0, r * 1.25), (0.014, r * 1.25), (0.014, r * 1.0), (0.018, r * 0.95), (0.018, 0)], at: V3(L - 0.006, 0, 0), seg: 16, tile: 0.02, "metal.bolt-bright"))
         for (s, x) in HuntKit.broadhead(x0: L + 0.008, len: 0.0400, cut: 0.0127, ferrule: 0.0046, "metal.bolt-bright") { add(s, x) }
+        add(HuntKit.axial([(0, 0), (0, r * 1.02), (0.005, r * 1.20), (0.011, r * 1.10), (0.018, r * 1.28), (0.025, r * 1.08), (0.030, r * 1.02), (0.030, 0)], at: V3(L - 0.036, 0, 0), seg: 12, tile: 0.01, "plastic.grime"))
         groundAO(&m, height: 0.02, floor: 0.7)
         return LODModel(m)
     }

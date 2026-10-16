@@ -11,7 +11,7 @@ public struct LeverActionRifle: RealArticulated {
     public static let tags = ["prop", "hunting", "handheld", "articulated", "wood", "metal"]
     public static let budget = 12000
     public static let author = "realityhd"
-    public static let preview = PreviewHint(azimuth: 28, elevation: 14, distance: 1.4, studio: true)
+    public static let preview = PreviewHint(azimuth: 28, elevation: 14, distance: 1.05, studio: true)
 
     /// Overall length in meters, butt plate to muzzle.
     public var length: Float = 0.99
@@ -40,13 +40,13 @@ public struct LeverActionRifle: RealArticulated {
             // Straight-grip stock.
             let outline: [V2] = [V2(0, -0.038), V2(0.06, -0.028), V2(0.16, -0.024), V2(0.24, -0.020), V2(0.36, -0.016), V2(0.36, -0.072),
                                  V2(0.30, -0.074), V2(0.22, -0.090), V2(0.12, -0.125), V2(0.04, -0.148), V2(0, -0.152)]
-            rig.base[lod].add(HuntKit.profileSolid(outline, radius: 0.006, width: { x in
+            rig.base[lod].add(HuntKit.profileSolid(outline, radius: 0.03, width: { x in
                 x < 0.06 ? 0.036 : lerp(0.036, 0.030, smoothstep(0.06, 0.30, x)) + 0.004 * smoothstep(0.30, 0.36, x)
             }, wood), P.at())
             rig.base[lod].add(HuntKit.box(V3(0.005, -0.095, 0), V3(0.012, 0.113, 0.0375), r: 0.003, butt), P.at())
             // Forend.
             let fore: [V2] = [V2(0.500, -0.010), V2(0.795, -0.010), V2(0.805, -0.026), V2(0.797, -0.047), V2(0.62, -0.047), V2(0.500, -0.054)]
-            rig.base[lod].add(HuntKit.profileSolid(fore, radius: 0.005, width: { _ in 0.034 }, wood), P.at())
+            rig.base[lod].add(HuntKit.profileSolid(fore, radius: 0.02, width: { _ in 0.034 }, wood), P.at())
             // Barrel and tube magazine.
             var prof: [(Float, Float)] = [(0, 0), (0, 0.0108)]
             for i in 0...8 { let t = Float(i) / 8; prof.append((0.1 + 0.382 * t, lerp(0.0108, 0.0098, t))) }
@@ -63,8 +63,8 @@ public struct LeverActionRifle: RealArticulated {
                 rig.base[lod].add(HuntKit.box(V3(0.600, 0.0178, -0.0045), V3(0.010, 0.010, 0.0025), r: 0.0007, brightM), P.at())
             }
             // Receiver, loading gate, top ejection slot, tang.
-            rig.base[lod].add(HuntKit.box(V3(0.400, -0.0055, 0), V3(0.200, 0.061, 0.032), r: 0.004, steelM), P.at())
-            rig.base[lod].add(HuntKit.box(V3(0.470, -0.006, 0.0165), V3(0.032, 0.022, 0.002), r: 0.0008, "metal.cartridge-brass"), P.at())
+            rig.base[lod].add(HuntKit.box(V3(0.400, -0.0055, 0), V3(0.200, 0.061, 0.032), r: 0.011, steelM), P.at())
+            rig.base[lod].add(HuntKit.box(V3(0.470, -0.006, 0.0165), V3(0.032, 0.022, 0.002), r: 0.0008, "metal.bolt-bright"), P.at())
             rig.base[lod].add(HuntKit.box(V3(0.400, 0.0252, 0), V3(0.120, 0.003, 0.013), r: 0.0008, "metal.parkerized"), P.at())
             rig.base[lod].add(HuntKit.box(V3(0.330, -0.020, 0), V3(0.080, 0.012, 0.022), r: 0.003, steelM), P.at())
             if hi {

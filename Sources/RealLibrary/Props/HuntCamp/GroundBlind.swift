@@ -44,9 +44,9 @@ public struct GroundBlind: RealAsset {
         var m = Model(name: Self.id)
         let side = flatToFlat / sqrt(3)               // hexagon side = circumradius
         let R = side, H = eave
-        let canvas = "fabric.canvas:" + HuntCampKit.hex(canvasColor)
-        let dark = "fabric.canvas:2A2E1E", mud = "fabric.canvas:3A3226"
-        let leafTints = ["fabric.canvas:3A4428", "fabric.canvas:9A8B5A", "fabric.canvas:56603A", "fabric.canvas:4A3A28", "fabric.canvas:A8A070"]
+        let canvas = "fabric.blind:" + HuntCampKit.hex(canvasColor)
+        let dark = "fabric.blind:2A2E1E", mud = "fabric.blind:3A3226"
+        let leafTints = ["fabric.blind:55713A", "fabric.blind:9A8B5A", "fabric.blind:7C8A4C", "fabric.blind:7A5E3C", "fabric.blind:B3A874"]
         let pole = "plastic.black"
         let billow: Float = 0.03
         func corner(_ i: Int) -> V3 { let a = Float(i) * .pi / 3; return V3(cos(a) * R, 0, sin(a) * R) }

@@ -10,7 +10,7 @@ public struct Arrow: RealAsset {
     public static let tags = ["prop", "hunting", "handheld", "plastic", "metal"]
     public static let budget = 2500
     public static let author = "realityhd"
-    public static let preview = PreviewHint(azimuth: 30, elevation: 20, distance: 0.8, studio: true)
+    public static let preview = PreviewHint(azimuth: 30, elevation: 20, distance: 0.84, studio: true)
 
     /// Shaft length in meters, nock groove to insert.
     public var shaftLength: Float = 0.737
@@ -39,6 +39,7 @@ public struct Arrow: RealAsset {
         // Insert collar and broadhead.
         add(HuntKit.axial([(0, 0), (0, r * 1.22), (0.016, r * 1.22), (0.016, r * 1.0), (0.020, r * 0.95), (0.020, 0)], at: V3(L - 0.008, 0, 0), seg: 16, tile: 0.02, "metal.bolt-bright"))
         for (s, x) in HuntKit.broadhead(x0: L + 0.010, len: 0.0475, cut: 0.0143, ferrule: 0.0044, "metal.bolt-bright") { add(s, x) }
+        add(HuntKit.axial([(0, 0), (0, r * 1.02), (0.005, r * 1.20), (0.011, r * 1.10), (0.018, r * 1.28), (0.027, r * 1.08), (0.034, r * 1.02), (0.034, 0)], at: V3(L - 0.040, 0, 0), seg: 12, tile: 0.01, "plastic.grime"))
         groundAO(&m, height: 0.02, floor: 0.7)
         return LODModel(m)
     }
