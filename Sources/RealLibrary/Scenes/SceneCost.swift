@@ -133,10 +133,12 @@ public extension RealScene {
             let tris = pieces.reduce(0) { $0 + $1.triangleCount }
             if inView(center, size / 2) {
                 var draws = pieces.reduce(0) { $0 + $1.surfaces.filter { !$0.isEmpty }.count }
-                // Past LOD0 an idle rig shows its merged rest proxy (RealRestProxyComponent) when that saves draws.
-                if li >= 1, rig.lodCount > 1 {
+                // An idle rig at or past its proxy level shows its merged rest proxy (RealRestProxyComponent)
+                // when that saves draws.
+                let pl = rig.restProxyLevel(interactive: r.interactive)
+                if li >= pl, rig.lodCount > 1 || pl == 0 {
                     let proxy = posed.levels[li].surfaces.filter { !$0.isEmpty }.count
-                    if draws - proxy >= 4 { draws = proxy }
+                    if draws - proxy >= RealRestProxyComponent.minSavedDraws { draws = proxy }
                 }
                 c.triangles += tris; c.instances += pieces.count; c.meshes += pieces.count
                 c.drawCalls += draws; c.liveDrawCalls += draws

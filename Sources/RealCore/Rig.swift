@@ -279,6 +279,19 @@ public struct Rig: Sendable {
         return r
     }
 
+    /// Part `i` gets its own tap target (collision, input, hover) when the rig is built interactive.
+    public func isPartTarget(_ i: Int, interactive: Bool) -> Bool {
+        let p = parts[i]
+        guard interactive, p.joint.kind != .fixed, p.joint.mimic == nil, let b = p.levels.first?.bounds else { return false }
+        return b.max != b.min
+    }
+
+    /// Coarsest LOD at which an idle rig may show its merged rest proxy. Rigs with per-part tap targets keep
+    /// parts at LOD0 for hover feedback (1); rigs without them (non-interactive, grab-only) proxy from LOD0.
+    public func restProxyLevel(interactive: Bool) -> Int {
+        parts.indices.contains { isPartTarget($0, interactive: interactive) } ? 1 : 0
+    }
+
     /// Part geometry with the pivot baked out (part-local frame), per option and LOD.
     public func localGeometry(_ i: Int) -> [[Model]] {
         let inv = parts[i].pivot.inverse

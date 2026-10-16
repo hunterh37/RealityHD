@@ -7,12 +7,12 @@
   "aerospace-range" : {
     "drawCalls" : 250,
     "shadowTriangles" : 136000,
-    "triangles" : 484000
+    "triangles" : 480000
   },
   "alpine-meadow" : {
     "drawCalls" : 690,
     "shadowTriangles" : 547000,
-    "triangles" : 4908000
+    "triangles" : 4688000
   },
   "autumn-woods" : {
     "drawCalls" : 315,
@@ -27,12 +27,12 @@
   "ballpark" : {
     "drawCalls" : 360,
     "shadowTriangles" : 128000,
-    "triangles" : 1394000
+    "triangles" : 631000
   },
   "boston-common" : {
     "drawCalls" : 820,
     "shadowTriangles" : 397000,
-    "triangles" : 1988000
+    "triangles" : 1656000
   },
   "canyon-road" : {
     "drawCalls" : 305,
@@ -60,7 +60,7 @@
     "triangles" : 200000
   },
   "er-room" : {
-    "drawCalls" : 365,
+    "drawCalls" : 355,
     "shadowTriangles" : 144000,
     "triangles" : 146000
   },
@@ -80,12 +80,12 @@
     "triangles" : 1760000
   },
   "hospital" : {
-    "drawCalls" : 1155,
+    "drawCalls" : 920,
     "shadowTriangles" : 361000,
     "triangles" : 367000
   },
   "hospital-lobby" : {
-    "drawCalls" : 280,
+    "drawCalls" : 195,
     "shadowTriangles" : 110000,
     "triangles" : 145000
   },
@@ -97,7 +97,7 @@
   "lineman-district" : {
     "drawCalls" : 765,
     "shadowTriangles" : 683000,
-    "triangles" : 1303000
+    "triangles" : 1290000
   },
   "lineman-yard" : {
     "drawCalls" : 110,
@@ -110,7 +110,7 @@
     "triangles" : 2147000
   },
   "office-lobby" : {
-    "drawCalls" : 110,
+    "drawCalls" : 95,
     "shadowTriangles" : 78000,
     "triangles" : 104000
   },
@@ -120,12 +120,12 @@
     "triangles" : 239000
   },
   "open-office" : {
-    "drawCalls" : 295,
+    "drawCalls" : 280,
     "shadowTriangles" : 973000,
     "triangles" : 1046000
   },
   "operating-room" : {
-    "drawCalls" : 440,
+    "drawCalls" : 410,
     "shadowTriangles" : 183000,
     "triangles" : 182000
   },
@@ -135,9 +135,9 @@
     "triangles" : 1627000
   },
   "prop-yard" : {
-    "drawCalls" : 4630,
+    "drawCalls" : 4990,
     "shadowTriangles" : 1000,
-    "triangles" : 3786000
+    "triangles" : 4219000
   },
   "rooftop-plank" : {
     "drawCalls" : 400,

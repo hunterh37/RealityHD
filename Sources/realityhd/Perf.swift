@@ -1,4 +1,5 @@
 import Foundation
+import simd
 import RealCore
 import RealKit
 import RealLibrary
@@ -15,7 +16,9 @@ import RealLibrary
 func perfCommand(_ args: Args, tier: RealPerformance.Tier?) throws {
     let seed = UInt64(args.opt("--seed") ?? "1") ?? 1
     let budget = args.flag("--budget"), write = args.flag("--write"), preFrustum = args.flag("--all-in-view")
+    let breakdown = args.flag("--breakdown")
     let ids = args.rest.isEmpty ? SceneCatalog.ids : args.rest
+    if breakdown { perfBreakdown(ids, seed: seed); return }
     if budget { try perfBudget(ids, seed: seed, write: write); return }
     let tiers = tier.map { [$0] } ?? RealPerformance.Tier.allCases
     print(pad("scene", 18), pad("tier", 12), pad("tris", 9), pad("shadow", 9), pad("draws", 7), pad("live", 6), pad("inst", 8),
@@ -77,5 +80,35 @@ func perfBudget(_ ids: [String], seed: UInt64, write: Bool) throws {
     if !failures.isEmpty {
         for f in failures { print("over budget: \(f)") }
         exit(1)
+    }
+}
+
+/// `realityhd perf --breakdown [scene...]`: balanced in-view draws and tris split into fields, statics and
+/// live rigs, plus the live rigs with the most draws.
+@MainActor
+func perfBreakdown(_ ids: [String], seed: UInt64) {
+    let perf = RealPerformance(.balanced)
+    for id in ids {
+        guard let scene = SceneCatalog.build(id, seed: seed) else { print("unknown scene \(id)"); continue }
+        let view = scene.viewVolume()
+        var f = scene; f.singles = []; f.rigs = []
+        var s = scene; s.fields = []; s.rigs = []
+        var r = scene; r.fields = []; r.singles = []
+        print(id, "total", scene.estimate(settings: perf, view: view).drawCalls)
+        for (n, part) in [("fields", f), ("statics", s), ("rigs", r)] {
+            let c = part.estimate(settings: perf, view: view)
+            print("  ", pad(n, 9), pad("\(c.drawCalls) draws", 12), "\(c.triangles / 1000)k tris")
+        }
+        var byRig: [String: (n: Int, d: Int)] = [:]
+        for rig in scene.rigs {
+            var one = r; one.rigs = [rig]
+            let d = one.estimate(settings: perf, view: view).drawCalls
+            let posed = rig.rig.posed(rig.state), b = posed.levels[0].bounds
+            let dist = simd_distance(rig.at.point((b.min + b.max) / 2), view.center)
+            let lod0 = posed.switchDistances.first.map { dist < $0 * perf.lodBias } ?? true
+            let k = (rig.name ?? rig.rig.base[0].name) + (lod0 ? " lod0" : " lod1+") + (rig.interactive ? "" : " passive")
+            byRig[k, default: (0, 0)].n += 1; byRig[k, default: (0, 0)].d += d
+        }
+        for (k, v) in byRig.sorted(by: { $0.value.d > $1.value.d }).prefix(12) { print("     ", pad(k, 32), "x\(v.n)", v.d) }
     }
 }

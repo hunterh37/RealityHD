@@ -87,10 +87,11 @@ public struct RealRestProxyComponent: Component {
     public let options: [String: Int]
     /// Joints and options match the proxy pose.
     public internal(set) var atRest = true
-    /// Proxy shows only at this LOD level or coarser (LOD0 keeps parts for hover and tap feedback up close).
-    public static let minLevel = 1
+    /// Proxy shows only at this LOD level or coarser: 1 for rigs with per-part tap targets (LOD0 keeps parts
+    /// for hover feedback up close), 0 for rigs without them (`Rig.restProxyLevel(interactive:)`).
+    public let minLevel: Int
     /// Proxy is built only when it saves at least this many draws.
-    public static let minSavedDraws = 4
+    public static let minSavedDraws = 2
 }
 
 /// Present on a joint entity while its tween runs, so the system visits only moving joints (idle cost zero).
@@ -183,7 +184,7 @@ public extension Rig {
                     e.addChild(c)
                 }
             }
-            if interactive, p.joint.kind != .fixed, p.joint.mimic == nil, let b = geo[0].first?.bounds, b.max != b.min {
+            if isPartTarget(i, interactive: interactive), let b = geo[0].first?.bounds {
                 Self.makeTarget(e, min: b.min, max: b.max)
             }
             (p.parent.flatMap { joints[$0] } ?? root).addChild(e)
@@ -202,15 +203,17 @@ public extension Rig {
             e.look(at: pos + dir, from: pos, relativeTo: host)
             e.isEnabled = Self.lightOn(l, opts)
         }
-        if multiLOD {
+        let proxyLevel = restProxyLevel(interactive: interactive)
+        var proxied = false
+        if multiLOD || proxyLevel == 0 {
             let posedRest = posed(values: vals, options: opts)
-            let l = RealRestProxyComponent.minLevel
+            let l = proxyLevel
             func draws(_ m: Model) -> Int { m.triangleCount > 0 ? m.surfaces.filter { !$0.isEmpty }.count : 0 }
             let liveDraws = draws(base[l]) + parts.reduce(0) { n, p in n + draws(p.option(min(opts[p.name] ?? 0, p.optionCount - 1))[l]) }
             if liveDraws - draws(posedRest.levels[l]) >= RealRestProxyComponent.minSavedDraws {
                 let rest = Entity()
                 rest.name = "rest"
-                for (i, m) in posedRest.levels.enumerated() where i >= RealRestProxyComponent.minLevel && m.triangleCount > 0 {
+                for (i, m) in posedRest.levels.enumerated() where i >= l && m.triangleCount > 0 {
                     let e = try await m.modelEntityAsync(materials: materials)
                     e.name = "lod\(i)"
                     e.isEnabled = false
@@ -218,12 +221,14 @@ public extension Rig {
                     rest.addChild(e)
                 }
                 root.addChild(rest)
-                root.components.set(RealRestProxyComponent(values: vals, options: opts))
+                root.components.set(RealRestProxyComponent(values: vals, options: opts, minLevel: l))
+                proxied = true
             }
         }
         root.components.set(RealArticulationComponent(rig: schema, state: start))
         root.components.set(RealJointIndex(joints: joints, lights: lightEntities))
-        if multiLOD {
+        // A single-LOD rig with a proxy still takes a LOD root, so RealLODSystem switches proxy and parts.
+        if multiLOD || proxied {
             var b = base[0].bounds
             for p in parts where p.levels[0].triangleCount > 0 { let pb = p.levels[0].bounds; b = (simd_min(b.min, pb.min), simd_max(b.max, pb.max)) }
             root.components.set(RealLODComponent(switchDistances: switchDistances, center: (b.min + b.max) / 2))
