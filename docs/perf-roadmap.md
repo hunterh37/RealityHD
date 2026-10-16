@@ -206,9 +206,11 @@ corridor, ER and OR. Apple Vision Pro sim, Release, balanced, `-bench 20 -pan 15
 | 0 (facing the corridor door) | 410k -> 325k | 376k -> 298k | 971 -> 738 | 47 -> 25 ms |
 | 180 (facing the lobby front) | 417k -> 363k | 383k -> 333k | 985 -> 839 | 46 -> 27 ms |
 
-Frame p99 11.1 ms in all runs; one 122 ms frame in the yaw 180 run with PVS on (a room enabled for the
-first time). Thumbnail unchanged (offline render sees every room through the open portals). Open: CityLayout
-block PVS for districts, first-enable hitch, on-head trace.
+Frame p99 11.1 ms in all runs; one 122 ms frame in the yaw 180 run with PVS on. Not a room toggle: six
+reruns with a 0.5 s all-rooms warmup kept the same visible set (306k tris, 651 draws throughout) and still
+showed single 33-133 ms frames during `-steps` walks, as PVS-off runs do (66 ms). Warmup dropped.
+Thumbnail unchanged (offline render sees every room through the open portals). Open: CityLayout block PVS
+for districts, on-head trace.
 
 ## Not planned
 
