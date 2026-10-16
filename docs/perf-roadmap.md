@@ -133,6 +133,10 @@ farmyard. Open: hand-written tree LOD1 levels over 50 % of LOD0, impostors, scre
 Known unrelated test failures: AssetContractTests centering (eelgrass-bed, three staircases), GPUSmoke
 overcast sky.
 
+Status 2026-10-16: `TallGrass` mid level from 4 m (half the blades at 3 segments, 35 % wider, half the
+culms), cards from 10 m as before. alpine-meadow fields 3228k -> 2503k tris, in-view total 2734k (tall
+grass 1198k -> 473k). Largest remaining field there: `GrassTuft` x21000 at 1103k.
+
 ## Phase 4: shading
 
 - Measure ShaderGraph variant cost per material family on device (phase 0 trace). Families above the
