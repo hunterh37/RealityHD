@@ -88,6 +88,30 @@ import RealityKit
         #expect(far.components[RealLODComponent.self]?.current == 2)
     }
 
+    @Test func peripheralScaleRampsOutsideTheView() {
+        let b = RealPerformance(.balanced), fwd = SIMD3<Float>(0, 0, -1)
+        #expect(b.peripheralScale(forward: fwd, toObject: [0, 0, -5]) == 1)
+        #expect(b.peripheralScale(forward: fwd, toObject: [5, 0, -5]) == 1, "45 degrees is in view")
+        #expect(abs(b.peripheralScale(forward: fwd, toObject: [0, 0, 5]) - b.peripheralBias) < 1e-4)
+        #expect(b.with { $0.peripheralLOD = false }.peripheralScale(forward: fwd, toObject: [0, 0, 5]) == 1)
+    }
+
+    @MainActor @Test func offViewLODStopsAtTheShadowCasterLimit() throws {
+        let perf = RealPerformance(.balanced)
+        let front = try Self.asset().entity(), behind = try Self.asset().entity(), behindMid = try Self.asset().entity()
+        front.position = [0, 0, -5]; behind.position = [0, 0, 5]; behindMid.position = [0, 0, 20]
+        for e in [front, behind, behindMid] {
+            RealLODSystem.evaluate(e, viewer: .zero, forward: [0, 0, -1], perf: perf, adapt: 1, bias: 1, reach: 0)
+        }
+        #expect(front.components[RealLODComponent.self]?.current == 0)
+        #expect(behind.components[RealLODComponent.self]?.current == 1, "behind: one level coarser, still a caster")
+        #expect(behindMid.components[RealLODComponent.self]?.current == 1, "capped at shadowCasterMaxLOD")
+        let off = perf.with { $0.peripheralLOD = false }
+        let b2 = try Self.asset().entity(); b2.position = [0, 0, 5]
+        RealLODSystem.evaluate(b2, viewer: .zero, forward: [0, 0, -1], perf: off, adapt: 1, bias: 1, reach: 0)
+        #expect(b2.components[RealLODComponent.self]?.current == 0)
+    }
+
     @Test func shadowPolicy() {
         let b = RealPerformance(.balanced)
         #expect(b.castsShadow(lod: 1, size: 1) && !b.castsShadow(lod: 2, size: 1))

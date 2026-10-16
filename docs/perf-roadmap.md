@@ -161,6 +161,23 @@ trace, texture streaming by LOD.
   graphs costs nothing per frame.
 - Foveation-aware LOD: bias LOD by gaze-independent eccentricity from head forward (no eye data needed).
 
+Status 2026-10-16: off-view LOD. `RealPerformance.peripheralLOD` (on in every tier): objects past
+`peripheralStart` (70 degrees) from head forward scale their switch distance up to `peripheralBias` (3x)
+at 180 degrees. The raised level stops at `shadowCasterMaxLOD`, so casters whose shadow falls into view
+keep casting. In-view meshes keep their level; the win is in the shadow pass and in off-view geometry the
+renderer still submits. Demo `-peripheral NO|YES` toggles it. Simulator A/B (Apple Vision Pro sim,
+Release, balanced, `-bench 20 -pan 15`, mean over samples 2-20 s):
+
+| scene | tris | shadow tris | draws | in-view tris | walk p99 |
+|---|---|---|---|---|---|
+| hospital | 501k -> 425k | 458k -> 391k | 1116 -> 996 | 167k -> 160k | 11.1 -> 11.1 ms |
+| forest-glade | 2764k -> 2698k | 1757k -> 1718k | 638 -> 638 | 1724k -> 1691k | 11.1 -> 11.1 ms |
+| boston-common | 2819k -> 2785k | 1907k -> 1881k | 1773 -> 1773 | 1189k -> 1182k | 11.1 -> 11.1 ms |
+
+In-view drops come from meshes the 100-degree frustum test counts but that sit past 70 degrees on one
+axis. LOD switches per second max 5-9 during the pan. Exteriors gain little: most off-view field
+cells already run LOD1+ by distance. Open: streamed tiles for exteriors, interior PVS, on-head trace.
+
 ## Not planned
 
 - Further load-stall or governor work: measured at target already.
