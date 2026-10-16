@@ -1,0 +1,41 @@
+{
+  "budget": 12000,
+  "id": "pump-shotgun",
+  "kind": "prop",
+  "materials": [
+    "wood.walnut-stock",
+    "metal.blued-steel",
+    "metal.parkerized",
+    "rubber.recoil-pad"
+  ],
+  "name": "Pump shotgun",
+  "notes": "",
+  "parts": [
+    "stock",
+    "barrel",
+    "magazine tube",
+    "receiver",
+    "pump forend",
+    "bead sight",
+    "trigger guard"
+  ],
+  "references": [],
+  "size": [
+    1.26,
+    0.17,
+    0.046
+  ],
+  "style": "Remington 870 / Mossberg 500 class 12 gauge, 28 in barrel, walnut furniture",
+  "summary": "Pump-action 12 gauge shotgun, 1.26 m: walnut stock, blued barrel over tube magazine, articulated sliding pump forend.",
+  "tags": [
+    "prop",
+    "hunting",
+    "handheld",
+    "articulated",
+    "wood",
+    "metal"
+  ],
+  "theme": "Hunting",
+  "threshold": 0.7,
+  "tolerance": 0.15
+}

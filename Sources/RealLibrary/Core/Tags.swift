@@ -47,6 +47,8 @@ public enum AssetTag {
         "fish",
         // fishing tackle: rods, rod components, reels and lures (MulberryRiver)
         "fishing",
+        // hunting: handheld firearms, bows and ammunition
+        "hunting",
     ])
 
     /// Scene tags: any vocabulary tag plus these.

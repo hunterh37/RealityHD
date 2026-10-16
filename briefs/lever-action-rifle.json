@@ -1,0 +1,42 @@
+{
+  "budget": 12000,
+  "id": "lever-action-rifle",
+  "kind": "prop",
+  "materials": [
+    "wood.walnut-stock",
+    "metal.blued-steel",
+    "metal.bolt-bright",
+    "rubber.recoil-pad"
+  ],
+  "name": "Lever-action rifle",
+  "notes": "",
+  "parts": [
+    "stock",
+    "barrel",
+    "magazine tube",
+    "receiver",
+    "lever",
+    "hammer",
+    "trigger",
+    "forend"
+  ],
+  "references": [],
+  "size": [
+    0.991,
+    0.179,
+    0.038
+  ],
+  "style": "Winchester 94 / Marlin 336 class carbine, 20 in barrel, straight walnut stock, case-handled steel",
+  "summary": "Lever-action carbine, 0.99 m: walnut stock and forend, blued barrel with tube magazine, articulated lever and hammer.",
+  "tags": [
+    "prop",
+    "hunting",
+    "handheld",
+    "articulated",
+    "wood",
+    "metal"
+  ],
+  "theme": "Hunting",
+  "threshold": 0.7,
+  "tolerance": 0.15
+}

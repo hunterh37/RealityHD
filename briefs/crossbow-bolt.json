@@ -1,0 +1,37 @@
+{
+  "budget": 2000,
+  "id": "crossbow-bolt",
+  "kind": "prop",
+  "materials": [
+    "plastic.carbon-shaft",
+    "plastic.fletching",
+    "metal.bolt-bright"
+  ],
+  "name": "Crossbow bolt",
+  "notes": "",
+  "parts": [
+    "shaft",
+    "vanes",
+    "flat nock",
+    "broadhead"
+  ],
+  "references": [],
+  "size": [
+    0.429,
+    0.019,
+    0.022
+  ],
+  "style": "16.5 in carbon bolt, half-moon nock, low-profile vanes, 100 grain broadhead",
+  "summary": "Crossbow bolt, 0.42 m: carbon shaft, low vanes, half-moon nock, broadhead.",
+  "tags": [
+    "prop",
+    "hunting",
+    "handheld",
+    "articulated",
+    "plastic",
+    "metal"
+  ],
+  "theme": "Hunting",
+  "threshold": 0.7,
+  "tolerance": 0.15
+}

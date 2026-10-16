@@ -854,6 +854,16 @@ public enum Props {
         TerracottaRainscreenBaguette.self,
         GlazedTerracottaCladdingTile.self,
         ArchitecturalConcreteBoardFormPanel.self,
+        BoltActionRifle.self,
+        LeverActionRifle.self,
+        PumpShotgun.self,
+        BreakActionShotgun.self,
+        Crossbow.self,
+        Arrow.self,
+        CrossbowBolt.self,
+        RifleCartridge.self,
+        ShotgunShell.self,
+        CompoundBow.self,
         // realityhd:prop
     ]
 }

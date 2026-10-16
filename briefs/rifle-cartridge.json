@@ -1,0 +1,35 @@
+{
+  "budget": 3500,
+  "id": "rifle-cartridge",
+  "kind": "prop",
+  "materials": [
+    "metal.cartridge-brass",
+    "metal.bullet-copper"
+  ],
+  "name": "Rifle cartridge",
+  "notes": "",
+  "parts": [
+    "case",
+    "bullet",
+    "primer",
+    "rim"
+  ],
+  "references": [],
+  "size": [
+    0.0711,
+    0.012,
+    0.012
+  ],
+  "style": ".308 Winchester, 2.8 in overall, brass case, soft-point jacketed bullet",
+  "summary": ".308 Winchester cartridge, 71 mm: brass case with rim and primer, copper soft-point bullet.",
+  "tags": [
+    "prop",
+    "hunting",
+    "handheld",
+    "articulated",
+    "metal"
+  ],
+  "theme": "Hunting",
+  "threshold": 0.7,
+  "tolerance": 0.15
+}

@@ -1,0 +1,43 @@
+{
+  "budget": 14000,
+  "id": "crossbow",
+  "kind": "prop",
+  "materials": [
+    "plastic.stock-synthetic",
+    "paint.bow-camo",
+    "metal.anodized-gunmetal",
+    "fabric.bowstring"
+  ],
+  "name": "Crossbow",
+  "notes": "",
+  "parts": [
+    "stock",
+    "barrel rail",
+    "prod",
+    "limbs",
+    "string",
+    "trigger",
+    "scope",
+    "foot stirrup",
+    "cocking latch"
+  ],
+  "references": [],
+  "size": [
+    0.875,
+    0.231,
+    0.712
+  ],
+  "style": "modern recurve crossbow, 0.86 m stock, 0.66 m limb span, synthetic stock, 4x32 scope",
+  "summary": "Crossbow, 0.86 m: synthetic stock, recurve limbs, scope, articulated string (cocked and fired).",
+  "tags": [
+    "prop",
+    "hunting",
+    "handheld",
+    "articulated",
+    "metal",
+    "plastic"
+  ],
+  "theme": "Hunting",
+  "threshold": 0.7,
+  "tolerance": 0.15
+}

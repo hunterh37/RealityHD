@@ -1,0 +1,43 @@
+{
+  "budget": 12000,
+  "id": "bolt-action-rifle",
+  "kind": "prop",
+  "materials": [
+    "wood.walnut-stock",
+    "metal.blued-steel",
+    "metal.bolt-bright",
+    "rubber.recoil-pad",
+    "plastic.lens-clear"
+  ],
+  "name": "Bolt-action rifle",
+  "notes": "",
+  "parts": [
+    "stock",
+    "barrel",
+    "receiver",
+    "scope",
+    "bolt",
+    "trigger",
+    "magazine floorplate",
+    "sling swivels"
+  ],
+  "references": [],
+  "size": [
+    1.12,
+    0.226,
+    0.095
+  ],
+  "style": "Remington 700 / Winchester M70 class sporter, 24 in barrel, oiled walnut, hot-blued steel, 3-9x40 scope, lightly handled",
+  "summary": "Bolt-action hunting rifle, 1.12 m: walnut stock, blued barrel and receiver, 3-9x40 scope, articulated bolt (handle lift, draw back, close).",
+  "tags": [
+    "prop",
+    "hunting",
+    "handheld",
+    "articulated",
+    "wood",
+    "metal"
+  ],
+  "theme": "Hunting",
+  "threshold": 0.7,
+  "tolerance": 0.15
+}

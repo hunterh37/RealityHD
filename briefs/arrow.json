@@ -1,0 +1,38 @@
+{
+  "budget": 2500,
+  "id": "arrow",
+  "kind": "prop",
+  "materials": [
+    "plastic.carbon-shaft",
+    "plastic.fletching",
+    "metal.bolt-bright"
+  ],
+  "name": "Hunting arrow",
+  "notes": "",
+  "parts": [
+    "shaft",
+    "fletching",
+    "nock",
+    "broadhead",
+    "insert"
+  ],
+  "references": [],
+  "size": [
+    0.794,
+    0.022,
+    0.025
+  ],
+  "style": "29 in carbon hunting arrow, three 2 in vanes, 100 grain fixed broadhead",
+  "summary": "Carbon hunting arrow, 0.78 m: graphite shaft, three vanes, lighted nock, three-blade broadhead.",
+  "tags": [
+    "prop",
+    "hunting",
+    "handheld",
+    "articulated",
+    "plastic",
+    "metal"
+  ],
+  "theme": "Hunting",
+  "threshold": 0.7,
+  "tolerance": 0.15
+}

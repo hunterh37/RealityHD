@@ -1,0 +1,22 @@
+{
+  "automated" : 0.99989444,
+  "date" : "2026-10-16",
+  "final" : 0.816338,
+  "fingerprint" : "cde790ba882234a4",
+  "id" : "compound-bow",
+  "iterations" : 1,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 7,
+    "construction" : 7,
+    "edges" : 7,
+    "grounding" : 7,
+    "materials" : 7,
+    "proportion" : 8,
+    "silhouette" : 8,
+    "wear" : 6
+  },
+  "seed" : 1,
+  "threshold" : 0.7,
+  "vision" : 0.7175
+}
