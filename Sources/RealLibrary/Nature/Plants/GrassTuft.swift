@@ -31,10 +31,15 @@ public struct GrassTuft: RealAsset {
         t.width = 0.004...0.008
         var m0 = Model(name: Self.id)
         m0.add(PlantKit.tuft(t, rng: &rng, material: material, phase: phase))
+        // Mid level: half the blades, 35 % wider, same coverage past 3 m.
+        var mid = rng.fork(1)
+        var th = t; th.count = max(8, t.count / 2); th.width = t.width.lowerBound * 1.35...t.width.upperBound * 1.35
+        var mh = Model(name: Self.id)
+        mh.add(PlantKit.tuft(th, rng: &mid, material: material, phase: phase))
         var m1 = Model(name: Self.id)
         m1.add(PlantKit.cardTuft(count: 3, height: t.height * 1.05, width: t.height * 1.1, segments: 2,
                                  cells: [PlantKit.cell(0, cols: 2, rows: 2)], rng: &rng, material: cardMaterial, phase: phase))
-        PlantKit.finish(&m0); PlantKit.finish(&m1)
-        return LODModel(levels: [m0, m1], switchDistances: [8])
+        PlantKit.finish(&m0); PlantKit.finish(&mh); PlantKit.finish(&m1)
+        return LODModel(levels: [m0, mh, m1], switchDistances: [3, 8])
     }
 }

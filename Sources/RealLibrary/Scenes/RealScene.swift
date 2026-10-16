@@ -273,7 +273,7 @@ public struct RealScene {
     public mutating func field<A: RealAsset>(_ asset: A, seed: UInt64, transforms: [simd_float4x4],
                                              options: RealInstancing.Options = RealInstancing.Options()) {
         guard !transforms.isEmpty else { return }
-        fields.append(.init(asset: asset.build(seed: seed), transforms: transforms, options: options))
+        fields.append(.init(asset: Self.autoLOD(asset.build(seed: seed), count: transforms.count), transforms: transforms, options: options))
     }
 
     /// GPU-instanced copies of an articulated asset baked in one state.
@@ -281,6 +281,12 @@ public struct RealScene {
                                                    options: RealInstancing.Options = .props) {
         guard !transforms.isEmpty else { return }
         fields.append(.init(asset: asset.build(seed: seed, state: state), transforms: transforms, options: options))
+    }
+
+    /// Single-level field assets repeated 8+ times get simplified LOD1/LOD2 (`LODModel.withAutoLevels`).
+    nonisolated(unsafe) public static var autoLODFields = true
+    static func autoLOD(_ m: LODModel, count: Int) -> LODModel {
+        autoLODFields && count >= 8 ? m.withAutoLevels() : m
     }
 
     /// LOD0 triangles if every instance were at LOD0 (upper bound used by budget tests).
