@@ -292,6 +292,9 @@ S furCoat(float2 uv, constant RFParams &P) {
     float patch = fbm(uv, int2(5, 7), 3, P.seed + 111u);
     float drift = fbm(uv, int2(9, 13), 2, P.seed + 211u);
     float3 tint = float3(1.0 + 0.10 * drift, 1.0, 1.0 - 0.10 * drift) * (1.0 + 0.30 * patch);
+    // Low-frequency domain warp breaks strand-row alignment (tile banding). Mirror safe: t stays >= 0.
+    float2 wp = float2(fbm(uv, int2(6, 9), 2, P.seed + 301u), fbm(uv, int2(7, 5), 2, P.seed + 303u));
+    float tw = fabs(t + 0.02 * wp.x), vw = uv.y + 0.03 * wp.y;
     // Layers from the surface down: sparse long guard hairs, then four dense fine coat layers.
     const float scl[5] = { 0.42, 1.0, 1.17, 0.88, 1.31 };
     float3 outC = float3(0.0); float hgt = 0.1, ao = 0.3; bool got = false;
@@ -299,7 +302,7 @@ S furCoat(float2 uv, constant RFParams &P) {
         bool gl = (l == 0);
         int nx = max(8, int(round(nx0 * scl[l] * (gl ? 1.0 : 1.35))));
         float lenV = (gl ? (12.0 + 14.0 * fuzz) : (5.5 + 8.0 * fuzz)) / float(nx);
-        FaStrand st = fa_strand(t, uv.y, nx, lenV, P.seed + uint(l) * 977u, gl ? 0.36 : 0.40, gl ? 0.18 : 0.26);
+        FaStrand st = fa_strand(tw, vw, nx, lenV, P.seed + uint(l) * 977u, gl ? 0.36 : 0.40, gl ? 0.18 : 0.26);
         if (!st.hit) continue;
         if (gl && st.h1 < 0.55) continue;                                  // guard hairs are a sparse subset
         got = true;
