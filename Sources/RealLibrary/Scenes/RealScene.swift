@@ -87,10 +87,14 @@ public struct RealScene {
     /// stop casting, since their shadow falls where the shell already shades. nil = on when
     /// `lighting.interior` and `lighting.sky` are both set.
     public var cullSunBlockedCasters: Bool?
+    /// Interior rooms and the doorways between them. When set, `entity()` groups content per room and
+    /// `RealCellVisibilitySystem` hides rooms the viewer cannot see (see SceneCells.swift).
+    public var cells: RealCellGraph?
     public init(name: String) { self.name = name }
 
     @MainActor
     public func entity(materials: RealMaterialCache? = nil) async throws -> Entity {
+        if let cells, !cells.cells.isEmpty { return try await cellEntity(cells, materials: materials) }
         let root = Entity()
         root.name = name
         lighting.water?.apply()

@@ -190,6 +190,8 @@ public enum RealKitSetup {
         RealPerformanceSystem.registerSystem()
         RealStreamingComponent.registerComponent()
         RealStreamingSystem.registerSystem()
+        RealCellVisibilityComponent.registerComponent()
+        RealCellVisibilitySystem.registerSystem()
         RealCook.register()
     }
 }
