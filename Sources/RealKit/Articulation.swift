@@ -154,7 +154,7 @@ public extension Rig {
 
         func lodChildren(_ models: [Model], under parent: Entity) async throws {
             for (i, m) in models.enumerated() where m.triangleCount > 0 {
-                let e = try await m.modelEntityAsync(materials: materials)
+                let e = try await m.modelEntityAsync(materials: materials, lod: i)
                 e.name = "lod\(i)"
                 e.isEnabled = i == 0
                 e.realTagCost(m.cost(lod: i, size: models[0].boundsDiagonal))
@@ -214,7 +214,7 @@ public extension Rig {
                 let rest = Entity()
                 rest.name = "rest"
                 for (i, m) in posedRest.levels.enumerated() where i >= l && m.triangleCount > 0 {
-                    let e = try await m.modelEntityAsync(materials: materials)
+                    let e = try await m.modelEntityAsync(materials: materials, lod: i)
                     e.name = "lod\(i)"
                     e.isEnabled = false
                     e.realTagCost(m.cost(lod: i, size: posedRest.levels[0].boundsDiagonal))

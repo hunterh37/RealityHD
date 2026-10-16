@@ -65,6 +65,9 @@ public final class RealMaterialCache {
     public private(set) var diskHits = 0, synthesized = 0
     /// Set false to force PhysicallyBasedMaterial everywhere (no wind, no translucency).
     public var useShaderGraph = true
+    /// LOD index from which meshes bind the far ShaderGraph variant (no vertex wind, no leaf translucency).
+    /// Int.max keeps the near variant at every level.
+    public var farVariantLOD = 2
 
     public init() {}
 
@@ -77,13 +80,22 @@ public final class RealMaterialCache {
         return m
     }
 
-    public func materialAsync(_ key: MaterialKey) async -> any RealityKit.Material {
-        if let m = graph[key] { return m }
+    public func materialAsync(_ key: MaterialKey) async -> any RealityKit.Material { await materialAsync(key, far: false) }
+
+    /// True when the far variant of `key` differs from the near one (the spec uses wind or translucency).
+    public func hasFarVariant(_ key: MaterialKey) -> Bool { let s = spec(key); return s.wind > 0 || s.translucency > 0 }
+
+    /// `far`: variant for distant LODs without vertex wind and leaf translucency. Specs without either share
+    /// the near material.
+    public func materialAsync(_ key: MaterialKey, far: Bool) async -> any RealityKit.Material {
+        let far = far && hasFarVariant(key)
+        let gk = far ? "\(key)#far" : key
+        if let m = graph[gk] { return m }
         let s = spec(key)
         guard useShaderGraph, s.program != nil, s.mode != .emissive else { return material(key) }
         do {
-            let m = try await buildGraph(s)
-            graph[key] = m
+            let m = try await buildGraph(s, far: far)
+            graph[gk] = m
             return m
         } catch {
             return material(key)
@@ -93,14 +105,15 @@ public final class RealMaterialCache {
     /// ShaderGraph material with per-instance hue/value jitter (instanced fields). Shares textures
     /// with the plain variant. Falls back to the plain material when ShaderGraph is off.
     /// - Parameters: hue: max hue shift in turns (0.02 = 7 degrees); value: max relative brightness change.
-    public func materialAsync(_ key: MaterialKey, hueJitter hue: Float, valueJitter value: Float) async -> any RealityKit.Material {
-        guard hue > 0 || value > 0 else { return await materialAsync(key) }
-        let vk = "\(key)#jitter\(hue),\(value)"
+    public func materialAsync(_ key: MaterialKey, hueJitter hue: Float, valueJitter value: Float, far: Bool = false) async -> any RealityKit.Material {
+        guard hue > 0 || value > 0 else { return await materialAsync(key, far: far) }
+        let far = far && hasFarVariant(key)
+        let vk = "\(key)#jitter\(hue),\(value)" + (far ? "#far" : "")
         if let m = graph[vk] { return m }
         let s = spec(key)
         guard useShaderGraph, s.program != nil, s.mode != .emissive else { return material(key) }
         do {
-            let m = try await buildGraph(s, jitter: SIMD2(hue, value))
+            let m = try await buildGraph(s, jitter: SIMD2(hue, value), far: far)
             graph[vk] = m
             return m
         } catch {
@@ -297,12 +310,12 @@ public final class RealMaterialCache {
         return m
     }
 
-    private func buildGraph(_ s: MaterialSpec, jitter: SIMD2<Float> = .zero, cook: Bool = false) async throws -> any RealityKit.Material {
+    private func buildGraph(_ s: MaterialSpec, jitter: SIMD2<Float> = .zero, cook: Bool = false, far: Bool = false) async throws -> any RealityKit.Material {
         guard let t = try textures(s) else { throw TextureSynth.SynthError.encode }
         var o = RealShaderOptions()
         let perf = RealPerformance.active
         o.cutout = s.mode == .cutout; o.aoMap = t.ao != nil; o.metallicMap = t.metallic != nil
-        o.wind = s.wind > 0 && perf.wind; o.translucency = s.translucency > 0 && perf.translucency; o.antiTile = s.antiTile && perf.antiTile
+        o.wind = s.wind > 0 && perf.wind && !far; o.translucency = s.translucency > 0 && perf.translucency && !far; o.antiTile = s.antiTile && perf.antiTile
         o.topLayer = s.topAmount > 0 && perf.snowLayer; o.fog = perf.fog; o.triplanar = s.triplanar
         o.instanceJitter = jitter != .zero && perf.instanceVariation
         o.transparent = s.mode == .transparent
@@ -424,11 +437,11 @@ public extension RealMaterialCache {
 public extension Model {
     /// Async variant: foliage/bark get ShaderGraph wind materials.
     @MainActor
-    func modelEntityAsync(materials: RealMaterialCache? = nil) async throws -> ModelEntity {
+    func modelEntityAsync(materials: RealMaterialCache? = nil, lod: Int = 0) async throws -> ModelEntity {
         let cache = materials ?? .shared
         let keys = self.surfaces.filter { !$0.isEmpty }.map(\.material)
         var mats: [any RealityKit.Material] = []
-        for k in keys { mats.append(await cache.materialAsync(k)) }
+        for k in keys { mats.append(await cache.materialAsync(k, far: lod >= cache.farVariantLOD)) }
         let e = ModelEntity(mesh: try await meshResourceAsync(), materials: mats)
         e.name = name
         return e
