@@ -176,7 +176,11 @@ Release, balanced, `-bench 20 -pan 15`, mean over samples 2-20 s):
 
 In-view drops come from meshes the 100-degree frustum test counts but that sit past 70 degrees on one
 axis. LOD switches per second max 5-9 during the pan. Exteriors gain little: most off-view field
-cells already run LOD1+ by distance. Open: streamed tiles for exteriors, interior PVS, on-head trace.
+cells already run LOD1+ by distance.
+Walk A/B (`-bench 30 -steps 0.5`, samples past 3 s): forest-glade tris 1842k -> 1766k, in-view
+685k -> 634k, shadow 1333k -> 1274k, LOD switches 536 -> 501; boston-common in-view 1120k -> 1115k.
+Frame p99 11.1 ms both; forest-glade on had one 67 ms frame at load reveal, walk stall max 13 ms.
+Open: streamed tiles for exteriors, interior PVS, on-head trace.
 
 ## Not planned
 
