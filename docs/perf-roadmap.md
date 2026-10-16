@@ -180,7 +180,19 @@ cells already run LOD1+ by distance.
 Walk A/B (`-bench 30 -steps 0.5`, samples past 3 s): forest-glade tris 1842k -> 1766k, in-view
 685k -> 634k, shadow 1333k -> 1274k, LOD switches 536 -> 501; boston-common in-view 1120k -> 1115k.
 Frame p99 11.1 ms both; forest-glade on had one 67 ms frame at load reveal, walk stall max 13 ms.
-Open: streamed tiles for exteriors, interior PVS, on-head trace.
+Open: interior PVS, on-head trace.
+
+Status 2026-10-16: streamed tiles for exteriors, measured and dropped. Demo prototype split each scene
+with `tiled(tileSize: 32)` and streamed tiles past a radius from the camera (Apple Vision Pro sim, Release,
+`-bench 30 -steps 0.5`, two runs each). Scene spans at 32 m tiles: boston-common 15x13, alpine-meadow
+11x9, lineman-district 7x6, forest-glade 4x4 (every tile inside 60 m, nothing to stream).
+- balanced, 200 m: boston-common tris 2728k -> 1786k, draws 1738 -> 983, but in-view tris 1112k -> 822k
+  (290k visible tris past 200 m through fog 0.0008 disappear, the look moves) and walk stalls 15 -> 62-76 ms
+  from tile uploads. alpine-meadow and lineman-district: no change (no tile past 200 m carries content).
+- performance (draw distance 260 m) and battery (140 m): tiles past the draw distance are hidden already;
+  boston-common 1694k -> 1684k tris, draws 1047 -> 1074. Battery scenes stay under 1M tris.
+No tier gains without moving quality, so exteriors keep loading whole. `RealityHD.streamedScene` stays for
+worlds larger than the demo scenes.
 
 ## Not planned
 
