@@ -126,7 +126,7 @@ public enum FaunaMaterials {
     // MARK: ground animals
 
     public enum GroundRegion: String, CaseIterable, Sendable {
-        case body, head, tail, ear, nose, eye, claw, whisker, quill, antler, hoof
+        case body, head, tail, ear, nose, eye, claw, whisker, quill, antler, hoof, muzzle, throat, rump, mane, bristle
     }
 
     public static func key(_ id: String, _ r: GroundRegion) -> MaterialKey { "fauna.\(id).\(r.rawValue)" }
@@ -186,6 +186,33 @@ public enum FaunaMaterials {
             make(.hoof, .plastic) {
                 $0.colorA = linear(c.hoof); $0.knobs = V4(0.4, 0.4, 0.6, 0)
                 $0.tileSize = 0.03; $0.resolution = 128; $0.normalStrength = 1.2; $0.roughness = 0.45; $0.clearcoat = 0.2
+            },
+            make(.muzzle, .furCoat) {
+                $0.colorA = linear(c.muzzle ?? c.face); $0.colorB = linear(c.belly); $0.colorC = linear(c.accent)
+                $0.knobs = V4(c.strands * 1.5, 0.9, c.pattern * 0.4, c.fuzz * 0.5)
+                $0.tileSize = 0; $0.resolution = 512; $0.normalStrength = 1.8; $0.roughness = 0.88
+            },
+            make(.throat, .furCoat) {
+                // Throat coat: face colour above, pale patch below the flank line.
+                $0.colorA = linear(p.anatomy.darkLimbs ? c.face : c.back); $0.colorB = linear(c.patch); $0.colorC = linear(c.accent)
+                $0.knobs = V4(c.strands * 1.1, 0.5, c.pattern * 0.5, c.fuzz * 0.9)
+                $0.tileSize = 0; $0.resolution = 512; $0.normalStrength = 2.2; $0.roughness = 0.9
+            },
+            make(.rump, .furCoat) {
+                $0.colorA = linear(c.patch); $0.colorB = linear(c.belly); $0.colorC = linear(c.accent)
+                $0.knobs = V4(c.strands, c.flankLine - 0.1, 0.1, c.fuzz)
+                $0.tileSize = 0; $0.resolution = 512; $0.normalStrength = 2.4; $0.roughness = 0.92
+            },
+            make(.mane, .furCoat) {
+                let m = c.mane ?? c.accent
+                $0.colorA = linear(m); $0.colorB = linear(m); $0.colorC = linear(c.face)
+                $0.knobs = V4(c.strands * 0.8, 0.9, 0.7, 1.0)
+                $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 3; $0.roughness = 0.94
+            },
+            make(.bristle, .plastic) {
+                let m = c.mane ?? c.accent
+                $0.colorA = linear(m); $0.knobs = V4(0.5, 0.4, 0.5, 0)
+                $0.tileSize = 0.02; $0.resolution = 128; $0.normalStrength = 1.2; $0.roughness = 0.72
             },
             make(.quill, .quillCoat) {
                 $0.colorA = linear(c.accent); $0.colorB = linear(c.back); $0.colorC = linear(c.belly)

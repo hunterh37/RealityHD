@@ -42,12 +42,12 @@ extension BirdRigBuilder {
         if a.beard > 0 {
             let L = a.beard
             let root = f.bodyFront - f.A * (0.14 * a.bodyLength) - f.U * (0.18 * a.bodyDepth)
-            let n = 7
+            let n = 12
             for k in 0..<n {
-                let x = (Float(k) - Float(n - 1) / 2) * 0.0035
+                let x = (Float(k) - Float(n - 1) / 2) * 0.0026
                 let sway = (Float(k % 3) - 1) * 0.004
                 let pts = [root + V3(x, 0, 0), root + V3(x + sway * 0.5, -0.45 * L, -0.03 * L), root + V3(x + sway, -0.8 * L, -0.045 * L), root + V3(x + sway * 1.3, -L * (0.92 + 0.03 * Float(k % 2)), -0.05 * L)]
-                rig.base[0].add(Prim.tube(pts, radii: [0.0055, 0.0048, 0.0036, 0.0012], sides: 4, seamTile: 0.02, material: f.mat(.beard)))
+                rig.base[0].add(Prim.tube(pts, radii: [0.0066, 0.0058, 0.0044, 0.0014], sides: 4, seamTile: 0.02, material: f.mat(.beard)))
             }
         }
     }

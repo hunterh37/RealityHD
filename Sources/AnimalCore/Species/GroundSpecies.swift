@@ -108,6 +108,16 @@ public struct GroundAnatomy: Sendable {
     public var antlers: AntlerStyle = .none
     /// Gait stride scale: 1 for a deer, more for long-legged animals.
     public var strideScale: Float = 1
+    /// Hanging neck mane depth in meters (elk), 0 for none.
+    public var maneDrop: Float = 0
+    /// Dorsal bristle ridge length in meters (boar), 0 for none.
+    public var bristle: Float = 0
+    /// Ring of pale hair around the rump (elk patch), as a fraction of the body length.
+    public var rumpPatch: Float = 0
+    /// Throat patch of the throat coat color starts this far along the neck (0...1), 1 for none.
+    public var throatFrom: Float = 1
+    /// Shoulder hump (withers) scale, 0 for none.
+    public var withers: Float = 0
     /// Height of the body center above the feet.
     public var standHeight: Float { rideHeight ?? (max(foreLeg, hindLeg) * 0.74 + bodyDepth * 0.32) }
 }
@@ -132,6 +142,12 @@ public struct GroundPalette: Sendable, Hashable {
     public var fuzz: Float = 0.6
     public var antler: UInt32 = 0xC9B78F
     public var hoof: UInt32 = 0x2B2521
+    /// Muzzle coat when it differs from the face (bear, deer, elk, coyote).
+    public var muzzle: UInt32?
+    /// Pale throat patch and rump patch coat.
+    public var patch: UInt32 = 0xF4EEE2
+    /// Neck mane and bristle coat.
+    public var mane: UInt32?
 }
 
 public struct GroundBehavior: Sendable {

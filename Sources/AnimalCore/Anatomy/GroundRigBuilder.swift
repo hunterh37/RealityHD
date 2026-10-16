@@ -190,19 +190,85 @@ public enum GroundRigBuilder {
             rig.add(dome(-0.02, 0.52), to: GroundJoint.spine.name)
         } else {
             rig.base[0].add(lofted(0.46, 1, bodySecs, material: fur))
-            rig.add(lofted(0, 0.54, bodySecs, material: fur), to: GroundJoint.spine.name)
+            if a.rumpPatch > 0 {
+                let rp = a.rumpPatch
+                rig.add(lofted(0, rp, 5, material: f.mat(.rump)), to: GroundJoint.spine.name)
+                rig.add(lofted(rp, 0.54, bodySecs, material: fur), to: GroundJoint.spine.name)
+            } else {
+                rig.add(lofted(0, 0.54, bodySecs, material: fur), to: GroundJoint.spine.name)
+            }
+            if a.withers > 0 {
+                // Shoulder blade hump rising over the front legs.
+                let w = a.withers
+                rig.base[0].add(Loft.ellipsoid(center: f.C + f.A * (0.26 * a.bodyLength) + f.U * (0.26 * a.bodyDepth * w), axis: -f.A - f.U * 0.25, up: f.U,
+                                               radii: V3(0.34 * a.bodyWidth, 0.2 * a.bodyDepth * w, 0.2 * a.bodyLength), rings: 9, segments: 16, material: fur))
+            }
+            if a.bristle > 0 {
+                // Dorsal bristle ridge: stiff hairs leaning back along the spine from the poll to the rump.
+                let n = 34
+                for k in 0..<n {
+                    let t = 1.04 - 1.0 * Float(k) / Float(n - 1)
+                    let sec = section(max(0, min(1, t)))
+                    let jit = Float(k % 5) * 0.12 - 0.24
+                    let b = sec.center + f.U * (sec.halfDorsal * 0.92) + V3(jit * 0.012, 0, 0)
+                    let L = a.bristle * (0.7 + 0.5 * sin(.pi * min(1, Float(k) / Float(n - 1) * 1.1))) * (0.85 + 0.3 * Float(k % 3) / 2)
+                    let d = simd_normalize(f.U * 0.85 - f.A * 0.5 + V3(jit * 0.25, 0, 0))
+                    let pts = [b - d * 0.004, b + d * (0.5 * L) + V3(0, 0, 0.1 * L * 0.5), b + d * L + V3(0, -0.12 * L, 0.35 * L)]
+                    let surf = Prim.tube(pts, radii: [0.0036, 0.0026, 0.0004], sides: 4, seamTile: 0.02, material: f.mat(.bristle))
+                    if t > 0.54 { rig.base[0].add(surf) } else { rig.add(surf, to: GroundJoint.spine.name) }
+                }
+            }
         }
 
         // Neck and head.
         let hc = f.headCenter, hl = a.headLength
         let neckEnd = hc + V3(0, -0.1 * a.headHeight, 0.3 * hl)
         let limbFur = a.darkLimbs ? f.mat(.head) : fur
-        let neckPath = a.neckLength > 0 ? [f.neckPivot - f.A * 0.02, lerp(f.neckPivot, neckEnd, 0.5) + V3(0, 0.02 * a.neckLength, 0), neckEnd] : [f.neckPivot - f.A * 0.02, neckEnd]
-        let neck = Loft.along(neckPath, up: GroundFrame.Y, count: a.neckLength > 0 ? 8 : 4, segments: 18, vRange: 0.9...1.0, material: limbFur) { t in
-            let r = lerp(0.5 * a.bodyWidth * a.neckThick, 0.5 * a.headWidth * 0.95, a.neckLength > 0 ? pow(t, 0.8) : t)
-            return V3(r, r * a.neckDeep, r * a.neckDeep)
+        // Neck: sections along the spine of the neck with a shoulder blend at the base, a crest above and
+        // a brisket or throat swell below.
+        let nBase = f.neckPivot - f.A * (0.1 * a.bodyLength) - f.U * (0.06 * a.bodyDepth)
+        let neckPath = a.neckLength > 0 ? [nBase, lerp(f.neckPivot, neckEnd, 0.5) + V3(0, 0.02 * a.neckLength, 0), neckEnd] : [nBase, lerp(nBase, neckEnd, 0.5), neckEnd]
+        let NN = 13
+        let npts = Loft.resample(neckPath, count: NN)
+        let r0 = 0.5 * a.bodyWidth * a.neckThick, r1 = 0.5 * a.headWidth * 0.95
+        func neckSecs(_ i0: Int, _ i1: Int, grow: Float = 1, mane: Float = 0) -> [LoftSection] {
+            (i0...i1).map { i in
+                let t = Float(i) / Float(NN - 1)
+                let fw = simd_normalize(npts[min(NN - 1, i + 1)] - npts[max(0, i - 1)])
+                var u = GroundFrame.Y - fw * simd_dot(GroundFrame.Y, fw)
+                if simd_length(u) < 1e-5 { u = fw.anyPerpendicular }
+                u = simd_normalize(u)
+                let base = lerp(r0, r1, a.neckLength > 0 ? pow(t, 0.75) : t)
+                let blend: Float = a.neckLength > 0.2 ? 1 + 0.38 * pow(max(0, 1 - t / 0.3), 2) : 1
+                let w = base * blend * grow
+                let crest = 1 + 0.07 * sin(.pi * min(1, t * 1.2))
+                let brisket = 1 + 0.32 * pow(max(0, 1 - t / 0.35), 1.5) + (a.neckLength > 0.2 ? 0.14 * sin(.pi * min(1, max(0, (t - 0.25) / 0.6))) : 0)
+                let bump = sin(.pi * min(1, max(0, (t - 0.04) / 0.9)))
+                var hv = w * a.neckDeep * brisket + mane * bump
+                let hd = w * a.neckDeep * crest
+                let c = npts[i] - u * (0.35 * mane * bump)
+                hv = max(hv, 0.001)
+                return LoftSection(center: c, right: simd_normalize(simd_cross(fw, u)), up: u, halfWidth: w, halfDorsal: hd, halfVentral: hv, exponent: 2.1)
+            }
         }
-        rig.add(neck, to: GroundJoint.neckPitch.name)
+        let iT = a.throatFrom < 1 ? max(2, min(NN - 3, Int(a.throatFrom * Float(NN - 1)))) : NN - 1
+        rig.add(Loft.build(neckSecs(0, iT), segments: 20, vRange: 0.9...1.0, material: limbFur), to: GroundJoint.neckPitch.name)
+        if iT < NN - 1 {
+            rig.add(Loft.build(neckSecs(iT, NN - 1), segments: 20, vRange: 0.9...1.0, material: f.mat(.throat)), to: GroundJoint.neckPitch.name)
+        }
+        if a.maneDrop > 0 {
+            let lo = 1, hi = NN - 3
+            rig.add(Loft.build(neckSecs(lo, hi, grow: 1.07, mane: a.maneDrop), segments: 22, vRange: 0.9...1.0, material: f.mat(.mane)), to: GroundJoint.neckPitch.name)
+            // Long guard hairs hanging off the throat.
+            for k in 0..<9 {
+                let i = lo + 1 + k * (hi - lo - 1) / 8
+                let t = Float(i) / Float(NN - 1)
+                let w = lerp(r0, r1, pow(t, 0.75)) * 1.1
+                let b = npts[i] - V3(0, w * a.neckDeep * 1.15 + a.maneDrop * 0.55, 0) + V3((Float(k % 3) - 1) * w * 0.25, 0, 0)
+                let L = a.maneDrop * (1.1 + 0.2 * Float(k % 2))
+                rig.add(Prim.tube([b, b + V3(0, -0.5 * L, 0.2 * L), b + V3(0, -L, 0.28 * L)], radii: [0.007, 0.005, 0.0008], sides: 4, seamTile: 0.02, material: f.mat(.bristle)), to: GroundJoint.neckPitch.name)
+            }
+        }
         let hp = f.headProfile
         let kH: Float = a.headShape == nil ? 0.5 : 1.0
         var hs: [LoftSection] = []
@@ -213,11 +279,19 @@ public enum GroundRigBuilder {
             hs.append(LoftSection(center: c, right: GroundFrame.X, up: GroundFrame.Y, halfWidth: 0.5 * a.headWidth * r,
                                   halfDorsal: kH * a.headHeight * 0.55 * r, halfVentral: kH * a.headHeight * 0.45 * r, exponent: 2.2))
         }
-        rig.add(Loft.build(hs, segments: 18, material: f.mat(.head)), to: GroundJoint.headPitch.name)
+        if p.palette.muzzle != nil {
+            // Skull in the face coat, snout in the muzzle coat from the cheek forward.
+            let cut = 5
+            rig.add(Loft.build(Array(hs[0...cut]), segments: 18, vRange: 0...0.62, material: f.mat(.head)), to: GroundJoint.headPitch.name)
+            rig.add(Loft.build(Array(hs[cut...]), segments: 18, vRange: 0.62...1, material: f.mat(.muzzle)), to: GroundJoint.headPitch.name)
+        } else {
+            rig.add(Loft.build(hs, segments: 18, material: f.mat(.head)), to: GroundJoint.headPitch.name)
+        }
         // Lower jaw.
         let jawK: Float = a.headShape == nil ? 1 : 1.5
-        let jawLoft = Loft.ellipsoid(center: gape + V3(0, 0.0, -0.18 * hl * jawK), axis: V3(0, 0, -1), up: GroundFrame.Y,
-                                     radii: V3(0.2 * a.headWidth * (a.headShape == nil ? 1 : 0.7), 0.07 * a.headHeight, 0.26 * hl * jawK), rings: 6, segments: 10, material: f.mat(.head), uv: { u, v in V2(0.5 + 0.1 * cos(u * 2 * .pi), 0.8) })
+        let shaped = a.headShape != nil
+        let jawLoft = Loft.ellipsoid(center: shaped ? gape + V3(0, 0, -0.14 * hl) : gape + V3(0.0, 0.0, -0.18 * hl * jawK), axis: V3(0, 0, -1), up: GroundFrame.Y,
+                                     radii: V3(0.2 * a.headWidth * (shaped ? 0.62 : 1), 0.07 * a.headHeight, (shaped ? 0.2 : 0.26 * jawK) * hl), rings: 6, segments: 10, material: f.mat(p.palette.muzzle != nil ? .muzzle : .head), uv: { u, v in V2(0.5 + 0.1 * cos(u * 2 * .pi), 0.8) })
         rig.add(jawLoft, to: GroundJoint.jaw.name)
         // Nose, eyes, lids.
         let nr = a.noseSize * a.headWidth
