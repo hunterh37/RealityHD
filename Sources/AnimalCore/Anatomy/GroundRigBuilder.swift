@@ -110,6 +110,7 @@ public enum GroundRigBuilder {
             chains[l] = Chain(hip: hip, knee: k, ankle: an, toe: an + V3(0, -a.legRadius * 0.2, -footLen))
         }
 
+        let plan = QuadrupedPlan.plan(for: p)
         declare(.spine, parent: nil, pivot: f.C, axis: GroundFrame.X)
         declare(.tailYaw, parent: .spine, pivot: f.rump, axis: GroundFrame.Y)
         let tl = a.tailLength
@@ -188,7 +189,7 @@ public enum GroundRigBuilder {
             rig.add(lofted(0, 0.54, 6, material: fur), to: GroundJoint.spine.name)
             rig.base[0].add(dome(0.5, 1.02))
             rig.add(dome(-0.02, 0.52), to: GroundJoint.spine.name)
-        } else {
+        } else if plan == nil {
             rig.base[0].add(lofted(0.46, 1, bodySecs, material: fur))
             if a.rumpPatch > 0 {
                 let rp = a.rumpPatch
@@ -300,7 +301,7 @@ public enum GroundRigBuilder {
                 Xform(translation: noseTip + V3(0, 0, disc ? -0.002 : 0.004)), to: GroundJoint.headPitch.name)
         for s in Side.allCases {
             let c = eyeAt(s)
-            rig.add(Prim.cubeSphere(subdivisions: 3, material: f.mat(.eye)) { $0 * a.eyeRadius }, Xform(translation: c), to: GroundJoint.headPitch.name)
+            if plan == nil { rig.add(Prim.cubeSphere(subdivisions: 3, material: f.mat(.eye)) { $0 * a.eyeRadius }, Xform(translation: c), to: GroundJoint.headPitch.name) }
             let face = simd_quatf(angle: -s.sign * .pi / 2, axis: GroundFrame.Z)
             var prof: [V2] = []
             let R = a.eyeRadius * 1.2
@@ -309,7 +310,7 @@ public enum GroundRigBuilder {
                     to: s == .left ? GroundJoint.lidL.name : GroundJoint.lidR.name)
         }
         // Ears: flattened shells, inner skin and outer fur.
-        for s in Side.allCases {
+        for s in Side.allCases where plan == nil {
             let base = earBase(s)
             let dir = simd_normalize(V3(s.sign * (p.species == .easternCottontail ? 0.18 : a.earTilt), 1, p.species == .easternCottontail ? 0.25 : 0.1))
             let len = a.earLength
@@ -367,7 +368,7 @@ public enum GroundRigBuilder {
 
         // Legs.
         let legU = max(0.1, p.palette.flankLine * 0.5 * 0.6)
-        for l in GroundJoint.Leg.allCases {
+        for l in GroundJoint.Leg.allCases where plan == nil {
             let c = chains[l]!
             let r = a.legRadius
             let thighR = (l.isFore ? r * 1.4 : r * 2.0) * a.thighScale
@@ -411,6 +412,11 @@ public enum GroundRigBuilder {
             }
         }
 
+        if let plan {
+            var cm: [GroundJoint.Leg: QuadrupedBody.Chain] = [:]
+            for (k, c) in chains { cm[k] = (c.hip, c.knee, c.ankle, c.toe) }
+            QuadrupedBody.build(&rig, f, plan, chains: cm, earBase: earBase, noseTip: noseTip)
+        }
         if a.antlers != .none { addAntlers(&rig, f) }
         if a.tusks > 0 {
             let gp = f.headCenter + V3(0, -0.28 * a.headHeight, -0.15 * a.headLength)

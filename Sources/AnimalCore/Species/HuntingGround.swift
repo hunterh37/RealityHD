@@ -36,8 +36,8 @@ extension GroundProfile {
                                neckLength: 0.36, neckRise: 42, neckThick: 0.8, neckDeep: 1.2, headDrop: 22, thighScale: 3.0, noseSize: 0.13, earTilt: 0.85, tailDrop: 55,
                                depthShape: [0.30, 0.74, 0.80, 0.78, 0.92, 1.02, 1.04, 0.92, 0.55], widthShape: [0.30, 0.82, 0.88, 0.80, 0.90, 0.98, 1.0, 0.86, 0.5],
                                headShape: [0.82, 1.0, 0.98, 0.84, 0.62, 0.42, 0.3, 0.26], strideScale: 1, throatFrom: 0.45, withers: 0.6),
-        palette: GroundPalette(back: 0xB48556, belly: 0xF4EEE2, accent: 0x7E5B38, ear: 0xD8C8B0, nose: 0x1A1512, eye: 0x1C130B, claw: 0x2B2521, tail: 0xB48556,
-                               tailTip: 0xFAF6F0, face: 0x9A7A56, flankLine: 0.62, pattern: 0.35, strands: 150, fuzz: 0.1, muzzle: 0xCEC4B0, patch: 0xF6F2EA),
+        palette: GroundPalette(back: 0xA67D55, belly: 0xF4EEE2, accent: 0x7E5B38, ear: 0xD8C8B0, nose: 0x1A1512, eye: 0x1C130B, claw: 0x2B2521, tail: 0xB48556,
+                               tailTip: 0xFAF6F0, face: 0x9A7A56, flankLine: 0.7, pattern: 0.35, strands: 150, fuzz: 0.1, muzzle: 0xCEC4B0, patch: 0xF6F2EA),
         behavior: GroundBehavior(gait: .stride, walk: 1.2, run: 11, climbs: false, boldness: 0.1, skittishRadius: 25, rarity: 0.4, seasons: hSeasons,
                                  activity: [.dawn: 1.5, .day: 0.4, .dusk: 1.5, .night: 0.6],
                                  likes: [.openGround: 1, .shrub: 0.7, .tree: 0.6], minHabitat: 0.5, alertRate: 0.2, visitsYards: false))

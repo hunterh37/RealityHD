@@ -110,8 +110,8 @@ public enum GroundFactory {
         return t
     }
 
-    /// One live animal. `variant: .antlered` gives the buck or bull for deer and elk.
-    public static func puppet(_ s: GroundSpecies, variant: GroundVariant = .standard) async throws -> GroundPuppet {
-        GroundPuppet(template: try await template(s, variant: variant))
+    /// One live animal. `variant: .antlered` gives the buck or bull; elk default to the bull.
+    public static func puppet(_ s: GroundSpecies, variant: GroundVariant? = nil) async throws -> GroundPuppet {
+        GroundPuppet(template: try await template(s, variant: variant ?? (s == .rockyMountainElk ? .antlered : .standard)))
     }
 }

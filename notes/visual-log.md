@@ -18,3 +18,12 @@ Shader (RealMaterials furCoat) is out of scope; changes are geometry, material k
 - black-bear: head 0.40x0.29x0.31 to 0.52x0.38x0.40, snout 0.12 to 0.17, ears 0.09 to 0.13, nose 0.19.
 - wild-turkey: head material plastic bare skin (0x4F7FD0), red upper-neck sleeve, wattle caruncle 0.05 to 0.075. Remaining: head small versus body at sheet scale.
 - it3 (coordinator): furCoat domain warp (t +0.02, v +0.03 fbm) against flank banding; all 9 animal PNGs re-rendered. Banding reduced, still faintly visible.
+
+## 2026-10-16 anatomical quadruped generator (QuadrupedBody.swift), 1024px sheets
+
+- Near-black cause: preview sheet camera was backlit (az 62); sheet default now az -62. furCoat darkening floors raised (under-coat 0.66, tip 0.82, depth 0.84+0.16, gap 0.55).
+- whitetail-deer it1: torso from 11 cross-section stations, muscled upper legs to 1.1 cm cannons, cloven hooves, dewclaws, cupped ears, eye ring, nose pad and nostrils, 160 fur cards. Issues: hind haunch hidden, white flank streak, oversized white muzzle and eye ring.
+- whitetail-deer it2: scapula and haunch muscle masses, flankLine 0.7, smaller muzzle band and eye ring, coat 0xA67D55. Remaining: fur strand banding, head small at sheet scale.
+- whitetail-deer-buck: same body, rack unchanged.
+- wild-turkey it1-2: iridescence 0.9 bronze, broader tail (0.3), beard 0.26, crown 0x8EA6D6. Remaining: tail not fanned at rest.
+- rocky-mountain-elk-bull it1-2: 6x6 rack (5 tines plus beam tip), shorter tines tilted up. GroundFactory.puppet default variant for elk is .antlered.

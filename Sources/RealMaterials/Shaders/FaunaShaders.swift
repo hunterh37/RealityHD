@@ -309,11 +309,11 @@ S furCoat(float2 uv, constant RFParams &P) {
         float front = 1.0 - float(l) / 4.0;
         bool under = (st.cxn + (st.h3 - 0.5) * 0.12 + zn) > P.f.y;
         float3 baseC = (under ? P.colorB.rgb : P.colorA.rgb) * tint;
-        float3 uc = baseC * 0.45;
+        float3 uc = baseC * 0.66;
         float tone = 0.86 + 0.28 * st.h2;
         float3 band = under ? baseC * tone : baseC * (0.92 + 0.22 * st.h2);
         float guard = step(0.72 - 0.35 * P.f.z, st.h1);
-        float3 tip = under ? baseC * 1.05 : mix(baseC * 0.55, P.colorC.rgb, guard);
+        float3 tip = under ? baseC * 1.05 : mix(baseC * 0.82, P.colorC.rgb, guard);
         float sl = st.sl;
         float3 c = mix(tip, band, smoothstep(0.14, 0.24, sl));
         c = mix(c, uc, smoothstep(0.50, 0.70, sl));
@@ -335,7 +335,7 @@ S furCoat(float2 uv, constant RFParams &P) {
         }
         float cyl = sqrt(max(0.0, 1.0 - st.across * st.across));
         // Depth shading: lower layers sit in the under-coat shadow.
-        c *= (0.64 + 0.36 * front) * (0.86 + 0.14 * cyl);
+        c *= (0.84 + 0.16 * front) * (0.90 + 0.10 * cyl);
         outC = c;
         hgt = 0.12 + 0.13 * (4.0 - float(l)) + (0.10 + 0.12 * fuzz) * cyl;
         float depthAO = gl ? 1.0 : (0.38 + 0.16 * (4.0 - float(l)));
@@ -345,7 +345,7 @@ S furCoat(float2 uv, constant RFParams &P) {
     if (!got) {
         bool under = (t + zn) > P.f.y;
         float3 baseC = (under ? P.colorB.rgb : P.colorA.rgb) * tint;
-        outC = baseC * 0.25 * (0.8 + 0.4 * fbm(uv, int2(40, 40), 2, P.seed + 31u));
+        outC = baseC * 0.55 * (0.8 + 0.4 * fbm(uv, int2(40, 40), 2, P.seed + 31u));
         hgt = 0.03; ao = 0.08;
     }
     float soft = fbm(uv, int2(48, 48), 2, P.seed + 71u);
