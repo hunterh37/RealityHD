@@ -63,7 +63,7 @@ public struct LeverActionRifle: RealArticulated {
                 rig.base[lod].add(HuntKit.box(V3(0.600, 0.0178, -0.0045), V3(0.010, 0.010, 0.0025), r: 0.0007, brightM), P.at())
             }
             // Receiver, loading gate, top ejection slot, tang.
-            rig.base[lod].add(HuntKit.box(V3(0.400, -0.0055, 0), V3(0.200, 0.061, 0.032), r: 0.011, steelM), P.at())
+            rig.base[lod].add(HuntKit.box(V3(0.400, -0.0055, 0), V3(0.200, 0.061, 0.032), r: 0.011, "metal.case-hardened"), P.at())
             rig.base[lod].add(HuntKit.box(V3(0.470, -0.006, 0.0165), V3(0.032, 0.022, 0.002), r: 0.0008, "metal.bolt-bright"), P.at())
             rig.base[lod].add(HuntKit.box(V3(0.400, 0.0252, 0), V3(0.120, 0.003, 0.013), r: 0.0008, "metal.parkerized"), P.at())
             rig.base[lod].add(HuntKit.box(V3(0.330, -0.020, 0), V3(0.080, 0.012, 0.022), r: 0.003, steelM), P.at())

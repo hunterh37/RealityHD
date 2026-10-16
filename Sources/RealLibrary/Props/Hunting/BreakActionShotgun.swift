@@ -20,7 +20,7 @@ public struct BreakActionShotgun: RealArticulated {
     /// Barrel steel.
     public var steel: MaterialKey = "metal.blued-steel"
     /// Silvered action.
-    public var action: MaterialKey = "metal.bolt-bright"
+    public var action: MaterialKey = "metal.nickel-worn"
     public var pad: MaterialKey = "rubber.recoil-pad"
     public init() {}
 

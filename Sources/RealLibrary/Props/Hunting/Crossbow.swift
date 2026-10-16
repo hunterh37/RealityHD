@@ -18,7 +18,7 @@ public struct Crossbow: RealArticulated {
     public var drawLength: Float = 0.30
     /// Limb flex at full draw in degrees.
     public var limbFlex: Float = 10
-    public var stock: MaterialKey = "plastic.stock-synthetic:2A2E22"
+    public var stock: MaterialKey = "paint.bow-camo"
     public var limbs: MaterialKey = "paint.bow-camo"
     public var hardware: MaterialKey = "metal.anodized-gunmetal:3A3D42"
     public var string: MaterialKey = "fabric.bowstring"
@@ -37,7 +37,7 @@ public struct Crossbow: RealArticulated {
         rig.part("draw", pivot: P.p(V3(nockRest, sy, 0)), joint: .slide(axis: V3(-1, 0, 0), 0...drawLength, duration: 0.8))
         rig.part("limb-right", pivot: P.p(pivotR), joint: Joint(.revolute, axis: V3(0, 1, 0), range: -(limbFlex + 2)...(limbFlex + 2), mimic: .init("draw", ratio: -limbFlex / drawLength)))
         rig.part("limb-left", pivot: P.p(pivotL), joint: Joint(.revolute, axis: V3(0, 1, 0), range: -(limbFlex + 2)...(limbFlex + 2), mimic: .init("draw", ratio: limbFlex / drawLength)))
-        rig.part("string", pivot: P.p(V3(nockRest, sy, 0)), joint: Joint(.revolute, axis: V3(0, 1, 0), range: 0...0), options: Self.levels)
+        rig.part("string", pivot: P.p(V3(nockRest, sy, 0)), joint: .fixed, options: Self.levels)
         rig.part("trigger", pivot: P.p(V3(0.392, -0.040, 0)), joint: .hinge(axis: V3(0, 0, 1), -16...0, duration: 0.15))
         rig.part("safety", pivot: P.p(V3(0.380, -0.022, 0.0215)), joint: .slide(axis: V3(1, 0, 0), 0...0.008, duration: 0.1))
         rig.optionLinks = [RigOptionLink(part: "string", joint: "draw", thresholds: (1..<Self.levels).map { (Float($0) - 0.5) * drawLength / Float(Self.levels - 1) })]

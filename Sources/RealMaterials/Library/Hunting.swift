@@ -12,7 +12,7 @@ public extension MaterialLibrary {
         // Hot-blued barrel and receiver steel: blue-black, polished lines.
         MaterialSpec(key: "metal.blued-steel", program: .brushedMetal).with {
             $0.colorA = linear(0x2B3542); $0.colorB = linear(0x161C25)
-            $0.knobs = V4(0.5, 0.34, 0.45, 0.35); $0.seed = 3302; $0.tileSize = 0.08; $0.normalStrength = 0.35
+            $0.knobs = V4(0.7, 0.4, 0.8, 0.8); $0.seed = 3302; $0.tileSize = 0.08; $0.normalStrength = 0.35
             $0.hasMetallicMap = true; $0.metallic = 1; $0.roughness = 0.34
         },
         // Parkerized / matte phosphate finish for bolts and small parts: grey-green, rough.
@@ -76,7 +76,7 @@ public extension MaterialLibrary {
         },
         // Powder-coated steel with chips, scuffs and grime at 22 cm repeat (ladder stand, hardware). Tint for colour.
         MaterialSpec(key: "metal.powdercoat-worn", program: .paintedMetal).with {
-            $0.colorA = linear(0x3A4430); $0.colorC = linear(0x7A7A74, 0.9); $0.knobs = V4(0.85, 0.75, 0.5, 0)
+            $0.colorA = linear(0x3A4430); $0.colorC = linear(0x7A7A74, 0.9); $0.knobs = V4(1.0, 0.9, 0.5, 0)
             $0.seed = 3315; $0.tileSize = 0.16; $0.hasMetallicMap = true; $0.normalStrength = 1.2; $0.roughness = 0.5
         },
         // Mud and surface rust splashed on steel feet: dark and desaturated.
@@ -86,8 +86,8 @@ public extension MaterialLibrary {
         },
         // Hunting blind canvas: heavy duck weave at 3 cm repeat with stains. Tint for colour.
         MaterialSpec(key: "fabric.blind", program: .fabricWeave).with {
-            $0.colorA = linear(0x6E7549); $0.colorB = linear(0x5A6040, 0.25); $0.colorC = linear(0x3A3226, 0.45)
-            $0.knobs = V4(36, 0.5, 0.9, 0); $0.seed = 3317; $0.tileSize = 0.03; $0.normalStrength = 3.4; $0.roughness = 0.9
+            $0.colorA = linear(0x8A9356); $0.colorB = linear(0x6E7448, 0.5); $0.colorC = linear(0x4A3E2C, 0.8)
+            $0.knobs = V4(36, 1.0, 0.9, 0); $0.seed = 3317; $0.tileSize = 0.03; $0.normalStrength = 3.4; $0.roughness = 0.9
         },
         // Pressed trace-mineral salt block: red-brown crystalline body, pale crystals, pits, light rain streaks.
         MaterialSpec(key: "stone.salt-block", program: .rockGranite).with {
@@ -98,6 +98,18 @@ public extension MaterialLibrary {
         // Dried mud and grime caked on gear: dark brown, rough, with dirt streaks.
         MaterialSpec(key: "plastic.grime", program: .plastic).with {
             $0.colorA = linear(0x4A3A2A); $0.knobs = V4(0.2, 0.9, 0.95, 0); $0.seed = 3319; $0.tileSize = 0.02; $0.resolution = 256; $0.normalStrength = 1.4
+        },
+        // Colour case-hardened receiver: steel with straw, blue and plum mottling from the quench.
+        MaterialSpec(key: "metal.case-hardened", program: .polishedMetal).with {
+            $0.colorA = linear(0x4E5258); $0.colorB = linear(0x6E5A44); $0.colorC = linear(0x34485E)
+            $0.knobs = V4(0.6, 0.4, 0, 0.38); $0.seed = 3320; $0.tileSize = 0.07; $0.normalStrength = 0.3
+            $0.hasMetallicMap = true; $0.metallic = 1; $0.roughness = 0.38
+        },
+        // Worn nickel plating: tarnished grey with dark spotting at 6 cm repeat.
+        MaterialSpec(key: "metal.nickel-worn", program: .polishedMetal).with {
+            $0.colorA = linear(0xB8BAB8); $0.colorB = linear(0x6E665A); $0.colorC = linear(0x58625A)
+            $0.knobs = V4(0.85, 0.35, 0, 0.36); $0.seed = 3321; $0.tileSize = 0.06; $0.normalStrength = 0.3
+            $0.hasMetallicMap = true; $0.metallic = 1; $0.roughness = 0.36
         },
     ]
 }

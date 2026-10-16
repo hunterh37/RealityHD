@@ -4,7 +4,7 @@
   "final" : 0.8511888,
   "fingerprint" : "bcc2e5b0365b0cd2",
   "id" : "trail-camera",
-  "iterations" : 4,
+  "iterations" : 5,
   "judge" : "agent",
   "scores" : {
     "artifacts" : 7,

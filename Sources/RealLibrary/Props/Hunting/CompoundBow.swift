@@ -38,7 +38,7 @@ public struct CompoundBow: RealArticulated {
         rig.part("draw", pivot: P.p(V3(-brace, nockY, 0)), joint: .slide(axis: V3(-1, 0, 0), 0...drawLength, duration: 0.9))
         rig.part("cam-top", pivot: P.p(V3(ax, h, 0)), joint: Joint(.revolute, axis: V3(0, 0, 1), range: -camAngle...camAngle, mimic: .init("draw", ratio: camAngle / drawLength)))
         rig.part("cam-bottom", pivot: P.p(V3(ax, -h, 0)), joint: Joint(.revolute, axis: V3(0, 0, 1), range: -camAngle...camAngle, mimic: .init("draw", ratio: -camAngle / drawLength)))
-        rig.part("string", pivot: P.p(V3(-brace, nockY, 0)), joint: Joint(.revolute, axis: V3(0, 0, 1), range: 0...0), options: Self.levels)
+        rig.part("string", pivot: P.p(V3(-brace, nockY, 0)), joint: .fixed, options: Self.levels)
         rig.optionLinks = [RigOptionLink(part: "string", joint: "draw", thresholds: (1..<Self.levels).map { (Float($0) - 0.5) * drawLength / Float(Self.levels - 1) })]
 
         for lod in 0..<2 {
