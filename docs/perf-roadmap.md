@@ -180,7 +180,7 @@ cells already run LOD1+ by distance.
 Walk A/B (`-bench 30 -steps 0.5`, samples past 3 s): forest-glade tris 1842k -> 1766k, in-view
 685k -> 634k, shadow 1333k -> 1274k, LOD switches 536 -> 501; boston-common in-view 1120k -> 1115k.
 Frame p99 11.1 ms both; forest-glade on had one 67 ms frame at load reveal, walk stall max 13 ms.
-Open: interior PVS, on-head trace.
+Open: on-head trace.
 
 Status 2026-10-16: streamed tiles for exteriors, measured and dropped. Demo prototype split each scene
 with `tiled(tileSize: 32)` and streamed tiles past a radius from the camera (Apple Vision Pro sim, Release,
@@ -193,6 +193,22 @@ with `tiled(tileSize: 32)` and streamed tiles past a radius from the camera (App
   boston-common 1694k -> 1684k tris, draws 1047 -> 1074. Battery scenes stay under 1M tris.
 No tier gains without moving quality, so exteriors keep loading whole. `RealityHD.streamedScene` stays for
 worlds larger than the demo scenes.
+
+Status 2026-10-16: interior PVS. `RealScene.cells` (`RealCellGraph`: room boxes and the doorways or glazed
+openings between them) makes `entity()` group statics, field instances and non-grabbable rigs under one
+entity per room (SceneCells.swift); doors, lights and grabbables stay always on. `RealCellVisibilitySystem`
+(0.1 s) finds the viewer's room and enables rooms reached through portals inside the head view, or within
+1.5 m, up to 3 hops; in a doorway every room stays on. Demo `-pvs NO` disables it. hospital defines lobby,
+corridor, ER and OR. Apple Vision Pro sim, Release, balanced, `-bench 20 -pan 15`, samples past 2 s, off -> on:
+
+| start yaw | tris | shadow tris | draws | walk stall max |
+|---|---|---|---|---|
+| 0 (facing the corridor door) | 410k -> 325k | 376k -> 298k | 971 -> 738 | 47 -> 25 ms |
+| 180 (facing the lobby front) | 417k -> 363k | 383k -> 333k | 985 -> 839 | 46 -> 27 ms |
+
+Frame p99 11.1 ms in all runs; one 122 ms frame in the yaw 180 run with PVS on (a room enabled for the
+first time). Thumbnail unchanged (offline render sees every room through the open portals). Open: CityLayout
+block PVS for districts, first-enable hitch, on-head trace.
 
 ## Not planned
 

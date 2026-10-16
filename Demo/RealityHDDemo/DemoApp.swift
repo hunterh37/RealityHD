@@ -194,11 +194,12 @@ struct RealityHDDemoApp: App {
     @State private var style: ImmersionStyle = .full
 
     init() {
-        // Saved settings, then launch overrides: -tier battery|performance|balanced|ultra|cinematic -adaptive YES -peripheral NO -hud YES
+        // Saved settings, then launch overrides: -tier battery|performance|balanced|ultra|cinematic -adaptive YES -peripheral NO -pvs NO -hud YES
         RealityHD.setup(restoring: RealPerformance.defaultsKey, fallback: .balanced)
         let d = UserDefaults.standard
         if let t = d.string(forKey: "tier").flatMap(RealPerformance.Tier.init(rawValue:)) { RealityHD.performance = RealPerformance(t) }
         if d.object(forKey: "adaptive") != nil { RealityHD.performance.adaptive = d.bool(forKey: "adaptive") }
+        if d.object(forKey: "pvs") != nil { RealCellVisibilitySystem.enabled = d.bool(forKey: "pvs") }
         if d.object(forKey: "peripheral") != nil { RealityHD.performance.peripheralLOD = d.bool(forKey: "peripheral") }
         if d.object(forKey: "hud") != nil { d.set(d.bool(forKey: "hud"), forKey: "demo.hud") }
         _model = State(initialValue: DemoModel())
