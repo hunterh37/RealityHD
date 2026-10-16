@@ -270,7 +270,8 @@ struct ImmersiveSceneView: View {
             next = next.addingTimeInterval(0.5)
             let s = RealityHD.stats
             samples.append(["t": Date().timeIntervalSince(start), "fps": s.fps, "ms": s.frameMs, "worst": s.worstFrameMs,
-                            "tris": Double(s.triangles), "draws": Double(s.drawCalls), "casters": Double(s.shadowCasters),
+                            "tris": Double(s.triangles), "draws": Double(s.drawCalls), "vtris": Double(s.visibleTriangles),
+                            "vdraws": Double(s.visibleDrawCalls), "stris": Double(s.shadowTriangles), "casters": Double(s.shadowCasters),
                             "meshes": Double(s.meshEntities), "lodsw": Double(s.lodSwitches), "texMB": Double(s.textureMB), "adapt": Double(s.adaptiveScale)])
         }
         let dir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appending(path: "bench")

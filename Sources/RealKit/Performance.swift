@@ -41,6 +41,12 @@ public struct RealPerformance: Codable, Sendable, Hashable {
     public var lodBias: Float = 1
     /// Seconds between LOD evaluations.
     public var lodInterval: Double = 0.2
+    /// Off-view LOD: objects outside the head view (angle from head forward past `peripheralStart`
+    /// degrees) step toward coarser levels, up to `peripheralBias` x their switch distance at 180 degrees.
+    /// Levels never pass `shadowCasterMaxLOD` this way, so shadows cast into view keep their casters.
+    public var peripheralLOD = true
+    public var peripheralStart: Float = 70
+    public var peripheralBias: Float = 3
     /// Hide anything farther than this (meters, 0 = unlimited). Fog should cover the edge.
     public var drawDistance: Float = 0
     /// Objects smaller than `detailSize` (bounds diagonal, meters) hide past this distance (0 = never).
@@ -224,6 +230,17 @@ public struct RealPerformance: Codable, Sendable, Hashable {
         shadows && eligible && size >= minShadowCasterSize && lod <= shadowCasterMaxLOD + lodShift
     }
 
+    /// Distance multiplier for off-view LOD (1 inside the view). `toObject` need not be normalized.
+    public func peripheralScale(forward: SIMD3<Float>, toObject v: SIMD3<Float>) -> Float {
+        guard peripheralLOD, peripheralBias > 1 else { return 1 }
+        let len = simd_length(v)
+        guard len > 1e-4 else { return 1 }
+        let deg = acos(max(-1, min(1, simd_dot(forward, v) / len))) * 180 / .pi
+        guard deg > peripheralStart else { return 1 }
+        let t = min(1, (deg - peripheralStart) / max(1, 180 - peripheralStart))
+        return 1 + (peripheralBias - 1) * t
+    }
+
     /// Ground-cover instances kept at build time.
     public func thinned(_ transforms: [simd_float4x4]) -> [simd_float4x4] {
         guard fieldDensity < 1 else { return transforms }
@@ -323,6 +340,8 @@ public final class RealStats {
     public internal(set) var drawCalls = 0
     public internal(set) var instances = 0
     public internal(set) var shadowCasters = 0
+    /// Triangles (instances included) of enabled meshes that cast sun shadows, before frustum culling.
+    public internal(set) var shadowTriangles = 0
     public internal(set) var meshEntities = 0
     /// Triangles and draws of meshes inside the headset view (both eye frustums at device field of view,
     /// from `RealViewer` position and forward). Zero while `collectVisible` is off.
@@ -432,7 +451,7 @@ public struct RealPerformanceSystem: System {
             }
             return
         }
-        var tris = 0, draws = 0, inst = 0, casters = 0, meshes = 0, vTris = 0, vDraws = 0
+        var tris = 0, draws = 0, inst = 0, casters = 0, meshes = 0, vTris = 0, vDraws = 0, sTris = 0
         let view: ViewVolume? = RealStats.collectVisible
             ? MainActor.assumeIsolated { RealViewer.refresh(); return ViewVolume(eye: RealViewer.position, forward: RealViewer.forward) } : nil
         for e in context.entities(matching: Self.costQuery, updatingSystemWhen: .rendering) where e.isActive {
@@ -442,7 +461,7 @@ public struct RealPerformanceSystem: System {
                 let b = e.visualBounds(relativeTo: nil)
                 if view.intersects(center: b.center, radius: simd_length(b.extents) / 2) { vTris += c.triangles * c.instances; vDraws += c.drawCalls }
             }
-            if e.components[DynamicLightShadowComponent.self]?.castsShadow ?? true { casters += 1 }
+            if e.components[DynamicLightShadowComponent.self]?.castsShadow ?? true { casters += 1; sTris += c.triangles * c.instances }
         }
         if isPrimary || meshes > Self.primaryMeshes {
             Self.primary = me; Self.primaryMeshes = meshes; Self.primaryStamp = now
@@ -455,7 +474,7 @@ public struct RealPerformanceSystem: System {
         MainActor.assumeIsolated {
             let st = RealStats.shared
             st.fps = fps; st.frameMs = frameMs; st.worstFrameMs = worstMs
-            st.triangles = tris; st.drawCalls = draws; st.instances = inst; st.shadowCasters = casters; st.meshEntities = meshes
+            st.triangles = tris; st.drawCalls = draws; st.instances = inst; st.shadowCasters = casters; st.shadowTriangles = sTris; st.meshEntities = meshes
             st.visibleTriangles = vTris; st.visibleDrawCalls = vDraws
             st.lodSwitches = switches; st.adaptiveScale = RealPerformance.adaptiveScale
             st.textureMB = RealMaterialCache.shared.textureBytes / 1_048_576

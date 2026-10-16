@@ -49,6 +49,7 @@ public struct RealLODSystem: System {
     private var cursor = 0
     private var firstPass = true
     private var passViewer: SIMD3<Float> = .zero
+    private var passForward: SIMD3<Float> = SIMD3(0, 0, -1)
     private var passPerf = RealPerformance.active
     private var passAdapt: Float = 1
 
@@ -62,7 +63,7 @@ public struct RealLODSystem: System {
             pending.removeAll(keepingCapacity: true)
             for e in context.entities(matching: Self.query, updatingSystemWhen: .rendering) { pending.append(e) }
             cursor = 0
-            passViewer = MainActor.assumeIsolated { RealViewer.refresh(); return RealViewer.position }
+            (passViewer, passForward) = MainActor.assumeIsolated { RealViewer.refresh(); return (RealViewer.position, RealViewer.forward) }
             passPerf = RealPerformance.active
             passAdapt = RealPerformance.adaptiveScale
         }
@@ -70,7 +71,7 @@ public struct RealLODSystem: System {
         let chunk = firstPass ? pending.count : max(Self.minChunk, (pending.count + max(1, Self.slices) - 1) / max(1, Self.slices))
         if !pending.isEmpty { firstPass = false }
         let end = min(pending.count, cursor + chunk)
-        let perf = passPerf, adapt = passAdapt, viewer = passViewer
+        let perf = passPerf, adapt = passAdapt, viewer = passViewer, forward = passForward
         let bias = max(0.05, perf.lodBias * adapt)
         let reach = RealPerformance.shadowReach
         var switches = 0
@@ -78,7 +79,7 @@ public struct RealLODSystem: System {
             let e = pending[cursor]
             cursor += 1
             guard e.isActive else { continue }
-            if Self.evaluate(e, viewer: viewer, perf: perf, adapt: adapt, bias: bias, reach: reach) == .switched { switches += 1 }
+            if Self.evaluate(e, viewer: viewer, forward: forward, perf: perf, adapt: adapt, bias: bias, reach: reach) == .switched { switches += 1 }
         }
         if cursor >= pending.count { pending.removeAll(keepingCapacity: true); cursor = 0 }
         RealPerformanceSystem.lodSwitchCounter += switches
@@ -90,7 +91,7 @@ extension RealLODSystem {
 
     /// Picks the level, cull and shadow state of one LOD entity from the viewer position (world space).
     @discardableResult
-    static func evaluate(_ e: Entity, viewer: SIMD3<Float>, perf: RealPerformance, adapt: Float, bias: Float, reach: Float) -> Outcome {
+    static func evaluate(_ e: Entity, viewer: SIMD3<Float>, forward: SIMD3<Float>? = nil, perf: RealPerformance, adapt: Float, bias: Float, reach: Float) -> Outcome {
         guard var lod = e.components[RealLODComponent.self] else { return .unchanged }
         let p = e.convert(position: lod.center, to: nil)
         let d = simd_distance(p, viewer)
@@ -103,6 +104,7 @@ extension RealLODSystem {
             let boundary = level > lod.current ? lod.switchDistances[lod.current] : lod.switchDistances[level]
             if abs(ed - boundary) < boundary * lod.hysteresis { level = lod.current }
         }
+        level = offViewLevel(level, lod: lod, ed: ed, forward: forward, toObject: p - viewer, perf: perf)
         // Casters past 1.5x the shadow reach (plus their own size) cannot shade anything the cascade draws.
         var shadowsOff = lod.shadowsOff
         if reach > 0, lod.size.isFinite {
@@ -120,6 +122,17 @@ extension RealLODSystem {
         return switched ? .switched : .updated
     }
 
+    /// Off-view coarsening (see `RealPerformance.peripheralLOD`). Never raises a level past the shadow
+    /// caster limit, and never above the in-view level by more than the scaled distance gives.
+    static func offViewLevel(_ level: Int, lod: RealLODComponent, ed: Float, forward: SIMD3<Float>?, toObject v: SIMD3<Float>, perf: RealPerformance) -> Int {
+        guard let forward, perf.peripheralLOD else { return level }
+        let k = perf.peripheralScale(forward: forward, toObject: v)
+        guard k > 1 else { return level }
+        let far = lod.switchDistances.firstIndex(where: { ed * k < $0 }) ?? lod.switchDistances.count
+        let cap = max(level, min(perf.shadowCasterMaxLOD, lod.switchDistances.count))
+        return max(level, min(far, cap))
+    }
+
     /// Sets LOD levels under `root` before it joins a scene, so the first rendered frame shows the right
     /// levels and the system's first pass finds nothing to change. `root` must already have its final
     /// transform relative to the scene origin; `viewer` is in that space (default `RealViewer.position`).
@@ -130,7 +143,7 @@ extension RealLODSystem {
         let bias = max(0.05, perf.lodBias * adapt), reach = RealPerformance.shadowReach
         func walk(_ e: Entity) {
             guard e.isEnabled else { return }
-            if e.components.has(RealLODComponent.self) { evaluate(e, viewer: v, perf: perf, adapt: adapt, bias: bias, reach: reach) }
+            if e.components.has(RealLODComponent.self) { evaluate(e, viewer: v, forward: viewer == nil ? RealViewer.forward : nil, perf: perf, adapt: adapt, bias: bias, reach: reach) }
             for c in e.children { walk(c) }
         }
         walk(root)
