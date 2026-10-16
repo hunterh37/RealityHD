@@ -37,6 +37,12 @@ public struct BirdMotionInput: Sendable, Equatable {
     public var wingOpen: Float = 0
     /// Left and right wing extension differences for banking and balance (degrees added to flap).
     public var rollTrim: Float = 0
+    /// 0 standing, 1 on the ground and stepping (walk, trot, run). Uses `stridePhase`.
+    public var walk: Float = 0
+    /// Stride cycle position 0...1; the left foot leads, the right follows half a cycle later.
+    public var stridePhase: Float = 0
+    /// 0 relaxed walk, 1 full run: longer strokes, higher foot lift, head and tail streamlined.
+    public var run: Float = 0
 
     public init() {}
 }
@@ -103,11 +109,35 @@ public enum BirdMotion {
 
         // Legs.
         let tuck = saturate(i.legs), bend = saturate(i.crouch)
+        let wk = saturate(i.walk) * (1 - tuck), rn = saturate(i.run)
         for side in Side.allCases {
-            q[side, .hip] = lerp(0, 85, tuck) + bend * 26 - fl * 70 * (1 - tuck)
-            q[side, .ankle] = lerp(0, 100, tuck) + bend * 30 + fl * 30
-            q[side, .toes] = lerp(0, 60, tuck) + saturate(i.grip) * 68 * (1 - tuck)
-            q[side, .hallux] = lerp(0, 20, tuck) + saturate(i.grip) * 52 * (1 - tuck)
+            var hip = lerp(0, 85, tuck) + bend * 26 - fl * 70 * (1 - tuck)
+            var ankle = lerp(0, 100, tuck) + bend * 30 + fl * 30
+            var toes = lerp(0, 60, tuck) + saturate(i.grip) * 68 * (1 - tuck)
+            var hallux = lerp(0, 20, tuck) + saturate(i.grip) * 52 * (1 - tuck)
+            if wk > 0.001 {
+                // Alternating stance and swing: the foot trails back under the body, lifts, and reaches forward.
+                let ph = i.stridePhase + (side == .left ? 0 : 0.5)
+                let u0 = ph - floor(ph)
+                let duty: Float = 0.62 - 0.22 * rn
+                let swing = u0 >= duty
+                let u = swing ? (u0 - duty) / (1 - duty) : u0 / duty
+                let amp = 13 + 17 * rn
+                let sweep = swing ? -amp + 2 * amp * u : amp * (1 - 2 * u)
+                let lift = swing ? sin(.pi * u) : 0
+                hip += wk * (sweep + 6 * rn)
+                ankle += wk * (lift * (34 + 20 * rn) + 6 * rn)
+                toes += wk * lift * 38
+                hallux += wk * lift * 20
+            }
+            q[side, .hip] = hip; q[side, .ankle] = ankle; q[side, .toes] = toes; q[side, .hallux] = hallux
+        }
+        if wk > 0.001 {
+            // Head bob: the head thrusts forward as the body passes over the planted foot.
+            let bob = sin(2 * .pi * (i.stridePhase + 0.1))
+            q[.neckPitch] += wk * (1 - 0.6 * rn) * 5 * bob - rn * wk * 12
+            q[.headPitch] += wk * (1 - 0.6 * rn) * -4 * bob + rn * wk * 10
+            q[.tailPitch] += wk * (-4 * rn + 1.5 * sin(2 * .pi * i.stridePhase * 2))
         }
 
         // Tail.
@@ -130,6 +160,7 @@ public enum BirdMotion {
 
     /// Named static poses for the preview tool.
     public static func preview(_ name: String, _ p: BirdProfile) -> BirdPose {
+        if let g = groundPreview(name, p) { return g }
         var i = BirdMotionInput()
         i.fold = 0; i.legs = 1; i.flap = 1; i.blink = 0
         switch name {

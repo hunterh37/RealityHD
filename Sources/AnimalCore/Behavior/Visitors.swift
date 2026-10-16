@@ -56,6 +56,7 @@ public struct VisitScheduler: Sendable {
             case .bird(let b):
                 guard settings.birds, birdsNow < Self.maxConcurrent(overall: overall, birds: true) else { continue }
                 let p = b.profile.behavior
+                guard p.visitsYards else { continue }
                 guard p.seasons.contains(view.season) else { continue }
                 let att = habitat.attraction(k)
                 guard att >= p.minHabitat else { continue }
@@ -66,7 +67,7 @@ public struct VisitScheduler: Sendable {
             case .ground(let g):
                 guard settings.groundAnimals, groundNow < Self.maxConcurrent(overall: overall, birds: false) else { continue }
                 let p = g.profile.behavior
-                guard p.seasons.contains(view.season) else { continue }
+                guard p.visitsYards, p.seasons.contains(view.season) else { continue }
                 let att = habitat.attraction(k)
                 guard att >= p.minHabitat else { continue }
                 let day = p.activity[view.dayPart] ?? 1

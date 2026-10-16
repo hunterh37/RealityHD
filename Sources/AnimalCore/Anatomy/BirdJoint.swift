@@ -58,7 +58,7 @@ public struct BirdJoint: Hashable, Sendable {
     public var range: ClosedRange<Float> { Self.ranges[index] }
 
     static let ranges: [ClosedRange<Float>] = {
-        var r: [ClosedRange<Float>] = [-55...55, -100...100, -40...40, -50...55, 0...38, 0...130, 0...130, -25...45, -35...50, -4...34, -4...34]
+        var r: [ClosedRange<Float>] = [-80...55, -100...100, -40...40, -60...55, 0...38, 0...130, 0...130, -25...45, -35...50, -4...34, -4...34]
         for _ in Side.allCases { r += [-30...115, -35...110, 0...95, -30...30] }
         for _ in Side.allCases {
             r += [-100...90, -85...75, -40...40, 0...165, -150...20, -170...10, -60...60, 0...100, -120...120, -120...120, -120...120]

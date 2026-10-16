@@ -54,6 +54,28 @@ public final class BirdPuppet {
         holder.addChild(model)
     }
 
+    private var cycle: Float = 0
+    private var clock: Float = 0
+
+    /// Poses a ground action (idle, walk, trot, run, graze, alert) and leans the body to match.
+    /// `phase` is the stride or peck cycle 0...1; `time` drives idle head turns and blinks.
+    public func play(_ action: BirdAction, phase: Float = 0, time: Float = 0) {
+        var i = BirdMotion.input(action, built.profile, phase: phase)
+        if action == .idle || action == .alert { i.headYaw = 22 * sin(time * 0.7); i.headRoll = 6 * sin(time * 0.7 + 1) }
+        i.blink = max(0, sin(time * 1.1 + 1)) > 0.985 ? 1 : 0
+        apply(BirdMotion.pose(built.profile, i))
+        let q = simd_quatf(angle: -BirdMotion.bodyPitch(action) * .pi / 180, axis: [1, 0, 0])
+        model.orientation = q
+        model.position = q.act([0, -built.comHeight, 0])
+    }
+
+    /// Advances the stride cycle and idle clock by `dt` seconds and poses the bird.
+    public func animate(_ action: BirdAction, dt: Float) {
+        clock += dt
+        cycle = (cycle + BirdMotion.cycleRate(action, built.profile) * dt).truncatingRemainder(dividingBy: 1)
+        play(action, phase: cycle, time: clock)
+    }
+
     /// Poses every joint. Skips joints that moved less than a thousandth of a degree.
     public func apply(_ pose: BirdPose) {
         for k in links.indices {
@@ -89,6 +111,7 @@ public enum BirdFactory {
             AnimalMaterials.register(profile)
             let built = await Task.detached(priority: .userInitiated) { BirdRigBuilder.build(profile) }.value
             let entity = try await built.rig.entityAsync(name: s.rawValue, state: "perched", interactive: false)
+            entity.removeRestProxy()
             return BirdTemplate(built: built, schema: built.rig.schema, entity: entity)
         }
         building[s] = task

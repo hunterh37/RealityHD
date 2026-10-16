@@ -24,7 +24,7 @@ extension BirdRigBuilder {
         // Neck: from inside the body front up to the back of the head, textured with the body's front end.
         let pn = f.neckPivot
         let pe = f.headCenter + V3(0, -0.12 * a.headHeight, 0.05 * a.headLength)
-        let r0 = 0.5 * a.bodyWidth * 0.80, r1 = 0.5 * a.headWidth * 0.92
+        let r0 = 0.5 * a.bodyWidth * a.neckThick, r1 = 0.5 * a.headWidth * 0.92
         let neck = Loft.along([pn - f.neckDir * 0.012, lerp(pn, pe, 0.5), pe], up: V3(0, 1, 0.3), count: 6, segments: 18,
                               vRange: 0.88...1.0, exponent: 2, material: f.mat(.body)) { t in
             let r = lerp(r0, r1, t); return V3(r, r * 0.9, r * 1.25)
@@ -51,6 +51,7 @@ extension BirdRigBuilder {
         addBeak(&rig, f)
         addEyes(&rig, f)
         addCrest(&rig, f)
+        addOrnaments(&rig, f)
     }
 
     static func addBeak(_ rig: inout Rig, _ f: BirdFrame) {
@@ -160,7 +161,7 @@ extension BirdRigBuilder {
                                uv: { u, v in V2(0.5 + 0.12 * cos(u * 2 * .pi), v) })
         rig.add(thigh, to: BirdJoint.leg(s, .hip).name)
         // Tarsus.
-        let tr = min(0.002, max(0.0007, a.tarsus * 0.045))
+        let tr = min(max(0.002, a.tarsus * 0.04), max(0.0007, a.tarsus * 0.045))
         let tars = Prim.tube([ankle, lerp(ankle, foot, 0.5), foot + V3(0, 0.001, 0)], radii: [tr * 1.1, tr, tr * 1.1], sides: 6, seamTile: 0.03, material: f.mat(.leg))
         rig.add(tars, to: BirdJoint.leg(s, .ankle).name)
         // Toes: three forward, one back. Curl joints rotate them about the foot.

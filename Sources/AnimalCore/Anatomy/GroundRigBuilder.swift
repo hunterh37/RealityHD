@@ -36,10 +36,22 @@ struct GroundFrame {
             : Profile([V2(0, 0.55), V2(0.18, 0.88), V2(0.4, 1.0), V2(0.62, 0.96), V2(0.82, 0.8), V2(1, 0.6)])
     }
 
-    func shoulder(_ l: GroundJoint.Leg) -> V3 { C + A * (0.34 * a.bodyLength) - U * (0.26 * a.bodyDepth) + V3(l.side.sign * 0.34 * a.bodyWidth, 0, 0) }
-    func hip(_ l: GroundJoint.Leg) -> V3 { C - A * (0.34 * a.bodyLength) - U * (0.2 * a.bodyDepth) + V3(l.side.sign * 0.36 * a.bodyWidth, 0, 0) }
-    var neckPivot: V3 { C + A * (0.46 * a.bodyLength) + U * (0.12 * a.bodyDepth) }
-    var headCenter: V3 { neckPivot + V3(0, 0.25 * a.headHeight, -0.5 * a.headLength + 0.02) }
+    func shoulder(_ l: GroundJoint.Leg) -> V3 { C + A * (0.34 * a.bodyLength) - U * ((a.digitigrade ? 0.06 : (a.thighScale > 1.3 ? 0.12 : 0.26)) * a.bodyDepth) + V3(l.side.sign * 0.34 * a.bodyWidth, 0, 0) }
+    func hip(_ l: GroundJoint.Leg) -> V3 { C - A * (0.34 * a.bodyLength) + U * ((a.digitigrade ? 0.1 : (a.thighScale > 1.3 ? 0.0 : -0.2)) * a.bodyDepth) + V3(l.side.sign * 0.36 * a.bodyWidth, 0, 0) }
+    var neckPivot: V3 { C + A * (0.46 * a.bodyLength) + U * ((a.neckLength > 0.2 ? 0.24 : 0.12) * a.bodyDepth) }
+    var neckVec: V3 { let r = radians(a.neckRise); return V3(0, sin(r), -cos(r)) * a.neckLength }
+    var headCenter: V3 { neckPivot + neckVec + V3(0, 0.25 * a.headHeight, -0.5 * a.headLength + 0.02) }
+    var headProfile: Profile {
+        if let h = a.headShape { return Profile(h) }
+        return Profile([V2(0, 0.8), V2(0.2, 1.0), V2(0.45, 0.92), V2(0.7, 0.6), V2(0.9, 0.3), V2(1, 0.14)])
+    }
+    /// Eye position: shaped heads seat it on the skull surface, the originals keep their placement.
+    func eye(_ s: Side) -> V3 {
+        if a.headShape == nil { return headCenter + V3(s.sign * 0.5 * a.headWidth * 0.8, 0.12 * a.headHeight, -0.12 * a.headLength) }
+        let t: Float = 0.42
+        let hw = 0.5 * a.headWidth * headProfile(t)
+        return headCenter + V3(s.sign * hw * 0.9, 0.14 * a.headHeight, (0.5 - t) * a.headLength)
+    }
     var rump: V3 { C - A * (0.5 * a.bodyLength) + U * (0.1 * a.bodyDepth) }
 }
 
@@ -61,7 +73,7 @@ public enum GroundRigBuilder {
     public static func build(_ p: GroundProfile, seed: UInt64 = 1) -> GroundRig {
         let f = GroundFrame(p)
         let a = f.a
-        var rig = Rig(name: p.species.rawValue, lods: 1, switchDistances: [])
+        var rig = Rig(name: p.species.rawValue + (p.variant == .antlered ? "-antlered" : ""), lods: 1, switchDistances: [])
         var specs = [BirdJointSpec?](repeating: nil, count: GroundJoint.count)
 
         func declare(_ j: GroundJoint, parent: GroundJoint?, pivot: V3, axis: V3) {
@@ -78,6 +90,19 @@ public enum GroundRigBuilder {
             let total = l.isFore ? a.foreLeg : a.hindLeg
             let l1 = total * (l.isFore ? 0.52 : 0.5), l2 = total * (l.isFore ? 0.48 : 0.5)
             let footLen = l.isFore ? total * 0.22 : total * 0.42
+            if a.digitigrade {
+                // Toe walker: hip, stifle or carpus, then fetlock (front) or hock (behind) over the hoof or paw.
+                let ankleH = l.isFore ? a.foreAnkle : a.hindAnkle
+                let tz = l.isFore ? hip.z - 0.015 : hip.z + 0.07 * a.bodyLength
+                let target = V2(tz, ankleH)
+                let chord = simd_length(V2(hip.z, hip.y) - target)
+                let kk: Float = l.isFore ? 0.53 : 0.66
+                let knee = twoBone(hip: V2(hip.z, hip.y), foot: target, l1: chord * kk, l2: chord * kk, forward: true)
+                let an = V3(hip.x, ankleH, tz)
+                let toe = l.isFore ? an + V3(0, -(ankleH - a.legRadius * 0.4), -ankleH * 0.28) : an + V3(0, -(ankleH - a.legRadius * 0.4), -ankleH * 0.05)
+                chains[l] = Chain(hip: hip, knee: V3(hip.x, knee.y, knee.x), ankle: an, toe: toe)
+                continue
+            }
             let groundY: Float = a.legRadius * 0.8
             let ankleTarget = V2(hip.z + (l.isFore ? -0.015 : 0.03), groundY + (l.isFore ? 0 : a.legRadius * 0.6))
             let knee = twoBone(hip: V2(hip.z, hip.y), foot: ankleTarget, l1: l1, l2: l2, forward: !l.isFore)
@@ -93,7 +118,7 @@ public enum GroundRigBuilder {
         let curl: Float = p.species == .easternGraySquirrel ? 1 : (p.species == .easternChipmunk ? 0.75 : 0)
         func tailPoint(_ i: Int) -> V3 {
             var pos = f.rump
-            var ang = radians(-8 + (a.pitch))
+            var ang = radians(-8 + a.pitch - a.tailDrop)
             for k in 0..<i {
                 ang += radians(24) * curl * (k == 0 ? 0.4 : 1)
                 // Direction: rearward (+z) rotating up by `ang`.
@@ -116,7 +141,7 @@ public enum GroundRigBuilder {
         declare(.earR, parent: .headPitch, pivot: earBase(.right), axis: GroundFrame.X)
         let noseTip = f.headCenter + V3(0, -0.04 * a.headHeight, -0.5 * a.headLength)
         declare(.nose, parent: .headPitch, pivot: noseTip, axis: GroundFrame.X)
-        let eyeAt: (Side) -> V3 = { s in f.headCenter + V3(s.sign * 0.5 * a.headWidth * 0.8, 0.12 * a.headHeight, -0.12 * a.headLength) }
+        let eyeAt: (Side) -> V3 = { f.eye($0) }
         declare(.lidL, parent: .headPitch, pivot: eyeAt(.left), axis: V3(0, 0, -1))
         declare(.lidR, parent: .headPitch, pivot: eyeAt(.right), axis: V3(0, 0, 1))
         for l in GroundJoint.Leg.allCases {
@@ -132,13 +157,16 @@ public enum GroundRigBuilder {
 
         // Body: chest in the base, rump in the spine part, both from one profile and one atlas.
         let bp = f.bodyProfile
+        let bodySecs = a.depthShape == nil ? 6 : 8
         let fur = f.mat(.body)
+        let dShape = a.depthShape.map { Profile($0 as [Float]) }, wShape = a.widthShape.map { Profile($0 as [Float]) }
         func section(_ t: Float) -> LoftSection {
             let r = bp(t)
+            let rd = dShape?(t) ?? r, rw = wShape?(t) ?? r
             let c = f.C + f.A * ((t - 0.5) * a.bodyLength)
             let depthK: Float = p.species == .europeanHedgehog ? 1.0 : 1
-            return LoftSection(center: c, right: GroundFrame.X, up: f.U, halfWidth: 0.5 * a.bodyWidth * r, halfDorsal: 0.5 * a.bodyDepth * 1.0 * r * depthK,
-                               halfVentral: 0.5 * a.bodyDepth * 0.9 * r, exponent: 2.2)
+            return LoftSection(center: c, right: GroundFrame.X, up: f.U, halfWidth: 0.5 * a.bodyWidth * rw, halfDorsal: 0.5 * a.bodyDepth * 1.0 * rd * depthK,
+                               halfVentral: 0.5 * a.bodyDepth * 0.9 * rd, exponent: a.depthShape == nil ? 2.2 : 2.0)
         }
         func lofted(_ t0: Float, _ t1: Float, _ n: Int, material: MaterialKey, uv: ((Float, Float) -> V2)? = nil) -> Surface {
             let secs = (0..<n).map { section(t0 + (t1 - t0) * Float($0) / Float(n - 1)) }
@@ -161,33 +189,41 @@ public enum GroundRigBuilder {
             rig.base[0].add(dome(0.5, 1.02))
             rig.add(dome(-0.02, 0.52), to: GroundJoint.spine.name)
         } else {
-            rig.base[0].add(lofted(0.46, 1, 6, material: fur))
-            rig.add(lofted(0, 0.54, 6, material: fur), to: GroundJoint.spine.name)
+            rig.base[0].add(lofted(0.46, 1, bodySecs, material: fur))
+            rig.add(lofted(0, 0.54, bodySecs, material: fur), to: GroundJoint.spine.name)
         }
 
         // Neck and head.
         let hc = f.headCenter, hl = a.headLength
         let neckEnd = hc + V3(0, -0.1 * a.headHeight, 0.3 * hl)
-        let neck = Loft.along([f.neckPivot - f.A * 0.02, neckEnd], up: GroundFrame.Y, count: 4, segments: 16, vRange: 0.9...1.0, material: fur) { t in
-            let r = lerp(0.5 * a.bodyWidth * 0.55, 0.5 * a.headWidth * 0.95, t); return V3(r, r, r)
+        let limbFur = a.darkLimbs ? f.mat(.head) : fur
+        let neckPath = a.neckLength > 0 ? [f.neckPivot - f.A * 0.02, lerp(f.neckPivot, neckEnd, 0.5) + V3(0, 0.02 * a.neckLength, 0), neckEnd] : [f.neckPivot - f.A * 0.02, neckEnd]
+        let neck = Loft.along(neckPath, up: GroundFrame.Y, count: a.neckLength > 0 ? 8 : 4, segments: 18, vRange: 0.9...1.0, material: limbFur) { t in
+            let r = lerp(0.5 * a.bodyWidth * a.neckThick, 0.5 * a.headWidth * 0.95, a.neckLength > 0 ? pow(t, 0.8) : t)
+            return V3(r, r * a.neckDeep, r * a.neckDeep)
         }
         rig.add(neck, to: GroundJoint.neckPitch.name)
-        let hp = Profile([V2(0, 0.8), V2(0.2, 1.0), V2(0.45, 0.92), V2(0.7, 0.6), V2(0.9, 0.3), V2(1, 0.14)])
+        let hp = f.headProfile
+        let kH: Float = a.headShape == nil ? 0.5 : 1.0
         var hs: [LoftSection] = []
         for i in 0..<9 {
             let t = Float(i) / 8
             let c = hc + V3(0, -0.12 * a.headHeight * t * t, (0.5 - t) * hl)
             let r = hp(t)
             hs.append(LoftSection(center: c, right: GroundFrame.X, up: GroundFrame.Y, halfWidth: 0.5 * a.headWidth * r,
-                                  halfDorsal: 0.5 * a.headHeight * 0.55 * r, halfVentral: 0.5 * a.headHeight * 0.45 * r, exponent: 2.2))
+                                  halfDorsal: kH * a.headHeight * 0.55 * r, halfVentral: kH * a.headHeight * 0.45 * r, exponent: 2.2))
         }
         rig.add(Loft.build(hs, segments: 18, material: f.mat(.head)), to: GroundJoint.headPitch.name)
         // Lower jaw.
-        let jawLoft = Loft.ellipsoid(center: gape + V3(0, 0.0, -0.18 * hl), axis: V3(0, 0, -1), up: GroundFrame.Y,
-                                     radii: V3(0.2 * a.headWidth, 0.07 * a.headHeight, 0.26 * hl), rings: 6, segments: 10, material: f.mat(.head), uv: { u, v in V2(0.5 + 0.1 * cos(u * 2 * .pi), 0.8) })
+        let jawK: Float = a.headShape == nil ? 1 : 1.5
+        let jawLoft = Loft.ellipsoid(center: gape + V3(0, 0.0, -0.18 * hl * jawK), axis: V3(0, 0, -1), up: GroundFrame.Y,
+                                     radii: V3(0.2 * a.headWidth * (a.headShape == nil ? 1 : 0.7), 0.07 * a.headHeight, 0.26 * hl * jawK), rings: 6, segments: 10, material: f.mat(.head), uv: { u, v in V2(0.5 + 0.1 * cos(u * 2 * .pi), 0.8) })
         rig.add(jawLoft, to: GroundJoint.jaw.name)
         // Nose, eyes, lids.
-        rig.add(Prim.cubeSphere(subdivisions: 3, material: f.mat(.nose)) { $0 * (0.1 * a.headWidth) }, Xform(translation: noseTip + V3(0, 0, 0.004)), to: GroundJoint.headPitch.name)
+        let nr = a.noseSize * a.headWidth
+        let disc = a.snoutDisc
+        rig.add(Prim.cubeSphere(subdivisions: 3, material: f.mat(.nose)) { disc ? V3($0.x * nr, $0.y * nr * 0.8, $0.z * nr * 0.4) : $0 * nr },
+                Xform(translation: noseTip + V3(0, 0, disc ? -0.002 : 0.004)), to: GroundJoint.headPitch.name)
         for s in Side.allCases {
             let c = eyeAt(s)
             rig.add(Prim.cubeSphere(subdivisions: 3, material: f.mat(.eye)) { $0 * a.eyeRadius }, Xform(translation: c), to: GroundJoint.headPitch.name)
@@ -201,10 +237,10 @@ public enum GroundRigBuilder {
         // Ears: flattened shells, inner skin and outer fur.
         for s in Side.allCases {
             let base = earBase(s)
-            let dir = simd_normalize(V3(s.sign * (p.species == .easternCottontail ? 0.18 : 0.5), 1, p.species == .easternCottontail ? 0.25 : 0.1))
+            let dir = simd_normalize(V3(s.sign * (p.species == .easternCottontail ? 0.18 : a.earTilt), 1, p.species == .easternCottontail ? 0.25 : 0.1))
             let len = a.earLength
             let center = base + dir * (len * 0.45)
-            let side = simd_normalize(simd_cross(dir, V3(0, 0, 1)))
+            let side = simd_normalize(simd_cross(dir, a.headShape == nil ? V3(0, 0, 1) : V3(1, 0, 0)))
             let normal = simd_normalize(simd_cross(side, dir))
             let outer = Loft.ellipsoid(center: center - normal * 0.0008, axis: dir, up: normal, radii: V3(a.earWidth * 0.5, 0.0022, len * 0.5), rings: 7, segments: 10, material: f.mat(.head),
                                        uv: { u, v in V2(0.22 + 0.1 * cos(u * 2 * .pi), 0.5 + 0.1 * v) })
@@ -238,6 +274,8 @@ public enum GroundRigBuilder {
                 case .easternGraySquirrel: return tw * 0.5 * (0.55 + 0.5 * sin(.pi * min(1, t * 1.15)) + 0.1)
                 case .easternChipmunk: return tw * 0.5 * (0.8 - 0.4 * t)
                 case .easternCottontail: return tw * 0.5 * sin(.pi * max(0.15, 1 - t * 0.8) * 0.9)
+                case .coyote: return tw * 0.5 * (0.55 + 0.45 * sin(.pi * min(1, t * 1.25)))
+                case .whitetailDeer: return tw * 0.5 * (0.7 + 0.3 * sin(.pi * min(1, t * 1.2)))
                 default: return tw * 0.5 * (1 - 0.5 * t)
                 }
             }
@@ -258,21 +296,54 @@ public enum GroundRigBuilder {
         for l in GroundJoint.Leg.allCases {
             let c = chains[l]!
             let r = a.legRadius
-            let thighR = l.isFore ? r * 1.4 : r * 2.0
+            let thighR = (l.isFore ? r * 1.4 : r * 2.0) * a.thighScale
+            let kneeR: Float = a.digitigrade ? r * (l.isFore ? 1.3 : max(1.1, a.thighScale)) : r * 1.05
+            let shankEnd: Float = a.digitigrade ? r * (l.isFore ? 0.85 : 1.0) : r * 0.8
             func leg(_ pts: [V3], _ radii: [Float], vr: ClosedRange<Float>) -> Surface {
-                Loft.along(pts, up: GroundFrame.X, count: 5, segments: 10, vRange: vr, exponent: 2, material: fur, radius: { t in
+                Loft.along(pts, up: GroundFrame.X, count: 6, segments: 12, vRange: vr, exponent: 2, material: limbFur, radius: { t in
                     let r = lerp(radii[0], radii[1], t); return V3(r, r, r)
                 }, uv: { u, v in V2(legU + 0.05 * cos(u * 2 * .pi), 0.3 + 0.3 * v) })
             }
-            rig.add(leg([c.hip + V3(0, 0.004, 0), c.knee], [thighR, r * 1.05], vr: 0...0.5), to: GroundJoint.leg(l, .hip).name)
-            rig.add(leg([c.knee, c.ankle], [r * 1.05, r * 0.8], vr: 0.5...1), to: GroundJoint.leg(l, .knee).name)
+            rig.add(Loft.along([c.hip + V3(0, 0.004, 0), c.knee], up: GroundFrame.X, count: 6, segments: 12, vRange: 0...0.5, exponent: 2, material: fur, radius: { t in let r = lerp(thighR, kneeR, t); return V3(r, r, r) }, uv: { u, v in V2(legU + 0.05 * cos(u * 2 * .pi), 0.3 + 0.3 * v) }), to: GroundJoint.leg(l, .hip).name)
+            rig.add(leg([c.knee, c.ankle], [kneeR, shankEnd], vr: 0.5...1), to: GroundJoint.leg(l, .knee).name)
             rig.add(leg([c.ankle, c.toe], [r * 0.85, r * 0.9], vr: 0.5...1), to: GroundJoint.leg(l, .ankle).name)
-            // Paw and claws.
-            rig.add(Loft.ellipsoid(center: c.toe + V3(0, 0, 0.004), axis: V3(0, 0, -1), up: GroundFrame.Y, radii: V3(r * 1.1, r * 0.7, r * 1.7), rings: 5, segments: 8, material: fur,
-                                   uv: { u, v in V2(legU + 0.04 * cos(u * 2 * .pi), 0.45) }), to: GroundJoint.leg(l, .ankle).name)
-            for k in -1...1 {
-                let cl = c.toe + V3(Float(k) * r * 0.7, -r * 0.3, -r * 1.4)
-                rig.add(Prim.tube([cl, cl + V3(0, -0.0006, -r * 1.6)], radii: [r * 0.22, r * 0.05], sides: 3, seamTile: 0.01, material: f.mat(.claw)), to: GroundJoint.leg(l, .ankle).name)
+            let ankle = GroundJoint.leg(l, .ankle).name
+            if a.digitigrade || a.thighScale > 1.3 {
+                // Shoulder and haunch muscle mass hanging from the hip joint.
+                let up = c.knee - c.hip, len = simd_length(up)
+                let mid = lerp(c.hip, c.knee, l.isFore ? 0.3 : 0.4)
+                let wx = thighR * (l.isFore ? 0.8 : 0.95), wz = thighR * (l.isFore ? 1.05 : 1.3)
+                // Texture scale follows the body: u spans the body circumference, v its length.
+                let circ = Float.pi * (a.bodyWidth + a.bodyDepth) * 0.5, span = 2 * len * 0.66 / a.bodyLength
+                rig.add(Loft.ellipsoid(center: mid + V3(l.side.sign * 0.004, 0, 0), axis: up, up: GroundFrame.X, radii: V3(wz, wx, len * 0.66), rings: 9, segments: 16, material: fur,
+                                       uv: { u, v in V2(0.16 + 0.5 * (wz + wx) * cos(u * 2 * .pi) / circ, 0.25 + span * (v - 0.5)) }), to: GroundJoint.leg(l, .hip).name)
+            }
+            if a.hooves {
+                for sx in [Float(-1), 1] {
+                    let hc = c.toe + V3(sx * r * 0.62, r * 1.05, -r * 0.55)
+                    rig.add(Loft.ellipsoid(center: hc, axis: V3(0, -0.5, -1), up: GroundFrame.Y, radii: V3(r * 0.62, r * 1.2, r * 1.75), rings: 6, segments: 10, material: f.mat(.hoof)), to: ankle)
+                }
+            } else {
+                // Paw and claws.
+                let pc = a.digitigrade ? c.toe + V3(0, r * 0.35, -r * 0.8) : c.toe + V3(0, 0, 0.004)
+                rig.add(Loft.ellipsoid(center: pc, axis: V3(0, 0, -1), up: GroundFrame.Y, radii: V3(r * 1.1, r * 0.7, r * 1.7), rings: 5, segments: 8, material: limbFur,
+                                       uv: { u, v in V2(legU + 0.04 * cos(u * 2 * .pi), 0.45) }), to: ankle)
+                let n = a.clawScale > 2 ? 4 : 3
+                for k in 0..<n {
+                    let off = (Float(k) - Float(n - 1) / 2) * r * 0.7
+                    let cl = pc + V3(off, -r * 0.3, -r * 1.4)
+                    rig.add(Prim.tube([cl, cl + V3(0, -0.0006 * a.clawScale, -r * 1.6 * a.clawScale)], radii: [r * 0.22 * a.clawScale.squareRoot(), r * 0.05], sides: 4, seamTile: 0.01, material: f.mat(.claw)), to: ankle)
+                }
+            }
+        }
+
+        if a.antlers != .none { addAntlers(&rig, f) }
+        if a.tusks > 0 {
+            let gp = f.headCenter + V3(0, -0.28 * a.headHeight, -0.15 * a.headLength)
+            for s in Side.allCases {
+                let b = gp + V3(s.sign * 0.34 * a.headWidth, 0.004, -0.3 * a.headLength), L = a.tusks
+                let pts = [b, b + V3(s.sign * 0.004, 0.3 * L, -0.12 * L), b + V3(s.sign * 0.012, 0.65 * L, -0.1 * L), b + V3(s.sign * 0.018, 0.95 * L, 0.04 * L)]
+                rig.add(Prim.tube(pts, radii: [0.0075, 0.0068, 0.005, 0.0012], sides: 6, seamTile: 0.03, material: f.mat(.antler)), to: GroundJoint.jaw.name)
             }
         }
 

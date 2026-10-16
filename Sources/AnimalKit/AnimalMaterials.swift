@@ -3,6 +3,17 @@ import RealKit
 import RealMaterials
 import AnimalCore
 
+import RealityKit
+
+extension Entity {
+    /// Puppets move joint entities directly, so the merged rest-pose proxy that `Rig.entityAsync` builds
+    /// would keep showing the rest pose. Drops the proxy and its component.
+    func removeRestProxy() {
+        findEntity(named: "rest")?.removeFromParent()
+        components.remove(RealRestProxyComponent.self)
+    }
+}
+
 /// Registers animal material specs with RealityHD's material cache.
 @MainActor
 public enum AnimalMaterials {

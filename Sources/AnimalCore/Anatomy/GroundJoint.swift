@@ -46,7 +46,7 @@ public struct GroundJoint: Hashable, Sendable {
     public var range: ClosedRange<Float> { Self.ranges[index] }
 
     static let ranges: [ClosedRange<Float>] = {
-        var r: [ClosedRange<Float>] = [-40...50, -50...60, -90...90, -55...60, 0...35, -40...70, -40...70, -8...8, -60...60, -70...70, -70...70, -70...70, 0...130, 0...130]
+        var r: [ClosedRange<Float>] = [-40...50, -125...60, -90...90, -85...60, 0...35, -40...70, -40...70, -8...8, -60...60, -70...70, -70...70, -70...70, 0...130, 0...130]
         for l in Leg.allCases { r += l.isFore ? [-70...80, -100...40, -60...60] : [-70...80, -140...20, -60...90] }
         return r
     }()

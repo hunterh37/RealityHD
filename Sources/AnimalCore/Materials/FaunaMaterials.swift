@@ -9,7 +9,7 @@ import RealMaterials
 /// leg, eye, ring. Atlas programs (body, head) use UV 0...1 over the part, see `Loft`.
 public enum FaunaMaterials {
     public enum Region: String, CaseIterable, Sendable {
-        case body, head, flight, covert, tail, crest, arm, beak, leg, eye, ring, backCard, bellyCard, wingFold, primaryFold, tailCore
+        case body, head, flight, covert, tail, crest, arm, beak, leg, eye, ring, backCard, bellyCard, wingFold, primaryFold, tailCore, ornament, collar, beard
     }
 
     public static func key(_ id: String, _ r: Region) -> MaterialKey { "fauna.\(id).\(r.rawValue)" }
@@ -103,6 +103,19 @@ public enum FaunaMaterials {
                 $0.colorA = linear(c.eye); $0.knobs = V4(0.2, 0.2, 0.2, 0)
                 $0.tileSize = 0.02; $0.resolution = 128; $0.normalStrength = 0; $0.roughness = 0.04; $0.clearcoat = 1; $0.specular = 1
             },
+            make(.ornament, .plastic) {
+                $0.colorA = linear(c.ornament); $0.knobs = V4(0.6, 0.5, 0.7, 0)
+                $0.tileSize = 0.02; $0.resolution = 256; $0.normalStrength = 1.6; $0.roughness = 0.5; $0.clearcoat = 0.15
+            },
+            make(.collar, .plumageBody) {
+                $0.colorA = linear(c.collar); $0.colorB = linear(c.collar); $0.colorC = linear(c.collar)
+                $0.knobs = V4(c.featherRows * 1.4, 1, 0, 0)
+                $0.tileSize = 0; $0.resolution = 512; $0.normalStrength = 0.7; $0.roughness = 0.62
+            },
+            make(.beard, .plastic) {
+                $0.colorA = linear(c.beard); $0.knobs = V4(0.3, 0.3, 0.4, 0)
+                $0.tileSize = 0.02; $0.resolution = 128; $0.normalStrength = 0.8; $0.roughness = 0.7
+            },
             make(.ring, .plastic) {
                 $0.colorA = linear(c.eyeRing); $0.knobs = V4(0.4, 0.4, 0.55, 0)
                 $0.tileSize = 0.02; $0.resolution = 128; $0.normalStrength = 0.4; $0.roughness = 0.55
@@ -113,7 +126,7 @@ public enum FaunaMaterials {
     // MARK: ground animals
 
     public enum GroundRegion: String, CaseIterable, Sendable {
-        case body, head, tail, ear, nose, eye, claw, whisker, quill
+        case body, head, tail, ear, nose, eye, claw, whisker, quill, antler, hoof
     }
 
     public static func key(_ id: String, _ r: GroundRegion) -> MaterialKey { "fauna.\(id).\(r.rawValue)" }
@@ -133,12 +146,12 @@ public enum FaunaMaterials {
         return [
             make(.body, .furCoat) {
                 $0.colorA = linear(c.back); $0.colorB = linear(c.belly); $0.colorC = linear(c.accent)
-                $0.knobs = V4(c.strands, c.flankLine, c.pattern, 0.6)
+                $0.knobs = V4(c.strands, c.flankLine, c.pattern, c.fuzz)
                 $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 2.4; $0.roughness = 0.92
             },
             make(.head, .furCoat) {
                 $0.colorA = linear(c.face); $0.colorB = linear(c.belly); $0.colorC = linear(c.accent)
-                $0.knobs = V4(c.strands * 1.3, c.flankLine + 0.04, c.pattern * 0.8, 0.4)
+                $0.knobs = V4(c.strands * 1.3, c.flankLine + 0.04, c.pattern * 0.8, c.fuzz * 0.67)
                 $0.tileSize = 0; $0.resolution = 512; $0.normalStrength = 2; $0.roughness = 0.9
             },
             make(.tail, .furCoat) {
@@ -152,7 +165,7 @@ public enum FaunaMaterials {
             },
             make(.nose, .plastic) {
                 $0.colorA = linear(c.nose); $0.knobs = V4(0.4, 0.3, 0.3, 0)
-                $0.tileSize = 0.02; $0.resolution = 128; $0.normalStrength = 0.3; $0.roughness = 0.35; $0.clearcoat = 0.3
+                $0.tileSize = 0.02; $0.resolution = 128; $0.normalStrength = 0.3; $0.roughness = p.anatomy.snoutDisc ? 0.6 : 0.35; $0.clearcoat = p.anatomy.snoutDisc ? 0.04 : 0.3
             },
             make(.eye, .plastic) {
                 $0.colorA = linear(c.eye); $0.knobs = V4(0.2, 0.2, 0.2, 0)
@@ -165,6 +178,14 @@ public enum FaunaMaterials {
             make(.whisker, .plastic) {
                 $0.colorA = linear(0xE6E0D4); $0.knobs = V4(0.3, 0.3, 0.4, 0)
                 $0.tileSize = 0.02; $0.resolution = 64; $0.normalStrength = 0; $0.roughness = 0.5
+            },
+            make(.antler, .plastic) {
+                $0.colorA = linear(c.antler); $0.knobs = V4(0.7, 0.55, 0.8, 0)
+                $0.tileSize = 0.04; $0.resolution = 256; $0.normalStrength = 2.2; $0.roughness = 0.62
+            },
+            make(.hoof, .plastic) {
+                $0.colorA = linear(c.hoof); $0.knobs = V4(0.4, 0.4, 0.6, 0)
+                $0.tileSize = 0.03; $0.resolution = 128; $0.normalStrength = 1.2; $0.roughness = 0.45; $0.clearcoat = 0.2
             },
             make(.quill, .quillCoat) {
                 $0.colorA = linear(c.accent); $0.colorB = linear(c.back); $0.colorC = linear(c.belly)

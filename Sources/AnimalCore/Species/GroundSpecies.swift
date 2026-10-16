@@ -1,15 +1,36 @@
 import Foundation
 import RealCore
 
-/// The four ground animals. Raw values are stable ids used in saved journals.
+/// The ground animals: four yard visitors and five hunting game species. Raw values are stable ids.
 public enum GroundSpecies: String, CaseIterable, Codable, Sendable, Identifiable {
     case easternCottontail = "eastern-cottontail"
     case easternGraySquirrel = "eastern-gray-squirrel"
     case easternChipmunk = "eastern-chipmunk"
     case europeanHedgehog = "european-hedgehog"
+    case whitetailDeer = "whitetail-deer"
+    case rockyMountainElk = "rocky-mountain-elk"
+    case wildBoar = "wild-boar"
+    case blackBear = "black-bear"
+    case coyote = "coyote"
 
     public var id: String { rawValue }
+    /// The standard variant (doe, cow, sow or the only form).
     public var profile: GroundProfile { GroundProfile.table[self]! }
+    public func profile(_ variant: GroundVariant) -> GroundProfile { GroundProfile.profile(self, variant) }
+
+    /// Hunting game species, never sent to yards by `VisitScheduler`.
+    public static let hunting: [GroundSpecies] = [.whitetailDeer, .rockyMountainElk, .wildBoar, .blackBear, .coyote]
+    /// Species that have an `.antlered` variant (buck, bull).
+    public var hasAntlers: Bool { self == .whitetailDeer || self == .rockyMountainElk }
+}
+
+/// Body variant of one species. `.antlered` is the buck or bull and only changes species with antlers.
+public enum GroundVariant: String, CaseIterable, Codable, Sendable {
+    case standard, antlered
+}
+
+public enum AntlerStyle: String, Sendable {
+    case none, whitetail, elk
 }
 
 /// How a quadruped moves.
@@ -20,6 +41,8 @@ public enum GroundGait: String, Sendable {
     case bound
     /// Hedgehogs: alternating diagonal walk.
     case walk
+    /// Deer, elk, boar, bear and coyote: lateral-sequence walk, diagonal trot, rotary gallop by speed.
+    case stride
 }
 
 /// Body proportions in meters. Animals face -Z, feet at y = 0.
@@ -46,8 +69,47 @@ public struct GroundAnatomy: Sendable {
     public var whiskers: Bool = true
     /// Back covered in spines.
     public var spines: Bool = false
+    /// Walks on its toes: hoof or paw below a raised ankle (`foreAnkle`, `hindAnkle`).
+    public var digitigrade = false
+    /// Cloven hooves instead of paws and claws.
+    public var hooves = false
+    /// Body center height above the feet when set, else derived from the leg lengths.
+    public var rideHeight: Float?
+    /// Ankle joint height above the ground for digitigrade legs (fetlock in front, hock behind).
+    public var foreAnkle: Float = 0
+    public var hindAnkle: Float = 0
+    /// Neck length beyond the head, meters, and its angle above horizontal, degrees.
+    public var neckLength: Float = 0
+    public var neckRise: Float = 25
+    /// Neck radius at the shoulder as a fraction of half the body width, and vertical stretch.
+    public var neckThick: Float = 0.55
+    public var neckDeep: Float = 1
+    /// Head tilt at rest, nose down, degrees (applied as the stand pose).
+    public var headDrop: Float = 0
+    /// Thigh radius multiplier and claw size multiplier.
+    public var thighScale: Float = 1
+    public var clawScale: Float = 1
+    /// Nose pad radius as a fraction of head width; boars use a flat disc.
+    public var noseSize: Float = 0.1
+    public var snoutDisc = false
+    /// Ear direction: outward lean 0 (vertical) ... 1.
+    public var earTilt: Float = 0.5
+    /// Tail rest angle below the body axis, degrees.
+    public var tailDrop: Float = 0
+    /// Section scale along the body (0 chest ... 1 rump), replacing the default shape.
+    public var depthShape: [Float]?
+    public var widthShape: [Float]?
+    /// Head section scale from the back of the skull to the nose.
+    public var headShape: [Float]?
+    /// Neck and legs use the head coat (dark mane and limbs of elk).
+    public var darkLimbs = false
+    /// Lower tusk length in meters, 0 for none.
+    public var tusks: Float = 0
+    public var antlers: AntlerStyle = .none
+    /// Gait stride scale: 1 for a deer, more for long-legged animals.
+    public var strideScale: Float = 1
     /// Height of the body center above the feet.
-    public var standHeight: Float { max(foreLeg, hindLeg) * 0.74 + bodyDepth * 0.32 }
+    public var standHeight: Float { rideHeight ?? (max(foreLeg, hindLeg) * 0.74 + bodyDepth * 0.32) }
 }
 
 public struct GroundPalette: Sendable, Hashable {
@@ -66,6 +128,10 @@ public struct GroundPalette: Sendable, Hashable {
     /// 0...1 stripe / agouti strength.
     public var pattern: Float
     public var strands: Float
+    /// Fur length 0...1 (guard hair and fuzz).
+    public var fuzz: Float = 0.6
+    public var antler: UInt32 = 0xC9B78F
+    public var hoof: UInt32 = 0x2B2521
 }
 
 public struct GroundBehavior: Sendable {
@@ -84,10 +150,13 @@ public struct GroundBehavior: Sendable {
     public var minHabitat: Float
     /// Chance per second of stopping to stand up and look around (squirrels, chipmunks, rabbits).
     public var alertRate: Float
+    /// False for hunting game: the yard scheduler never picks it.
+    public var visitsYards = true
 }
 
 public struct GroundProfile: Sendable {
     public var species: GroundSpecies
+    public var variant: GroundVariant = .standard
     public var name: String
     public var latin: String
     public var blurb: String
@@ -97,7 +166,7 @@ public struct GroundProfile: Sendable {
 }
 
 extension GroundProfile {
-    static let table: [GroundSpecies: GroundProfile] = Dictionary(uniqueKeysWithValues: [rabbit, squirrel, chipmunk, hedgehog].map { ($0.species, $0) })
+    static let table: [GroundSpecies: GroundProfile] = Dictionary(uniqueKeysWithValues: ([rabbit, squirrel, chipmunk, hedgehog] + huntingProfiles).map { ($0.species, $0) })
 
     private static let allSeasons: Set<AnimalSeason> = [.spring, .summer, .autumn, .winter]
 
@@ -170,7 +239,10 @@ public enum AnimalKind: Hashable, Sendable, Codable, Identifiable {
 
     public func encode(to e: Encoder) throws { var c = e.singleValueContainer(); try c.encode(rawValue) }
 
-    public static var all: [AnimalKind] { BirdSpecies.allCases.map { .bird($0) } + GroundSpecies.allCases.map { .ground($0) } }
+    /// Yard visitors (the journal and scheduler set). Hunting game is listed in `hunting`.
+    public static var all: [AnimalKind] { BirdSpecies.allCases.filter { $0.profile.behavior.visitsYards }.map { .bird($0) } + GroundSpecies.allCases.filter { $0.profile.behavior.visitsYards }.map { .ground($0) } }
+    /// Hunting game: whitetail, elk, boar, bear, coyote, turkey, pheasant.
+    public static var hunting: [AnimalKind] { BirdSpecies.hunting.map { .bird($0) } + GroundSpecies.hunting.map { .ground($0) } }
 
     public var name: String {
         switch self { case .bird(let b): b.profile.name; case .ground(let g): g.profile.name }
