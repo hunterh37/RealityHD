@@ -288,26 +288,39 @@ S furCoat(float2 uv, constant RFParams &P) {
     float zn = 0.07 * fbm(float2(t, uv.y), int2(4, 6), 3, P.seed + 3u);
     float lum = dot(P.colorC.rgb, float3(0.3, 0.55, 0.15));
     float sw = P.f.z * (1.0 - smoothstep(0.08, 0.30, lum));            // stripes only with a dark colorC
-    const float scl[4] = { 1.0, 1.17, 0.88, 1.31 };
+    // Coat-wide colour variation: broad light/dark patches plus a warm/cool drift.
+    float patch = fbm(uv, int2(5, 7), 3, P.seed + 111u);
+    float drift = fbm(uv, int2(9, 13), 2, P.seed + 211u);
+    float3 tint = float3(1.0 + 0.10 * drift, 1.0, 1.0 - 0.10 * drift) * (1.0 + 0.30 * patch);
+    // Layers from the surface down: sparse long guard hairs, then four dense fine coat layers.
+    const float scl[5] = { 0.42, 1.0, 1.17, 0.88, 1.31 };
     float3 outC = float3(0.0); float hgt = 0.1, ao = 0.3; bool got = false;
-    for (int l = 0; l < 4; l++) {
-        int nx = max(8, int(round(nx0 * scl[l])));
-        float lenV = (9.0 + 14.0 * fuzz) / float(nx);
-        FaStrand st = fa_strand(t, uv.y, nx, lenV, P.seed + uint(l) * 977u, 0.55, 0.30);
+    for (int l = 0; l < 5; l++) {
+        bool gl = (l == 0);
+        int nx = max(8, int(round(nx0 * scl[l] * (gl ? 1.0 : 1.35))));
+        float lenV = (gl ? (12.0 + 14.0 * fuzz) : (5.5 + 8.0 * fuzz)) / float(nx);
+        FaStrand st = fa_strand(t, uv.y, nx, lenV, P.seed + uint(l) * 977u, gl ? 0.36 : 0.40, gl ? 0.18 : 0.26);
         if (!st.hit) continue;
+        if (gl && st.h1 < 0.55) continue;                                  // guard hairs are a sparse subset
         got = true;
-        float front = 1.0 - float(l) / 3.0;
+        float front = 1.0 - float(l) / 4.0;
         bool under = (st.cxn + (st.h3 - 0.5) * 0.12 + zn) > P.f.y;
-        float3 baseC = under ? P.colorB.rgb : P.colorA.rgb;
-        float3 uc = baseC * 0.38;
-        float3 band = under ? baseC * (0.95 + 0.2 * st.h2) : baseC * (1.05 + 0.3 * st.h2);
+        float3 baseC = (under ? P.colorB.rgb : P.colorA.rgb) * tint;
+        float3 uc = baseC * 0.45;
+        float tone = 0.86 + 0.28 * st.h2;
+        float3 band = under ? baseC * tone : baseC * (0.92 + 0.22 * st.h2);
         float guard = step(0.72 - 0.35 * P.f.z, st.h1);
-        float3 tip = under ? baseC * 1.05 : mix(baseC * 0.5, P.colorC.rgb, guard);
+        float3 tip = under ? baseC * 1.05 : mix(baseC * 0.55, P.colorC.rgb, guard);
         float sl = st.sl;
         float3 c = mix(tip, band, smoothstep(0.14, 0.24, sl));
-        c = mix(c, uc, smoothstep(0.52, 0.66, sl));
+        c = mix(c, uc, smoothstep(0.50, 0.70, sl));
         // Pale, translucent-looking tip.
-        c += baseC * 0.35 * (1.0 - smoothstep(0.0, 0.10, sl)) * (0.4 + 0.6 * st.h2);
+        c += baseC * 0.25 * (1.0 - smoothstep(0.0, 0.10, sl)) * (0.4 + 0.6 * st.h2);
+        if (gl) {
+            // Guard hair: dark, glossy, tapering to a point.
+            float3 gc = mix(baseC * 0.45, P.colorC.rgb * 0.8 + baseC * 0.15, 0.6);
+            c = mix(gc * (0.8 + 0.4 * st.h2), uc, smoothstep(0.6, 0.9, sl));
+        }
         // Chipmunk stripes on the back (u about 0.075..0.142).
         if (sw > 0.001) {
             float dd = st.cxn * 0.5 + (st.h3 - 0.5) * 0.010;
@@ -318,20 +331,22 @@ S furCoat(float2 uv, constant RFParams &P) {
             else if (pale * sw > st.h1 * 0.8 + 0.1) c = mix(c, pc * (0.5 + 0.7 * smoothstep(0.1, 0.5, sl)), 0.85);
         }
         float cyl = sqrt(max(0.0, 1.0 - st.across * st.across));
-        c *= (0.55 + 0.45 * front) * (0.75 + 0.25 * cyl);
+        // Depth shading: lower layers sit in the under-coat shadow.
+        c *= (0.64 + 0.36 * front) * (0.86 + 0.14 * cyl);
         outC = c;
-        hgt = 0.15 + 0.17 * (3.0 - float(l)) + (0.10 + 0.12 * fuzz) * cyl;
-        ao = (0.40 + 0.20 * (3.0 - float(l))) * (0.65 + 0.35 * (1.0 - smoothstep(0.4, 1.0, sl)));
+        hgt = 0.12 + 0.13 * (4.0 - float(l)) + (0.10 + 0.12 * fuzz) * cyl;
+        float depthAO = gl ? 1.0 : (0.38 + 0.16 * (4.0 - float(l)));
+        ao = depthAO * (0.45 + 0.55 * (1.0 - smoothstep(0.35, 0.95, sl)));
         break;
     }
     if (!got) {
         bool under = (t + zn) > P.f.y;
-        float3 baseC = under ? P.colorB.rgb : P.colorA.rgb;
-        outC = baseC * 0.22 * (0.8 + 0.4 * fbm(uv, int2(40, 40), 2, P.seed + 31u));
-        hgt = 0.05; ao = 0.2;
+        float3 baseC = (under ? P.colorB.rgb : P.colorA.rgb) * tint;
+        outC = baseC * 0.25 * (0.8 + 0.4 * fbm(uv, int2(40, 40), 2, P.seed + 31u));
+        hgt = 0.03; ao = 0.08;
     }
     float soft = fbm(uv, int2(48, 48), 2, P.seed + 71u);
-    outC *= 1.0 + (0.08 + 0.12 * fuzz) * soft;
+    outC *= 1.0 + (0.06 + 0.10 * fuzz) * soft;
     s.albedo = outC;
     s.height = hgt;
     s.ao = clamp(ao, 0.0, 1.0);

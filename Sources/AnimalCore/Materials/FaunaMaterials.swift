@@ -36,7 +36,13 @@ public enum FaunaMaterials {
                 $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 0.7; $0.roughness = 0.62
                 if c.iridescence > 0 { $0.roughness = 0.42; $0.specular = 0.8 }
             },
-            make(.head, .plumageHead) {
+            p.anatomy.caruncle > 0
+            ? make(.head, .plastic) {
+                // Bare skin head: saturated blue-white, wrinkled, glossy.
+                $0.colorA = linear(c.crown); $0.knobs = V4(0.8, 0.9, 1.0, 0)
+                $0.tileSize = 0.012; $0.resolution = 512; $0.normalStrength = 2.4; $0.roughness = 0.5; $0.clearcoat = 0.2
+            }
+            : make(.head, .plumageHead) {
                 $0.colorA = linear(c.crown); $0.colorB = linear(c.cheek); $0.colorC = linear(c.mask)
                 $0.knobs = V4(c.featherRows * 2.4, c.crownLine, c.throatExtent, c.maskExtent)
                 $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 0.6; $0.roughness = 0.6

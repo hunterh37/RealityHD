@@ -14,6 +14,16 @@ extension BirdRigBuilder {
             let chin = f.headCenterAt(0.78) + V3(0, -0.46 * a.headHeight, 0)
             rig.add(Loft.ellipsoid(center: chin + V3(0, -0.5 * c, 0.1 * c), axis: V3(0, -1, 0.18), up: V3(1, 0, 0), radii: V3(0.14 * c, 0.2 * c, 0.62 * c),
                                    rings: 7, segments: 10, material: orn), to: head)
+            // Bare red upper neck skin, a sleeve just outside the neck feathers.
+            let nb = f.neckPivot
+            let ne = f.headCenter + V3(0, -0.12 * a.headHeight, 0.05 * a.headLength)
+            let q0 = lerp(nb, ne, 0.55), q1 = lerp(nb, ne, 0.97)
+            let nr0 = 0.5 * a.bodyWidth * a.neckThick, nr1 = 0.5 * a.headWidth * 0.92
+            let sleeve = Loft.along([q0, q1], up: V3(0, 1, 0.3), count: 6, segments: 16, vRange: 0.9...1.0, exponent: 2, material: orn) { t in
+                let u = lerp(0.55, 0.97, t)
+                let r = lerp(nr0, nr1, pow(u, 0.75)) * 1.05; return V3(r, r * 0.95, r * 1.1)
+            }
+            rig.add(sleeve, to: BirdJoint.neckPitch.name)
             // Snood draping over the bill base.
             let top = f.headCenterAt(0.97) + V3(0, 0.28 * a.headHeight, 0)
             rig.add(Loft.ellipsoid(center: top + V3(0, -0.28 * c, -0.28 * c), axis: V3(0, -0.8, -0.55), up: V3(1, 0, 0), radii: V3(0.09 * c, 0.16 * c, 0.46 * c),

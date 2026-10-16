@@ -75,10 +75,10 @@ extension GroundProfile {
     static let bear = GroundProfile(
         species: .blackBear, name: "Black Bear", latin: "Ursus americanus",
         blurb: "Black coat, tan muzzle and a rolling walk. Forages berries and carrion and avoids people.",
-        anatomy: GroundAnatomy(bodyLength: 1.15, bodyDepth: 0.58, bodyWidth: 0.46, headLength: 0.4, headWidth: 0.29, headHeight: 0.31, snout: 0.12,
-                               earLength: 0.09, earWidth: 0.09, tailLength: 0.08, tailWidth: 0.07, foreLeg: 0.5, hindLeg: 0.52, legRadius: 0.05, pitch: -3, eyeRadius: 0.0085,
+        anatomy: GroundAnatomy(bodyLength: 1.15, bodyDepth: 0.58, bodyWidth: 0.46, headLength: 0.52, headWidth: 0.38, headHeight: 0.4, snout: 0.17,
+                               earLength: 0.13, earWidth: 0.13, tailLength: 0.08, tailWidth: 0.07, foreLeg: 0.5, hindLeg: 0.52, legRadius: 0.05, pitch: -3, eyeRadius: 0.0085,
                                whiskers: false, rideHeight: 0.62,
-                               neckLength: 0.1, neckRise: 15, neckThick: 0.95, neckDeep: 1.0, headDrop: 12, thighScale: 1.35, clawScale: 2.4, noseSize: 0.16, earTilt: 0.45,
+                               neckLength: 0.1, neckRise: 15, neckThick: 0.95, neckDeep: 1.0, headDrop: 12, thighScale: 1.35, clawScale: 2.4, noseSize: 0.19, earTilt: 0.5,
                                depthShape: [0.4, 0.86, 0.96, 1.02, 1.06, 1.08, 1.04, 0.95, 0.6], widthShape: [0.4, 0.84, 0.94, 1.0, 1.02, 1.02, 1.0, 0.9, 0.6],
                                headShape: [0.85, 1.0, 0.98, 0.88, 0.76, 0.64, 0.56, 0.5], strideScale: 0.8, withers: 1.0),
         palette: GroundPalette(back: 0xB4977A, belly: 0xA38A70, accent: 0xD8C0A0, ear: 0x6E5A48, nose: 0x120E0C, eye: 0x2A1C10, claw: 0x4A423A, tail: 0x84705E,

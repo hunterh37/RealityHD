@@ -10,3 +10,10 @@ Shader (RealMaterials furCoat) is out of scope; changes are geometry, material k
 - coyote: it1 pale muzzle split, withers, finer strands. it2 legs 0.0185, jaw fix.
 - wild-turkey: it1 neck flare and rounder head for game birds, beard 12 tubes radius 0.0066. it2 crown 0x8AA2C2, crownLine 0.8. it3 walk pose check. Remaining: head reads as a pale cap, fan tail only in display pose.
 - ringneck-pheasant: it1 tail core tapers to a point (collar > 0), neck flare. Collar and red face patch unchanged.
+
+## 2026-10-16 fur shader, bear head, turkey head (2 render iterations, 1024px contact sheets)
+
+- furCoat: guard-hair layer (sparse, long, dark), four finer coat layers (strand width 0.40, nx x1.35), under-coat AO by layer depth, coat-wide patch and warm/cool tint variation, reduced per-strand tone swing.
+- it1: body too dark, long strands read as horizontal bands. it2: strand length 5.5+8*fuzz, depth shading floor 0.64, under-coat 0.45, gap colour 0.25. Remaining: strands still show banding on the bear flank at 640px tiles.
+- black-bear: head 0.40x0.29x0.31 to 0.52x0.38x0.40, snout 0.12 to 0.17, ears 0.09 to 0.13, nose 0.19.
+- wild-turkey: head material plastic bare skin (0x4F7FD0), red upper-neck sleeve, wattle caruncle 0.05 to 0.075. Remaining: head small versus body at sheet scale.
