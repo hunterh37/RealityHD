@@ -217,6 +217,16 @@ sees the next street down each cross street, so a portal graph of street cells r
 two hops from any sidewalk. Building facades face the streets and stay visible. No headroom without
 per-object occlusion, which RealityKit does not expose.
 
+Status 2026-10-16: texture streaming by LOD, measured and dropped. Prototype: materials whose every use
+at load sat past 34 m from the camera built at half resolution (one mip fewer) and were rebuilt at full
+size into the same `TextureResource` (`replace(with: LowLevelTexture)`) once the viewer came within 30 m.
+Far-only materials at load: boston-common 87 of 121 keys, lineman-district 90 of 189, hospital 0.
+Offline render boston-common: texture memory 632 -> 488 MB, 228 of 1.02M pixels differ by more than 16.
+Sim walk (`-bench 30 -steps 0.5`), off -> on: boston-common texture MB 632 -> 488 at start (525 after the
+walk), lineman-district 971 -> 935; but frames over 25 ms 0 -> 5-21 and main stalls 16 -> 142-524 ms.
+Each upgrade costs 0-5 ms of CPU; the stall follows the texture swap and the GPU synthesis, and stays at
+one upgrade per second. Fails the phase 5 gate (0 frames > 22 ms), so materials keep full resolution.
+
 Phase 5 closed in the simulator. Open, device only: phase 0 on-head GPU trace, phase 4 per-family far
 variants and texture streaming by LOD (sized by that trace), phase 5 walk gate on device.
 
