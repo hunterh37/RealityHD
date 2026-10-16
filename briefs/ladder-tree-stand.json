@@ -1,0 +1,46 @@
+{
+  "budget": 15000,
+  "id": "ladder-tree-stand",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat",
+    "metal.galvanized-aged",
+    "foam.eva",
+    "fabric.nylon",
+    "fabric.mesh",
+    "fabric.webbing"
+  ],
+  "name": "Ladder tree stand",
+  "notes": "",
+  "parts": [
+    "ladder rails",
+    "rungs",
+    "sleeve joints",
+    "platform frame",
+    "floor slats",
+    "tree notch",
+    "braces",
+    "front posts",
+    "padded shooting rail",
+    "seat",
+    "mesh backrest",
+    "ratchet strap",
+    "haul line",
+    "bow hook"
+  ],
+  "references": [],
+  "size": [
+    0.943,
+    5.545,
+    1.986
+  ],
+  "style": "15 ft ladder stand, dark green powder-coated square steel, galvanized slatted floor, padded rail, ratchet strap",
+  "summary": "15 ft ladder tree stand: steel ladder, slatted platform, padded seat and shooting rail, braces, ratchet strap, haul line.",
+  "tags": [
+    "prop",
+    "hunting",
+    "outdoor",
+    "metal"
+  ],
+  "theme": "HuntCamp"
+}

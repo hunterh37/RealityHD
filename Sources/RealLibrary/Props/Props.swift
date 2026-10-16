@@ -864,6 +864,11 @@ public enum Props {
         RifleCartridge.self,
         ShotgunShell.self,
         CompoundBow.self,
+        LadderTreeStand.self,
+        GroundBlind.self,
+        DeerFeeder.self,
+        TrailCamera.self,
+        SaltLick.self,
         // realityhd:prop
     ]
 }
