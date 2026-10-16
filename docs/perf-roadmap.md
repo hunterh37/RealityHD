@@ -116,6 +116,23 @@ splits draws into fields, statics and rigs and lists rigs by draws and LOD.
 
 Expected: boston-common and forest-glade under 1.5M visible tris at the camera.
 
+Status 2026-10-15: mesh simplification. `Simplify` (RealCore/Simplify.swift) does quadric half-edge
+collapse; the kept vertex keeps its attributes, open-edge and seam vertices stay fixed. `LODModel.
+withAutoLevels()` gives single-level models of 1500+ tris two levels (about 45 % and 18 %, error 0.4 % and
+1.2 % of the bounds diagonal, switch at error x 2900 so each level stays under about one pixel); levels
+saving under 20 % are dropped. `scene.field` applies it to single-level assets repeated 8+ times
+(`RealScene.autoLODFields`). Cost 50-270 ms per asset at scene build. In-view balanced: boston-common
+1576k -> 1181k tris (iron fence 648k -> 417k, acorn lamp 199k -> 78k, bench 59k -> 16k). Fence reduces
+35 % only: its hard-edged bars are seam-locked. `realityhd perf --breakdown` lists fields by in-view tris
+and LOD counts.
+
+Status 2026-10-15: `GrassTuft` mid level from 3 m (half the blades, 35 % wider), cards from 8 m as before.
+forest-glade 1675k -> 1318k tris (tufts 712k -> 355k). Phase 3 gate (< 1.5M) now met in boston-common and
+forest-glade; worst budgeted exteriors over it: alpine-meadow, prop-yard, mulberry-river, park-path,
+farmyard. Open: hand-written tree LOD1 levels over 50 % of LOD0, impostors, screen-error switching.
+Known unrelated test failures: AssetContractTests centering (eelgrass-bed, three staircases), GPUSmoke
+overcast sky.
+
 ## Phase 4: shading
 
 - Measure ShaderGraph variant cost per material family on device (phase 0 trace). Families above the

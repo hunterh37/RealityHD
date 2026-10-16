@@ -99,6 +99,19 @@ func perfBreakdown(_ ids: [String], seed: UInt64) {
             let c = part.estimate(settings: perf, view: view)
             print("  ", pad(n, 9), pad("\(c.drawCalls) draws", 12), "\(c.triangles / 1000)k tris")
         }
+        var byField: [String: (n: Int, t: Int, d: Int, lods: [Int])] = [:]
+        for fld in scene.fields {
+            var one = f; one.fields = [fld]
+            let c = one.estimate(settings: perf, view: view)
+            let k = fld.asset.levels[0].materials.joined(separator: ",").prefix(28).description
+            let lods = fld.asset.levels.map { $0.triangleCount }
+            byField[k, default: (0, 0, 0, lods)].n += fld.transforms.count
+            byField[k, default: (0, 0, 0, lods)].t += c.triangles
+            byField[k, default: (0, 0, 0, lods)].d += c.drawCalls
+        }
+        for (k, v) in byField.sorted(by: { $0.value.t > $1.value.t }).prefix(12) {
+            print("     field", pad(k, 28), "x\(v.n)", pad("\(v.t / 1000)k", 7), "\(v.d)d", "lods", v.lods.map { "\($0)" }.joined(separator: "/"))
+        }
         var byRig: [String: (n: Int, d: Int)] = [:]
         for rig in scene.rigs {
             var one = r; one.rigs = [rig]
