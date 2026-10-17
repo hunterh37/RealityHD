@@ -16,3 +16,4 @@ B6 | perf-b6 | https://github.com/hunterh37/RealityHD/pull/104 | dropped offline
 B8 | perf-b8 | PR_URL | dropped offline: fence field 416k->335k only with normals unchecked, 418k with checks (need <250k) | none
 B8 | perf-b8 | https://github.com/hunterh37/RealityHD/pull/105 | dropped offline: fence field 416k->335k only with normals unchecked, 418k with checks (need <250k) | none
 B13 | perf-b13 | PRURL | AssetContractTests 4 fails -> 0; GPUSmoke overcast 0.597 vs <0.472 unresolved (deck brightness, not sun) | none
+B13 | perf-b13 | https://github.com/hunterh37/RealityHD/pull/106 | AssetContractTests 4 fails -> 0; GPUSmoke overcast 0.597 vs <0.472 unresolved (deck brightness, not sun) | none
