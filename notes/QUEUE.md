@@ -3,4 +3,4 @@ B10 | perf-b10 | https://github.com/hunterh37/RealityHD/pull/94 | boston-common 
 B5 | perf-b5 | https://github.com/hunterh37/RealityHD/pull/95 | docs only; breakdown + items B5a-B5e | none
 B7 | perf-b7 | https://github.com/hunterh37/RealityHD/pull/96 | hoverSwapsRestProxyToParts passes | demo hover highlight on a proxied rig
 B4 | perf-b4 | https://github.com/hunterh37/RealityHD/pull/97 | dropped offline: alpine in-view 2734k->1977k, diff 2.47% (need <1.5M, <0.1%) | none
-B8 | perf-b8 | PR_URL | dropped offline: fence field 416k->335k only with normals unchecked, 418k with checks (need <250k) | none
+B8 | perf-b8 | https://github.com/hunterh37/RealityHD/pull/105 | dropped offline: fence field 416k->335k only with normals unchecked, 418k with checks (need <250k) | none
