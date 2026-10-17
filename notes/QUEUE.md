@@ -12,3 +12,4 @@ B5d | perf-b5d | https://github.com/hunterh37/RealityHD/pull/102 | rock fields 3
 B5e | perf-b5e | PRURL | offline: mulberry-river statics 523k -> 243k tris, render diff 0.023% mean | sim bench mulberry-river
 B5e | perf-b5e | https://github.com/hunterh37/RealityHD/pull/103 | offline: mulberry-river statics 523k -> 243k tris, render diff 0.023% mean | sim bench mulberry-river
 B6 | perf-b6 | PRURL | dropped offline: hospital 876->719 draws with proxy at LOD0 (need <500), loses LOD0 hover | none
+B6 | perf-b6 | https://github.com/hunterh37/RealityHD/pull/104 | dropped offline: hospital 876->719 draws with proxy at LOD0 (need <500), loses LOD0 hover | none
