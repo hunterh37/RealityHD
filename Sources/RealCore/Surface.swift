@@ -1,4 +1,5 @@
 import simd
+import Foundation
 
 /// Material slot names. RealKit maps each to a cached PBR material backed by GPU-generated textures.
 /// Format: "<family>.<variant>", e.g. "bark.oak", "leaf.oak", "metal.painted:1F4F2A".
@@ -170,10 +171,25 @@ public struct Surface: Sendable {
     }
 }
 
+/// Lazily computed `Model.bounds`, valid until `Model.surfaces` is next assigned or mutated.
+private final class BoundsCache: @unchecked Sendable {
+    private let lock = NSLock()
+    private var cached: (min: V3, max: V3)?
+    func value(_ compute: () -> (min: V3, max: V3)) -> (min: V3, max: V3) {
+        lock.lock(); defer { lock.unlock() }
+        if let c = cached { return c }
+        let c = compute(); cached = c; return c
+    }
+}
+
 /// A renderable asset: one Surface per material. Merging by material keeps draw calls minimal.
 public struct Model: Sendable {
     public var name: String
-    public var surfaces: [Surface]
+    public var surfaces: [Surface] {
+        // A new box on every mutation, so copies never share a stale bounds value.
+        didSet { boundsCache = BoundsCache() }
+    }
+    private var boundsCache = BoundsCache()
     public init(name: String, surfaces: [Surface] = []) { self.name = name; self.surfaces = surfaces }
 
     public var triangleCount: Int { surfaces.reduce(0) { $0 + $1.triangleCount } }
@@ -190,6 +206,10 @@ public struct Model: Sendable {
     public func transformed(_ x: Xform) -> Model { var m = Model(name: name); m.add(self, x); return m }
 
     public var bounds: (min: V3, max: V3) {
+        boundsCache.value { Model.computeBounds(surfaces) }
+    }
+
+    private static func computeBounds(_ surfaces: [Surface]) -> (min: V3, max: V3) {
         let bs = surfaces.filter { !$0.isEmpty }.map(\.bounds)
         guard let f = bs.first else { return (.zero, .zero) }
         return bs.dropFirst().reduce(f) { (simd_min($0.min, $1.min), simd_max($0.max, $1.max)) }
