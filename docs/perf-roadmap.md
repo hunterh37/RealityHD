@@ -256,3 +256,53 @@ variants and texture streaming by LOD (sized by that trace), phase 5 walk gate o
 | 5 | p99 during 2 m/s walk | < 11.1 ms, 0 frames > 22 ms |
 
 Each change: A/B on device, `swift test`, thumbnails pixel-diff against balanced (quality must not move).
+
+## Backlog (verified 2026-10-16)
+
+Each item below was rechecked against `realityhd perf --budget` (release build, balanced, in-view at the
+scene camera) and `swift test` on e732622. An item stays only if a gate in the table above is unmet by
+that data. prop-yard (catalog showcase, not in `DemoScene`) is excluded from gates.
+
+Gate status at the camera:
+
+- Phase 3 (< 1.5M visible tris): over in alpine-meadow 2734k, autumn-woods 2405k, lakeside-camp 2225k,
+  mulberry-river 2044k. park-path (1169k) and farmyard (965k) now pass; earlier status lines are stale.
+- Phase 2 (< 500 draws): over in hospital 876, mulberry-river 857, boston-common 780, lineman-district 724,
+  alpine-meadow 655.
+- Phase 1 (shadow/main < 0.4 exterior, < 0.1 interior): exteriors over: winter-forest 1.05, lakeside-camp
+  0.95, autumn-woods 0.95, city-block 0.92, forest-glade 0.83, backyard-landscape 0.82, park-path 0.80,
+  construction-lot 0.75, lineman-district 0.54, mulberry-river 0.50. Every interior is over (siphon-cafe 1.39,
+  hospital 0.99, open-office 0.93, woodshop 0.59, aerospace-hangar 0.36).
+
+Items, in order. Each lists the measure that proves it and the sim bench that closes it.
+
+1. B1 Shadow caster test on device. Phase 1 is the widest gap (14 scenes) and every fix depends on
+   whether `OpacityComponent(opacity: 0)` keeps a cast. Proof: one-entity A/B in the demo, shadow visible
+   in a sim still. Close: hospital shadow tris 343k -> < 100k with thumbnail diff under 0.1 %.
+2. B2 Tree canopy shadow proxy (needs B1). autumn-woods, lakeside-camp, winter-forest shadow tris sit at
+   95-105 % of main, mostly trees. Proof: `perf --breakdown` caster tris by field. Close: shadow/main
+   < 0.4 in those three, walk p99 11.1 ms.
+3. B3 Static interior shadows into the bake. Interiors cast 0.36-1.39 of main; `shadowResolved` only cut
+   sun-blocked statics. Proof: per-scene caster list. Close: < 0.1 in hospital, siphon-cafe, open-office.
+4. B4 GrassTuft density by distance. alpine-meadow `GrassTuft` x21000 = 1103k of 2734k. Close: alpine-meadow
+   < 1.5M in-view, thumbnail diff under 0.1 %, sim walk 0 frames > 22 ms.
+5. B5 mulberry-river and lakeside-camp breakdown. Both over phase 3 with no breakdown recorded. First step
+   is `perf --breakdown`; item splits once the top field is known.
+6. B6 Hospital rig draws. Rigs are 818 of 876 draws; crash-cart at LOD0 is 113. Proof: `--breakdown` rigs.
+   Close: < 500 draws, part hover still works at LOD0 (ArticulationTests).
+7. B7 Hover past LOD0 under rest proxy. Open bug from phase 2: hovering a part while the proxy shows
+   highlights nothing. Close: test that hover swaps to parts.
+8. B8 Seam-aware simplify. Iron fence reduces 35 % only (hard edges seam-locked); 417k in boston-common.
+   Close: fence < 250k with no silhouette change in `render --az` stills.
+9. B9 Oak LOD1. `oak-tree`/`tree` LOD1 22674 = 56 % of LOD0, `shrub` 51 %; the only assets over the 50 % rule.
+   Close: LOD1 <= 45 % via `withAutoLevels`, forest-glade in-view tris drop.
+10. B10 Simplify cost. SimplifyTests.autoLevelsReduceFieldProps fails in debug (2204-8502 ms vs 2000 ms);
+    release cost is 50-270 ms per asset at build. Close: cache simplified levels by asset+seed in the disk
+    cache, scene build time A/B.
+11. B11 Unexplained walk spikes. Single 33-133 ms frames in `-steps` walks with PVS on or off (hospital).
+    Phase 5 gate needs 0 frames > 22 ms. Proof: per-frame log with system timings around the spike.
+12. B12 On-head GPU trace (phase 0 step 1). Sizes phase 4; device only.
+13. B13 Test debt: GPUSmoke overcast sky (0.597 vs < 0.472), AssetContractTests eelgrass-bed centering.
+    Both fail on HEAD. Staircase centering now passes.
+
+Celebrated sim-proven milestones live in `docs/perf-milestones.json`.
