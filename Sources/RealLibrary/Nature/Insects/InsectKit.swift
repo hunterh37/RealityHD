@@ -760,6 +760,8 @@ public extension InsectKit {
         /// Atlas UVs per segment (u around, v along 0...1) for banded materials.
         public var bandUV = false
         public var height: Float = 0.006
+        /// Subdivision levels removed from the LOD sphere detail for each segment blob.
+        public var subDrop = 1
         public var extra: ((inout Rig, InsectKit.Detail, ClosedRange<Int>, (Int) -> Float) -> Void)?
         public var states: [RigState] = []
         public init(name: String, count: Int, segLength: Float, radius: @escaping (Float) -> V2, centerY: @escaping (Float) -> Float, material: @escaping (Int) -> MaterialKey) {
@@ -802,7 +804,7 @@ public extension InsectKit {
                 let r = s.radius(t(i))
                 let zc = zFront(i) - s.segLength * 0.5
                 let len = s.segLength * (s.plates ? 0.72 : 0.62)
-                var sf = blob(V3(0, s.centerY(t(i)), zc), V3(r.x, r.y, len), material: s.material(i), sub: d.sub - 1) { q in
+                var sf = blob(V3(0, s.centerY(t(i)), zc), V3(r.x, r.y, len), material: s.material(i), sub: d.sub - s.subDrop) { q in
                     s.plates ? V3(q.x, max(q.y, -r.y * 0.25) + (q.y > 0 ? 0 : 0), q.z) : q
                 }
                 if s.bandUV {

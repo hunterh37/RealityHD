@@ -50,6 +50,7 @@ public enum Nature {
         PeriodicalCicada.self,
         CraneFly.self,
         GreenLacewing.self,
+        Millipede.self,
         // realityhd:nature
     ]
 }
