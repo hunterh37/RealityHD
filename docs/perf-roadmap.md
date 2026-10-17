@@ -323,6 +323,10 @@ Items, in order. Each lists the measure that proves it and the sim bench that cl
 10. B10 Simplify cost. SimplifyTests.autoLevelsReduceFieldProps fails in debug (2204-8502 ms vs 2000 ms);
     release cost is 50-270 ms per asset at build. Close: cache simplified levels by asset+seed in the disk
     cache, scene build time A/B.
+    Status: `SimplifyDiskCache` (RealCore/SimplifyCache.swift, ~/Library/Caches/RealityHD/lods) keyed by asset id +
+    seed + LOD0 shape + version; `RealScene.field` uses it. `render` build time, no cache -> warm: boston-common
+    9883 -> 7349 ms, alpine-meadow 9793 -> 8905 ms (single runs, includes texture work). SimplifyTests passes in
+    debug (cold 115-328 ms, warm 1 ms). REALITYHD_NO_LOD_CACHE=1 opts out. Offline; sim validation pending.
 11. B11 Unexplained walk spikes. Single 33-133 ms frames in `-steps` walks with PVS on or off (hospital).
     Phase 5 gate needs 0 frames > 22 ms. Proof: per-frame log with system timings around the spike.
 12. B12 On-head GPU trace (phase 0 step 1). Sizes phase 4; device only.
