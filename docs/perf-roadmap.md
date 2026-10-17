@@ -314,6 +314,7 @@ Items, in order. Each lists the measure that proves it and the sim bench that cl
    highlights nothing. Close: test that hover swaps to parts.
 8. B8 Seam-aware simplify. Iron fence reduces 35 % only (hard edges seam-locked); 417k in boston-common.
    Close: fence < 250k with no silhouette change in `render --az` stills.
+   Status: DROPPED (offline; sim validation pending). Welded-position collapse with per-triangle corner pairing: boston-common fence field 416k -> 335k (LOD1 2542 -> 2048 tris) only with the normal check off; with dot >= 0.7 it stays 418k (2550). Error budget (0.4 % of diag, about 1 cm on a 1.4 cm picket) limits further collapse. Need < 250k; not met, code reverted.
 9. B9 Oak LOD1. `oak-tree`/`tree` LOD1 22674 = 56 % of LOD0, `shrub` 51 %; the only assets over the 50 % rule.
    Close: LOD1 <= 45 % via `withAutoLevels`, forest-glade in-view tris drop.
 10. B10 Simplify cost. SimplifyTests.autoLevelsReduceFieldProps fails in debug (2204-8502 ms vs 2000 ms);
