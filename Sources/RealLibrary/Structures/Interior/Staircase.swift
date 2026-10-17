@@ -4,7 +4,7 @@ import Foundation
 /// Straight residential staircase: 16 risers of 187.5 mm and 15 treads of 260 mm climb 3.0 m floor to floor over
 /// a 4.0 m run. Oak treads with nosing and scotia, painted risers, a closed skirt stringer on the wall side, a cut
 /// stringer and center carriage, turned balusters, an oak handrail at 0.9 m and newels with ball finials on the open
-/// side. Origin bottom-front center; the flight climbs along -Z.
+/// side. Origin bottom center; the flight climbs along -Z.
 public struct Staircase: RealAsset {
     public static let id = "staircase"
     public static let summary = "Straight staircase, 16 risers, 3.0 m rise over 4.0 m: oak treads, painted risers, skirt and cut stringers, balusters, handrail and newels."
@@ -30,6 +30,6 @@ public struct Staircase: RealAsset {
     }
 
     public func build(seed: UInt64) -> LODModel {
-        LODModel(levels: [flight(lod: 0).build(seed: seed), flight(lod: 1).build(seed: seed)], switchDistances: [8])
+        LODModel(levels: [flight(lod: 0).build(seed: seed).centeredXZ(), flight(lod: 1).build(seed: seed).centeredXZ()], switchDistances: [8])
     }
 }
