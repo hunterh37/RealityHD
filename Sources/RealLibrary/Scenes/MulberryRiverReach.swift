@@ -102,7 +102,7 @@ public struct MulberryRiverReach: RealSceneBuilder {
             talusS.append(Xform(translation: V3(x, y(V2(x, z)) - 0.2, z), rotation: simd_quatf(degrees: rng.float(0...360), axis: .up),
                                 scale: V3(rng.float(0.5...1.4), rng.float(0.3...0.7), rng.float(0.5...1.4))).matrix)
         }
-        scene.field(Boulder().with { $0.material = "rock.ozark-limestone"; $0.facets = 14 }, seed: seed &+ 8, transforms: talusL, options: .trees)
+        scene.field(Boulder().with { $0.material = "rock.ozark-limestone"; $0.facets = 14; $0.lodDistances = [6, 20] }, seed: seed &+ 8, transforms: talusL, options: .trees)
         scene.field(Boulder().with { $0.material = "rock.ozark-sandstone"; $0.facets = 12 }, seed: seed &+ 9, transforms: talusS, options: .trees)
 
         // Gravel bar on the south bank opposite the bluff tail, a second small one at the tailout.

@@ -35,7 +35,7 @@ enum MulberryUnderwater {
             poolStones.append(xf(p, scale: V3(repeating: rng.float(0.5...1.3)), sink: 0.08))
         }
         for x in [Float(-70), -52, -31, -14] { poolLogs.append(bed(x + rng.float(-4...4), rng.float(-0.7...(-0.3)))) }
-        scene.field(Boulder().with { $0.material = "rock.limestone-algae"; $0.facets = 12 }, seed: seed &+ 301, transforms: blocks, options: .submerged())
+        scene.field(Boulder().with { $0.material = "rock.limestone-algae"; $0.facets = 12; $0.lodDistances = [6, 20] }, seed: seed &+ 301, transforms: blocks, options: .submerged())
         scene.field(SubmergedBoulder(), seed: seed &+ 302, transforms: poolStones, options: .submerged())
         for (i, p) in poolLogs.enumerated() {
             scene.add(SunkenLog().with { $0.length = rng.float(5...8); $0.buttDiameter = rng.float(0.5...0.75) },
