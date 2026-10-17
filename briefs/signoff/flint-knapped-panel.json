@@ -1,0 +1,22 @@
+{
+  "automated" : 0.99986345,
+  "date" : "2026-10-15",
+  "final" : 0.8667022,
+  "fingerprint" : "b3a2a984f50aba07",
+  "id" : "flint-knapped-panel",
+  "iterations" : 1,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 9,
+    "edges" : 8,
+    "grounding" : 9,
+    "materials" : 7,
+    "proportion" : 8,
+    "silhouette" : 8,
+    "wear" : 7
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.79499996
+}

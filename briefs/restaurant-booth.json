@@ -1,0 +1,43 @@
+{
+  "budget": 15000,
+  "id": "restaurant-booth",
+  "kind": "prop",
+  "materials": [
+    "leather.oxblood",
+    "wood.walnut",
+    "metal.brushed-nickel",
+    "laminate.white:3A2E26",
+    "metal.powdercoat:1F1F21"
+  ],
+  "name": "Restaurant booth",
+  "notes": "Floor planning pack C. Bench against back wall at -Z, table in front.",
+  "parts": [
+    "channel-tufted high back",
+    "seat cushion on wood plinth",
+    "piped edges and end panel",
+    "pedestal table with cast base",
+    "condiment caddy"
+  ],
+  "references": [],
+  "size": [
+    1.8,
+    1.25,
+    1.6
+  ],
+  "style": "oxblood leather diner booth with walnut trim",
+  "summary": "Restaurant booth, 1.8 m: channel-tufted leather bench with high back, wood trim, pedestal table with condiments.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "commercial",
+    "dining",
+    "retail",
+    "furniture",
+    "leather",
+    "wood",
+    "interior"
+  ],
+  "theme": "Commercial",
+  "threshold": 0.85,
+  "tolerance": 0.06
+}

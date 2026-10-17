@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "canyon-wall",
+  "kind": "prop",
+  "materials": [
+    "rock.sandstone",
+    "rock.redstone"
+  ],
+  "name": "Canyon wall",
+  "notes": "",
+  "parts": [
+    "cliff face",
+    "strata ledges",
+    "caprock overhang",
+    "gullies",
+    "buttress ends",
+    "scree apron",
+    "talus blocks",
+    "pillar variant"
+  ],
+  "references": [],
+  "size": [
+    41.0,
+    17.3,
+    14.6
+  ],
+  "style": "desert canyon sandstone, stepped strata, vertical gullies, fallen talus",
+  "summary": "Canyon wall, seeded: one lofted sandstone cliff along a polyline (or a pillar) with strata ledges, caprock overhang, gullies and debris-rock talus.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "outdoor",
+    "rock",
+    "desert",
+    "stone"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.2
+}

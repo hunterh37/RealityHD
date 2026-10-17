@@ -1,0 +1,47 @@
+{
+  "budget": 15000,
+  "id": "launch-tower",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized",
+    "metal.painted",
+    "metal.galvanized-aged",
+    "metal.signal-yellow",
+    "rubber",
+    "insulation.foil-gold",
+    "concrete.rough"
+  ],
+  "name": "Launch tower",
+  "notes": "",
+  "parts": [
+    "lattice legs",
+    "x bracing",
+    "footings",
+    "grated platforms",
+    "handrails",
+    "caged ladder",
+    "umbilical arm",
+    "hoses",
+    "plug plate",
+    "lightning mast",
+    "obstruction light"
+  ],
+  "references": [],
+  "size": [
+    6.88,
+    24.17,
+    4.04
+  ],
+  "style": "launch-site service tower, galvanized lattice, red top section, yellow handrails",
+  "summary": "Launch service tower, 20 m: galvanized lattice on footings, grated platforms with handrails, caged ladder, umbilical arm with hoses, lightning mast.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "outdoor",
+    "metal",
+    "industrial"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

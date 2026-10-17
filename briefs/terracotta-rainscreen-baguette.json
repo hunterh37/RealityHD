@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "terracotta-rainscreen-baguette",
+  "kind": "prop",
+  "materials": [
+    "ceramic.terracotta",
+    "ceramic.terracotta:B8603F",
+    "metal.aluminum-brushed",
+    "metal.stainless",
+    "rubber.plate"
+  ],
+  "name": "Terracotta rainscreen baguette",
+  "notes": "",
+  "parts": [
+    "extruded square terracotta baguettes with hollow cores",
+    "rounded arrises",
+    "aluminium vertical rails",
+    "stainless retaining clips",
+    "EPDM pads",
+    "rail fixings"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    3.0,
+    0.1
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Terracotta rainscreen baguettes, 1.5 x 3.0 m: extruded square hollow terracotta fins on aluminium rails with clips and end caps.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

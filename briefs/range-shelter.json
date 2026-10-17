@@ -1,0 +1,44 @@
+{
+  "budget": 15000,
+  "id": "range-shelter",
+  "kind": "prop",
+  "materials": [
+    "wood.cedar-weathered",
+    "wood.lumber-pine",
+    "metal.corten",
+    "concrete.smooth",
+    "metal.galvanized"
+  ],
+  "name": "Archery range shelter",
+  "notes": "",
+  "parts": [
+    "concrete pad",
+    "shooting line",
+    "posts",
+    "beams",
+    "rafters",
+    "metal roof",
+    "rear wall",
+    "lane dividers",
+    "bench",
+    "gutter"
+  ],
+  "references": [],
+  "size": [
+    12.4,
+    3.0,
+    4.0
+  ],
+  "style": "covered club shooting line: five lanes under a low mono-pitch roof, open to the front, plank rear wall, white painted shooting line along the front edge of the pad",
+  "summary": "Open-sided archery shooting shelter, 12 x 4 m: cedar posts, standing-seam metal shed roof, concrete pad with painted shooting line, five lanes.",
+  "tags": [
+    "prop",
+    "archery",
+    "outdoor",
+    "wood",
+    "building"
+  ],
+  "theme": "Archery",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

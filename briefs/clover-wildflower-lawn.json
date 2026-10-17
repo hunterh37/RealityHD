@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "clover-wildflower-lawn",
+  "kind": "prop",
+  "materials": [
+    "grass.lawn",
+    "grass.lawn-thatch",
+    "flower.meadow",
+    "plant.stem",
+    "ground.dirt"
+  ],
+  "name": "Clover wildflower lawn",
+  "notes": "",
+  "parts": [
+    "lawn grass",
+    "white clover trefoils",
+    "clover flower heads",
+    "daisies",
+    "buttercups",
+    "self-heal",
+    "soil base"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.25,
+    2
+  ],
+  "style": "architectural facade customizer, English Landscape",
+  "summary": "Clover and wildflower lawn tile, 2 x 2 m: unmown lawn grass with white clover, daisies, buttercups and self-heal.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

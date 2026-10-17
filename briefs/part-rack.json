@@ -1,0 +1,49 @@
+{
+  "budget": 12000,
+  "id": "part-rack",
+  "kind": "prop",
+  "materials": [
+    "metal.hammer-painted",
+    "metal.galvanized",
+    "metal.basket-mesh",
+    "wood.lumber-pine",
+    "metal.aluminum-brushed",
+    "plastic.white",
+    "label.hazard",
+    "fabric.webbing",
+    "rubber"
+  ],
+  "name": "Part rack",
+  "notes": "",
+  "parts": [
+    "upright frames",
+    "frame bracing",
+    "step beams",
+    "wire decks",
+    "foot plates",
+    "tank section in cradle",
+    "parts crates",
+    "nose cone",
+    "tag labels",
+    "anchor bolts"
+  ],
+  "references": [],
+  "size": [
+    2.86,
+    2.4,
+    1.06
+  ],
+  "style": "hangar pallet rack, blue uprights and orange beams, stored rocket parts",
+  "summary": "Hangar part rack, 2.8 m: blue upright frames, orange step beams, wire decks with a tank section in a cradle, nose cone and parts crates.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "interior",
+    "industrial",
+    "metal",
+    "furniture"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

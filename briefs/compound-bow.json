@@ -1,0 +1,43 @@
+{
+  "budget": 14000,
+  "id": "compound-bow",
+  "kind": "prop",
+  "materials": [
+    "paint.bow-camo",
+    "metal.anodized-gunmetal",
+    "fabric.bowstring",
+    "plastic.stock-synthetic"
+  ],
+  "name": "Compound bow",
+  "notes": "",
+  "parts": [
+    "riser",
+    "limbs",
+    "cams",
+    "string",
+    "cables",
+    "sight",
+    "stabilizer",
+    "grip",
+    "nock point"
+  ],
+  "references": [],
+  "size": [
+    0.457,
+    0.836,
+    0.102
+  ],
+  "style": "modern 30 in axle-to-axle dual-cam bow, camo-dipped, pin sight, 8 in stabilizer",
+  "summary": "Compound bow, 0.76 m axle to axle: camo riser, split limbs, rotating cams, articulated string draw.",
+  "tags": [
+    "prop",
+    "hunting",
+    "handheld",
+    "articulated",
+    "metal",
+    "plastic"
+  ],
+  "theme": "Hunting",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

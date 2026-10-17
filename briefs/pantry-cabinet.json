@@ -1,0 +1,43 @@
+{
+  "budget": 7000,
+  "id": "pantry-cabinet",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-shaker",
+    "metal.brushed-nickel",
+    "wood.plywood",
+    "plastic.matte:1C1C1E"
+  ],
+  "name": "Tall pantry cabinet",
+  "notes": "Static. Doors closed. Pulls included in depth.",
+  "parts": [
+    "lower pair of five-piece shaker doors",
+    "upper pair of five-piece shaker doors",
+    "brushed nickel vertical bar pulls",
+    "recessed toe kick",
+    "plywood carcass sides and top",
+    "door reveals showing dark interior",
+    "edge banding on carcass front",
+    "stile and rail joints with recessed panels"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    2.2,
+    0.6
+  ],
+  "style": "painted white shaker kitchen pantry, fine paint sheen, slight door-to-door alignment jitter",
+  "summary": "Tall 24 in pantry cabinet: painted shaker doors in upper and lower pairs, nickel bar pulls, recessed toe kick, face reveals.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "kitchen",
+    "furniture",
+    "wood",
+    "metal",
+    "interior"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

@@ -11,7 +11,11 @@ public struct RealScene {
         public var asset: LODModel; public var at: Xform
         /// Receives the scene AO bake (room shells, floors, large furniture).
         public var bake = false
-        public init(asset: LODModel, at: Xform, bake: Bool = false) { self.asset = asset; self.at = at; self.bake = bake }
+        /// Casts the sun shadow. `shadowResolved` clears it for interior statics the sun cannot reach.
+        public var castsShadow = true
+        public init(asset: LODModel, at: Xform, bake: Bool = false, castsShadow: Bool = true) {
+            self.asset = asset; self.at = at; self.bake = bake; self.castsShadow = castsShadow
+        }
     }
     /// An articulated asset kept live: its parts are entities that animate between states.
     public struct Articulated {
@@ -37,6 +41,25 @@ public struct RealScene {
         public var fog: Float?
         /// Sun illuminance multiplier.
         public var sunScale: Float?
+        /// Underwater absorption (river, lake, sea scenes): applied to `RealAtmosphere` before materials build.
+        public var water: Water?
+        public struct Water: Sendable {
+            /// Water surface height, world y.
+            public var level: Float
+            /// Extinction per submerged meter of view ray (clear Ozark stream about 0.25).
+            public var density: Float
+            /// Linear RGB in-scatter color (emissive units).
+            public var color: V3
+            /// Caustic ridge brightness on the bed (emissive units, 0 off).
+            public var caustics: Float
+            public init(level: Float = 0, density: Float = 0.25, color: V3 = V3(0.018, 0.05, 0.036), caustics: Float = 0.25) {
+                self.level = level; self.density = density; self.color = color; self.caustics = caustics
+            }
+            @MainActor public func apply() {
+                RealAtmosphere.waterLevel = level; RealAtmosphere.waterDensity = density; RealAtmosphere.waterColor = color
+                RealAtmosphere.waterCaustics = caustics
+            }
+        }
         public init(sky: SunSky? = nil, interior: InteriorLight? = nil, fog: Float? = nil, sunScale: Float? = nil) {
             self.sky = sky; self.interior = interior; self.fog = fog; self.sunScale = sunScale
         }
@@ -60,28 +83,45 @@ public struct RealScene {
     public var batchCell: Float = 8
     /// Bake scene ambient occlusion into singles marked `bake` when the entity is built.
     public var bake: AOBake.Settings?
+    /// Interiors: statics that no sunlight reaches (every probe ray toward the sun hits the room shell)
+    /// stop casting, since their shadow falls where the shell already shades. nil = on when
+    /// `lighting.interior` and `lighting.sky` are both set.
+    public var cullSunBlockedCasters: Bool?
+    /// Interior rooms and the doorways between them. When set, `entity()` groups content per room and
+    /// `RealCellVisibilitySystem` hides rooms the viewer cannot see (see SceneCells.swift).
+    public var cells: RealCellGraph?
     public init(name: String) { self.name = name }
 
     @MainActor
     public func entity(materials: RealMaterialCache? = nil) async throws -> Entity {
+        if let cells, !cells.cells.isEmpty { return try await cellEntity(cells, materials: materials) }
         let root = Entity()
         root.name = name
-        for f in fields { root.addChild(try await RealInstancing.field(f.asset, transforms: f.transforms, options: f.options, materials: materials)) }
+        lighting.water?.apply()
+        var pacer = RealLoadPacer()
+        for f in fields {
+            root.addChild(try await RealInstancing.field(f.asset, transforms: f.transforms, name: "field:" + f.asset.levels[0].name, options: f.options, materials: materials))
+            await pacer.pace()
+        }
         if let farGround {
             let far = Model(name: "far-ground", surfaces: [Prim.terrain(size: V2(4000, 4000), segments: 8, material: farGround) { _ in -0.25 }])
             let e = try await far.modelEntityAsync(materials: materials)
             e.components.set(DynamicLightShadowComponent(castsShadow: false))
             root.addChild(e)
         }
-        var statics = singles
+        var statics = shadowResolved(singles)
         if let bake { statics = await Self.baked(statics, rigs: rigs, fields: fields, settings: bake) }
         let perf = RealPerformance.active
         if batchStatics || perf.forceBatching {
-            for g in Self.batches(statics, cell: batchCell, detailSize: perf.detailSize) {
-                root.addChild(try await Self.upload(g.asset, at: .identity, materials: materials))
+            // Merging is pure CPU work over every static vertex: run it off the main actor.
+            let cell = batchCell, detail = perf.detailSize, input = statics
+            let groups = await Task.detached(priority: .userInitiated) { Self.batches(input, cell: cell, detailSize: detail) }.value
+            for g in groups {
+                root.addChild(try await Self.upload(g.asset, at: .identity, materials: materials, castsShadow: g.castsShadow))
+                await pacer.pace()
             }
         } else {
-            for s in statics { root.addChild(try await Self.upload(s.asset, at: s.at, materials: materials)) }
+            for s in statics { root.addChild(try await Self.upload(s.asset, at: s.at, materials: materials, castsShadow: s.castsShadow)); await pacer.pace() }
         }
         for r in rigs {
             let e = try await r.rig.entityAsync(name: r.name, state: r.state, materials: materials, interactive: r.interactive, grabbable: r.grabbable)
@@ -89,6 +129,7 @@ public struct RealScene {
             // Grab home is the placed pose, so `resetGrab()` returns the object to its spot in the scene.
             if var g = e.components[RealGrabComponent.self] { g.home = e.transform; e.components.set(g) }
             root.addChild(e)
+            await pacer.pace()
         }
         for l in Self.budgetLights(lights, max: perf.maxSceneLights) {
             let e = Entity()
@@ -103,10 +144,10 @@ public struct RealScene {
     /// Every static gets a LOD root (single-level assets too) so draw distance and detail culling reach it,
     /// and every mesh gets a cost tag so the shadow policy and stats see it.
     @MainActor
-    static func upload(_ asset: LODModel, at: Xform, materials: RealMaterialCache?) async throws -> Entity {
+    static func upload(_ asset: LODModel, at: Xform, materials: RealMaterialCache?, castsShadow: Bool = true) async throws -> Entity {
         // Water and glass sheets: no sun shadow on the bed below.
         let surfaces = asset.levels[0].surfaces
-        let glass = !surfaces.isEmpty && surfaces.allSatisfy({ MaterialLibrary.spec(for: $0.material).mode == .transparent })
+        let glass = !castsShadow || (!surfaces.isEmpty && surfaces.allSatisfy({ MaterialLibrary.spec(for: $0.material).mode == .transparent }))
         let e: Entity
         if asset.levels.count == 1 {
             e = Entity()
@@ -137,7 +178,7 @@ public struct RealScene {
     /// `detailSize` > 0 keeps objects smaller than it in their own batches so detail culling and the
     /// shadow size rule still reach them.
     static func batches(_ singles: [Single], cell: Float, detailSize: Float = 0) -> [Single] {
-        struct Key: Hashable { var cx: Int32; var cz: Int32; var distances: [Float]; var glass: Bool; var small: Bool }
+        struct Key: Hashable { var cx: Int32; var cz: Int32; var distances: [Float]; var glass: Bool; var small: Bool; var shadow: Bool }
         var groups: [Key: [Model]] = [:]
         var order: [Key] = []
         for s in singles {
@@ -150,7 +191,8 @@ public struct RealScene {
                 }
                 guard levels[0].triangleCount > 0 else { continue }
                 let small = detailSize > 0 && s.asset.levels[0].boundsDiagonal * s.at.scale.max() < detailSize
-                let k = Key(cx: Int32(c.x.rounded(.down)), cz: Int32(c.z.rounded(.down)), distances: s.asset.switchDistances, glass: glass, small: small)
+                let k = Key(cx: Int32(c.x.rounded(.down)), cz: Int32(c.z.rounded(.down)), distances: s.asset.switchDistances, glass: glass, small: small,
+                            shadow: s.castsShadow)
                 // Mutate in place: copying the group out and back duplicated every merged vertex array per add.
                 if groups[k] != nil {
                     for i in groups[k]!.indices { groups[k]![i].add(levels[min(i, levels.count - 1)]) }
@@ -163,7 +205,8 @@ public struct RealScene {
             // populated level instead of vanishing.
             var levels = groups[k]!
             if let firstEmpty = levels.firstIndex(where: { $0.triangleCount == 0 }) { levels = Array(levels.prefix(Swift.max(1, firstEmpty))) }
-            return Single(asset: LODModel(levels: levels, switchDistances: Array(k.distances.prefix(levels.count - 1))), at: .identity)
+            return Single(asset: LODModel(levels: levels, switchDistances: Array(k.distances.prefix(levels.count - 1))), at: .identity,
+                          castsShadow: k.shadow)
         }
     }
 
@@ -215,6 +258,16 @@ public struct RealScene {
         rigs.append(.init(rig: asset.rig(seed: seed), at: at, state: state, interactive: interactive, grabbable: grabbable ?? A.handheld, name: name))
     }
 
+    /// A static asset kept as its own entity that a hand can pick up and move (cups, glassware, tools).
+    /// Built as a one-state rig so it shares the live path: `name` names the entity.
+    public mutating func addGrabbable<A: RealAsset>(_ asset: A, at: Xform = .identity, seed: UInt64, name: String? = nil) {
+        let lod = asset.build(seed: seed)
+        var rig = Rig(name: A.id, lods: lod.levels.count, switchDistances: lod.switchDistances)
+        rig.base = lod.levels
+        rig.states = [RigState("rest")]
+        rigs.append(.init(rig: rig, at: at, state: "rest", interactive: false, grabbable: true, name: name))
+    }
+
     /// A one-off model (paths, pads, walls) that is not a catalog asset. `bake`: receive scene AO.
     public mutating func add(_ model: Model, at: Xform = .identity, bake: Bool = false) {
         singles.append(.init(asset: LODModel(model), at: at, bake: bake))
@@ -224,7 +277,7 @@ public struct RealScene {
     public mutating func field<A: RealAsset>(_ asset: A, seed: UInt64, transforms: [simd_float4x4],
                                              options: RealInstancing.Options = RealInstancing.Options()) {
         guard !transforms.isEmpty else { return }
-        fields.append(.init(asset: asset.build(seed: seed), transforms: transforms, options: options))
+        fields.append(.init(asset: Self.autoLOD(asset.build(seed: seed), count: transforms.count), transforms: transforms, options: options))
     }
 
     /// GPU-instanced copies of an articulated asset baked in one state.
@@ -232,6 +285,12 @@ public struct RealScene {
                                                    options: RealInstancing.Options = .props) {
         guard !transforms.isEmpty else { return }
         fields.append(.init(asset: asset.build(seed: seed, state: state), transforms: transforms, options: options))
+    }
+
+    /// Single-level field assets repeated 8+ times get simplified LOD1/LOD2 (`LODModel.withAutoLevels`).
+    nonisolated(unsafe) public static var autoLODFields = true
+    static func autoLOD(_ m: LODModel, count: Int) -> LODModel {
+        autoLODFields && count >= 8 ? m.withAutoLevels() : m
     }
 
     /// LOD0 triangles if every instance were at LOD0 (upper bound used by budget tests).
@@ -246,7 +305,8 @@ public struct RealScene {
 
     /// Statics as they will be uploaded under `settings` (batched when the scene or the settings ask).
     public func uploadedStatics(_ settings: RealPerformance = .active) -> [Single] {
-        batchStatics || settings.forceBatching ? Self.batches(singles, cell: batchCell, detailSize: settings.detailSize) : singles
+        let s = shadowResolved(singles)
+        return batchStatics || settings.forceBatching ? Self.batches(s, cell: batchCell, detailSize: settings.detailSize) : s
     }
 }
 

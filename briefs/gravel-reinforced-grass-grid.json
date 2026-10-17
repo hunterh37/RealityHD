@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "gravel-reinforced-grass-grid",
+  "kind": "prop",
+  "materials": [
+    "plastic.matte",
+    "ground.gravel",
+    "grass.lawn",
+    "soil.sod"
+  ],
+  "name": "Gravel reinforced grass grid",
+  "notes": "",
+  "parts": [
+    "HDPE honeycomb cell grid",
+    "cell walls",
+    "gravel fill",
+    "grass growing through cells",
+    "geotextile edge",
+    "wheel-rutted gravel"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.1,
+    2
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Gravel reinforced grass grid tile, 2 x 2 m: black HDPE honeycomb cells filled with pea gravel, grass breaking through, with a wheel rut.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "concrete"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,39 @@
+{
+  "budget": 2500,
+  "id": "alarm-clock",
+  "kind": "prop",
+  "materials": [
+    "plastic.matte:2A2A2C",
+    "screen.off",
+    "emissive.led-red",
+    "rubber.silicone:2A2A2A"
+  ],
+  "name": "Digital alarm clock",
+  "notes": "Static. Floorplan pack B12.",
+  "parts": [
+    "wedge body",
+    "dimmable LED digits",
+    "snooze bar",
+    "rubber feet"
+  ],
+  "references": [],
+  "size": [
+    0.15,
+    0.08,
+    0.07
+  ],
+  "style": "bedside alarm clock",
+  "summary": "Bedside digital alarm clock: wedge body, red LED time digits, snooze bar.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bedroom",
+    "electronics",
+    "plastic",
+    "interior",
+    "handheld"
+  ],
+  "theme": "Bedroom",
+  "threshold": 0.8,
+  "tolerance": 0.08
+}

@@ -1,0 +1,41 @@
+{
+  "budget": 14000,
+  "id": "standing-desk",
+  "kind": "prop",
+  "materials": [
+    "wood.maple-natural",
+    "metal.powdercoat:ECEBE7",
+    "plastic.matte:1C1D20",
+    "metal.satin-aluminum"
+  ],
+  "name": "Electric standing desk",
+  "notes": "Floor planning pack C. Raised height 1.1 m, front +Z, back at -Z.",
+  "parts": [
+    "maple desktop with rounded corners",
+    "two telescoping steel columns",
+    "C-foot bases with glides",
+    "under-desk crossbar and motor boxes",
+    "control keypad on the front edge",
+    "cable tray with grommet"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    1.1,
+    0.75
+  ],
+  "style": "bamboo-look maple top over matte white frame, slightly worn edge",
+  "summary": "Sit-stand desk at full standing height, 1.5 m: maple top, white two-stage steel legs, crossbar, keypad.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "office",
+    "furniture",
+    "wood",
+    "metal",
+    "interior"
+  ],
+  "theme": "Office",
+  "threshold": 0.85,
+  "tolerance": 0.06
+}

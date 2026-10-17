@@ -1,0 +1,45 @@
+{
+  "budget": 30000,
+  "id": "soldiers-sailors-monument",
+  "kind": "structure",
+  "materials": [
+    "stone.cast-grey",
+    "stone.granite-curb",
+    "metal.bronze-cast",
+    "metal.copper-patina",
+    "stone.limestone-sooted"
+  ],
+  "name": "Soldiers and Sailors Monument",
+  "notes": "source: https://en.wikipedia.org/wiki/Soldiers_and_Sailors_Monument_(Boston)",
+  "parts": [
+    "three-step granite base",
+    "square pedestal with corner buttresses",
+    "four bronze relief panels",
+    "four seated bronze corner figures (Peace, History, Army, Navy)",
+    "cornice and die block",
+    "band of four standing figures at column foot",
+    "Roman Doric granite column with entasis",
+    "Doric capital",
+    "bronze America statue with flag and sword"
+  ],
+  "references": [],
+  "size": [
+    11.5,
+    38.0,
+    11.5
+  ],
+  "style": "1877 Martin Milmore Civil War monument on Flagstaff Hill; pale Hallowell granite, dark weathered bronze with green patina streaks",
+  "summary": "Flagstaff Hill Civil War monument, 38 m: stepped granite base, pedestal with bronze reliefs and seated corner figures, Doric column, bronze America on top.",
+  "tags": [
+    "structure",
+    "architecture",
+    "park",
+    "outdoor",
+    "stone",
+    "metal",
+    "ornament"
+  ],
+  "theme": "Architecture",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

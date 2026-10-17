@@ -1,0 +1,17 @@
+{
+  "budget": 8000,
+  "id": "club-chair",
+  "kind": "prop",
+  "materials": ["leather.tan", "leather.oxblood-worn", "wood.walnut", "metal.brass-aged"],
+  "name": "Leather tub club chair",
+  "notes": "Floor planning pack B1. Front +Z, seat centered on X=0.",
+  "parts": ["continuous curved tub back and arms", "button-tufted inner back", "loose welted seat cushion", "front rail", "brass nailhead trim along the base", "turned walnut feet"],
+  "references": [],
+  "size": [0.8, 0.82, 0.84],
+  "style": "classic tub armchair, cognac leather, worn on the seat",
+  "summary": "Leather tub club chair: curved wrap-around back and arms, button-tufted back, welted seat cushion, nailhead trim.",
+  "tags": ["prop", "floorplan", "living", "furniture", "fabric", "leather", "interior"],
+  "theme": "Living",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

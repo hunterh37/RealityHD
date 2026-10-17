@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "allotment-raised-sleeper-bed",
+  "kind": "prop",
+  "materials": [
+    "wood.weathered",
+    "metal.screw-zinc",
+    "soil.potting",
+    "ground.dirt"
+  ],
+  "name": "Allotment raised sleeper bed",
+  "notes": "",
+  "parts": [
+    "reclaimed oak railway sleepers",
+    "bonded corners",
+    "timber screws",
+    "loam fill",
+    "lettuces",
+    "weeds at foot"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.45,
+    1.2
+  ],
+  "style": "architectural facade customizer, English Allotment",
+  "summary": "Raised allotment bed of two courses of reclaimed oak railway sleepers with bonded corners and timber screws, filled with loam and lettuces.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "garden",
+    "outdoor",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

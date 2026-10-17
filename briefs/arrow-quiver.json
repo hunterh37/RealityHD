@@ -1,0 +1,39 @@
+{
+  "budget": 10000,
+  "id": "arrow-quiver",
+  "kind": "prop",
+  "materials": [
+    "leather.tan",
+    "fabric.canvas",
+    "plastic.fletching",
+    "metal.bolt-bright"
+  ],
+  "name": "Arrow quiver",
+  "notes": "",
+  "parts": [
+    "leather body",
+    "stitching",
+    "belt strap",
+    "arrow shafts",
+    "fletching",
+    "nocks",
+    "bottom cap"
+  ],
+  "references": [],
+  "size": [
+    0.19,
+    0.75,
+    0.21
+  ],
+  "style": "traditional hunting side quiver, tan leather, arrows with barred feather fletching in two colors, standing upright",
+  "summary": "Leather side quiver, 0.7 m: stitched tube with belt strap and eight fletched target arrows.",
+  "tags": [
+    "prop",
+    "archery",
+    "handheld",
+    "leather"
+  ],
+  "theme": "Archery",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

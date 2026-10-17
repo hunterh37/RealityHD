@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "allotment-frosted-winter-soil",
+  "kind": "prop",
+  "materials": [
+    "soil.potting",
+    "ground.snow",
+    "glass.frosted",
+    "grass.dry",
+    "rock.river"
+  ],
+  "name": "Allotment frosted winter soil",
+  "notes": "",
+  "parts": [
+    "dug soil clods",
+    "hoar frost rime",
+    "frozen puddle",
+    "boot print",
+    "dead weed stalks",
+    "flints"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.12,
+    2
+  ],
+  "style": "architectural facade customizer, Edwardian Allotment",
+  "summary": "Frosted winter allotment soil tile, 2 x 2 m: rough-dug clods rimed with hoar frost, frozen puddle in a footprint, dead weed stalks.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

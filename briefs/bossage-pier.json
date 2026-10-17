@@ -1,0 +1,37 @@
+{
+  "budget": 12000,
+  "id": "bossage-pier",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "stone.cast-stone"
+  ],
+  "name": "Bossage pier",
+  "notes": "",
+  "parts": [
+    "plinth",
+    "rusticated courses",
+    "chamfered V-joints",
+    "impost cornice",
+    "cap"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    3.0,
+    0.3
+  ],
+  "style": "architectural facade customizer, French Neoclassical",
+  "summary": "Bossage pier, 3.0 m: banded rusticated limestone courses with V-joints between a plinth and impost cap.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,37 @@
+{
+  "budget": 10600,
+  "id": "lure-jig",
+  "kind": "prop",
+  "materials": [
+    "paint.lure",
+    "rubber.skirt",
+    "metal.hook"
+  ],
+  "name": "Skirted jig",
+  "notes": "reference photo: ../MulberryRiver/notes/reference/tackle/lure-jig.jpg (compare runs use --ref)",
+  "parts": [
+    "head",
+    "hook",
+    "weed guard",
+    "skirt",
+    "collar"
+  ],
+  "references": [],
+  "size": [
+    0.076,
+    0.018,
+    0.037
+  ],
+  "style": "3/8 oz football jig, green pumpkin, silicone skirt",
+  "summary": "3/8 oz skirted jig: painted lead head, eye, fiber weed guard, silicone skirt, black hook.",
+  "tags": [
+    "prop",
+    "fishing",
+    "handheld",
+    "metal",
+    "rubber"
+  ],
+  "theme": "Tackle",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

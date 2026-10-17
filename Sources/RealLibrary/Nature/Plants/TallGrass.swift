@@ -37,12 +37,20 @@ public struct TallGrass: RealAsset {
         m0.add(PlantKit.tuft(t, rng: &rng, material: material, phase: phase))
         addCulms(&m0, count: rng.int(culms), height: h, rng: &rng, phase: phase,
                  stemMaterial: "plant.stem", seedMaterial: seedMaterial)
+        // Mid level: half the blades at 3 segments, 35 % wider, half the culms, from 4 m.
+        var mid = rng.fork(1)
+        var th = t; th.count = max(6, t.count / 2); th.segments = 3
+        th.width = t.width.lowerBound * 1.35...t.width.upperBound * 1.35
+        var mh = Model(name: Self.id)
+        mh.add(PlantKit.tuft(th, rng: &mid, material: material, phase: phase))
+        addCulms(&mh, count: max(1, mid.int(culms) / 2), height: h, rng: &mid, phase: phase,
+                 stemMaterial: "plant.stem", seedMaterial: seedMaterial)
         var m1 = Model(name: Self.id)
         m1.add(PlantKit.cardTuft(count: 3, height: h * 1.2, width: h * 0.9, segments: 2,
                                  cells: [PlantKit.cell(1, cols: 2, rows: 2), PlantKit.cell(0, cols: 2, rows: 2)],
                                  rng: &rng, material: cardMaterial, phase: phase))
-        PlantKit.finish(&m0); PlantKit.finish(&m1)
-        return LODModel(levels: [m0, m1], switchDistances: [10])
+        PlantKit.finish(&m0); PlantKit.finish(&mh); PlantKit.finish(&m1)
+        return LODModel(levels: [m0, mh, m1], switchDistances: [4, 10])
     }
 }
 

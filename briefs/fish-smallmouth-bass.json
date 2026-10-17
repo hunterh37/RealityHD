@@ -1,0 +1,48 @@
+{
+  "budget": 10000,
+  "id": "fish-smallmouth-bass",
+  "kind": "prop",
+  "materials": [
+    "fish.smallmouth-skin",
+    "fish.bass-fin",
+    "fish.eye-red",
+    "fish.mouth"
+  ],
+  "name": "Smallmouth bass",
+  "notes": "",
+  "parts": [
+    "body",
+    "tail",
+    "jaw",
+    "eye",
+    "dorsal fin",
+    "anal fin",
+    "caudal fin",
+    "pectoral fins",
+    "pelvic fins",
+    "gill cover",
+    "lateral line",
+    "scales"
+  ],
+  "references": [
+    "MulberryRiver/notes/reference/fish/fish-smallmouth-bass.jpg"
+  ],
+  "size": [
+    0.3,
+    0.109,
+    0.06
+  ],
+  "style": "live freshwater fish fresh from an Ozark stream, wet glossy skin, natural coloration",
+  "summary": "Smallmouth bass (Micropterus dolomieu), 0.30 m: bronze flanks with broken vertical bars, red eye, notched spiny and soft dorsal.",
+  "tags": [
+    "prop",
+    "fish",
+    "handheld",
+    "articulated",
+    "outdoor",
+    "water"
+  ],
+  "theme": "Fish",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

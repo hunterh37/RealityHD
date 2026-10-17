@@ -1,0 +1,41 @@
+{
+  "budget": 8000,
+  "id": "camera-sensor",
+  "kind": "prop",
+  "materials": [
+    "metal.anodized-black",
+    "metal.aluminum-brushed",
+    "glass.led-lens",
+    "metal.anodized",
+    "emissive.led-green",
+    "label.inspection",
+    "rubber",
+    "metal.steel"
+  ],
+  "name": "Camera sensor",
+  "notes": "VisionSpacecraft specs/04, specs/14",
+  "parts": [
+    "housing",
+    "lens barrel",
+    "lens glass",
+    "sun hood",
+    "connector",
+    "heat fins"
+  ],
+  "references": [],
+  "size": [
+    0.086,
+    0.08,
+    0.172
+  ],
+  "style": "machine vision camera module",
+  "summary": "Machine vision camera, 0.1 m cube: finned black anodized housing with a lens barrel, sun hood and locking connector.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "electronics"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

@@ -1,0 +1,44 @@
+{
+  "budget": 10000,
+  "id": "twin-bed",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-shaker",
+    "wood.plywood",
+    "fabric.linen",
+    "fabric.linen:7C93A6",
+    "fabric.wool:C9B38A"
+  ],
+  "name": "Twin bed",
+  "notes": "",
+  "parts": [
+    "painted raised-panel headboard with cap",
+    "side rails and paneled footboard",
+    "tapered legs",
+    "mattress with tape edge",
+    "blue linen duvet with drape",
+    "folded top sheet",
+    "pillow and cushion",
+    "throw at the foot"
+  ],
+  "references": [],
+  "size": [
+    1.05,
+    0.95,
+    2.1
+  ],
+  "style": "child-friendly made bed, painted finish",
+  "summary": "Twin bed: painted white panel headboard and frame, 97 cm mattress, blue linen duvet, one pillow, folded throw.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bedroom",
+    "furniture",
+    "fabric",
+    "wood",
+    "interior"
+  ],
+  "theme": "Bedroom",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

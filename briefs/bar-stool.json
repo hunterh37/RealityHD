@@ -1,0 +1,17 @@
+{
+  "budget": 4300,
+  "id": "bar-stool",
+  "kind": "prop",
+  "materials": ["metal.enamel:202124", "leather.tan", "metal.stainless-smudged", "plastic.black"],
+  "name": "Counter stool",
+  "notes": "Floor planning pack B1. Seat height 0.66 m (counter). Four legs on the X and Z axes so the footprint is 0.42 square. Low curved back at -Z.",
+  "parts": ["round padded seat with piping and stitching", "seat pan and cross brace", "four splayed tubular steel legs", "welded footrest ring", "low curved back band on two posts", "rubber glides"],
+  "references": [],
+  "size": [0.42, 0.78, 0.42],
+  "style": "black powder-coated steel counter stool with a tan leather seat, lightly worn",
+  "summary": "Counter stool, seat 66 cm: padded round seat, four splayed steel legs, footrest ring, low curved back.",
+  "tags": ["prop", "floorplan", "dining", "furniture", "metal", "leather", "interior"],
+  "theme": "Dining",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

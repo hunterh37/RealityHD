@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "allotment-asparagus-ridge-bed",
+  "kind": "prop",
+  "materials": [
+    "ground.dirt",
+    "soil.potting",
+    "plant.stem",
+    "grass.dry",
+    "wood.painted-exterior"
+  ],
+  "name": "Allotment asparagus ridge bed",
+  "notes": "",
+  "parts": [
+    "earthed-up asparagus ridges",
+    "asparagus spears emerging",
+    "feathery fern fronds on older crowns",
+    "furrows between ridges",
+    "straw mulch tufts",
+    "row marker stake"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.5,
+    2
+  ],
+  "style": "architectural facade customizer, Edwardian Allotment",
+  "summary": "Asparagus bed of earthed-up ridges with fresh spears and feathery fern on established crowns, furrows between, a row marker.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

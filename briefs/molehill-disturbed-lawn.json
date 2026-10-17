@@ -1,0 +1,36 @@
+{
+  "budget": 15000,
+  "id": "molehill-disturbed-lawn",
+  "kind": "prop",
+  "materials": [
+    "grass.lawn",
+    "grass.lawn-thatch",
+    "ground.dirt"
+  ],
+  "name": "Molehill disturbed lawn",
+  "notes": "",
+  "parts": [
+    "mown lawn sward",
+    "fresh molehills of crumbly loam",
+    "older settled molehill with regrowth",
+    "raised surface tunnel ridge",
+    "scattered soil crumbs on the grass"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.2,
+    2
+  ],
+  "style": "architectural facade customizer, English Landscape",
+  "summary": "Molehill disturbed lawn tile, 2 x 2 m: mown lawn broken by conical heaps of fine loam pushed up by moles and a raised run ridge.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

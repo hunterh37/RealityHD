@@ -24,10 +24,11 @@ extension BirdRigBuilder {
         // Neck: from inside the body front up to the back of the head, textured with the body's front end.
         let pn = f.neckPivot
         let pe = f.headCenter + V3(0, -0.12 * a.headHeight, 0.05 * a.headLength)
-        let r0 = 0.5 * a.bodyWidth * 0.80, r1 = 0.5 * a.headWidth * 0.92
+        let r0 = 0.5 * a.bodyWidth * a.neckThick, r1 = 0.5 * a.headWidth * 0.92
         let neck = Loft.along([pn - f.neckDir * 0.012, lerp(pn, pe, 0.5), pe], up: V3(0, 1, 0.3), count: 6, segments: 18,
                               vRange: 0.88...1.0, exponent: 2, material: f.mat(.body)) { t in
-            let r = lerp(r0, r1, t); return V3(r, r * 0.9, r * 1.25)
+            let game = a.caruncle > 0 || a.collar > 0
+            let r = lerp(r0, r1, game ? pow(t, 0.8) : t) * (game ? 1 + 0.55 * pow(1 - t, 2) : 1); return V3(r, r * 0.9, r * 1.25)
         }
         rig.add(neck, to: BirdJoint.neckPitch.name)
         // Throat: fills the space in front of the neck between the breast and the chin.
@@ -44,13 +45,14 @@ extension BirdRigBuilder {
         for i in 0..<n {
             let t = Float(i) / Float(n - 1), hp = f.headProfile(t)
             secs.append(LoftSection(center: f.headCenterAt(t), right: BirdFrame.X, up: BirdFrame.Y, halfWidth: f.headHalfWidth(t),
-                                    halfDorsal: 0.5 * a.headHeight * 0.5 * hp, halfVentral: 0.5 * a.headHeight * (0.58 + 0.2 * (1 - t)) * hp, exponent: 2.2))
+                                    halfDorsal: 0.5 * a.headHeight * (a.caruncle > 0 || a.collar > 0 ? 0.74 : 0.5) * hp, halfVentral: 0.5 * a.headHeight * (0.58 + 0.2 * (1 - t)) * hp, exponent: 2.2))
         }
         rig.add(Loft.build(secs, segments: 22, material: f.mat(.head), caps: true), to: BirdJoint.headPitch.name)
 
         addBeak(&rig, f)
         addEyes(&rig, f)
         addCrest(&rig, f)
+        addOrnaments(&rig, f)
     }
 
     static func addBeak(_ rig: inout Rig, _ f: BirdFrame) {
@@ -144,7 +146,7 @@ extension BirdRigBuilder {
         for i in 0..<8 {
             let t = Float(i) / 7
             let c = f.tailPivot + f.tailDir * (t * a.tailLength * 0.94) - nT * (0.0012 + a.tailLength * 0.015 * t * t)
-            let hw = 0.5 * a.tailWidth * (0.55 + 0.35 * min(1, t * 1.6)) * (t > 0.92 ? 0.9 : 1)
+            let hw = 0.5 * a.tailWidth * (0.55 + 0.35 * min(1, t * 1.6)) * (t > 0.92 ? 0.9 : 1) * (a.collar > 0 ? 1 - 0.82 * pow(t, 1.6) : 1)
             core.append(LoftSection(center: c, right: side, up: nT, halfWidth: hw, halfDorsal: max(0.0006, 0.004 * (1 - t)), halfVentral: max(0.0005, 0.003 * (1 - t)), exponent: 3))
         }
         rig.add(Loft.build(core, segments: 16, material: f.mat(.tailCore)), to: pitch)
@@ -160,7 +162,7 @@ extension BirdRigBuilder {
                                uv: { u, v in V2(0.5 + 0.12 * cos(u * 2 * .pi), v) })
         rig.add(thigh, to: BirdJoint.leg(s, .hip).name)
         // Tarsus.
-        let tr = min(0.002, max(0.0007, a.tarsus * 0.045))
+        let tr = min(max(0.002, a.tarsus * 0.04), max(0.0007, a.tarsus * 0.045))
         let tars = Prim.tube([ankle, lerp(ankle, foot, 0.5), foot + V3(0, 0.001, 0)], radii: [tr * 1.1, tr, tr * 1.1], sides: 6, seamTile: 0.03, material: f.mat(.leg))
         rig.add(tars, to: BirdJoint.leg(s, .ankle).name)
         // Toes: three forward, one back. Curl joints rotate them about the foot.

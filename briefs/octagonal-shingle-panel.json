@@ -1,0 +1,41 @@
+{
+  "budget": 14000,
+  "id": "octagonal-shingle-panel",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "wood.painted-shaker-worn",
+    "wood.plywood",
+    "wood.plywood-edge",
+    "metal.cast-iron"
+  ],
+  "name": "Octagonal shingle panel",
+  "notes": "",
+  "parts": [
+    "octagon-butt shingles with 45 degree clipped corners",
+    "staggered half-lap courses",
+    "tapered shingle thickness with kick-out at the butt",
+    "doubled starter course",
+    "beaded side casings",
+    "top drip cap with cut nails",
+    "plywood sheathing backer"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.2,
+    0.04
+  ],
+  "style": "architectural facade customizer, Queen Anne Victorian",
+  "summary": "Octagonal shingle panel, 1.2 x 1.2 m: staggered clipped-corner cedar shingles in varied paint over sheathing, framed by beaded trim.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

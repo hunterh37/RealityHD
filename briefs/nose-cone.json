@@ -1,0 +1,36 @@
+{
+  "budget": 12000,
+  "id": "nose-cone",
+  "kind": "prop",
+  "materials": [
+    "metal.powder-white",
+    "composite.carbon",
+    "metal.aluminum-brushed",
+    "metal.steel",
+    "metal.heat-tint-cold"
+  ],
+  "name": "Nose cone",
+  "notes": "Vision Spacecraft part. Size [x, y, z] metres; deployed parts may exceed it.",
+  "parts": [
+    "shell",
+    "stack-ring",
+    "pitot",
+    "seam"
+  ],
+  "references": [],
+  "size": [
+    1.25,
+    1.2,
+    1.25
+  ],
+  "style": "photoreal aerospace flight hardware, clean with light handling wear",
+  "summary": "Ogive nose cone, 1.25 m base: painted composite shell with a carbon tip, aluminum stack ring at the base, pitot probe.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "metal"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

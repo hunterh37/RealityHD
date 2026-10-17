@@ -1,0 +1,36 @@
+{
+  "budget": 15000,
+  "id": "chip-seal-road-surface",
+  "kind": "prop",
+  "materials": [
+    "asphalt.road",
+    "rock.granite"
+  ],
+  "name": "Chip seal road surface",
+  "notes": "",
+  "parts": [
+    "bitumen binder layer",
+    "single-size 10 mm stone chippings",
+    "embedded chip mosaic",
+    "loose surplus chippings",
+    "bleeding binder in wheel track"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.05,
+    2
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Chip seal road surface tile, 2 x 2 m: sprayed bitumen binder with rolled single-size 10 mm grey granite chippings, loose surplus chips and a bled wheel track.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

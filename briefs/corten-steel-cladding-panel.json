@@ -1,0 +1,38 @@
+{
+  "budget": 15000,
+  "id": "corten-steel-cladding-panel",
+  "kind": "prop",
+  "materials": [
+    "metal.corten",
+    "metal.stainless",
+    "metal.galvanized"
+  ],
+  "name": "Corten Steel Cladding Panel",
+  "notes": "",
+  "parts": [
+    "weathering steel sheet face",
+    "folded standing seams",
+    "horizontal reveal joints",
+    "concealed clip rails",
+    "stainless fasteners",
+    "edge returns",
+    "rust run-off tonal variation"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    2.4,
+    0.06
+  ],
+  "style": "architectural facade customizer, Contemporary, weathering steel with rust patina",
+  "summary": "Corten steel cladding panel, 1.2 x 2.4 m: folded pans with standing seams, reveal joints, clip rails, stainless fasteners and rust run-off.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,43 @@
+{
+  "budget": 13000,
+  "id": "checkout-counter",
+  "kind": "prop",
+  "materials": [
+    "laminate.white",
+    "wood.veneer-oak",
+    "metal.stainless",
+    "plastic.matte",
+    "plastic.black",
+    "screen.ui"
+  ],
+  "name": "checkout counter",
+  "notes": "",
+  "parts": [
+    "cabinet base with laminate fascia and oak trim",
+    "countertop with rounded front and customer-side raised edge",
+    "pos terminal on swivel stand with screen",
+    "card reader pad",
+    "cash drawer slot and receipt printer",
+    "bagging shelf and conveyor belt section",
+    "kick plate"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    1.0,
+    0.7
+  ],
+  "style": "retail checkout counter, white laminate, oak trim, stainless accents",
+  "summary": "Checkout counter, 1.5 x 1.0 x 0.7 m: laminate cabinet with oak trim, POS terminal, card reader, printer, belt and bagging shelf.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "commercial",
+    "retail",
+    "furniture",
+    "interior"
+  ],
+  "theme": "Commercial",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

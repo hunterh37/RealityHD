@@ -20,3 +20,7 @@ jobs:
         run: |
           swift run -q realityhd catalog
           git diff --exit-code CATALOG.md || (echo "::error::run 'swift run -q realityhd catalog' and commit CATALOG.md" && exit 1)
+      - name: Scene perf budgets
+        run: |
+          swift build -c release --product realityhd
+          .build/release/realityhd perf --budget

@@ -1,0 +1,38 @@
+{
+  "budget": 6000,
+  "id": "precast-concrete-slab-paving",
+  "kind": "prop",
+  "materials": [
+    "concrete.smooth",
+    "concrete.rough"
+  ],
+  "name": "Precast concrete slab paving",
+  "notes": "",
+  "parts": [
+    "600 x 600 precast concrete slabs",
+    "arrissed slab edges",
+    "pointed mortar joints",
+    "cut slabs at edges",
+    "cracked settled slab",
+    "rust leaf stain"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.06,
+    2
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Precast concrete slab paving tile, 2 x 2 m: 600 x 600 x 40 mm pressed slabs with arrissed edges and mortar joints on a sand-cement bed.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone",
+    "concrete"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

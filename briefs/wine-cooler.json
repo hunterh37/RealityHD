@@ -1,0 +1,48 @@
+{
+  "budget": 11800,
+  "id": "wine-cooler",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless",
+    "glass.tinted",
+    "wood.beech-stained",
+    "glass.emerald",
+    "metal.brass-aged",
+    "emissive.warm",
+    "plastic.matte:1C1C1E",
+    "rubber.silicone-gray"
+  ],
+  "name": "Undercounter wine cooler",
+  "notes": "Static. Door closed, glass tinted so shelves and bottles show. Handle included in depth.",
+  "parts": [
+    "stainless framed tinted glass door",
+    "vertical bar handle",
+    "front control strip with display",
+    "beech slat shelves",
+    "lying wine bottles with foil capsules",
+    "LED light strip",
+    "front vent grille toe kick",
+    "stainless top and sides"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    0.85,
+    0.6
+  ],
+  "style": "2020s dual-zone undercounter wine fridge, light fingerprints on glass",
+  "summary": "Undercounter wine cooler, 24 in: stainless-framed tinted glass door, bar handle, beech slat shelves with lying bottles, LED strip, front control strip.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "kitchen",
+    "appliance",
+    "glass",
+    "metal",
+    "wood",
+    "interior"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

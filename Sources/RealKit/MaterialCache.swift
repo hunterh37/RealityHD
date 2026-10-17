@@ -23,6 +23,13 @@ public enum RealAtmosphere {
     public static var fogColor: SIMD3<Float> = SIMD3(0.55, 0.6, 0.66)
     /// Extinction per meter. 0.008 = light haze at 100 m; 0 disables.
     public static var fogDensity: Float = 0.008
+    /// Underwater absorption below `waterLevel` (world y): extinction per meter of submerged view ray toward
+    /// `waterColor` (linear, emissive units). 0 disables. Read when a material is created.
+    public static var waterDensity: Float = 0
+    public static var waterLevel: Float = 0
+    public static var waterColor: SIMD3<Float> = SIMD3(0.02, 0.06, 0.045)
+    /// Brightness of the animated caustic ridges on submerged upward faces (emissive units); 0 disables.
+    public static var waterCaustics: Float = 0
 }
 
 /// GPU-resident textures of one material, shared by its PBR and ShaderGraph variants.
@@ -47,7 +54,7 @@ public final class RealMaterialCache {
     public static let shared = RealMaterialCache()
 
     private var pbr: [MaterialKey: any RealityKit.Material] = [:]
-    private var graph: [MaterialKey: any RealityKit.Material] = [:]
+    fileprivate var graph: [MaterialKey: any RealityKit.Material] = [:]
     private var tex: [MaterialKey: RealTextures] = [:]
     /// Approximate GPU bytes held by generated textures (mips included).
     public private(set) var textureBytes: Int = 0
@@ -58,6 +65,9 @@ public final class RealMaterialCache {
     public private(set) var diskHits = 0, synthesized = 0
     /// Set false to force PhysicallyBasedMaterial everywhere (no wind, no translucency).
     public var useShaderGraph = true
+    /// LOD index from which meshes bind the far ShaderGraph variant (no vertex wind, no leaf translucency).
+    /// Int.max keeps the near variant at every level.
+    public var farVariantLOD = 2
 
     public init() {}
 
@@ -70,13 +80,22 @@ public final class RealMaterialCache {
         return m
     }
 
-    public func materialAsync(_ key: MaterialKey) async -> any RealityKit.Material {
-        if let m = graph[key] { return m }
+    public func materialAsync(_ key: MaterialKey) async -> any RealityKit.Material { await materialAsync(key, far: false) }
+
+    /// True when the far variant of `key` differs from the near one (the spec uses wind or translucency).
+    public func hasFarVariant(_ key: MaterialKey) -> Bool { let s = spec(key); return s.wind > 0 || s.translucency > 0 }
+
+    /// `far`: variant for distant LODs without vertex wind and leaf translucency. Specs without either share
+    /// the near material.
+    public func materialAsync(_ key: MaterialKey, far: Bool) async -> any RealityKit.Material {
+        let far = far && hasFarVariant(key)
+        let gk = far ? "\(key)#far" : key
+        if let m = graph[gk] { return m }
         let s = spec(key)
         guard useShaderGraph, s.program != nil, s.mode != .emissive else { return material(key) }
         do {
-            let m = try await buildGraph(s)
-            graph[key] = m
+            let m = try await buildGraph(s, far: far)
+            graph[gk] = m
             return m
         } catch {
             return material(key)
@@ -86,14 +105,15 @@ public final class RealMaterialCache {
     /// ShaderGraph material with per-instance hue/value jitter (instanced fields). Shares textures
     /// with the plain variant. Falls back to the plain material when ShaderGraph is off.
     /// - Parameters: hue: max hue shift in turns (0.02 = 7 degrees); value: max relative brightness change.
-    public func materialAsync(_ key: MaterialKey, hueJitter hue: Float, valueJitter value: Float) async -> any RealityKit.Material {
-        guard hue > 0 || value > 0 else { return await materialAsync(key) }
-        let vk = "\(key)#jitter\(hue),\(value)"
+    public func materialAsync(_ key: MaterialKey, hueJitter hue: Float, valueJitter value: Float, far: Bool = false) async -> any RealityKit.Material {
+        guard hue > 0 || value > 0 else { return await materialAsync(key, far: far) }
+        let far = far && hasFarVariant(key)
+        let vk = "\(key)#jitter\(hue),\(value)" + (far ? "#far" : "")
         if let m = graph[vk] { return m }
         let s = spec(key)
         guard useShaderGraph, s.program != nil, s.mode != .emissive else { return material(key) }
         do {
-            let m = try await buildGraph(s, jitter: SIMD2(hue, value))
+            let m = try await buildGraph(s, jitter: SIMD2(hue, value), far: far)
             graph[vk] = m
             return m
         } catch {
@@ -290,17 +310,20 @@ public final class RealMaterialCache {
         return m
     }
 
-    private func buildGraph(_ s: MaterialSpec, jitter: SIMD2<Float> = .zero, cook: Bool = false) async throws -> any RealityKit.Material {
+    private func buildGraph(_ s: MaterialSpec, jitter: SIMD2<Float> = .zero, cook: Bool = false, far: Bool = false) async throws -> any RealityKit.Material {
         guard let t = try textures(s) else { throw TextureSynth.SynthError.encode }
         var o = RealShaderOptions()
         let perf = RealPerformance.active
         o.cutout = s.mode == .cutout; o.aoMap = t.ao != nil; o.metallicMap = t.metallic != nil
-        o.wind = s.wind > 0 && perf.wind; o.translucency = s.translucency > 0 && perf.translucency; o.antiTile = s.antiTile && perf.antiTile
+        o.wind = s.wind > 0 && perf.wind && !far; o.translucency = s.translucency > 0 && perf.translucency && !far; o.antiTile = s.antiTile && perf.antiTile
         o.topLayer = s.topAmount > 0 && perf.snowLayer; o.fog = perf.fog; o.triplanar = s.triplanar
         o.instanceJitter = jitter != .zero && perf.instanceVariation
         o.transparent = s.mode == .transparent
         o.flowNormals = s.mode == .transparent && s.flow > 0 && perf.waterFlow
         o.wet = !o.transparent && !o.cook && s.mode != .emissive
+        o.water = o.fog && RealAtmosphere.waterDensity > 0
+        // Caustics only on solid, still surfaces (bed, rocks, wood); foliage and cards skip the two ridge fields.
+        o.caustics = o.water && RealAtmosphere.waterCaustics > 0 && !o.wind && !o.cutout && !o.transparent
         let cookSpec = cook ? s.cooked.map { spec($0) } : nil
         let tc = try cookSpec.flatMap { try textures($0) }
         o.cook = tc != nil
@@ -323,6 +346,10 @@ public final class RealMaterialCache {
         if o.fog {
             try m.setParameter(name: "FogDensity", value: .float(RealAtmosphere.fogDensity))
             try m.setParameter(name: "FogColor", value: .color(cgLinear(RealAtmosphere.fogColor)))
+            try m.setParameter(name: "WaterDensity", value: .float(RealAtmosphere.waterDensity))
+            try m.setParameter(name: "WaterLevel", value: .float(RealAtmosphere.waterLevel))
+            try m.setParameter(name: "WaterColor", value: .color(cgLinear(RealAtmosphere.waterColor)))
+            try m.setParameter(name: "CausticStrength", value: .float(RealAtmosphere.waterCaustics))
         }
         if o.topLayer {
             try m.setParameter(name: "TopColor", value: .color(cgLinear(SIMD3(s.topColor.x, s.topColor.y, s.topColor.z))))
@@ -374,15 +401,48 @@ extension RealityKit.Material.Color {
     }
 }
 
+public extension RealMaterialCache {
+    /// Pushes the current `RealAtmosphere` water values into every cached ShaderGraph material and every
+    /// material under `root` (entities already built keep their own copies). Use when the water surface moves
+    /// in device space, e.g. a world root shifted to put the viewer under the surface.
+    @MainActor
+    /// `underside` turns off back-face culling on water surfaces (entities named `*water*`) so the surface is
+    /// visible from below; above the surface they cull back faces to halve the transparent overdraw.
+    func refreshWater(in root: Entity?, underside: Bool = false) {
+        func update(_ m: any RealityKit.Material) -> any RealityKit.Material {
+            guard var g = m as? ShaderGraphMaterial else { return m }
+            try? g.setParameter(name: "WaterLevel", value: .float(RealAtmosphere.waterLevel))
+            try? g.setParameter(name: "WaterDensity", value: .float(RealAtmosphere.waterDensity))
+            try? g.setParameter(name: "WaterColor", value: .color(cgLinear(RealAtmosphere.waterColor)))
+            try? g.setParameter(name: "CausticStrength", value: .float(RealAtmosphere.waterCaustics))
+            return g
+        }
+        for k in graph.keys { graph[k] = graph[k].map(update) }
+        func walk(_ e: Entity) {
+            if var mc = e.components[ModelComponent.self] {
+                let surface = e.name.lowercased().contains("water")
+                mc.materials = mc.materials.map { m in
+                    var u = update(m)
+                    if surface, var g = u as? ShaderGraphMaterial { g.faceCulling = underside ? .none : .back; u = g }
+                    return u
+                }
+                e.components.set(mc)
+            }
+            for c in e.children { walk(c) }
+        }
+        if let root { walk(root) }
+    }
+}
+
 public extension Model {
     /// Async variant: foliage/bark get ShaderGraph wind materials.
     @MainActor
-    func modelEntityAsync(materials: RealMaterialCache? = nil) async throws -> ModelEntity {
+    func modelEntityAsync(materials: RealMaterialCache? = nil, lod: Int = 0) async throws -> ModelEntity {
         let cache = materials ?? .shared
         let keys = self.surfaces.filter { !$0.isEmpty }.map(\.material)
         var mats: [any RealityKit.Material] = []
-        for k in keys { mats.append(await cache.materialAsync(k)) }
-        let e = ModelEntity(mesh: try meshResource(), materials: mats)
+        for k in keys { mats.append(await cache.materialAsync(k, far: lod >= cache.farVariantLOD)) }
+        let e = ModelEntity(mesh: try await meshResourceAsync(), materials: mats)
         e.name = name
         return e
     }

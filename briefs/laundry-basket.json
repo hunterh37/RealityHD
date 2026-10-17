@@ -1,0 +1,41 @@
+{
+  "budget": 11000,
+  "id": "laundry-basket",
+  "kind": "prop",
+  "materials": [
+    "plastic.bucket:86B4D2",
+    "fabric.linen:E4DCCB",
+    "fabric.linen:8CA9BF",
+    "fabric.canvas:C98F86",
+    "rubber.tire"
+  ],
+  "name": "Plastic laundry basket",
+  "notes": "Overall 0.6 x 0.27 x 0.42 with the molded end handles; body 0.54 long at the rim. Ribbed ventilation walls. A towel stack and a shirt sit below the rim.",
+  "parts": [
+    "tapered rectangular HDPE tub with rolled rim",
+    "ventilation slots between vertical ribs on all four walls",
+    "molded hand grips at each end",
+    "bottom pan with four feet",
+    "corner posts",
+    "folded towels and a shirt inside"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    0.27,
+    0.42
+  ],
+  "style": "Pale blue household basket, light scuffing near the feet.",
+  "summary": "Ventilated rectangular laundry basket: tapered ribbed walls, rolled rim, end hand grips and feet, with folded towels inside.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "laundry",
+    "plastic",
+    "container",
+    "interior"
+  ],
+  "theme": "Laundry",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

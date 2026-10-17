@@ -1,0 +1,43 @@
+{
+  "budget": 14500,
+  "id": "closet-organizer",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-shaker:F3F0E8",
+    "metal.chrome",
+    "wood.plywood",
+    "fabric.canvas",
+    "metal.brass"
+  ],
+  "name": "closet organizer",
+  "notes": "",
+  "parts": [
+    "vertical side panels and center divider with pin-hole rows",
+    "hanging rods (double hang left, long hang right)",
+    "fixed shelves and shoe shelves",
+    "three drawers with pulls in the center tower",
+    "clothes: hangers with garments",
+    "folded stacks and storage bins on shelves"
+  ],
+  "references": [],
+  "size": [
+    1.8,
+    2.0,
+    0.6
+  ],
+  "style": "white melamine closet system with chrome rods, filled with clothes",
+  "summary": "Closet organizer, 1.8 x 2.0 x 0.6 m: white panels, chrome hanging rods, shelves, three drawers, hangers and folded clothes.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bedroom",
+    "furniture",
+    "wood",
+    "metal",
+    "wall",
+    "interior"
+  ],
+  "theme": "Bedroom",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

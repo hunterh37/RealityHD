@@ -1,0 +1,44 @@
+{
+  "budget": 15000,
+  "id": "allotment-bark-mulch-fruit-bed",
+  "kind": "prop",
+  "materials": [
+    "mulch.bark",
+    "soil.potting",
+    "wood.weathered",
+    "metal.galvanized-aged",
+    "leaf.rose",
+    "wood.deadwood"
+  ],
+  "name": "Allotment bark mulch fruit bed",
+  "notes": "",
+  "parts": [
+    "bark mulch layer",
+    "treated softwood edging boards",
+    "square pegs",
+    "galvanised screws",
+    "blackcurrant bushes",
+    "woody stems",
+    "currant leaves",
+    "fruit strigs",
+    "soil verge"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.9,
+    2
+  ],
+  "style": "architectural facade customizer, Edwardian Allotment",
+  "summary": "Allotment fruit bed tile, 2 x 2 m: blackcurrant bushes in pine bark mulch inside treated board edging, soil verge.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,22 @@
+{
+  "automated" : 0.9973091,
+  "date" : "2026-10-15",
+  "final" : 0.8560581,
+  "fingerprint" : "8a4e45ab81b47015",
+  "id" : "indian-sandstone-paving",
+  "iterations" : 4,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 7,
+    "construction" : 8,
+    "edges" : 7,
+    "grounding" : 8,
+    "materials" : 8,
+    "proportion" : 9,
+    "silhouette" : 8,
+    "wear" : 7
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.78
+}

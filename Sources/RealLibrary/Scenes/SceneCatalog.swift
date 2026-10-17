@@ -45,6 +45,13 @@ public enum SceneCatalog {
                 LinemanDistrict.self,
                 RoadsterEvent.self,
                 MountainDownhillRoad.self,
+                AerospaceRange.self,
+                AerospaceHangar.self,
+                SiphonCafe.self,
+                BostonCommon.self,
+                MulberryRiverReach.self,
+                TimberlineBackcountry.self,
+                ArcheryRange.self,
                 // realityhd:scene
     ]
 

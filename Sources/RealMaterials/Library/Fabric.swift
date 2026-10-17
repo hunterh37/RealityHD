@@ -27,6 +27,12 @@ public extension MaterialLibrary {
             $0.knobs = V4(16, 1, 0.96, 0); $0.seed = 24; $0.tileSize = 0.03; $0.normalStrength = 3
             $0.roughness = 0.96
         },
+        // Heavy slub linen drapery (curtains): oatmeal, visible slubs, soft sheen. Single-sided; curtains are built as a front and a back shell 2 mm apart.
+        MaterialSpec(key: "fabric.drapery", program: .fabricWeave).with {
+            $0.colorA = linear(0xD8CCB0); $0.colorB = linear(0xC4B696, 0.25); $0.colorC = linear(0x6A5C44, 0.08)
+            $0.knobs = V4(34, 0.55, 0.88, 0); $0.seed = 25; $0.tileSize = 0.05; $0.normalStrength = 2
+            $0.roughness = 0.88; $0.translucency = 0.45
+        },
         // realityhd:material.fabric
     ]
 }

@@ -1,0 +1,44 @@
+{
+  "budget": 8500,
+  "id": "laundry-hamper",
+  "kind": "prop",
+  "materials": [
+    "wicker.willow",
+    "fabric.linen:D8CCB8",
+    "leather.tan",
+    "metal.brass-aged",
+    "wood.beech-stained",
+    "fabric.canvas:8CA9BF"
+  ],
+  "name": "Lidded wicker hamper",
+  "notes": "Static closed pose: lid down. Body tapers from 0.38 x 0.32 at the base to 0.40 x 0.34 at the rim; lid overhangs to 0.42 x 0.36. A sleeve is caught at the front.",
+  "parts": [
+    "tapered woven willow body with course bands and corner stakes",
+    "rim ring and base ring",
+    "padded linen lid on a willow frame with piping",
+    "leather tab handle on the lid",
+    "two brass hinges at the back",
+    "leather end handles with brass rivet plates",
+    "four wooden feet",
+    "a sleeve caught under the lid"
+  ],
+  "references": [],
+  "size": [
+    0.42,
+    0.62,
+    0.36
+  ],
+  "style": "Natural willow laundry hamper with a linen-topped lid, slightly darkened at the base.",
+  "summary": "Lidded willow laundry hamper: tapered woven body with bands and stakes, padded linen lid with leather tab, brass hinges, leather end handles.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "laundry",
+    "fabric",
+    "container",
+    "interior"
+  ],
+  "theme": "Laundry",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

@@ -1,0 +1,22 @@
+{
+  "automated" : 0.90840024,
+  "date" : "2026-10-15",
+  "final" : 0.88344,
+  "fingerprint" : "4edfb6f2d69db308",
+  "id" : "cobbled-sett-dirt-mix",
+  "iterations" : 3,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 9,
+    "edges" : 9,
+    "grounding" : 9,
+    "materials" : 8,
+    "proportion" : 9,
+    "silhouette" : 9,
+    "wear" : 9
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.87
+}

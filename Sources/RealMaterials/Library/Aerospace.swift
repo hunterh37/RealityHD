@@ -43,6 +43,22 @@ public extension MaterialLibrary {
             $0.knobs = V4(0.24, 12, 0.1, 0.3); $0.seed = 2106; $0.tileSize = 0.25; $0.normalStrength = 3.5
             $0.roughness = 0.95
         },
+        // Hex-tiled PICA (heat-shield tiles): the three char levels at tile scale, fibrous cells ~1 cm.
+        MaterialSpec(key: "ablative.tile-light", program: .charcoal).with {
+            $0.colorA = linear(0x4A3A2C); $0.colorB = linear(0x5C4F44); $0.colorC = linear(0x9C7A55)
+            $0.knobs = V4(0.15, 10, 0.9, 0.2); $0.seed = 2111; $0.tileSize = 0.08; $0.normalStrength = 2
+            $0.roughness = 0.85
+        },
+        MaterialSpec(key: "ablative.tile", program: .charcoal).with {
+            $0.colorA = linear(0x302822); $0.colorB = linear(0x4A443E); $0.colorC = linear(0x7A5C40)
+            $0.knobs = V4(0.2, 10, 0.45, 0.25); $0.seed = 2112; $0.tileSize = 0.08; $0.normalStrength = 2.5
+            $0.roughness = 0.9
+        },
+        MaterialSpec(key: "ablative.tile-heavy", program: .charcoal).with {
+            $0.colorA = linear(0x1F1C1A); $0.colorB = linear(0x5A5651); $0.colorC = linear(0x3A2C22)
+            $0.knobs = V4(0.24, 12, 0.1, 0.3); $0.seed = 2113; $0.tileSize = 0.08; $0.normalStrength = 3
+            $0.roughness = 0.95
+        },
         // Engine bell (niobium/Inconel), cold: spun streaks and a gold-to-blue temper band near the exit.
         MaterialSpec(key: "metal.heat-tint-cold", program: .heatTint).with {
             $0.colorA = linear(0x8C8984); $0.colorB = linear(0x4A443C); $0.colorC = linear(0x000000, 0.2)

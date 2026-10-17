@@ -1,0 +1,45 @@
+{
+  "budget": 9000,
+  "id": "cubicle-workstation",
+  "kind": "prop",
+  "materials": [
+    "fabric.upholstery:BCC8D4",
+    "laminate.white:D8CFBE",
+    "metal.powdercoat:C9CBCC",
+    "metal.anodized",
+    "plastic.matte:3A3B3D",
+    "emissive.panel"
+  ],
+  "name": "Cubicle workstation",
+  "notes": "",
+  "parts": [
+    "three fabric-covered panels with aluminum top caps and end posts",
+    "L-shaped laminate work surface",
+    "drawer pedestal under the work surface",
+    "overhead storage bin with flip-up door",
+    "under-bin task light",
+    "wall raceway strip",
+    "pinned notes on the back panel"
+  ],
+  "references": [],
+  "size": [
+    1.8,
+    1.5,
+    1.8
+  ],
+  "style": "Open-plan office, mid-grey panels, light maple laminate, light wear at hand-contact edges.",
+  "summary": "Open-plan cubicle: three fabric panels with aluminum caps, L-shaped laminate desk, drawer pedestal, overhead bin and task light.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "office",
+    "commercial",
+    "furniture",
+    "fabric",
+    "metal",
+    "interior"
+  ],
+  "theme": "Commercial",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

@@ -1,0 +1,23 @@
+{
+  "budget": 12000,
+  "id": "picture-window",
+  "kind": "structure",
+  "materials": ["wood.painted-shaker:E8E3D6", "glass.clear", "rubber"],
+  "name": "Picture window",
+  "notes": "Fixed window, origin at the sill center, thickness on Z, interior toward +Z. Size is the casing outer width, head casing top and nose-to-nose depth.",
+  "parts": [
+    "painted wood frame with jambs, head and sloped exterior sill with drip nose",
+    "interior stool, apron and casing",
+    "double glazing with spacer",
+    "applied grilles, 3 x 2 lites",
+    "fixed sash, glazing beads, exterior brickmould, drip cap, caulk bead"
+  ],
+  "references": [],
+  "size": [1.8, 1.2, 0.2],
+  "style": "painted white wood picture window, clean, slightly aged caulk",
+  "summary": "Fixed picture window, 1.8 x 1.2 m: painted wood frame, sloped sill, stool and casing, double glazing, divided-lite grilles.",
+  "tags": ["structure", "floorplan", "interior", "window", "glass", "wood"],
+  "theme": "Interior",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

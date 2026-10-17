@@ -1,0 +1,52 @@
+{
+  "budget": 12000,
+  "id": "aerospace-workbench",
+  "kind": "prop",
+  "materials": [
+    "metal.enamel",
+    "rubber.silicone-gray",
+    "wood.pegboard",
+    "metal.galvanized",
+    "emissive.panel",
+    "metal.aluminum-brushed",
+    "metal.anodized-black",
+    "metal.chrome"
+  ],
+  "name": "Aerospace workbench",
+  "notes": "",
+  "parts": [
+    "steel frame",
+    "leveling feet",
+    "ESD mat top",
+    "drawer unit",
+    "drawer pulls",
+    "lower shelf",
+    "pegboard riser",
+    "riser shelf",
+    "LED light bar",
+    "avionics box",
+    "bench vise",
+    "wire spool",
+    "torque wrench",
+    "ground cord"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    1.9,
+    0.89
+  ],
+  "style": "clean-room avionics bench, grey powder-coat frame, blue ESD mat, light use wear",
+  "summary": "Avionics workbench, 2 m: grey steel frame on leveling feet, blue ESD mat, drawer unit, pegboard riser with LED bar, avionics box, vise and wire spool.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "interior",
+    "workshop",
+    "furniture",
+    "metal"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

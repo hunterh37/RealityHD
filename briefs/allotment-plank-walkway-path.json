@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "allotment-plank-walkway-path",
+  "kind": "prop",
+  "materials": [
+    "wood.weathered",
+    "wood.pine-aged",
+    "metal.galvanized-aged",
+    "ground.dirt",
+    "grass.lawn"
+  ],
+  "name": "Allotment plank walkway path",
+  "notes": "",
+  "parts": [
+    "weathered scaffold planks laid across bearers",
+    "timber bearers bedded in soil",
+    "galvanized hoop bands on plank ends",
+    "nail heads",
+    "soil verges either side",
+    "moss and weeds in the plank gaps"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.1,
+    2
+  ],
+  "style": "architectural facade customizer, Edwardian Allotment",
+  "summary": "Allotment walkway of weathered scaffold planks nailed across sunken timber bearers, banded ends, soil verges with weeds between the boards.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,39 @@
+{
+  "budget": 8000,
+  "id": "lidar-sensor",
+  "kind": "prop",
+  "materials": [
+    "metal.anodized-black",
+    "metal.aluminum-brushed",
+    "glass.led-lens",
+    "label.inspection",
+    "rubber",
+    "metal.steel"
+  ],
+  "name": "Lidar sensor",
+  "notes": "VisionSpacecraft specs/04, specs/14",
+  "parts": [
+    "base housing",
+    "spinning head",
+    "optical window",
+    "cable gland",
+    "mount screws"
+  ],
+  "references": [],
+  "size": [
+    0.16,
+    0.1,
+    0.21
+  ],
+  "style": "automotive spinning lidar puck",
+  "summary": "Spinning lidar puck, 0.15 m dia x 0.1 m: anodized base with cable gland and a rotating head behind a dark wraparound optical window.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "electronics",
+    "articulated"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

@@ -1,0 +1,36 @@
+{
+  "budget": 5000,
+  "id": "elevon",
+  "kind": "prop",
+  "materials": [
+    "composite.carbon",
+    "metal.aluminum-brushed",
+    "metal.steel"
+  ],
+  "name": "Elevon",
+  "notes": "VisionSpacecraft specs/04, specs/14",
+  "parts": [
+    "control surface",
+    "hinge line",
+    "hinge brackets",
+    "control horn",
+    "pushrod clevis",
+    "end caps"
+  ],
+  "references": [],
+  "size": [
+    1.02,
+    0.105,
+    0.365
+  ],
+  "style": "UAV control surface, carbon skin, machined hinge hardware",
+  "summary": "Elevon control surface, 1.0 x 0.3 m: tapered carbon airfoil hinged on three aluminium brackets with a control horn, deflecting -25 to +25 degrees.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "articulated"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

@@ -1,0 +1,38 @@
+{
+  "budget": 4000,
+  "id": "scored-concrete-sidewalk-slab",
+  "kind": "prop",
+  "materials": [
+    "concrete.sidewalk",
+    "asphalt.sealant",
+    "asphalt.patch",
+    "ground.gravel"
+  ],
+  "name": "Scored Concrete Sidewalk Slab",
+  "notes": "",
+  "parts": [
+    "four concrete slabs with expansion joints",
+    "tooled control joints scored into each slab",
+    "edged rounded slab margins",
+    "broom finish",
+    "hairline crack and stain"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.15,
+    2.0
+  ],
+  "style": "architectural facade customizer, Municipal",
+  "summary": "Scored concrete sidewalk tile, 2 x 2 m: poured slabs with tooled control joints, sealed expansion joints, edged margins and broom finish.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -17,7 +17,7 @@ import Foundation
 /// `lugs-loose`, `wheel-off`.
 public struct CompactSedan: RealArticulated {
     public static let id = "compact-sedan"
-    public static let summary = "Mid-size four-door sedan at 1:1 (Camry/Civic): clearcoat body, furnished cabin, four live wheels with lug nuts, articulated trunk, jack points and a lift state."
+    public static let summary = "Mid-size four-door sedan at 1:1: lofted clearcoat body, glass, lamps, four live wheels with five lug nuts, articulated trunk and a lift state."
     public static let tags = ["prop", "vehicle", "articulated", "street", "road", "metal", "glass", "rubber"]
     public static let budget = 30000
     public static let author = "realityhd"

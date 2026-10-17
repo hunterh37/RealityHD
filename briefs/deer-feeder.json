@@ -1,0 +1,46 @@
+{
+  "budget": 15000,
+  "id": "deer-feeder",
+  "kind": "prop",
+  "materials": [
+    "plastic.white",
+    "metal.galvanized-aged",
+    "metal.galvanized",
+    "metal.powdercoat",
+    "plastic.black",
+    "glass.tinted",
+    "ground.dirt"
+  ],
+  "name": "Deer feeder",
+  "notes": "",
+  "parts": [
+    "drum",
+    "ring clamp lid",
+    "funnel",
+    "legs",
+    "foot plates",
+    "leg bracing",
+    "motor housing",
+    "spinner plate",
+    "solar panel",
+    "timer box",
+    "cable",
+    "spilled corn"
+  ],
+  "references": [],
+  "size": [
+    1.408,
+    2.677,
+    1.352
+  ],
+  "style": "blue 55 gallon plastic drum on a three-leg tripod, 1.2 m spinner height, solar charged",
+  "summary": "Tripod spin feeder: 55 gallon drum, galvanized funnel, braced steel legs, solar panel, timer box, spinner plate, spilled corn.",
+  "tags": [
+    "prop",
+    "hunting",
+    "outdoor",
+    "metal",
+    "plastic"
+  ],
+  "theme": "HuntCamp"
+}

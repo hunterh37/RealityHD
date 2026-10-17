@@ -16,6 +16,20 @@ public extension MaterialLibrary {
             $0.topColor = linear(0x3E2C22); $0.topAmount = 0.15; $0.topLow = 0.7
             $0.triplanar = true
         },
+        // Brownstone rock face: quarry-split, coarser relief, paler where the face has spalled.
+        MaterialSpec(key: "stone.brownstone-rockface", program: .rockGranite).with {
+            $0.colorA = linear(0x6B4634); $0.colorB = linear(0x4A2E22); $0.colorC = linear(0x80594A)
+            $0.knobs = V4(0.25, 0, 0.8, 0.5); $0.seed = 8131; $0.tileSize = 0.35; $0.normalStrength = 2.6; $0.roughness = 0.93
+            $0.topColor = linear(0x3A2A20); $0.topAmount = 0.25; $0.topLow = 0.6
+            $0.triplanar = true
+        },
+        // Brownstone sooted under a century of coal smoke.
+        MaterialSpec(key: "stone.brownstone-sooted", program: .rockGranite).with {
+            $0.colorA = linear(0x40291F); $0.colorB = linear(0x2E1D17); $0.colorC = linear(0x52372B)
+            $0.knobs = V4(0.2, 0, 0.8, 0.5); $0.seed = 8132; $0.tileSize = 0.35; $0.normalStrength = 2.4; $0.roughness = 0.95
+            $0.topColor = linear(0x2A1E18); $0.topAmount = 0.2; $0.topLow = 0.6
+            $0.triplanar = true
+        },
         // Wrought and cast iron under many coats of black paint, rust bleeding through.
         MaterialSpec(key: "metal.wrought-iron", program: .paintedMetal).with {
             $0.colorA = linear(0x161616); $0.colorC = linear(0x5A2E1A, 0.35); $0.knobs = V4(0.35, 0.35, 0.5, 0); $0.seed = 8103

@@ -2,6 +2,22 @@
 
 ## Unreleased
 
+- 15 insects for BugHunt (Nature/Insects): `insect-periodical-cicada`, `insect-european-hornet`, `insect-paper-wasp`,
+  `insect-carpenter-bee`, `insect-hover-fly`, `insect-green-bottle-fly`, `insect-crane-fly`, `insect-green-lacewing`,
+  `insect-earwig`, `insect-eyed-click-beetle`, `insect-goliath-beetle`, `insect-tiger-beetle`, `insect-green-shield-bug`,
+  `insect-millipede`, `insect-bullet-ant`. Life-size articulated rigs, gate sign-offs 0.85 to 0.92. New materials:
+  `insect.elytra-goliath`, `insect.pronotum-goliath`, `insect.chitin-shield`, earwig cuticle, tiger elytra; `tipRound` elytra apex in InsectKit.
+## 5.6.0
+
+- Load performance: texture disk-cache hits are mmapped and wrapped with `makeBuffer(bytesNoCopy:)` (no main-thread
+  copy); `RealScene.entity` yields every 8 ms (`RealLoadPacer`). Max main-thread stall while the hospital scene loads
+  drops from 1.0-1.6 s to 0.13 s (simulator). Grab-cue dots share one sphere mesh.
+- Demo: `-bench <seconds>` writes stats and main-thread stalls to `Library/Caches/bench/<scene>.json`.
+- `siphon-cafe` scene with live halogen siphon bar controller and 7 brewing props (#35).
+- 30 facade props (prop-library wave 1, #36-#41), 30 ground, road, street and tile props (#33),
+  19 roadside and tire-change props (#28, #30), 25 facade structure props (#26), rebuilt birds (#29).
+- Deterministic scene generation, about 2x faster (#31, #32, #34).
+
 - 25 props for architectural context: road vehicles `sedan-car`, `delivery-van`, `city-bus`, `pickup-truck`,
   `mini-excavator` (Vehicle), `tower-crane`, `road-work-sign` (Construction), `soccer-goal`, `tennis-net` (Sports),
   `subway-entrance`, `double-arm-lamp`, `pay-station`, `newsstand`, `fuel-canopy` (City), `public-art-sphere`,

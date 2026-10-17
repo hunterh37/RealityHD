@@ -1,0 +1,38 @@
+{
+  "budget": 12000,
+  "id": "swan-neck-pediment",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "metal.brass-aged"
+  ],
+  "name": "Swan neck pediment",
+  "notes": "",
+  "parts": [
+    "swan-neck scrolls",
+    "rosette terminals",
+    "central plinth",
+    "finial",
+    "entablature",
+    "tympanum"
+  ],
+  "references": [],
+  "size": [
+    1.6,
+    0.8,
+    0.3
+  ],
+  "style": "architectural facade customizer, Georgian",
+  "summary": "Swan neck pediment, 1.6 m: two S-curved raking mouldings ending in rosettes above a flat entablature, central finial.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "decor",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

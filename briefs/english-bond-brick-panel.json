@@ -1,0 +1,41 @@
+{
+  "budget": 12000,
+  "id": "english-bond-brick-panel",
+  "kind": "prop",
+  "materials": [
+    "brick.unit-red",
+    "brick.unit-red-dark",
+    "brick.unit-red-light",
+    "brick.unit-header",
+    "brick.unit-efflorescent",
+    "brick.mortar-lime"
+  ],
+  "name": "English bond brick panel",
+  "notes": "",
+  "parts": [
+    "stretcher courses",
+    "header courses",
+    "queen closers at the reveals",
+    "flush lime mortar bed and perpend joints",
+    "burnt header ends",
+    "efflorescence at the base course",
+    "chipped arris brick"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.2,
+    0.12
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "English bond brick panel, 1.2 m square: alternating stretcher and header courses of pressed red brick with queen closers in recessed lime mortar.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -49,6 +49,7 @@ public struct RealLODSystem: System {
     private var cursor = 0
     private var firstPass = true
     private var passViewer: SIMD3<Float> = .zero
+    private var passForward: SIMD3<Float> = SIMD3(0, 0, -1)
     private var passPerf = RealPerformance.active
     private var passAdapt: Float = 1
 
@@ -62,7 +63,7 @@ public struct RealLODSystem: System {
             pending.removeAll(keepingCapacity: true)
             for e in context.entities(matching: Self.query, updatingSystemWhen: .rendering) { pending.append(e) }
             cursor = 0
-            passViewer = MainActor.assumeIsolated { RealViewer.refresh(); return RealViewer.position }
+            (passViewer, passForward) = MainActor.assumeIsolated { RealViewer.refresh(); return (RealViewer.position, RealViewer.forward) }
             passPerf = RealPerformance.active
             passAdapt = RealPerformance.adaptiveScale
         }
@@ -70,39 +71,15 @@ public struct RealLODSystem: System {
         let chunk = firstPass ? pending.count : max(Self.minChunk, (pending.count + max(1, Self.slices) - 1) / max(1, Self.slices))
         if !pending.isEmpty { firstPass = false }
         let end = min(pending.count, cursor + chunk)
-        let perf = passPerf, adapt = passAdapt, viewer = passViewer
+        let perf = passPerf, adapt = passAdapt, viewer = passViewer, forward = passForward
         let bias = max(0.05, perf.lodBias * adapt)
         let reach = RealPerformance.shadowReach
         var switches = 0
         while cursor < end {
             let e = pending[cursor]
             cursor += 1
-            guard e.isActive, var lod = e.components[RealLODComponent.self] else { continue }
-            let p = e.convert(position: lod.center, to: nil)
-            let d = simd_distance(p, viewer)
-            let culled = perf.hidden(distance: d, cullDistance: lod.cullDistance, groundCover: lod.groundCover, size: lod.size, adaptive: adapt)
-            // Switch distances scale with the bias; hysteresis works on the scaled distance.
-            let ed = d / bias
-            var level = lod.switchDistances.firstIndex(where: { ed < $0 }) ?? lod.switchDistances.count
-            // Hysteresis: only move to a coarser level once past the boundary by the margin.
-            if lod.current >= 0, level != lod.current {
-                let boundary = level > lod.current ? lod.switchDistances[lod.current] : lod.switchDistances[level]
-                if abs(ed - boundary) < boundary * lod.hysteresis { level = lod.current }
-            }
-            // Casters past 1.5x the shadow reach (plus their own size) cannot shade anything the cascade draws.
-            var shadowsOff = lod.shadowsOff
-            if reach > 0, lod.size.isFinite {
-                let edge = reach * 1.5 + lod.size
-                if d > edge { shadowsOff = true } else if d < edge * 0.9 { shadowsOff = false }
-            } else { shadowsOff = false }
-            if level != lod.current || culled != lod.culled || shadowsOff != lod.shadowsOff {
-                Self.apply(level: level, culled: culled, shadowsOff: shadowsOff, under: e)
-                if level != lod.current { switches += 1 }
-                lod.current = level
-                lod.culled = culled
-                lod.shadowsOff = shadowsOff
-                e.components.set(lod)
-            }
+            guard e.isActive else { continue }
+            if Self.evaluate(e, viewer: viewer, forward: forward, perf: perf, adapt: adapt, bias: bias, reach: reach) == .switched { switches += 1 }
         }
         if cursor >= pending.count { pending.removeAll(keepingCapacity: true); cursor = 0 }
         RealPerformanceSystem.lodSwitchCounter += switches
@@ -110,16 +87,85 @@ public struct RealLODSystem: System {
 }
 
 extension RealLODSystem {
+    enum Outcome { case unchanged, updated, switched }
+
+    /// Picks the level, cull and shadow state of one LOD entity from the viewer position (world space).
+    @discardableResult
+    static func evaluate(_ e: Entity, viewer: SIMD3<Float>, forward: SIMD3<Float>? = nil, perf: RealPerformance, adapt: Float, bias: Float, reach: Float) -> Outcome {
+        guard var lod = e.components[RealLODComponent.self] else { return .unchanged }
+        let p = e.convert(position: lod.center, to: nil)
+        let d = simd_distance(p, viewer)
+        let culled = perf.hidden(distance: d, cullDistance: lod.cullDistance, groundCover: lod.groundCover, size: lod.size, adaptive: adapt)
+        // Switch distances scale with the bias; hysteresis works on the scaled distance.
+        let ed = d / bias
+        var level = lod.switchDistances.firstIndex(where: { ed < $0 }) ?? lod.switchDistances.count
+        // Hysteresis: only move to a coarser level once past the boundary by the margin.
+        if lod.current >= 0, level != lod.current {
+            let boundary = level > lod.current ? lod.switchDistances[lod.current] : lod.switchDistances[level]
+            if abs(ed - boundary) < boundary * lod.hysteresis { level = lod.current }
+        }
+        level = offViewLevel(level, lod: lod, ed: ed, forward: forward, toObject: p - viewer, perf: perf)
+        // Casters past 1.5x the shadow reach (plus their own size) cannot shade anything the cascade draws.
+        var shadowsOff = lod.shadowsOff
+        if reach > 0, lod.size.isFinite {
+            let edge = reach * 1.5 + lod.size
+            if d > edge { shadowsOff = true } else if d < edge * 0.9 { shadowsOff = false }
+        } else { shadowsOff = false }
+        guard level != lod.current || culled != lod.culled || shadowsOff != lod.shadowsOff else { return .unchanged }
+        apply(level: level, culled: culled, shadowsOff: shadowsOff, under: e)
+        // The first assignment (current -1) is not a switch.
+        let switched = lod.current >= 0 && level != lod.current
+        lod.current = level
+        lod.culled = culled
+        lod.shadowsOff = shadowsOff
+        e.components.set(lod)
+        return switched ? .switched : .updated
+    }
+
+    /// Off-view coarsening (see `RealPerformance.peripheralLOD`). Never raises a level past the shadow
+    /// caster limit, and never above the in-view level by more than the scaled distance gives.
+    static func offViewLevel(_ level: Int, lod: RealLODComponent, ed: Float, forward: SIMD3<Float>?, toObject v: SIMD3<Float>, perf: RealPerformance) -> Int {
+        guard let forward, perf.peripheralLOD else { return level }
+        let k = perf.peripheralScale(forward: forward, toObject: v)
+        guard k > 1 else { return level }
+        let far = lod.switchDistances.firstIndex(where: { ed * k < $0 }) ?? lod.switchDistances.count
+        let cap = max(level, min(perf.shadowCasterMaxLOD, lod.switchDistances.count))
+        return max(level, min(far, cap))
+    }
+
+    /// Sets LOD levels under `root` before it joins a scene, so the first rendered frame shows the right
+    /// levels and the system's first pass finds nothing to change. `root` must already have its final
+    /// transform relative to the scene origin; `viewer` is in that space (default `RealViewer.position`).
+    @MainActor public static func prime(_ root: Entity, viewer: SIMD3<Float>? = nil) {
+        let perf = RealPerformance.active, adapt = RealPerformance.adaptiveScale
+        if viewer == nil { RealViewer.refresh() }
+        let v = viewer ?? RealViewer.position
+        let bias = max(0.05, perf.lodBias * adapt), reach = RealPerformance.shadowReach
+        func walk(_ e: Entity) {
+            guard e.isEnabled else { return }
+            if e.components.has(RealLODComponent.self) { evaluate(e, viewer: v, forward: viewer == nil ? RealViewer.forward : nil, perf: perf, adapt: adapt, bias: bias, reach: reach) }
+            for c in e.children { walk(c) }
+        }
+        walk(root)
+    }
+}
+
+extension RealLODSystem {
     /// Enables `lod<level>` children of `e` and of its descendants (articulated parts, option groups),
     /// without crossing into entities that run their own LOD.
-    static func apply(level: Int, culled: Bool, shadowsOff: Bool = false, under e: Entity) {
+    /// An articulated root at rest past LOD0 shows its "rest" proxy and hides base and part meshes.
+    static func apply(level: Int, culled: Bool, shadowsOff: Bool = false, under e: Entity, hidden: Bool = false) {
+        var proxy: Bool? = nil
+        if let px = e.components[RealRestProxyComponent.self] { proxy = px.atRest && level >= px.minLevel }
         for c in e.children {
             if c.name.hasPrefix("lod"), let i = Int(c.name.dropFirst(3)) {
-                let on = !culled && i == level
+                let on = !culled && !hidden && proxy != true && i == level
                 if on { c.realSetBeyondShadowReach(shadowsOff) }
                 if c.isEnabled != on { c.isEnabled = on }
+            } else if let proxy, c.name == "rest" {
+                apply(level: level, culled: culled, shadowsOff: shadowsOff, under: c, hidden: hidden || !proxy)
             } else if !c.components.has(RealLODComponent.self) {
-                apply(level: level, culled: culled, shadowsOff: shadowsOff, under: c)
+                apply(level: level, culled: culled, shadowsOff: shadowsOff, under: c, hidden: hidden || proxy == true)
             }
         }
     }
@@ -137,12 +183,15 @@ public enum RealKitSetup {
         RealArticulationComponent.registerComponent()
         RealJointMovingComponent.registerComponent()
         RealJointIndex.registerComponent()
+        RealRestProxyComponent.registerComponent()
         RealArticulationSystem.registerSystem()
         RealRenderCostComponent.registerComponent()
         RealSunComponent.registerComponent()
         RealPerformanceSystem.registerSystem()
         RealStreamingComponent.registerComponent()
         RealStreamingSystem.registerSystem()
+        RealCellVisibilityComponent.registerComponent()
+        RealCellVisibilitySystem.registerSystem()
         RealCook.register()
     }
 }
@@ -176,7 +225,7 @@ public extension LODModel {
         let root = Entity()
         root.name = name
         for (i, m) in levels.enumerated() {
-            let e = try await m.modelEntityAsync(materials: materials)
+            let e = try await m.modelEntityAsync(materials: materials, lod: i)
             e.name = "lod\(i)"
             e.isEnabled = i == 0
             e.realTagCost(m.cost(lod: i, size: levels[0].boundsDiagonal, shadowEligible: castsShadow))
@@ -209,5 +258,19 @@ public extension Model {
     func cost(lod: Int, size: Float, instances: Int = 1, shadowEligible: Bool = true, lodShift: Int = 0) -> RealRenderCostComponent {
         RealRenderCostComponent(triangles: triangleCount, drawCalls: surfaces.filter { !$0.isEmpty }.count, instances: instances,
                                 size: size, lod: lod, shadowEligible: shadowEligible, lodShift: lodShift)
+    }
+}
+
+/// Cooperative pacing for long main-actor builds: `await pace()` suspends once `budget` seconds of main-thread
+/// work have run since the last suspension, so input, UI and CA commits get a turn between entities.
+@MainActor
+public struct RealLoadPacer {
+    public var budget: Double
+    private var last = CFAbsoluteTimeGetCurrent()
+    public init(budget: Double = 0.008) { self.budget = budget }
+    public mutating func pace() async {
+        guard CFAbsoluteTimeGetCurrent() - last >= budget else { return }
+        await Task.yield()
+        last = CFAbsoluteTimeGetCurrent()
     }
 }

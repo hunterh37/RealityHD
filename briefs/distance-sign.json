@@ -1,0 +1,37 @@
+{
+  "budget": 10000,
+  "id": "distance-sign",
+  "kind": "prop",
+  "materials": [
+    "wood.cedar-weathered",
+    "wood.barn-white",
+    "metal.galvanized"
+  ],
+  "name": "Range distance sign",
+  "notes": "",
+  "parts": [
+    "post",
+    "board",
+    "digits",
+    "post cap",
+    "bolts"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    1.4,
+    0.1
+  ],
+  "style": "club range yardage marker, white board with black block digits (public var yards, default 20) and a YD bar, weathered cedar post",
+  "summary": "Range distance marker: painted pine board with raised yardage digits on a cedar post, param yards.",
+  "tags": [
+    "prop",
+    "archery",
+    "outdoor",
+    "sign",
+    "wood"
+  ],
+  "theme": "Archery",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
