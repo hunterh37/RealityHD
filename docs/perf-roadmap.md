@@ -296,6 +296,10 @@ Items, in order. Each lists the measure that proves it and the sim bench that cl
    Close: fence < 250k with no silhouette change in `render --az` stills.
 9. B9 Oak LOD1. `oak-tree`/`tree` LOD1 22674 = 56 % of LOD0, `shrub` 51 %; the only assets over the 50 % rule.
    Close: LOD1 <= 45 % via `withAutoLevels`, forest-glade in-view tris drop.
+   Status: `Tree.cappedLOD1` thins and enlarges LOD1 leaf cards until LOD1 <= 45 % of LOD0. oak-tree/tree LOD1
+   22674 -> 17780 (44.5 %); shrub 2099 -> 1833 (45.1 %, wood floor). forest-glade in-view 1316k -> 1277k,
+   shadow 1093k -> 1034k (release `perf --budget`). Render diff vs before: 6.1 % of pixels differ by > 8/255
+   (foliage resampling at LOD1 range). Offline; sim validation pending.
 10. B10 Simplify cost. SimplifyTests.autoLevelsReduceFieldProps fails in debug (2204-8502 ms vs 2000 ms);
     release cost is 50-270 ms per asset at build. Close: cache simplified levels by asset+seed in the disk
     cache, scene build time A/B.
