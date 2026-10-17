@@ -65,7 +65,7 @@ enum CK {
 
     /// Greenhouse ring: flat bottom at `belt`, superellipse crown to `roof`, half width `wBelt` at the
     /// belt narrowing to `wTop` at the roof.
-    static func cabinRing(z: Float, belt: Float, roof: Float, wBelt: Float, wTop: Float, n: Float, points: Int, outset: Float = 0) -> [V3] {
+    static func cabinRing(z: Float, belt: Float, roof: Float, wBelt: Float, wTop: Float, n: Float, points: Int, outset: Float = 0, floor: Bool = true) -> [V3] {
         let H = max(0.006, roof - belt)
         var out: [V3] = []
         // Upper half from the right belt (theta 0) over the top to the left belt (pi), then the floor back.
@@ -77,7 +77,8 @@ enum CK {
             let w = wBelt + (wTop - wBelt) * (yy / H)
             out.append(V3((w + outset) * copysign(pow(abs(c), 2 / n), c), belt + yy + outset * sn, z))
         }
-        out.append(V3(-wBelt * 0.5, belt, z))
+        // `floor: false` returns the open glass arc only; pair it with an inset arc (reversed) for a thin shell.
+        if floor { out.append(V3(-wBelt * 0.5, belt, z)) }
         // Reverse so the winding matches `ring` (loft front to rear faces out).
         return Array(out.reversed())
     }

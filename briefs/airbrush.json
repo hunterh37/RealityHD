@@ -1,0 +1,41 @@
+{
+  "budget": 6000,
+  "id": "airbrush",
+  "kind": "prop",
+  "materials": [
+    "metal.chrome",
+    "metal.knurl-chrome",
+    "metal.brass",
+    "fabric.nylon",
+    "plastic.gloss"
+  ],
+  "name": "Gravity-feed airbrush",
+  "notes": "Lying on its side: depth includes cup height plus valve and hose drop.",
+  "parts": [
+    "13 mm chrome barrel body tapering to the nozzle",
+    "crowned needle cap and nozzle cap at the front",
+    "gravity color cup with rolled rim and push-on lid",
+    "dual-action trigger with finger pad",
+    "air valve stem below the trigger with hose fitting",
+    "handle with needle chucking nut and knurled end",
+    "braided air hose stub curling to the bench"
+  ],
+  "references": [],
+  "size": [
+    0.183,
+    0.025,
+    0.09
+  ],
+  "style": "Modern 0.3 mm gravity-feed airbrush, polished chrome, paint residue inside the cup and on the nozzle cap.",
+  "summary": "Gravity-feed dual-action airbrush set on its side: chrome body, lidded color cup, trigger, crown cap, braided hose stub.",
+  "tags": [
+    "prop",
+    "workshop",
+    "tool",
+    "handheld",
+    "metal"
+  ],
+  "theme": "LureShop",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

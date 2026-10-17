@@ -213,6 +213,7 @@ public extension LODModel {
             let b = levels[0].bounds
             root.components.set(RealLODComponent(switchDistances: switchDistances, center: (b.min + b.max) / 2, size: simd_length(b.max - b.min)))
         }
+        addAnchors(to: root)
         return root
     }
 }
@@ -234,7 +235,21 @@ public extension LODModel {
             let b = levels[0].bounds
             root.components.set(RealLODComponent(switchDistances: switchDistances, center: (b.min + b.max) / 2, size: simd_length(b.max - b.min)))
         }
+        addAnchors(to: root)
         return root
+    }
+}
+
+public extension LODModel {
+    /// One empty child entity per `anchors` entry, named "anchor:<name>" (find with `findEntity(named:)`).
+    @MainActor
+    func addAnchors(to root: Entity) {
+        for (name, x) in anchors.sorted(by: { $0.key < $1.key }) {
+            let e = Entity()
+            e.name = "anchor:\(name)"
+            e.transform = Transform(scale: x.scale, rotation: x.rotation, translation: x.translation)
+            root.addChild(e)
+        }
     }
 }
 

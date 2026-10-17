@@ -1,0 +1,22 @@
+{
+  "automated" : 0.99998593,
+  "date" : "2026-10-11",
+  "final" : 0.8594326,
+  "fingerprint" : "f30665948bc5860d",
+  "id" : "saturn-s1c",
+  "iterations" : 4,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 7,
+    "construction" : 9,
+    "edges" : 7,
+    "grounding" : 8,
+    "materials" : 7,
+    "proportion" : 9,
+    "silhouette" : 9,
+    "wear" : 6
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.78375
+}

@@ -1,0 +1,35 @@
+{
+  "budget": 2400,
+  "id": "cutting-mat",
+  "kind": "prop",
+  "materials": [
+    "plastic.matte",
+    "plastic.gloss"
+  ],
+  "name": "Self-healing cutting mat",
+  "notes": "",
+  "parts": [
+    "3 mm green PVC slab with rounded corners",
+    "1 cm printed grid",
+    "5 cm major grid lines",
+    "edge ruler ticks",
+    "45 degree angle lines",
+    "knife scores and paint spots"
+  ],
+  "references": [],
+  "size": [
+    0.45,
+    0.003,
+    0.3
+  ],
+  "style": "Used craft mat, green with pale yellow print, scored near the centre and a few paint spots.",
+  "summary": "Green self-healing cutting mat, 45 x 30 cm: printed 1 cm grid, 5 cm major lines, edge rulers, angle lines, knife scores.",
+  "tags": [
+    "prop",
+    "workshop",
+    "plastic"
+  ],
+  "theme": "LureShop",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

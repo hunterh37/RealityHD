@@ -1,0 +1,32 @@
+{
+  "budget": 6000,
+  "id": "saturn-iu",
+  "kind": "prop",
+  "materials": [
+    "metal.powder-white",
+    "metal.aluminum-brushed"
+  ],
+  "name": "Saturn V instrument unit",
+  "notes": "Vision Spacecraft. 1:1 metres.",
+  "parts": [
+    "ring",
+    "umbilical plate"
+  ],
+  "references": [],
+  "size": [
+    6.66,
+    0.91,
+    6.66
+  ],
+  "style": "photoreal 1967-1973 Apollo flight hardware, clean painted finish, slight launch-pad grime",
+  "summary": "Saturn V instrument unit ring, 6.6 m x 0.91 m, white honeycomb skin with umbilical door.",
+  "tags": [
+    "prop",
+    "vehicle",
+    "metal",
+    "outdoor"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -43,6 +43,8 @@ public enum SceneCatalog {
                 CityBlock.self,
                 LinemanYard.self,
                 LinemanDistrict.self,
+                RoadsterEvent.self,
+                MountainDownhillRoad.self,
                 AerospaceRange.self,
                 AerospaceHangar.self,
                 SiphonCafe.self,

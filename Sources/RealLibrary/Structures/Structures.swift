@@ -76,6 +76,8 @@ public enum Structures {
         WaterTower.self,
         DormerWindow.self,
         BucketTruck.self,
+        MountainRoadTile.self,
+        EventFloor.self,
         Hangar.self,
         InteriorDoor.self,
         FrontDoor.self,

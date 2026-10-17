@@ -1,0 +1,44 @@
+{
+  "budget": 10000,
+  "id": "longboard",
+  "kind": "prop",
+  "materials": [
+    "plastic.black",
+    "metal.anodized-black",
+    "metal.aluminum-brushed",
+    "metal.steel",
+    "plastic.orange",
+    "rubber.silicone-gray",
+    "metal.screw-zinc",
+    "plastic.cordless-stipple",
+    "composite.carbon",
+    "wood.plywood-edge",
+    "metal.chrome"
+  ],
+  "name": "Downhill longboard",
+  "notes": "Dimensions per Landyachtz Evo 38 / Loaded Tarab class drop-through boards: 100 cm, 24.5 cm, ~70 cm wheelbase. Threshold 0.82: grazing-sun gloss on grip and painted plate limit the materials score.",
+  "parts": [
+    "deck 1000x245x10 mm with drop-through cutouts and concave",
+    "black griptape top",
+    "reverse kingpin trucks (hanger, baseplate, kingpin, axle)",
+    "four 75 mm 80A orange wheels",
+    "bearings and hubs",
+    "bushings and washers",
+    "mounting bolts and nuts",
+    "riser pads"
+  ],
+  "references": [],
+  "size": [
+    1.0,
+    0.127,
+    0.266
+  ],
+  "style": "Race-ready downhill board, lightly used, matte carbon underside, anodized trucks, fresh orange wheels with slight flat-spot wear.",
+  "summary": "Downhill speedboard, 1:1: 100 cm drop-through maple/carbon deck with black griptape, two reverse-kingpin aluminum trucks, four 75 mm orange urethane wheels, bearings, bushings.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "Sports",
+  "threshold": 0.82,
+  "tolerance": 0.08
+}

@@ -17,6 +17,8 @@ public enum AssetTag {
         "container", "furniture", "light", "sign", "barrier", "fence", "wall", "vehicle", "tool", "food", "decor",
         // RealityHD 3
         "leather", "workshop", "travel", "antique",
+        // camera bodies and lenses
+        "camera",
         // RealityHD 4
         "door", "window", "electronics", "book", "building", "articulated",
         // RealityHD 5: hospital interiors; `handheld` assets are grabbable by default

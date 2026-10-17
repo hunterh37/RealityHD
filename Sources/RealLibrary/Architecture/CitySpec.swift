@@ -123,9 +123,10 @@ public struct CityLayout: Sendable {
                 m.box(V3(rc.min.x, 0, rc.min.y), V3(s, 0, 0), V3(0, 0.15, 0), V3(0, 0, s), cell == .plaza ? "paver.herringbone" : "paving.slab")
                 // Curb on road edges.
                 for (dc, dr) in [(0, -1), (0, 1), (-1, 0), (1, 0)] where spec[c + dc, r + dr] == .road {
-                    let w: Float = 0.18
-                    let o: V3 = dr != 0 ? V3(rc.min.x, 0, dr < 0 ? rc.min.y : rc.max.y - w) : V3(dc < 0 ? rc.min.x : rc.max.x - w, 0, rc.min.y)
-                    m.box(o - V3(0, 0.02, 0), dr != 0 ? V3(s, 0, 0) : V3(w, 0, 0), V3(0, 0.18, 0), dr != 0 ? V3(0, 0, w) : V3(0, 0, s), "stone.cast-grey")
+                    // Curb stands proud of the slab and overhangs the road so no face is coplanar with the slab walls or top.
+                    let w: Float = 0.18, out: Float = 0.012, lip: Float = 0.015
+                    let o: V3 = dr != 0 ? V3(rc.min.x, 0, dr < 0 ? rc.min.y - out : rc.max.y - w) : V3(dc < 0 ? rc.min.x - out : rc.max.x - w, 0, rc.min.y)
+                    m.box(o, dr != 0 ? V3(s, 0, 0) : V3(w + out, 0, 0), V3(0, 0.15 + lip, 0), dr != 0 ? V3(0, 0, w + out) : V3(0, 0, s), "stone.cast-grey")
                 }
             case .park: m.box(V3(rc.min.x, 0, rc.min.y), V3(s, 0, 0), V3(0, 0.12, 0), V3(0, 0, s), "ground.meadow")
             case .lot: top(0.02, "paving.slab:B9B4AA")

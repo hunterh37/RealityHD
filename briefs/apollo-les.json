@@ -1,0 +1,35 @@
+{
+  "budget": 6000,
+  "id": "apollo-les",
+  "kind": "prop",
+  "materials": [
+    "metal.painted:B23A1E",
+    "metal.powder-white",
+    "metal.painted:141414"
+  ],
+  "name": "Apollo launch escape system",
+  "notes": "Vision Spacecraft. 1:1 metres.",
+  "parts": [
+    "truss tower",
+    "escape motor",
+    "canard section",
+    "Q-ball nose"
+  ],
+  "references": [],
+  "size": [
+    1.26,
+    9.2,
+    1.14
+  ],
+  "style": "photoreal 1967-1973 Apollo flight hardware, clean painted finish, slight launch-pad grime",
+  "summary": "Apollo launch escape tower: orange-red truss, escape motor with four nozzles, pitch motor, canards and Q-ball nose.",
+  "tags": [
+    "prop",
+    "vehicle",
+    "metal",
+    "outdoor"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

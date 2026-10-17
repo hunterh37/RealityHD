@@ -1,0 +1,35 @@
+{
+  "budget": 8000,
+  "id": "apollo-csm",
+  "kind": "prop",
+  "materials": [
+    "metal.aluminum-brushed",
+    "metal.powder-white"
+  ],
+  "name": "Apollo command and service module",
+  "notes": "Vision Spacecraft. 1:1 metres.",
+  "parts": [
+    "service module barrel",
+    "RCS quads",
+    "radiator panels",
+    "command module cone",
+    "boost protective cover"
+  ],
+  "references": [],
+  "size": [
+    4.54,
+    7.2,
+    4.54
+  ],
+  "style": "photoreal 1967-1973 Apollo flight hardware, clean painted finish, slight launch-pad grime",
+  "summary": "Apollo CSM, 3.9 m: silver service module with four RCS quads and radiators under a white boost protective cover over the command module cone.",
+  "tags": [
+    "prop",
+    "vehicle",
+    "metal",
+    "outdoor"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
