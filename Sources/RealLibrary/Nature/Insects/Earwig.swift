@@ -5,7 +5,7 @@ import Foundation
 /// short elytra exposing ten abdominal segments, curved forceps (cerci), pale yellow-brown legs, beaded antennae.
 public struct Earwig: RealArticulated {
     public static let id = "insect-earwig"
-    public static let summary = "Common earwig, 14 mm: flat chestnut body, short elytra over 10 abdominal segments, curved forceps, pale legs, beaded antennae; articulated legs, antennae, abdomen."
+    public static let summary = "Common earwig, 14 mm: flat chestnut body, short elytra, curved forceps, beaded antennae; articulated."
     public static let tags = ["nature", "insect", "crawling", "articulated"]
     public static let budget = 16_000
     public static let preview = PreviewHint(azimuth: 35, elevation: 45, distance: 0.55, ground: false, studio: true)

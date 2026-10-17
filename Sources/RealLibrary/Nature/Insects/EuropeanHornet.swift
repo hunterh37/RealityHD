@@ -5,7 +5,7 @@ import Foundation
 /// petiole waist, yellow abdomen with dark saddle marks, amber fore wings folded over the abdomen.
 public struct EuropeanHornet: RealArticulated {
     public static let id = "insect-european-hornet"
-    public static let summary = "European hornet worker, 25 mm: chestnut thorax, yellow face, petiole waist, yellow abdomen with dark saddles, folded amber wings; articulated wings, legs, antennae."
+    public static let summary = "European hornet worker, 25 mm: chestnut thorax, petiole waist, yellow-saddled abdomen, amber wings; articulated."
     public static let tags = ["nature", "insect", "flying", "articulated"]
     public static let budget = 15_000
     public static let preview = PreviewHint(azimuth: 40, elevation: 28, distance: 1.0, ground: false, studio: true)

@@ -5,7 +5,7 @@ import Foundation
 /// glossy black disc, bare glossy black abdomen, smoky blue-violet wings, short stout antennae.
 public struct CarpenterBee: RealArticulated {
     public static let id = "insect-carpenter-bee"
-    public static let summary = "Eastern carpenter bee, 2.2 cm: stout, yellow furred thorax with bare black disc, glossy bare black abdomen, smoky blue-violet wings, short stout antennae; articulated wings, legs, antennae."
+    public static let summary = "Eastern carpenter bee, 2.2 cm: yellow furred thorax, bare glossy black abdomen, smoky violet wings; articulated."
     public static let tags = ["nature", "insect", "flying", "articulated"]
     public static let budget = 14_000
     public static let preview = PreviewHint(azimuth: 40, elevation: 28, distance: 1.0, ground: false, studio: true)

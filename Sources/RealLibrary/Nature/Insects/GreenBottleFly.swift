@@ -5,7 +5,7 @@ import Foundation
 /// large red-brown eyes, two clear veined wings, small halteres, stout dark legs.
 public struct GreenBottleFly: RealArticulated {
     public static let id = "insect-green-bottle-fly"
-    public static let summary = "Green bottle fly (Lucilia sericata), 1.0 cm: metallic green-bronze body, large red-brown eyes, black bristles on thorax and abdomen, two clear veined wings, halteres, stout legs; articulated wings, legs, antennae."
+    public static let summary = "Green bottle fly, 1 cm: metallic green-bronze body, red-brown eyes, bristles, two clear wings; articulated."
     public static let tags = ["nature", "insect", "flying", "articulated"]
     public static let budget = 14_000
     public static let preview = PreviewHint(azimuth: 40, elevation: 28, distance: 0.5, ground: false, studio: true)

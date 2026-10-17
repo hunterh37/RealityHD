@@ -5,7 +5,7 @@ import Foundation
 /// eyes, furry olive-brown thorax, brown-orange banded abdomen with a dark mid-stripe, short aristate antennae.
 public struct HoverFly: RealArticulated {
     public static let id = "insect-hover-fly"
-    public static let summary = "Drone fly (Eristalis tenax), 1.3 cm: two clear wings only with small halteres, large red-brown eyes, furry thorax, brown-orange banded abdomen with dark mid-stripe, short antennae with arista; articulated wings, legs, antennae."
+    public static let summary = "Drone fly, 1.3 cm: two clear wings and halteres, red-brown eyes, furry thorax, banded abdomen; articulated."
     public static let tags = ["nature", "insect", "flying", "articulated"]
     public static let budget = 14_000
     public static let preview = PreviewHint(azimuth: 40, elevation: 28, distance: 0.6, ground: false, studio: true)

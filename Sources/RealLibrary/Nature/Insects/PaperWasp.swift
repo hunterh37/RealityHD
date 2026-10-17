@@ -5,7 +5,7 @@ import Foundation
 /// long petiole, yellow thorax dots, orange face and antenna tips, trailing hind legs, smoky amber wings folded lengthwise.
 public struct PaperWasp: RealArticulated {
     public static let id = "insect-paper-wasp"
-    public static let summary = "European paper wasp, 15 mm: slender black body, yellow abdominal bands, long petiole, orange antenna tips, trailing hind legs, folded smoky amber wings; articulated wings, legs, antennae."
+    public static let summary = "European paper wasp, 15 mm: slender black-and-yellow body, long petiole, folded amber wings; articulated."
     public static let tags = ["nature", "insect", "flying", "articulated"]
     public static let budget = 15_000
     public static let preview = PreviewHint(azimuth: 40, elevation: 28, distance: 1.0, ground: false, studio: true)
