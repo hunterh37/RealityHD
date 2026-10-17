@@ -288,6 +288,26 @@ Items, in order. Each lists the measure that proves it and the sim bench that cl
    < 1.5M in-view, thumbnail diff under 0.1 %, sim walk 0 frames > 22 ms.
 5. B5 mulberry-river and lakeside-camp breakdown. Both over phase 3 with no breakdown recorded. First step
    is `perf --breakdown`; item splits once the top field is known.
+   Status (release `perf --breakdown`, offline; sim validation pending):
+   - mulberry-river 857 draws: fields 742 draws / 1515k tris, statics 104 / 523k, rigs 11 / 5k. Top fields:
+     oak x269 346k (224 draws), shortleaf-pine x230 306k (198d), sycamore x112 228k (180d), limestone-algae
+     rock x70 212k (8d), river-cane x346 172k (16d), ozark-limestone x70 88k.
+   - lakeside-camp 330 draws: fields 257 / 2050k tris, statics 73 / 174k. Top fields: scots-pine x55 794k (69d),
+     grass.tall x4701 497k (19d), spruce x60 312k (42d), birch x30 221k (26d).
+   Follow-up items:
+   - B5a lakeside-camp scots-pine LOD0/1 weight: 794k of 2225k from 55 trees (14.4k tris each in view). Add a
+     pine LOD1 cap like B9 (LOD1 15774 = 47 % of LOD0) and check scots-pine lod distances. Close: lakeside-camp
+     in-view < 1.5M.
+   - B5b lakeside-camp grass.tall x4701 = 497k: density by distance, shares the B4 mechanism. Close: in-view
+     tris of the field halved with thumbnail diff < 0.1 %.
+   - B5c mulberry-river tree fields (oak, shortleaf, sycamore, river-birch) are 784 of 857 draws: 640 draws
+     from 4 species because each LOD level splits into per-material parts. Merge bark+leaf parts per level
+     or cut LOD3 draws. Close: mulberry-river < 500 draws (phase 2).
+   - B5d mulberry-river rocks (limestone-algae x70 212k with 13872 LOD0 tris, ozark-limestone x70 88k): LOD1
+     is 19 % of LOD0 already, so the in-view cost is LOD0 near the camera; shorten rock switch distances or
+     cull. Close: rock fields < 150k in-view.
+   - B5e mulberry-river statics 523k tris / 104 draws: list top statics with `--breakdown` statics lines
+     (not printed now) and decide on LOD. Close: statics < 300k.
 6. B6 Hospital rig draws. Rigs are 818 of 876 draws; crash-cart at LOD0 is 113. Proof: `--breakdown` rigs.
    Close: < 500 draws, part hover still works at LOD0 (ArticulationTests).
 7. B7 Hover past LOD0 under rest proxy. Open bug from phase 2: hovering a part while the proxy shows
