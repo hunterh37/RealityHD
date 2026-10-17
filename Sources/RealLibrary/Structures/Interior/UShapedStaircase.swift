@@ -4,7 +4,7 @@ import Foundation
 /// U-shaped staircase with a half landing, 2.1 x 3.0 x 3.6 m footprint and rise. Eleven risers climb 2.06 m along
 /// -Z beside a 0.1 m stair well, a 2.1 x 1.0 m oak landing turns the run, and five more climb back along +Z
 /// (16 risers of 187.5 mm in all). Wall skirts on the outer sides, cut stringers, balusters and an oak handrail
-/// on the well side, corner newel carried to the floor. Origin bottom-front center.
+/// on the well side, corner newel carried to the floor. Origin bottom center.
 public struct UShapedStaircase: RealAsset {
     public static let id = "u-shaped-staircase"
     public static let summary = "U-shaped staircase, 16 risers, 3.0 m rise, half landing: oak treads and landing, painted risers, wall and cut stringers, balusters, handrail."
@@ -50,6 +50,6 @@ public struct UShapedStaircase: RealAsset {
     }
 
     public func build(seed: UInt64) -> LODModel {
-        LODModel(levels: [model(lod: 0, seed: seed), model(lod: 1, seed: seed)], switchDistances: [8])
+        LODModel(levels: [model(lod: 0, seed: seed).centeredXZ(), model(lod: 1, seed: seed).centeredXZ()], switchDistances: [8])
     }
 }
