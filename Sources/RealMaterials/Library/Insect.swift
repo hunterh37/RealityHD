@@ -43,6 +43,7 @@ public extension MaterialLibrary {
             chitin("insect.chitin-earwig", 0x5A2A12, 0x7A4020, pits: 5, shift: 0.3, rough: 0.14, coat: 0.9, seed: 1137),
             chitin("insect.chitin-metallic", 0x2AA040, 0xC8A830, pits: 36, shift: 0.7, rough: 0.2, metal: 0.85, coat: 0.3, seed: 1104),
             chitin("insect.chitin-soft", 0x7FA845, 0x5E8A34, pits: 12, shift: 0.3, rough: 0.48, coat: 0.2, seed: 1105),
+            chitin("insect.chitin-shield", 0x4C9E30, 0x8A7A30, pits: 16, shift: 0.55, rough: 0.5, coat: 0.12, seed: 1138),
             MaterialSpec(key: "insect.fur", program: .insectFur).with {
                 $0.colorA = linear(0xE8B830); $0.colorB = linear(0x4A3410); $0.knobs = V4(64, 0.35, 0.78, 0)
                 $0.seed = 1110; $0.tileSize = 0.004; $0.resolution = 512; $0.normalStrength = 1.4; $0.roughness = 0.78
