@@ -119,7 +119,7 @@ S compoundEye(float2 uv, constant RFParams &P) {
 // f.z aspect (chord / span for elytra spot shapes). colorA ground, colorB pattern, colorC accent.
 // Patterns: 0 monarch fore, 1 monarch hind, 2 tiger swallowtail fore, 3 hind, 4 blue morpho fore,
 // 5 hind, 6 luna fore, 7 luna hind, 8 katydid tegmen, 9 grasshopper tegmen, 10 seven-spot ladybird
-// elytron, 11 firefly elytron, 12 jewel beetle elytron, 13 cricket tegmen, 14 goliath beetle elytron.
+// elytron, 11 firefly elytron, 12 jewel beetle elytron, 13 cricket tegmen, 14 goliath beetle elytron, 15 goliath pronotum.
 S insectWing(float2 uv, constant RFParams &P) {
     S s = defaults(); uint sd = P.seed;
     int pat = int(P.f.x + 0.5); int oid = int(P.f.y + 0.5);
@@ -284,6 +284,28 @@ S insectWing(float2 uv, constant RFParams &P) {
         c = mix(milk, P.colorB.rgb, max(lv * 0.9, net));
         c = mix(c, P.colorC.rgb, max(fl * 0.8, rim * 0.75));
         h = 0.5 + lv * 0.1 + net * 0.04; rough = 0.55;
+    } else if (pat == 15) {
+        // Goliath pronotum (u 0..1 across the shield, v 0 rear, 1 front): creamy white with five black
+        // longitudinal stripes tapering at both ends, black lateral bands and a dark rear margin.
+        float3 milk = P.colorA.rgb * (0.95 + 0.08 * mott);
+        float du = p.x - 0.5;
+        float taper = sqrt(max(0.0, sin(3.14159 * clamp((p.y - 0.04) / 0.92, 0.0, 1.0))));
+        float wob = 0.004 * gnoise(float2(p.x * 5.0, p.y * 7.0), int2(5, 7), sd + 3u);
+        float st = 0.0;
+        float offs[5] = {0.0, 0.10, -0.10, 0.215, -0.215};
+        float wid[5] = {0.020, 0.014, 0.014, 0.016, 0.016};
+        for (int i = 0; i < 5; i++) {
+            float w = wid[i] * (0.25 + 0.75 * taper);
+            st = max(st, 1.0 - smoothstep(w, w + 0.007, abs(du - offs[i] + wob)));
+        }
+        float lat = smoothstep(0.37, 0.40, abs(du));
+        float rear = 1.0 - smoothstep(0.02, 0.05, p.y);
+        float front = smoothstep(0.96, 0.99, p.y);
+        float blk = max(max(st, lat), max(rear * 0.8, front * 0.5));
+        float fl = smoothstep(0.55, 0.7, fbm(uv, int2(12, 12), 3, sd + 9u));
+        c = mix(milk, P.colorC.rgb, fl * 0.35);
+        c = mix(c, P.colorB.rgb, blk);
+        h = 0.5 + (1.0 - blk) * 0.03; rough = mix(0.5, 0.35, blk);
     } else if (pat == 10) {
         // Seven-spot ladybird elytron (u 0 at the suture, 1 at the outer edge; v 0 rear, 1 front):
         // three black spots plus half the scutellar spot, glossy red.
