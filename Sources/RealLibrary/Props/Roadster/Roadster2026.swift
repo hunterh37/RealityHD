@@ -7,7 +7,7 @@ import Foundation
 public struct Roadster2026: RealArticulated {
     public static let id = "roadster-2026"
     public static let summary = "Roadster 2026 at 1:1: silver-white wedge coupe, tinted glass, red tail bar, wheel-fl/fr/rl/rr and thruster-fl/fr/rl/rr parts."
-    public static let tags = ["vehicle", "articulated"]
+    public static let tags = ["prop", "vehicle", "articulated"]
     public static let budget = 30000
     public static let author = "realityhd"
 
