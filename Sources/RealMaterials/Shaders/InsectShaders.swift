@@ -119,7 +119,7 @@ S compoundEye(float2 uv, constant RFParams &P) {
 // f.z aspect (chord / span for elytra spot shapes). colorA ground, colorB pattern, colorC accent.
 // Patterns: 0 monarch fore, 1 monarch hind, 2 tiger swallowtail fore, 3 hind, 4 blue morpho fore,
 // 5 hind, 6 luna fore, 7 luna hind, 8 katydid tegmen, 9 grasshopper tegmen, 10 seven-spot ladybird
-// elytron, 11 firefly elytron, 12 jewel beetle elytron, 13 cricket tegmen.
+// elytron, 11 firefly elytron, 12 jewel beetle elytron, 13 cricket tegmen, 14 goliath beetle elytron.
 S insectWing(float2 uv, constant RFParams &P) {
     S s = defaults(); uint sd = P.seed;
     int pat = int(P.f.x + 0.5); int oid = int(P.f.y + 0.5);
@@ -270,6 +270,20 @@ S insectWing(float2 uv, constant RFParams &P) {
         }
         float edge = 1.0 - smoothstep(0.0, 0.03, m);
         c = mix(c, c * 0.7, edge);
+    } else if (pat == 14) {
+        // Goliath beetle elytron (u 0 suture, 1 outer edge; v 0 rear, 1 front): milky white with
+        // brown longitudinal veins, a fine cross net, brown mottling and a darker rim.
+        float3 milk = P.colorA.rgb * (0.94 + 0.1 * mott);
+        float wob = 0.012 * gnoise(float2(p.x * 3.0, p.y * 9.0), int2(4, 9), sd + 3u);
+        float lu = abs(fract((p.x + wob) * 7.0 + 0.5) - 0.5) / 7.0;
+        float lv = 1.0 - smoothstep(0.004, 0.009, lu);
+        float4 w = worley(uv, int2(14, 30), sd + 5u, 0.8);
+        float net = (1.0 - smoothstep(0.0, 0.06, w.y - w.x)) * 0.7;
+        float fl = smoothstep(0.50, 0.66, fbm(uv, int2(10, 10), 3, sd + 9u));
+        float rim = max(1.0 - smoothstep(0.0, 0.05, p.x), max(smoothstep(0.93, 1.0, p.x), 1.0 - smoothstep(0.0, 0.06, p.y)));
+        c = mix(milk, P.colorB.rgb, max(lv * 0.9, net));
+        c = mix(c, P.colorC.rgb, max(fl * 0.8, rim * 0.75));
+        h = 0.5 + lv * 0.1 + net * 0.04; rough = 0.55;
     } else if (pat == 10) {
         // Seven-spot ladybird elytron (u 0 at the suture, 1 at the outer edge; v 0 rear, 1 front):
         // three black spots plus half the scutellar spot, glossy red.
