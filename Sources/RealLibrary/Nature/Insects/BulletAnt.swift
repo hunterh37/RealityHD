@@ -13,8 +13,8 @@ public struct BulletAnt: RealArticulated {
     public func rig(seed: UInt64) -> Rig {
         var p = InsectPlan(name: Self.id)
         let y: Float = 0.0082
-        let c: MaterialKey = "insect.chitin:3A1608"      // red-brown black mesosoma
-        let h: MaterialKey = "insect.chitin:4A1A0A"
+        let c: MaterialKey = "insect.chitin-chestnut:4A1A0A"      // red-brown black mesosoma
+        let h: MaterialKey = "insect.chitin-chestnut:5A2210"
         let g: MaterialKey = "insect.chitin:1E0C08"      // darker gaster
         p.height = y + 0.005
         p.bodyPivot = V3(0, y, 0.0035)
@@ -33,7 +33,7 @@ public struct BulletAnt: RealArticulated {
             .init(attach: V3(0.0012, y - 0.0010, z), side: 1, yaw: yaw, coxa: 0.0016, femur: f, tibia: t, tarsus: ta, lift: 40, radius: 0.00078, bulge: 1.45)
         }
         p.legs = [leg(0.0060, 50, 0.0072, 0.0074, 0.0050), leg(0.0015, 0, 0.0076, 0.0078, 0.0054), leg(-0.0025, -50, 0.0088, 0.0092, 0.0060)]
-        p.legMat = "insect.chitin:2E1208"; p.antennaMat = "insect.chitin:3A1608"
+        p.legMat = "insect.chitin-matte:3A1A0E"; p.antennaMat = "insect.chitin-matte:4A200E"
         p.antenna = .init(base: V3(0.0007, y + 0.0020, 0.0118), dir: V3(0.35, 0.6, 0.7), length: 0.0095, radius: 0.00042, curve: 0.3, elbow: 1.35, club: 0.3)
         p.extra = { rig, d, L in
             for side: Float in [1, -1] {
