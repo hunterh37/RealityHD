@@ -306,6 +306,8 @@ Items, in order. Each lists the measure that proves it and the sim bench that cl
    - B5d mulberry-river rocks (limestone-algae x70 212k with 13872 LOD0 tris, ozark-limestone x70 88k): LOD1
      is 19 % of LOD0 already, so the in-view cost is LOD0 near the camera; shorten rock switch distances or
      cull. Close: rock fields < 150k in-view.
+     Status: Boulder lodDistances [10,30] -> [6,20] on both fields: limestone-algae 212k -> 58k, ozark-limestone 88k -> 58k;
+     render diff 0.002 % (offline; sim validation pending).
    - B5e mulberry-river statics 523k tris / 104 draws: list top statics with `--breakdown` statics lines
      (not printed now) and decide on LOD. Close: statics < 300k.
 6. B6 Hospital rig draws. Rigs are 818 of 876 draws; crash-cart at LOD0 is 113. Proof: `--breakdown` rigs.
