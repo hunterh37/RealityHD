@@ -43,6 +43,7 @@ public enum SceneCatalog {
                 CityBlock.self,
                 LinemanYard.self,
                 LinemanDistrict.self,
+                MountainDownhillRoad.self,
                 // realityhd:scene
     ]
 

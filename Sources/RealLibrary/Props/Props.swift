@@ -504,6 +504,7 @@ public enum Props {
         TurnArrowMarking.self,
         UtilityVaultLid.self,
         ZebraCrosswalk.self,
+        Longboard.self,
         // realityhd:prop
     ]
 }

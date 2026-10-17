@@ -76,6 +76,7 @@ public enum Structures {
         WaterTower.self,
         DormerWindow.self,
         BucketTruck.self,
+        MountainRoadTile.self,
         // realityhd:structure
     ]
 }
