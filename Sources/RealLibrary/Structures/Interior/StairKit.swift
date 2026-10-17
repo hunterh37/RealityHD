@@ -246,3 +246,11 @@ struct StairLanding {
         return m
     }
 }
+
+extension Model {
+    /// Slides the model so its bounds are centered on X/Z (Y unchanged).
+    func centeredXZ() -> Model {
+        let b = bounds, c = (b.min + b.max) / 2
+        return transformed(Xform(translation: V3(-c.x, 0, -c.z)))
+    }
+}

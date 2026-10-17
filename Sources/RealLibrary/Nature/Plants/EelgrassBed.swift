@@ -50,6 +50,6 @@ public struct EelgrassBed: RealAsset {
             m0.add(s0); m1.add(s1)
         }
         PlantKit.finish(&m0); PlantKit.finish(&m1)
-        return LODModel(levels: [m0, m1], switchDistances: [12])
+        return LODModel(levels: [m0.centeredXZ(), m1.centeredXZ()], switchDistances: [12])
     }
 }

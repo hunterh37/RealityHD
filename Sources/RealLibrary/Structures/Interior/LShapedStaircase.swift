@@ -5,7 +5,7 @@ import Foundation
 /// -Z to a square oak landing; six more turn right along +X to the upper floor (16 risers of 187.5 mm in all, wall
 /// stringers on the outer sides, cut stringers, balusters and an oak handrail on the inside of the turn, a corner
 /// newel carried to the floor). The 0.8 m flight width is what the 16 treads of 0.25 m or more allow in this
-/// footprint. Origin bottom-front center.
+/// footprint. Origin bottom center.
 public struct LShapedStaircase: RealAsset {
     public static let id = "l-shaped-staircase"
     public static let summary = "L-shaped staircase, 16 risers, 3.0 m rise, quarter landing: oak treads and landing, painted risers, wall and cut stringers, balusters, handrail."
@@ -56,6 +56,6 @@ public struct LShapedStaircase: RealAsset {
     }
 
     public func build(seed: UInt64) -> LODModel {
-        LODModel(levels: [model(lod: 0, seed: seed), model(lod: 1, seed: seed)], switchDistances: [8])
+        LODModel(levels: [model(lod: 0, seed: seed).centeredXZ(), model(lod: 1, seed: seed).centeredXZ()], switchDistances: [8])
     }
 }
