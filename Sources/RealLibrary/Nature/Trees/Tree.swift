@@ -18,6 +18,21 @@ public struct Tree: RealAsset {
 
     public func build(seed: UInt64) -> LODModel {
         let g = TreeGenerator(species: species, seed: seed)
-        return LODModel(levels: [g.model(.lod0), g.model(.lod1), g.model(.lod2), g.model(.lod3)], switchDistances: Tree.fourLevel(lodDistances))
+        let l0 = g.model(.lod0)
+        return LODModel(levels: [l0, Tree.cappedLOD1(g, lod0: l0.triangleCount), g.model(.lod2), g.model(.lod3)],
+                        switchDistances: Tree.fourLevel(lodDistances))
+    }
+
+    /// LOD1 stays at or under 45 % of LOD0. Over that, leaf cards are thinned and enlarged to hold crown density.
+    static let lod1Cap: Float = 0.45
+    static func cappedLOD1(_ g: TreeGenerator, lod0: Int) -> Model {
+        var s = TreeGenerator.LODSettings.lod1
+        var m = g.model(s)
+        for _ in 0..<8 where Float(m.triangleCount) > lod1Cap * Float(lod0) && lod0 > 0 {
+            let k = max(0.5, lod1Cap * 0.97 * Float(lod0) / Float(m.triangleCount))
+            s.leafFraction *= k; s.leafScale /= k.squareRoot()
+            m = g.model(s)
+        }
+        return m
     }
 }
