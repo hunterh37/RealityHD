@@ -5,3 +5,5 @@ B7 | perf-b7 | https://github.com/hunterh37/RealityHD/pull/96 | hoverSwapsRestPr
 B4 | perf-b4 | https://github.com/hunterh37/RealityHD/pull/97 | dropped offline: alpine in-view 2734k->1977k, diff 2.47% (need <1.5M, <0.1%) | none
 B5b | perf-b5b | https://github.com/hunterh37/RealityHD/pull/100 | dropped offline: grass.tall 497k->141k (-72%), diff 10.8% (need halved, <0.1%) | none
 B5a | perf-b5a | https://github.com/hunterh37/RealityHD/pull/99 | in-view 2225k->2183k, shadow 2122k->2068k, draws 330 | sim bench lakeside-camp
+B5c | perf-b5c | PRURL | dropped: cellSize 48 gave 857->671 draws, tris over budget | none
+B5c | perf-b5c | https://github.com/hunterh37/RealityHD/pull/101 | dropped: cellSize 48 gave 857->671 draws, tris over budget | none

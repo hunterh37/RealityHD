@@ -317,6 +317,10 @@ Items, in order. Each lists the measure that proves it and the sim bench that cl
    - B5c mulberry-river tree fields (oak, shortleaf, sycamore, river-birch) are 784 of 857 draws: 640 draws
      from 4 species because each LOD level splits into per-material parts. Merge bark+leaf parts per level
      or cut LOD3 draws. Close: mulberry-river < 500 draws (phase 2).
+     Status (offline; sim validation pending): DROPPED. Surfaces of one level carry different materials (bark,
+     leaf, autumn leaf), so they cannot merge into one draw. Tried tree cellSize 24 -> 48 in MulberryVegetation:
+     draws 857 -> 671 (still > 500), tris 2044k -> 2184k (over the 2147k budget), coarser LOD switching. Reverted.
+     Remaining option: a single-surface LOD3 (needs a bark+leaf atlas material) or far-cell coalescing in RealInstancing.
    - B5d mulberry-river rocks (limestone-algae x70 212k with 13872 LOD0 tris, ozark-limestone x70 88k): LOD1
      is 19 % of LOD0 already, so the in-view cost is LOD0 near the camera; shorten rock switch distances or
      cull. Close: rock fields < 150k in-view.
