@@ -40,6 +40,7 @@ public extension MaterialLibrary {
             chitin("insect.chitin", 0x1C1916, 0x2C2620, pits: 30, shift: 0.15, rough: 0.22, seed: 1101),
             chitin("insect.chitin-matte", 0x1E1C1A, 0x2A2622, pits: 40, shift: 0.1, rough: 0.62, coat: 0, seed: 1102),
             chitin("insect.chitin-chestnut", 0x5E2412, 0x2E120A, pits: 26, shift: 0.35, rough: 0.2, seed: 1103),
+            chitin("insect.chitin-earwig", 0x5A2A12, 0x7A4020, pits: 5, shift: 0.3, rough: 0.14, coat: 0.9, seed: 1137),
             chitin("insect.chitin-metallic", 0x2AA040, 0xC8A830, pits: 36, shift: 0.7, rough: 0.2, metal: 0.85, coat: 0.3, seed: 1104),
             chitin("insect.chitin-soft", 0x7FA845, 0x5E8A34, pits: 12, shift: 0.3, rough: 0.48, coat: 0.2, seed: 1105),
             MaterialSpec(key: "insect.fur", program: .insectFur).with {
