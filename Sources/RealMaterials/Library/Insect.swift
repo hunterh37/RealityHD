@@ -82,6 +82,7 @@ public extension MaterialLibrary {
             membrane("insect.membrane", V3(0.8, 0.82, 0.82), 0.14),
             membrane("insect.membrane-amber", V3(0.75, 0.55, 0.25), 0.28),
             membrane("insect.membrane-smoky", V3(0.35, 0.3, 0.26), 0.4),
+            membrane("insect.membrane-shieldbug", V3(0.17, 0.11, 0.07), 0.9),
             MaterialSpec(key: "insect.lantern", program: nil).with {
                 $0.baseColor = V3(1, 0.95, 0.7); $0.roughness = 0.4; $0.mode = .emissive
                 $0.emissive = V3(1, 0.9, 0.46); $0.emissiveIntensity = 3

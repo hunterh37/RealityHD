@@ -51,6 +51,7 @@ public enum Nature {
         GoliathBeetle.self,
         TigerBeetle.self,
         Earwig.self,
+        GreenShieldBug.self,
         // realityhd:nature
     ]
 }
