@@ -312,6 +312,10 @@ Items, in order. Each lists the measure that proves it and the sim bench that cl
    Close: < 500 draws, part hover still works at LOD0 (ArticulationTests).
 7. B7 Hover past LOD0 under rest proxy. Open bug from phase 2: hovering a part while the proxy shows
    highlights nothing. Close: test that hover swaps to parts.
+   Status: `Entity.realSetHover(_:)` sets `RealRestProxyComponent.hovered`; while set, `RealLODSystem.apply` shows
+   parts instead of the proxy. The system gives the app no gaze event, so the app calls it from its hover source.
+   `ArticulationTests.hoverSwapsRestProxyToParts` passes (proxy -> parts on hover, restored after). Offline;
+   sim validation pending (wire a hover source in the demo and check the highlight).
 8. B8 Seam-aware simplify. Iron fence reduces 35 % only (hard edges seam-locked); 417k in boston-common.
    Close: fence < 250k with no silhouette change in `render --az` stills.
 9. B9 Oak LOD1. `oak-tree`/`tree` LOD1 22674 = 56 % of LOD0, `shrub` 51 %; the only assets over the 50 % rule.

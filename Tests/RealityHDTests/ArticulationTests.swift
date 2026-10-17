@@ -4,6 +4,8 @@ import simd
 @testable import RealCore
 @testable import RealLibrary
 import RealMaterials
+import RealityKit
+@testable import RealKit
 
 /// Rules for articulated assets (`RealArticulated`) and the rig math they rely on.
 @Suite struct ArticulationTests {
@@ -87,5 +89,39 @@ import RealMaterials
         scene.batchStatics = true
         let b = RealScene.batches(scene.singles, cell: 8)
         #expect(b.count == 1 && b[0].asset.levels[0].triangleCount == m.triangleCount * 20)
+    }
+
+    /// Hover on a part past LOD0 swaps the merged rest proxy for the parts, and back when it ends.
+    @MainActor @Test func hoverSwapsRestProxyToParts() async throws {
+        RealKitSetup.register()
+        var found: (String, Entity)?
+        for t in Catalog.articulated {
+            let e = try await RealityHD.articulated(t.id)
+            if let px = e.components[RealRestProxyComponent.self], px.minLevel == 1, e.components.has(RealLODComponent.self) { found = (t.id, e); break }
+        }
+        let (id, root) = try #require(found, "no articulated asset builds a rest proxy at level 1")
+        func shownParts(_ e: Entity) -> Int {
+            e.children.reduce(0) { n, c in
+                if c.name == "rest" { return n }
+                if c.name.hasPrefix("lod") { return n + (c.isEnabled && c.components.has(ModelComponent.self) ? 1 : 0) }
+                return n + (c.components.has(RealLODComponent.self) ? 0 : shownParts(c))
+            }
+        }
+        func proxy(_ e: Entity) -> Int {
+            guard let rest = e.children.first(where: { $0.name == "rest" }) else { return 0 }
+            return rest.children.filter { $0.isEnabled && $0.components.has(ModelComponent.self) }.count
+        }
+        var lod = try #require(root.components[RealLODComponent.self])
+        lod.current = 1
+        root.components.set(lod)
+        RealLODSystem.apply(level: 1, culled: false, under: root)
+        #expect(shownParts(root) == 0 && proxy(root) == 1, "\(id): proxy not exclusive at rest")
+        let rig = try #require(root.components[RealArticulationComponent.self]).rig
+        let name = try #require(rig.parts.first { $0.joint.kind != .fixed }).name
+        let part = try #require(root.realJoint(name))
+        part.realSetHover(true)
+        #expect(shownParts(root) > 0 && proxy(root) == 0, "\(id): hover did not swap to parts")
+        part.realSetHover(false)
+        #expect(shownParts(root) == 0 && proxy(root) == 1, "\(id): proxy not restored after hover")
     }
 }
