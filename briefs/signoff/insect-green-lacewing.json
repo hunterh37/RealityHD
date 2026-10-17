@@ -1,0 +1,22 @@
+{
+  "automated" : 1,
+  "date" : "2026-10-17",
+  "final" : 0.913875,
+  "fingerprint" : "3fb85acea5bb9444",
+  "id" : "insect-green-lacewing",
+  "iterations" : 4,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 9,
+    "construction" : 8,
+    "edges" : 9,
+    "grounding" : 8,
+    "materials" : 9,
+    "proportion" : 9,
+    "silhouette" : 9,
+    "wear" : 8
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.8675
+}
