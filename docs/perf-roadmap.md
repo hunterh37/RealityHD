@@ -300,6 +300,11 @@ Items, in order. Each lists the measure that proves it and the sim bench that cl
      in-view < 1.5M.
    - B5b lakeside-camp grass.tall x4701 = 497k: density by distance, shares the B4 mechanism. Close: in-view
      tris of the field halved with thumbnail diff < 0.1 %.
+     Status: dropped offline. The field is GrassTuft x4701. Trial: LOD1 = blades/3 at 1.7x width, switch distances
+     [3, 8] -> [2, 6]. grass.tall in-view 497k -> 141k (release `perf --breakdown`; lakeside-camp 2050k -> 1695k),
+     but main vs branch renders (lakeside-camp, --w 1024 --h 576, same flags; render is deterministic, self-diff 0.0 %)
+     differ on 10.8 % of pixels by > 8/255 vs 0.1 % allowed. Trial code reverted; same conclusion as B4: needs a sim
+     decision on a looser diff budget or a per-instance density cull. Offline; sim validation pending.
    - B5c mulberry-river tree fields (oak, shortleaf, sycamore, river-birch) are 784 of 857 draws: 640 draws
      from 4 species because each LOD level splits into per-material parts. Merge bark+leaf parts per level
      or cut LOD3 draws. Close: mulberry-river < 500 draws (phase 2).
