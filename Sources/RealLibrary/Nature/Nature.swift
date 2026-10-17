@@ -48,6 +48,7 @@ public enum Nature {
         SunkenLog.self,
         BrushPile.self,
         PeriodicalCicada.self,
+        CraneFly.self,
         // realityhd:nature
     ]
 }
