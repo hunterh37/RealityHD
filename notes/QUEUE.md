@@ -8,3 +8,4 @@ B5a | perf-b5a | https://github.com/hunterh37/RealityHD/pull/99 | in-view 2225k-
 B5c | perf-b5c | PRURL | dropped: cellSize 48 gave 857->671 draws, tris over budget | none
 B5c | perf-b5c | https://github.com/hunterh37/RealityHD/pull/101 | dropped: cellSize 48 gave 857->671 draws, tris over budget | none
 B5d | perf-b5d | PRURL | rock fields 300k -> 116k, render diff 0.002% | sim bench mulberry-river
+B5d | perf-b5d | https://github.com/hunterh37/RealityHD/pull/102 | rock fields 300k -> 116k, render diff 0.002% | sim bench mulberry-river
