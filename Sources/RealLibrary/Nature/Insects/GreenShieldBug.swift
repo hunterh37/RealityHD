@@ -26,7 +26,7 @@ public struct GreenShieldBug: RealArticulated {
         let legs: [InsectKit.Leg] = [Float(1), -1].flatMap { side in
             [(0.0038, 45), (0.0004, -5), (-0.0030, -50)].map { a in
                 InsectKit.Leg(attach: V3(side * 0.0026, 0.0014, Float(a.0)) * k, side: side, yaw: Float(a.1), coxa: 0.0007 * k,
-                              femur: 0.0030 * k, tibia: 0.0033 * k, tarsus: 0.0018 * k, lift: 16, radius: 0.00038 * k, bulge: 1.3)
+                              femur: 0.0034 * k, tibia: 0.0038 * k, tarsus: 0.0020 * k, lift: 16, radius: 0.00055 * k, bulge: 1.5)
             }
         }.sorted { ($0.attach.z, $0.side) > ($1.attach.z, $1.side) }
         rig.part("body", pivot: V3(0, 0.0020, 0.0005) * k, joint: .fixed)
@@ -52,15 +52,16 @@ public struct GreenShieldBug: RealArticulated {
             // Thorax underside and abdomen: broad flat shield with connexivum rim.
             rig.add(InsectKit.blob(V3(0, 0.0019, 0.0020) * k, V3(0.0036, 0.0013, 0.0030) * k, material: green, sub: d.sub - 1), to: "body", lods: L)
             rig.add(InsectKit.blob(V3(0, 0.0021, -0.0028) * k, V3(0.0040, 0.0013, 0.0046) * k, material: green, sub: d.sub - 1) { p in
-                V3(p.x, p.y * (p.y < 0 ? 0.6 : 1), p.z + (p.z < 0 ? p.x * p.x * 40 / k : 0))
+                V3(p.x * (p.z < 0 ? 1 + 0.18 * p.z / (0.0046 * k) : 1), p.y * (p.y < 0 ? 0.6 : 1), p.z + (p.z < 0 ? p.x * p.x * 40 / k : 0))
             }, to: "abdomen", lods: L)
             for side: Float in [1, -1] {
-                rig.add(InsectKit.blob(V3(side * 0.0037, 0.0020, -0.0028) * k, V3(0.0006, 0.0004, 0.0044) * k, material: pale, sub: d.sub - 2) { p in
-                    V3(p.x, p.y, p.z + (p.z < 0 ? p.z * p.z * 0 : 0) + (p.z < 0 ? 0 : 0))
-                }, to: "abdomen", lods: L)
-                // Segment notches: darker spots where connexivum plates meet the body.
-                for i in 0..<5 {
-                    rig.add(InsectKit.blob(V3(side * 0.0041, 0.0022, (-0.0003 - 0.0016 * Float(i)) ) * k, V3(0.0005, 0.0005, 0.0004) * k, material: "insect.chitin-matte:3A6A1E", sub: 3), to: "abdomen", lods: L)
+                // Continuous connexivum ribbon: overlapping flat plates, alternating pale and dark green.
+                let band = "insect.chitin-matte:4E7A24"
+                for i in 0..<14 {
+                    let u = Float(i) / 13
+                    let z = 0.0016 - 0.0006 * Float(i)
+                    let edge = 0.0037 + 0.0004 * sin(u * .pi) - 0.0002 * u * u
+                    rig.add(InsectKit.blob(V3(side * edge, 0.0020, z) * k, V3(0.00080, 0.00030, 0.00046) * k, material: i % 2 == 0 ? pale : band, sub: 2), to: "abdomen", lods: L)
                 }
             }
             // Sutures painted dark green: pronotum rear edge and clavus midline.
@@ -71,22 +72,31 @@ public struct GreenShieldBug: RealArticulated {
                 let t = (p.z / (0.0027 * k) + 1) / 2   // 0 rear, 1 front
                 return V3(p.x * (0.15 + 0.85 * t), p.y, p.z)
             }, to: "body", lods: L)
-            // Head: small triangular head with bulging eyes.
-            rig.add(InsectKit.blob(V3(0, 0.0024, 0.0072) * k, V3(0.0016, 0.0006, 0.0014) * k, material: green, sub: d.sub - 1) { p in
-                V3(p.x * (p.z > 0 ? 1 - 0.5 * p.z / (0.0016 * k) : 1), p.y, p.z)
+            // Head: triangular, narrowing to the clypeus; short beak (rostrum) folded under.
+            rig.add(InsectKit.blob(V3(0, 0.0024, 0.0072) * k, V3(0.0017, 0.0006, 0.0015) * k, material: green, sub: d.sub - 1) { p in
+                V3(p.x * (p.z > 0 ? 1 - 0.7 * p.z / (0.0015 * k) : 1), p.y, p.z)
             }, to: "head", lods: L)
+            rig.add(InsectKit.blob(V3(0, 0.0017, 0.0064) * k, V3(0.00035, 0.00035, 0.0017) * k, material: "insect.chitin-matte:3A5A20", sub: max(3, d.sub - 3)), to: "head", lods: L)
             for side: Float in [1, -1] {
-                rig.add(InsectKit.blob(V3(side * 0.0017, 0.0027, 0.0069) * k, V3(0.0005, 0.0006, 0.0006) * k, material: "insect.eye", sub: max(2, d.sub - 3)), to: "head", lods: L)
+                rig.add(InsectKit.blob(V3(side * 0.0019, 0.0027, 0.0068) * k, V3(0.0007, 0.0007, 0.0007) * k, material: "insect.eye", sub: max(2, d.sub - 3)), to: "head", lods: L)
                 rig.add(InsectKit.antenna(base: V3(side * 0.0009, 0.0025, 0.0078) * k, dir: V3(side * 0.6, 0.15, 0.8), length: 0.0058 * k,
                                           radius: 0.00022 * k, curve: -0.15, side: side, beads: 5, material: leg, d: d),
                         to: side > 0 ? "antenna-l" : "antenna-r", lods: L)
             }
             for l in legs { rig.add(InsectKit.leg(l, material: leg, d: d), to: InsectKit.legName(l.side, legIndex(l, legs)), lods: L) }
+            for l in legs {
+                let pts = InsectKit.legPoints(l), tipP = pts[5]
+                rig.add(InsectKit.blob(tipP + V3(0, -0.00004, 0) * k, V3(0.00018, 0.00014, 0.00032) * k, material: tip, sub: 2), to: InsectKit.legName(l.side, legIndex(l, legs)), lods: L)
+            }
             for side: Float in [1, -1] {
                 // Hemelytra: green corium, flattened; dark membranous tip crossing at the rear.
                 let el = InsectKit.elytron(side: side, front: 0.0030 * k, length: 0.0078 * k, halfWidth: 0.0036 * k, height: 0.0008 * k, baseY: 0.0030 * k,
                                            wrap: 1.2, material: corium, inner: green, atlas: false, d: d, shoulder: 0.1, tipRound: 0.2)
                 for s in el { rig.add(s, to: side > 0 ? "elytra-l" : "elytra-r", lods: L) }
+                for s in InsectKit.wing(.tegmen, root: V3(side * 0.0002, 0.00405, 0.0030) * k, span: V3(side * 0.1, 0, -1), chord: V3(side, 0, 0),
+                                        length: 0.0074 * k, width: 0.0034 * k, material: "insect.membrane-hemelytra", veins: "insect.veins-cicada-fore") {
+                    rig.add(s, to: side > 0 ? "elytra-l" : "elytra-r", lods: L)
+                }
                 for s in InsectKit.elytron(side: side, front: -0.0034 * k, length: 0.0036 * k, halfWidth: 0.0033 * k, height: 0.0006 * k, baseY: 0.0033 * k,
                                            wrap: 1.1, material: tip, inner: tip, atlas: false, d: d, shoulder: 0.1, tipRound: 0.5) {
                     rig.add(s, to: side > 0 ? "elytra-l" : "elytra-r", lods: L)
