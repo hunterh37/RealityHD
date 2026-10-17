@@ -70,7 +70,10 @@ public struct MulberryRiverReach: RealSceneBuilder {
             let (bank, bed) = ConiferBuild.split(g, material: "ground.river-gravel-wet") { $0.y < -0.02 }
             // Pools below 2.2 m settle fine silt over the gravel.
             let (gravel, silt) = ConiferBuild.split(bed, material: "ground.river-silt") { $0.y < -2.2 }
-            scene.add(Model(name: "mulberry-ground-\(t)", surfaces: [bank, gravel, silt]), at: Xform(translation: V3(cx, 0, 0)))
+            // Tile edges stay locked in Simplify, so neighbouring LODs share seams. B5e: 80k tris per tile at LOD0.
+            let ground = Model(name: "mulberry-ground-\(t)", surfaces: [bank, gravel, silt])
+            let g1 = Simplify.model(ground, ratio: 0.25, maxError: 0.12), g2 = Simplify.model(g1, ratio: 0.3, maxError: 0.4)
+            scene.singles.append(.init(asset: LODModel(levels: [ground, g1, g2], switchDistances: [20, 60]), at: Xform(translation: V3(cx, 0, 0))))
             // Water: shallowness in splat; riffle sections move to the faster, choppier riffle water.
             var w = Prim.terrain(size: V2(tw, 64), segments: 96, material: "water.mulberry") { _ in 0 }
             w.paintSplat { q in 1 - smoothstep(0.1, 3.2, path.bedDepth(V2(q.x + cx, q.z))) }
@@ -84,7 +87,7 @@ public struct MulberryRiverReach: RealSceneBuilder {
         for (i, x) in stride(from: Float(-84), through: 4, by: 22).enumerated() {
             let s = path.sample(atX: x)
             let yaw = -atan2(s.tangent.y, s.tangent.x) * 180 / .pi
-            scene.add(LimestoneBluff().with { $0.length = 30; $0.height = rng.float(11...14); $0.endTaper = 6; $0.bedHeight = rng.float(0.6...1.2); $0.ledgeDepth = 0.6 },
+            scene.add(LimestoneBluff().with { $0.length = 30; $0.height = rng.float(11...14); $0.endTaper = 6; $0.bedHeight = rng.float(0.6...1.2); $0.ledgeDepth = 0.6; $0.lodDistances = [30, 80] },
                       at: place(x, s.center.y - s.width / 2 - 1.3 - Float(i % 2) * 0.6, y: -2.9, yaw: yaw), seed: seed &+ UInt64(1 + i))
         }
         // Talus: angular blocks fallen from the bluff along its foot, and slabs on the south bank at the riffles.

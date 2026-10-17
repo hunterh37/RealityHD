@@ -328,6 +328,8 @@ Items, in order. Each lists the measure that proves it and the sim bench that cl
      render diff 0.002 % (offline; sim validation pending).
    - B5e mulberry-river statics 523k tris / 104 draws: list top statics with `--breakdown` statics lines
      (not printed now) and decide on LOD. Close: statics < 300k.
+     Status: `--breakdown` prints static lines. Statics 523k -> 243k tris (104 draws unchanged): 4 ground tiles 80k each
+     got 2 simplified levels at [20, 60] m, bluff lodDistances [30, 80]. Render diff mean 0.023 %. offline; sim validation pending.
 6. B6 Hospital rig draws. Rigs are 818 of 876 draws; crash-cart at LOD0 is 113. Proof: `--breakdown` rigs.
    Close: < 500 draws, part hover still works at LOD0 (ArticulationTests).
 7. B7 Hover past LOD0 under rest proxy. Open bug from phase 2: hovering a part while the proxy shows
