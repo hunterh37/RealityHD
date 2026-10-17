@@ -47,6 +47,21 @@ public enum Nature {
         EelgrassBed.self,
         SunkenLog.self,
         BrushPile.self,
+        EuropeanHornet.self,
+        PaperWasp.self,
+        CarpenterBee.self,
+        HoverFly.self,
+        GreenBottleFly.self,
+        EyedClickBeetle.self,
+        GoliathBeetle.self,
+        TigerBeetle.self,
+        Earwig.self,
+        GreenShieldBug.self,
+        PeriodicalCicada.self,
+        CraneFly.self,
+        GreenLacewing.self,
+        Millipede.self,
+        BulletAnt.self,
         // realityhd:nature
     ]
 }

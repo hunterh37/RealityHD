@@ -385,8 +385,9 @@ public struct InsectPlan {
     public struct Antenna { public var base: V3, dir: V3, length: Float, radius: Float, curve: Float = 0.3, elbow: Float = 0, club: Float = 0, beads: Int = 0
         public init(base: V3, dir: V3, length: Float, radius: Float, curve: Float = 0.3, elbow: Float = 0, club: Float = 0, beads: Int = 0) {
             self.base = base; self.dir = dir; self.length = length; self.radius = radius; self.curve = curve; self.elbow = elbow; self.club = club; self.beads = beads } }
-    public struct Elytra { public var front: Float, length: Float, halfWidth: Float, height: Float, baseY: Float, mat: MaterialKey, inner: MaterialKey, atlas: Bool, wrap: Float = 1.8
-        public init(front: Float, length: Float, halfWidth: Float, height: Float, baseY: Float, mat: MaterialKey, inner: MaterialKey, atlas: Bool, wrap: Float = 1.8) {
+    public struct Elytra { public var front: Float, length: Float, halfWidth: Float, height: Float, baseY: Float, mat: MaterialKey, inner: MaterialKey, atlas: Bool, wrap: Float = 1.8, tipRound: Float = 0.35
+        public init(front: Float, length: Float, halfWidth: Float, height: Float, baseY: Float, mat: MaterialKey, inner: MaterialKey, atlas: Bool, wrap: Float = 1.8, tipRound: Float = 0.35) {
+            self.tipRound = tipRound
             self.front = front; self.length = length; self.halfWidth = halfWidth; self.height = height; self.baseY = baseY; self.mat = mat; self.inner = inner; self.atlas = atlas; self.wrap = wrap } }
 
     public var name: String
@@ -470,7 +471,7 @@ public extension InsectKit {
             if let e = p.elytra {
                 for side: Float in [1, -1] {
                     for s in elytron(side: side, front: e.front, length: e.length, halfWidth: e.halfWidth, height: e.height, baseY: e.baseY,
-                                     wrap: e.wrap, material: e.mat, inner: e.inner, atlas: e.atlas, d: d) {
+                                     wrap: e.wrap, material: e.mat, inner: e.inner, atlas: e.atlas, d: d, tipRound: e.tipRound) {
                         rig.add(s, to: side > 0 ? "elytra-l" : "elytra-r", lods: L)
                     }
                 }
@@ -760,6 +761,8 @@ public extension InsectKit {
         /// Atlas UVs per segment (u around, v along 0...1) for banded materials.
         public var bandUV = false
         public var height: Float = 0.006
+        /// Subdivision levels removed from the LOD sphere detail for each segment blob.
+        public var subDrop = 1
         public var extra: ((inout Rig, InsectKit.Detail, ClosedRange<Int>, (Int) -> Float) -> Void)?
         public var states: [RigState] = []
         public init(name: String, count: Int, segLength: Float, radius: @escaping (Float) -> V2, centerY: @escaping (Float) -> Float, material: @escaping (Int) -> MaterialKey) {
@@ -802,7 +805,7 @@ public extension InsectKit {
                 let r = s.radius(t(i))
                 let zc = zFront(i) - s.segLength * 0.5
                 let len = s.segLength * (s.plates ? 0.72 : 0.62)
-                var sf = blob(V3(0, s.centerY(t(i)), zc), V3(r.x, r.y, len), material: s.material(i), sub: d.sub - 1) { q in
+                var sf = blob(V3(0, s.centerY(t(i)), zc), V3(r.x, r.y, len), material: s.material(i), sub: d.sub - s.subDrop) { q in
                     s.plates ? V3(q.x, max(q.y, -r.y * 0.25) + (q.y > 0 ? 0 : 0), q.z) : q
                 }
                 if s.bandUV {
