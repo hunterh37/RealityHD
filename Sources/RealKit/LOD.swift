@@ -156,7 +156,7 @@ extension RealLODSystem {
     /// An articulated root at rest past LOD0 shows its "rest" proxy and hides base and part meshes.
     static func apply(level: Int, culled: Bool, shadowsOff: Bool = false, under e: Entity, hidden: Bool = false) {
         var proxy: Bool? = nil
-        if let px = e.components[RealRestProxyComponent.self] { proxy = px.atRest && level >= px.minLevel }
+        if let px = e.components[RealRestProxyComponent.self] { proxy = px.atRest && !px.hovered && level >= px.minLevel }
         for c in e.children {
             if c.name.hasPrefix("lod"), let i = Int(c.name.dropFirst(3)) {
                 let on = !culled && !hidden && proxy != true && i == level
