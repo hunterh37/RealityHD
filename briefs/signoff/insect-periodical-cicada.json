@@ -1,0 +1,22 @@
+{
+  "automated" : 1,
+  "date" : "2026-10-17",
+  "final" : 0.913875,
+  "fingerprint" : "62e1769d55596e50",
+  "id" : "insect-periodical-cicada",
+  "iterations" : 3,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 9,
+    "construction" : 9,
+    "edges" : 9,
+    "grounding" : 9,
+    "materials" : 9,
+    "proportion" : 8,
+    "silhouette" : 9,
+    "wear" : 7
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.8675
+}
