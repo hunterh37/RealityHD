@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "saturn-s1c",
+  "kind": "prop",
+  "materials": [
+    "metal.powder-white",
+    "metal.painted:141414",
+    "metal.heat-tint-cold",
+    "insulation.foil-gold"
+  ],
+  "name": "Saturn V S-IC first stage",
+  "notes": "Vision Spacecraft. 1:1 metres.",
+  "parts": [
+    "kerosene and LOX tank barrel",
+    "corrugated intertank",
+    "black roll pattern",
+    "UNITED STATES lettering",
+    "flag",
+    "4 fins",
+    "4 engine fairings",
+    "5 F-1 engines",
+    "thrust structure",
+    "heat shield"
+  ],
+  "references": [],
+  "size": [
+    12.27,
+    42.1,
+    12.27
+  ],
+  "style": "photoreal 1967-1973 Apollo flight hardware, clean painted finish, slight launch-pad grime",
+  "summary": "Saturn V first stage, 10.06 m x 42.1 m: white skin, black roll pattern, corrugated intertank, four finned fairings, five F-1 engines.",
+  "tags": [
+    "prop",
+    "vehicle",
+    "metal",
+    "outdoor"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

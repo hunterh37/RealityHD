@@ -1,0 +1,58 @@
+{
+  "budget": 20000,
+  "id": "camera-canon-r50",
+  "kind": "prop",
+  "materials": [
+    "plastic.black",
+    "plastic.matte",
+    "plastic.soft-touch",
+    "rubber",
+    "glass.tinted",
+    "metal.steel",
+    "metal.satin-aluminum",
+    "plastic.white",
+    "screen.off"
+  ],
+  "name": "Canon EOS R50",
+  "notes": "Spec: Canon EOS R50 116.3 x 85.5 x 68.8 mm, 3.0in vari-angle LCD, RF-S 18-45mm 69.5 dia x 44.3 mm.",
+  "parts": [
+    "shutter",
+    "mode-dial",
+    "main-dial",
+    "rear-dial",
+    "menu",
+    "play",
+    "q",
+    "af-on",
+    "dpad",
+    "dpad-ok",
+    "zoom-ring",
+    "power",
+    "screen",
+    "evf",
+    "video",
+    "grip",
+    "eyecup",
+    "flash hump",
+    "RF mount ring",
+    "lens glass"
+  ],
+  "references": [],
+  "size": [
+    0.1163,
+    0.0855,
+    0.0937
+  ],
+  "style": "Black mirrorless body, leatherette grip and front inlay, matte plastic shell, rubber-ribbed zoom ring, white focal marks, coated front element.",
+  "summary": "Canon EOS R50 mirrorless camera with RF-S 18-45mm kit lens: black body, deep leatherette grip, vari-angle LCD, EVF hump with pop-up flash, articulated controls.",
+  "tags": [
+    "prop",
+    "electronics",
+    "camera",
+    "articulated",
+    "handheld"
+  ],
+  "theme": "Camera",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,44 @@
+{
+  "budget": 14000,
+  "id": "lure-drying-wheel",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat",
+    "metal.aluminum-brushed",
+    "metal.steel",
+    "plastic.white",
+    "plastic.gloss",
+    "plastic.clear",
+    "plastic.black",
+    "rubber.tubing",
+    "rubber.plate",
+    "glass.led-lens"
+  ],
+  "name": "Lure drying wheel",
+  "notes": "Size corrected after first gate: 70 mm rim plus radial lures keeps the bottom lure clear of the base.",
+  "parts": [
+    "base plate with rubber feet",
+    "gear motor box with switch and cord",
+    "upright stand and horizontal shaft",
+    "spoked disc wheel",
+    "spring clips around the rim",
+    "crankbait lure bodies held in clips"
+  ],
+  "references": [],
+  "size": [
+    0.285,
+    0.313,
+    0.17
+  ],
+  "style": "Hobby rotisserie lure dryer, black powdercoat motor, white wheel, epoxy drips on the base.",
+  "summary": "Motorized lure drying wheel: gear motor box on a base, horizontal shaft, spoked disc with clips holding epoxy-coated lures.",
+  "tags": [
+    "prop",
+    "workshop",
+    "tool",
+    "plastic"
+  ],
+  "theme": "LureShop",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

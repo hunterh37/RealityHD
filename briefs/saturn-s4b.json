@@ -1,0 +1,35 @@
+{
+  "budget": 10000,
+  "id": "saturn-s4b",
+  "kind": "prop",
+  "materials": [
+    "metal.powder-white",
+    "metal.painted:141414"
+  ],
+  "name": "Saturn V S-IVB third stage",
+  "notes": "Vision Spacecraft. 1:1 metres.",
+  "parts": [
+    "S-II/S-IVB conical interstage",
+    "LH2 tank barrel",
+    "APS modules",
+    "black roll pattern",
+    "J-2 engine"
+  ],
+  "references": [],
+  "size": [
+    10.11,
+    17.8,
+    10.11
+  ],
+  "style": "photoreal 1967-1973 Apollo flight hardware, clean painted finish, slight launch-pad grime",
+  "summary": "Third stage of the Saturn V: 10.06 to 6.6 m conical interstage, 6.6 m white barrel with black aft skirt band and two auxiliary propulsion modules.",
+  "tags": [
+    "prop",
+    "vehicle",
+    "metal",
+    "outdoor"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

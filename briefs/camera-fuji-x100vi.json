@@ -1,0 +1,61 @@
+{
+  "budget": 13000,
+  "id": "camera-fuji-x100vi",
+  "kind": "prop",
+  "materials": [
+    "metal.satin-aluminum",
+    "metal.aluminum-brushed",
+    "metal.anodized-worn",
+    "metal.knurl-chrome",
+    "metal.stainless",
+    "metal.chrome",
+    "leather.black",
+    "plastic.matte",
+    "plastic.gloss",
+    "plastic.white",
+    "plastic.sharps-red",
+    "glass.tinted",
+    "rubber",
+    "screen.off"
+  ],
+  "name": "Fujifilm X100VI",
+  "notes": "Spec: Fujifilm X100VI 128 x 74.8 x 55.3 mm, silver, fixed 23mm f/2 lens, 3.0in tilting LCD.",
+  "parts": [
+    "shutter",
+    "power",
+    "shutter-dial",
+    "iso-dial",
+    "ev-dial",
+    "main-dial",
+    "rear-dial",
+    "aperture-ring",
+    "focus-ring",
+    "ovf-lever",
+    "evf",
+    "screen",
+    "menu",
+    "play",
+    "af-on",
+    "focus-lever",
+    "dpad",
+    "dpad-up",
+    "dpad-down",
+    "dpad-left",
+    "dpad-right",
+    "dpad-ok"
+  ],
+  "references": [],
+  "size": [
+    0.128,
+    0.0748,
+    0.0553
+  ],
+  "style": "TODO: era, condition, finish",
+  "summary": "TODO: one sentence, what it is and how it's built.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "Camera",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

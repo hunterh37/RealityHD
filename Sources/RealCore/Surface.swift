@@ -207,6 +207,8 @@ public struct LODModel: Sendable {
     public var levels: [Model]
     /// Switch distances in meters: levels[i] is used up to switchDistances[i]. Count = levels.count - 1.
     public var switchDistances: [Float]
+    /// Named attach points in asset space. RealKit adds one child entity per entry, named "anchor:<name>".
+    public var anchors: [String: Xform] = [:]
     public init(levels: [Model], switchDistances: [Float]) {
         precondition(switchDistances.count == max(0, levels.count - 1))
         self.levels = levels; self.switchDistances = switchDistances

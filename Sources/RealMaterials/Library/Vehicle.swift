@@ -46,9 +46,44 @@ public extension MaterialLibrary {
             $0.colorA = linear(0x262624); $0.knobs = V4(0.4, 0.7, 0.8, 0); $0.tileSize = 0.4; $0.resolution = 512; $0.seed = 1108
             $0.normalStrength = 0.8; $0.roughness = 0.85; $0.topColor = linear(0x6A5E4C); $0.topAmount = 0.3; $0.topLow = 0.7
         },
+        /// Cabin headliner: pale grey-beige needled fabric, matte.
+        MaterialSpec(key: "fabric.headliner", program: .fabricWeave).with {
+            $0.colorA = linear(0xB9B8B4); $0.colorB = linear(0xA3A29E, 0.6); $0.colorC = linear(0x6C6B68, 0.1)
+            $0.knobs = V4(60, 0.2, 0.9, 0); $0.seed = 1109; $0.tileSize = 0.04; $0.normalStrength = 1.2; $0.roughness = 0.94
+        },
+        /// Woven seat cloth: charcoal with a faint lighter weave, matte.
+        MaterialSpec(key: "fabric.seat-cloth", program: .fabricWeave).with {
+            $0.colorA = linear(0x2E3033); $0.colorB = linear(0x3C3F43, 0.7); $0.colorC = linear(0x1C1D1F, 0.2)
+            $0.knobs = V4(90, 0.3, 0.9, 6); $0.seed = 1110; $0.tileSize = 0.04; $0.normalStrength = 1.6; $0.roughness = 0.9
+        },
+        /// Soft-touch door and dash skin: near-black fine grain, low sheen.
+        MaterialSpec(key: "plastic.soft-touch", program: .leather).with {
+            $0.colorA = linear(0x1F2022); $0.colorB = linear(0x16171A); $0.colorC = linear(0x2A2B2E)
+            $0.knobs = V4(90, 0.08, 0.5, 0); $0.seed = 1111; $0.tileSize = 0.04; $0.resolution = 512; $0.normalStrength = 0.5; $0.roughness = 0.5
+        },
+        /// Instrument cluster and infotainment glass: dim cool-white backlight.
+        MaterialSpec(key: "screen.cluster", program: nil).with {
+            $0.baseColor = V3(0.02, 0.03, 0.05); $0.mode = .emissive; $0.emissive = V3(0.03, 0.09, 0.22); $0.emissiveIntensity = 0.5; $0.roughness = 0.12
+        },
+        /// Cabin glass seen from inside: clear with a light tint, so the dash and seats stay readable.
+        MaterialSpec(key: "glass.cabin", program: nil).with {
+            $0.baseColor = V3(0.16, 0.18, 0.19); $0.roughness = 0.04; $0.specular = 0.6; $0.mode = .transparent; $0.opacity = 0.28; $0.twoSided = true
+        },
         /// Tinted automotive glass (side and rear windows).
         MaterialSpec(key: "glass.tinted", program: nil).with {
             $0.baseColor = V3(0.12, 0.14, 0.15); $0.roughness = 0.04; $0.specular = 0.6; $0.mode = .transparent; $0.opacity = 0.55; $0.twoSided = true
+        },
+        // Camera lens and LCD glass: opaque near-black coated glass with a slight blue-green tint (key tint overrides).
+        MaterialSpec(key: "glass.lens-coated", program: nil).with {
+            $0.baseColor = V3(0.004, 0.012, 0.014); $0.metallic = 0; $0.roughness = 0.05; $0.specular = 0.35; $0.clearcoat = 1
+        },
+        // Bare magnesium alloy showing through worn paint on camera bodies: dull mid grey, not white.
+        MaterialSpec(key: "metal.magnesium-worn", program: nil).with {
+            $0.baseColor = V3(0.20, 0.205, 0.21); $0.metallic = 1; $0.roughness = 0.55
+        },
+        // Soft contact shadow layer under handheld props (stack several for a falloff).
+        MaterialSpec(key: "shadow.contact", program: nil).with {
+            $0.baseColor = V3(0.0, 0.0, 0.0); $0.roughness = 1; $0.specular = 0; $0.mode = .transparent; $0.opacity = 0.22; $0.twoSided = true
         },
     ]
 }
