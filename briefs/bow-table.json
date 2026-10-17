@@ -1,0 +1,41 @@
+{
+  "budget": 10000,
+  "id": "bow-table",
+  "kind": "prop",
+  "materials": [
+    "wood.lumber-pine",
+    "wood.weathered",
+    "fabric.canvas",
+    "metal.galvanized"
+  ],
+  "name": "Archery shooting table",
+  "notes": "",
+  "parts": [
+    "table top",
+    "canvas mat",
+    "legs",
+    "cross braces",
+    "lower shelf",
+    "bow rail",
+    "arrow tube slots",
+    "hooks"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    0.9,
+    0.8
+  ],
+  "style": "club range tournament table: 2.4 x 0.8 m top at 0.90 m, chamfered plank top, felt mat strip, worn varnish, rear lip so bows do not roll",
+  "summary": "Archery shooting table, 2.4 m: pine plank top with canvas mat, stained legs, lower shelf, rear lip and arrow tube slots.",
+  "tags": [
+    "prop",
+    "archery",
+    "furniture",
+    "wood",
+    "outdoor"
+  ],
+  "theme": "Archery",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

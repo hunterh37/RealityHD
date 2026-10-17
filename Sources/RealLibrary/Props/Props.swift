@@ -869,6 +869,15 @@ public enum Props {
         DeerFeeder.self,
         TrailCamera.self,
         SaltLick.self,
+        RecurveBow.self,
+        Longbow.self,
+        ArcheryTarget.self,
+        BowTable.self,
+        FoamDeerTarget.self,
+        ArrowQuiver.self,
+        DistanceSign.self,
+        WindFlag.self,
+        RangeShelter.self,
         // realityhd:prop
     ]
 }
