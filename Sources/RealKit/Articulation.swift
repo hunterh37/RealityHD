@@ -87,6 +87,9 @@ public struct RealRestProxyComponent: Component {
     public let options: [String: Int]
     /// Joints and options match the proxy pose.
     public internal(set) var atRest = true
+    /// A hover source (see `Entity.realSetHover`) is on the rig: parts show in place of the proxy so the
+    /// hovered part highlights.
+    public internal(set) var hovered = false
     /// Proxy shows only at this LOD level or coarser: 1 for rigs with per-part tap targets (LOD0 keeps parts
     /// for hover feedback up close), 0 for rigs without them (`Rig.restProxyLevel(interactive:)`).
     public let minLevel: Int
@@ -331,6 +334,19 @@ public extension Entity {
         guard let root = articulationRoot, let a = root.components[RealArticulationComponent.self] else { return }
         root.applyOptions(root.currentOptions(a.rig).merging(options) { $1 }, rig: a.rig)
         root.realRefreshRestProxy()
+    }
+
+    /// Hover began (`true`) or ended on this rig or one of its parts. While hovered, a rig past LOD0 shows
+    /// its parts instead of the merged rest proxy, so the system hover effect has a mesh to highlight.
+    /// The system does not report gaze to the app; call this from the app's hover source (for example
+    /// `onContinuousHover` or a pointer-enter handler on the hosting view). No-op for rigs without a proxy.
+    func realSetHover(_ on: Bool) {
+        guard let root = articulationRoot, var px = root.components[RealRestProxyComponent.self], px.hovered != on else { return }
+        px.hovered = on
+        root.components.set(px)
+        if let lod = root.components[RealLODComponent.self], lod.current >= 0 {
+            RealLODSystem.apply(level: lod.current, culled: lod.culled, shadowsOff: lod.shadowsOff, under: root)
+        }
     }
 
     /// Re-checks whether an articulated root sits at its rest-proxy pose and reapplies its LOD level
