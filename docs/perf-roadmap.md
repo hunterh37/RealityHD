@@ -323,6 +323,7 @@ Items, in order. Each lists the measure that proves it and the sim bench that cl
     Phase 5 gate needs 0 frames > 22 ms. Proof: per-frame log with system timings around the spike.
 12. B12 On-head GPU trace (phase 0 step 1). Sizes phase 4; device only.
 13. B13 Test debt: GPUSmoke overcast sky (0.597 vs < 0.472), AssetContractTests eelgrass-bed centering.
+    - Status: AssetContractTests 4 failures -> 0 (eelgrass-bed, staircase, l-/u-shaped-staircase recentered on X/Z); offline; sim validation pending. GPUSmoke overcast still 0.597 vs < 0.472: clear peak 2.359 (sky glow; 256px misses the sun disk), overcast peak 0.597 is cloud-deck brightness (deckLit x1.7), no sun disk present; threshold 0.2x clear is the mismatch, left unchanged.
     Both fail on HEAD. Staircase centering now passes.
 
 Celebrated sim-proven milestones live in `docs/perf-milestones.json`.
