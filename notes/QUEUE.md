@@ -3,3 +3,4 @@ B10 | perf-b10 | https://github.com/hunterh37/RealityHD/pull/94 | boston-common 
 B5 | perf-b5 | https://github.com/hunterh37/RealityHD/pull/95 | docs only; breakdown + items B5a-B5e | none
 B7 | perf-b7 | https://github.com/hunterh37/RealityHD/pull/96 | hoverSwapsRestProxyToParts passes | demo hover highlight on a proxied rig
 B4 | perf-b4 | https://github.com/hunterh37/RealityHD/pull/97 | dropped offline: alpine in-view 2734k->1977k, diff 2.47% (need <1.5M, <0.1%) | none
+B6 | perf-b6 | PRURL | dropped offline: hospital 876->719 draws with proxy at LOD0 (need <500), loses LOD0 hover | none

@@ -310,6 +310,10 @@ Items, in order. Each lists the measure that proves it and the sim bench that cl
      (not printed now) and decide on LOD. Close: statics < 300k.
 6. B6 Hospital rig draws. Rigs are 818 of 876 draws; crash-cart at LOD0 is 113. Proof: `--breakdown` rigs.
    Close: < 500 draws, part hover still works at LOD0 (ArticulationTests).
+   Status (offline; sim validation pending): dropped. Rest proxy at every LOD (restProxyLevel 0) plus
+   minSavedDraws 1 gives hospital 876 -> 719 draws (rigs 818 -> 661) and loses LOD0 part hover. Models already
+   merge per material, so rig draws equal distinct materials per rig (~6.6 x ~100 rigs). Below 500 needs fewer
+   materials per asset or instancing idle rigs as fields. Render diff not run.
 7. B7 Hover past LOD0 under rest proxy. Open bug from phase 2: hovering a part while the proxy shows
    highlights nothing. Close: test that hover swaps to parts.
 8. B8 Seam-aware simplify. Iron fence reduces 35 % only (hard edges seam-locked); 417k in boston-common.
