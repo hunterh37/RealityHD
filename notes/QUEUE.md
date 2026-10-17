@@ -14,3 +14,4 @@ B5e | perf-b5e | https://github.com/hunterh37/RealityHD/pull/103 | offline: mulb
 B6 | perf-b6 | PRURL | dropped offline: hospital 876->719 draws with proxy at LOD0 (need <500), loses LOD0 hover | none
 B6 | perf-b6 | https://github.com/hunterh37/RealityHD/pull/104 | dropped offline: hospital 876->719 draws with proxy at LOD0 (need <500), loses LOD0 hover | none
 B8 | perf-b8 | PR_URL | dropped offline: fence field 416k->335k only with normals unchecked, 418k with checks (need <250k) | none
+B8 | perf-b8 | https://github.com/hunterh37/RealityHD/pull/105 | dropped offline: fence field 416k->335k only with normals unchecked, 418k with checks (need <250k) | none
