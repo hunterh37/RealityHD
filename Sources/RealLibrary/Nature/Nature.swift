@@ -51,6 +51,7 @@ public enum Nature {
         PaperWasp.self,
         CarpenterBee.self,
         HoverFly.self,
+        GreenBottleFly.self,
         // realityhd:nature
     ]
 }
