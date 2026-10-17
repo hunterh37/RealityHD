@@ -385,8 +385,9 @@ public struct InsectPlan {
     public struct Antenna { public var base: V3, dir: V3, length: Float, radius: Float, curve: Float = 0.3, elbow: Float = 0, club: Float = 0, beads: Int = 0
         public init(base: V3, dir: V3, length: Float, radius: Float, curve: Float = 0.3, elbow: Float = 0, club: Float = 0, beads: Int = 0) {
             self.base = base; self.dir = dir; self.length = length; self.radius = radius; self.curve = curve; self.elbow = elbow; self.club = club; self.beads = beads } }
-    public struct Elytra { public var front: Float, length: Float, halfWidth: Float, height: Float, baseY: Float, mat: MaterialKey, inner: MaterialKey, atlas: Bool, wrap: Float = 1.8
-        public init(front: Float, length: Float, halfWidth: Float, height: Float, baseY: Float, mat: MaterialKey, inner: MaterialKey, atlas: Bool, wrap: Float = 1.8) {
+    public struct Elytra { public var front: Float, length: Float, halfWidth: Float, height: Float, baseY: Float, mat: MaterialKey, inner: MaterialKey, atlas: Bool, wrap: Float = 1.8, tipRound: Float = 0.35
+        public init(front: Float, length: Float, halfWidth: Float, height: Float, baseY: Float, mat: MaterialKey, inner: MaterialKey, atlas: Bool, wrap: Float = 1.8, tipRound: Float = 0.35) {
+            self.tipRound = tipRound
             self.front = front; self.length = length; self.halfWidth = halfWidth; self.height = height; self.baseY = baseY; self.mat = mat; self.inner = inner; self.atlas = atlas; self.wrap = wrap } }
 
     public var name: String
@@ -470,7 +471,7 @@ public extension InsectKit {
             if let e = p.elytra {
                 for side: Float in [1, -1] {
                     for s in elytron(side: side, front: e.front, length: e.length, halfWidth: e.halfWidth, height: e.height, baseY: e.baseY,
-                                     wrap: e.wrap, material: e.mat, inner: e.inner, atlas: e.atlas, d: d) {
+                                     wrap: e.wrap, material: e.mat, inner: e.inner, atlas: e.atlas, d: d, tipRound: e.tipRound) {
                         rig.add(s, to: side > 0 ? "elytra-l" : "elytra-r", lods: L)
                     }
                 }

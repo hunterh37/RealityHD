@@ -32,7 +32,7 @@ public struct EyedClickBeetle: RealArticulated {
         ]
         p.legMat = "insect.chitin-matte:2A241E"; p.antennaMat = black; p.spines = [2, 2, 2]
         p.antenna = .init(base: V3(0.0028, 0.0058, 0.0172), dir: V3(0.45, 0.15, 0.85), length: 0.0085, radius: 0.00028, curve: 0, beads: 9)
-        p.elytra = .init(front: 0.0030, length: 0.0235, halfWidth: 0.0049, height: 0.0040, baseY: 0.0050, mat: shell, inner: "insect.chitin-matte:1A1A1C", atlas: false)
+        p.elytra = .init(front: 0.0030, length: 0.0235, halfWidth: 0.0049, height: 0.0040, baseY: 0.0050, mat: shell, inner: "insect.chitin-matte:1A1A1C", atlas: false, tipRound: 0.7)
         p.hind = .init(.membraneHind, root: V3(0.0022, 0.0060, 0.0030), span: V3(1, 0.05, -0.35), chord: V3(0.35, 0, 1), length: 0.022, width: 0.0085,
                        mat: "insect.membrane-amber", veins: "insect.veins-beetle", droop: 0.0012,
                        folded: (V3(0.0018, 0.0051, 0.0030), V3(0.1, 0, -1), V3(1, 0, 0.1), 0.0105, 0.003))
@@ -40,6 +40,10 @@ public struct EyedClickBeetle: RealArticulated {
         let black = black, silver = silver
         p.extra = { rig, d, L in
             var rng = SeededRNG(seed: seed &+ 7)
+            func prof(_ u: Float) -> Float {
+                let t = (0.7 - (1 - u)) / 0.7
+                return t > 0 ? sqrt(max(0, 1 - t * t)) : 1
+            }
             for side: Float in [1, -1] {
                 // Pronotum eyespot: white ring with black pupil.
                 rig.add(InsectKit.blob(V3(side * 0.0019, 0.0072, 0.0090), V3(0.0011, 0.0004, 0.0013), material: "insect.chitin-matte:E6E6E0", sub: max(2, d.sub - 2)), to: "body", lods: L)
@@ -61,17 +65,17 @@ public struct EyedClickBeetle: RealArticulated {
                 for xf: Float in [0.2, 0.4, 0.6, 0.8] {
                     let pts = (0...6).map { i -> V3 in
                         let u = Float(i) / 6 * 0.9 + 0.02
-                        let hw = 0.0049 * max(0.25, 1 - 0.6 * u * u * u) * xf
-                        return V3(side * hw, 0.0050 + 0.0040 * sqrt(max(0, 1 - xf * xf)) * (1 - 0.35 * u) + 0.00005, 0.0030 - 0.0235 * u)
+                        let hw = 0.0049 * max(0.02, prof(u)) * xf
+                        return V3(side * hw, 0.0050 + 0.0040 * sqrt(max(0, 1 - xf * xf)) * prof(u) * (1 - 0.25 * u) + 0.00005, 0.0030 - 0.0235 * u)
                     }
                     rig.add(InsectKit.limb(pts, radii: [0.00014, 0.00014, 0.00014, 0.00014, 0.00012, 0.00009, 0.00004], material: "insect.chitin-matte:343438", sides: 4, per: 1), to: side > 0 ? "elytra-l" : "elytra-r", lods: L)
                 }
                 let n = d.lod == 0 ? 42 : 0
                 for _ in 0..<n {
-                    let u = Float.random(in: 0.04...0.96, using: &rng), x = Float.random(in: 0.08...0.92, using: &rng)
+                    let u = Float.random(in: 0.04...0.88, using: &rng), x = Float.random(in: 0.08...0.92, using: &rng)
                     let z = 0.0030 - 0.0235 * u
-                    let hw = 0.0049 * max(0.25, 1 - 0.6 * u * u * u) * x
-                    let y = 0.0050 + 0.0040 * sqrt(max(0, 1 - x * x)) * (1 - 0.35 * u) + 0.0003
+                    let hw = 0.0049 * max(0.02, prof(u)) * x
+                    let y = 0.0050 + 0.0040 * sqrt(max(0, 1 - x * x)) * prof(u) * (1 - 0.25 * u) + 0.0003
                     let r = Float.random(in: 0.00012...0.00024, using: &rng)
                     rig.add(InsectKit.blob(V3(side * hw, y, z), V3(r, r * 0.35, r * 1.2), material: silver, sub: 1), to: side > 0 ? "elytra-l" : "elytra-r", lods: L)
                 }
