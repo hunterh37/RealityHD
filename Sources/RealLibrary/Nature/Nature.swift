@@ -49,6 +49,7 @@ public enum Nature {
         BrushPile.self,
         EuropeanHornet.self,
         PaperWasp.self,
+        CarpenterBee.self,
         // realityhd:nature
     ]
 }
