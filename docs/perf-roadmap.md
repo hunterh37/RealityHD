@@ -286,6 +286,12 @@ Items, in order. Each lists the measure that proves it and the sim bench that cl
    sun-blocked statics. Proof: per-scene caster list. Close: < 0.1 in hospital, siphon-cafe, open-office.
 4. B4 GrassTuft density by distance. alpine-meadow `GrassTuft` x21000 = 1103k of 2734k. Close: alpine-meadow
    < 1.5M in-view, thumbnail diff under 0.1 %, sim walk 0 frames > 22 ms.
+   Status: dropped offline. Trial: GrassTuft LOD1 = blades/3 at 1.7x width, switch distances [3, 8] -> [2, 5]
+   (grass-tuft tris 294/147/12 -> 280/91/12 as built). alpine-meadow in-view 2734k -> 1977k (release `perf --budget`),
+   still over 1.5M, and 2.47 % of pixels differ by > 8/255 vs 0.1 % allowed. The 1.5M gate needs 1.2M tris cut
+   while GrassTuft is 1103k and the TallGrass field 473k, so tufts alone cannot reach it. Trial code reverted;
+   needs a sim decision on a looser diff budget or a per-instance density cull (phase 3 measured per-instance
+   LOD as draws +70). Offline; sim validation pending.
 5. B5 mulberry-river and lakeside-camp breakdown. Both over phase 3 with no breakdown recorded. First step
    is `perf --breakdown`; item splits once the top field is known.
 6. B6 Hospital rig draws. Rigs are 818 of 876 draws; crash-cart at LOD0 is 113. Proof: `--breakdown` rigs.
