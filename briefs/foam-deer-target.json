@@ -1,0 +1,41 @@
+{
+  "budget": 10000,
+  "id": "foam-deer-target",
+  "kind": "prop",
+  "materials": [
+    "foam.eva-worn",
+    "foam.eva",
+    "paint.bow-camo",
+    "plastic.grime"
+  ],
+  "name": "3D foam deer target",
+  "notes": "",
+  "parts": [
+    "body",
+    "head",
+    "ears",
+    "legs",
+    "tail",
+    "vital zone",
+    "arrow scuffs",
+    "base stakes"
+  ],
+  "references": [],
+  "size": [
+    1.25,
+    1.05,
+    0.45
+  ],
+  "style": "standing doe 3D archery target 1.05 m at the shoulder, tan molded foam, white throat and belly, faint vital-zone circle behind the front shoulder, hide-colored ears",
+  "summary": "3D foam whitetail deer target: molded closed-cell foam body, painted vital zone, scuffed from arrow hits.",
+  "tags": [
+    "prop",
+    "archery",
+    "sports",
+    "outdoor",
+    "hunting"
+  ],
+  "theme": "Archery",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

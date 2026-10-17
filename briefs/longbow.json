@@ -1,0 +1,43 @@
+{
+  "budget": 10000,
+  "id": "longbow",
+  "kind": "prop",
+  "materials": [
+    "wood.lumber-oak",
+    "wood.walnut",
+    "leather.tan",
+    "fabric.bowstring",
+    "bone.horn"
+  ],
+  "name": "English longbow",
+  "notes": "",
+  "parts": [
+    "stave",
+    "belly",
+    "back",
+    "horn nocks",
+    "leather grip",
+    "arrow pass",
+    "string",
+    "nocking point",
+    "serving"
+  ],
+  "references": [],
+  "size": [
+    0.2,
+    1.82,
+    0.04
+  ],
+  "style": "70 in self bow, D-section, slight reflex, honey-brown yew with lighter sapwood back, dark horn nocks, brown leather grip wrap",
+  "summary": "English longbow, 1.8 m: D-section hickory-backed yew stave, horn nocks, leather-wrapped grip, hemp string, articulated draw.",
+  "tags": [
+    "prop",
+    "archery",
+    "handheld",
+    "articulated",
+    "wood"
+  ],
+  "theme": "Archery",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

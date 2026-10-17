@@ -13,8 +13,12 @@ public enum BirdSpecies: String, CaseIterable, Codable, Sendable, Identifiable {
     case mourningDove = "mourning-dove"
     case rubyThroatedHummingbird = "ruby-throated-hummingbird"
     case cedarWaxwing = "cedar-waxwing"
+    case wildTurkey = "wild-turkey"
+    case ringneckPheasant = "ringneck-pheasant"
 
     public var id: String { rawValue }
+    /// Ground-walking game birds. They walk, trot, run and peck on `BirdMotion` leg cycles and never visit yards.
+    public static let hunting: [BirdSpecies] = [.wildTurkey, .ringneckPheasant]
     public var profile: BirdProfile { BirdProfile.table[self]! }
 }
 
@@ -59,8 +63,20 @@ public struct BirdAnatomy: Sendable {
 
     /// Half span measured from the body side.
     public var halfSpan: Float { (wingspan - bodyWidth) / 2 }
+    /// Feathered upper leg between the hip and the ankle, beyond the tarsus proportion (turkeys, pheasants).
+    public var tibia: Float = 0
+    /// Red wattle and snood size in meters, 0 for none (turkey).
+    public var caruncle: Float = 0
+    /// Neck radius at the shoulders as a fraction of half the body width.
+    public var neckThick: Float = 0.8
+    /// Chest beard length in meters (turkey tom).
+    public var beard: Float = 0
+    /// Height of the neck collar ring (ringneck pheasant), 0 for none.
+    public var collar: Float = 0
+    /// Radius of the bare red face patch around each eye (pheasant), 0 for none.
+    public var facePatch: Float = 0
     /// Height of the body center above the feet when perched.
-    public var standHeight: Float { tarsus * 0.80 + tarsus * 0.45 + bodyDepth * 0.30 }
+    public var standHeight: Float { tarsus * 0.80 + tarsus * 0.45 + bodyDepth * 0.30 + tibia }
 }
 
 /// Habitat features a species looks for. Weights live in `BirdBehavior.likes`.
@@ -109,6 +125,8 @@ public struct BirdBehavior: Sendable {
     public var likes: [HabitatFeature: Float]
     /// Habitat score below which this species never visits.
     public var minHabitat: Float
+    /// False for hunting game: the yard scheduler never picks it.
+    public var visitsYards = true
 }
 
 public struct BirdProfile: Sendable {
@@ -125,7 +143,7 @@ public struct BirdProfile: Sendable {
 
 extension BirdProfile {
     static let table: [BirdSpecies: BirdProfile] = Dictionary(uniqueKeysWithValues: [
-        bluebird, cardinal, blueJay, goldfinch, robin, chickadee, oriole, dove, hummingbird, waxwing,
+        bluebird, cardinal, blueJay, goldfinch, robin, chickadee, oriole, dove, hummingbird, waxwing, turkey, pheasant,
     ].map { ($0.species, $0) })
 
     private static let allSeasons: Set<AnimalSeason> = [.spring, .summer, .autumn, .winter]

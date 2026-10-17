@@ -48,6 +48,8 @@ public enum SceneCatalog {
                 SiphonCafe.self,
                 BostonCommon.self,
                 MulberryRiverReach.self,
+                TimberlineBackcountry.self,
+                ArcheryRange.self,
                 // realityhd:scene
     ]
 

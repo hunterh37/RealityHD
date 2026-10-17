@@ -1,0 +1,44 @@
+{
+  "budget": 14500,
+  "id": "archery-target",
+  "kind": "prop",
+  "materials": [
+    "straw.hay",
+    "paper.sheet",
+    "wood.pine-aged",
+    "metal.galvanized",
+    "fabric.canvas"
+  ],
+  "name": "Archery target butt and stand",
+  "notes": "",
+  "parts": [
+    "straw boss",
+    "target face",
+    "gold ring",
+    "red ring",
+    "blue ring",
+    "black ring",
+    "white ring",
+    "stand legs",
+    "brace bar",
+    "retaining straps"
+  ],
+  "references": [],
+  "size": [
+    1.39,
+    2.0,
+    0.665
+  ],
+  "style": "World Archery 122 cm face (rings 6.1 cm wide: 10/9 gold, 8/7 red, 6/5 blue, 4/3 black, 2/1 white), arrow-worn centre, on a wood easel tilted back 8 degrees",
+  "summary": "Archery target: 122 cm ten-ring face on a coiled-straw boss, braced on a wooden A-frame stand.",
+  "tags": [
+    "prop",
+    "archery",
+    "sports",
+    "outdoor",
+    "wood"
+  ],
+  "theme": "Archery",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -26,7 +26,7 @@ public enum AssetTag {
         // RealityHD 6: kitchen and cooking
         "appliance", "cookware",
         // landscaping: yard props, hardscape, planting
-        "landscaping",
+        "landscaping", "archery",
         // architecture: facade openings and building elements sized per bay by building generators
         "architecture", "facade", "roof",
         // classical trim and ornament tiled along facade edges
@@ -47,6 +47,8 @@ public enum AssetTag {
         "fish",
         // fishing tackle: rods, rod components, reels and lures (MulberryRiver)
         "fishing",
+        // hunting: handheld firearms, bows and ammunition
+        "hunting",
     ])
 
     /// Scene tags: any vocabulary tag plus these.

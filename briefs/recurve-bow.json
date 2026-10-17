@@ -1,0 +1,46 @@
+{
+  "budget": 10000,
+  "id": "recurve-bow",
+  "kind": "prop",
+  "materials": [
+    "wood.walnut",
+    "wood.maple-natural",
+    "fabric.bowstring",
+    "leather.tan",
+    "metal.anodized",
+    "rubber.recoil-pad"
+  ],
+  "name": "Recurve bow",
+  "notes": "",
+  "parts": [
+    "riser",
+    "limbs",
+    "limb bolts",
+    "arrow shelf",
+    "plunger",
+    "string",
+    "nocking point",
+    "limb tips",
+    "grip wrap",
+    "stabilizer bushing"
+  ],
+  "references": [],
+  "size": [
+    0.25,
+    1.62,
+    0.06
+  ],
+  "style": "62 in Olympic-style take-down recurve, walnut and maple laminated riser, black fiberglass limbs, serving on string, brace height 19 cm",
+  "summary": "Take-down recurve bow, 1.62 m: walnut riser with shelf and plunger, fiberglass limbs with tip recurve, leather grip, articulated string draw.",
+  "tags": [
+    "prop",
+    "archery",
+    "handheld",
+    "articulated",
+    "wood",
+    "metal"
+  ],
+  "theme": "Archery",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

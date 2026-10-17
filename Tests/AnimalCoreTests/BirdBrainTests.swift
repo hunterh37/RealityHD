@@ -27,8 +27,9 @@ final class BirdBrainTests: XCTestCase {
         return t
     }
 
+    /// Yard visitors only: hunting game (turkey, pheasant) walks and flushes, it never perches at feeders.
     func testEverySpeciesLandsPerchesAndLeaves() {
-        for sp in BirdSpecies.allCases {
+        for sp in BirdSpecies.allCases where sp.profile.behavior.visitsYards {
             let (view, book) = yard()
             let b = BirdBrain(id: 1, profile: sp.profile, spawn: V3(-8, 4, 6), yaw: 0.5, stay: 14, trust: 0, seed: 7)
             var landed = false
