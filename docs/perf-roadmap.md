@@ -298,6 +298,9 @@ Items, in order. Each lists the measure that proves it and the sim bench that cl
    - B5a lakeside-camp scots-pine LOD0/1 weight: 794k of 2225k from 55 trees (14.4k tris each in view). Add a
      pine LOD1 cap like B9 (LOD1 15774 = 47 % of LOD0) and check scots-pine lod distances. Close: lakeside-camp
      in-view < 1.5M.
+     Status: `ConiferBuild.cappedLOD1` caps LOD1 at 45 % of LOD0. scots-pine LOD1 15774 -> 14908 (44.7 %); scots-pine
+     field 794k -> 751k, lakeside-camp in-view 2225k -> 2183k, shadow 2122k -> 2068k (release `perf --budget`).
+     Close not met (< 1.5M needs LOD0 distance work). Thumbnail diff not conclusive. Offline; sim validation pending.
    - B5b lakeside-camp grass.tall x4701 = 497k: density by distance, shares the B4 mechanism. Close: in-view
      tris of the field halved with thumbnail diff < 0.1 %.
    - B5c mulberry-river tree fields (oak, shortleaf, sycamore, river-birch) are 784 of 857 draws: 640 draws

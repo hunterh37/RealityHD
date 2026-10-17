@@ -62,9 +62,23 @@ enum ConiferBuild {
     /// Four LODs from one skeleton (LOD 3: far cards), with an optional per-level edit.
     static func lods(_ species: TreeSpecies, seed: UInt64, distances: [Float] = [14, 40, 85], edit: (inout Model, Int) -> Void = { _, _ in }) -> LODModel {
         let g = TreeGenerator(species: species, seed: seed)
-        var levels = [g.model(.lod0), g.model(.lod1), g.model(.lod2), g.model(.lod3)]
+        let l0 = g.model(.lod0)
+        var levels = [l0, cappedLOD1(g, lod0: l0.triangleCount), g.model(.lod2), g.model(.lod3)]
         for i in levels.indices { edit(&levels[i], i) }
         return LODModel(levels: levels, switchDistances: Tree.fourLevel(distances))
+    }
+
+    /// LOD1 stays at or under 45 % of LOD0. Over that, needle cards are thinned and enlarged to hold crown density.
+    static let lod1Cap: Float = 0.45
+    static func cappedLOD1(_ g: TreeGenerator, lod0: Int) -> Model {
+        var s = TreeGenerator.LODSettings.lod1
+        var m = g.model(s)
+        for _ in 0..<8 where Float(m.triangleCount) > lod1Cap * Float(lod0) && lod0 > 0 {
+            let k = max(0.5, lod1Cap * 0.97 * Float(lod0) / Float(m.triangleCount))
+            s.leafFraction *= k; s.leafScale /= k.squareRoot()
+            m = g.model(s)
+        }
+        return m
     }
 
     /// Splits a surface by triangle: triangles whose centroid passes `take` move to a new surface with `material`.
