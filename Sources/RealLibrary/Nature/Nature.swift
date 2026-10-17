@@ -49,6 +49,7 @@ public enum Nature {
         BrushPile.self,
         EyedClickBeetle.self,
         GoliathBeetle.self,
+        TigerBeetle.self,
         // realityhd:nature
     ]
 }

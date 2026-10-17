@@ -67,6 +67,7 @@ public extension MaterialLibrary {
             wing("insect.elytra-firefly", 11, .tegmen, rough: 0.45, seed: 1132),
             wing("insect.elytra-jewel", 12, .tegmen, rough: 0.22, coat: 0.6, metal: true, seed: 1133),
             wing("insect.elytra-goliath", 14, .tegmen, a: 0xEAE4D2, b: 0x55321A, c: 0x9A7650, rough: 0.55, seed: 1134),
+            wing("insect.elytra-tiger", 16, .tegmen, a: 0x16A05A, b: 0x9A6A20, c: 0xF0EEE2, aspect: 1.5, rough: 0.2, coat: 0.6, metal: true, seed: 1136),
             wing("insect.pronotum-goliath", 15, .tegmen, a: 0xEDE8DA, b: 0x141110, c: 0x8A7A62, rough: 0.5, seed: 1135),
             veins("insect.veins-dragonfly-fore", 0, .dragonflyFore, 0x2A2418, 0x3A2414, seed: 1140),
             veins("insect.veins-dragonfly-hind", 0, .dragonflyHind, 0x2A2418, 0x3A2414, seed: 1141),

@@ -119,7 +119,7 @@ S compoundEye(float2 uv, constant RFParams &P) {
 // f.z aspect (chord / span for elytra spot shapes). colorA ground, colorB pattern, colorC accent.
 // Patterns: 0 monarch fore, 1 monarch hind, 2 tiger swallowtail fore, 3 hind, 4 blue morpho fore,
 // 5 hind, 6 luna fore, 7 luna hind, 8 katydid tegmen, 9 grasshopper tegmen, 10 seven-spot ladybird
-// elytron, 11 firefly elytron, 12 jewel beetle elytron, 13 cricket tegmen, 14 goliath beetle elytron, 15 goliath pronotum.
+// elytron, 11 firefly elytron, 12 jewel beetle elytron, 13 cricket tegmen, 14 goliath beetle elytron, 15 goliath pronotum, 16 tiger beetle elytron.
 S insectWing(float2 uv, constant RFParams &P) {
     S s = defaults(); uint sd = P.seed;
     int pat = int(P.f.x + 0.5); int oid = int(P.f.y + 0.5);
@@ -328,6 +328,25 @@ S insectWing(float2 uv, constant RFParams &P) {
         float edge = max(1.0 - smoothstep(0.04, 0.07, p.x), smoothstep(0.86, 0.9, p.x));
         c = mix(dark * (0.9 + 0.2 * mott), pale, edge);
         rough = 0.45;
+    } else if (pat == 16) {
+        // Tiger beetle elytron (u 0 suture, 1 outer edge; v 0 rear, 1 front): metallic emerald green
+        // with bronze sheen, fine punctures, three white marginal spots per elytron.
+        float sh = sat(0.5 + mott * 1.6);
+        float3 em = P.colorA.rgb, br = P.colorB.rgb;
+        c = mix(em * (0.8 + 0.4 * sh), br, sat(0.25 + 0.5 * (1.0 - p.y) * sh + 0.3 * (p.x - 0.5)));
+        float4 w = worley(uv, int2(30, 46), sd + 6u, 0.8);
+        float pit = 1.0 - smoothstep(0.05, 0.15, w.x);
+        float sp = 0.0;
+        float2 cs[3] = {float2(0.76, 0.80), float2(0.80, 0.50), float2(0.74, 0.16)};
+        float rs[3] = {0.085, 0.08, 0.075};
+        for (int i = 0; i < 3; i++) {
+            float wob = 1.0 + 0.1 * gnoise(p * 9.0, int2(9, 9), sd + uint(i));
+            float r = rs[i] * wob;
+            sp = max(sp, 1.0 - smoothstep(r, r + 0.012, length((p - cs[i]) * float2(1.0, 0.55 * max(P.f.z, 0.5) + 0.5))));
+        }
+        c *= 1.0 - pit * 0.3;
+        c = mix(c, P.colorC.rgb * (0.95 + 0.08 * mott), sp);
+        metal = 0.85 * (1.0 - sp); rough = mix(0.2 + pit * 0.1, 0.5, sp); h = 0.5 - pit * 0.1;
     } else {
         // Jewel beetle (Chrysochroa): metallic green with a broad red-violet stripe, fine punctures.
         float3 green = lin3(float3(0.15, 0.75, 0.25)), gold = lin3(float3(0.75, 0.75, 0.2));
