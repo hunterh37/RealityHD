@@ -523,6 +523,8 @@ public enum Props {
         EbeamMetrology.self,
         ProbeStation.self,
         DicingSaw.self,
+        HybridBonder.self,
+        ToolStatusTower.self,
         // realityhd:prop
     ]
 }
