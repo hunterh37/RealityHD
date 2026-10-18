@@ -50,5 +50,9 @@ public extension MaterialLibrary {
             $0.knobs = V4(0.15, 0.2, 0.1, 0.05); $0.seed = 9808; $0.tileSize = 0.01; $0.normalStrength = 0.1
             $0.hasMetallicMap = true; $0.metallic = 0.25; $0.roughness = 0.12
         },
+        // Clear glass-core interposer: pale blue-green, mostly transparent, TGV columns visible through it.
+        MaterialSpec(key: "glass.substrate-clear", program: nil).with {
+            $0.baseColor = V3(0.62, 0.74, 0.72); $0.roughness = 0.04; $0.specular = 0.6; $0.mode = .transparent; $0.opacity = 0.32; $0.twoSided = true
+        },
     ]
 }

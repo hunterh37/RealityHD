@@ -508,6 +508,7 @@ public enum Props {
         ChipPackageFinal.self,
         HBMStack.self,
         DieBlankReticle.self,
+        InterposerGlass.self,
         // realityhd:prop
     ]
 }
