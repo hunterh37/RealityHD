@@ -71,5 +71,10 @@ public extension MaterialLibrary {
             $0.knobs = V4(0.1, 0.01, 6, 0.04); $0.seed = 3122; $0.tileSize = 0.05; $0.normalStrength = 0.1
             $0.hasMetallicMap = true; $0.metallic = 1; $0.roughness = 0.35
         },
+        // CMP polishing pad: grey-beige closed-cell polyurethane, matte, faint slurry-stained noise.
+        MaterialSpec(key: "plastic.pad", program: .plastic).with {
+            $0.colorA = linear(0x8C8A84); $0.knobs = V4(0.6, 0.5, 0.5, 0); $0.tileSize = 0.12; $0.resolution = 512; $0.seed = 3140
+            $0.roughness = 0.85
+        },
     ]
 }

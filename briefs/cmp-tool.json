@@ -1,0 +1,43 @@
+{
+ "budget": 12000,
+ "id": "cmp-tool",
+ "kind": "prop",
+ "materials": [
+  "metal.powdercoat",
+  "metal.stainless",
+  "metal.anodized",
+  "plastic.pad",
+  "glass.window-tint",
+  "plastic.matte",
+  "rubber.tubing",
+  "glass.lamp",
+  "plastic.polycarbonate-tint",
+  "silicon.thinfilm"
+ ],
+ "name": "CMP tool",
+ "notes": "Named parts platen-1..platen-3 spin.",
+ "parts": [
+  "white enclosure with large front window",
+  "3 rotating platens with polishing pads",
+  "slurry arms over each platen",
+  "carrier heads on a gantry",
+  "post-CMP cleaner module",
+  "load ports with FOUPs",
+  "status tower",
+  "named spinning platens"
+ ],
+ "references": [],
+ "size": [
+  4,
+  2.2,
+  3
+ ],
+ "style": "Generic CMP polisher, white powdercoat enclosure, tinted window, grey polishing pads with slurry stains, light wear, no branding.",
+ "summary": "CMP tool with 3 polishing platens, slurry arms, carrier heads, cleaner module, load ports.",
+ "tags": [
+  "prop"
+ ],
+ "theme": "Fab",
+ "threshold": 0.85,
+ "tolerance": 0.08
+}

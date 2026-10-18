@@ -512,6 +512,8 @@ public enum Props {
         PlasmaEtchCluster.self,
         CvdAldCluster.self,
         PvdCluster.self,
+        CmpTool.self,
+        IonImplanter.self,
         // realityhd:prop
     ]
 }
