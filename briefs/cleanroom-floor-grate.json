@@ -1,0 +1,23 @@
+{
+  "budget": 800,
+  "id": "cleanroom-floor-grate",
+  "kind": "prop",
+  "materials": [],
+  "name": "Cleanroom floor grate",
+  "notes": "",
+  "parts": [],
+  "references": [],
+  "size": [
+    0.6,
+    0.05,
+    0.6
+  ],
+  "style": "TODO: era, condition, finish",
+  "summary": "TODO: one sentence, what it is and how it's built.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "Fab",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
