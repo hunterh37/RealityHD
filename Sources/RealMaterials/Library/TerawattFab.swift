@@ -9,6 +9,11 @@ public extension MaterialLibrary {
             $0.baseColor = V3(0.10, 0.10, 0.11); $0.roughness = 0.12; $0.specular = 0.5
             $0.mode = .transparent; $0.opacity = 0.62; $0.twoSided = true
         },
+        // Equipment service window: light blue-grey tint, mostly transparent so chamber contents read.
+        MaterialSpec(key: "glass.window-tint", program: nil).with {
+            $0.baseColor = V3(0.30, 0.38, 0.42); $0.roughness = 0.04; $0.specular = 0.6
+            $0.mode = .transparent; $0.opacity = 0.22; $0.twoSided = true
+        },
         // Bare polished silicon: dark mirror, blue-grey cast.
         MaterialSpec(key: "silicon.thinfilm", program: .polishedMetal).with {
             $0.colorA = linear(0x7C8290); $0.colorB = linear(0x4A505C); $0.colorC = linear(0x8E96A8)

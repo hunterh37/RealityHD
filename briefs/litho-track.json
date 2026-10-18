@@ -1,0 +1,45 @@
+{
+ "budget": 14000,
+ "id": "litho-track",
+ "kind": "prop",
+ "materials": [
+  "metal.powdercoat",
+  "metal.anodized",
+  "metal.aluminum-brushed",
+  "metal.stainless",
+  "metal.grate-iron",
+  "glass.window-tint",
+  "glass.clear",
+  "glass.lamp",
+  "plastic.matte",
+  "plastic.polycarbonate-tint",
+  "silicon.thinfilm"
+ ],
+ "name": "Litho coater/developer track",
+ "notes": "Generic, no branding. 8 x 2.5 x 3 m. Panels are named parts.",
+ "parts": [
+  "white powdercoat modules with panel seams",
+  "tinted service windows showing spin-coat bowls",
+  "EFEM with 4 FOUP load ports and docked FOUPs",
+  "status tower on roof",
+  "touchscreen on swing arm",
+  "leveling feet on cleanroom grate",
+  "named removable panels"
+ ],
+ "references": [],
+ "size": [
+  8,
+  2.5,
+  3
+ ],
+ "style": "TEL/SCREEN-class coater/developer track, generic, white powdercoat cleanroom tool.",
+ "summary": "Coater/developer track: white paneled modules, tinted service windows with spin-coat bowls, 4 FOUP load ports, status tower, touchscreen.",
+ "tags": [
+  "prop",
+  "semiconductor",
+  "articulated"
+ ],
+ "theme": "Fab",
+ "threshold": 0.85,
+ "tolerance": 0.08
+}
