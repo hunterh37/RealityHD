@@ -519,6 +519,7 @@ public enum Props {
         RackLpu.self,
         RackAir42u.self,
         RackNvl72.self,
+        PowerCordC19.self,
         // realityhd:prop
     ]
 }
