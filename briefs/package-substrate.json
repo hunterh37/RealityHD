@@ -1,0 +1,36 @@
+{
+  "budget": 2500,
+  "id": "package-substrate",
+  "kind": "prop",
+  "materials": [
+    "laminate.abf",
+    "metal.gold",
+    "metal.solder"
+  ],
+  "name": "Package substrate",
+  "notes": "Bare organic package substrate.",
+  "parts": [
+    "ABF build-up laminate core with solder mask",
+    "central die land grid with gold pads",
+    "perimeter gold-plated pad array on the underside",
+    "corner fiducials and orientation chamfer",
+    "edge decoupling capacitors (0201) on the top"
+  ],
+  "references": [],
+  "size": [
+    0.1,
+    0.003,
+    0.1
+  ],
+  "style": "Server AI accelerator organic substrate, 100 x 100 mm, 3 mm thick, bare, no die.",
+  "summary": "Bare organic package substrate.",
+  "tags": [
+    "prop",
+    "chiplab",
+    "electronics",
+    "articulated"
+  ],
+  "theme": "ChipLab",
+  "threshold": 0.9,
+  "tolerance": 0.1
+}

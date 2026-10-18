@@ -1,0 +1,41 @@
+{
+  "budget": 5000,
+  "id": "chip-package-final",
+  "kind": "prop",
+  "materials": [
+    "metal.nickel",
+    "silicon.die",
+    "silicon.die-edge",
+    "laminate.abf",
+    "metal.gold",
+    "plastic.underfill",
+    "metal.solder"
+  ],
+  "name": "Chip package final",
+  "notes": "Complete accelerator package with lid and exploded layers.",
+  "parts": [
+    "nickel-plated copper lid with chamfered edge and sealant bead",
+    "substrate with solder mask edge",
+    "exposed gold pads on a row of edge decoupling capacitors",
+    "lid removable (articulated)",
+    "exploded layers: lid, die set, substrate",
+    "central GPU die and flanking HBM stacks visible with lid off"
+  ],
+  "references": [],
+  "size": [
+    0.1,
+    0.006,
+    0.1
+  ],
+  "style": "AI accelerator package, 100 x 100 mm, 6 mm tall, nickel lid, lightly handled.",
+  "summary": "Complete accelerator package with lid and exploded layers.",
+  "tags": [
+    "prop",
+    "chiplab",
+    "electronics",
+    "articulated"
+  ],
+  "theme": "ChipLab",
+  "threshold": 0.9,
+  "tolerance": 0.1
+}
