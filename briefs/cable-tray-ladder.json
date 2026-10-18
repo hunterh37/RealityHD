@@ -1,0 +1,33 @@
+{
+  "budget": 9000,
+  "id": "cable-tray-ladder",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized",
+    "plastic.matte",
+    "metal.galvanized-aged"
+  ],
+  "name": "Cable tray ladder",
+  "notes": "",
+  "parts": [
+    "side rails",
+    "rungs",
+    "splice plates with bolts",
+    "trapeze hangers",
+    "bundled cables"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    0.1,
+    0.6
+  ],
+  "style": "Data center 3 m galvanized steel ladder cable tray, 600 mm wide, C-section side rails, rungs every 300 mm, bolted splice plates, trapeze hangers, a few bundled black and blue cables lying in it.",
+  "summary": "3 m galvanized ladder cable tray with rungs, splice plates, trapeze hangers and bundled cables.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

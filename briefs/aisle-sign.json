@@ -1,0 +1,33 @@
+{
+  "budget": 1500,
+  "id": "aisle-sign",
+  "kind": "prop",
+  "materials": [
+    "plastic.matte:F2F2F2",
+    "metal.aluminum",
+    "plastic.matte:1F5FA8"
+  ],
+  "name": "Aisle sign",
+  "notes": "size is panel 0.6x0.25x0.02 plus 0.3 m hangers",
+  "parts": [
+    "white plastic panel",
+    "thin aluminum frame",
+    "two threaded-rod hangers",
+    "row code A07",
+    "COLD AISLE strip"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    0.55,
+    0.02
+  ],
+  "style": "Ceiling-hung data-center row sign, matte white plastic in thin aluminum frame, bold decal text",
+  "summary": "Ceiling-hung data-center row sign: white plastic panel in an aluminum frame on two threaded-rod hangers, with a bold row code and a blue COLD AISLE strip.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

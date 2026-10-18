@@ -1,0 +1,35 @@
+{
+  "budget": 20000,
+  "id": "hall-shell",
+  "kind": "prop",
+  "materials": [
+    "concrete.rough",
+    "concrete.smooth",
+    "metal.powdercoat",
+    "metal.galvanized-aged",
+    "rubber.tubing"
+  ],
+  "name": "Hall shell",
+  "notes": "",
+  "parts": [
+    "tilt-up concrete wall panels",
+    "steel columns with impact guards",
+    "roof trusses",
+    "exposed MEP",
+    "sealed floor with expansion joints"
+  ],
+  "references": [],
+  "size": [
+    16.5,
+    10.4,
+    24.5
+  ],
+  "style": "Worn industrial tilt-up data-center hall shell, parametric length, width, clearHeight",
+  "summary": "TODO: one sentence, what it is and how it's built.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

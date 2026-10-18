@@ -1,0 +1,17 @@
+{
+  "budget": 8000,
+  "id": "switch-tray-cpo",
+  "kind": "prop",
+  "materials": ["metal.aluminum-brushed", "glass.fiber", "metal.stainless", "metal.nickel", "plastic.pcb", "plastic.matte:0B0C0E", "copper.polished"],
+  "name": "CPO switch tray",
+  "notes": "",
+  "parts": ["chassis", "lid", "slide rails", "front MPO ports", "fiber shuffle ribbons", "co-packaged optics ASIC", "cold plate", "front handles"],
+  "references": [],
+  "size": [0.44, 0.045, 0.6],
+  "style": "1U-class co-packaged-optics switch tray, brushed aluminium, lid off to show ASIC with optical engines and fiber ribbons, front MPO port field.",
+  "summary": "Co-packaged optics switch tray: brushed aluminium chassis, central ASIC with optical engines, fiber shuffle ribbons to front MPO ports, slide rails.",
+  "tags": ["prop", "articulated"],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

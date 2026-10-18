@@ -1,0 +1,34 @@
+{
+  "budget": 4200,
+  "id": "overhead-busway",
+  "kind": "prop",
+  "materials": [
+    "metal.aluminum",
+    "plastic.matte",
+    "metal.galvanized"
+  ],
+  "name": "Overhead busway",
+  "notes": "",
+  "parts": [
+    "extruded aluminum housing",
+    "joint covers",
+    "hanger rods",
+    "tap-off box",
+    "breaker handle",
+    "labels"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    0.2,
+    0.15
+  ],
+  "style": "Data center overhead 800 V DC busway, 3 m extruded aluminum housing with cooling fins and joint covers, threaded hanger rods with brackets, one tap-off box with breaker handle and warning labels.",
+  "summary": "3 m overhead 800 V DC busway with joint covers, hanger rods and a tap-off box with breaker handle; tap-off is a named part.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,33 @@
+{
+  "budget": 6000,
+  "id": "power-shelf-800vdc",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat",
+    "plastic.matte"
+  ],
+  "name": "Power shelf 800 VDC",
+  "notes": "",
+  "parts": [
+    "6 hot-swap PSU modules",
+    "handles",
+    "LEDs",
+    "airflow grilles",
+    "rear busbar clip",
+    "slide module"
+  ],
+  "references": [],
+  "size": [
+    0.44,
+    0.09,
+    0.7
+  ],
+  "style": "Worn dark powder-coat 2U 800 VDC power shelf",
+  "summary": "TODO: one sentence, what it is and how it's built.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
