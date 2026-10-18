@@ -1,0 +1,38 @@
+{
+ "budget": 8000,
+ "id": "dicing-saw",
+ "kind": "prop",
+ "materials": [
+  "metal.powdercoat",
+  "metal.stainless",
+  "metal.anodized",
+  "glass.window-tint",
+  "plastic.matte",
+  "silicon.thinfilm-patterned",
+  "glass.lamp"
+ ],
+ "name": "Dicing saw",
+ "notes": "Named part: lid",
+ "parts": [
+  "lid with window",
+  "spindle with blade",
+  "cutting table with tape-frame wafer",
+  "control panel",
+  "status tower",
+  "coolant nozzles"
+ ],
+ "references": [],
+ "size": [
+  1.5,
+  1.8,
+  1.5
+ ],
+ "style": "Generic dicing saw, white powdercoat, stainless wet area, light wear at handles, fingerprints on window, no branding.",
+ "summary": "Wafer dicing saw with hinged lid, window over spindle, tape-frame wafer on cutting table.",
+ "tags": [
+  "prop"
+ ],
+ "theme": "Fab",
+ "threshold": 0.85,
+ "tolerance": 0.08
+}

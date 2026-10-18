@@ -520,6 +520,9 @@ public enum Props {
         FfuCeilingTile.self,
         CleanroomFloorGrate.self,
         FabYellowLightPanel.self,
+        EbeamMetrology.self,
+        ProbeStation.self,
+        DicingSaw.self,
         // realityhd:prop
     ]
 }
