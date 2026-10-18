@@ -507,6 +507,7 @@ public enum Props {
         RackAi1mw.self,
         ComputeTrayGpu.self,
         ColdPlate.self,
+        HotAisleContainment.self,
         // realityhd:prop
     ]
 }

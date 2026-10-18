@@ -26,5 +26,20 @@ public extension MaterialLibrary {
             $0.colorA = linear(0x0F4A2A); $0.knobs = V4(0.25, 0.15, 0.4, 0); $0.seed = 3104; $0.tileSize = 0.08
             $0.resolution = 512; $0.normalStrength = 0.4; $0.roughness = 0.38; $0.clearcoat = 0.25
         },
+        // Clear polycarbonate roof and door panels: slight haze from micro-scratched surface, faint cool tint.
+        MaterialSpec(key: "glass.polycarbonate", program: nil).with {
+            $0.baseColor = V3(0.80, 0.84, 0.85); $0.roughness = 0.28; $0.specular = 0.5; $0.mode = .transparent; $0.opacity = 0.36; $0.twoSided = true
+        },
+        // Clear anodized aluminum extrusion: soft satin silver, fine directional brushing.
+        MaterialSpec(key: "metal.aluminum", program: .brushedMetal).with {
+            $0.colorA = linear(0xC3C5C7); $0.colorB = linear(0x93959A)
+            $0.knobs = V4(0.35, 0.3, 0.2, 0.1); $0.seed = 3105; $0.tileSize = 0.25; $0.normalStrength = 0.18
+            $0.hasMetallicMap = true; $0.metallic = 1; $0.roughness = 0.34
+        },
+        // EPDM door and panel seal: black, matte.
+        MaterialSpec(key: "rubber.seal", program: .plastic).with {
+            $0.colorA = linear(0x0E0E0F); $0.knobs = V4(0.2, 0.1, 0.3, 0); $0.seed = 3106; $0.tileSize = 0.1
+            $0.resolution = 256; $0.normalStrength = 0.3; $0.roughness = 0.75
+        },
     ]
 }
