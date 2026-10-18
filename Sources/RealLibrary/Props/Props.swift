@@ -513,6 +513,7 @@ public enum Props {
         OverheadBusway.self,
         CableTrayLadder.self,
         BlankingPanel.self,
+        AisleSign.self,
         CrashCartKvm.self,
         LedRowLight.self,
         RackLpu.self,
