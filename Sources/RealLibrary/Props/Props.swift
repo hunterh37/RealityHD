@@ -528,6 +528,7 @@ public enum Props {
         QuickDisconnect.self,
         ImmersionTank.self,
         SwitchTrayCpo.self,
+        FiberPatchLc.self,
         LotoTag.self,
         HallColumn.self,
         CampusBuilding.self,
