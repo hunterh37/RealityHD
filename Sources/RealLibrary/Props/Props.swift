@@ -529,6 +529,8 @@ public enum Props {
         ImmersionTank.self,
         SwitchTrayCpo.self,
         LotoTag.self,
+        HallColumn.self,
+        CampusBuilding.self,
         // realityhd:prop
     ]
 }
