@@ -33,5 +33,38 @@ public extension MaterialLibrary {
             $0.knobs = V4(0.2, 0.01, 8, 0.1); $0.seed = 3104; $0.tileSize = 0.3; $0.normalStrength = 0.05
             $0.hasMetallicMap = true; $0.metallic = 1; $0.roughness = 0.1
         },
+        // Per-die interference variants, scribe lane, exclusion rim and handling marks.
+        MaterialSpec(key: "silicon.die-a", program: .polishedMetal).with {
+            $0.colorA = linear(0x4FB0A8); $0.colorB = linear(0x9A60C8); $0.colorC = linear(0xE0B848)
+            $0.knobs = V4(0.35, 0.02, 18, 0.08); $0.seed = 3111; $0.tileSize = 0.026; $0.normalStrength = 0.04
+            $0.hasMetallicMap = true; $0.metallic = 0.55; $0.roughness = 0.22
+        },
+        MaterialSpec(key: "silicon.die-b", program: .polishedMetal).with {
+            $0.colorA = linear(0x5C90E0); $0.colorB = linear(0xC860A8); $0.colorC = linear(0x58C8B8)
+            $0.knobs = V4(0.35, 0.02, 20, 0.08); $0.seed = 3112; $0.tileSize = 0.026; $0.normalStrength = 0.04
+            $0.hasMetallicMap = true; $0.metallic = 0.55; $0.roughness = 0.22
+        },
+        MaterialSpec(key: "silicon.die-c", program: .polishedMetal).with {
+            $0.colorA = linear(0xC890C0); $0.colorB = linear(0x58A0D8); $0.colorC = linear(0xE0A860)
+            $0.knobs = V4(0.35, 0.02, 16, 0.08); $0.seed = 3113; $0.tileSize = 0.026; $0.normalStrength = 0.04
+            $0.hasMetallicMap = true; $0.metallic = 0.55; $0.roughness = 0.22
+        },
+        MaterialSpec(key: "silicon.die-d", program: .polishedMetal).with {
+            $0.colorA = linear(0x58C8A0); $0.colorB = linear(0xA890D8); $0.colorC = linear(0xE0A070)
+            $0.knobs = V4(0.35, 0.02, 22, 0.08); $0.seed = 3114; $0.tileSize = 0.026; $0.normalStrength = 0.04
+            $0.hasMetallicMap = true; $0.metallic = 0.55; $0.roughness = 0.22
+        },
+        // Bare silicon: bright grey mirror for the edge exclusion ring and bevel.
+        MaterialSpec(key: "silicon.bare", program: .polishedMetal).with {
+            $0.colorA = linear(0xE8ECF2); $0.colorB = linear(0xC0C6D0); $0.colorC = linear(0xE0E4EA)
+            $0.knobs = V4(0.1, 0.01, 6, 0.04); $0.seed = 3121; $0.tileSize = 0.3; $0.normalStrength = 0.03
+            $0.hasMetallicMap = true; $0.metallic = 0.5; $0.roughness = 0.2
+        },
+        // Faint handling marks and laser dots: slightly rougher, lighter.
+        MaterialSpec(key: "silicon.mark", program: .polishedMetal).with {
+            $0.colorA = linear(0xD8DCE4); $0.colorB = linear(0xB8BEC8); $0.colorC = linear(0xF0F2F6)
+            $0.knobs = V4(0.1, 0.01, 6, 0.04); $0.seed = 3122; $0.tileSize = 0.05; $0.normalStrength = 0.1
+            $0.hasMetallicMap = true; $0.metallic = 1; $0.roughness = 0.35
+        },
     ]
 }
