@@ -37,5 +37,29 @@ public extension MaterialLibrary {
             $0.colorA = linear(0xB06E22); $0.knobs = V4(0.2, 0.2, 0.3, 0); $0.seed = 9905
             $0.tileSize = 0.3; $0.resolution = 512; $0.normalStrength = 0.2
         },
+        // Lunar regolith: fine grey-brown basaltic dust with sharp-edged fragments, no wind ripples.
+        MaterialSpec(key: "regolith.lunar", program: .gravel).with {
+            $0.colorA = linear(0x6F6D69); $0.colorB = linear(0x4A4947); $0.colorC = linear(0x8C8A85)
+            $0.knobs = V4(0.95, 0.35, 0.6, 0); $0.seed = 9911; $0.tileSize = 1.2; $0.normalStrength = 2.4; $0.resolution = 2048
+            $0.antiTile = true; $0.roughness = 0.97
+        },
+        // Compacted regolith on berm slopes and rover tracks: lighter, finer, matte.
+        MaterialSpec(key: "regolith.lunar-fine", program: .sand).with {
+            $0.colorA = linear(0x84827D); $0.colorB = linear(0x5A5855); $0.colorC = linear(0x9A9893)
+            $0.knobs = V4(0.4, 0, 0.05, 90); $0.seed = 9912; $0.tileSize = 1.5; $0.normalStrength = 1.2; $0.resolution = 2048
+            $0.antiTile = true; $0.roughness = 0.98
+        },
+        // Martian dust and sand: iron-oxide red-orange with soft ripples and dark basalt grains.
+        MaterialSpec(key: "dust.mars", program: .sand).with {
+            $0.colorA = linear(0xA9623A); $0.colorB = linear(0x6B3A24); $0.colorC = linear(0xC8855A)
+            $0.knobs = V4(1.0, 0, 0.22, 22); $0.seed = 9913; $0.tileSize = 2.2; $0.normalStrength = 2.4; $0.resolution = 2048
+            $0.antiTile = true; $0.roughness = 0.95
+        },
+        // Dust settled on panels and metal: thin ochre-red film, rougher and flatter than the ground.
+        MaterialSpec(key: "dust.mars-film", program: .sand).with {
+            $0.colorA = linear(0xB87850); $0.colorB = linear(0x8A5636); $0.colorC = linear(0xD09A70)
+            $0.knobs = V4(0.5, 0, 0.1, 60); $0.seed = 9914; $0.tileSize = 0.8; $0.normalStrength = 0.9; $0.resolution = 1024
+            $0.roughness = 0.92
+        },
     ]
 }

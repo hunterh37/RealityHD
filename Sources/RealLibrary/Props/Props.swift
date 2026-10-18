@@ -519,6 +519,8 @@ public enum Props {
         OrbitalDCModule.self,
         SpaceRadiatorPanel.self,
         SolarArrayWing.self,
+        LunarDCHabitat.self,
+        MarsDCDome.self,
         // realityhd:prop
     ]
 }

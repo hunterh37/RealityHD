@@ -1,0 +1,37 @@
+{
+  "budget": 15000,
+  "id": "lunar-dc-habitat",
+  "kind": "prop",
+  "materials": [
+    "regolith.lunar",
+    "regolith.lunar-fine",
+    "fabric.canvas",
+    "thermal.radiator-white",
+    "mli.silver",
+    "metal.aluminum-brushed"
+  ],
+  "name": "Lunar data center habitat",
+  "notes": "",
+  "parts": [
+    "pressurized modules",
+    "inflatable module",
+    "sandbag regolith berm",
+    "radiator fins",
+    "airlock",
+    "regolith ground skirt"
+  ],
+  "references": [],
+  "size": [
+    15,
+    6,
+    15
+  ],
+  "style": "Ultra realistic lunar surface data center: rigid and inflatable modules half buried under a sandbag regolith berm, radiator fin bank, airlock with ramp, grey regolith ground.",
+  "summary": "Lunar data center habitat: modules under a sandbag regolith berm, radiator fins, airlock and grey regolith skirt.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenterSite",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
