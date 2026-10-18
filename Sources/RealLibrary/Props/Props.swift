@@ -515,6 +515,8 @@ public enum Props {
         BlankingPanel.self,
         AisleSign.self,
         CrashCartKvm.self,
+        PowerShelf800vdc.self,
+        HallShell.self,
         LedRowLight.self,
         RackLpu.self,
         RackAir42u.self,
