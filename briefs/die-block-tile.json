@@ -1,0 +1,33 @@
+{
+  "budget": 600,
+  "id": "die-block-tile",
+  "kind": "prop",
+  "materials": [
+    "silicon.die",
+    "silicon.die-edge",
+    "metal.gold",
+    "emissive.die-tensor"
+  ],
+  "name": "Die block tile",
+  "notes": "",
+  "parts": [
+    "silicon die body",
+    "type-specific surface pattern",
+    "subtle emissive tint",
+    "snap pin sockets"
+  ],
+  "references": [],
+  "size": [
+    0.0062,
+    0.00046,
+    0.0062
+  ],
+  "style": "Parametric silicon IP-block die tile, 6.2 mm square default, 0.4 mm thick; tensor (MAC array), sram (bit-cell stripes), noc (routing grid), hbmPhy (edge bump rows), io (pad ring); faint emissive tint per type; four named snap pins.",
+  "summary": "Parametric die block tile (tensor, sram, noc, hbmPhy, io): silicon body, type-specific surface pattern, emissive tint, named snap pin sockets.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "ChipLab",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,36 @@
+{
+  "budget": 2000,
+  "id": "interposer-glass",
+  "kind": "prop",
+  "materials": [
+    "glass.substrate",
+    "metal.copper",
+    "metal.gold",
+    "plastic.underfill"
+  ],
+  "name": "Glass interposer",
+  "notes": "Glass core interposer for chiplet packaging.",
+  "parts": [
+    "clear glass core slab",
+    "through-glass-via copper grid visible in the front and right polished edges",
+    "copper redistribution layer traces on top",
+    "copper landing pads",
+    "central die landing footprint microbump grid",
+    "two HBM landing footprints flanking the die",
+    "corner fiducials"
+  ],
+  "references": [],
+  "size": [
+    0.08,
+    0.001,
+    0.06
+  ],
+  "style": "Ultra realistic glass-core interposer, 80 x 60 mm, 1 mm thick, bare, no die, pale clear glass with copper TGVs and RDL.",
+  "summary": "Glass-core interposer with TGV copper grid, RDL traces, die and HBM landing footprints.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "ChipLab",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

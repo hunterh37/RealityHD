@@ -1,0 +1,35 @@
+{
+  "budget": 8000,
+  "id": "efem-robot",
+  "kind": "prop",
+  "materials": [
+    "metal.aluminum-brushed",
+    "plastic.matte",
+    "metal.anodized"
+  ],
+  "name": "EFEM wafer robot",
+  "notes": "",
+  "parts": [
+    "pedestal base",
+    "lift column",
+    "two-link arm with named joints",
+    "end-effector fork with wafer",
+    "cable carrier"
+  ],
+  "references": [],
+  "size": [
+    1,
+    1.5,
+    1
+  ],
+  "style": "Brooks/Yaskawa-class SCARA 300 mm wafer-handling robot, clean room.",
+  "summary": "SCARA wafer-handling robot with column, two-link arm, fork end-effector and cable carrier.",
+  "tags": [
+    "prop",
+    "semiconductor",
+    "articulated"
+  ],
+  "theme": "Fab",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

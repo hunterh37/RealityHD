@@ -1,0 +1,37 @@
+{
+  "budget": 10000,
+  "id": "ground-station-dish",
+  "kind": "prop",
+  "materials": [
+    "metal.painted",
+    "metal.galvanized",
+    "metal.steel",
+    "concrete.rough",
+    "metal.aluminum-brushed",
+    "plastic.matte"
+  ],
+  "name": "Ground station dish",
+  "notes": "",
+  "parts": [
+    "parabolic reflector with panel seams",
+    "back truss",
+    "feed horn on quadripod",
+    "az-el pedestal",
+    "dish slew",
+    "concrete foundation"
+  ],
+  "references": [],
+  "size": [
+    8,
+    10,
+    8
+  ],
+  "style": "Ultra realistic 8 m satellite ground station antenna: segmented white aluminum reflector with panel seams and rivets, back truss, quadripod feed horn with LNA, az-el pedestal with slew drive, concrete foundation with anchor bolts.",
+  "summary": "Satellite ground station dish: panelled parabolic reflector, back truss, quadripod feed horn, az-el pedestal on a concrete foundation, slewing dish.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenterSite",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

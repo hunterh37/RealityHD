@@ -1,0 +1,43 @@
+{
+ "budget": 14000,
+ "id": "duv-immersion-scanner",
+ "kind": "prop",
+ "materials": [
+  "metal.powdercoat",
+  "metal.anodized",
+  "metal.aluminum-brushed",
+  "metal.steel",
+  "metal.grate-iron",
+  "glass.lamp",
+  "plastic.matte",
+  "rubber.tubing",
+  "glass.window-tint"
+ ],
+ "name": "DUV immersion scanner",
+ "notes": "Generic, no branding. 6 x 3 x 3 m. cover-top and cover-side lift off.",
+ "parts": [
+  "white modular scanner enclosure with panel seams",
+  "removable covers (named parts)",
+  "immersion hood over wafer stage",
+  "reticle handler and wafer handler",
+  "status tower",
+  "cable tray",
+  "leveling feet on cleanroom grate"
+ ],
+ "references": [],
+ "size": [
+  6,
+  3,
+  3
+ ],
+ "style": "Generic ArF immersion lithography scanner, smaller white modular enclosure, cleanroom.",
+ "summary": "DUV immersion scanner: white modular enclosure, removable covers, immersion hood, handlers.",
+ "tags": [
+  "prop",
+  "semiconductor",
+  "articulated"
+ ],
+ "theme": "Fab",
+ "threshold": 0.85,
+ "tolerance": 0.08
+}

@@ -1,0 +1,38 @@
+{
+  "budget": 5000,
+  "id": "foup",
+  "kind": "prop",
+  "materials": [
+    "plastic.polycarbonate-tint",
+    "plastic.matte",
+    "silicon.thinfilm"
+  ],
+  "name": "FOUP front-opening unified pod",
+  "notes": "",
+  "parts": [
+    "smoke polycarbonate shell with ribbed sides",
+    "front door with latch keyholes and gasket",
+    "robotic top flange (OHT grip)",
+    "carry handles on both sides",
+    "kinematic coupling plate with three V-grooves",
+    "25 wafer slots visible, 300 mm wafers",
+    "RFID tag and label"
+  ],
+  "references": [],
+  "size": [
+    0.4,
+    0.36,
+    0.34
+  ],
+  "style": "SEMI E47.1 300 mm FOUP, Entegris/Shin-Etsu class, smoke tint, light handling wear.",
+  "summary": "25-slot front-opening pod for 300 mm wafers with top flange, side handles and door.",
+  "tags": [
+    "prop",
+    "semiconductor",
+    "handheld",
+    "articulated"
+  ],
+  "theme": "Fab",
+  "threshold": 0.9,
+  "tolerance": 0.08
+}

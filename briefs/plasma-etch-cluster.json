@@ -1,0 +1,45 @@
+{
+ "budget": 14000,
+ "id": "plasma-etch-cluster",
+ "kind": "prop",
+ "materials": [
+  "metal.stainless",
+  "metal.anodized",
+  "metal.powdercoat",
+  "metal.satin-aluminum",
+  "glass.lamp",
+  "glass.window-tint",
+  "plastic.matte",
+  "rubber.tubing",
+  "silicon.thinfilm"
+ ],
+ "name": "Plasma etch cluster tool",
+ "notes": "Chamber lids lid-1..lid-4 are articulated. Helper: Props/Fab/ClusterTool.swift.",
+ "parts": [
+  "central hexagonal vacuum transfer chamber with lid and viewport",
+  "4 bead-blasted aluminum process chambers with hinged lids",
+  "RF match boxes and gas lines on chamber tops",
+  "2 load locks",
+  "EFEM front with 3 load ports and FOUPs",
+  "stainless gas sticks with valves",
+  "cable bundles",
+  "status tower",
+  "named chamber lids"
+ ],
+ "references": [],
+ "size": [
+  4,
+  2.5,
+  4
+ ],
+ "style": "Generic Lam/AMAT-class plasma etch cluster tool, bead-blasted aluminum chambers, white EFEM, light wear, no branding.",
+ "summary": "Hex transfer chamber cluster with 4 etch chambers, 2 load locks, EFEM with load ports, gas sticks, status tower.",
+ "tags": [
+  "prop",
+  "semiconductor",
+  "articulated"
+ ],
+ "theme": "Fab",
+ "threshold": 0.85,
+ "tolerance": 0.08
+}
