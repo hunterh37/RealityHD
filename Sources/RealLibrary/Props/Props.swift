@@ -523,6 +523,7 @@ public enum Props {
         GpuModule2035.self,
         RackManifold.self,
         CduLiquid.self,
+        QuickDisconnect.self,
         // realityhd:prop
     ]
 }
