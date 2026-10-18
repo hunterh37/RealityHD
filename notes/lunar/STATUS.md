@@ -5,3 +5,4 @@ lunar-terrain: done; Nature/Lunar/LunarTerrain.swift, 40 m, 35 craters, 70 rocks
 lunar-boulder: done; Nature/Lunar/LunarBoulder.swift, 1.8 m, regolith apron, 12.4k tris; gate 0.818 (no signoff), thumb+catalog.
 lunar-crater-rim: done; Nature/Lunar/LunarCraterRim.swift, 14 m crater, 41k tris; gate 0.818 (no signoff), thumb+catalog.
 sky SunSky.lunarSouthPole: done; RealKit/Environment.swift, vacuum sky shader (stars, hard sun 1.5 deg, Earth disc supported); `realityhd render --sky lunar`.
+lunar-relay-satellite: done; Props/Lunar/LunarRelaySatellite.swift, 28k tris, gate 0.804 (no signoff), thumb+catalog.
