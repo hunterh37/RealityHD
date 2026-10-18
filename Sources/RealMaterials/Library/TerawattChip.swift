@@ -99,5 +99,15 @@ public extension MaterialLibrary {
             $0.colorA = linear(0x8F8A78); $0.knobs = V4(0.1, 0.1, 0.3, 0); $0.seed = 9822
             $0.tileSize = 0.02; $0.resolution = 512; $0.normalStrength = 0.1
         },
+        // Patterned wafer face: thin-film interference, violet-blue mirror; per-die hue via tint suffix.
+        MaterialSpec(key: "silicon.thinfilm", program: .brushedMetal).with {
+            $0.colorA = linear(0x5A4A9C); $0.colorB = linear(0x2F6A80)
+            $0.knobs = V4(0.1, 0.1, 0.1, 0.05); $0.seed = 9830; $0.tileSize = 0.02; $0.normalStrength = 0.08
+            $0.hasMetallicMap = true; $0.metallic = 0.9; $0.roughness = 0.1
+        },
+        // Cast acrylic: clear with a faint cool edge tint.
+        MaterialSpec(key: "plastic.acrylic", program: nil).with {
+            $0.baseColor = V3(0.55, 0.72, 0.8); $0.roughness = 0.03; $0.specular = 0.7; $0.mode = .transparent; $0.opacity = 0.16; $0.twoSided = true
+        },
     ]
 }

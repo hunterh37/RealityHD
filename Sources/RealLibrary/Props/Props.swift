@@ -514,6 +514,8 @@ public enum Props {
         DesignWorkbench2035.self,
         TransistorGaaCutaway.self,
         InterconnectStackCutaway.self,
+        WaferDisplayStand.self,
+        BondWireMacro.self,
         // realityhd:prop
     ]
 }
