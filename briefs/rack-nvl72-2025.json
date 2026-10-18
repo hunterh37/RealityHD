@@ -1,0 +1,34 @@
+{
+  "budget": 15000,
+  "id": "rack-nvl72-2025",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat:1B1D21",
+    "metal.perforated"
+  ],
+  "name": "NVL72 rack",
+  "notes": "",
+  "parts": [
+    "frame",
+    "doors",
+    "compute trays",
+    "switch trays",
+    "coolant manifold",
+    "NVLink spine",
+    "PDUs"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    2.3,
+    1.2
+  ],
+  "style": "2025 liquid-cooled 72-GPU rack, generic unbranded, compute trays top and bottom, NVLink switch trays in middle, rear manifold",
+  "summary": "72-GPU liquid-cooled rack: 18 compute trays above and below nine NVLink switch trays, power shelves, rear coolant manifolds and NVLink cable spine.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

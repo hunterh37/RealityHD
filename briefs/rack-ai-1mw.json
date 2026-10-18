@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "rack-ai-1mw",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat:1A1C1F",
+    "metal.perforated",
+    "plastic.matte",
+    "metal.aluminum-brushed",
+    "metal.stainless",
+    "glass.led-green"
+  ],
+  "name": "AI rack 1 MW",
+  "notes": "",
+  "parts": [
+    "frame",
+    "front door (perforated)",
+    "rear door (perforated)",
+    "GPU trays",
+    "tray handles",
+    "coolant manifold",
+    "busbar",
+    "hoses",
+    "casters",
+    "leveling feet"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    2.4,
+    1.4
+  ],
+  "style": "Hyperscale AI hall, black powder coat, lightly scuffed at door edges, clean, new-install.",
+  "summary": "Liquid-cooled 1 MW AI rack: perforated doors, 18 named GPU tray slots, U rails, PDUs, coolant manifolds, TOR switch.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.9,
+  "tolerance": 0.08
+}

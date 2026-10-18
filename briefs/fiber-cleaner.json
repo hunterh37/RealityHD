@@ -1,0 +1,34 @@
+{
+  "budget": 1200,
+  "id": "fiber-cleaner",
+  "kind": "prop",
+  "materials": [
+    "plastic.matte:2A6BD6",
+    "plastic.matte:8B8E92",
+    "metal.steel"
+  ],
+  "name": "Fiber cleaner",
+  "notes": "",
+  "parts": [
+    "blue ridged body",
+    "tapered nose",
+    "gray tip cap",
+    "pocket clip",
+    "label band"
+  ],
+  "references": [],
+  "size": [
+    0.028,
+    0.18,
+    0.024
+  ],
+  "style": "push-type one-click LC/SC fiber cleaning pen, blue body, gray tip cap, ridged grip",
+  "summary": "Push-type one-click LC/SC fiber cleaning pen, blue ridged body, gray tip cap and pocket clip, standing upright.",
+  "tags": [
+    "prop",
+    "handheld"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

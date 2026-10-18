@@ -1,0 +1,41 @@
+{
+  "budget": 8000,
+  "id": "hot-aisle-containment",
+  "kind": "prop",
+  "materials": [
+    "metal.aluminum",
+    "glass.polycarbonate",
+    "rubber.seal",
+    "plastic.white",
+    "plastic.yellow",
+    "plastic.matte",
+    "metal.stainless"
+  ],
+  "name": "Hot aisle containment",
+  "notes": "",
+  "parts": [
+    "aluminum frame",
+    "polycarbonate roof panels",
+    "sliding door left",
+    "sliding door right",
+    "door handles",
+    "rubber seals",
+    "door track",
+    "labels",
+    "cable penetrations"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    3.0,
+    2.4
+  ],
+  "style": "Hyperscale data hall hot aisle containment module, clear anodized aluminum extrusion, hazy clear polycarbonate, black EPDM seals, new install.",
+  "summary": "Hot aisle containment module: anodized aluminum frame, hazy polycarbonate roof and transom panels, end-of-row bi-parting sliding doors with push handles, rubber seals, labels and brush-sealed cable penetrations.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

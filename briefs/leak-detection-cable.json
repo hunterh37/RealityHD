@@ -1,0 +1,33 @@
+{
+  "budget": 800,
+  "id": "leak-detection-cable",
+  "kind": "prop",
+  "materials": [
+    "plastic.jacket:E8C21A",
+    "plastic.matte:F2F2F2",
+    "plastic.matte:1E1F21",
+    "metal.steel"
+  ],
+  "name": "Leak detection cable",
+  "notes": "",
+  "parts": [
+    "yellow sensing jacket",
+    "white terminator end cap",
+    "connector with coupling ring",
+    "three adhesive clips"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.018,
+    0.09
+  ],
+  "style": "yellow liquid-sensing cable in a gentle S on the floor with end cap, connector and adhesive hold-down clips",
+  "summary": "Yellow liquid-leak sensing cable, 2 m in a gentle S on the floor, with a white terminator cap, a connector and three adhesive hold-down clips.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

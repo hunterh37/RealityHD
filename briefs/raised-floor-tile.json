@@ -1,0 +1,35 @@
+{
+  "budget": 800,
+  "id": "raised-floor-tile",
+  "kind": "prop",
+  "materials": [
+    "metal.perforated",
+    "laminate.antistatic",
+    "metal.galvanized",
+    "plastic.matte"
+  ],
+  "name": "Raised floor tile",
+  "notes": "",
+  "parts": [
+    "perforated steel panel",
+    "grey antistatic laminate border",
+    "edge trim",
+    "scuffs",
+    "wheel marks",
+    "lift"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    0.03,
+    0.6
+  ],
+  "style": "Data center 25% open airflow raised floor tile, 600 mm square, 30 mm thick steel shell, grey anti-static HPL border, black PVC edge trim, light scuffs and caster wheel marks.",
+  "summary": "Raised floor airflow tile: 600 mm perforated steel panel with grey anti-static laminate border, edge trim, scuffs and wheel marks; lifts out as a named part.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

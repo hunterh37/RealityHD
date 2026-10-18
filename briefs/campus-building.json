@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "campus-building",
+  "kind": "prop",
+  "materials": [
+    "concrete.rough",
+    "concrete.smooth",
+    "metal.galvanized",
+    "metal.galvanized-aged",
+    "metal.powdercoat",
+    "asphalt",
+    "metal.aluminum",
+    "metal.perforated"
+  ],
+  "name": "Campus building",
+  "notes": "",
+  "parts": [
+    "precast concrete panels with reveals",
+    "roof parapet",
+    "dry-cooler rows on roof",
+    "loading docks",
+    "louvers",
+    "generator yard pad"
+  ],
+  "references": [],
+  "size": [
+    44.5,
+    10,
+    26.5
+  ],
+  "style": "Tabletop-scale exterior shell of a hyperscale data-center building, precast panels, parapet, rooftop dry coolers, dock doors, louvers, fenced generator yard pad",
+  "summary": "Parametric data-center campus building exterior shell for tabletop.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
