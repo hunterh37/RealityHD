@@ -12,7 +12,7 @@ public struct SolarArrayWing: RealArticulated {
     public static let tags = ["prop", "articulated", "space", "solar", "datacenter"]
     public static let budget = 4000
     public static let author = "realityhd"
-    public static let preview = PreviewHint(azimuth: 30, elevation: 40, distance: 24, studio: true)
+    public static let preview = PreviewHint(azimuth: 30, elevation: 40, distance: 1.0, studio: true)
 
     /// Panel count and width along Z (m).
     public var panelCount = 10
@@ -41,7 +41,7 @@ public struct SolarArrayWing: RealArticulated {
             rig.base[0].add(Prim.tube(catmull([V3(-14.85, 0.06, sz * 0.3), V3(-14.95, 0.075, sz * 0.9), V3(-14.8, 0.07, sz * 1.5)], per: 4), radii: Array(repeating: 0.012, count: 9), sides: 6, seamTile: 0.2, material: "mli.blanket"))
         }
         var bolts = Model(name: "bolts")
-        for k in 0..<4 { hexBolt(&bolts, at: V3(-14.85, 0.09, -0.25 + Float(k % 2) * 0.16 + (k < 2 ? 0 : 1.2) - 0.0), normal: V3(0, 1, 0), size: 0.012, material: hardware) }
+        for k in 0..<4 { OK.bolt(&bolts, at: V3(-14.85, 0.09, -0.25 + Float(k % 2) * 0.16 + (k < 2 ? 0 : 1.2) - 0.0), size: 0.012, hardware) }
         rig.base[0].add(bolts)
 
         var parent: String? = nil

@@ -24,4 +24,8 @@ enum OK {
     static func cylY(_ r: Float, _ len: Float, at p: V3, _ mat: MaterialKey, seg: Int = 10, bevel: Float = 0) -> (Surface, Xform) {
         (Prim.cylinder(radius: r, height: len, bevel: bevel, segments: seg, bevelSegments: 1, material: mat), Xform(translation: p))
     }
+    /// Low-poly bolt head (hex prism, ~20 tris) for budget-tight props.
+    static func bolt(_ m: inout Model, at p: V3, size: Float, _ mat: MaterialKey, rotation: simd_quatf = simd_quatf(angle: 0, axis: V3(0, 1, 0))) {
+        m.add(Prim.cylinder(radius: size * 0.6, height: size * 0.5, bevel: 0, segments: 6, bevelSegments: 1, material: mat), Xform(translation: p, rotation: rotation))
+    }
 }

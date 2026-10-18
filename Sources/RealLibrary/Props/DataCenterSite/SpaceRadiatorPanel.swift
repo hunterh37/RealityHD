@@ -12,7 +12,7 @@ public struct SpaceRadiatorPanel: RealArticulated {
     public static let tags = ["prop", "articulated", "space", "metal", "datacenter"]
     public static let budget = 3000
     public static let author = "realityhd"
-    public static let preview = PreviewHint(azimuth: 32, elevation: 38, distance: 11, studio: true)
+    public static let preview = PreviewHint(azimuth: 32, elevation: 38, distance: 1.0, studio: true)
 
     /// Panel width along Z (m).
     public var panelWidth: Float = 4
@@ -40,18 +40,18 @@ public struct SpaceRadiatorPanel: RealArticulated {
         B(V3(0.05, 0.09, W - 0.1), V3(-4.995, 0.045, 0), hardware, r: 0.003)
         var bolts = Model(name: "bolts")
         for k in 0..<6 { let z = -W / 2 + 0.2 + Float(k) * (W - 0.4) / 5
-            hexBolt(&bolts, at: V3(-4.9, 0.09, z), normal: V3(0, 1, 0), size: 0.016, material: hardware) }
+            OK.bolt(&bolts, at: V3(-4.9, 0.09, z), size: 0.016, hardware) }
         rig.base[0].add(bolts)
         for k in 0..<4 {
             let z = -1.5 + Float(k) * 1.0
-            let (a, x) = OK.cylZ(0.04, 0.4, x: px, y: py, z0: z - 0.2, hardware, seg: 12); rig.base[0].add(a, x)
+            let (a, x) = OK.cylZ(0.04, 0.4, x: px, y: py, z0: z - 0.2, hardware, seg: 8); rig.base[0].add(a, x)
             let (c, y) = OK.cylZ(0.022, 0.5, x: px, y: py, z0: z - 0.25, "metal.steel", seg: 8); rig.base[0].add(c, y)
         }
         // Fluid lines: gold MLI hoses with QD couplers entering the bracket from behind.
         for z: Float in [-1.2, 1.2] {
             rig.base[0].add(Prim.tube(catmull([V3(-4.98, 0.05, z), V3(-5.0, 0.07, z + 0.15 * (z < 0 ? -1 : 1)), V3(-4.9, 0.06, z + 0.3 * (z < 0 ? -1 : 1))], per: 4),
                                       radii: [0.028, 0.028, 0.028, 0.028, 0.028, 0.028, 0.028, 0.028, 0.028], sides: 8, seamTile: 0.3, material: blanket))
-            let (q, qx) = OK.cylX(0.032, 0.07, x0: -4.99, y: 0.05, z: z, "plastic.matte:2A6BD6", seg: 12); rig.base[0].add(q, qx)
+            let (q, qx) = OK.cylX(0.032, 0.07, x0: -4.99, y: 0.05, z: z, "plastic.matte:2A6BD6", seg: 8); rig.base[0].add(q, qx)
         }
 
         rig.part("deploy", pivot: V3(px, py, 0), joint: .hinge(axis: V3(0, 0, 1), 0...90, duration: 4))
@@ -78,8 +78,8 @@ public struct SpaceRadiatorPanel: RealArticulated {
             var x = x0 + rail + 0.12
             while x < x1 - rail - 0.06 {
                 let p = [V3(x, ty, -W / 2 + rail + 0.05), V3(x, ty, W / 2 - rail - 0.05)]
-                rig.add(Prim.tube(p, radii: [0.008, 0.008], sides: 6, seamTile: 0.1, material: tube), .identity, to: tubes, option: 0)
-                rig.add(Prim.tube(p, radii: [0.008, 0.008], sides: 6, seamTile: 0.1, material: glow), .identity, to: tubes, option: 1)
+                rig.add(Prim.tube(p, radii: [0.008, 0.008], sides: 4, seamTile: 0.1, material: tube), .identity, to: tubes, option: 0)
+                rig.add(Prim.tube(p, radii: [0.008, 0.008], sides: 4, seamTile: 0.1, material: glow), .identity, to: tubes, option: 1)
                 x += tubeSpacing
             }
             for sz: Float in [-1, 1] {
@@ -90,7 +90,7 @@ public struct SpaceRadiatorPanel: RealArticulated {
             // Edge bolts.
             var bm = Model(name: "edge")
             var bx = x0 + 0.3
-            while bx < x1 - 0.2 { for sz: Float in [-1, 1] { hexBolt(&bm, at: V3(bx, T, sz * (W / 2 - rail / 2)), normal: V3(0, 1, 0), size: 0.011, material: hardware) }; bx += 1.2 + rng.float(0...0.02) }
+            while bx < x1 - 0.2 { for sz: Float in [-1, 1] { OK.bolt(&bm, at: V3(bx, T, sz * (W / 2 - rail / 2)), size: 0.011, hardware) }; bx += 1.2 + rng.float(0...0.02) }
             rig.add(bm, to: part, lod: 0)
             if tip { A(V3(0.2, 0.09, W - 0.2), V3(x1 + 0.1, T / 2, 0), frame, r: 0.004)   // launch-lock bar
                 for k in 0..<3 { let (c, y) = OK.cylY(0.03, 0.02, at: V3(x1 + 0.1, T, -1.2 + Float(k) * 1.2), hardware, seg: 12); rig.add(c, y, to: part) } }
@@ -100,7 +100,7 @@ public struct SpaceRadiatorPanel: RealArticulated {
         // Mid-span hinge knuckles.
         for k in 0..<4 {
             let z = -1.5 + Float(k) * 1.0
-            let (a, x) = OK.cylZ(0.04, 0.4, x: kx, y: py, z0: z - 0.2, hardware, seg: 12); rig.add(a, x, to: "deploy")
+            let (a, x) = OK.cylZ(0.04, 0.4, x: kx, y: py, z0: z - 0.2, hardware, seg: 8); rig.add(a, x, to: "deploy")
         }
         rig.lights = [RigLight(name: "heat", part: "tubes1", option: 1, position: V3(-2.4, 0.25, 0), direction: V3(0, -1, 0), color: V3(1, 0.35, 0.08), intensity: 600, attenuationRadius: 3)]
         groundAO(&rig, height: 0.05, floor: 0.7)
