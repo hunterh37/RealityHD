@@ -524,6 +524,8 @@ public enum Props {
         RackManifold.self,
         CduLiquid.self,
         QuickDisconnect.self,
+        ImmersionTank.self,
+        SwitchTrayCpo.self,
         // realityhd:prop
     ]
 }

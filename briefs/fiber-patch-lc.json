@@ -1,0 +1,17 @@
+{
+  "budget": 2000,
+  "id": "fiber-patch-lc",
+  "kind": "prop",
+  "materials": ["plastic.jacket:2CC7D6", "plastic.matte:2CC7D6", "ceramic.vitreous", "plastic.matte:F2F2F2"],
+  "name": "Fiber patch cord LC",
+  "notes": "2 m OM4 aqua zipcord loosely waving; extent 0.02 x 0.01 x 2.0",
+  "parts": ["aqua duplex zipcord jacket", "LC duplex connector body at each end", "uniboot clip", "latch tabs", "white ceramic ferrules", "translucent dust caps", "small flag label"],
+  "references": [],
+  "size": [0.02, 0.01, 2.0],
+  "style": "OM4 aqua duplex LC-LC fiber patch cord, 2 m, zipcord loosely looped, uniboot clip, white ceramic ferrules, translucent dust caps, small flag label",
+  "summary": "OM4 aqua duplex LC fiber patch cord, 2 m, with uniboot LC connectors, ceramic ferrules, dust caps and a flag label.",
+  "tags": ["prop", "handheld"],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -45,5 +45,19 @@ public extension MaterialLibrary {
             $0.colorA = linear(0x0E0E0F); $0.knobs = V4(0.2, 0.1, 0.3, 0); $0.seed = 3106; $0.tileSize = 0.1
             $0.resolution = 256; $0.normalStrength = 0.3; $0.roughness = 0.75
         },
+        // PVC/LSZH cable jacket: satin, fine extrusion grain along the cord. Tint via :RRGGBB.
+        MaterialSpec(key: "plastic.jacket", program: .plastic).with {
+            $0.colorA = linear(0x2CC7D6); $0.knobs = V4(0.15, 0.1, 0.45, 0); $0.seed = 3107; $0.tileSize = 0.05
+            $0.resolution = 256; $0.normalStrength = 0.15; $0.roughness = 0.5
+        },
+        // Two-phase dielectric fluid (fluorocarbon / engineered fluid): water-clear with a faint cool tint, low haze.
+        MaterialSpec(key: "fluid.dielectric", program: nil).with {
+            $0.baseColor = V3(0.80, 0.92, 0.95); $0.roughness = 0.03; $0.specular = 0.8; $0.mode = .transparent; $0.opacity = 0.12; $0.twoSided = true
+        },
+        // OM4 aqua fiber ribbon jacket: satin aqua polymer over a flat 12-fiber ribbon.
+        MaterialSpec(key: "glass.fiber", program: .plastic).with {
+            $0.colorA = linear(0x2FB5B0); $0.knobs = V4(0.2, 0.1, 0.4, 0); $0.seed = 3107; $0.tileSize = 0.02
+            $0.resolution = 256; $0.normalStrength = 0.2; $0.roughness = 0.35; $0.clearcoat = 0.3
+        },
     ]
 }
