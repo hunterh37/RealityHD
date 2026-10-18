@@ -76,5 +76,15 @@ public extension MaterialLibrary {
             $0.colorA = linear(0x8C8A84); $0.knobs = V4(0.6, 0.5, 0.5, 0); $0.tileSize = 0.12; $0.resolution = 512; $0.seed = 3140
             $0.roughness = 0.85
         },
+        // Fused quartz (furnace boats, tubes): translucent milky-clear, glossy.
+        MaterialSpec(key: "quartz", program: nil).with {
+            $0.baseColor = V3(0.78, 0.82, 0.84); $0.roughness = 0.1; $0.specular = 0.5
+            $0.mode = .transparent; $0.opacity = 0.7; $0.twoSided = true
+        },
+        // PVDF / polypropylene wet-bench deck: off-white, semi-matte, fine moulded grain.
+        MaterialSpec(key: "plastic.pvdf", program: .plastic).with {
+            $0.colorA = linear(0xD8D7CE); $0.knobs = V4(0.15, 0.1, 0.35, 0); $0.seed = 3150; $0.tileSize = 0.3; $0.resolution = 512
+            $0.normalStrength = 0.25; $0.roughness = 0.42
+        },
     ]
 }

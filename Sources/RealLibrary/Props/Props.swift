@@ -514,6 +514,8 @@ public enum Props {
         PvdCluster.self,
         CmpTool.self,
         IonImplanter.self,
+        DiffusionFurnace.self,
+        WetBench.self,
         // realityhd:prop
     ]
 }
