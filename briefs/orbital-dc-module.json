@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "orbital-dc-module",
+  "kind": "prop",
+  "materials": [
+    "thermal.radiator-white",
+    "mli.blanket",
+    "composite.carbon",
+    "metal.titanium",
+    "metal.aluminum-brushed"
+  ],
+  "name": "Orbital DC module",
+  "notes": "",
+  "parts": [
+    "pressurized hull",
+    "Whipple shield straps",
+    "gold MLI end cones",
+    "axial docking ports",
+    "radial hatches",
+    "square truss",
+    "radiator mounts",
+    "compute ORU boxes",
+    "grapple fixture",
+    "star tracker",
+    "omni antenna"
+  ],
+  "references": [],
+  "size": [
+    20,
+    6,
+    6
+  ],
+  "style": "Ultra realistic pressurized orbital compute module 20 x 6 x 6 m: white shielded hull in a carbon square truss, gold MLI blanket cones, docking ports, radiator mounts with hoses, external compute boxes.",
+  "summary": "Pressurized orbital compute module: Whipple-shield hull in a square truss, gold MLI end cones, docking ports, radiator mounts and external compute boxes.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenterSite",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

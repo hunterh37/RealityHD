@@ -1,0 +1,35 @@
+{
+  "budget": 3000,
+  "id": "space-radiator-panel",
+  "kind": "prop",
+  "materials": [
+    "thermal.radiator-white",
+    "thermal.radiator-glow",
+    "mli.blanket",
+    "metal.aluminum-brushed"
+  ],
+  "name": "Space radiator panel",
+  "notes": "",
+  "parts": [
+    "deploy hinge panel",
+    "fold hinge panel",
+    "coolant tubes (glow option)",
+    "root bracket",
+    "MLI hoses and quick disconnects",
+    "launch lock bar"
+  ],
+  "references": [],
+  "size": [
+    10,
+    0.1,
+    4
+  ],
+  "style": "Ultra realistic deployable spacecraft radiator, two honeycomb panels with white-coated tiles and pumped coolant tubes that glow hot, hinged root bracket.",
+  "summary": "Deployable two-panel spacecraft radiator with glowing coolant tubes, hinge brackets and MLI-wrapped hoses.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenterSite",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -516,6 +516,9 @@ public enum Props {
         InterconnectStackCutaway.self,
         WaferDisplayStand.self,
         BondWireMacro.self,
+        OrbitalDCModule.self,
+        SpaceRadiatorPanel.self,
+        SolarArrayWing.self,
         // realityhd:prop
     ]
 }
