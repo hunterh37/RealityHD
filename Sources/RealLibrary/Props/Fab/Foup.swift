@@ -33,7 +33,7 @@ public struct Foup: RealAsset {
         m.add(bx(V3(0.30, 0.014, 0.30), 0.003, doorMaterial),
               Xform(translation: V3(0, 0.007, zc)))
         for (i, p) in [V3(-0.07, 0, 0.05), V3(0.07, 0, 0.05), V3(0, 0, -0.09)].enumerated() {
-            m.add(Prim.cylinder(radius: 0.012, height: 0.003, bevel: 0.001, segments: 14, material: "metal.aluminum-brushed"),
+            m.add(Prim.cylinder(radius: 0.012, height: 0.003, bevel: 0.001, segments: 10, material: "metal.aluminum-brushed"),
                   Xform(translation: V3(p.x, -0.0005, zc + p.z)).jittered(&rng))
             _ = i
         }
@@ -73,7 +73,7 @@ public struct Foup: RealAsset {
         m.add(bx(V3(w - 0.016, h - 0.016, 0.014), 0.004, doorMaterial),
               Xform(translation: V3(0, shellY0 + h / 2, z1 + 0.012)))
         for s: Float in [-1, 1] {
-            m.add(Prim.cylinder(radius: 0.011, height: 0.003, bevel: 0.0008, segments: 14, material: "metal.aluminum-brushed"),
+            m.add(Prim.cylinder(radius: 0.011, height: 0.003, bevel: 0.0008, segments: 10, material: "metal.aluminum-brushed"),
                   Xform(translation: V3(s * 0.11, shellY0 + h / 2 - 0.02, z1 + 0.019), rotation: simd_quatf(degrees: 90, axis: V3(1, 0, 0))))
             m.add(bx(V3(0.002, 0.012, 0.004), 0.0005, "plastic.matte:101010"),
                   Xform(translation: V3(s * 0.11, shellY0 + h / 2 - 0.02, z1 + 0.0215)))

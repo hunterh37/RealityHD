@@ -27,9 +27,9 @@ public struct OhtVehicle: RealAsset {
         let al = "metal.aluminum-brushed", dark = "plastic.matte:2A2C2F"
         let gy: Float = 0.02 - hoistDrop   // gripper plate bottom
         // Main cover body.
-        m.add(bx(V3(0.5, 0.30, 0.84), 0.02, coverMaterial), Xform(translation: V3(0, 0.30, 0)))
+        m.add(bx(V3(0.60, 0.30, 0.84), 0.02, coverMaterial), Xform(translation: V3(0, 0.30, 0)))
         // Underside recess frame and slide unit.
-        m.add(bx(V3(0.44, 0.04, 0.78), 0.006, al), Xform(translation: V3(0, 0.17, 0)))
+        m.add(bx(V3(0.54, 0.04, 0.78), 0.006, al), Xform(translation: V3(0, 0.17, 0)))
         // Travel carriage on top: chassis and four wheels (axis along X).
         m.add(bx(V3(0.30, 0.06, 0.70), 0.008, al), Xform(translation: V3(0, 0.48, 0)))
         for sz: Float in [-1, 1] {
@@ -38,6 +38,7 @@ public struct OhtVehicle: RealAsset {
                       Xform(translation: V3(sx * 0.15 + (sx > 0 ? 0.015 : -0.015) + 0, 0.57, sz * 0.27), rotation: simd_quatf(degrees: 90, axis: V3(0, 0, 1))).jittered(&rng))
             }
             m.add(bx(V3(0.06, 0.12, 0.05), 0.006, al), Xform(translation: V3(0, 0.54, sz * 0.27)))
+            m.add(bx(V3(0.36, 0.016, 0.016), 0.003, "metal.steel"), Xform(translation: V3(0, 0.57, sz * 0.27)))
         }
         // Status lamp and sensor on the front.
         m.add(Prim.cylinder(radius: 0.012, height: 0.01, bevel: 0.002, segments: 10, material: "glass.lamp"),

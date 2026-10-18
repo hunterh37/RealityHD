@@ -14,7 +14,7 @@ public struct Wafer300mm: RealAsset {
     /// Wafer thickness in meters (SEMI 775 um).
     public var thickness: Float = 0.000775
     /// Process state: bare, oxide, patterned or metal.
-    public var state = "bare"
+    public var state = "patterned"
     /// Die pitch in meters for the patterned state (26 x 33 mm field).
     public var dieSize = V2(0.026, 0.033)
     public init() {}
@@ -25,7 +25,7 @@ public struct Wafer300mm: RealAsset {
         let mat: String
         switch state {
         case "oxide": mat = "silicon.thinfilm-oxide"
-        case "patterned": mat = "silicon.thinfilm-patterned"
+        case "patterned": mat = "silicon.thinfilm"
         case "metal": mat = "silicon.thinfilm-metal"
         default: mat = "silicon.thinfilm"
         }
@@ -49,16 +49,22 @@ public struct Wafer300mm: RealAsset {
         m.add(Prim.roundedBox(V3(0.012, 0.00004, 0.0016), radius: 0.00002, bevelSegments: 1, material: "metal.steel"),
               Xform(translation: V3(0.016, thickness + 0.00002, r - 0.007)))
         if state == "patterned" {
+            var dies = Surface(material: "silicon.thinfilm-metal")
             let cols = Int((diameter - 0.012) / dieSize.x), rows = Int((diameter - 0.012) / dieSize.y)
             for i in 0..<cols {
                 for j in 0..<rows {
                     let x = (Float(i) - Float(cols - 1) / 2) * dieSize.x
                     let z = (Float(j) - Float(rows - 1) / 2) * dieSize.y
                     if simd_length(V2(abs(x) + dieSize.x / 2, abs(z) + dieSize.y / 2)) > r - 0.003 { continue }
-                    m.add(Prim.roundedBox(V3(dieSize.x - 0.0008, 0.00004, dieSize.y - 0.0008), radius: 0.00001, bevelSegments: 1, material: "silicon.thinfilm"),
-                          Xform(translation: V3(x, thickness + 0.00002, z)))
+                    let hx = (dieSize.x - 0.0008) / 2, hz = (dieSize.y - 0.0008) / 2, y = thickness + 0.00002
+                    let n = V3(0, 1, 0)
+                    let i0 = dies.add(V3(x - hx, y, z + hz), n, V2(x - hx, z + hz)), i1 = dies.add(V3(x + hx, y, z + hz), n, V2(x + hx, z + hz))
+                    let i2 = dies.add(V3(x + hx, y, z - hz), n, V2(x + hx, z - hz)), i3 = dies.add(V3(x - hx, y, z - hz), n, V2(x - hx, z - hz))
+                    dies.quad(i0, i1, i2, i3)
                 }
             }
+            dies.computeTangents()
+            m.add(dies, Xform(translation: .zero))
         }
         _ = rng.float()
         return LODModel(m)
