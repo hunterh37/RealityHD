@@ -509,6 +509,7 @@ public enum Props {
         ColdPlate.self,
         HotAisleContainment.self,
         RaisedFloorTile.self,
+        ServerLift.self,
         // realityhd:prop
     ]
 }
