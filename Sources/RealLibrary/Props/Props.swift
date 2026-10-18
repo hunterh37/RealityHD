@@ -525,6 +525,8 @@ public enum Props {
         DicingSaw.self,
         HybridBonder.self,
         ToolStatusTower.self,
+        FoupStocker.self,
+        EfemRobot.self,
         // realityhd:prop
     ]
 }
