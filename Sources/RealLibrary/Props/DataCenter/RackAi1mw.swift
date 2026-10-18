@@ -23,6 +23,14 @@ public struct RackAi1mw: RealArticulated {
     public var supplyMaterial: MaterialKey = "rubber.tubing:2A6FD0"
     /// Coolant return hose tint.
     public var returnMaterial: MaterialKey = "rubber.tubing:C8402C"
+    /// Fin count on each tray face vent field (3 on the AI rack).
+    public var trayFinCount = 3
+    /// Door perforation style: round perforated sheet, or perforated sheet over horizontal slot bars.
+    public var slottedDoors = false
+    /// Extra port/LED columns on each tray face (0 on the AI rack).
+    public var trayPortColumns = 0
+    /// Coolant manifolds and hoses on the rear (false for air-cooled variants).
+    public var liquidCooled = true
     public init() {}
 
     /// Cheap beveled box: XY rectangle extruded along Z, centered.
@@ -30,6 +38,8 @@ public struct RackAi1mw: RealArticulated {
         let b = min(radius, min(s.x, min(s.y, s.z)) * 0.45)
         return Prim.extrude(Shape2D.rect(s.x, s.y), depth: s.z, bevel: b, bevelSegments: bevelSegments, material: material)
     }
+
+    func outwardZ(_ z: Float) -> Float { z > 0 ? 1 : -1 }
 
     public func rig(seed: UInt64) -> Rig {
         let rng = SeededRNG(seed: seed)
@@ -120,8 +130,14 @@ public struct RackAi1mw: RealArticulated {
             box(V3(0.50, pitch - 0.003, 0.012), V3(0, y, zFace - 0.006), alu, r: 0.002, to: name)
             // Vent field and fins.
             box(V3(0.24, 0.024, 0.0016), V3(0.0, y - 0.002, zFace + 0.0008), "plastic.matte:060607", r: 0.0004, to: name)
-            for k in 0..<3 {
-                box(V3(0.0018, 0.022, 0.0022), V3(-0.07 + Float(k) * 0.07, y - 0.002, zFace + 0.0012), alu, r: 0.0003, to: name)
+            let fins = max(1, trayFinCount)
+            for k in 0..<fins {
+                let fx = fins == 1 ? 0 : -0.115 + Float(k) * (0.23 / Float(fins - 1))
+                box(V3(0.0018, 0.022, 0.0022), V3(fx, y - 0.002, zFace + 0.0012), alu, r: 0.0003, to: name)
+            }
+            for k in 0..<trayPortColumns {
+                box(V3(0.0075, 0.007, 0.003), V3(0.135 + Float(k) * 0.0095, y - 0.008, zFace + 0.0008), "plastic.matte:020203", r: 0.0004, to: name)
+                if k % 2 == 0 { box(V3(0.003, 0.0016, 0.0012), V3(0.135 + Float(k) * 0.0095, y + 0.0005, zFace + 0.0008), "emissive.led-green", r: 0.0002, to: name) }
             }
             for sx: Float in [-1, 1] {
                 let h0 = sx * 0.215
@@ -185,7 +201,7 @@ public struct RackAi1mw: RealArticulated {
         // Coolant manifolds: vertical headers with quick-disconnect hoses to each slot bank.
         let supplyX: Float = -0.235, returnX: Float = -0.175, pipeZ = zRear + 0.12
         let manLen = stackTop - y0 + 0.20
-        for (name, px, mat, hex) in [("manifold-supply", supplyX, supplyMaterial, "2A6FD0"), ("manifold-return", returnX, returnMaterial, "C8402C")] {
+        for (name, px, mat, hex) in [("manifold-supply", supplyX, supplyMaterial, "2A6FD0"), ("manifold-return", returnX, returnMaterial, "C8402C")] where liquidCooled {
             rig.part(name, pivot: V3(px, y0 - 0.12 + manLen / 2, pipeZ), joint: .fixed)
             cyl(0.02, manLen, V3(px, y0 - 0.12, pipeZ), "metal.powdercoat:" + hex, segs: 14, to: name)
             for yy in stride(from: y0 + 0.05, to: stackTop + 0.1, by: 0.45) {
@@ -265,12 +281,20 @@ public struct RackAi1mw: RealArticulated {
             for ex in [Float(0.015), dw - 0.015] {
                 put(rb(V3(0.03, dh, 0.026), radius: 0.004, bevelSegments: 2, material: frame), V3(dirX * ex, dh / 2, 0))
             }
+            if slottedDoors {
+                var sy: Float = 0.06
+                while sy < dh - 0.05 {
+                    put(cuboid(V3(dw - 0.08, 0.006, 0.0016), material: "plastic.matte:0D0E10"), V3(off, sy, outwardZ(zPlane) * 0.0018))
+                    sy += 0.066
+                }
+            }
             let hs = rb(V3(0.018, 0.12, 0.018), radius: 0.004, bevelSegments: 1, material: steel)
             for hy in [Float(0.2), dh / 2, dh - 0.2] { put(hs, V3(0, hy, 0)) }
             // Edge scuffs at the latch side.
             for (i, sy) in [Float(0.05), 0.31, 0.62].enumerated() {
                 put(rb(V3(0.004 + Float(i) * 0.002, 0.03 + Float(i) * 0.01, 0.0012), radius: 0.0004, bevelSegments: 1, material: "metal.aluminum"), V3(dirX * (dw - 0.012), sy, zPlane > 0 ? 0.0134 : -0.0134))
             }
+            if slottedDoors { put(cuboid(V3(0.05, 0.025, 0.0008), material: "plastic.matte:E8E8E4"), V3(off, dh - 0.12, outwardZ(zPlane) * 0.0145)) }
             let outward: Float = zPlane > 0 ? 1 : -1
             let hr = simd_quatf(degrees: zPlane > 0 ? 0 : 180, axis: V3(0, 1, 0)) * simd_quatf(degrees: 90, axis: V3(0, 0, 1))
             put(barHandle(length: 0.16, standoff: 0.03, radius: 0.007, overhang: 0.01, material: alu),

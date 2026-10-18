@@ -514,6 +514,8 @@ public enum Props {
         CableTrayLadder.self,
         BlankingPanel.self,
         CrashCartKvm.self,
+        LedRowLight.self,
+        RackLpu.self,
         // realityhd:prop
     ]
 }
