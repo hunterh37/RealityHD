@@ -527,6 +527,8 @@ public enum Props {
         ToolStatusTower.self,
         FoupStocker.self,
         EfemRobot.self,
+        EuvLightSource.self,
+        DuvImmersionScanner.self,
         // realityhd:prop
     ]
 }
