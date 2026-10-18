@@ -44,5 +44,11 @@ public extension MaterialLibrary {
             $0.colorA = linear(0x2A2218); $0.knobs = V4(0.1, 0.1, 0.3, 0); $0.seed = 9807
             $0.tileSize = 0.01; $0.resolution = 512; $0.normalStrength = 0.2
         },
+        // Glass-core interposer: pale blue-green, slightly translucent-looking satin glass with copper RDL beneath.
+        MaterialSpec(key: "glass.substrate", program: .brushedMetal).with {
+            $0.colorA = linear(0xB4C6C1); $0.colorB = linear(0x8FA39F)
+            $0.knobs = V4(0.15, 0.2, 0.1, 0.05); $0.seed = 9808; $0.tileSize = 0.01; $0.normalStrength = 0.1
+            $0.hasMetallicMap = true; $0.metallic = 0.25; $0.roughness = 0.12
+        },
     ]
 }

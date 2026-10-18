@@ -505,6 +505,7 @@ public enum Props {
         UtilityVaultLid.self,
         ZebraCrosswalk.self,
         PackageSubstrate.self,
+        ChipPackageFinal.self,
         // realityhd:prop
     ]
 }
