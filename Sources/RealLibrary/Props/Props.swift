@@ -894,6 +894,7 @@ public enum Props {
         DistanceSign.self,
         WindFlag.self,
         RangeShelter.self,
+        LunarParabolicAntenna.self, LunarDteDish.self, LunarRover.self, LunarExcavator.self,
         // realityhd:prop
     ]
 }
