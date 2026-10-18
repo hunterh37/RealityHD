@@ -28,7 +28,7 @@
     0.118
   ],
   "style": "AI accelerator package, 100 x 100 mm, 6 mm tall, nickel lid, lightly handled.",
-  "summary": "Complete accelerator package with lid and exploded layers.",
+  "summary": "AI accelerator package: nickel lid with laser mark, compute dies and HBM on glass interposer, ABF substrate, BGA balls; explodes.",
   "tags": [
     "prop",
     "chiplab",

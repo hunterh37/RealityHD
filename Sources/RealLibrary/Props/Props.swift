@@ -509,6 +509,7 @@ public enum Props {
         HBMStack.self,
         DieBlankReticle.self,
         InterposerGlass.self,
+        HoloTable.self,
         // realityhd:prop
     ]
 }

@@ -54,5 +54,13 @@ public extension MaterialLibrary {
         MaterialSpec(key: "glass.substrate-clear", program: nil).with {
             $0.baseColor = V3(0.62, 0.74, 0.72); $0.roughness = 0.04; $0.specular = 0.6; $0.mode = .transparent; $0.opacity = 0.32; $0.twoSided = true
         },
+        // Dark display glass: near-black, glossy, opaque, clearcoated.
+        MaterialSpec(key: "glass.display", program: nil).with {
+            $0.baseColor = V3(0.012, 0.016, 0.022); $0.roughness = 0.03; $0.specular = 0.8; $0.clearcoat = 1
+        },
+        // Holo-table grid lines: dim cyan emissive.
+        MaterialSpec(key: "emissive.holo-grid", program: nil).with {
+            $0.baseColor = V3(0.05, 0.3, 0.38); $0.mode = .emissive; $0.emissive = V3(0.15, 0.8, 1); $0.emissiveIntensity = 1.2
+        },
     ]
 }

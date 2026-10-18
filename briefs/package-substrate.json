@@ -23,7 +23,7 @@
     0.1
   ],
   "style": "Server AI accelerator organic substrate, 100 x 100 mm, 3 mm thick, bare, no die.",
-  "summary": "Bare organic package substrate.",
+  "summary": "Bare organic package substrate: ABF laminate, gold die-land pads, perimeter pads, fiducials, edge capacitors.",
   "tags": [
     "prop",
     "chiplab",
