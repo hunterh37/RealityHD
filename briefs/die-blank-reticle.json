@@ -1,0 +1,35 @@
+{
+  "budget": 2000,
+  "id": "die-blank-reticle",
+  "kind": "prop",
+  "materials": [
+    "silicon.die",
+    "silicon.die-edge",
+    "metal.solder",
+    "metal.gold"
+  ],
+  "name": "Blank reticle-limit die",
+  "notes": "",
+  "parts": [
+    "mirror-polished silicon backside",
+    "front face with faint metal-layer interference sheen",
+    "seal ring at edges",
+    "scribe-line remnant",
+    "C4 solder bump field",
+    "named block slot sockets"
+  ],
+  "references": [],
+  "size": [
+    0.026,
+    0.0008,
+    0.033
+  ],
+  "style": "26 x 33 mm reticle-limit blank die, 0.8 mm thick, dark blue-grey mirror silicon, chamfered diced edge, faint violet/teal interference bands, seal ring, C4 bumps, 3x4 block slot sockets.",
+  "summary": "Blank reticle-limit die: mirror silicon backside, interference-sheen front, seal ring, scribe remnant, C4 bump field, named block slot sockets.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "ChipLab",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

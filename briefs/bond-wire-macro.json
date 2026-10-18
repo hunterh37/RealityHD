@@ -1,0 +1,35 @@
+{
+  "budget": 10500,
+  "id": "bond-wire-macro",
+  "kind": "prop",
+  "materials": [
+    "metal.gold",
+    "metal.nickel",
+    "laminate.abf",
+    "silicon.die"
+  ],
+  "name": "Bond wire macro",
+  "notes": "",
+  "parts": [
+    "die edge with aluminium pads",
+    "substrate gold finger pads",
+    "gold bond wire loops",
+    "ball bonds",
+    "wedge bonds",
+    "wire loop arcs parametric"
+  ],
+  "references": [],
+  "size": [
+    0.4,
+    0.1,
+    0.2
+  ],
+  "style": "Macro display model (about 1000x): row of parametric gold bond wire loops between die pads and substrate fingers, ball bonds with neck on die pads, wedge bonds with tail on fingers, polished gold.",
+  "summary": "Parametric gold bond wire loops between die pads and substrate fingers with ball and wedge bonds at macro scale.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "ChipLab",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

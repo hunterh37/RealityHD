@@ -1,0 +1,43 @@
+{
+  "budget": 8000,
+  "id": "transistor-gaa-cutaway",
+  "kind": "prop",
+  "materials": [
+    "silicon.die",
+    "silicon.die-edge",
+    "oxide.hafnium",
+    "metal.tungsten",
+    "metal.copper",
+    "oxide.lowk"
+  ],
+  "name": "GAA nanosheet transistor cutaway",
+  "notes": "Micro-scale model, scaled 1e6x, 0.5 m display size. Layers are named explode parts.",
+  "parts": [
+    "backside power rail",
+    "silicon substrate",
+    "three stacked silicon nanosheets",
+    "hafnium oxide gate dielectric",
+    "tungsten gate",
+    "inner and outer spacers",
+    "source and drain epi",
+    "contacts and M0 pads",
+    "layer explode state"
+  ],
+  "references": [],
+  "size": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "style": "Gate-all-around nanosheet FET cutaway, front half of gate removed to show hafnium oxide and tungsten wrapping three silicon nanosheets, epi source/drain, spacers, contacts, backside power rail below.",
+  "summary": "GAA nanosheet FET cutaway at 1e6x scale: 3 nanosheets wrapped by HfO2 and tungsten gate, epi source/drain, spacers, contacts, backside power rail; explodes by layer.",
+  "tags": [
+    "prop",
+    "chiplab",
+    "micro-scale",
+    "articulated"
+  ],
+  "theme": "ChipLab",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
