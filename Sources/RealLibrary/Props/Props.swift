@@ -517,6 +517,8 @@ public enum Props {
         CrashCartKvm.self,
         LedRowLight.self,
         RackLpu.self,
+        RackAir42u.self,
+        RackNvl72.self,
         // realityhd:prop
     ]
 }
