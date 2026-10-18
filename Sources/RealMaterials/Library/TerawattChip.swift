@@ -82,5 +82,22 @@ public extension MaterialLibrary {
         MaterialSpec(key: "emissive.holo-plane", program: nil).with {
             $0.baseColor = V3(0.1, 0.35, 0.45); $0.mode = .emissive; $0.emissive = V3(0.3, 0.85, 1); $0.emissiveIntensity = 0.8
         },
+        // Hafnium oxide high-k gate dielectric: pale yellow-green translucent-looking satin film.
+        MaterialSpec(key: "oxide.hafnium", program: .brushedMetal).with {
+            $0.colorA = linear(0xC9D08A); $0.colorB = linear(0x9AA463)
+            $0.knobs = V4(0.1, 0.1, 0.1, 0.05); $0.seed = 9820; $0.tileSize = 0.01; $0.normalStrength = 0.1
+            $0.hasMetallicMap = true; $0.metallic = 0.1; $0.roughness = 0.25
+        },
+        // Tungsten gate fill and contact plugs: dark blue-grey satin metal.
+        MaterialSpec(key: "metal.tungsten", program: .brushedMetal).with {
+            $0.colorA = linear(0x6E7480); $0.colorB = linear(0x484C56)
+            $0.knobs = V4(0.3, 0.3, 0.3, 0.2); $0.seed = 9821; $0.tileSize = 0.01; $0.normalStrength = 0.25
+            $0.hasMetallicMap = true; $0.metallic = 1; $0.roughness = 0.32
+        },
+        // Low-k interlayer dielectric (carbon-doped oxide): translucent-looking pale amber-grey.
+        MaterialSpec(key: "oxide.lowk", program: .plastic).with {
+            $0.colorA = linear(0x8F8A78); $0.knobs = V4(0.1, 0.1, 0.3, 0); $0.seed = 9822
+            $0.tileSize = 0.02; $0.resolution = 512; $0.normalStrength = 0.1
+        },
     ]
 }

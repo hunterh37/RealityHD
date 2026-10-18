@@ -512,6 +512,8 @@ public enum Props {
         HoloTable.self,
         DieBlockTile.self,
         DesignWorkbench2035.self,
+        TransistorGaaCutaway.self,
+        InterconnectStackCutaway.self,
         // realityhd:prop
     ]
 }
