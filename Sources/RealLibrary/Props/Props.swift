@@ -507,6 +507,7 @@ public enum Props {
         Foup.self,
         OhtVehicle.self,
         Wafer300mm.self,
+        EuvScannerHighna.self,
         // realityhd:prop
     ]
 }
