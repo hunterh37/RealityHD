@@ -510,6 +510,8 @@ public enum Props {
         HotAisleContainment.self,
         RaisedFloorTile.self,
         ServerLift.self,
+        OverheadBusway.self,
+        CableTrayLadder.self,
         BlankingPanel.self,
         // realityhd:prop
     ]
