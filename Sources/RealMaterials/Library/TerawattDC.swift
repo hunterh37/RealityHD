@@ -47,7 +47,7 @@ public extension MaterialLibrary {
         },
         // PVC/LSZH cable jacket: satin, fine extrusion grain along the cord. Tint via :RRGGBB.
         MaterialSpec(key: "plastic.jacket", program: .plastic).with {
-            $0.colorA = linear(0x2CC7D6); $0.knobs = V4(0.15, 0.1, 0.45, 0); $0.seed = 3107; $0.tileSize = 0.05
+            $0.colorA = linear(0x2CC7D6); $0.knobs = V4(0.15, 0.1, 0.45, 0); $0.seed = 3110; $0.tileSize = 0.05
             $0.resolution = 256; $0.normalStrength = 0.15; $0.roughness = 0.5
         },
         // Two-phase dielectric fluid (fluorocarbon / engineered fluid): water-clear with a faint cool tint, low haze.
