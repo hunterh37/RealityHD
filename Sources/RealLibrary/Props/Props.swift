@@ -506,6 +506,7 @@ public enum Props {
         ZebraCrosswalk.self,
         PackageSubstrate.self,
         ChipPackageFinal.self,
+        HBMStack.self,
         // realityhd:prop
     ]
 }

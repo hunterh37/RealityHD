@@ -1,5 +1,5 @@
 {
-  "budget": 2500,
+  "budget": 12000,
   "id": "hbm-stack",
   "kind": "prop",
   "materials": [
@@ -8,23 +8,24 @@
     "metal.copper",
     "plastic.underfill"
   ],
-  "name": "HBM stack",
-  "notes": "HBM3E 8-high memory stack.",
+  "name": "HBM5 stack",
+  "notes": "HBM5 16-high memory stack.",
   "parts": [
     "base logic die",
-    "eight stacked DRAM dies with bond-line gaps",
+    "sixteen thinned DRAM dies with bond-line gaps",
     "copper microbump rows between layers",
-    "molded epoxy sidewall fill",
+    "underfill fillets",
+    "molded epoxy sidewalls",
     "exploded layer state"
   ],
   "references": [],
   "size": [
     0.011,
-    0.0008,
+    0.0023,
     0.01
   ],
-  "style": "HBM3E 8-high stack, 11 x 10 mm footprint, slightly stepped dies, exploded option.",
-  "summary": "HBM3E 8-high memory stack.",
+  "style": "HBM5 16-high stack on base logic die, 11 x 10 mm footprint, slightly stepped thinned dies, underfill fillets, copper microbump rows, molded sidewalls, exploded option.",
+  "summary": "HBM5 16-high memory stack.",
   "tags": [
     "prop",
     "chiplab",
@@ -32,6 +33,6 @@
     "articulated"
   ],
   "theme": "ChipLab",
-  "threshold": 0.9,
+  "threshold": 0.85,
   "tolerance": 0.1
 }
