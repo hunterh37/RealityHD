@@ -532,6 +532,10 @@ public enum Props {
         HallColumn.self,
         CampusBuilding.self,
         EsdWristStrap.self,
+        LeakDetectionCable.self,
+        FiberCleaner.self,
+        CableLabel.self,
+        VelcroTie.self,
         // realityhd:prop
     ]
 }
