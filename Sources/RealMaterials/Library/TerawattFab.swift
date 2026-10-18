@@ -86,5 +86,14 @@ public extension MaterialLibrary {
             $0.colorA = linear(0xD8D7CE); $0.knobs = V4(0.15, 0.1, 0.35, 0); $0.seed = 3150; $0.tileSize = 0.3; $0.resolution = 512
             $0.normalStrength = 0.25; $0.roughness = 0.42
         },
+        // HEPA/ULPA filter pack: off-white glass-fibre media, matte, fine pleat grain.
+        MaterialSpec(key: "filter.hepa", program: .plastic).with {
+            $0.colorA = linear(0xE6E6E0); $0.knobs = V4(0.5, 0.4, 0.5, 0); $0.seed = 3160; $0.tileSize = 0.1; $0.resolution = 512
+            $0.normalStrength = 0.6; $0.roughness = 0.92
+        },
+        // Yellow-room lighting diffuser: amber, self-lit.
+        MaterialSpec(key: "emissive.amber", program: nil).with {
+            $0.baseColor = V3(1, 0.55, 0.05); $0.mode = .emissive; $0.emissive = V3(1, 0.5, 0.03); $0.emissiveIntensity = 2.2
+        },
     ]
 }

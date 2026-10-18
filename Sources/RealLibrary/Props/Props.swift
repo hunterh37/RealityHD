@@ -516,6 +516,10 @@ public enum Props {
         IonImplanter.self,
         DiffusionFurnace.self,
         WetBench.self,
+        OhtRail.self,
+        FfuCeilingTile.self,
+        CleanroomFloorGrate.self,
+        FabYellowLightPanel.self,
         // realityhd:prop
     ]
 }
