@@ -22,6 +22,8 @@ public struct ClusterSpec {
     public var efemZ: ClosedRange<Float> = 1.0...1.6
     public var efemWidth: Float = 3.0
     public var efemHeight: Float = 2.05
+    /// Per-chamber extras hook (lid hardware, ampoule cabinets, pumps). Args: kit, chamber centre, outward dir, tangent, lid top y, lid part name, index.
+    public var chamberExtra: ((ClusterKit, V3, V3, V3, Float, String, Int) -> Void)? = nil
     public init() {}
 }
 
@@ -194,6 +196,7 @@ public enum ClusterTool {
             }
             // Foreline to the dry pump manifold below the hex plinth.
             k.tube([c + V3(0, y0 + 0.1, 0) - d * 0.02, V3(0, y0 + 0.1, cz) + d * (a0 + 0.1), V3(0, y0 + 0.1, cz)], 0.035, steel, sides: 8)
+            s.chamberExtra?(k, c, d, t, top, ln, i)
             // Leveling feet.
             for q: Float in [-1, 1] { k.cyl(0.04, 0.015, V3(c.x + t.x * q * 0.3 + d.x * 0.3, 0.05, c.z + t.z * q * 0.3 + d.z * 0.3), steel, seg: 12) }
         }

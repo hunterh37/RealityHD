@@ -510,6 +510,8 @@ public enum Props {
         EuvScannerHighna.self,
         LithoTrack.self,
         PlasmaEtchCluster.self,
+        CvdAldCluster.self,
+        PvdCluster.self,
         // realityhd:prop
     ]
 }
