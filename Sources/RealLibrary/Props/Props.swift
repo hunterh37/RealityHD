@@ -528,6 +528,7 @@ public enum Props {
         QuickDisconnect.self,
         ImmersionTank.self,
         SwitchTrayCpo.self,
+        LotoTag.self,
         // realityhd:prop
     ]
 }
