@@ -11,7 +11,7 @@ public extension MaterialLibrary {
         },
         // Anti-static HPL floor tile laminate: mid-grey, fine stipple emboss, satin.
         MaterialSpec(key: "laminate.antistatic", program: .laminate).with {
-            $0.colorA = linear(0x9C9E9B); $0.knobs = V4(0.6, 0, 0.5, 0); $0.seed = 3120; $0.tileSize = 0.3; $0.resolution = 1024; $0.normalStrength = 0.4; $0.roughness = 0.4
+            $0.colorA = linear(0x777977); $0.knobs = V4(0.6, 0, 0.5, 0); $0.seed = 3120; $0.tileSize = 0.3; $0.resolution = 1024; $0.normalStrength = 0.4; $0.roughness = 0.4
         },
         // Polished cold plate copper: bright, a faint tarnish haze, fine machining swirl via hammer 0.
         MaterialSpec(key: "copper.polished", program: .polishedMetal).with {

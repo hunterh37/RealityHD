@@ -508,6 +508,7 @@ public enum Props {
         ComputeTrayGpu.self,
         ColdPlate.self,
         HotAisleContainment.self,
+        RaisedFloorTile.self,
         // realityhd:prop
     ]
 }

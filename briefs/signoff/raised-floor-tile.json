@@ -1,0 +1,22 @@
+{
+  "automated" : 0.99849886,
+  "date" : "2026-10-18",
+  "final" : 0.87597454,
+  "fingerprint" : "b19c1a798b764ce0",
+  "id" : "raised-floor-tile",
+  "iterations" : 2,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 9,
+    "construction" : 7,
+    "edges" : 7,
+    "grounding" : 9,
+    "materials" : 8,
+    "proportion" : 9,
+    "silhouette" : 9,
+    "wear" : 7
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.80999994
+}
