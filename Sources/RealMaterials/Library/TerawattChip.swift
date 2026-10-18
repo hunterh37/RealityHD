@@ -62,5 +62,25 @@ public extension MaterialLibrary {
         MaterialSpec(key: "emissive.holo-grid", program: nil).with {
             $0.baseColor = V3(0.05, 0.3, 0.38); $0.mode = .emissive; $0.emissive = V3(0.15, 0.8, 1); $0.emissiveIntensity = 1.2
         },
+        // Die block tile emissive tints, one per block type, kept dim.
+        MaterialSpec(key: "emissive.die-tensor", program: nil).with {
+            $0.baseColor = V3(0.2, 0.08, 0.35); $0.mode = .emissive; $0.emissive = V3(0.6, 0.25, 1); $0.emissiveIntensity = 0.5
+        },
+        MaterialSpec(key: "emissive.die-sram", program: nil).with {
+            $0.baseColor = V3(0.04, 0.2, 0.3); $0.mode = .emissive; $0.emissive = V3(0.1, 0.7, 1); $0.emissiveIntensity = 0.45
+        },
+        MaterialSpec(key: "emissive.die-noc", program: nil).with {
+            $0.baseColor = V3(0.3, 0.2, 0.04); $0.mode = .emissive; $0.emissive = V3(1, 0.7, 0.15); $0.emissiveIntensity = 0.5
+        },
+        MaterialSpec(key: "emissive.die-hbmphy", program: nil).with {
+            $0.baseColor = V3(0.05, 0.3, 0.12); $0.mode = .emissive; $0.emissive = V3(0.2, 1, 0.4); $0.emissiveIntensity = 0.45
+        },
+        MaterialSpec(key: "emissive.die-io", program: nil).with {
+            $0.baseColor = V3(0.3, 0.08, 0.1); $0.mode = .emissive; $0.emissive = V3(1, 0.3, 0.35); $0.emissiveIntensity = 0.45
+        },
+        // Design workbench holo plane: pale cyan translucent-looking emissive sheet.
+        MaterialSpec(key: "emissive.holo-plane", program: nil).with {
+            $0.baseColor = V3(0.1, 0.35, 0.45); $0.mode = .emissive; $0.emissive = V3(0.3, 0.85, 1); $0.emissiveIntensity = 0.8
+        },
     ]
 }

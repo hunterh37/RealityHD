@@ -510,6 +510,8 @@ public enum Props {
         DieBlankReticle.self,
         InterposerGlass.self,
         HoloTable.self,
+        DieBlockTile.self,
+        DesignWorkbench2035.self,
         // realityhd:prop
     ]
 }
