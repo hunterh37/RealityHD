@@ -531,6 +531,7 @@ public enum Props {
         LotoTag.self,
         HallColumn.self,
         CampusBuilding.self,
+        EsdWristStrap.self,
         // realityhd:prop
     ]
 }
