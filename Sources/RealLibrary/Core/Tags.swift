@@ -51,6 +51,8 @@ public enum AssetTag {
         "fishing",
         // hunting: handheld firearms, bows and ammunition
         "hunting",
+        // lunar: regolith ground, boulders and craters
+        "lunar",
     ])
 
     /// Scene tags: any vocabulary tag plus these.

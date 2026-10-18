@@ -81,7 +81,12 @@ func shadersCommand(_ args: Args) async throws {
 func skyCommand(_ args: Args) throws {
     guard let synth = TextureSynth.shared else { throw CLIError("Metal unavailable") }
     let sky = skyPreset(args.next() ?? "afternoon")
-    let tex = try synth.skyTexture(SkyParams(sunDir: sky.sunDirection, turbidity: sky.turbidity, width: 512, drawSun: true))
+    let tex = try synth.skyTexture(SkyParams(sunDir: sky.sunDirection, turbidity: sky.turbidity, width: 512, drawSun: true).vac(sky))
+    if args.flag("--png") {
+        // Wide-angle crop (full 360 x 180 at 2048 wide) written to out/sky-<preset>.png.
+        let big = try synth.skyTexture(SkyParams(sunDir: sky.sunDirection, turbidity: sky.turbidity, width: 2048, drawSun: true, exposure: 1.25).vac(sky))
+        if let img = synth.cgImage(big) { try? FileManager.default.createDirectory(atPath: "out", withIntermediateDirectories: true); writePNG(img, "out/sky.png") }
+    }
     var half = [Float16](repeating: 0, count: 512 * 256 * 4)
     tex.getBytes(&half, bytesPerRow: 512 * 8, from: MTLRegionMake2D(0, 0, 512, 256), mipmapLevel: 0)
     for (name, y) in [("zenith", 2), ("mid", 64), ("horizon+", 120), ("ground", 200)] {
@@ -92,5 +97,5 @@ func skyCommand(_ args: Args) throws {
 }
 
 func skyPreset(_ name: String) -> SunSky {
-    ["morning": .morning, "midday": .midday, "golden": .goldenHour][name] ?? .afternoon
+    ["morning": .morning, "midday": .midday, "golden": .goldenHour, "lunar": .lunarSouthPole][name] ?? .afternoon
 }

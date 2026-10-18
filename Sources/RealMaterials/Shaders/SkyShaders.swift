@@ -3,7 +3,7 @@
 let metalSky = #"""
 // ---------------------------------------------------------------- sky
 // Single-scattering atmosphere (Rayleigh + Mie, Nishita-style ray march) into an equirect HDR map.
-struct SkyParams { float3 sunDir; float sunIntensity; float turbidity; float groundAlbedo; int width; int height; int drawSun; float exposure; float overcast; float cloudSeed; };
+struct SkyParams { float3 sunDir; float sunIntensity; float turbidity; float groundAlbedo; int width; int height; int drawSun; float exposure; float overcast; float cloudSeed; int vacuum; float earthAz; float earthEl; float earthRadius; };
 
 float2 raySphere(float3 ro, float3 rd, float R) {
     float b = dot(ro, rd), c = dot(ro, ro) - R * R, d = b * b - c;
@@ -66,6 +66,50 @@ float2 cloudDeck(float3 rd, float cover, float seed) {
     float c = smoothstep(1.02 - cover * 1.18, 1.1 - cover * 0.55, n * 0.8 + n2 * 0.2);
     return float2(c, 0.55 + 0.45 * n2);
 }
+// Vacuum sky (airless body): black, procedural stars, hard sun disk, optional Earth disc with phase.
+float vHash(float3 p) { p = fract(p * 0.3183099 + 0.1); p *= 17.0; return fract(p.x * p.y * p.z * (p.x + p.y + p.z)); }
+float3 vacuumSky(float3 rd, float3 sd, constant SkyParams &S) {
+    float3 col = float3(0.0);
+    if (S.drawSun == 1) {
+        // Stars: jittered point per 3D cell, a few bright ones, faint galactic band.
+        float3 q = rd * 260.0, c = floor(q), f = fract(q);
+        float h = vHash(c);
+        if (h > 0.972) {
+            float3 o = 0.25 + 0.5 * float3(vHash(c + 3.1), vHash(c + 7.7), vHash(c + 11.3));
+            float d = length(f - o);
+            float mag = pow((h - 0.972) / 0.028, 3.0);
+            float3 tint = mix(float3(1.0, 0.82, 0.65), float3(0.7, 0.8, 1.0), vHash(c + 19.0));
+            col += tint * smoothstep(0.33, 0.0, d) * (0.05 + 0.9 * mag) * 1.6;
+        }
+        float band = exp(-pow(dot(rd, normalize(float3(0.3, 0.8, -0.5))) * 4.5, 2.0));
+        col += float3(0.8, 0.85, 1.0) * band * 0.012 * (0.6 + 0.8 * cloudFbm(rd.xz * 6.0 + rd.y * 3.0));
+        // Sun disk, 0.53 degrees across, no extinction.
+        col += smoothstep(0.999984, 0.999989, dot(rd, sd)) * S.sunIntensity * 40.0;
+        // Earth disc.
+        if (S.earthRadius > 0.0) {
+            float ce = cos(S.earthEl), se = sin(S.earthEl);
+            float3 e = float3(sin(S.earthAz) * ce, se, -cos(S.earthAz) * ce);
+            float cosA = dot(rd, e), sinR = sin(S.earthRadius);
+            if (cosA > 0.0) {
+                float3 t = (rd - e * cosA) / (sinR * max(cosA, 1e-4));
+                float r2 = dot(t, t);
+                if (r2 < 1.0) {
+                    float3 n = normalize(t + e * sqrt(1.0 - r2));
+                    float2 cuv = float2(atan2(n.z, n.x) * 1.9 + 3.0, n.y * 3.2);
+                    float cl = smoothstep(0.52, 0.75, cloudFbm(cuv * 2.2));
+                    float land = smoothstep(0.55, 0.62, cloudFbm(cuv * 1.3 + 11.0));
+                    float3 ground = mix(float3(0.04, 0.12, 0.34), float3(0.28, 0.24, 0.12), land);
+                    float3 surf = mix(ground, float3(0.95), cl * 0.85);
+                    float lit = smoothstep(-0.05, 0.4, dot(n, sd));
+                    float limb = mix(1.0, 0.55, pow(r2, 3.0));
+                    float edge = smoothstep(1.0, 0.94, r2);
+                    col = mix(col, (surf * (0.003 + lit) * S.sunIntensity * 0.09 + float3(0.1, 0.25, 0.7) * pow(r2, 8.0) * 0.05 * lit) * limb, edge);
+                }
+            }
+        }
+    }
+    return col;
+}
 kernel void rf_sky(texture2d<float, access::write> out [[texture(0)]],
                    constant SkyParams &S [[buffer(0)]],
                    uint2 gid [[thread_position_in_grid]]) {
@@ -76,6 +120,14 @@ kernel void rf_sky(texture2d<float, access::write> out [[texture(0)]],
     float3 rd = float3(sin(phi) * cos(theta), sin(theta), -cos(phi) * cos(theta));
     float3 sd = normalize(S.sunDir);
     float3 col;
+    if (S.vacuum == 1) {
+        col = vacuumSky(rd, sd, S);
+        if (rd.y < 0.0) col = float3(0.02, 0.019, 0.018) * S.sunIntensity * max(sd.y, 0.02);
+        else col += float3(0.0006);
+        col *= S.exposure;
+        out.write(float4(col, 1.0), gid);
+        return;
+    }
     if (rd.y >= 0.0) {
         // Single scattering darkens grazing rays; real horizons stay bright from multiple scattering.
         col = atmosphere(normalize(float3(rd.x, max(rd.y, 0.045), rd.z)), sd, S.turbidity, S.sunIntensity);
