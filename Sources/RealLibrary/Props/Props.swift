@@ -509,6 +509,7 @@ public enum Props {
         Wafer300mm.self,
         EuvScannerHighna.self,
         LithoTrack.self,
+        PlasmaEtchCluster.self,
         // realityhd:prop
     ]
 }
