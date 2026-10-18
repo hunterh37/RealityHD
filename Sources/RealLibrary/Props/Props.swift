@@ -513,6 +513,7 @@ public enum Props {
         OverheadBusway.self,
         CableTrayLadder.self,
         BlankingPanel.self,
+        CrashCartKvm.self,
         // realityhd:prop
     ]
 }
