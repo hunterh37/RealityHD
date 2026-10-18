@@ -521,6 +521,8 @@ public enum Props {
         SolarArrayWing.self,
         LunarDCHabitat.self,
         MarsDCDome.self,
+        GroundStationDish.self,
+        EarthSitePin.self,
         // realityhd:prop
     ]
 }
