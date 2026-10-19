@@ -32,6 +32,12 @@ public struct SunSky: Sendable {
     public var overcast: Float = 0
     /// Selects the cloud pattern.
     public var cloudSeed: Float = 0
+    /// Airless body: black sky with stars, hard sun disk, no scattering, no fog, no sun reddening.
+    public var vacuum: Bool = false
+    /// Earth disc in a vacuum sky: angular radius in degrees (0 = none; ~0.95 seen from the Moon), azimuth, elevation.
+    public var earthRadius: Float = 0
+    public var earthAzimuth: Float = 0
+    public var earthElevation: Float = 0
     public init() {}
     public init(elevation: Float, azimuth: Float = 135, turbidity: Float = 2.2) { self.elevation = elevation; self.azimuth = azimuth; self.turbidity = turbidity }
 
@@ -39,6 +45,15 @@ public struct SunSky: Sendable {
     public static let midday = SunSky(elevation: 62, azimuth: 160, turbidity: 2.0)
     public static let afternoon = SunSky(elevation: 32, azimuth: 225, turbidity: 2.3)
     public static let goldenHour = SunSky(elevation: 6, azimuth: 250, turbidity: 3.2)
+    /// Lunar south pole: sun 1.5 degrees above a rugged horizon, black sky, no atmosphere or fog, Earth disc
+    /// low in the opposite sky (libration keeps it within a few degrees of the horizon).
+    public static let lunarSouthPole: SunSky = {
+        var sky = SunSky(elevation: 1.5, azimuth: 80, turbidity: 1)
+        sky.sunLux = 90000; sky.iblExposure = -1; sky.shadowDistance = 120; sky.skyResolution = 2048
+        sky.fogDensity = 0; sky.vacuum = true
+        sky.earthRadius = 0.95; sky.earthAzimuth = 135; sky.earthElevation = 5
+        return sky
+    }()
 
     /// Unit vector pointing from the scene toward the sun.
     public var sunDirection: SIMD3<Float> {
@@ -171,7 +186,7 @@ public final class RealEnvironment {
         params = p
         root.name = "RealEnvironment"
         // IBL: sky without the sun disk (the directional light carries the sun; avoids double counting).
-        let iblTex = try synth.skyTexture(SkyParams(sunDir: p.sunDirection, turbidity: p.turbidity, width: p.skyResolution / 2, drawSun: false, overcast: p.overcast, cloudSeed: p.cloudSeed))
+        let iblTex = try synth.skyTexture(SkyParams(sunDir: p.sunDirection, turbidity: p.turbidity, width: p.skyResolution / 2, drawSun: false, overcast: p.overcast, cloudSeed: p.cloudSeed).vac(p))
         guard let iblImage = synth.cgImage(iblTex) else { throw TextureSynth.SynthError.encode }
         // Horizon haze color drives aerial perspective in every ShaderGraph material.
         do {
@@ -198,7 +213,7 @@ public final class RealEnvironment {
         var light = DirectionalLightComponent()
         light.intensity = p.sunLux * (0.35 + 0.65 * min(1, max(0, sin(radians(p.elevation)) * 2.5))) * (1 - 0.94 * pow(min(1, max(0, p.overcast)), 1.3))
         sunBase = light.intensity
-        let warm = max(0, 1 - p.elevation / 25) * (1 - p.overcast)
+        let warm = p.vacuum ? 0 : max(0, 1 - p.elevation / 25) * (1 - p.overcast)
         light.color = .init(SIMD3(1, 0.93 - 0.2 * warm, 0.85 - 0.4 * warm))
         sun.components.set(light)
         var shadow = DirectionalLightComponent.Shadow()
@@ -214,7 +229,7 @@ public final class RealEnvironment {
 
         if skybox {
             let skyWidth = min(8192, max(512, Int(Float(p.skyResolution * 2) * RealPerformance.active.skyboxScale)))
-            let skyTex = try synth.skyTexture(SkyParams(sunDir: p.sunDirection, turbidity: p.turbidity, width: skyWidth, drawSun: true, exposure: 1.25, overcast: p.overcast, cloudSeed: p.cloudSeed))
+            let skyTex = try synth.skyTexture(SkyParams(sunDir: p.sunDirection, turbidity: p.turbidity, width: skyWidth, drawSun: true, exposure: 1.25, overcast: p.overcast, cloudSeed: p.cloudSeed).vac(p))
             if let img = synth.cgImage(skyTex) {
                 let tr = try TextureResource(image: img, withName: "realityhd.skybox", options: .init(semantic: .hdrColor, mipmapsMode: .none))
                 var m = UnlitMaterial()
@@ -263,5 +278,15 @@ public final class RealEnvironment {
             s.quad(a, a + row, a + row + 1, a + 1)
         }}
         return Model(name: "sky", surfaces: [s])
+    }
+}
+
+extension SkyParams {
+    /// Copies the vacuum and Earth-disc settings from a `SunSky`.
+    public func vac(_ p: SunSky) -> SkyParams {
+        var s = self
+        s.vacuum = p.vacuum ? 1 : 0
+        s.earthAz = radians(p.earthAzimuth); s.earthEl = radians(p.earthElevation); s.earthRadius = radians(p.earthRadius)
+        return s
     }
 }

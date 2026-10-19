@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "lunar-rover",
+  "kind": "prop",
+  "materials": [
+    "metal.powder-white",
+    "insulation.foil-gold",
+    "metal.aluminum-brushed",
+    "rubber.tire"
+  ],
+  "name": "Lunar rover",
+  "notes": "",
+  "parts": [
+    "chassis",
+    "six mesh wheels",
+    "rocker-bogie",
+    "solar deck",
+    "mast camera",
+    "HGA dish",
+    "lidar"
+  ],
+  "references": [],
+  "size": [
+    1.33,
+    1.15,
+    1.56
+  ],
+  "style": "NASA Artemis/LSIC robot, dusty, orange accents",
+  "summary": "NASA-style 6-wheel rocker-bogie robot rover, 1.5 m long: white chassis, gold MLI electronics box, solar deck, mast camera, HGA dish and lidar.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "metal",
+    "electronics"
+  ],
+  "theme": "Lunar",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

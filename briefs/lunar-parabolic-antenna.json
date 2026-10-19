@@ -1,0 +1,38 @@
+{
+  "budget": 14000,
+  "id": "lunar-parabolic-antenna",
+  "kind": "prop",
+  "materials": [
+    "metal.powder-white",
+    "metal.aluminum-brushed",
+    "insulation.foil-gold",
+    "metal.painted"
+  ],
+  "name": "Lunar Ka parabolic antenna",
+  "notes": "",
+  "parts": [
+    "dish",
+    "feed horn and struts",
+    "elevation yoke",
+    "azimuth gimbal",
+    "mast",
+    "base plate"
+  ],
+  "references": [],
+  "size": [
+    0.47,
+    1.49,
+    0.44
+  ],
+  "style": "NASA Artemis/LSIC hardware, clean, slight dust",
+  "summary": "0.5 m Ka-band dish on a gimbal mast: white composite dish, feed horn and struts, gold MLI gimbal wrap, orange bands; azimuth and elevation joints.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "metal",
+    "electronics"
+  ],
+  "theme": "Lunar",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

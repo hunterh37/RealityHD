@@ -62,6 +62,9 @@ public enum Nature {
         GreenLacewing.self,
         Millipede.self,
         BulletAnt.self,
+        LunarTerrain.self,
+        LunarBoulder.self,
+        LunarCraterRim.self,
         // realityhd:nature
     ]
 }

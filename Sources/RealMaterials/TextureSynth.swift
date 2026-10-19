@@ -61,6 +61,12 @@ public struct SkyParams {
     public var overcast: Float
     /// Offsets the cloud noise so each weather change can have its own cloud pattern.
     public var cloudSeed: Float
+    /// 1 = airless sky: black, stars, hard sun disk, no scattering.
+    public var vacuum: Int32 = 0
+    /// Earth disc (vacuum only): azimuth and elevation in radians, angular radius in radians (0 = none).
+    public var earthAz: Float = 0
+    public var earthEl: Float = 0
+    public var earthRadius: Float = 0
     public init(sunDir: SIMD3<Float>, sunIntensity: Float = 22, turbidity: Float = 2, groundAlbedo: Float = 1,
                 width: Int = 1024, drawSun: Bool, exposure: Float = 1, overcast: Float = 0, cloudSeed: Float = 0) {
         self.overcast = overcast; self.cloudSeed = cloudSeed
