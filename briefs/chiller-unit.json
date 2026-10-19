@@ -1,0 +1,37 @@
+{
+  "budget": 15000,
+  "id": "chiller-unit",
+  "kind": "prop",
+  "materials": [
+    "metal.painted:E9E9E4",
+    "metal.aluminum-fins",
+    "metal.galvanized",
+    "metal.steel",
+    "plastic.black"
+  ],
+  "name": "Chiller unit",
+  "notes": "",
+  "parts": [
+    "off-white air-cooled chiller casing",
+    "condenser coils behind louvers",
+    "fans on top",
+    "compressor enclosure",
+    "insulated chilled water nozzles",
+    "nameplate",
+    "weathering streaks"
+  ],
+  "references": [],
+  "size": [
+    10,
+    2.8,
+    2.4
+  ],
+  "style": "Ultra realistic 10 m air-cooled screw chiller: off-white panels, louvered condenser coil sides, four fans on top, compressor enclosure with doors, insulated chilled water nozzles, nameplate, rain streaks.",
+  "summary": "Air-cooled chiller: off-white casing, louvered condenser coils, top fans, compressor enclosure, insulated water nozzles, nameplate.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenterSite",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

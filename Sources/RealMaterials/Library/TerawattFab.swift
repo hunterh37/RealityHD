@@ -96,6 +96,16 @@ public extension MaterialLibrary {
             $0.baseColor = V3(0.8, 0.8, 0.8); $0.roughness = 0.3; $0.specular = 0.5
             $0.mode = .transparent; $0.opacity = 0.55; $0.twoSided = true
         },
+        // PFA wafer cassette: milky off-white translucent fluoropolymer, soft satin.
+        MaterialSpec(key: "plastic.pfa", program: nil).with {
+            $0.baseColor = V3(0.82, 0.82, 0.78); $0.roughness = 0.38; $0.specular = 0.4
+            $0.mode = .transparent; $0.opacity = 0.72; $0.twoSided = true
+        },
+        // Photomask quartz: clear glossy fused silica.
+        MaterialSpec(key: "glass.quartz", program: nil).with {
+            $0.baseColor = V3(0.72, 0.78, 0.80); $0.roughness = 0.03; $0.specular = 0.7
+            $0.mode = .transparent; $0.opacity = 0.5; $0.twoSided = true
+        },
         // Yellow-room lighting diffuser: amber, self-lit.
         MaterialSpec(key: "emissive.amber", program: nil).with {
             $0.baseColor = V3(1, 0.55, 0.05); $0.mode = .emissive; $0.emissive = V3(1, 0.5, 0.03); $0.emissiveIntensity = 2.2

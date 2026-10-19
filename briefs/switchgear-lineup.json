@@ -1,0 +1,17 @@
+{
+  "budget": 10000,
+  "id": "switchgear-lineup",
+  "kind": "prop",
+  "materials": ["metal.powdercoat:A7AAA9", "glass.clear", "plastic.matte"],
+  "name": "Switchgear lineup",
+  "notes": "",
+  "parts": ["4 hinged breaker doors", "breaker rack-out", "mimic bus strip", "analog meters", "warning labels", "viewing windows"],
+  "references": [],
+  "size": [3.2, 2.3, 1.4],
+  "style": "ANSI 61 grey low-voltage switchgear, satin powdercoat with scuffs at handles",
+  "summary": "Four-bay ANSI-grey switchgear lineup with hinged breaker doors and viewing windows, rack-out breakers, meters, lamps, a red mimic bus strip and arc-flash warning labels.",
+  "tags": ["prop", "articulated"],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

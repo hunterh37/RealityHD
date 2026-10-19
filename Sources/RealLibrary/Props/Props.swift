@@ -910,6 +910,9 @@ public enum Props {
         LedRowLight.self,
         RackLpu.self,
         RackAir42u.self,
+        UpsCabinet.self,
+        BatteryRackLi.self,
+        RackPdu.self,
         RackNvl72.self,
         PowerCordC19.self,
         GpuModule2035.self,
@@ -927,6 +930,10 @@ public enum Props {
         FiberCleaner.self,
         CableLabel.self,
         VelcroTie.self,
+        CrahUnit.self,
+        NetworkPatchPanel.self,
+        FireSuppressionCylinder.self,
+        SwitchgearLineup.self,
         Foup.self,
         OhtVehicle.self,
         Wafer300mm.self,
@@ -952,6 +959,8 @@ public enum Props {
         EfemRobot.self,
         EuvLightSource.self,
         DuvImmersionScanner.self,
+        ReticlePod.self,
+        WaferCassette.self,
         PackageSubstrate.self,
         ChipPackageFinal.self,
         HBMStack.self,
@@ -971,6 +980,8 @@ public enum Props {
         MarsDCDome.self,
         GroundStationDish.self,
         EarthSitePin.self,
+        DryCooler.self,
+        ChillerUnit.self,
         // realityhd:prop
     ]
 }

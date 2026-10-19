@@ -1,0 +1,35 @@
+{
+  "budget": 15000,
+  "id": "dry-cooler",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized",
+    "metal.aluminum-fins",
+    "metal.painted",
+    "metal.steel",
+    "plastic.black"
+  ],
+  "name": "Dry cooler",
+  "notes": "",
+  "parts": [
+    "V-bank aluminum fin coils",
+    "8 EC fans on top with guards (fans spin)",
+    "galvanized frame",
+    "header pipes",
+    "control panel"
+  ],
+  "references": [],
+  "size": [
+    12,
+    2.5,
+    2.4
+  ],
+  "style": "Ultra realistic 12 m industrial dry cooler: V-bank aluminum fin coils, row of eight EC fans with wire guards on top, galvanized frame, flanged header pipes, NEMA control panel.",
+  "summary": "Industrial dry cooler: V-bank finned coils, eight spinning EC fans with guards, galvanized frame, header pipes, control panel.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenterSite",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
