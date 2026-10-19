@@ -1,0 +1,23 @@
+{
+  "budget": 1200,
+  "id": "ffu-ceiling-tile",
+  "kind": "prop",
+  "materials": [],
+  "name": "FFU ceiling tile",
+  "notes": "",
+  "parts": [],
+  "references": [],
+  "size": [
+    1.2,
+    0.3,
+    0.6
+  ],
+  "style": "TODO: era, condition, finish",
+  "summary": "TODO: one sentence, what it is and how it's built.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "Fab",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

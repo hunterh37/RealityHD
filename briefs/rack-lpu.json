@@ -1,0 +1,32 @@
+{
+  "budget": 15000,
+  "id": "rack-lpu",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat:2A2D33",
+    "metal.perforated"
+  ],
+  "name": "LPU rack",
+  "notes": "",
+  "parts": [
+    "frame",
+    "slotted doors",
+    "dense compute trays",
+    "PDUs",
+    "casters"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    2.4,
+    1.4
+  ],
+  "style": "Inference hall, slate powder coat 2A2D33, slotted doors, dense tray faces, new-install",
+  "summary": "Air-cooled LPU inference rack: slate powder coat, slotted perforated doors, 18 dense tray slots, U rails, PDUs, TOR switch.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

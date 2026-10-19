@@ -1,0 +1,36 @@
+{
+  "budget": 15000,
+  "id": "mars-dc-dome",
+  "kind": "prop",
+  "materials": [
+    "dust.mars",
+    "dust.mars-film",
+    "thermal.radiator-white",
+    "metal.aluminum-brushed",
+    "glass.tinted"
+  ],
+  "name": "Mars data center dome",
+  "notes": "",
+  "parts": [
+    "geodesic dome panels",
+    "dust-coated lower panels",
+    "pressurized annex",
+    "airlock",
+    "radiators",
+    "dust ground"
+  ],
+  "references": [],
+  "size": [
+    20,
+    10,
+    20
+  ],
+  "style": "Ultra realistic Mars surface data center: geodesic dome with red dust accumulated on the lower panels, pressurized annex with airlock, radiator bank, red dust ground with rocks.",
+  "summary": "Mars data center: geodesic dome with red dust on lower panels, pressurized annex and radiators.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenterSite",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

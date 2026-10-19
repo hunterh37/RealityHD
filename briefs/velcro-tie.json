@@ -1,0 +1,32 @@
+{
+  "budget": 400,
+  "id": "velcro-tie",
+  "kind": "prop",
+  "materials": [
+    "fabric.nylon:1A1A1A",
+    "fabric.nylon:0E0E0F",
+    "plastic.matte:222325"
+  ],
+  "name": "Velcro tie",
+  "notes": "",
+  "parts": [
+    "black loop-side strap",
+    "hook-side patch",
+    "slotted buckle",
+    "curled loop"
+  ],
+  "references": [],
+  "size": [
+    0.098,
+    0.045,
+    0.018
+  ],
+  "style": "black hook-and-loop cable tie 0.2 m long with the free end curled into a loop",
+  "summary": "Black hook-and-loop cable tie, 0.2 m strap with a slotted buckle, free end curled into a loop.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

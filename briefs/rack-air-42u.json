@@ -1,0 +1,33 @@
+{
+  "budget": 15000,
+  "id": "rack-air-42u",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat:B4B7BB",
+    "metal.perforated"
+  ],
+  "name": "Air-cooled 42U rack",
+  "notes": "",
+  "parts": [
+    "frame",
+    "mesh doors",
+    "mixed 1U/2U servers",
+    "blanking panels",
+    "vertical PDUs",
+    "casters"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    2.0,
+    1.2
+  ],
+  "style": "Classic enterprise server room, light-grey powder coat, mesh doors, mixed 1U/2U servers with visible fans, blanking panels",
+  "summary": "Classic 42U air-cooled server rack: light-grey frame, mesh doors, mixed 1U/2U servers with visible fans, blanking panels, vertical PDUs, TOR switch.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

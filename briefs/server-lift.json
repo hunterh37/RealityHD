@@ -1,0 +1,38 @@
+{
+  "budget": 6000,
+  "id": "server-lift",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat:E8C21A",
+    "rubber.tire",
+    "metal.steel",
+    "metal.galvanized",
+    "plastic.matte"
+  ],
+  "name": "Server lift",
+  "notes": "",
+  "parts": [
+    "two-post mast",
+    "crank handle",
+    "hydraulic pump handle",
+    "platform with lip",
+    "four casters with brakes",
+    "push handle",
+    "lift-platform"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    1.2,
+    0.9
+  ],
+  "style": "Yellow powder-coat datacenter server lift: twin square-tube mast, winch crank, cradle platform with rear-less lip, four swivel casters with toe brakes, push handle, chips and scuffs. 0.6 x 1.2 x 0.9 m, platform raises to 1.0 m.",
+  "summary": "Yellow powder-coat server and rack lift with two-post mast, crank, lipped platform, braked casters and push handle; platform raises to 1.0 m.",
+  "tags": [
+    "prop",
+    "articulated"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

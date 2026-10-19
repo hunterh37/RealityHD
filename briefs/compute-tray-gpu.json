@@ -1,0 +1,41 @@
+{
+  "budget": 12000,
+  "id": "compute-tray-gpu",
+  "kind": "prop",
+  "materials": [
+    "metal.aluminum-brushed",
+    "metal.copper",
+    "copper.polished",
+    "plastic.pcb",
+    "metal.nickel",
+    "plastic.matte"
+  ],
+  "name": "GPU compute tray",
+  "notes": "",
+  "parts": [
+    "chassis",
+    "lid",
+    "slide rails",
+    "GPU modules",
+    "cold plates",
+    "copper tubing",
+    "quick disconnects",
+    "front handles",
+    "PCB",
+    "DIMMs"
+  ],
+  "references": [],
+  "size": [
+    0.44,
+    0.09,
+    0.9
+  ],
+  "style": "Clean new hardware, satin brushed aluminium, green PCB visible with lid lifted.",
+  "summary": "2U liquid-cooled GPU compute tray: brushed aluminium chassis, four GPU cold plates with copper tubing to rear blind-mate quick disconnects, PCB, fan-less, removable lid and slide rails.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.9,
+  "tolerance": 0.08
+}

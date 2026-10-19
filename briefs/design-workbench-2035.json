@@ -1,0 +1,40 @@
+{
+  "budget": 10000,
+  "id": "design-workbench-2035",
+  "kind": "prop",
+  "materials": [
+    "laminate.white",
+    "metal.anodized-black",
+    "metal.aluminum-brushed",
+    "glass.display",
+    "screen.ui",
+    "emissive.holo-plane",
+    "plastic.black",
+    "rubber",
+    "emissive.holo-grid"
+  ],
+  "name": "Design workbench 2035",
+  "notes": "",
+  "parts": [
+    "laminate desk top",
+    "anodized frame",
+    "three curved glass displays",
+    "keyboard deck",
+    "holo plane",
+    "cable spine"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    1.0,
+    1.2
+  ],
+  "style": "2.4 x 1.0 x 1.2 m 2035 design desk: pale laminate top with rounded edge, dark anodized frame and legs, three curved glass displays on arms, keyboard deck with keys and palm rest, floating emissive holo plane above the desk, cable spine down the rear leg.",
+  "summary": "2035 design workbench: laminate top, anodized frame, three curved glass displays, keyboard deck, emissive holo plane, cable spine.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "ChipLab",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

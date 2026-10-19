@@ -1,0 +1,17 @@
+{
+  "budget" : 400,
+  "id" : "blanking-panel",
+  "kind" : "prop",
+  "materials" : ["plastic.matte:1A1A1A"],
+  "name" : "Blanking panel",
+  "notes" : "",
+  "parts" : ["19 in flange plate with rail ears", "stiffening ribs on back", "snap latches", "molded texture"],
+  "references" : [],
+  "size" : [0.48, 0.044, 0.01],
+  "style" : "New, matte black molded ABS, subtle texture, 1U tool-less snap-in",
+  "summary" : "1U tool-less snap-in rack blanking panel in matte black plastic with rail ears, rear stiffening ribs and snap latches.",
+  "tags" : ["prop"],
+  "theme" : "DataCenter",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}

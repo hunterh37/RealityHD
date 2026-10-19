@@ -1,0 +1,23 @@
+{
+  "budget": 400,
+  "id": "fab-yellow-light-panel",
+  "kind": "prop",
+  "materials": [],
+  "name": "Fab yellow light panel",
+  "notes": "",
+  "parts": [],
+  "references": [],
+  "size": [
+    1.2,
+    0.05,
+    0.6
+  ],
+  "style": "TODO: era, condition, finish",
+  "summary": "TODO: one sentence, what it is and how it's built.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "Fab",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

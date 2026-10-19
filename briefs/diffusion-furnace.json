@@ -1,0 +1,42 @@
+{
+ "budget": 10000,
+ "id": "diffusion-furnace",
+ "kind": "prop",
+ "materials": [
+  "metal.powdercoat",
+  "quartz",
+  "metal.stainless",
+  "metal.anodized",
+  "plastic.matte",
+  "glass.lamp",
+  "rubber.tubing"
+ ],
+ "name": "Diffusion furnace",
+ "notes": "Part boat-elevator slides along Y.",
+ "parts": [
+  "powdercoat tower frame",
+  "vertical process tube",
+  "quartz wafer boat with slots on boat elevator",
+  "heater jacket",
+  "gas panel",
+  "exhaust duct",
+  "controller panel",
+  "named boat-elevator"
+ ],
+ "references": [],
+ "size": [
+  2,
+  3.5,
+  2
+ ],
+ "style": "Vertical diffusion furnace stack, grey powdercoat tower, quartz boat on lift, insulated heater jacket, gas panel, exhaust duct, light wear, no branding.",
+ "summary": "TODO: one sentence, what it is and how it's built.",
+ "tags": [
+  "prop",
+  "semiconductor",
+  "articulated"
+ ],
+ "theme": "Fab",
+ "threshold": 0.85,
+ "tolerance": 0.08
+}

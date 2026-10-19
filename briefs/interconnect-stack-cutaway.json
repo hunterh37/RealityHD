@@ -1,0 +1,38 @@
+{
+  "budget": 8000,
+  "id": "interconnect-stack-cutaway",
+  "kind": "prop",
+  "materials": [
+    "silicon.die-edge",
+    "metal.tungsten",
+    "metal.copper",
+    "oxide.lowk"
+  ],
+  "name": "Interconnect stack cutaway",
+  "notes": "Micro-scale model, scaled 1e6x, 0.5 m display size. Layers are named explode parts.",
+  "parts": [
+    "silicon substrate with tungsten contacts",
+    "twelve copper metal layers m01-m12 with widening pitch",
+    "copper vias",
+    "low-k dielectric per layer",
+    "top pad layer",
+    "layer explode state"
+  ],
+  "references": [],
+  "size": [
+    0.5,
+    1.0,
+    0.5
+  ],
+  "style": "BEOL interconnect stack cutaway, 12 copper metal layers alternating x and z in low-k dielectric, stair-stepped front to expose each layer, pitch and wire thickness widening upward, copper vias.",
+  "summary": "BEOL interconnect stack cutaway at 1e6x scale: 12 copper metal layers with vias in low-k dielectric, pitch widening upward; explodes by layer.",
+  "tags": [
+    "prop",
+    "chiplab",
+    "micro-scale",
+    "articulated"
+  ],
+  "theme": "ChipLab",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
