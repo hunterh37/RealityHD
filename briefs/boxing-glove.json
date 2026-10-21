@@ -1,0 +1,37 @@
+{
+  "budget": 15000,
+  "id": "boxing-glove",
+  "kind": "prop",
+  "materials": [
+    "leather.oxblood:B80D10",
+    "leather.oxblood:8A0A0C",
+    "leather.black",
+    "fabric.webbing:F1F0EC",
+    "thread.white"
+  ],
+  "name": "Boxing glove",
+  "notes": "",
+  "parts": [
+    "cuff with lining",
+    "white velcro wrist strap",
+    "padded fist body",
+    "knuckle panel seam",
+    "attached thumb",
+    "piping and stitching",
+    "palm panel"
+  ],
+  "references": [],
+  "size": [
+    0.155,
+    0.175,
+    0.336
+  ],
+  "style": "Competition glove, new with light sheen, saddle stitching and piping on every panel seam.",
+  "summary": "Left 14 oz lace-less boxing glove: red leather, curled padded fist, sewn thumb, wrist cuff with white velcro strap.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "Sports",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

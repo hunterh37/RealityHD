@@ -1,0 +1,36 @@
+{
+  "budget": 10000,
+  "id": "speed-bag-platform",
+  "kind": "prop",
+  "materials": [
+    "wood.oak",
+    "metal.steel",
+    "metal.chrome",
+    "metal.anodized-black"
+  ],
+  "name": "Speed bag platform",
+  "notes": "",
+  "parts": [
+    "round 24 inch hardwood platform",
+    "steel swivel with ball bearing under the board",
+    "wall plate and two steel braces",
+    "bolt heads and edge bevel"
+  ],
+  "references": [],
+  "size": [
+    0.62,
+    0.34,
+    0.664
+  ],
+  "style": "Wall mounted platform, oiled hardwood.",
+  "summary": "Round hardwood speed bag platform on a steel wall bracket with an under-board swivel.",
+  "tags": [
+    "prop",
+    "sports",
+    "wood",
+    "metal"
+  ],
+  "theme": "Sports",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -910,6 +910,9 @@ public enum Props {
         LedRowLight.self,
         RackLpu.self,
         RackAir42u.self,
+        UpsCabinet.self,
+        BatteryRackLi.self,
+        RackPdu.self,
         RackNvl72.self,
         PowerCordC19.self,
         GpuModule2035.self,
@@ -927,6 +930,13 @@ public enum Props {
         FiberCleaner.self,
         CableLabel.self,
         VelcroTie.self,
+        CrahUnit.self,
+        NetworkPatchPanel.self,
+        FireSuppressionCylinder.self,
+        BoxingGlove.self,
+        HeavyBag.self,
+        SpeedBag.self,
+        SpeedBagPlatform.self,
         // realityhd:prop
     ]
 }
