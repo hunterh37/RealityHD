@@ -73,3 +73,15 @@ Iter 2. Issue: still dark (baked AO reads 0, albedo x0.6). Fix: Tint x1/0.6 on S
 Tail cards read as blocks. Iter 3. Fix: card half width 0.34 w, linear taper to 0.2 at the tip.
 Open: plastic materials (ears, eyes, pinna) still dark in the skinned path (no uv1); alpha-tapered cards
 need a cutout fur program; legs still dark on shadow side.
+
+## Pets pass 4
+
+Iter 1. Issue: head, ears, eyes near black in the skinned path. Fix: skin holds coat surfaces only
+(`Rig.skin(blend:include:)`); ears, eyes, nose, lids, claws, whiskers stay rigid on joint entities
+(`Rig.removing`), driven alongside `jointTransforms`. Legs 1.3x radius, paws and toes on pale coat
+(u 0.42), legs on flank coat; squirrel tail fuller at the base, card tips reach the pale tip coat.
+Iter 2. Issue: coat still dark on mirrored side. Fix: explicit bitangents (cross(n, t) * w) on skinned
+parts. Eyes now show the clearcoat highlight. Bluebird top issue: lacquered blue; iridescent plumage
+roughness 0.42 to 0.55, specular 0.8 to 0.5. Fennec top issue: dark ears (fixed by the rigid split).
+Iter 3. Tail tip coat range trimmed (u to 0.21) so tips frost instead of whiting out.
+Open: leg undersides dark in shadow; tail cards opaque (no cutout fur program).

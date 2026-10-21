@@ -20,10 +20,22 @@ public struct Skin: Sendable {
 }
 
 public extension Rig {
+    /// Copy without the surfaces whose material matches `drop` (all LODs and options).
+    func removing(_ drop: (MaterialKey) -> Bool) -> Rig {
+        var r = self
+        func strip(_ m: Model) -> Model { var m = m; m.surfaces.removeAll { drop($0.material) }; return m }
+        r.base = r.base.map(strip)
+        for i in r.parts.indices {
+            r.parts[i].levels = r.parts[i].levels.map(strip)
+            r.parts[i].alternates = r.parts[i].alternates.map { $0.map(strip) }
+        }
+        return r
+    }
+
     /// Bakes LOD 0 of the base and every part into one skinned mesh. Surfaces whose material passes `blend`
     /// get weights from their own joint, its parent and its children by inverse distance to each bone
     /// segment (smooth falloff across the bend); every other surface stays rigid on its own joint.
-    func skin(blend: (MaterialKey) -> Bool) -> Skin {
+    func skin(blend: (MaterialKey) -> Bool, include: (MaterialKey) -> Bool = { _ in true }) -> Skin {
         let n = parts.count + 1
         var parents = [Int](repeating: -1, count: n), names = [String](repeating: "root", count: n)
         var rest = [Xform](repeating: .identity, count: n), inv = [simd_float4x4](repeating: matrix_identity_float4x4, count: n)
@@ -57,7 +69,7 @@ public extension Rig {
         }
         var surfaces: [Surface] = [], infl: [[SkinInfluence]] = []
         func bake(_ m: Model, _ own: Int) {
-            for s in m.surfaces where !s.isEmpty {
+            for s in m.surfaces where !s.isEmpty && include(s.material) {
                 let cands = [own] + (own == 0 ? [] : [parents[own]]) + children[own]
                 let soft = blend(s.material)
                 var out: [SkinInfluence] = []

@@ -34,7 +34,7 @@ public enum FaunaMaterials {
                 $0.colorA = linear(c.back); $0.colorB = linear(c.belly); $0.colorC = linear(c.breast)
                 $0.knobs = V4(c.featherRows * 1.9, c.flankLine, c.breastExtent, c.spotting)
                 $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 0.7; $0.roughness = 0.62
-                if c.iridescence > 0 { $0.roughness = 0.42; $0.specular = 0.8 }
+                if c.iridescence > 0 { $0.roughness = 0.55; $0.specular = 0.5 }   // structural blue: soft sheen, not lacquer
             },
             p.anatomy.caruncle > 0
             ? make(.head, .plastic) {

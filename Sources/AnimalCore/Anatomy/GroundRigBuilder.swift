@@ -395,7 +395,7 @@ public enum GroundRigBuilder {
             let t0 = Float(i) / 3, t1 = Float(i + 1) / 3
             let wTail: (Float) -> Float = { t in
                 switch p.species {
-                case .easternGraySquirrel: return tw * 0.5 * (0.55 + 0.5 * sin(.pi * min(1, t * 1.15)) + 0.1)
+                case .easternGraySquirrel: return tw * 0.5 * (0.8 + 0.4 * sin(.pi * min(1, t * 1.15)) - 0.15 * t)
                 case .easternChipmunk: return tw * 0.5 * (0.8 - 0.4 * t)
                 case .easternCottontail: return tw * 0.5 * sin(.pi * max(0.15, 1 - t * 0.8) * 0.9)
                 case .coyote: return tw * 0.5 * (0.55 + 0.45 * sin(.pi * min(1, t * 1.25)))
@@ -433,8 +433,8 @@ public enum GroundRigBuilder {
                         for r in 0..<3 {
                             let q = Float(r) / 2, wq = 1 - 0.8 * q
                             let c = b + d * (L * q) + radial * (0.1 * L * q * q)
-                            _ = card.add(c - across * wq, n, V2(0.04 + 0.13 * q, 0.5))
-                            _ = card.add(c + across * wq, n, V2(0.05 + 0.13 * q, 0.5))
+                            _ = card.add(c - across * wq, n, V2(0.04 + 0.17 * q, 0.5))
+                            _ = card.add(c + across * wq, n, V2(0.05 + 0.17 * q, 0.5))
                         }
                         for r in 0..<2 {
                             let a0 = o + UInt32(r * 2)
@@ -452,10 +452,10 @@ public enum GroundRigBuilder {
         }
 
         // Legs.
-        let legU = max(0.1, p.palette.flankLine * 0.5 * 0.6)
+        let legU = small ? 0.22 : max(0.1, p.palette.flankLine * 0.5 * 0.6)
         for l in GroundJoint.Leg.allCases where plan == nil {
             let c = chains[l]!
-            let r = a.legRadius
+            let r = a.legRadius * (small ? 1.3 : 1)
             let thighR = (l.isFore ? r * 1.4 : r * 2.0) * a.thighScale * (small ? 1.35 : 1)
             let kneeR: Float = a.digitigrade ? r * (l.isFore ? 1.3 : max(1.1, a.thighScale)) : r * 1.05
             let shankEnd: Float = a.digitigrade ? r * (l.isFore ? 0.85 : 1.0) : r * 0.8
@@ -489,7 +489,7 @@ public enum GroundRigBuilder {
                 // Paw and claws.
                 let pc = a.digitigrade ? c.toe + V3(0, r * 0.35, -r * 0.8) : c.toe + V3(0, 0, 0.004)
                 rig.add(Loft.ellipsoid(center: pc, axis: V3(0, 0, -1), up: GroundFrame.Y, radii: V3(r * 1.1, r * 0.7, r * 1.7), rings: 5, segments: 8, material: limbFur,
-                                       uv: { u, v in V2(legU + 0.04 * cos(u * 2 * .pi), 0.45) }), to: ankle)
+                                       uv: { u, v in V2((small ? 0.42 : legU) + 0.04 * cos(u * 2 * .pi), 0.45) }), to: ankle)
                 let n = a.clawScale > 2 ? 4 : 3
                 if small {
                     // Rounded toes fanned at the front of the paw.
@@ -497,7 +497,7 @@ public enum GroundRigBuilder {
                         let off = (Float(k) - 1.5) * r * 0.62
                         let tc = pc + V3(off, -r * 0.15, -r * (1.45 - 0.12 * abs(Float(k) - 1.5)))
                         rig.add(Loft.ellipsoid(center: tc, axis: V3(off * 8, 0, -1), up: GroundFrame.Y, radii: V3(r * 0.3, r * 0.26, r * 0.5), rings: 5, segments: 8, material: limbFur,
-                                               uv: { u, v in V2(legU + 0.03 * cos(u * 2 * .pi), 0.45) }), to: ankle)
+                                               uv: { u, v in V2(0.42 + 0.03 * cos(u * 2 * .pi), 0.45) }), to: ankle)
                     }
                 }
                 for k in 0..<n {

@@ -87,7 +87,7 @@ public final class GroundPuppet {
             last[i] = v
             let x = defs[i].motion(v).then(rest[i])
             let t = Transform(scale: x.scale, rotation: x.rotation, translation: x.translation)
-            if skin != nil { pending.append((skinIndex[i], t)); continue }
+            if skin != nil { pending.append((skinIndex[i], t)) }
             guard let e = joints[i] else { continue }
             e.transform = t
         }
@@ -118,9 +118,11 @@ public enum GroundFactory {
             if built.skinned {
                 // One continuous skinned mesh; coat surfaces blend across joints.
                 let coat = [".body", ".head", ".tail", ".muzzle", ".throat", ".rump"]
-                let skin = await Task.detached(priority: .userInitiated) { built.rig.skin { k in coat.contains { k.hasSuffix($0) } } }.value
-                entity = Entity()
-                entity.name = s.rawValue
+                let isCoat: @Sendable (MaterialKey) -> Bool = { k in coat.contains { k.hasSuffix($0) } }
+                let skin = await Task.detached(priority: .userInitiated) { built.rig.skin(blend: isCoat, include: isCoat) }.value
+                // Ears, eyes, nose, claws, whiskers stay rigid on joint entities (full uv1 AO and wind channels).
+                entity = try await built.rig.removing(isCoat).entityAsync(name: s.rawValue, state: "stand", interactive: false)
+                entity.removeRestProxy()
                 entity.addChild(try await skin.modelEntityAsync(name: "skin"))
             } else {
                 entity = try await built.rig.entityAsync(name: s.rawValue, state: "stand", interactive: false)
