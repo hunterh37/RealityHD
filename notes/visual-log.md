@@ -96,3 +96,14 @@ variant, no wind, vertexAO off) used by `Skin.modelEntityAsync`; Tint lift remov
 Test: `SkinnedTests.testSkinnedSquirrelMaterialsAndNormals` (BaseColor texture bound, normals and joint
 influences on every part, material index in range).
 Black-sky frame: animalpreview built a new sky per frame; one shared `RealEnvironment` now.
+
+## Pets pass 6: squirrel black in Kith (visionOS sim)
+
+Shots: Kith `vdd.py shoot kith-flow --only 02-roam,03-perch` (squirrel), `08-roam-fennec`.
+Before: squirrel skin black (ears lit), fennec lit. Skin data identical in kind (27 joints, 22 vs 23
+surfaces, no NaN normals/tangents/weights), so the cause was in the texels: the squirrel furCoat
+knobs produced NaN on the simulator GPU (fast math). The albedo guard from pass 1 left height and AO
+unguarded; a NaN height poisons the derived normal map and mips, which renders black under IBL.
+Fix: furCoat guards height/AO/soft; `rf_material` kernel replaces non-finite albedo, height, rough,
+AO, metal, alpha for every program. After: squirrel coat lit in 03-perch; tail first, then body.
+Open: squirrel tail reads near white in Kith light.

@@ -358,7 +358,11 @@ S furCoat(float2 uv, constant RFParams &P) {
     bool underM = (t + zn) > P.f.y;
     float3 coat = (underM ? P.colorB.rgb : P.colorA.rgb) * tint * (0.92 + 0.12 * soft);
     outC = mix(outC, coat, 0.45);
+    // Guard every channel: a NaN height turns the derived normal map NaN, which renders black under IBL.
     if (!all(isfinite(outC))) outC = coat;
+    if (!isfinite(hgt)) hgt = 0.2;
+    if (!isfinite(ao)) ao = 0.6;
+    if (!isfinite(soft)) soft = 0.0;
     s.albedo = outC;
     s.height = hgt;
     s.ao = clamp(ao, 0.0, 1.0);
