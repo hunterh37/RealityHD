@@ -9,6 +9,8 @@ public struct GroundRig: Sendable {
     public var joints: [BirdJointSpec]
     /// Body center above the feet when standing.
     public var comHeight: Float
+    /// Small mammals render as one skinned mesh (`Rig.skin`); the rest keep rigid parts.
+    public var skinned: Bool = false
     public var triangleCount: Int { rig.base[0].triangleCount + rig.parts.reduce(0) { $0 + $1.levels[0].triangleCount } }
 }
 
@@ -414,22 +416,22 @@ public enum GroundRigBuilder {
                 var rng = SplitMix(seed: 31 + UInt64(i))
                 let ax = simd_normalize(p1 - p0)
                 let rt = simd_normalize(simd_cross(ax, GroundFrame.X)), sd = GroundFrame.X
-                for _ in 0..<110 {
+                for _ in 0..<150 {
                     let tt = rng.next01()
                     let w = wTail(lerp(t0, t1, tt))
                     let ang = rng.next01() * 2 * .pi
                     let radial = sd * cos(ang) * 1.15 + rt * sin(ang) * 0.85
-                    let b = lerp(p0, p1, tt) + radial * (w * 0.3)
-                    let L = w * (0.8 + 0.5 * rng.next01())
+                    let b = lerp(p0, p1, tt) + radial * (w * 0.18 * rng.next01())
+                    let L = w * (0.55 + 0.35 * rng.next01())
                     let d = simd_normalize(radial + ax * 0.9)
                     // Flat card, two-sided, normals bent outward from the tail axis; u runs coat to pale tip.
-                    let across = simd_normalize(simd_cross(d, radial)) * (w * 0.32)
+                    let across = simd_normalize(simd_cross(d, radial)) * (w * 0.34)
                     var card = Surface(material: tailMaterial())
                     let n = simd_normalize(radial * 0.8 + d * 0.2)
                     for side in [Float(1), -1] {
                         let o = UInt32(card.vertexCount)
                         for r in 0..<3 {
-                            let q = Float(r) / 2, wq = 1 - 0.85 * q
+                            let q = Float(r) / 2, wq = 1 - 0.8 * q
                             let c = b + d * (L * q) + radial * (0.1 * L * q * q)
                             _ = card.add(c - across * wq, n, V2(0.04 + 0.13 * q, 0.5))
                             _ = card.add(c + across * wq, n, V2(0.05 + 0.13 * q, 0.5))
@@ -523,7 +525,7 @@ public enum GroundRigBuilder {
 
         rig.states = [RigState("stand", GroundPoses.stand(p).named), RigState("sit", GroundPoses.sit(p).named)]
         rig.defaultState = "stand"
-        return GroundRig(profile: p, rig: rig, joints: specs.map { $0! }, comHeight: a.standHeight)
+        return GroundRig(profile: p, rig: rig, joints: specs.map { $0! }, comHeight: a.standHeight, skinned: small)
     }
 }
 

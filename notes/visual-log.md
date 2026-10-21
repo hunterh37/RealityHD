@@ -58,3 +58,18 @@ thigh starts inside the body. Issues: thighs poke above the body, haunch ellipso
 Iter 3. Fixes: thigh root inset 55% toward midline, haunch ellipsoids off for small mammals.
 Iter 4. Fixes: hind thigh root lowered to 0.12 body depth.
 Open: dark spikes at the tail's upper edge, leg coat streaks, body strand streaks at 640 px.
+
+## Pets pass 3: skinned mesh
+
+Added `RealCore/Skin.swift` (`Rig.skin(blend:)`: joint 0 root + one joint per part, 4 influences per
+vertex, inverse-distance^4 weights to bone segments over own/parent/child joints, own joint x2; non-coat
+surfaces rigid) and `RealKit/SkinUpload.swift` (MeshResource.Contents with Skeleton, MeshJointInfluence
+parts). `GroundRig.skinned` is true for small mammals; `GroundFactory` builds one skinned ModelEntity
+named `skin`; `GroundPuppet.apply` writes `jointTransforms` (rigid joint entities for hunting species).
+Iter 1. Skinned sheets render and deform through run/graze. Issue: whole animal darker; tail spikes.
+Fix: uv1 custom buffer (not read by ShaderGraph texcoord 1); tail cards shorter (0.55-0.9 w), wider,
+150 per segment rooted within 0.18 w of the core.
+Iter 2. Issue: still dark (baked AO reads 0, albedo x0.6). Fix: Tint x1/0.6 on ShaderGraph materials.
+Tail cards read as blocks. Iter 3. Fix: card half width 0.34 w, linear taper to 0.2 at the tip.
+Open: plastic materials (ears, eyes, pinna) still dark in the skinned path (no uv1); alpha-tapered cards
+need a cutout fur program; legs still dark on shadow side.
