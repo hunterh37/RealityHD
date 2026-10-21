@@ -61,5 +61,11 @@ public extension MaterialLibrary {
             $0.knobs = V4(0.5, 0, 0.1, 60); $0.seed = 9914; $0.tileSize = 0.8; $0.normalStrength = 0.9; $0.resolution = 1024
             $0.roughness = 0.92
         },
+        // Aluminum condenser fins: tight vertical fin lines, dull mill finish with oxide bloom.
+        MaterialSpec(key: "metal.aluminum-fins", program: .brushedMetal).with {
+            $0.colorA = linear(0xB9BDC0); $0.colorB = linear(0x7C7F80)
+            $0.knobs = V4(6, 0.45, 0.3, 0.5); $0.seed = 9921; $0.tileSize = 0.08; $0.normalStrength = 1.4
+            $0.hasMetallicMap = true; $0.metallic = 1; $0.roughness = 0.5
+        },
     ]
 }
