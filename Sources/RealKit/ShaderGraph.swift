@@ -86,6 +86,9 @@ public struct RealShaderOptions: Hashable, Sendable {
     public var cutout = false
     public var metallicMap = false
     public var aoMap = true
+    /// Read baked vertex AO from texcoord 1. Off for meshes without uv1 (skinned MeshResource parts),
+    /// which otherwise read AO 0 and lose all image-based light.
+    public var vertexAO = true
     /// Vertex wind driven by uv1 = (weight, phase).
     public var wind = false
     /// Fake subsurface: leaves glow with transmitted sun when seen against it.
@@ -221,8 +224,11 @@ public enum RealShaderGraph {
         }
         var tint = g.node("ND_multiply_color3", [("color3f", "in1", rgb), ("color3f", "in2", g.param("Tint"))], out: "color3f")
         // Baked vertex AO (uv2.x): darkens albedo in crowns/crevices, and multiplies texture AO below.
-        let uv1s = g.node("ND_texcoord_vector2", [("int", "index", "1")], out: "float2")
-        let vao = g.separate("ND_separate2_vector2", "float2", uv1s, ["outx", "outy"])[1]
+        let vao: String
+        if o.vertexAO {
+            let uv1s = g.node("ND_texcoord_vector2", [("int", "index", "1")], out: "float2")
+            vao = g.separate("ND_separate2_vector2", "float2", uv1s, ["outx", "outy"])[1]
+        } else { vao = "1" }
         let aoTint = g.node("ND_mix_float", [("float", "fg", vao), ("float", "bg", "1"), ("float", "mix", "0.4")], out: "float")
         tint = g.node("ND_multiply_color3FA", [("color3f", "in1", tint), ("float", "in2", aoTint)], out: "color3f")
         var topMask: String?

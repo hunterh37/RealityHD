@@ -85,3 +85,14 @@ parts. Eyes now show the clearcoat highlight. Bluebird top issue: lacquered blue
 roughness 0.42 to 0.55, specular 0.8 to 0.5. Fennec top issue: dark ears (fixed by the rigid split).
 Iter 3. Tail tip coat range trimmed (u to 0.21) so tips frost instead of whiting out.
 Open: leg undersides dark in shadow; tail cards opaque (no cutout fur program).
+
+## Pets pass 5: black skinned squirrel under IBL only
+
+Cause: skinned MeshResource parts carry no texcoord 1, so the ShaderGraph read vertex AO as 0 and set
+`ambientOcclusion = ao * 0`, which removes all image-based light. Mixed reality with IBL only rendered
+the coat black; the preview sun hid it (albedo x0.6 only).
+Fix: `RealShaderOptions.vertexAO` (off reads AO as 1), `RealMaterialCache.skinnedMaterialAsync` (far
+variant, no wind, vertexAO off) used by `Skin.modelEntityAsync`; Tint lift removed.
+Test: `SkinnedTests.testSkinnedSquirrelMaterialsAndNormals` (BaseColor texture bound, normals and joint
+influences on every part, material index in range).
+Black-sky frame: animalpreview built a new sky per frame; one shared `RealEnvironment` now.

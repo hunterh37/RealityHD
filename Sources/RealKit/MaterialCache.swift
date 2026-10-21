@@ -87,6 +87,19 @@ public final class RealMaterialCache {
 
     /// `far`: variant for distant LODs without vertex wind and leaf translucency. Specs without either share
     /// the near material.
+    /// Material for meshes without texcoord 1 (skinned parts): vertex AO reads as 1, wind off.
+    public func skinnedMaterialAsync(_ key: MaterialKey) async -> any RealityKit.Material {
+        let gk = "\(key)#skin"
+        if let m = graph[gk] { return m }
+        let s = spec(key)
+        guard useShaderGraph, s.program != nil, s.mode != .emissive else { return material(key) }
+        do {
+            let m = try await buildGraph(s, far: true, vertexAO: false)
+            graph[gk] = m
+            return m
+        } catch { return material(key) }
+    }
+
     public func materialAsync(_ key: MaterialKey, far: Bool) async -> any RealityKit.Material {
         let far = far && hasFarVariant(key)
         let gk = far ? "\(key)#far" : key
@@ -310,7 +323,7 @@ public final class RealMaterialCache {
         return m
     }
 
-    private func buildGraph(_ s: MaterialSpec, jitter: SIMD2<Float> = .zero, cook: Bool = false, far: Bool = false) async throws -> any RealityKit.Material {
+    private func buildGraph(_ s: MaterialSpec, jitter: SIMD2<Float> = .zero, cook: Bool = false, far: Bool = false, vertexAO: Bool = true) async throws -> any RealityKit.Material {
         guard let t = try textures(s) else { throw TextureSynth.SynthError.encode }
         var o = RealShaderOptions()
         let perf = RealPerformance.active
@@ -321,6 +334,7 @@ public final class RealMaterialCache {
         o.transparent = s.mode == .transparent
         o.flowNormals = s.mode == .transparent && s.flow > 0 && perf.waterFlow
         o.wet = !o.transparent && !o.cook && s.mode != .emissive
+        o.vertexAO = vertexAO
         o.water = o.fog && RealAtmosphere.waterDensity > 0
         // Caustics only on solid, still surfaces (bed, rocks, wood); foliage and cards skip the two ridge fields.
         o.caustics = o.water && RealAtmosphere.waterCaustics > 0 && !o.wind && !o.cutout && !o.transparent

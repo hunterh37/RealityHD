@@ -89,6 +89,8 @@ func run() async throws {
     args.removeAll()
     RealityHD_setup()
     let sheetPoses: [(String, Float)] = [("idle", 0), ("walk", 0.1), ("trot", 0.1), ("run", 0.2), ("graze", 0.5), ("alert", 0)]
+    // One environment for every frame: a fresh sky per frame sometimes rendered before its texture landed (black sky).
+    let env = try RealEnvironment(.afternoon, skybox: true)
     for (k, variant) in targets {
       var sheetFrames: [CGImage] = []
       var sheetBase = k.rawValue
@@ -128,7 +130,6 @@ func run() async throws {
             holder = g.holder; comHeight = g.built.comHeight; length = a.bodyLength + a.headLength + a.tailLength * 0.5 + (a.antlers == .elk ? 0.5 : 0); tris = g.built.triangleCount
         }
         var frames: [CGImage] = []
-        let env = try RealEnvironment(.afternoon, skybox: true)
         let preview = try RealPreview(environment: env)
         let root = Entity()
         root.addChild(holder)
