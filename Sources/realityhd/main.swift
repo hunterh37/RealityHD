@@ -31,6 +31,7 @@ func run() async throws {
     case "anatomy": try await anatomyCommand(args)
     case "promo": try await promoCommand(args)
     case "export": try exportCommand(args)
+    case "prebake": try await prebakeCommand(args)
     case "hash": hashCommand(args.rest)
     default: print(usage)
     }

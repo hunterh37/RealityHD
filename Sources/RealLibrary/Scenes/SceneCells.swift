@@ -25,7 +25,7 @@ public extension RealScene {
     /// The core scene and one scene per cell (index order of `graph.cells`), all with `cells` cleared.
     func cellSplit(_ graph: RealCellGraph) async -> (core: RealScene, cells: [RealScene]) {
         var statics = shadowResolved(singles)
-        if let bake { statics = await Self.baked(statics, rigs: rigs, fields: fields, settings: bake) }
+        if let bake { statics = await Self.baked(statics, rigs: rigs, fields: fields, settings: bake, sceneName: name) }
         var core = self
         core.cells = nil; core.bake = nil; core.cullSunBlockedCasters = false
         core.singles = []; core.fields = []; core.rigs = []

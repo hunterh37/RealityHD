@@ -57,6 +57,8 @@ realityhd lint [id...] [--all]             budget, grounding, texel scale, size 
 realityhd sheet <id> [--seed n]            out/gate/<id>/sheet.png: six views + stats, one image
 realityhd gate <id> [--ref img] [--view az,el] [--fit-view] [--verdict file] [--signoff] [--no-sheet] [--views hero,detail] [--threshold t]
                                           vision gate: lint, sheet, reference compare, score, sign-off
+realityhd prebake [--manifest f.json] [--asset a,b] [--scene s] [--all] [--no-textures] [--out dir] [--verify]
+                                          RealityHDPrebaked folder: geometry, scene AO, textures (bundle it, call RealityHD.usePrebaked())
 realityhd bench                           release timing (swift run -c release realityhd bench)
 realityhd perf [scene...] [--seed n] [--all-in-view]   in-view tris, shadow tris, draws per tier
 realityhd perf --budget [--write] [scene...]          balanced in-view cost vs docs/perf-budgets.json

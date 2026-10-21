@@ -11,6 +11,8 @@ public enum RealTextureDiskCache {
     nonisolated(unsafe) public static var isEnabled = ProcessInfo.processInfo.environment["REALITYHD_NO_DISK_CACHE"] == nil
     nonisolated(unsafe) public static var directory: URL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
         .appendingPathComponent("RealityHD/textures", isDirectory: true)
+    /// Read-only folders searched after `directory` (prebaked textures shipped in an app bundle).
+    nonisolated(unsafe) public static var bundledDirectories: [URL] = []
     /// Bump when the file layout changes.
     static let formatVersion = 1
     static let writer = DispatchQueue(label: "realityhd.texture-disk-cache", qos: .utility)
@@ -37,6 +39,21 @@ public enum RealTextureDiskCache {
 
     static func url(_ key: String) -> URL { directory.appendingPathComponent(key + ".rftex") }
 
+    /// Cache file for a material at a texture size: the writable cache first, then bundled folders.
+    static func existingURL(_ key: String) -> URL? {
+        for d in [directory] + bundledDirectories {
+            let u = d.appendingPathComponent(key + ".rftex")
+            if FileManager.default.fileExists(atPath: u.path) { return u }
+        }
+        return nil
+    }
+
+    /// File name a spec's textures are stored under at `n` pixels (prebake copies these into a bundle folder).
+    public static func fileName(_ s: MaterialSpec, n: Int) -> String { key(s, n: n) + ".rftex" }
+
+    /// Cache file for a spec at `n` pixels, when one exists.
+    public static func fileURL(_ s: MaterialSpec, n: Int) -> URL? { existingURL(key(s, n: n)) }
+
     /// Read-only mapping of a cache file, rounded up to whole pages so Metal can wrap it without a copy.
     /// Unmapped by the buffer's deallocator (or on deinit when no buffer took it).
     final class Mapped: @unchecked Sendable {
@@ -49,7 +66,8 @@ public enum RealTextureDiskCache {
 
     static func load(_ s: MaterialSpec, n: Int) -> Mapped? {
         guard isEnabled else { return nil }
-        let fd = open(url(key(s, n: n)).path, O_RDONLY)
+        guard let file = existingURL(key(s, n: n)) else { return nil }
+        let fd = open(file.path, O_RDONLY)
         guard fd >= 0 else { return nil }
         defer { close(fd) }
         var st = stat()

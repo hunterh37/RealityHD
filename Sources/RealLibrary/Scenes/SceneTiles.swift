@@ -32,7 +32,7 @@ public extension RealScene {
         let grid = RealTileGrid(tileSize: tileSize, origin: origin)
         let limit = residentSize ?? tileSize
         var statics = singles
-        if let bake { statics = await Self.baked(statics, rigs: rigs, fields: fields, settings: bake) }
+        if let bake { statics = await Self.baked(statics, rigs: rigs, fields: fields, settings: bake, sceneName: name) }
 
         var core = RealScene(name: name)
         core.rigs = rigs; core.lights = lights; core.camera = camera; core.spots = spots

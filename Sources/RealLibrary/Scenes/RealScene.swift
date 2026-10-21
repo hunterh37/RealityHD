@@ -110,7 +110,7 @@ public struct RealScene {
             root.addChild(e)
         }
         var statics = shadowResolved(singles)
-        if let bake { statics = await Self.baked(statics, rigs: rigs, fields: fields, settings: bake) }
+        if let bake { statics = await Self.baked(statics, rigs: rigs, fields: fields, settings: bake, sceneName: name) }
         let perf = RealPerformance.active
         if batchStatics || perf.forceBatching {
             // Merging is pure CPU work over every static vertex: run it off the main actor.
@@ -211,7 +211,7 @@ public struct RealScene {
     }
 
     /// Applies the AO bake to `bake` singles in world space, occluded by everything static.
-    static func baked(_ singles: [Single], rigs: [Articulated], fields: [Field], settings: AOBake.Settings) async -> [Single] {
+    static func baked(_ singles: [Single], rigs: [Articulated], fields: [Field], settings: AOBake.Settings, sceneName: String = "") async -> [Single] {
         let receiversIdx = singles.indices.filter { singles[$0].bake }
         guard !receiversIdx.isEmpty else { return singles }
         let work = Task.detached(priority: .userInitiated) { () -> [Single] in
@@ -227,7 +227,15 @@ public struct RealScene {
             }
             // Receivers in world space; bake LOD0 only and carry the result back by local index.
             var receivers = receiversIdx.map { singles[$0].asset.levels[0].transformed(singles[$0].at) }
-            AOBake.bake(&receivers, occluders: occluders, settings: settings)
+            let key = RealPrebake.isEnabled ? RealPrebake.aoKey(scene: sceneName, settings: settings, receivers: receivers, occluders: occluders) : nil
+            var ao = key.flatMap { RealPrebake.loadAO(key: $0) }
+            if let a = ao, a.count != receivers.count || zip(a, receivers).contains(where: { $0.count != $1.surfaces.count }) { ao = nil }
+            if let ao {
+                for k in receivers.indices { for si in receivers[k].surfaces.indices { receivers[k].surfaces[si].occlusion = ao[k][si] } }
+            } else {
+                AOBake.bake(&receivers, occluders: occluders, settings: settings)
+                if let key, RealPrebake.writeThrough { RealPrebake.storeAO(receivers.map { $0.surfaces.map(\.occlusion) }, key: key, in: RealPrebake.cacheDirectory) }
+            }
             var out = singles
             for (k, i) in receiversIdx.enumerated() {
                 var lod = out[i].asset
