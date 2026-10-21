@@ -20,10 +20,22 @@ public struct QuadrupedPlan: Sendable {
     public var legScale: Float = 1
     public var furCards: Int = 160
     public var cardLength: Float = 0.022
+    /// Dog body: paws, dog eyes and nose, hanging or erect ears, skinned fur shells.
+    public var dog = false
+    /// Tail covered in a fur-card brush (plume).
+    public var tailBrush = false
+    /// Scapula and haunch mass radii (side, front-back) in meters before `legScale`.
+    public var haunchFore = V2(0.075, 0.05)
+    public var haunchHind = V2(0.12, 0.07)
+    /// Feather fringe cards per leg (back of the forelegs and thighs).
+    public var feather = 0
 
     public static func plan(for p: GroundProfile) -> QuadrupedPlan? {
         switch p.species {
         case .whitetailDeer: return whitetail
+        case .goldenRetriever: return golden
+        case .germanShepherd: return shepherd
+        case .pembrokeCorgi: return corgi
         default: return nil
         }
     }
@@ -102,6 +114,33 @@ enum QuadrupedBody {
         return [out, inn]
     }
 
+    /// Dog paw: pad-rounded paw with four toes and claws, plus feather fringe down the back of the leg.
+    static func pawAndFeather(_ rig: inout Rig, _ f: GroundFrame, _ plan: QuadrupedPlan, _ l: GroundJoint.Leg, _ c: Chain,
+                              ankle: String, hipPart: String, top: V3, material: MaterialKey) {
+        let a = f.a, r = a.legRadius * plan.legScale
+        let pc = c.toe + V3(0, r * 0.55, -r * 0.5)
+        rig.add(Loft.ellipsoid(center: pc, axis: V3(0, -0.08, -1), up: GroundFrame.Y, radii: V3(r * 1.15, r * 0.8, r * 1.9), rings: 7, segments: 12, material: material,
+                               uv: { u, v in V2(0.2 + 0.04 * cos(u * 2 * .pi), 0.45) }), to: ankle)
+        for k in 0..<4 {
+            let off = (Float(k) - 1.5) * r * 0.62
+            let tc = pc + V3(off, -r * 0.18, -r * (1.55 - 0.14 * abs(Float(k) - 1.5)))
+            rig.add(Loft.ellipsoid(center: tc, axis: V3(off * 6, 0, -1), up: GroundFrame.Y, radii: V3(r * 0.32, r * 0.3, r * 0.52), rings: 5, segments: 8, material: material,
+                                   uv: { u, v in V2(0.2 + 0.03 * cos(u * 2 * .pi), 0.45) }), to: ankle)
+            let cl = tc + V3(0, -r * 0.1, -r * 0.45)
+            rig.add(Prim.tube([cl, cl + V3(0, -r * 0.1, -r * 0.5)], radii: [r * 0.12, r * 0.03], sides: 4, seamTile: 0.01, material: f.mat(.claw)), to: ankle)
+        }
+        guard plan.feather > 0 else { return }
+        var rng = SplitMix(seed: 91 + UInt64(l.isFore ? 0 : 1) + (l.side == .left ? 0 : 2))
+        let top0 = c.hip, bottom = c.knee
+        for _ in 0..<plan.feather {
+            let t = rng.next01()
+            let p0 = lerp(top0, bottom, t) + V3(l.side.sign * 0.012, 0, 0.024 * plan.legScale * (l.isFore ? 0.5 : 1))
+            let L = (0.03 + 0.05 * (1 - t)) * (l.isFore ? 1 : 1.3) * plan.cardLength / 0.05
+            let d = simd_normalize(V3(l.side.sign * 0.15 * (rng.next01() - 0.5), -0.9, 0.35))
+            rig.add(Prim.tube([p0, p0 + d * (0.5 * L), p0 + d * L + V3(0, 0, 0.004)], radii: [0.004, 0.003, 0.0004], sides: 3, seamTile: 0.02, material: f.mat(.body)), to: hipPart)
+        }
+    }
+
     static func build(_ rig: inout Rig, _ f: GroundFrame, _ plan: QuadrupedPlan, chains: [GroundJoint.Leg: Chain],
                       earBase: (Side) -> V3, noseTip: V3) {
         let a = f.a, fur = f.mat(.body), white = f.mat(.rump), spine = GroundJoint.spine.name
@@ -115,6 +154,7 @@ enum QuadrupedBody {
 
         // Legs: muscled upper leg, slender cannon, fetlock, pastern, cloven hoof and dewclaws.
         let s = plan.legScale
+        let lower = plan.dog ? f.mat(.limb) : fur
         for l in GroundJoint.Leg.allCases {
             let c = chains[l]!
             let hipPart = GroundJoint.leg(l, .hip).name, kneePart = GroundJoint.leg(l, .knee).name, ankle = GroundJoint.leg(l, .ankle).name
@@ -123,20 +163,21 @@ enum QuadrupedBody {
             // Scapula / haunch muscle mass on the outside of the upper leg.
             let up = c.knee - top, ln = simd_length(up)
             rig.add(Loft.ellipsoid(center: lerp(top, c.knee, l.isFore ? 0.3 : 0.32) + V3(l.side.sign * 0.012, 0, l.isFore ? 0 : 0.012), axis: up, up: GroundFrame.X,
-                                   radii: V3(l.isFore ? 0.075 : 0.12, l.isFore ? 0.05 : 0.07, ln * 0.62) * s, rings: 9, segments: 16, material: fur,
+                                   radii: V3(l.isFore ? plan.haunchFore.x : plan.haunchHind.x, l.isFore ? plan.haunchFore.y : plan.haunchHind.y, ln * 0.62) * s, rings: 9, segments: 16, material: plan.dog ? f.mat(.limb) : fur,
                                    uv: { u, v in V2(0.2 + 0.04 * cos(u * 2 * .pi), 0.3 + 0.3 * v) }), to: hipPart)
-            rig.add(limb(c.knee, c.ankle, l.isFore ? plan.foreCannon : plan.hindGaskin, scale: s, ext: 0.05, material: fur), to: kneePart)
+            rig.add(limb(c.knee, c.ankle, l.isFore ? plan.foreCannon : plan.hindGaskin, scale: s, ext: 0.05, material: lower), to: kneePart)
             if l.isFore {
-                rig.add(limb(c.ankle, c.toe + V3(0, 0.03, 0), plan.forePastern, scale: s, ext: 0.08, material: fur), to: ankle)
+                rig.add(limb(c.ankle, c.toe + V3(0, 0.03, 0), plan.forePastern, scale: s, ext: 0.08, material: lower), to: ankle)
             } else {
                 // Hind: ankle part holds the long cannon down to the fetlock, then the pastern.
                 let fet = c.toe + V3(0, 0.07, 0.012)
-                rig.add(limb(c.ankle, fet, plan.hindCannon, scale: s, ext: 0.04, material: fur), to: ankle)
-                rig.add(limb(fet, c.toe + V3(0, 0.03, 0), plan.forePastern, scale: s, ext: 0.08, material: fur), to: ankle)
+                rig.add(limb(c.ankle, fet, plan.hindCannon, scale: s, ext: 0.04, material: lower), to: ankle)
+                rig.add(limb(fet, c.toe + V3(0, 0.03, 0), plan.forePastern, scale: s, ext: 0.08, material: lower), to: ankle)
                 // Metatarsal gland tuft and white inner hock.
-                rig.add(Loft.ellipsoid(center: c.ankle + V3(-l.side.sign * 0.006, -0.02, 0.012), axis: V3(0, -1, 0), up: V3(0, 0, 1),
-                                       radii: V3(0.012, 0.012, 0.03) * s, rings: 6, segments: 10, material: white), to: ankle)
+                if !plan.dog { rig.add(Loft.ellipsoid(center: c.ankle + V3(-l.side.sign * 0.006, -0.02, 0.012), axis: V3(0, -1, 0), up: V3(0, 0, 1),
+                                       radii: V3(0.012, 0.012, 0.03) * s, rings: 6, segments: 10, material: white), to: ankle) }
             }
+            if plan.dog { pawAndFeather(&rig, f, plan, l, c, ankle: ankle, hipPart: hipPart, top: top, material: lower); continue }
             let hc = c.toe + V3(0, 0.018, -0.006)
             for sx in [Float(-1), 1] {
                 rig.add(Loft.ellipsoid(center: hc + V3(sx * 0.0068 * s, 0, -0.008), axis: V3(0, -0.35, -1), up: GroundFrame.Y,
@@ -147,7 +188,16 @@ enum QuadrupedBody {
         }
 
         // Eyes: large, bulging, wet; white eye ring and dark lash line around them.
-        for sd in Side.allCases {
+        for sd in Side.allCases where plan.dog {
+            // Dog eye: dark lid rim around a deep brown iris, set into the skull.
+            let e = f.eye(sd)
+            let R = a.eyeRadius * 1.05
+            rig.add(Loft.ellipsoid(center: e - V3(sd.sign * R * 0.2, 0, 0), axis: V3(0, 0, -1), up: V3(sd.sign, 0, 0),
+                                   radii: V3(R * 0.95, R * 0.88, R * 1.3), rings: 7, segments: 14, material: f.mat(.lid)), to: GroundJoint.headPitch.name)
+            rig.add(Prim.cubeSphere(subdivisions: 4, material: f.mat(.eye)) { V3($0.x * R * 0.55, $0.y * R * 0.82, $0.z * R * 1.0) },
+                    Xform(translation: e + V3(sd.sign * R * 0.12, 0, 0)), to: GroundJoint.headPitch.name)
+        }
+        for sd in Side.allCases where !plan.dog {
             let e = f.eye(sd) + V3(sd.sign * 0.004, 0.002, 0)
             let R = a.eyeRadius * 1.2
             rig.add(Loft.ellipsoid(center: e - V3(sd.sign * 0.004, 0, 0), axis: V3(0, 0.1, -1), up: V3(sd.sign, 0, 0),
@@ -165,13 +215,28 @@ enum QuadrupedBody {
             rig.add(Loft.ellipsoid(center: noseTip + V3(sd.sign * hw * 0.1, 0.0, -hw * 0.075), axis: V3(sd.sign * 0.6, 0.3, -1), up: GroundFrame.Y,
                                    radii: V3(hw * 0.035, hw * 0.06, hw * 0.05), rings: 5, segments: 8, material: f.mat(.eye)), to: GroundJoint.headPitch.name)
         }
-        rig.add(Loft.ellipsoid(center: noseTip + V3(0, -0.004, 0.034), axis: V3(0, 0, -1), up: GroundFrame.Y,
-                               radii: V3(hw * 0.22, hw * 0.16, hw * 0.07), rings: 7, segments: 14, material: white), to: GroundJoint.headPitch.name)
-        rig.add(Loft.ellipsoid(center: noseTip + V3(0, -0.034, 0.04), axis: V3(0, 0, -1), up: GroundFrame.Y,
-                               radii: V3(hw * 0.16, hw * 0.08, hw * 0.2), rings: 6, segments: 10, material: white), to: GroundJoint.jaw.name)
+        if !plan.dog {
+            rig.add(Loft.ellipsoid(center: noseTip + V3(0, -0.004, 0.034), axis: V3(0, 0, -1), up: GroundFrame.Y,
+                                   radii: V3(hw * 0.22, hw * 0.16, hw * 0.07), rings: 7, segments: 14, material: white), to: GroundJoint.headPitch.name)
+            rig.add(Loft.ellipsoid(center: noseTip + V3(0, -0.034, 0.04), axis: V3(0, 0, -1), up: GroundFrame.Y,
+                                   radii: V3(hw * 0.16, hw * 0.08, hw * 0.2), rings: 6, segments: 10, material: white), to: GroundJoint.jaw.name)
+        }
 
         // Cupped ears with pale inner fur tufts.
-        for sd in Side.allCases {
+        for sd in Side.allCases where plan.dog {
+            // Dog ear: erect and cupped forward, or folded down against the cheek (`earDrop`).
+            let drop = a.earDrop
+            let base = earBase(sd) + V3(sd.sign * 0.3 * a.headWidth, -0.12 * a.headHeight, 0.06 * a.headLength) * drop
+            let dir = simd_normalize(lerp(V3(sd.sign * a.earTilt, 1, 0.12), V3(sd.sign * 0.32, -0.9, 0.2), drop))
+            let fwd = lerp(V3(sd.sign * 0.3, 0.05, -1), V3(-sd.sign, 0, -0.2), drop)
+            let normal = simd_normalize(fwd - dir * simd_dot(fwd, dir))
+            let side = simd_normalize(simd_cross(normal, dir))
+            let part = sd == .left ? GroundJoint.earL.name : GroundJoint.earR.name
+            for srf in ear(base: base - dir * 0.004, dir: dir, side: side, normal: normal, len: a.earLength, width: a.earWidth, outer: f.mat(.head), inner: f.mat(.pinna)) {
+                rig.add(srf, to: part)
+            }
+        }
+        for sd in Side.allCases where !plan.dog {
             let base = earBase(sd)
             let dir = simd_normalize(V3(sd.sign * a.earTilt, 0.75, 0.35))
             let normal = simd_normalize(V3(sd.sign * 0.25, 0.1, -1) - dir * simd_dot(V3(sd.sign * 0.25, 0.1, -1), dir))

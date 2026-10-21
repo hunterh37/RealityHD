@@ -366,9 +366,10 @@ public enum GroundRigBuilder {
         }
         // Ears: flattened shells, inner skin and outer fur.
         for s in Side.allCases where small {
-            let base = earBase(s)
-            let dir = simd_normalize(V3(s.sign * a.earTilt, 1, 0.12))
-            let fwd = V3(s.sign * 0.3, 0.05, -1)
+            let drop = a.earDrop
+            let base = earBase(s) + V3(s.sign * 0.12 * a.headWidth, -0.2 * a.headHeight, 0.05 * a.headLength) * drop
+            let dir = simd_normalize(lerp(V3(s.sign * a.earTilt, 1, 0.12), V3(s.sign * 0.3, -0.9, 0.18), drop))
+            let fwd = lerp(V3(s.sign * 0.3, 0.05, -1), V3(-s.sign, 0, -0.15), drop)
             let normal = simd_normalize(fwd - dir * simd_dot(fwd, dir))
             let side = simd_normalize(simd_cross(normal, dir))
             let part = s == .left ? GroundJoint.earL.name : GroundJoint.earR.name
@@ -392,14 +393,17 @@ public enum GroundRigBuilder {
         }
         for s in Side.allCases where plan == nil && !small {
             let base = earBase(s)
-            let dir = simd_normalize(V3(s.sign * (p.species == .easternCottontail ? 0.18 : a.earTilt), 1, p.species == .easternCottontail ? 0.25 : 0.1))
+            let erect = simd_normalize(V3(s.sign * (p.species == .easternCottontail ? 0.18 : a.earTilt), 1, p.species == .easternCottontail ? 0.25 : 0.1))
+            let hang = simd_normalize(V3(s.sign * 0.4, -0.9, 0.12))
+            let dir = a.earDrop > 0 ? simd_normalize(lerp(erect, hang, a.earDrop)) : erect
             let len = a.earLength
-            let center = base + dir * (len * 0.45)
+            let center = base + dir * (len * 0.45) + V3(s.sign * 0.12 * a.headWidth, -0.16 * a.headHeight, 0) * a.earDrop
+            let thick: Float = a.earDrop > 0 ? 0.0042 : 0.0022
             let side = simd_normalize(simd_cross(dir, a.headShape == nil ? V3(0, 0, 1) : V3(1, 0, 0)))
             let normal = simd_normalize(simd_cross(side, dir))
-            let outer = Loft.ellipsoid(center: center - normal * 0.0008, axis: dir, up: normal, radii: V3(a.earWidth * 0.5, 0.0022, len * 0.5), rings: 7, segments: 10, material: f.mat(.head),
+            let outer = Loft.ellipsoid(center: center - normal * 0.0008, axis: dir, up: normal, radii: V3(a.earWidth * 0.5, thick, len * 0.5), rings: 7, segments: 10, material: f.mat(.head),
                                        uv: { u, v in V2(0.22 + 0.1 * cos(u * 2 * .pi), 0.5 + 0.1 * v) })
-            let inner = Loft.ellipsoid(center: center + normal * 0.0012, axis: dir, up: normal, radii: V3(a.earWidth * 0.42, 0.0016, len * 0.44), rings: 7, segments: 10, material: f.mat(.ear))
+            let inner = Loft.ellipsoid(center: center + normal * 0.0012, axis: dir, up: normal, radii: V3(a.earWidth * 0.42, thick * 0.7, len * 0.44), rings: 7, segments: 10, material: f.mat(.ear))
             let part = s == .left ? GroundJoint.earL.name : GroundJoint.earR.name
             rig.add(outer, to: part); rig.add(inner, to: part)
         }
@@ -434,8 +438,8 @@ public enum GroundRigBuilder {
                 default: return tw * 0.5 * (1 - 0.5 * t)
                 }
             }
-            let fluffy = small && a.tailLength > 0.6 * a.bodyLength
-            let coreK: Float = fluffy ? 0.62 : 1
+            let fluffy = (small && a.tailLength > 0.6 * a.bodyLength) || plan?.tailBrush == true
+            let coreK: Float = fluffy && plan?.dog != true ? 0.62 : 1
             let pm = lerp(p0, p1, 0.5) + V3(0, curl * tailSeg * 0.07, 0)
             let seg = Loft.along([p0 - (p1 - p0) * 0.1, pm, p1 + (p1 - p0) * 0.06], up: GroundFrame.Y, count: 5, segments: 14, vRange: t0...t1, exponent: 2, material: tailMaterial()) { t in
                 let r = wTail(lerp(t0, t1, t)) * coreK; return V3(r, r * (p.species == .easternGraySquirrel ? 0.8 : 1), r * (p.species == .easternGraySquirrel ? 0.8 : 1))
@@ -556,7 +560,7 @@ public enum GroundRigBuilder {
 
         rig.states = [RigState("stand", GroundPoses.stand(p).named), RigState("sit", GroundPoses.sit(p).named)]
         rig.defaultState = "stand"
-        return GroundRig(profile: p, rig: rig, joints: specs.map { $0! }, comHeight: a.standHeight, skinned: small)
+        return GroundRig(profile: p, rig: rig, joints: specs.map { $0! }, comHeight: a.standHeight, skinned: small || plan?.dog == true)
     }
 }
 

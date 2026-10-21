@@ -136,3 +136,12 @@ body / x6 head, darker iris 0x120804, tufts 0.16 ear length on head coat.
 Iter 3. Issue: head strands below texel size (cutout lost in mips). Fix: `headShell` region with
 0.35x strand density. Head now reads furred.
 Open: bluebird has no barbed cards; ears remain flat sheets.
+
+## 2026-10-21 dog breeds (golden-retriever, german-shepherd, pembroke-corgi), 3 render iterations
+
+Dogs use the `QuadrupedPlan` path (`DogPlans.swift`) with `plan.dog`: paws with toes and claws, dog eyes (lid rim, brown iris), black nose
+without the deer muzzle band, erect or hanging ears (`GroundAnatomy.earDrop`), skinned fur shells (`GroundRig.skinned`).
+- it1: small-mammal path (`bodyLength < 0.35` rule) on dog proportions. Thighs detached, legs sticks, ears cupped. Dropped.
+- it2: plan path. Fur cards read as white spikes, torso narrow, floppy ears hidden in the skull. Cards 420 to 170/110, card length 0.05 to 0.03/0.022, feather fringe off, bodyWidth up, ears base 0.3 head widths outward.
+- it3: legScale 1.5/1.4/1.15, tail core full width for dogs, haunch mass uses the limb coat (white belly coat showed on corgi).
+Remaining: shoulder and haunch masses read as separate blobs, golden has no feathering, corgi hind legs kink, tail is a tapered slab, coat still shows furCoat banding.

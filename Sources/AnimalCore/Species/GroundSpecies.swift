@@ -13,6 +13,9 @@ public enum GroundSpecies: String, CaseIterable, Codable, Sendable, Identifiable
     case blackBear = "black-bear"
     case coyote = "coyote"
     case fennecFox = "fennec-fox"
+    case goldenRetriever = "golden-retriever"
+    case germanShepherd = "german-shepherd"
+    case pembrokeCorgi = "pembroke-corgi"
 
     public var id: String { rawValue }
     /// The standard variant (doe, cow, sow or the only form).
@@ -21,6 +24,8 @@ public enum GroundSpecies: String, CaseIterable, Codable, Sendable, Identifiable
 
     /// Hunting game species, never sent to yards by `VisitScheduler`.
     public static let hunting: [GroundSpecies] = [.whitetailDeer, .rockyMountainElk, .wildBoar, .blackBear, .coyote]
+    /// Dog breeds (pets, never sent to yards).
+    public static let dogs: [GroundSpecies] = [.goldenRetriever, .germanShepherd, .pembrokeCorgi]
     /// Species that have an `.antlered` variant (buck, bull).
     public var hasAntlers: Bool { self == .whitetailDeer || self == .rockyMountainElk }
 }
@@ -119,6 +124,8 @@ public struct GroundAnatomy: Sendable {
     public var throatFrom: Float = 1
     /// Shoulder hump (withers) scale, 0 for none.
     public var withers: Float = 0
+    /// Ear fold 0 (erect) ... 1 (hanging against the cheek).
+    public var earDrop: Float = 0
     /// Height of the body center above the feet.
     public var standHeight: Float { rideHeight ?? (max(foreLeg, hindLeg) * 0.74 + bodyDepth * 0.32) }
 }
@@ -183,7 +190,7 @@ public struct GroundProfile: Sendable {
 }
 
 extension GroundProfile {
-    static let table: [GroundSpecies: GroundProfile] = Dictionary(uniqueKeysWithValues: ([rabbit, squirrel, chipmunk, hedgehog, fennec] + huntingProfiles).map { ($0.species, $0) })
+    static let table: [GroundSpecies: GroundProfile] = Dictionary(uniqueKeysWithValues: ([rabbit, squirrel, chipmunk, hedgehog, fennec] + huntingProfiles + dogProfiles).map { ($0.species, $0) })
 
     private static let allSeasons: Set<AnimalSeason> = [.spring, .summer, .autumn, .winter]
 
@@ -280,7 +287,7 @@ public enum AnimalKind: Hashable, Sendable, Codable, Identifiable {
     public static var hunting: [AnimalKind] { BirdSpecies.hunting.map { .bird($0) } + GroundSpecies.hunting.map { .ground($0) } }
 
     /// Pet species that never visit yards.
-    public static var pets: [AnimalKind] { [.ground(.fennecFox)] }
+    public static var pets: [AnimalKind] { [.ground(.fennecFox)] + GroundSpecies.dogs.map { .ground($0) } }
 
     public var name: String {
         switch self { case .bird(let b): b.profile.name; case .ground(let g): g.profile.name }

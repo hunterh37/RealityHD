@@ -35,6 +35,31 @@ final class PetTests: XCTestCase {
         XCTAssertEqual(AnimalKind(rawValue: "fennec-fox"), .ground(.fennecFox))
     }
 
+    func testDogBreeds() {
+        let dogs: [(GroundSpecies, String, ClosedRange<Float>)] = [(.goldenRetriever, "golden-retriever", 0.5...0.62), (.germanShepherd, "german-shepherd", 0.5...0.66), (.pembrokeCorgi, "pembroke-corgi", 0.22...0.32)]
+        XCTAssertEqual(GroundSpecies.dogs, dogs.map(\.0))
+        for (sp, id, height) in dogs {
+            let p = sp.profile
+            XCTAssertEqual(sp.rawValue, id)
+            XCTAssertEqual(p.latin, "Canis lupus familiaris")
+            XCTAssertFalse(p.behavior.visitsYards)
+            XCTAssertFalse(p.behavior.climbs)
+            XCTAssertEqual(p.behavior.gait, .stride)
+            XCTAssertTrue(height.contains(p.anatomy.standHeight), "\(sp) stands \(p.anatomy.standHeight)")
+            XCTAssertTrue(AnimalKind.pets.contains(.ground(sp)))
+            XCTAssertFalse(AnimalKind.all.contains(.ground(sp)))
+            XCTAssertEqual(AnimalKind(rawValue: id), .ground(sp))
+            let rig = GroundRigBuilder.build(p)
+            XCTAssertTrue(rig.skinned)
+            XCTAssertEqual(rig.rig.validate(), [], "\(sp)")
+            XCTAssertLessThan(rig.triangleCount, 51_000, "\(sp)")
+            let have = Set(FaunaMaterials.specs(for: p).map(\.key))
+            for m in rig.rig.base[0].materials + rig.rig.parts.flatMap({ $0.levels[0].materials }) { XCTAssertTrue(have.contains(m), "\(sp) missing \(m)") }
+        }
+        XCTAssertEqual(GroundSpecies.goldenRetriever.profile.anatomy.earDrop, 1)
+        XCTAssertEqual(GroundSpecies.germanShepherd.profile.anatomy.earDrop, 0)
+    }
+
     func testSurfaceCrawlAlignsUpToNormal() {
         let cases: [(V3, V3)] = [(V3(0, 1, 0), V3(0, 0, -1)), (V3(1, 0, 0), V3(0, 1, 0)), (V3(0, 0, 1), V3(1, 0, 0)), (V3(0, -1, 0), V3(1, 0, 0)), (V3(0, 1, 0), V3(0, 1, 0))]
         for (n, h) in cases {
