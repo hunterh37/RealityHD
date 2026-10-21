@@ -27,3 +27,20 @@ Shader (RealMaterials furCoat) is out of scope; changes are geometry, material k
 - whitetail-deer-buck: same body, rack unchanged.
 - wild-turkey it1-2: iridescence 0.9 bronze, broader tail (0.3), beard 0.26, crown 0x8EA6D6. Remaining: tail not fanned at rest.
 - rocky-mountain-elk-bull it1-2: 6x6 rack (5 tines plus beam tip), shorter tines tilted up. GroundFactory.puppet default variant for elk is .antlered.
+
+## Pets realism pass (squirrel, fennec, chipmunk)
+
+Iter 1. Issues: wood-grain fur, white mouth disc, grey fennec ears, plank tail, bulging eyes, neck seam.
+Fixes: furCoat strands shortened (lenV 12-26/nx to 2.6-10/nx), warp cut, root-dark to tip-light gradient,
+normalStrength 2.4 to 1.1, 2048 body atlas; jaw tucked into skull; cupped ear sheets with `pinna` (pink)
+inner and cream outer; 110 fur cards per tail segment over a half-width core; eyes sunk 0.55R with dark
+`lid` rim; neck starts inside the chest at body width (small mammals).
+Iter 2. Issues: strand columns aligned (grain), dark gap fallback, grey throat collar, haunch bulbs.
+Fixes: per-row strand x jitter, wider strands, lighter fallback; throat coat off for small mammals;
+haunch moved up and inward.
+Iter 3. Issues: squirrel head black (NaN in furCoat at head knobs), strand contrast high.
+Fixes: isfinite guard; strand colour blended 45% toward local coat colour.
+Iter 4. Issues: haunches still read as separate blobs, squirrel tail cards dark.
+Fixes: haunch at 0.1 along thigh, inset by 0.45 thigh radius; squirrel cards on body coat.
+Open: squirrel tail cards still shade dark (thin tube normals); legs remain tubes below the knee;
+head and body still separate parts per joint (no single skinned loft).

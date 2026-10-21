@@ -132,7 +132,7 @@ public enum FaunaMaterials {
     // MARK: ground animals
 
     public enum GroundRegion: String, CaseIterable, Sendable {
-        case body, head, tail, ear, nose, eye, claw, whisker, quill, antler, hoof, muzzle, throat, rump, mane, bristle
+        case body, head, tail, ear, nose, eye, claw, whisker, quill, antler, hoof, muzzle, throat, rump, mane, bristle, pinna, lid
     }
 
     public static func key(_ id: String, _ r: GroundRegion) -> MaterialKey { "fauna.\(id).\(r.rawValue)" }
@@ -153,21 +153,31 @@ public enum FaunaMaterials {
             make(.body, .furCoat) {
                 $0.colorA = linear(c.back); $0.colorB = linear(c.belly); $0.colorC = linear(c.accent)
                 $0.knobs = V4(c.strands, c.flankLine, c.pattern, c.fuzz)
-                $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 2.4; $0.roughness = 0.92
+                $0.tileSize = 0; $0.resolution = 2048; $0.normalStrength = 1.1; $0.roughness = 0.92
             },
             make(.head, .furCoat) {
                 $0.colorA = linear(c.face); $0.colorB = linear(c.belly); $0.colorC = linear(c.accent)
                 $0.knobs = V4(c.strands * 1.3, c.flankLine + 0.04, c.pattern * 0.8, c.fuzz * 0.67)
-                $0.tileSize = 0; $0.resolution = 512; $0.normalStrength = 2; $0.roughness = 0.9
+                $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 1.0; $0.roughness = 0.9
             },
             make(.tail, .furCoat) {
                 $0.colorA = linear(c.tail); $0.colorB = linear(c.tailTip); $0.colorC = linear(c.accent)
                 $0.knobs = V4(c.strands, 0.32, 0.25, 0.9)
-                $0.tileSize = 0; $0.resolution = 512; $0.normalStrength = 2.6; $0.roughness = 0.92
+                $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 1.2; $0.roughness = 0.92
             },
             make(.ear, .plastic) {
                 $0.colorA = linear(c.ear); $0.knobs = V4(0.6, 0.4, 0.6, 0)
                 $0.tileSize = 0.03; $0.resolution = 256; $0.normalStrength = 0.5; $0.roughness = 0.7
+            },
+            make(.pinna, .plastic) {
+                // Inner ear skin: thin, pink, translucent-looking.
+                $0.colorA = linear(0xE9AFA0); $0.knobs = V4(0.5, 0.35, 0.5, 0)
+                $0.tileSize = 0.02; $0.resolution = 256; $0.normalStrength = 0.3; $0.roughness = 0.62; $0.specular = 0.3
+            },
+            make(.lid, .plastic) {
+                // Dark rim skin around the eye.
+                $0.colorA = linear(0x1E1714); $0.knobs = V4(0.3, 0.3, 0.3, 0)
+                $0.tileSize = 0.01; $0.resolution = 128; $0.normalStrength = 0.2; $0.roughness = 0.5
             },
             make(.nose, .plastic) {
                 $0.colorA = linear(c.nose); $0.knobs = V4(0.4, 0.3, 0.3, 0)
