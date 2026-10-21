@@ -433,6 +433,7 @@ public enum GroundRigBuilder {
                 case .easternGraySquirrel: return tw * 0.5 * (0.8 + 0.4 * sin(.pi * min(1, t * 1.15)) - 0.15 * t)
                 case .easternChipmunk: return tw * 0.5 * (0.8 - 0.4 * t)
                 case .easternCottontail: return tw * 0.5 * sin(.pi * max(0.15, 1 - t * 0.8) * 0.9)
+                case .goldenRetriever, .germanShepherd: return tw * 0.5 * (1 - 0.8 * pow(t, 1.4))
                 case .coyote: return tw * 0.5 * (0.55 + 0.45 * sin(.pi * min(1, t * 1.25)))
                 case .whitetailDeer: return tw * 0.5 * (0.7 + 0.3 * sin(.pi * min(1, t * 1.2)))
                 default: return tw * 0.5 * (1 - 0.5 * t)

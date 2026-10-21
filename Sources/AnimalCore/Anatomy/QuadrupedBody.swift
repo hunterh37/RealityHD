@@ -29,6 +29,8 @@ public struct QuadrupedPlan: Sendable {
     public var haunchHind = V2(0.12, 0.07)
     /// Feather fringe cards per leg (back of the forelegs and thighs).
     public var feather = 0
+    /// Scale of the leg segments below the upper leg (cannon, gaskin, pastern).
+    public var lowerScale: Float = 1
 
     public static func plan(for p: GroundProfile) -> QuadrupedPlan? {
         switch p.species {
@@ -158,21 +160,21 @@ enum QuadrupedBody {
         for l in GroundJoint.Leg.allCases {
             let c = chains[l]!
             let hipPart = GroundJoint.leg(l, .hip).name, kneePart = GroundJoint.leg(l, .knee).name, ankle = GroundJoint.leg(l, .ankle).name
-            let top = c.hip + V3(0, 0.05 * a.bodyDepth, 0)
-            rig.add(limb(top, c.knee, l.isFore ? plan.foreUpper : plan.hindUpper, scale: s, ext: 0.06, material: fur), to: hipPart)
+            let top = plan.dog ? c.hip + V3(-l.side.sign * 0.35 * abs(c.hip.x), 0.2 * a.bodyDepth, 0) : c.hip + V3(0, 0.05 * a.bodyDepth, 0)
+            rig.add(limb(top, c.knee, l.isFore ? plan.foreUpper : plan.hindUpper, scale: s, ext: plan.dog ? 0.08 : 0.06, material: fur), to: hipPart)
             // Scapula / haunch muscle mass on the outside of the upper leg.
             let up = c.knee - top, ln = simd_length(up)
-            rig.add(Loft.ellipsoid(center: lerp(top, c.knee, l.isFore ? 0.3 : 0.32) + V3(l.side.sign * 0.012, 0, l.isFore ? 0 : 0.012), axis: up, up: GroundFrame.X,
+            if !plan.dog { rig.add(Loft.ellipsoid(center: lerp(top, c.knee, l.isFore ? 0.3 : 0.32) + V3(l.side.sign * 0.012, 0, l.isFore ? 0 : 0.012), axis: up, up: GroundFrame.X,
                                    radii: V3(l.isFore ? plan.haunchFore.x : plan.haunchHind.x, l.isFore ? plan.haunchFore.y : plan.haunchHind.y, ln * 0.62) * s, rings: 9, segments: 16, material: plan.dog ? f.mat(.limb) : fur,
-                                   uv: { u, v in V2(0.2 + 0.04 * cos(u * 2 * .pi), 0.3 + 0.3 * v) }), to: hipPart)
-            rig.add(limb(c.knee, c.ankle, l.isFore ? plan.foreCannon : plan.hindGaskin, scale: s, ext: 0.05, material: lower), to: kneePart)
+                                   uv: { u, v in V2(0.2 + 0.04 * cos(u * 2 * .pi), 0.3 + 0.3 * v) }), to: hipPart) }
+            rig.add(limb(c.knee, c.ankle, l.isFore ? plan.foreCannon : plan.hindGaskin, scale: s * plan.lowerScale, ext: 0.05, material: lower), to: kneePart)
             if l.isFore {
-                rig.add(limb(c.ankle, c.toe + V3(0, 0.03, 0), plan.forePastern, scale: s, ext: 0.08, material: lower), to: ankle)
+                rig.add(limb(c.ankle, c.toe + V3(0, 0.03, 0), plan.forePastern, scale: s * plan.lowerScale, ext: 0.08, material: lower), to: ankle)
             } else {
                 // Hind: ankle part holds the long cannon down to the fetlock, then the pastern.
                 let fet = c.toe + V3(0, 0.07, 0.012)
-                rig.add(limb(c.ankle, fet, plan.hindCannon, scale: s, ext: 0.04, material: lower), to: ankle)
-                rig.add(limb(fet, c.toe + V3(0, 0.03, 0), plan.forePastern, scale: s, ext: 0.08, material: lower), to: ankle)
+                rig.add(limb(c.ankle, fet, plan.hindCannon, scale: s * plan.lowerScale, ext: 0.04, material: lower), to: ankle)
+                rig.add(limb(fet, c.toe + V3(0, 0.03, 0), plan.forePastern, scale: s * plan.lowerScale, ext: 0.08, material: lower), to: ankle)
                 // Metatarsal gland tuft and white inner hock.
                 if !plan.dog { rig.add(Loft.ellipsoid(center: c.ankle + V3(-l.side.sign * 0.006, -0.02, 0.012), axis: V3(0, -1, 0), up: V3(0, 0, 1),
                                        radii: V3(0.012, 0.012, 0.03) * s, rings: 6, segments: 10, material: white), to: ankle) }
