@@ -1,0 +1,23 @@
+{
+  "budget": 800,
+  "id": "oht-rail",
+  "kind": "prop",
+  "materials": [],
+  "name": "OHT ceiling rail",
+  "notes": "",
+  "parts": [],
+  "references": [],
+  "size": [
+    3.0,
+    0.2,
+    0.2
+  ],
+  "style": "TODO: era, condition, finish",
+  "summary": "TODO: one sentence, what it is and how it's built.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "Fab",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,36 @@
+{
+  "budget": 14000,
+  "id": "fieldstone-veneer-panel",
+  "kind": "prop",
+  "materials": [
+    "rock.granite",
+    "rock.river",
+    "concrete.rough"
+  ],
+  "name": "Fieldstone veneer panel",
+  "notes": "",
+  "parts": [
+    "rounded glacial fieldstones",
+    "split-face stones with flat faces",
+    "small chinking stones between large stones",
+    "raked grey cement-lime mortar joints",
+    "veneer backing and weep line at the base"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.2,
+    0.15
+  ],
+  "style": "architectural facade customizer, Craftsman",
+  "summary": "Craftsman fieldstone veneer panel, 1.2 m: rounded and split glacial fieldstones of mixed granite tones laid random-rubble in raked grey mortar.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "block-paver-driveway",
+  "kind": "prop",
+  "materials": [
+    "paver.charcoal",
+    "paver.clay",
+    "ground.sand",
+    "concrete.rough"
+  ],
+  "name": "Block paver driveway",
+  "notes": "",
+  "parts": [
+    "concrete block pavers",
+    "stretcher bond courses",
+    "sand-filled joints",
+    "laying course sand bed",
+    "oil drip stain",
+    "tyre-polished wheel track"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.1,
+    2
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Block paver driveway tile, 2 x 2 m: 200 x 100 mm concrete block pavers in stretcher bond on sand, with sand joints and an oil drip stain.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

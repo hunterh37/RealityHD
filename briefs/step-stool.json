@@ -1,0 +1,43 @@
+{
+  "budget": 5000,
+  "id": "step-stool",
+  "kind": "prop",
+  "materials": [
+    "metal.aluminum-brushed",
+    "plastic.matte:2A2A2C",
+    "rubber.tire",
+    "metal.screw-zinc",
+    "metal.anodized",
+    "label.hazard-small"
+  ],
+  "name": "Folding step stool",
+  "notes": "Static open pose, 0.45 wide, 0.82 m to the top of the handle, 0.62 deep including feet. Platform at 0.50 m, lower tread at 0.25 m.",
+  "parts": [
+    "aluminum front rails rising to a handle grip",
+    "ribbed plastic top platform and lower tread with aluminum nosing",
+    "rear legs with cross brace",
+    "two-piece spreader arms with pivot rivets",
+    "rubber feet",
+    "hand grip on the handle bar",
+    "safety label"
+  ],
+  "references": [],
+  "size": [
+    0.45,
+    0.82,
+    0.62
+  ],
+  "style": "Light household two-step folding stool, brushed aluminum, black plastic treads, scuffed feet.",
+  "summary": "Two-step folding stool: brushed aluminum rails and rear legs, ribbed plastic treads, handle grip, spreader arms with rivets, rubber feet.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "laundry",
+    "metal",
+    "tool",
+    "interior"
+  ],
+  "theme": "Laundry",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

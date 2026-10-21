@@ -1,0 +1,40 @@
+{
+ "budget": 10000,
+ "id": "hybrid-bonder",
+ "kind": "prop",
+ "materials": [
+  "metal.powdercoat",
+  "glass.window-tint",
+  "metal.stainless",
+  "metal.anodized",
+  "plastic.matte",
+  "silicon.thinfilm-patterned",
+  "silicon.thinfilm-metal",
+  "glass.lamp"
+ ],
+ "name": "hybrid-bonder",
+ "notes": "Named part: door",
+ "parts": [
+  "door with window",
+  "bond head",
+  "wafer chucks",
+  "stepped roof",
+  "side cabinet",
+  "status tower",
+  "control screen"
+ ],
+ "references": [],
+ "size": [
+  3,
+  2.2,
+  2.5
+ ],
+ "style": "Generic wafer-to-wafer hybrid bonder, white powdercoat, stepped roof, side electronics cabinet, light wear at handles, fingerprints on window, no branding.",
+ "summary": "Hybrid bonder with stepped roof, side cabinet, hinged door and window onto bond head and chucks.",
+ "tags": [
+  "prop"
+ ],
+ "theme": "Fab",
+ "threshold": 0.85,
+ "tolerance": 0.08
+}

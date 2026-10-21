@@ -1,0 +1,22 @@
+{
+  "automated" : 0.99995404,
+  "date" : "2026-10-15",
+  "final" : 0.8862339,
+  "fingerprint" : "49c229663a3da76d",
+  "id" : "rounded-river-cobble-paving",
+  "iterations" : 2,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 9,
+    "edges" : 7,
+    "grounding" : 9,
+    "materials" : 8,
+    "proportion" : 9,
+    "silhouette" : 8,
+    "wear" : 8
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.825
+}

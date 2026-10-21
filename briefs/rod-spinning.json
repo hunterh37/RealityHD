@@ -1,0 +1,41 @@
+{
+  "budget": 14000,
+  "id": "rod-spinning",
+  "kind": "prop",
+  "materials": [
+    "composite.graphite-blank",
+    "cork.grip",
+    "cork.grip-worn",
+    "metal.anodized-gunmetal",
+    "metal.chrome",
+    "ceramic.guide-insert",
+    "thread.wrap-epoxy"
+  ],
+  "name": "Spinning rod",
+  "notes": "reference photo: ../MulberryRiver/notes/reference/tackle/rod-spinning.jpg (compare runs use --ref)",
+  "parts": [
+    "blank",
+    "handle",
+    "reel-seat",
+    "guides",
+    "tip-top"
+  ],
+  "references": [],
+  "size": [
+    2.001,
+    0.071,
+    0.033
+  ],
+  "style": "6 ft 7 in medium-power two-guide-train spinning rod, new, cork full grip, gunmetal down-locking seat",
+  "summary": "Spinning rod, 2.0 m, lying on its side: graphite blank, cork grips, aluminum seat, stripper and single-foot guides.",
+  "tags": [
+    "prop",
+    "fishing",
+    "handheld",
+    "articulated",
+    "tool"
+  ],
+  "theme": "Tackle",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

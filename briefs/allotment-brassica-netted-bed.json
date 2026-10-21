@@ -1,0 +1,43 @@
+{
+  "budget": 15000,
+  "id": "allotment-brassica-netted-bed",
+  "kind": "prop",
+  "materials": [
+    "insect.netting",
+    "plastic.gloss",
+    "brick.red",
+    "ground.dirt",
+    "plant.stem"
+  ],
+  "name": "Allotment brassica netted bed",
+  "notes": "",
+  "parts": [
+    "blue MDPE pipe hoops",
+    "green butterfly netting",
+    "brick hem weights",
+    "cabbages",
+    "kale",
+    "mounded bed",
+    "path margin"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.9,
+    2
+  ],
+  "style": "architectural facade customizer, English Allotment",
+  "summary": "Allotment brassica bed: cabbages and kale under blue MDPE pipe hoops draped with green butterfly netting held down by bricks.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "garden",
+    "outdoor",
+    "plastic"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

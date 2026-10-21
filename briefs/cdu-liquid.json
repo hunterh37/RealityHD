@@ -1,0 +1,39 @@
+{
+  "budget": 12000,
+  "id": "cdu-liquid",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat",
+    "metal.stainless",
+    "glass.clear",
+    "metal.brass",
+    "plastic.matte"
+  ],
+  "name": "CDU liquid",
+  "notes": "",
+  "parts": [
+    "cabinet",
+    "front door left",
+    "front door right",
+    "window",
+    "plate heat exchanger",
+    "pumps",
+    "gauges",
+    "piping stubs",
+    "casters"
+  ],
+  "references": [],
+  "size": [
+    0.8,
+    2.2,
+    1.2
+  ],
+  "style": "Light-gray powdercoated coolant distribution unit, clean new install, stainless HX and pumps visible through window.",
+  "summary": "Coolant distribution unit: powdercoat cabinet, hinged doors, window onto plate heat exchanger and pumps, gauges, top piping stubs.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,39 @@
+{
+  "budget": 12000,
+  "id": "l-shaped-staircase",
+  "kind": "structure",
+  "materials": [
+    "wood.oak",
+    "wood.painted-shaker",
+    "wood.painted-shaker-worn",
+    "wood.lumber-pine"
+  ],
+  "name": "L-shaped staircase",
+  "notes": "Rise 3.0 m, 16 risers. Ten risers to the landing along -Z, six turning right along +X. Flight width 0.8 m is forced by the 2.0 x 3.2 footprint with treads of 0.25 m or more. Size Y is the bounding height including newels above the upper floor. Footprint 2.045 x 3.2: the 2.0 m pack width is exceeded by the top riser and newel.",
+  "parts": [
+    "ten risers and nine oak treads to a quarter landing",
+    "oak landing platform on rim beams with fascia",
+    "six risers turning right to the upper floor",
+    "wall skirt stringers on the outer sides, cut stringers on the open side",
+    "turned balusters and oak handrail on the inside of the turn",
+    "corner newel carried to the floor, foot and top newels with ball finials"
+  ],
+  "references": [],
+  "size": [
+    2.045,
+    4.03,
+    3.2
+  ],
+  "style": "colonial staircase, oak treads, white risers and balusters",
+  "summary": "L-shaped staircase, 16 risers, 3.0 m rise, quarter landing: oak treads and landing, painted risers, wall and cut stringers, balusters, handrail.",
+  "tags": [
+    "structure",
+    "floorplan",
+    "interior",
+    "stair",
+    "wood"
+  ],
+  "theme": "Interior",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

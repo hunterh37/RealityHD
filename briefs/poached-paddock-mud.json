@@ -1,0 +1,37 @@
+{
+  "budget": 15000,
+  "id": "poached-paddock-mud",
+  "kind": "prop",
+  "materials": [
+    "ground.mud",
+    "ground.puddle",
+    "grass.lawn",
+    "ground.dirt"
+  ],
+  "name": "Poached paddock mud",
+  "notes": "",
+  "parts": [
+    "poached clay-loam mud surface",
+    "cattle hoof prints",
+    "standing water in hoof holes",
+    "trampled grass tufts at the margin",
+    "dried mud crust ridges"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.12,
+    2
+  ],
+  "style": "architectural facade customizer, Vernacular",
+  "summary": "Poached paddock mud tile, 2 x 2 m: wet clay loam churned by cattle hooves, water-filled prints and trampled grass remnants at the edges.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

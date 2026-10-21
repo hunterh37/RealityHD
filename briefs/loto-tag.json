@@ -1,0 +1,38 @@
+{
+  "budget": 1500,
+  "id": "loto-tag",
+  "kind": "prop",
+  "materials": [
+    "plastic.matte:F2F2F2",
+    "plastic.matte:D62A1E",
+    "metal.painted:C21E1A",
+    "metal.steel"
+  ],
+  "name": "Lockout tagout set",
+  "notes": "",
+  "parts": [
+    "tag",
+    "red header",
+    "DANGER text",
+    "DO NOT OPERATE text",
+    "grommet",
+    "zip tie",
+    "padlock body",
+    "padlock shackle",
+    "keyhole"
+  ],
+  "references": [],
+  "size": [
+    0.08,
+    0.2,
+    0.03
+  ],
+  "style": "Laminated red safety padlock hanging through the grommet of a red and white DANGER DO NOT OPERATE tag on a natural nylon zip tie; lightly handled.",
+  "summary": "Lockout/tagout set: red laminated safety padlock with steel shackle through the grommet of a red/white DANGER DO NOT OPERATE tag on a zip tie.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

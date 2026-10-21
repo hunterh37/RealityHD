@@ -83,7 +83,7 @@ struct BirdFrame {
     var legX: Float { 0.5 * a.bodyWidth * 0.5 }
     func foot(_ s: Side) -> V3 { V3(s.sign * legX, 0, -0.02) }
     func ankle(_ s: Side) -> V3 { foot(s) + V3(0, 0.80 * a.tarsus, 0.30 * a.tarsus) }
-    func hip(_ s: Side) -> V3 { ankle(s) + V3(0, 0.45 * a.tarsus, -0.3 * a.tarsus) }
+    func hip(_ s: Side) -> V3 { ankle(s) + V3(0, 0.45 * a.tarsus + a.tibia, -0.3 * a.tarsus - 0.2 * a.tibia) }
 }
 
 public enum BirdRigBuilder {

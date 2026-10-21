@@ -1,0 +1,24 @@
+{
+  "source": "Apple Vision Pro simulator, Release, balanced unless noted; numbers copied from docs/perf-roadmap.md status entries",
+  "milestones": [
+    {"id": "load-stall", "commit": "load path", "metric": "load stall max ms (hospital)", "before": 1644, "after": 159, "bench": "scene load"},
+    {"id": "governor-hold", "commit": "governor", "metric": "LOD switches/s burst (forest-glade)", "before": 925, "after": 17, "bench": "-steps 1 -adaptive YES"},
+    {"id": "lod-priming", "commit": "governor", "metric": "first-step LOD switches (forest-glade)", "before": 925, "after": 25, "bench": "-steps 0.5"},
+    {"id": "walk-p99", "commit": "governor", "metric": "walk frame p99 ms, 27 scenes", "before": null, "after": 11.1, "bench": "-bench 20 dolly 2 m/s"},
+    {"id": "offview-lod", "commit": "128cefe", "metric": "hospital shadow tris k", "before": 458, "after": 391, "bench": "-bench 20 -pan 15"},
+    {"id": "offview-walk", "commit": "efde03e", "metric": "forest-glade in-view tris k", "before": 685, "after": 634, "bench": "-bench 30 -steps 0.5"},
+    {"id": "interior-pvs", "commit": "e49cdfb", "metric": "hospital draws", "before": 971, "after": 738, "bench": "-bench 20 -pan 15"},
+    {"id": "interior-pvs-tris", "commit": "e49cdfb", "metric": "hospital tris k", "before": 410, "after": 325, "bench": "-bench 20 -pan 15"},
+    {"id": "pvs-stall", "commit": "e49cdfb", "metric": "hospital walk stall max ms", "before": 47, "after": 25, "bench": "-bench 20 -pan 15"},
+    {"id": "auto-lod", "commit": "2688379", "metric": "boston-common in-view tris k (offline)", "before": 1576, "after": 1181, "bench": "realityhd perf"},
+    {"id": "grass-tuft-mid", "commit": "2688379", "metric": "forest-glade in-view tris k (offline)", "before": 1675, "after": 1318, "bench": "realityhd perf"},
+    {"id": "tallgrass-mid", "commit": "b3b1424", "metric": "alpine-meadow field tris k (offline)", "before": 3228, "after": 2503, "bench": "realityhd perf --breakdown"}
+  ],
+  "dropped": [
+    {"id": "exterior-streaming", "commit": "08a8d23", "reason": "boston-common in-view 1112k -> 822k moves the look; stalls 15 -> 62-76 ms"},
+    {"id": "district-pvs", "commit": "b80dad0", "reason": "street grid sees every cell within two hops"},
+    {"id": "texture-streaming", "commit": "d4989ca", "reason": "frames > 25 ms 0 -> 5-21, stalls 142-524 ms"},
+    {"id": "instance-lod", "commit": "2ce2383", "reason": "alpine-meadow draws 803-817 -> 887, no visible-tri win"},
+    {"id": "auto-instancing", "commit": "phase 2", "reason": "city-block tris 401k -> 463k"}
+  ]
+}

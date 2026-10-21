@@ -1,0 +1,38 @@
+{
+  "budget": 4000,
+  "id": "boston-iron-fence",
+  "kind": "prop",
+  "materials": [
+    "stone.granite-curb",
+    "metal.wrought-iron"
+  ],
+  "name": "Boston Iron Fence",
+  "notes": "",
+  "parts": [
+    "granite curb",
+    "square iron posts",
+    "ball finials",
+    "top and bottom rails",
+    "spear-top pickets",
+    "post collars"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    1.6,
+    0.36
+  ],
+  "style": "19th-c. wrought iron, black paint with rust at joints",
+  "summary": "Tileable 2.4 m bay of Boston Common wrought iron fence: spear-top pickets, two rails and a ball-finial post on a granite curb.",
+  "tags": [
+    "prop",
+    "fence",
+    "metal",
+    "park",
+    "street",
+    "stone"
+  ],
+  "theme": "Street",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

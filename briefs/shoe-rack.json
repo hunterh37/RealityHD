@@ -1,0 +1,39 @@
+{
+  "budget": 13500,
+  "id": "shoe-rack",
+  "kind": "prop",
+  "materials": [
+    "wood.lumber-maple",
+    "metal.powdercoat:26272A",
+    "plastic.matte:151515"
+  ],
+  "name": "Slatted shoe rack",
+  "notes": "Floor planning pack C. Back at -Z, front +Z.",
+  "parts": [
+    "three slatted bamboo shelves",
+    "black steel tube frame with end caps",
+    "side rails carrying the slats",
+    "rear cross brace",
+    "rubber feet"
+  ],
+  "references": [],
+  "size": [
+    1.0,
+    0.48,
+    0.35
+  ],
+  "style": "light bamboo slats on a matte black tubular frame, lightly scuffed",
+  "summary": "Three-tier shoe rack, 1 m: bamboo slat shelves on a black steel tube frame with rubber feet.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "home",
+    "furniture",
+    "wood",
+    "metal",
+    "interior"
+  ],
+  "theme": "Home",
+  "threshold": 0.85,
+  "tolerance": 0.06
+}

@@ -1,0 +1,63 @@
+{
+  "budget": 20000,
+  "id": "camera-sony-a7iv",
+  "kind": "prop",
+  "materials": [
+    "plastic.cordless-stipple",
+    "metal.anodized-worn",
+    "rubber.cordless-grip",
+    "rubber",
+    "glass.tinted",
+    "metal.steel",
+    "metal.satin-aluminum",
+    "plastic.white",
+    "plastic.orange",
+    "plastic.gloss",
+    
+    "plastic.matte",
+    "plastic.sharps-red"
+  ],
+  "name": "Sony a7 IV",
+  "notes": "Spec: body 131.3 x 96.4 x 79.8 mm, lens 72.5 dia x 83.5 mm. Size is body plus lens along Z.",
+  "parts": [
+    "shutter",
+    "mode-dial",
+    "mode-switch",
+    "main-dial",
+    "rear-dial",
+    "dpad",
+    "dpad-ok",
+    "c1",
+    "c2",
+    "c3",
+    "af-on",
+    "menu",
+    "play",
+    "video",
+    "focus-ring",
+    "zoom-ring",
+    "power",
+    "screen",
+    "evf",
+    "grip",
+    "eyecup"
+  ],
+  "references": [],
+  "size": [
+    0.135,
+    0.098,
+    0.148
+  ],
+  "style": "Textured magnesium and stipple plastic body with edge wear, textured rubber grip, dark blue-green coated lens glass, glossy blue-black LCD, white lens marks, orange accents.",
+  "summary": "Sony a7 IV mirrorless camera with FE 28-70mm f/3.5-5.6 OSS kit lens: textured body, deep grip, mode dial stack, tall EVF, vari-angle LCD, articulated controls.",
+  "tags": [
+    "prop",
+    "electronics",
+    "camera",
+    "articulated",
+    "handheld"
+  ],
+  "theme": "Camera",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "command-pod",
+  "kind": "prop",
+  "materials": [
+    "metal.titanium",
+    "metal.heat-tint-cold",
+    "ablative.char-light",
+    "glass.pane",
+    "metal.steel"
+  ],
+  "name": "Command pod",
+  "notes": "Vision Spacecraft part. Size [x, y, z] metres; deployed parts may exceed it.",
+  "parts": [
+    "heat-shield-rim",
+    "conical-shell",
+    "shingles",
+    "hatch",
+    "window",
+    "docking-tunnel",
+    "rcs-ports",
+    "handholds"
+  ],
+  "references": [],
+  "size": [
+    1.25,
+    1.4,
+    1.25
+  ],
+  "style": "photoreal aerospace flight hardware, clean with light handling wear",
+  "summary": "Mk1 crew capsule, 1.25 m: titanium shingled conical shell, ablative shield rim, side hatch on a hinge with window, docking tunnel and RCS ports.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "metal",
+    "vehicle",
+    "articulated"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

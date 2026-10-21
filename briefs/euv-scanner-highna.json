@@ -1,0 +1,28 @@
+{
+  "budget": 15000,
+  "id": "euv-scanner-highna",
+  "kind": "prop",
+  "materials": ["metal.powdercoat", "metal.anodized", "metal.aluminum-brushed", "metal.steel", "metal.grate-iron", "glass.lamp", "plastic.matte", "rubber.tubing", "plastic.polycarbonate-tint"],
+  "name": "High-NA EUV scanner",
+  "notes": "Generic, no branding. 14 x 4 x 4 m. Covers removable and wafer stage as named parts.",
+  "parts": [
+    "white powdercoat modular enclosure with panel seams",
+    "service doors and vents",
+    "status tower",
+    "reticle handler module",
+    "wafer handler module",
+    "source connection duct at rear",
+    "cable trays on top",
+    "leveling feet on cleanroom grate",
+    "removable covers",
+    "wafer stage"
+  ],
+  "references": [],
+  "size": [14, 4, 4],
+  "style": "ASML-class High-NA EUV lithography scanner, generic, white powdercoat modular frame, cleanroom.",
+  "summary": "High-NA EUV lithography scanner: modular white enclosure, handlers, source duct, status tower, removable covers and wafer stage.",
+  "tags": ["prop", "semiconductor", "articulated"],
+  "theme": "Fab",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

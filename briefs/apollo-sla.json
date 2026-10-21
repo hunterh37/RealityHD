@@ -1,0 +1,32 @@
+{
+  "budget": 6000,
+  "id": "apollo-sla",
+  "kind": "prop",
+  "materials": [
+    "metal.powder-white"
+  ],
+  "name": "Apollo spacecraft LM adapter",
+  "notes": "Vision Spacecraft. 1:1 metres.",
+  "parts": [
+    "truncated cone",
+    "panel seams",
+    "SPS bell inside"
+  ],
+  "references": [],
+  "size": [
+    6.64,
+    8.5,
+    6.64
+  ],
+  "style": "photoreal 1967-1973 Apollo flight hardware, clean painted finish, slight launch-pad grime",
+  "summary": "Apollo spacecraft lunar module adapter, truncated cone 6.6 to 3.9 m, 8.5 m tall, white panels with seams.",
+  "tags": [
+    "prop",
+    "vehicle",
+    "metal",
+    "outdoor"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

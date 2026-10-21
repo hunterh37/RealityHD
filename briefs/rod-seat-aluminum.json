@@ -1,0 +1,35 @@
+{
+  "budget": 4200,
+  "id": "rod-seat-aluminum",
+  "kind": "prop",
+  "materials": [
+    "metal.anodized-gunmetal",
+    "metal.anodized"
+  ],
+  "name": "Aluminum reel seat",
+  "notes": "reference photo: ../MulberryRiver/notes/reference/tackle/rod-seat-aluminum.jpg (compare runs use --ref)",
+  "parts": [
+    "barrel",
+    "fixed hood",
+    "sliding hood",
+    "threads",
+    "lock nuts"
+  ],
+  "references": [],
+  "size": [
+    0.1,
+    0.028,
+    0.028
+  ],
+  "style": "down-locking anodized aluminum spinning seat",
+  "summary": "Anodized aluminum reel seat 100 mm: threaded barrel, fixed and sliding hoods, two knurled nuts.",
+  "tags": [
+    "prop",
+    "fishing",
+    "handheld",
+    "metal"
+  ],
+  "theme": "Tackle",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

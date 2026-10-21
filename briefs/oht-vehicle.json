@@ -1,0 +1,36 @@
+{
+  "budget": 6000,
+  "id": "oht-vehicle",
+  "kind": "prop",
+  "materials": [
+    "metal.aluminum-brushed",
+    "plastic.matte",
+    "plastic.polycarbonate-tint"
+  ],
+  "name": "OHT hoist vehicle",
+  "notes": "",
+  "parts": [
+    "aluminum chassis with painted covers",
+    "four-wheel travel carriage on rail",
+    "hoist with belts and gripper",
+    "gripper holding a FOUP flange",
+    "slide and rotate unit",
+    "status lamp and sensor"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    0.6,
+    0.9
+  ],
+  "style": "Daifuku/Murata overhead hoist transport vehicle, white covers, clean room.",
+  "summary": "Overhead hoist transport vehicle with four-wheel carriage and belt hoist gripper.",
+  "tags": [
+    "prop",
+    "semiconductor",
+    "articulated"
+  ],
+  "theme": "Fab",
+  "threshold": 0.9,
+  "tolerance": 0.08
+}

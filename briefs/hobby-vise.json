@@ -1,0 +1,41 @@
+{
+  "budget": 5800,
+  "id": "hobby-vise",
+  "kind": "prop",
+  "materials": [
+    "metal.cast-iron-seasoned",
+    "metal.steel",
+    "metal.tool-ground",
+    "metal.anodized-black",
+    "metal.knurl-chrome",
+    "rubber.plate",
+    "plastic.black"
+  ],
+  "name": "Hobby vise",
+  "notes": "Anchor 'jaws' (entity anchor:jaws) at the jaw tip.",
+  "parts": [
+    "heavy round cast pedestal base",
+    "upright steel stem with set collar",
+    "jaw head pivot with tilt knob",
+    "tapered hardened steel jaws",
+    "cam lever closing the jaws",
+    "rubber foot ring under the base"
+  ],
+  "references": [],
+  "size": [
+    0.12,
+    0.195,
+    0.11
+  ],
+  "style": "Fly-tying style pedestal vise, black anodized and polished steel, paint flecks on the jaws.",
+  "summary": "Pedestal hobby vise for lure carving: cast pedestal base, upright stem, cam-lever jaws angled up, anchor at the jaw tip.",
+  "tags": [
+    "prop",
+    "workshop",
+    "tool",
+    "metal"
+  ],
+  "theme": "LureShop",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

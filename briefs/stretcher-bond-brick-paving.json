@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "stretcher-bond-brick-paving",
+  "kind": "prop",
+  "materials": [
+    "paver.clay",
+    "paver.clay-stained",
+    "ground.sand",
+    "moss.cushion"
+  ],
+  "name": "Stretcher bond brick paving",
+  "notes": "",
+  "parts": [
+    "clay brick pavers",
+    "stretcher bond courses",
+    "half-brick offset joints",
+    "sand-filled joints",
+    "sharp sand laying course",
+    "frog-face stained bricks",
+    "moss in joints"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.08,
+    2
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Stretcher bond brick paving tile, 2 x 2 m: 215 x 102 x 50 mm clay pavers in running half-bond courses on a sand bed with swept sand joints.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

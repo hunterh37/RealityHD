@@ -1,0 +1,35 @@
+{
+  "budget": 800,
+  "id": "hall-column",
+  "kind": "prop",
+  "materials": [
+    "concrete.smooth",
+    "concrete.rough",
+    "metal.powdercoat",
+    "metal.galvanized",
+    "plastic.matte"
+  ],
+  "name": "Hall column",
+  "notes": "",
+  "parts": [
+    "cast concrete column",
+    "yellow-black hazard impact guard",
+    "steel anchor plate with bolts",
+    "form-tie marks",
+    "chamfered edges"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    3.0,
+    0.6
+  ],
+  "style": "Worn cast-in-place concrete data-center hall column, parametric height, form-tie cone holes in grid, grout pad, scuffed yellow guard",
+  "summary": "Parametric concrete hall column with hazard impact guard, anchor plate and form-tie marks.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

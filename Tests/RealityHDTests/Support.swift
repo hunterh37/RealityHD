@@ -26,6 +26,8 @@ func baseKey(_ k: MaterialKey) -> String { String(k.split(separator: ":")[0]) }
 
 /// Max LOD0 budget a contributor may declare per kind.
 let budgetCap = ["nature": 60_000, "prop": 15_000, "structure": 30_000]
+/// Vehicles with a modeled cabin may declare up to this LOD0 budget.
+let vehiclePropCap = 30_000
 
 /// Registry each kind must be listed in.
 let registry: [String: [any RealAsset.Type]] = ["nature": Nature.all, "prop": Props.all, "structure": Structures.all]

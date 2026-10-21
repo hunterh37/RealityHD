@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "ground-blind",
+  "kind": "prop",
+  "materials": [
+    "fabric.canvas",
+    "fabric.curtain-mesh",
+    "fabric.nylon",
+    "plastic.black",
+    "fabric.webbing",
+    "metal.galvanized"
+  ],
+  "name": "Ground blind",
+  "notes": "",
+  "parts": [
+    "canvas walls",
+    "leaf print",
+    "shoot-through windows",
+    "window flaps",
+    "door",
+    "hub poles",
+    "roof peak",
+    "mud hem",
+    "tie-down ropes",
+    "stakes"
+  ],
+  "references": [],
+  "size": [
+    2.324,
+    1.808,
+    2.339
+  ],
+  "style": "hub-style pop-up blind, 60 in flat to flat, 70 in tall, leaf-print camo canvas, black fiberglass poles",
+  "summary": "Hexagonal pop-up ground blind, 1.52 m across: camo canvas walls, propped window flaps, ajar door, hub poles, ropes, stakes.",
+  "tags": [
+    "prop",
+    "hunting",
+    "outdoor",
+    "fabric"
+  ],
+  "theme": "HuntCamp"
+}

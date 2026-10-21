@@ -118,7 +118,7 @@ Per-asset defaults: `static let preview = PreviewHint(...)`.
 - Wood grain runs along U: build boards along +X with `plank()`/`board()`; lathes take `grainVertical`.
 - Per-vertex channels: `extra.x` wind weight (0 anchored, 1 tip), `occlusion` baked AO
   (`bakeCavityAO`, `groundAO`). Both reach the shader through uv1.
-- Budgets: test-enforced `budget` per asset (LOD0 tris). Caps: props 15k, structures 30k, nature 60k.
+- Budgets: test-enforced `budget` per asset (LOD0 tris). Caps: props 15k (vehicles 30k), structures 30k, nature 60k.
   Trees ~20k, typical props under 10k.
 - Texture V: row 0 = v 0 (RealityKit LowLevelTexture). Atlas content is drawn with v up the card.
 - Material keys are `family.variant`; a `:RRGGBB` suffix tints `colorA`.

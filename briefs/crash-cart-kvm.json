@@ -1,0 +1,39 @@
+{
+  "budget": 6000,
+  "id": "crash-cart-kvm",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat:A3A7AB",
+    "metal.steel",
+    "metal.galvanized",
+    "plastic.matte:151617",
+    "rubber.tire",
+    "plastic.gloss:0B0D10"
+  ],
+  "name": "Crash cart KVM",
+  "notes": "",
+  "parts": [
+    "gray powder-coat steel frame with four uprights",
+    "top shelf with lip",
+    "17 in LCD monitor on articulated arm",
+    "keyboard tray drawer (articulated open, kvm-drawer)",
+    "coiled KVM and USB cables",
+    "lower shelf with KVM unit",
+    "four swivel casters",
+    "push handle"
+  ],
+  "references": [],
+  "size": [
+    0.5,
+    1.0,
+    0.45
+  ],
+  "style": "Used data-center crash cart, gray powder-coat steel, black ABS monitor and keyboard, scuffed shelf edges, matte rubber casters",
+  "summary": "Data-center crash cart with gray steel frame, 17 in LCD on an arm, pull-out keyboard drawer, coiled KVM cables, lower shelf, four casters and push handle.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

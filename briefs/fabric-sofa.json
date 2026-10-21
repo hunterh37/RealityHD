@@ -1,0 +1,39 @@
+{
+  "budget": 9500,
+  "id": "fabric-sofa",
+  "kind": "prop",
+  "materials": [
+    "fabric.upholstery:8A8D8F",
+    "wood.walnut",
+    "fabric.upholstery:7A7D80"
+  ],
+  "name": "Three-seat fabric sofa",
+  "notes": "Floor planning pack B1. Front +Z, back at -Z, seat centered on X=0.",
+  "parts": [
+    "track arms",
+    "three loose seat cushions with welts and sag",
+    "three back cushions",
+    "plinth base or tapered walnut legs",
+    "seam creases"
+  ],
+  "references": [],
+  "size": [
+    2.15,
+    0.84,
+    0.95
+  ],
+  "style": "modern track-arm sofa, lived-in",
+  "summary": "Three-seat fabric sofa, 2.15 m: track arms, loose seat and back cushions with welts, tapered walnut legs.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "living",
+    "furniture",
+    "fabric",
+    "wood",
+    "interior"
+  ],
+  "theme": "Living",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

@@ -1,0 +1,38 @@
+{
+  "budget": 14000,
+  "id": "flint-knapped-panel",
+  "kind": "prop",
+  "materials": [
+    "stone.marble-dark",
+    "rock.limestone",
+    "concrete.rough",
+    "concrete.rough"
+  ],
+  "name": "Flint knapped panel",
+  "notes": "",
+  "parts": [
+    "knapped flint nodules with glassy black faces",
+    "white chalky cortex rims",
+    "coursed rows in lime mortar with galletting chips",
+    "red brick quoin dressings at both edges",
+    "two-course brick lacing band",
+    "brick plinth"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.2,
+    0.12
+  ],
+  "style": "architectural facade customizer, East Anglian Vernacular",
+  "summary": "East Anglian knapped flint panel, 1.2 m: coursed squared flint faces with white cortex rims in lime mortar, red brick quoin dressings and a brick lacing course.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

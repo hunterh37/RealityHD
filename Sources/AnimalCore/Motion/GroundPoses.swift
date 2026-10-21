@@ -2,7 +2,38 @@ import Foundation
 import RealCore
 
 public enum GroundPoses {
-    public static func stand(_ p: GroundProfile) -> GroundPose { GroundPose() }
+    /// Standing at rest. Long-necked animals hold the head tilted nose down by `headDrop`.
+    public static func stand(_ p: GroundProfile) -> GroundPose {
+        var q = GroundPose()
+        q[.headPitch] = -p.anatomy.headDrop
+        return q
+    }
+
+    /// Neck and head angles that put the nose on the ground (grazing), found by sweeping the neck
+    /// pitch against the built geometry. Small animals return small angles.
+    public static func graze(_ p: GroundProfile) -> (neck: Float, head: Float) {
+        let f = GroundFrame(p), a = p.anatomy
+        let np = V2(f.neckPivot.z, f.neckPivot.y)
+        let hp = f.headCenter + V3(0, -0.1 * a.headHeight, 0.4 * a.headLength)
+        let nose = f.headCenter + V3(0, -0.04 * a.headHeight, -0.5 * a.headLength)
+        func rot(_ v: V2, _ deg: Float) -> V2 {
+            let t = radians(deg), c = cos(t), s = sin(t)
+            return V2(v.x * c + v.y * s, v.y * c - v.x * s)
+        }
+        // Total head angle: about 62 degrees nose down for a browser, less for small animals.
+        let total: Float = a.neckLength > 0.2 ? -64 : -38
+        var best: (Float, Float) = (0, -a.headDrop)
+        var n: Float = 0
+        while n >= -125 {
+            let head = max(-80, min(60, total - n))
+            let h2 = np + rot(V2(hp.z, hp.y) - np, n)
+            let noseNow = h2 + rot(V2(nose.z - hp.z, nose.y - hp.y), n + head)
+            best = (n, head)
+            if noseNow.y <= 0.03 { break }
+            n -= 2
+        }
+        return best
+    }
 
     /// Hind legs folded under the haunches, fore legs straight.
     public static func sit(_ p: GroundProfile) -> GroundPose {
@@ -31,6 +62,8 @@ public struct GroundMotionInput: Sendable, Equatable {
     /// 0 ears relaxed, 1 upright and alert.
     public var alert: Float = 0
     public var jaw: Float = 0
+    /// Head to the ground to browse, 0...1.
+    public var graze: Float = 0
     public var blink: Float = 0
     /// Tail raise 0...1 and sideways sway in degrees.
     public var tailRaise: Float = 0
@@ -68,6 +101,8 @@ public enum GroundMotion {
                     q[l, .knee] = l.isFore ? -35 * lift : -40 * lift - 8
                     q[l, .ankle] = (l.isFore ? 15 : 20) * lift
                 }
+            case .stride:
+                strideLegs(&q, p, i)
             case .bound:
                 // Gallop: fore legs together, hind legs together just behind; spine flexes.
                 let fores = [Float(40), 55, 30, -10], hips = [Float(-35), 5, 55, 35]
@@ -94,6 +129,11 @@ public enum GroundMotion {
             for l in [GroundJoint.Leg.foreL, .foreR] { q[l, .hip] = lerp(q[l, .hip], 62, i.paws); q[l, .knee] = lerp(q[l, .knee], -85, i.paws); q[l, .ankle] = lerp(q[l, .ankle], -30, i.paws) }
         }
         q[.neckPitch] += i.neck
+        if i.graze > 0 {
+            let g = GroundPoses.graze(p), k = saturate(i.graze)
+            q[.neckPitch] += g.neck * k
+            q[.headPitch] = lerp(q[.headPitch], g.head, k)
+        }
         q[.headYaw] = i.headYaw
         q[.headPitch] += i.headPitch
         q[.jaw] = saturate(i.jaw) * 25
@@ -110,6 +150,7 @@ public enum GroundMotion {
 
     /// Static poses for the preview tool.
     public static func preview(_ name: String, _ p: GroundProfile) -> GroundPose {
+        if p.behavior.gait == .stride, let g = gamePreview(name, p) { return g }
         var i = GroundMotionInput()
         i.gait = p.behavior.gait
         switch name {

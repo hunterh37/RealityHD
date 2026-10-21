@@ -151,12 +151,21 @@ public final class GroundBrain {
         position += V3(f.x, 0, f.z) * speedNow * dt
         position = V3(max(view.min.x - 6, min(view.max.x + 6, position.x)), position.y, max(view.min.y - 6, min(view.max.y + 6, position.z)))
         advanceGait(dt)
-        input.sit = 0
+        input.sit = 0; input.graze = 0
         position.y = standY + bounce()
     }
 
     private func advanceGait(_ dt: Float) {
-        let stride: Float = profile.behavior.gait == .hop ? 0.28 : (profile.behavior.gait == .bound ? 0.22 : 0.12)
+        let stride: Float
+        switch profile.behavior.gait {
+        case .hop: stride = 0.28
+        case .bound: stride = 0.22
+        case .walk: stride = 0.12
+        case .stride:
+            // Longer cycles at speed: a walking deer takes about a meter per cycle, a galloping one four.
+            let k = min(1, speedNow / max(1, profile.behavior.run * AnimalTuning.groundSpeedScale))
+            stride = profile.anatomy.strideScale * (1.0 + 3.2 * k)
+        }
         gaitPhase = (gaitPhase + speedNow * dt / stride).truncatingRemainder(dividingBy: 1)
     }
 
@@ -164,7 +173,7 @@ public final class GroundBrain {
         switch profile.behavior.gait {
         case .hop: let u = min(1, max(0, (gaitPhase - 0.15) / 0.65)); return 0.1 * sin(u * .pi) * min(1, speedNow / 1.2)
         case .bound: let u = min(1, max(0, (gaitPhase - 0.1) / 0.7)); return 0.045 * sin(u * .pi) * min(1, speedNow / 1.5)
-        case .walk: return 0
+        case .walk, .stride: return 0
         }
     }
 
@@ -180,6 +189,11 @@ public final class GroundBrain {
             position.y += (standY - position.y) * min(1, dt * 10)
             tilt += ((restMode == 2 ? 40 : 0) - tilt) * min(1, dt * 6)
             if restMode == 3 { headAim = V2(0, -50 + 40 * sin(phaseTime * 5)) } // sniff the ground
+            if profile.behavior.gait == .stride {
+                // Game animals browse with the head down instead of sitting up.
+                input.sit = 0; input.paws = 0; tilt = 0; headAim = V2(0, 0)
+                input.graze = restMode == 2 || restMode == 3 ? 1 : 0
+            }
             if hold <= 0 { restMode = 0; input.paws = 0; input.sit = 0 }
             return
         }
@@ -212,7 +226,7 @@ public final class GroundBrain {
         hold -= dt
         input.alert = 1
         tilt += (profile.behavior.climbs || profile.behavior.gait == .bound ? 48 : (profile.behavior.gait == .hop ? 30 : 0) - tilt) * min(1, dt * 5)
-        input.sit = profile.behavior.gait == .walk ? 0 : 1
+        input.sit = profile.behavior.gait == .walk || profile.behavior.gait == .stride ? 0 : 1
         input.paws = profile.behavior.gait == .bound ? 0.8 : 0
         let to = V2(view.player.head.x, view.player.head.z) - xz
         headAim = V2(max(-70, min(70, wrapAngle(headingOf(V3(to.x, 0, to.y)) - yaw) * 180 / .pi)), 8)
@@ -254,7 +268,8 @@ public final class GroundBrain {
         let run = profile.behavior.run * AnimalTuning.groundSpeedScale
         let to = goal - xz
         let dist = simd_length(to)
-        if dist < 0.25 {
+        // Fast animals cannot turn inside a 0.25 m circle, so the arrival radius grows with speed.
+        if dist < max(0.25, speedNow * 0.14) {
             speedNow = 0
             if restMode == 1 {
                 // Hide in cover and freeze, then slip away.

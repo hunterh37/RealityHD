@@ -1,0 +1,5 @@
+{ "bundleId": "com.dicyaninlabs.realityhd.demo", "scheme": "RealityHDDemo", "tailSeconds": 1, "timeoutSeconds": 180,
+  "takes": [
+    { "id": "01-forest-walk", "route": "walk/forest-glade", "duration": 12, "seed": 1, "params": { "dolly": "0.8", "pan": "3" } },
+    { "id": "02-hospital-walk", "route": "walk/hospital", "duration": 12, "seed": 1, "params": { "dolly": "0", "steps": "1.5" } }
+  ] }

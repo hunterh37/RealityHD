@@ -1,0 +1,39 @@
+{
+  "budget": 8000,
+  "id": "gpu-module-2035",
+  "kind": "prop",
+  "materials": [
+    "metal.nickel",
+    "copper.polished",
+    "plastic.pcb",
+    "metal.anodized",
+    "plastic.matte"
+  ],
+  "name": "GPU module 2035",
+  "notes": "",
+  "parts": [
+    "PCB",
+    "package substrate",
+    "lid",
+    "die",
+    "HBM stacks",
+    "cold plate",
+    "cold plate lift",
+    "mounting screws",
+    "OAM connectors"
+  ],
+  "references": [],
+  "size": [
+    0.12,
+    0.023,
+    0.18
+  ],
+  "style": "2035 liquid-cooled OAM-style accelerator module, factory new, green PCB, nickel lid, polished copper cold plate lifted above.",
+  "summary": "OAM-style GPU module with PCB, lidded package, HBM stacks, connectors and an articulated cold plate that lifts off.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

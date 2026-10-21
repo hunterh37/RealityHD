@@ -1,0 +1,43 @@
+{
+  "budget": 6500,
+  "id": "chandelier",
+  "kind": "prop",
+  "materials": [
+    "metal.brass-aged",
+    "glass.clear",
+    "plastic.white",
+    "emissive.bulb"
+  ],
+  "name": "Six-arm chandelier",
+  "notes": "Static. Ceiling plane y = 2.6; canopy top touches it; lowest finial at y = 1.7.",
+  "parts": [
+    "ceiling canopy",
+    "chain of oval links",
+    "turned central column with finial",
+    "six scrolled S-arms",
+    "hoop ring brace",
+    "glass bobeche dish per arm",
+    "candle sleeves with flame bulbs",
+    "glass drop crystals"
+  ],
+  "references": [],
+  "size": [
+    0.8,
+    0.9,
+    0.8
+  ],
+  "style": "aged brass traditional, clear glass, warm bulbs",
+  "summary": "Six-arm brass chandelier: chain, turned column, scrolled arms, glass bobeches, candle sleeves and flame bulbs.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "interior",
+    "ceiling",
+    "light",
+    "metal",
+    "glass"
+  ],
+  "theme": "Lighting",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

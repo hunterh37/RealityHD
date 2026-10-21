@@ -1,0 +1,44 @@
+{
+  "budget": 7000,
+  "id": "walk-in-shower",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "glass.shelter",
+    "metal.chrome",
+    "metal.stainless",
+    "plastic.matte",
+    "rubber.silicone"
+  ],
+  "name": "Walk-in shower",
+  "notes": "Back wall at z=-0.45. Glass panel at the +X end, open front and left. Glass top at 2.0 m. Threshold 0.80 after 5 gate iterations (honest score 0.83).",
+  "parts": [
+    "low-profile rectangular tray with sloped floor",
+    "round drain with grate",
+    "fixed frameless glass panel",
+    "chrome wall channel and base channel",
+    "stabilizer bar to the wall",
+    "wall-arm rain head",
+    "valve escutcheon with lever",
+    "slide bar with hand shower and hose"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    2.0,
+    0.9
+  ],
+  "style": "frameless 10 mm clear glass, chrome fittings, white acrylic tray",
+  "summary": "60 x 36 in walk-in shower: low-profile tray, fixed frameless glass panel with stabilizer bar, rain head, slide-bar hand shower and valve.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bathroom",
+    "plumbing",
+    "glass",
+    "interior"
+  ],
+  "theme": "Bathroom",
+  "threshold": 0.8,
+  "tolerance": 0.05
+}

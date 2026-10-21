@@ -1,0 +1,40 @@
+{
+  "budget": 10000,
+  "id": "flemish-bond-brick-panel",
+  "kind": "prop",
+  "materials": [
+    "brick.red",
+    "brick.common",
+    "concrete.smooth",
+    "stone.limestone"
+  ],
+  "name": "Flemish bond brick panel",
+  "notes": "",
+  "parts": [
+    "stretcher bricks",
+    "burnt glazed header bricks",
+    "flemish bond pattern with queen closers",
+    "tuck pointed lime mortar joints",
+    "struck mortar joint profile",
+    "rubbed brick plinth course",
+    "stone base course",
+    "efflorescence and soot weathering"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.2,
+    0.12
+  ],
+  "style": "architectural facade customizer, Georgian",
+  "summary": "Flemish bond brick panel: stretchers alternating with burnt headers each course, struck lime joints, rubbed plinth and stone base.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

@@ -1,0 +1,38 @@
+{
+  "budget": 15000,
+  "id": "stony-rocky-soil",
+  "kind": "prop",
+  "materials": [
+    "ground.dirt",
+    "rock.granite-weathered",
+    "rock.limestone",
+    "rock.river",
+    "rock.slate"
+  ],
+  "name": "Stony rocky soil",
+  "notes": "",
+  "parts": [
+    "dry stony soil bed",
+    "half-buried boulders",
+    "angular flint and scree",
+    "pebble scatter"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.15,
+    2.0
+  ],
+  "style": "architectural facade customizer, Vernacular",
+  "summary": "Stony rocky soil tile 2 x 2 m: thin dry soil packed with half-buried boulders, angular flints and pebble scatter.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

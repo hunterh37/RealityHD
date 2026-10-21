@@ -1,0 +1,32 @@
+{
+  "budget": 1200,
+  "id": "led-row-light",
+  "kind": "prop",
+  "materials": [
+    "metal.aluminum",
+    "emissive.panel"
+  ],
+  "name": "LED row light",
+  "notes": "",
+  "parts": [
+    "housing",
+    "diffuser",
+    "end caps",
+    "aircraft-cable hangers",
+    "power lead"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    0.36,
+    0.12
+  ],
+  "style": "Data hall linear fixture, brushed aluminum housing, frosted diffuser, aircraft-cable hangers",
+  "summary": "2.4 m aluminum linear LED fixture with frosted diffuser, end caps, aircraft-cable hangers and an emissive on/off knob.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,39 @@
+{
+  "budget": 14500,
+  "id": "paint-bottle-rack",
+  "kind": "prop",
+  "materials": [
+    "wood.lumber-maple",
+    "plastic.gloss",
+    "plastic.frosted",
+    "plastic.matte"
+  ],
+  "name": "Paint bottle rack",
+  "notes": "",
+  "parts": [
+    "three stepped wooden shelves with bored holes",
+    "side cheeks with stepped profile",
+    "twelve dropper bottles",
+    "white dropper caps with nozzle tips",
+    "colored paint visible through bottle walls",
+    "printed labels"
+  ],
+  "references": [],
+  "size": [
+    0.25,
+    0.16,
+    0.13
+  ],
+  "style": "Birch/maple hobby rack, paint drips on bottle caps and a ring stain on the top shelf.",
+  "summary": "Tiered wooden rack of twelve 30 ml dropper paint bottles in mixed colors, three stepped rows of four.",
+  "tags": [
+    "prop",
+    "workshop",
+    "wood",
+    "container",
+    "plastic"
+  ],
+  "theme": "LureShop",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

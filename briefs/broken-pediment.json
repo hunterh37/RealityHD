@@ -1,0 +1,39 @@
+{
+  "budget": 12000,
+  "id": "broken-pediment",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.limestone-sooted"
+  ],
+  "name": "Broken pediment",
+  "notes": "",
+  "parts": [
+    "entablature",
+    "raking cornices",
+    "open apex gap",
+    "plinth block",
+    "urn finial",
+    "tympanum",
+    "dentils"
+  ],
+  "references": [],
+  "size": [
+    1.8,
+    0.8,
+    0.35
+  ],
+  "style": "architectural facade customizer, Baroque/Georgian",
+  "summary": "Broken pediment, 1.8 m: triangular pediment with the apex opened and a pedestal with urn between the raking cornices.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "decor",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

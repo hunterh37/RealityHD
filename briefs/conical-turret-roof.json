@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "conical-turret-roof",
+  "kind": "prop",
+  "materials": [
+    "rock.slate",
+    "wood.painted-exterior",
+    "metal.copper-patina",
+    "metal.wrought-iron"
+  ],
+  "name": "Conical turret roof",
+  "notes": "",
+  "parts": [
+    "eave ring with bed moulds and fascia",
+    "fish-scale slate shingle cone",
+    "hip ridge ribs",
+    "copper flashing band",
+    "tall iron finial spire with ball",
+    "small eyebrow dormer",
+    "soffit brackets"
+  ],
+  "references": [],
+  "size": [
+    2.8,
+    3.6,
+    2.8
+  ],
+  "style": "architectural facade customizer, Queen Anne Victorian, patterned slate scales, painted trim, copper finial",
+  "summary": "Queen Anne conical turret roof, 3.6 m: 2.8 m round drum with eave, fish-scale shingled cone, copper finial, dormer.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roof",
+    "trim",
+    "decor",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

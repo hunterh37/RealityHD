@@ -1,0 +1,17 @@
+{
+  "budget": 2000,
+  "id": "power-cord-c19",
+  "kind": "prop",
+  "materials": ["rubber:111111", "plastic.matte:151515", "plastic.matte:F2F2F2", "metal.steel"],
+  "name": "Power cord C19",
+  "notes": "1.5 m cord laid in a gentle S curve; extent 0.06 x 0.03 x 1.5",
+  "parts": ["black rubber jacket", "molded C19 connector with slot face", "molded C20 plug with pin face", "strain reliefs", "white rating label"],
+  "references": [],
+  "size": [0.06, 0.03, 1.5],
+  "style": "IEC C19 to C20 server PDU cord, black rubber jacket, matte molded ends, small white rating label",
+  "summary": "IEC C19-to-C20 power cord, 1.5 m, black rubber jacket in a loose curve with molded connectors, strain reliefs and a rating label.",
+  "tags": ["prop", "handheld"],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

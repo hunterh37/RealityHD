@@ -1,0 +1,40 @@
+{
+  "budget": 14000,
+  "id": "rock-faced-ashlar-panel",
+  "kind": "prop",
+  "materials": [
+    "stone.brownstone",
+    "stone.brownstone-rockface",
+    "stone.brownstone-sooted",
+    "brick.mortar-dark",
+    "metal.rust",
+    "metal.cast-iron"
+  ],
+  "name": "Rock-faced ashlar panel",
+  "notes": "",
+  "parts": [
+    "rock-faced brownstone ashlar blocks",
+    "tooled drafted margins",
+    "alternating course heights",
+    "deep raked mortar joints",
+    "quarry-split bulging faces",
+    "wrought-iron tie-rod anchor plate with square nut"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.2,
+    0.25
+  ],
+  "style": "architectural facade customizer, Richardsonian Romanesque",
+  "summary": "Rock-faced ashlar panel, 1.2 m square: coursed rusticated brownstone blocks with quarry-split faces, drafted margins and deep raked joints.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

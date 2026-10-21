@@ -34,6 +34,11 @@ public extension MaterialLibrary {
             $0.colorA = linear(0x1A1A19); $0.knobs = V4(0.5, 0.7, 0.88, 0); $0.tileSize = 0.4; $0.resolution = 512; $0.seed = 14
             $0.topColor = linear(0x6E6252); $0.topAmount = 0.45; $0.topLow = 0.5
         },
+        /// Worn tire: lighter dusty sidewall (topAmount up), uneven scuff bands, rougher.
+        MaterialSpec(key: "rubber.tire-worn", program: .plastic).with {
+            $0.colorA = linear(0x242422); $0.knobs = V4(0.8, 0.9, 0.75, 0); $0.tileSize = 0.25; $0.resolution = 512; $0.seed = 61
+            $0.topColor = linear(0x7A6E5E); $0.topAmount = 0.75; $0.topLow = 0.35
+        },
         /// Baled hay: golden strands with some green stems. Strands run along U.
         MaterialSpec(key: "straw.hay", program: .straw).with {
             $0.colorA = linear(0xDDBC72); $0.colorB = linear(0x8E8848); $0.colorC = linear(0x9C968A)

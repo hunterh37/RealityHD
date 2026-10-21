@@ -1,0 +1,37 @@
+{
+  "budget": 10000,
+  "id": "turned-porch-baluster-run",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "wood.weathered"
+  ],
+  "name": "Turned porch baluster run",
+  "notes": "",
+  "parts": [
+    "moulded handrail",
+    "bottom rail",
+    "turned balusters",
+    "newel posts with caps",
+    "newel finials",
+    "pegs"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    0.95,
+    0.1
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Victorian porch railing run, 2.4 m: turned balusters between a moulded handrail and bottom rail, with a newel post at each end.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

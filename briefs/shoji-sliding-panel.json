@@ -1,0 +1,40 @@
+{
+  "budget": 12000,
+  "id": "shoji-sliding-panel",
+  "kind": "prop",
+  "materials": [
+    "wood.cedar",
+    "wood.pine-aged",
+    "paper.sheet",
+    "metal.brass-aged",
+    "wood.walnut"
+  ],
+  "name": "Shoji Sliding Panel",
+  "notes": "",
+  "parts": [
+    "outer cedar stiles and rails",
+    "kumiko lattice grid",
+    "washi paper sheets",
+    "lower kick board (koshi)",
+    "recessed finger pull (hikite)",
+    "upper and lower track rails (kamoi, shikii)",
+    "metal hardware"
+  ],
+  "references": [],
+  "size": [
+    1.8,
+    1.9,
+    0.06
+  ],
+  "style": "architectural facade customizer, Japanese Sukiya, aged cedar and paper",
+  "summary": "Shoji sliding panel, 1.8 x 1.9 m: cedar kumiko lattice with washi paper, rails, and a pull recess.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

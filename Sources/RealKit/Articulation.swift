@@ -79,6 +79,24 @@ public struct RealArticulationComponent: Component {
     public init(rig: Rig, state: String) { self.rig = rig; self.state = state }
 }
 
+/// Merged copy of a rig posed in its initial state, under the root as "rest" (lod0...). While every
+/// joint and option sits at that pose and the rig is past LOD0, RealLODSystem shows the proxy (one draw
+/// per material for the whole object) and hides base and part meshes. Any move switches back to parts.
+public struct RealRestProxyComponent: Component {
+    public let values: [String: Float]
+    public let options: [String: Int]
+    /// Joints and options match the proxy pose.
+    public internal(set) var atRest = true
+    /// A hover source (see `Entity.realSetHover`) is on the rig: parts show in place of the proxy so the
+    /// hovered part highlights.
+    public internal(set) var hovered = false
+    /// Proxy shows only at this LOD level or coarser: 1 for rigs with per-part tap targets (LOD0 keeps parts
+    /// for hover feedback up close), 0 for rigs without them (`Rig.restProxyLevel(interactive:)`).
+    public let minLevel: Int
+    /// Proxy is built only when it saves at least this many draws.
+    public static let minSavedDraws = 2
+}
+
 /// Present on a joint entity while its tween runs, so the system visits only moving joints (idle cost zero).
 public struct RealJointMovingComponent: Component { public init() {} }
 
@@ -101,7 +119,7 @@ public struct RealArticulationSystem: System {
             e.transform = j.transform
             let moving = j.moving
             e.components.set(j)
-            if !moving { e.components.remove(RealJointMovingComponent.self) }
+            if !moving { e.components.remove(RealJointMovingComponent.self); e.articulationRoot?.realRefreshRestProxy() }
         }
     }
 }
@@ -125,6 +143,12 @@ public extension Rig {
     @MainActor
     func entityAsync(name: String? = nil, state: String? = nil, materials: RealMaterialCache? = nil, interactive: Bool = false,
                      grabbable: Bool = false) async throws -> Entity {
+        try await foldingStatics().foldedEntityAsync(name: name, state: state, materials: materials, interactive: interactive, grabbable: grabbable)
+    }
+
+    @MainActor
+    private func foldedEntityAsync(name: String?, state: String?, materials: RealMaterialCache?, interactive: Bool,
+                                   grabbable: Bool) async throws -> Entity {
         let root = Entity()
         root.name = name ?? self.name
         let start = state ?? initialState
@@ -132,11 +156,12 @@ public extension Rig {
         let multiLOD = lodCount > 1
 
         func lodChildren(_ models: [Model], under parent: Entity) async throws {
+            let diag = models[0].boundsDiagonal
             for (i, m) in models.enumerated() where m.triangleCount > 0 {
-                let e = try await m.modelEntityAsync(materials: materials)
+                let e = try await m.modelEntityAsync(materials: materials, lod: i)
                 e.name = "lod\(i)"
                 e.isEnabled = i == 0
-                e.realTagCost(m.cost(lod: i, size: models[0].boundsDiagonal))
+                e.realTagCost(m.cost(lod: i, size: diag))
                 parent.addChild(e)
             }
         }
@@ -163,7 +188,7 @@ public extension Rig {
                     e.addChild(c)
                 }
             }
-            if interactive, p.joint.kind != .fixed, p.joint.mimic == nil, let b = geo[0].first?.bounds, b.max != b.min {
+            if isPartTarget(i, interactive: interactive), let b = geo[0].first?.bounds {
                 Self.makeTarget(e, min: b.min, max: b.max)
             }
             (p.parent.flatMap { joints[$0] } ?? root).addChild(e)
@@ -182,9 +207,33 @@ public extension Rig {
             e.look(at: pos + dir, from: pos, relativeTo: host)
             e.isEnabled = Self.lightOn(l, opts)
         }
+        let proxyLevel = restProxyLevel(interactive: interactive)
+        var proxied = false
+        if multiLOD || proxyLevel == 0 {
+            let posedRest = posed(values: vals, options: opts)
+            let l = proxyLevel
+            func draws(_ m: Model) -> Int { m.triangleCount > 0 ? m.surfaces.filter { !$0.isEmpty }.count : 0 }
+            let liveDraws = draws(base[l]) + parts.reduce(0) { n, p in n + draws(p.option(min(opts[p.name] ?? 0, p.optionCount - 1))[l]) }
+            if liveDraws - draws(posedRest.levels[l]) >= RealRestProxyComponent.minSavedDraws {
+                let rest = Entity()
+                rest.name = "rest"
+                let restDiag = posedRest.levels[0].boundsDiagonal
+                for (i, m) in posedRest.levels.enumerated() where i >= l && m.triangleCount > 0 {
+                    let e = try await m.modelEntityAsync(materials: materials, lod: i)
+                    e.name = "lod\(i)"
+                    e.isEnabled = false
+                    e.realTagCost(m.cost(lod: i, size: restDiag))
+                    rest.addChild(e)
+                }
+                root.addChild(rest)
+                root.components.set(RealRestProxyComponent(values: vals, options: opts, minLevel: l))
+                proxied = true
+            }
+        }
         root.components.set(RealArticulationComponent(rig: schema, state: start))
         root.components.set(RealJointIndex(joints: joints, lights: lightEntities))
-        if multiLOD {
+        // A single-LOD rig with a proxy still takes a LOD root, so RealLODSystem switches proxy and parts.
+        if multiLOD || proxied {
             var b = base[0].bounds
             for p in parts where p.levels[0].triangleCount > 0 { let pb = p.levels[0].bounds; b = (simd_min(b.min, pb.min), simd_max(b.max, pb.max)) }
             root.components.set(RealLODComponent(switchDistances: switchDistances, center: (b.min + b.max) / 2))
@@ -265,6 +314,7 @@ public extension Entity {
         root.components.set(a)
         root.applyJoints(a.rig.values(state), rig: a.rig, animated: animated)
         root.applyOptions(a.rig.options(state), rig: a.rig)
+        root.realRefreshRestProxy()
     }
 
     /// Sets joint values directly (degrees or meters); joints not named keep their target. Mimics follow.
@@ -278,12 +328,48 @@ public extension Entity {
         let resolved = a.rig.values(current)
         root.applyJoints(resolved, rig: a.rig, animated: animated)
         if !a.rig.optionLinks.isEmpty { root.applyOptions(root.currentOptions(a.rig).merging(a.rig.linkedOptions(resolved)) { $1 }, rig: a.rig) }
+        root.realRefreshRestProxy()
     }
 
     /// Switches part options directly (a burner flame, a lamp bulb); parts not named keep theirs.
     func setOptions(_ options: [String: Int]) {
         guard let root = articulationRoot, let a = root.components[RealArticulationComponent.self] else { return }
         root.applyOptions(root.currentOptions(a.rig).merging(options) { $1 }, rig: a.rig)
+        root.realRefreshRestProxy()
+    }
+
+    /// Hover began (`true`) or ended on this rig or one of its parts. While hovered, a rig past LOD0 shows
+    /// its parts instead of the merged rest proxy, so the system hover effect has a mesh to highlight.
+    /// The system does not report gaze to the app; call this from the app's hover source (for example
+    /// `onContinuousHover` or a pointer-enter handler on the hosting view). No-op for rigs without a proxy.
+    func realSetHover(_ on: Bool) {
+        guard let root = articulationRoot, var px = root.components[RealRestProxyComponent.self], px.hovered != on else { return }
+        px.hovered = on
+        root.components.set(px)
+        if let lod = root.components[RealLODComponent.self], lod.current >= 0 {
+            RealLODSystem.apply(level: lod.current, culled: lod.culled, shadowsOff: lod.shadowsOff, under: root)
+        }
+    }
+
+    /// Re-checks whether an articulated root sits at its rest-proxy pose and reapplies its LOD level
+    /// when that changes (no-op for rigs without a proxy).
+    func realRefreshRestProxy() {
+        guard var px = components[RealRestProxyComponent.self], let a = components[RealArticulationComponent.self] else { return }
+        var still = true
+        for p in a.rig.parts where p.joint.kind != .fixed {
+            guard let j = realJoint(p.name)?.components[RealJointComponent.self] else { continue }
+            if j.moving || abs(j.value - (px.values[p.name] ?? 0)) > 1e-5 { still = false; break }
+        }
+        if still {
+            let cur = currentOptions(a.rig)
+            for p in a.rig.parts where p.optionCount > 1 && (cur[p.name] ?? 0) != (px.options[p.name] ?? 0) { still = false; break }
+        }
+        guard still != px.atRest else { return }
+        px.atRest = still
+        components.set(px)
+        if let lod = components[RealLODComponent.self], lod.current >= 0 {
+            RealLODSystem.apply(level: lod.current, culled: lod.culled, shadowsOff: lod.shadowsOff, under: self)
+        }
     }
 
     /// Option index each multi-option part shows now.

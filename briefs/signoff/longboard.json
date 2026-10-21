@@ -1,0 +1,22 @@
+{
+  "automated" : 0.9999636,
+  "date" : "2026-10-17",
+  "final" : 0.8269247,
+  "fingerprint" : "756596e0af89e22c",
+  "id" : "longboard",
+  "iterations" : 2,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 7,
+    "construction" : 8,
+    "edges" : 7,
+    "grounding" : 7,
+    "materials" : 7,
+    "proportion" : 8,
+    "silhouette" : 8,
+    "wear" : 6
+  },
+  "seed" : 1,
+  "threshold" : 0.82,
+  "vision" : 0.7337499
+}

@@ -1,0 +1,37 @@
+{
+  "budget": 15000,
+  "id": "saturn-s2",
+  "kind": "prop",
+  "materials": [
+    "metal.powder-white",
+    "metal.painted:141414",
+    "metal.heat-tint-cold"
+  ],
+  "name": "Saturn V S-II second stage",
+  "notes": "Vision Spacecraft. 1:1 metres.",
+  "parts": [
+    "S-IC/S-II interstage with ullage motors",
+    "LH2 tank barrel",
+    "LOX tank",
+    "black roll pattern",
+    "systems tunnel",
+    "5 J-2 engines"
+  ],
+  "references": [],
+  "size": [
+    10.29,
+    24.9,
+    10.29
+  ],
+  "style": "photoreal 1967-1973 Apollo flight hardware, clean painted finish, slight launch-pad grime",
+  "summary": "Second stage of the Saturn V, 10.06 m x 24.9 m: white skin, interstage ring with eight ullage fairings and black bands, cable tunnel, five J-2 engines.",
+  "tags": [
+    "prop",
+    "vehicle",
+    "metal",
+    "outdoor"
+  ],
+  "theme": "Aerospace",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

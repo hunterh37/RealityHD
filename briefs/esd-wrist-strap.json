@@ -1,0 +1,36 @@
+{
+  "budget": 1500,
+  "id": "esd-wrist-strap",
+  "kind": "prop",
+  "materials": [
+    "fabric.webbing",
+    "metal.steel",
+    "plastic.matte",
+    "rubber.insulating-red",
+    "rubber.insulating-black"
+  ],
+  "name": "ESD wrist strap",
+  "notes": "",
+  "parts": [
+    "black elastic woven band loop with metal thread",
+    "steel contact plate",
+    "10 mm snap",
+    "coiled black cord about 10 turns",
+    "red and black alligator clip"
+  ],
+  "references": [],
+  "size": [
+    0.08,
+    0.02,
+    0.3
+  ],
+  "style": "Anti-static wrist strap lying on a bench: black woven elastic band loop with silver thread stripe, steel contact plate and snap, coiled black cord, red/black insulated alligator clip",
+  "summary": "Anti-static wrist strap with elastic band, steel snap, coiled cord and alligator clip.",
+  "tags": [
+    "prop",
+    "handheld"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

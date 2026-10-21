@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "allotment-sweetcorn-block-bed",
+  "kind": "prop",
+  "materials": [
+    "ground.dirt",
+    "soil.potting",
+    "plant.stem",
+    "grass.lawn-thatch"
+  ],
+  "name": "Allotment sweetcorn block bed",
+  "notes": "",
+  "parts": [
+    "sweetcorn stalks in a block",
+    "strap leaves",
+    "tassels",
+    "cobs with silks",
+    "brace roots",
+    "hoed soil",
+    "path margin"
+  ],
+  "references": [],
+  "size": [
+    2,
+    1.6,
+    2
+  ],
+  "style": "architectural facade customizer, Edwardian Allotment",
+  "summary": "Sweetcorn block bed tile, 2 x 2 m: a 4 x 4 block of mature sweetcorn with strap leaves, tassels and silked cobs over hoed soil.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "garden",
+    "outdoor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

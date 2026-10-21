@@ -1,0 +1,38 @@
+{
+  "budget": 8500,
+  "id": "wafer-display-stand",
+  "kind": "prop",
+  "materials": [
+    "metal.chrome",
+    "plastic.clear",
+    "silicon.thinfilm",
+    "metal.brushed",
+    "rubber"
+  ],
+  "name": "Wafer display stand",
+  "notes": "",
+  "parts": [
+    "chrome round base",
+    "chrome stem",
+    "clear acrylic cradle with grooved rim",
+    "300 mm patterned wafer disc",
+    "iridescent die grid",
+    "wafer notch and flat edge",
+    "engraved plaque",
+    "rubber feet"
+  ],
+  "references": [],
+  "size": [
+    0.4,
+    0.5,
+    0.2
+  ],
+  "style": "Desktop trophy stand 0.4 x 0.5 x 0.2 m: polished chrome weighted base, clear acrylic cradle holding a 300 mm patterned wafer disc tilted back, rainbow iridescent die grid, engraved brushed plaque on base.",
+  "summary": "Chrome base and clear acrylic cradle holding a 300 mm patterned wafer with iridescent die grid and an engraved plaque.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "ChipLab",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,40 @@
+{
+  "budget": 14000,
+  "id": "mission-shaped-parapet",
+  "kind": "prop",
+  "materials": [
+    "paint.stucco:E6D8BC",
+    "ceramic.terracotta",
+    "concrete.rough"
+  ],
+  "name": "Mission shaped parapet",
+  "notes": "",
+  "parts": [
+    "stucco parapet body with ogee shoulders",
+    "central curved gable with round top",
+    "clay tile coping cap",
+    "quatrefoil opening ring",
+    "stepped base cornice",
+    "scupper spout",
+    "stucco cracks and stains"
+  ],
+  "references": [],
+  "size": [
+    2.2,
+    1.1,
+    0.3
+  ],
+  "style": "architectural facade customizer, Mission Revival, painted stucco with clay tile coping",
+  "summary": "Mission Revival shaped parapet, 2.2 m: stucco ogee profile, clay coping, quatrefoil, belt course, scupper.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "decor",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

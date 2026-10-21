@@ -1,0 +1,43 @@
+{
+  "budget": 15000,
+  "id": "self-binding-hoggin-path",
+  "kind": "prop",
+  "materials": [
+    "ground.gravel",
+    "rock.limestone",
+    "rock.river",
+    "metal.rust",
+    "ground.puddle",
+    "turf.worn",
+    "plant.stem"
+  ],
+  "name": "Self-binding hoggin path",
+  "notes": "",
+  "parts": [
+    "crowned compacted hoggin surface",
+    "loose surface grit and flint chips",
+    "embedded larger flints",
+    "wheel rut and puddle mark",
+    "steel edging strips",
+    "steel edging pins",
+    "grass verge strips"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.1,
+    2.0
+  ],
+  "style": "architectural facade customizer, English Landscape; compacted buff hoggin, crowned, lightly rutted",
+  "summary": "Self-binding hoggin path, 2 x 2 m: crowned, rolled buff hoggin with loose grit and flints between pinned steel edging strips and grass verges.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

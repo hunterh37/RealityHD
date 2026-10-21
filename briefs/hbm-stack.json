@@ -1,0 +1,38 @@
+{
+  "budget": 12000,
+  "id": "hbm-stack",
+  "kind": "prop",
+  "materials": [
+    "silicon.die",
+    "silicon.die-edge",
+    "metal.copper",
+    "plastic.underfill"
+  ],
+  "name": "HBM5 stack",
+  "notes": "HBM5 16-high memory stack.",
+  "parts": [
+    "base logic die",
+    "sixteen thinned DRAM dies with bond-line gaps",
+    "copper microbump rows between layers",
+    "underfill fillets",
+    "molded epoxy sidewalls",
+    "exploded layer state"
+  ],
+  "references": [],
+  "size": [
+    0.011,
+    0.0023,
+    0.01
+  ],
+  "style": "HBM5 16-high stack on base logic die, 11 x 10 mm footprint, slightly stepped thinned dies, underfill fillets, copper microbump rows, molded sidewalls, exploded option.",
+  "summary": "HBM5 stack: base logic die, 16 thinned DRAM dies with edge sheen, underfill fillets, copper microbump rows and molded sidewalls; explodes.",
+  "tags": [
+    "prop",
+    "chiplab",
+    "electronics",
+    "articulated"
+  ],
+  "theme": "ChipLab",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

@@ -1,0 +1,39 @@
+{
+  "budget": 4000,
+  "id": "nightstand",
+  "kind": "prop",
+  "materials": [
+    "wood.walnut",
+    "wood.plywood",
+    "metal.brass"
+  ],
+  "name": "Nightstand",
+  "notes": "",
+  "parts": [
+    "overhanging top",
+    "drawer with raised panel and brass knob",
+    "open lower shelf",
+    "tapered square legs",
+    "plywood back and interior",
+    "carcass sides"
+  ],
+  "references": [],
+  "size": [
+    0.5,
+    0.6,
+    0.4
+  ],
+  "style": "mid-century walnut, oiled, light wear on the top",
+  "summary": "Walnut nightstand: one raised-panel drawer with a brass knob above an open shelf, on tapered legs.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bedroom",
+    "furniture",
+    "wood",
+    "interior"
+  ],
+  "theme": "Bedroom",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

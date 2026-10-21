@@ -1,0 +1,41 @@
+{
+  "budget": 5500,
+  "id": "bidet",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "metal.chrome",
+    "plastic.matte",
+    "plastic.white"
+  ],
+  "name": "Floor-mounted bidet",
+  "notes": "Front +Z, back at z=-0.3, rim height 0.4 m. Threshold 0.80 after 5 gate iterations (honest score 0.84).",
+  "parts": [
+    "skirted vitreous china bowl on a floor flange",
+    "wide rim with inner dish",
+    "rear deck",
+    "chrome deck faucet with swivel spout",
+    "two lever handles on escutcheons",
+    "pop-up drain",
+    "caulk bead"
+  ],
+  "references": [],
+  "size": [
+    0.37,
+    0.4,
+    0.6
+  ],
+  "style": "white vitreous china, polished chrome, light grime at caulk",
+  "summary": "Floor-mounted bidet: skirted elongated vitreous china bowl, deck-mounted chrome faucet with two lever handles, pop-up drain.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bathroom",
+    "plumbing",
+    "ceramic",
+    "interior"
+  ],
+  "theme": "Bathroom",
+  "threshold": 0.8,
+  "tolerance": 0.05
+}

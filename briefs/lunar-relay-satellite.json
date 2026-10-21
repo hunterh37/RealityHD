@@ -1,0 +1,36 @@
+{
+  "budget": 30000,
+  "id": "lunar-relay-satellite",
+  "kind": "prop",
+  "materials": [
+    "insulation.foil-gold",
+    "plastic.black",
+    "metal.powder-white",
+    "metal.aluminum-brushed",
+    "composite.carbon"
+  ],
+  "name": "Lunar relay satellite",
+  "notes": "",
+  "parts": [
+    "MLI bus with seams",
+    "two solar wings with cell grid",
+    "Ka dish on boom",
+    "S-band patches",
+    "thrusters",
+    "star trackers"
+  ],
+  "references": [],
+  "size": [
+    8.34,
+    2.26,
+    2.48
+  ],
+  "style": "NASA LCRNS relay smallsat, gold and black MLI",
+  "summary": "LCRNS-style lunar relay smallsat: gold/black MLI bus with seams, two solar wings with cell grid, 0.8 m Ka dish on boom, S-band patches, thrusters, star trackers.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "Lunar",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

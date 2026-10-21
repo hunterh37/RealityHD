@@ -20,7 +20,7 @@ let package = Package(
         // Asset catalog: trees, rocks, ground, props, scenes.
         .target(name: "RealLibrary", dependencies: ["RealCore", "RealMaterials", "RealKit"]),
         // CLI: list, stats, offscreen PNG preview via RealityRenderer.
-        .executableTarget(name: "realityhd", dependencies: ["RealCore", "RealMaterials", "RealKit", "RealLibrary"]),
+        .executableTarget(name: "realityhd", dependencies: ["RealCore", "RealMaterials", "RealKit", "RealLibrary", "AnimalCore", "AnimalKit"]),
         // Animals: species, rigs, flight, behavior, habitat, journal. Headless (no RealityKit).
         .target(name: "AnimalCore", dependencies: ["RealCore", "RealMaterials", "RealKit", "RealLibrary"]),
         // Animals on RealityKit: rig entities, WildlifeWorld, hand landing, procedural voices.

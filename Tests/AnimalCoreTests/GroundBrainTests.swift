@@ -2,8 +2,9 @@ import XCTest
 @testable import AnimalCore
 
 final class GroundBrainTests: XCTestCase {
+    /// Yard visitors only: game animals bolt from anyone inside 20 to 30 m, which a 10 m yard always contains.
     func testEverySpeciesForagesAndLeaves() {
-        for sp in GroundSpecies.allCases {
+        for sp in GroundSpecies.allCases where sp.profile.behavior.visitsYards {
             var v = YardView(min: V2(-5, -5), max: V2(5, 5))
             v.player.head = V3(0, 1.6, 4)
             v.cover = [V2(-3, -3)]; v.forage = [V2(1, -1)]

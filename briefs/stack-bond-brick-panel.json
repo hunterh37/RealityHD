@@ -1,0 +1,39 @@
+{
+  "budget": 12000,
+  "id": "stack-bond-brick-panel",
+  "kind": "prop",
+  "materials": [
+    "brick.unit-buff",
+    "brick.unit-buff-dark",
+    "brick.mortar-grey",
+    "metal.galvanized-aged",
+    "plastic.black"
+  ],
+  "name": "Stack bond brick panel",
+  "notes": "",
+  "parts": [
+    "stack-bonded bricks with continuous perpends",
+    "raked bed joints",
+    "struck perpend joints",
+    "open weep vent at the base course",
+    "galvanized bed-joint reinforcement edge",
+    "one replaced brick of a mismatched batch"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.2,
+    0.1
+  ],
+  "style": "architectural facade customizer, Modernist",
+  "summary": "Stack bond brick panel, 1.2 m square: buff bricks in vertically aligned columns with raked bed joints and a base weep vent.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

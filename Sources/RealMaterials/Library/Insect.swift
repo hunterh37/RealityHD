@@ -40,8 +40,10 @@ public extension MaterialLibrary {
             chitin("insect.chitin", 0x1C1916, 0x2C2620, pits: 30, shift: 0.15, rough: 0.22, seed: 1101),
             chitin("insect.chitin-matte", 0x1E1C1A, 0x2A2622, pits: 40, shift: 0.1, rough: 0.62, coat: 0, seed: 1102),
             chitin("insect.chitin-chestnut", 0x5E2412, 0x2E120A, pits: 26, shift: 0.35, rough: 0.2, seed: 1103),
+            chitin("insect.chitin-earwig", 0x5A2A12, 0x7A4020, pits: 5, shift: 0.3, rough: 0.14, coat: 0.9, seed: 1137),
             chitin("insect.chitin-metallic", 0x2AA040, 0xC8A830, pits: 36, shift: 0.7, rough: 0.2, metal: 0.85, coat: 0.3, seed: 1104),
             chitin("insect.chitin-soft", 0x7FA845, 0x5E8A34, pits: 12, shift: 0.3, rough: 0.48, coat: 0.2, seed: 1105),
+            chitin("insect.chitin-shield", 0x4C9E30, 0x8A7A30, pits: 34, shift: 0.6, rough: 0.46, coat: 0.15, seed: 1138),
             MaterialSpec(key: "insect.fur", program: .insectFur).with {
                 $0.colorA = linear(0xE8B830); $0.colorB = linear(0x4A3410); $0.knobs = V4(64, 0.35, 0.78, 0)
                 $0.seed = 1110; $0.tileSize = 0.004; $0.resolution = 512; $0.normalStrength = 1.4; $0.roughness = 0.78
@@ -66,6 +68,9 @@ public extension MaterialLibrary {
             wing("insect.elytra-ladybug", 10, .tegmen, aspect: 1.9, rough: 0.12, coat: 1, seed: 1131),
             wing("insect.elytra-firefly", 11, .tegmen, rough: 0.45, seed: 1132),
             wing("insect.elytra-jewel", 12, .tegmen, rough: 0.22, coat: 0.6, metal: true, seed: 1133),
+            wing("insect.elytra-goliath", 14, .tegmen, a: 0xEAE4D2, b: 0x55321A, c: 0x9A7650, rough: 0.55, seed: 1134),
+            wing("insect.elytra-tiger", 16, .tegmen, a: 0x16A05A, b: 0x9A6A20, c: 0xF0EEE2, aspect: 1.5, rough: 0.2, coat: 0.6, metal: true, seed: 1136),
+            wing("insect.pronotum-goliath", 15, .tegmen, a: 0xEDE8DA, b: 0x141110, c: 0x8A7A62, rough: 0.5, seed: 1135),
             veins("insect.veins-dragonfly-fore", 0, .dragonflyFore, 0x2A2418, 0x3A2414, seed: 1140),
             veins("insect.veins-dragonfly-hind", 0, .dragonflyHind, 0x2A2418, 0x3A2414, seed: 1141),
             veins("insect.veins-damselfly", 1, .damselfly, 0x1A1A1C, 0x202024, seed: 1142),
@@ -78,6 +83,8 @@ public extension MaterialLibrary {
             membrane("insect.membrane", V3(0.8, 0.82, 0.82), 0.14),
             membrane("insect.membrane-amber", V3(0.75, 0.55, 0.25), 0.28),
             membrane("insect.membrane-smoky", V3(0.35, 0.3, 0.26), 0.4),
+            membrane("insect.membrane-shieldbug", V3(0.17, 0.11, 0.07), 0.9),
+            membrane("insect.membrane-hemelytra", V3(0.35, 0.5, 0.18), 0.05),
             MaterialSpec(key: "insect.lantern", program: nil).with {
                 $0.baseColor = V3(1, 0.95, 0.7); $0.roughness = 0.4; $0.mode = .emissive
                 $0.emissive = V3(1, 0.9, 0.46); $0.emissiveIntensity = 3

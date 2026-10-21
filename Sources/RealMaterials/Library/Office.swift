@@ -73,6 +73,14 @@ public extension MaterialLibrary {
         MaterialSpec(key: "glass.clear", program: nil).with {
             $0.baseColor = V3(0.8, 0.86, 0.84); $0.roughness = 0.02; $0.specular = 0.5; $0.mode = .transparent; $0.opacity = 0.12; $0.twoSided = true
         },
+        // Drinking water in a glass: nearly colorless, faint cool tint, more transparent than fluid.tap-water.
+        MaterialSpec(key: "glass.water-clear", program: nil).with {
+            $0.baseColor = V3(0.74, 0.84, 0.88); $0.roughness = 0.015; $0.specular = 0.7; $0.mode = .transparent; $0.opacity = 0.16; $0.twoSided = true
+        },
+        // Clear ice cubes: slightly frosted core, cool white.
+        MaterialSpec(key: "glass.ice", program: nil).with {
+            $0.baseColor = V3(0.86, 0.92, 0.96); $0.roughness = 0.18; $0.specular = 0.6; $0.mode = .transparent; $0.opacity = 0.38; $0.twoSided = true
+        },
         // Acid-etched (frosted) glass: privacy bands and partitions.
         MaterialSpec(key: "glass.frosted", program: nil).with {
             $0.baseColor = V3(0.9, 0.92, 0.92); $0.roughness = 0.45; $0.specular = 0.4; $0.mode = .transparent; $0.opacity = 0.7; $0.twoSided = true

@@ -1,6 +1,7 @@
 import Foundation
 import Testing
 import simd
+import RealityKit
 @testable import RealCore
 @testable import RealKit
 @testable import RealLibrary
@@ -75,6 +76,42 @@ import simd
         #expect(cover.level(distance: 20, switchDistances: sw, cullDistance: 30, groundCover: false) == 1)
     }
 
+    @MainActor @Test func primeSetsLevelsBeforeTheSceneJoins() throws {
+        let parent = Entity()
+        let near = try Self.asset().entity(), mid = try Self.asset().entity(), far = try Self.asset().entity()
+        near.position = [0, 0, -2]; mid.position = [0, 0, -20]; far.position = [0, 0, -60]
+        for e in [near, mid, far] { parent.addChild(e) }
+        parent.position = [0, 0, -1]   // final placement is applied before priming
+        RealLODSystem.prime(parent, viewer: [0, 1.6, 0])
+        func on(_ e: Entity) -> [String] { e.children.filter { $0.isEnabled }.map { $0.name } }
+        #expect(on(near) == ["lod0"]); #expect(on(mid) == ["lod1"]); #expect(on(far) == ["lod2"])
+        #expect(far.components[RealLODComponent.self]?.current == 2)
+    }
+
+    @Test func peripheralScaleRampsOutsideTheView() {
+        let b = RealPerformance(.balanced), fwd = SIMD3<Float>(0, 0, -1)
+        #expect(b.peripheralScale(forward: fwd, toObject: [0, 0, -5]) == 1)
+        #expect(b.peripheralScale(forward: fwd, toObject: [5, 0, -5]) == 1, "45 degrees is in view")
+        #expect(abs(b.peripheralScale(forward: fwd, toObject: [0, 0, 5]) - b.peripheralBias) < 1e-4)
+        #expect(b.with { $0.peripheralLOD = false }.peripheralScale(forward: fwd, toObject: [0, 0, 5]) == 1)
+    }
+
+    @MainActor @Test func offViewLODStopsAtTheShadowCasterLimit() throws {
+        let perf = RealPerformance(.balanced)
+        let front = try Self.asset().entity(), behind = try Self.asset().entity(), behindMid = try Self.asset().entity()
+        front.position = [0, 0, -5]; behind.position = [0, 0, 5]; behindMid.position = [0, 0, 20]
+        for e in [front, behind, behindMid] {
+            RealLODSystem.evaluate(e, viewer: .zero, forward: [0, 0, -1], perf: perf, adapt: 1, bias: 1, reach: 0)
+        }
+        #expect(front.components[RealLODComponent.self]?.current == 0)
+        #expect(behind.components[RealLODComponent.self]?.current == 1, "behind: one level coarser, still a caster")
+        #expect(behindMid.components[RealLODComponent.self]?.current == 1, "capped at shadowCasterMaxLOD")
+        let off = perf.with { $0.peripheralLOD = false }
+        let b2 = try Self.asset().entity(); b2.position = [0, 0, 5]
+        RealLODSystem.evaluate(b2, viewer: .zero, forward: [0, 0, -1], perf: off, adapt: 1, bias: 1, reach: 0)
+        #expect(b2.components[RealLODComponent.self]?.current == 0)
+    }
+
     @Test func shadowPolicy() {
         let b = RealPerformance(.balanced)
         #expect(b.castsShadow(lod: 1, size: 1) && !b.castsShadow(lod: 2, size: 1))
@@ -116,6 +153,78 @@ import simd
         #expect(c.instances == 1600 + 30 + 60, "balanced keeps every grass, tree and static instance")
     }
 
+    @Test func viewVolumeIsTheUnionOfBothEyes() {
+        let v = ViewVolume(eye: V3(0, 1.6, 0), target: V3(0, 1.6, -10))
+        #expect(v.eyes.count == 2)
+        #expect(v.intersects(center: V3(0, 1.6, -5), radius: 0.1))
+        #expect(!v.intersects(center: V3(0, 1.6, 5), radius: 0.1), "behind the head")
+        #expect(v.intersects(center: V3(0, 1.6, 0.3), radius: 0.5), "a sphere around the head touches the view")
+        #expect(v.intersects(center: V3(-5, 1.6, -5), radius: 0.1), "45 degrees left sits inside a 100 degree field")
+        #expect(!v.intersects(center: V3(-10, 1.6, -1), radius: 0.1), "84 degrees left is outside")
+        // A tall caster behind and to the side throws its shadow forward into view.
+        #expect(v.castsIntoView(center: V3(0, 3, 1), radius: 0.5, toLight: simd_normalize(V3(0, 1, 1)), shadowLength: 3))
+        #expect(!v.castsIntoView(center: V3(0, 3, 1), radius: 0.5, toLight: simd_normalize(V3(0, 1, -1)), shadowLength: 3))
+    }
+
+    @Test func frustumEstimateDropsWhatIsBehind() {
+        let s = Self.scene()
+        let all = s.estimate(settings: RealPerformance(.balanced))
+        let seen = s.estimate(settings: RealPerformance(.balanced), view: s.viewVolume())
+        #expect(seen.triangles < all.triangles && seen.triangles > 0)
+        #expect(seen.drawCalls < all.drawCalls)
+        #expect(seen.shadowTriangles <= all.shadowTriangles)
+        var turned = s
+        turned.camera = .init(eye: V3(0, 1.6, 0), target: V3(0, 1, 10), fov: 60)
+        #expect(turned.estimate(settings: RealPerformance(.balanced), view: turned.viewVolume()) != seen, "the view follows the camera")
+    }
+
+    @Test func liveRigsCountOneDrawPerPartMaterial() {
+        var rig = Rig(name: "test-rig", lods: 1, switchDistances: [])
+        var base = Model(name: "base"); base.add(Prim.roundedBox(V3(1, 1, 1), radius: 0.05, bevelSegments: 1, material: "wood.oak"))
+        rig.base = [base]
+        for k in 0..<3 {
+            var m = Model(name: "p\(k)")
+            m.add(Prim.roundedBox(V3(0.2, 0.2, 0.2), radius: 0.02, bevelSegments: 1, material: "wood.oak"))
+            m.add(Prim.roundedBox(V3(0.1, 0.1, 0.1), radius: 0.01, bevelSegments: 1, material: "metal.steel"))
+            rig.parts.append(RigPart(name: "p\(k)", parent: nil, pivot: .identity, joint: .hinge(0...90), levels: [m]))
+        }
+        rig.states = [RigState("a"), RigState("b")]
+        var folded = rig
+        for k in folded.parts.indices { folded.parts[k].joint = .fixed }
+        let f = folded.foldingStatics()
+        #expect(f.base[0].surfaces.count == 2 && f.parts.allSatisfy { $0.levels[0].triangleCount == 0 })
+        #expect(f.posed().levels[0].triangleCount == rig.posed().levels[0].triangleCount)
+        var s = RealScene(name: "rig-test")
+        s.farGround = nil
+        s.rigs.append(.init(rig: rig, at: Xform(translation: V3(0, 0, -3)), state: "a", interactive: true))
+        s.camera = .init(eye: V3(0, 1.6, 0), target: V3(0, 0.5, -3), fov: 60)
+        let c = s.estimate(settings: RealPerformance(.balanced), view: s.viewVolume())
+        #expect(c.liveDrawCalls == 1 + 3 * 2 && c.drawCalls == c.liveDrawCalls)
+        #expect(c.meshes == 4)
+    }
+
+    @Test func interiorStaticsOutOfTheSunStopCasting() {
+        var s = RealScene(name: "sun-test")
+        s.farGround = nil
+        // A closed 10 x 3 x 10 box (shell) with one prop inside, and one prop outside in the sun.
+        var shell = Model(name: "shell")
+        shell.add(Prim.roundedBox(V3(10.4, 0.2, 10.4), radius: 0.01, bevelSegments: 1, material: "wood.oak"), Xform(translation: V3(0, 3.1, 0)))
+        for (x, z, w, d) in [(Float(5.1), Float(0), Float(0.2), Float(10.4)), (-5.1, 0, 0.2, 10.4), (0, 5.1, 10.4, 0.2), (0, -5.1, 10.4, 0.2)] {
+            shell.add(Prim.roundedBox(V3(w, 3.2, d), radius: 0.01, bevelSegments: 1, material: "wood.oak"), Xform(translation: V3(x, 0, z)))
+        }
+        s.add(shell, bake: true)
+        s.singles.append(.init(asset: Self.asset(size: 0.5), at: Xform(translation: V3(0, 0, 0))))
+        s.singles.append(.init(asset: Self.asset(size: 0.5), at: Xform(translation: V3(20, 0, 0))))
+        s.lighting = .init(sky: .midday, interior: .office, fog: 0)
+        let r = s.shadowResolved(s.singles)
+        #expect(r.map { $0.castsShadow } == [true, false, true], "shell casts, enclosed prop stops, sunlit prop casts")
+        s.cullSunBlockedCasters = false
+        #expect(s.shadowResolved(s.singles).allSatisfy { $0.castsShadow })
+        s.cullSunBlockedCasters = nil
+        s.lighting.interior = nil
+        #expect(s.shadowResolved(s.singles).allSatisfy { $0.castsShadow }, "exteriors keep every caster")
+    }
+
     @Test func forcedBatchingKeepsSmallObjectsApart() {
         let s = Self.scene()
         let batched = s.uploadedStatics(RealPerformance(.balanced).with { $0.forceBatching = true })
@@ -128,5 +237,29 @@ import simd
     @Test func lightBudgetKeepsTheBrightest() {
         let l = RealScene.budgetLights(Self.scene().lights, max: 3)
         #expect(l.map(\.name) == ["l11", "l10", "l9"])
+    }
+}
+
+@Suite struct GovernorTests {
+    let perf = RealPerformance(.balanced).with { $0.adaptive = true; $0.targetFPS = 90 }
+
+    @Test func idleGapDoesNotCutScale() {
+        var g = RealGovernor(); var s: Float = 1
+        for _ in 0..<200 { s = g.step(1 / 95.0, perf, scale: s) }
+        s = g.step(3.0, perf, scale: s)                       // RealityKit idle span
+        for _ in 0..<200 { s = g.step(1 / 95.0, perf, scale: s) }
+        #expect(s == 1)
+    }
+
+    @Test func slowFramesStillCutScale() {
+        var g = RealGovernor(); var s: Float = 1
+        for _ in 0..<60 { s = g.step(1 / 60.0, perf, scale: s) }
+        #expect(s < 1)
+    }
+
+    @Test @MainActor func meshUploadHoldsGovernor() throws {
+        let before = RealPerformance.adaptiveHoldUntil
+        _ = try PerformanceTests.asset().levels[0].lowLevelMesh()
+        #expect(RealPerformance.adaptiveHoldUntil > max(before, CFAbsoluteTimeGetCurrent()))
     }
 }

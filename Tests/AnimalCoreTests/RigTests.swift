@@ -2,10 +2,11 @@ import XCTest
 @testable import AnimalCore
 
 final class RigTests: XCTestCase {
-    func testTenBirdsAndFourGroundAnimals() {
-        XCTAssertEqual(BirdSpecies.allCases.count, 10)
-        XCTAssertEqual(GroundSpecies.allCases.count, 4)
+    func testYardSpeciesAndGame() {
+        XCTAssertEqual(BirdSpecies.allCases.count, 12)
+        XCTAssertEqual(GroundSpecies.allCases.count, 9)
         XCTAssertEqual(AnimalKind.all.count, 14)
+        XCTAssertEqual(AnimalKind.hunting.count, 7)
     }
 
     func testBirdRigsBuildAndValidate() {

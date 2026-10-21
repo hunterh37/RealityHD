@@ -1,0 +1,44 @@
+{
+  "budget": 15000,
+  "id": "allotment-strawberry-plastic-mulch",
+  "kind": "prop",
+  "materials": [
+    "ground.dirt",
+    "plastic.matte",
+    "plant.stem",
+    "food.strawberry",
+    "straw.hay",
+    "rock.granite-weathered"
+  ],
+  "name": "Allotment strawberry plastic mulch",
+  "notes": "",
+  "parts": [
+    "soil ridges and furrows",
+    "black polythene mulch sheet",
+    "buried sheet edges",
+    "cross-cut planting slits",
+    "strawberry plants with trifoliate leaves",
+    "red and green berries",
+    "straw under fruit",
+    "stones holding the sheet"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.2,
+    2
+  ],
+  "style": "architectural facade customizer, English Allotment, strawberry bed through black plastic mulch",
+  "summary": "2 m square strawberry bed of two ridges under black polythene mulch, plants through cross-cut slits, straw tucked under ripening fruit.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "garden",
+    "outdoor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

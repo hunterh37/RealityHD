@@ -1,0 +1,31 @@
+{
+  "budget": 600,
+  "id": "cable-label",
+  "kind": "prop",
+  "materials": [
+    "plastic.matte:FFFFFF",
+    "glass.polycarbonate",
+    "plastic.matte:111214"
+  ],
+  "name": "Cable label",
+  "notes": "",
+  "parts": [
+    "white printed panel",
+    "clear laminate flap",
+    "printed ID A07-09-PA"
+  ],
+  "references": [],
+  "size": [
+    0.03,
+    0.012,
+    0.00065
+  ],
+  "style": "white self-laminating wrap label with printed ID text A07-09-PA",
+  "summary": "White self-laminating cable wrap label printed with ID A07-09-PA and a clear laminate tail.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

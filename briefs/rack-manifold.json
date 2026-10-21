@@ -1,0 +1,35 @@
+{
+  "budget": 4000,
+  "id": "rack-manifold",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless",
+    "rubber.tubing:1F4E8C",
+    "rubber.tubing:B51D17",
+    "metal.nickel"
+  ],
+  "name": "Rack manifold",
+  "notes": "",
+  "parts": [
+    "vertical manifold",
+    "blue supply hose",
+    "red return hose",
+    "quick-disconnect couplings",
+    "end caps",
+    "mount brackets"
+  ],
+  "references": [],
+  "size": [
+    0.08,
+    2.2,
+    0.12
+  ],
+  "style": "Brushed stainless 2.2 m rack liquid manifold with blue supply and red return hoses, clean new install.",
+  "summary": "2.2 m vertical stainless rack manifold with blue supply and red return hoses and named quick-disconnect couplings.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

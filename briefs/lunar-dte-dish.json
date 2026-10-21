@@ -1,0 +1,38 @@
+{
+  "budget": 15000,
+  "id": "lunar-dte-dish",
+  "kind": "prop",
+  "materials": [
+    "metal.aluminum-brushed",
+    "metal.powder-white",
+    "insulation.foil-gold",
+    "metal.painted"
+  ],
+  "name": "Lunar DTE X-band dish",
+  "notes": "",
+  "parts": [
+    "reflector",
+    "rear ribs",
+    "sub-reflector and struts",
+    "tripod legs",
+    "pedestal",
+    "equipment box"
+  ],
+  "references": [],
+  "size": [
+    3.55,
+    4.2,
+    2.75
+  ],
+  "style": "NASA Artemis/LSIC hardware, white and silver, orange accents",
+  "summary": "3.5 m X-band direct-to-Earth dish: ribbed reflector, Cassegrain feed on four struts, steel tripod, gold MLI equipment box.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "metal",
+    "electronics"
+  ],
+  "theme": "Lunar",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

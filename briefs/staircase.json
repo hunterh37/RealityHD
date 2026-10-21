@@ -1,0 +1,39 @@
+{
+  "budget": 12000,
+  "id": "staircase",
+  "kind": "structure",
+  "materials": [
+    "wood.oak",
+    "wood.painted-shaker",
+    "wood.painted-shaker-worn",
+    "wood.lumber-pine"
+  ],
+  "name": "Straight staircase with balustrade",
+  "notes": "Rise 3.0 m floor to floor, 16 risers; handrail 0.9 m above the nosing line. Origin bottom-front center, runs along -Z. Size Y is the bounding height including newels above the landing.",
+  "parts": [
+    "16 risers of 187.5 mm, 15 oak treads of 260 mm with nosing and scotia",
+    "closed skirt stringer on the wall side",
+    "cut stringer and center carriage on the open side",
+    "turned balusters, two per tread",
+    "oak handrail at 0.9 m, newel posts with ball finials",
+    "landing plate at the top"
+  ],
+  "references": [],
+  "size": [
+    1.0,
+    4.083,
+    4.0
+  ],
+  "style": "colonial staircase, oak treads, white risers",
+  "summary": "Straight staircase, 16 risers, 3.0 m rise over 4.0 m: oak treads, painted risers, skirt and cut stringers, balusters, handrail and newels.",
+  "tags": [
+    "structure",
+    "floorplan",
+    "interior",
+    "stair",
+    "wood"
+  ],
+  "theme": "Interior",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

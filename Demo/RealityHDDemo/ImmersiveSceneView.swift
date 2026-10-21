@@ -18,10 +18,23 @@ struct ImmersiveSceneView: View {
     @State private var spots: [RealScene.Spot] = []
     /// Grabbable being dragged and its offset from the pinch point (parent space).
     @State private var dragging: (entity: Entity, offset: SIMD3<Float>)?
+    /// Live keypads, displays and lamps of the siphon bar (`siphon-cafe`).
+    @State private var siphon: HalogenSiphonBarRuntime?
+    @State private var brewTask: Task<Void, Never>?
+    @State private var benchSub: EventSubscription?
 
     var body: some View {
         RealityView { content, attachments in
             content.add(root)
+            // Bench: count real render frames. A spinning 1 mm entity keeps RealityKit updating every frame,
+            // so deltaTime measures frames and not idle spans.
+            if UserDefaults.standard.double(forKey: "bench") > 0 {
+                let tick = Entity(); tick.name = "bench-tick"; content.add(tick)
+                benchSub = content.subscribe(to: SceneEvents.Update.self) { e in
+                    tick.orientation = simd_quatf(angle: Float(e.deltaTime), axis: [0, 1, 0]) * tick.orientation
+                    BenchFrames.shared.add(e.deltaTime)
+                }
+            }
             // HUD only when enabled at open: reparenting the hosting entity while a previous space is
             // being torn down aborts in CoreRE.
             if model.showHUD, let hud = attachments.entity(for: "hud") {
@@ -42,6 +55,8 @@ struct ImmersiveSceneView: View {
                 guard model.tapTeleport else { return }
                 let p = value.convert(value.location3D, from: .local, to: .scene)
                 teleport(toScenePoint: p)
+            } else if siphon?.handleTap(value.entity) == true {
+                return
             } else {
                 value.entity.realToggle()
             }
@@ -67,9 +82,17 @@ struct ImmersiveSceneView: View {
             apply(step)
         }
         .onChange(of: model.resetGrabsToken) { resetGrabs(anchor) }
+        .onChange(of: model.brewToken) {
+            guard let siphon, let bar = siphon.root.parent else { return }
+            brewTask?.cancel()
+            let globe = bar.findEntity(named: SiphonCafeLayout.globeName(0))
+            brewTask = Task { await siphon.runBrew(side: "left", globe: globe) }
+        }
+        .onDisappear { siphon?.stop(); brewTask?.cancel() }
         .onDisappear { model.spots = [] }
         .task { await RealViewerTracker.shared.start() }
         .task { await captureMotion() }
+        .task { await benchRecord() }
         .onDisappear { RealViewerTracker.shared.stop() }
     }
 
@@ -97,11 +120,15 @@ struct ImmersiveSceneView: View {
             model.spots = spots.map(\.name)
             if let cam = scene.camera { anchor.transform = Self.viewerTransform(eye: cam.eye, target: cam.target, extraYaw: config.yaw) }
             env.illuminate(world)
+            siphon?.stop(); siphon = nil
+            if config.scene == .siphonCafe { attachSiphon(world) }
             var cueError = ""
             if Self.cueEnabled {
                 do { model.grabCount = try await RealGrabCue.attach(under: world) } catch { model.grabCount = 0; cueError = " grab cue: \(error)" }
             }
             root.addChild(env.root)
+            // Levels picked here: the system's first pass otherwise switches every LOD entity in one frame.
+            RealLODSystem.prime(anchor)
             root.addChild(anchor)
             model.builtWith = perf
             let cost = scene.estimate(settings: perf)
@@ -111,6 +138,26 @@ struct ImmersiveSceneView: View {
             model.status = "error: \(error)"
         }
         model.loading = false
+    }
+
+    /// Wires the siphon bar: globes and flasks ride on the bar when it is carried, keys drive the model.
+    private func attachSiphon(_ world: Entity) {
+        guard let bar = world.findEntity(named: SiphonCafeLayout.barName), let live = HalogenSiphonBarRuntime(root: bar) else { return }
+        live.limitGrabToChassis()
+        for s in 0..<2 {
+            for name in [SiphonCafeLayout.flaskName(s), SiphonCafeLayout.globeName(s)] {
+                guard let e = world.findEntity(named: name) else { continue }
+                e.setParent(live.root, preservingWorldTransform: true)
+                if var g = e.components[RealGrabComponent.self] { g.home = e.transform; e.components.set(g) }
+            }
+        }
+        // 10 Hz ticks: assign only on change so the menu is not invalidated every tick.
+        live.onChange = { c in
+            let s = "L \(c.left.display) \(c.left.mode.rawValue)   R \(c.right.display) \(c.right.mode.rawValue)"
+            if model.siphonReadout != s { model.siphonReadout = s }
+        }
+        live.start()
+        siphon = live
     }
 
     static let floorName = "teleport-floor"
@@ -181,9 +228,14 @@ struct ImmersiveSceneView: View {
     /// Slow pan (yaw about the viewer) and dolly (forward along -Z) from launch args, for capture.
     private func captureMotion() async {
         let d = UserDefaults.standard
-        let pan = d.float(forKey: "pan"), dolly = d.float(forKey: "dolly")
-        guard pan != 0 || dolly != 0 else { return }
+        let pan = d.float(forKey: "pan"), dolly = d.float(forKey: "dolly"), steps = d.double(forKey: "steps")
+        guard pan != 0 || dolly != 0 || steps > 0 else { return }
         while model.loading || anchor.children.isEmpty { try? await Task.sleep(for: .milliseconds(50)) }
+        // -steps <s>: one animated forward step (the menu's walk control) every s seconds.
+        if steps > 0 {
+            while !Task.isCancelled { apply(.forward); try? await Task.sleep(for: .seconds(steps)) }
+            return
+        }
         let base = anchor.transform.matrix
         let t0 = Date()
         while !Task.isCancelled {
@@ -195,6 +247,46 @@ struct ImmersiveSceneView: View {
         }
     }
 
+    /// Launch arg `-bench <seconds>`: after the scene loads, samples `RealityHD.stats` every 0.5 s and writes
+    /// `Library/Caches/bench/<scene>.json` (build ms, samples, summary). Pair with `-pan`/`-dolly` to move.
+    private func benchRecord() async {
+        let seconds = UserDefaults.standard.double(forKey: "bench")
+        guard seconds > 0 else { return }
+        let t0 = Date()
+        // Main-thread stalls: gaps in a 10 ms main-actor heartbeat (load phase, then walk phase).
+        var gaps: [Double] = []
+        var last = Date()
+        func beat() { let now = Date(); gaps.append(now.timeIntervalSince(last) * 1000); last = now }
+        while model.loading || anchor.children.isEmpty { try? await Task.sleep(for: .milliseconds(10)); beat() }
+        let buildMs = Int(Date().timeIntervalSince(t0) * 1000)
+        let loadGaps = gaps; gaps = []
+        BenchFrames.shared.reset()
+        var samples: [[String: Double]] = []
+        let start = Date()
+        var next = start.addingTimeInterval(0.5)
+        while Date().timeIntervalSince(start) < seconds, !Task.isCancelled {
+            try? await Task.sleep(for: .milliseconds(10)); beat()
+            guard Date() >= next else { continue }
+            next = next.addingTimeInterval(0.5)
+            let s = RealityHD.stats
+            samples.append(["t": Date().timeIntervalSince(start), "fps": s.fps, "ms": s.frameMs, "worst": s.worstFrameMs,
+                            "tris": Double(s.triangles), "draws": Double(s.drawCalls), "vtris": Double(s.visibleTriangles),
+                            "vdraws": Double(s.visibleDrawCalls), "stris": Double(s.shadowTriangles), "casters": Double(s.shadowCasters),
+                            "meshes": Double(s.meshEntities), "lodsw": Double(s.lodSwitches), "texMB": Double(s.textureMB), "adapt": Double(s.adaptiveScale)])
+        }
+        let dir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appending(path: "bench")
+        try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+        func stall(_ g: [Double]) -> [String: Double] {
+            ["max": g.max() ?? 0, "over50": Double(g.filter { $0 > 50 }.count), "sumOver50": g.filter { $0 > 50 }.reduce(0, +)]
+        }
+        let out: [String: Any] = ["scene": config.scene.rawValue, "buildMs": buildMs, "status": model.status, "samples": samples,
+                                  "loadStall": stall(loadGaps), "walkStall": stall(gaps),
+                                  "frames": BenchFrames.shared.summary]
+        if let data = try? JSONSerialization.data(withJSONObject: out, options: [.prettyPrinted, .sortedKeys]) {
+            try? data.write(to: dir.appending(path: "\(config.scene.rawValue).json"))
+        }
+    }
+
     /// Moves the scene so `eye` (minus standing height) lands at the origin and `target` lies along -Z.
     static func viewerTransform(eye: V3, target: V3, extraYaw: Float = 0, standingHeight: Float = 1.6) -> Transform {
         let d = target - eye
@@ -202,5 +294,20 @@ struct ImmersiveSceneView: View {
         let rot = simd_quatf(angle: yaw, axis: SIMD3(0, 1, 0))   // rotating by +yaw (CCW) brings it back to -Z
         let feet = SIMD3(eye.x, eye.y - standingHeight, eye.z)
         return Transform(scale: .one, rotation: rot, translation: -rot.act(feet))
+    }
+}
+
+/// Per-frame deltas while benching (`-bench`): hitch counts over the walk phase.
+@MainActor final class BenchFrames {
+    static let shared = BenchFrames()
+    var dts: [Double] = []
+    func reset() { dts.removeAll() }
+    func add(_ dt: Double) { dts.append(dt * 1000) }
+    var summary: [String: Double] {
+        let s = dts.sorted()
+        func pct(_ p: Double) -> Double { s.isEmpty ? 0 : s[min(s.count - 1, Int(Double(s.count) * p))] }
+        return ["n": Double(s.count), "p50": pct(0.5), "p99": pct(0.99), "max": s.last ?? 0,
+                "over25": Double(s.filter { $0 > 25 }.count), "over50": Double(s.filter { $0 > 50 }.count),
+                "sumOver25": s.filter { $0 > 25 }.reduce(0, +)]
     }
 }

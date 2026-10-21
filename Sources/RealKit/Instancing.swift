@@ -32,6 +32,11 @@ public enum RealInstancing {
         /// Trees and large plants: 18 m cells.
         public static var trees: Options { Options().with { $0.cellSize = 18; $0.tintJitter = 0.12; $0.hueJitter = 0.014 } }
         /// Grass and ground cover: 8 m cells, culled past `cull` meters, no shadows.
+        /// Riverbed and lake-bottom dressing: seen through water absorption only nearby, so no shadows and a
+        /// distance cull.
+        public static func submerged(cull: Float = 60) -> Options {
+            Options().with { $0.cellSize = 12; $0.cullDistance = cull; $0.shadowCasterMaxLOD = -1; $0.tintJitter = 0.12; $0.hueJitter = 0.014 }
+        }
         public static func groundCover(cull: Float = 30) -> Options {
             Options().with { $0.cellSize = 8; $0.cullDistance = cull; $0.shadowCasterMaxLOD = -1; $0.tintJitter = 0.16; $0.hueJitter = 0.02; $0.thinnable = true }
         }
@@ -40,6 +45,29 @@ public enum RealInstancing {
     }
 
     /// - Parameter transforms: world-space (relative to the returned entity) instance transforms.
+    /// Streamed tiles instance the same asset build in every tile: upload its mesh once and share it.
+    private static var meshCache: [MeshKey: MeshResource] = [:]
+    private struct MeshKey: Hashable {
+        var name: String; var vertices: Int; var indices: Int
+        var lo: SIMD3<Float>; var hi: SIMD3<Float>; var first: SIMD3<Float>; var last: SIMD3<Float>; var materials: [String]
+        init(_ m: Model) {
+            let live = m.surfaces.filter { !$0.isEmpty }
+            name = m.name; vertices = live.reduce(0) { $0 + $1.vertexCount }; indices = live.reduce(0) { $0 + $1.indices.count }
+            let b = m.bounds; lo = b.min; hi = b.max
+            first = live.first?.positions.first ?? .zero; last = live.last?.positions.last ?? .zero
+            materials = live.map { "\($0.material)" }
+        }
+    }
+    @MainActor
+    static func sharedMesh(_ m: Model) async throws -> MeshResource {
+        let key = MeshKey(m)
+        if let r = meshCache[key] { return r }
+        let r = try await m.meshResourceAsync()
+        if meshCache.count > 256 { meshCache.removeAll() }
+        meshCache[key] = r
+        return r
+    }
+
     public static func field(_ asset: LODModel, transforms: [simd_float4x4], name: String = "field",
                              options: Options = Options(), materials: RealMaterialCache? = nil) async throws -> Entity {
         let cache = materials ?? .shared
@@ -56,14 +84,15 @@ public enum RealInstancing {
         var mats: [[[any RealityKit.Material]]] = []
         var lodBounds: [BoundingBox] = []
         var perInstanceShader = true
-        for m in asset.levels {
-            meshes.append(try m.meshResource())
+        for (li, m) in asset.levels.enumerated() {
+            let far = li >= cache.farVariantLOD
+            meshes.append(try await Self.sharedMesh(m))
             var ms: [any RealityKit.Material] = []
             for s in m.surfaces where !s.isEmpty {
                 let mat: any RealityKit.Material
                 if !options.asyncMaterials { mat = cache.material(s.material) }
-                else if jitter { mat = await cache.materialAsync(s.material, hueJitter: options.hueJitter, valueJitter: options.tintJitter) }
-                else { mat = await cache.materialAsync(s.material) }
+                else if jitter { mat = await cache.materialAsync(s.material, hueJitter: options.hueJitter, valueJitter: options.tintJitter, far: far) }
+                else { mat = await cache.materialAsync(s.material, far: far) }
                 if jitter && !(mat is ShaderGraphMaterial) { perInstanceShader = false }
                 ms.append(mat)
             }

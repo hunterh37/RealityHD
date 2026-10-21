@@ -18,7 +18,8 @@ import RealMaterials
         for tag in t.tags { #expect(AssetTag.vocabulary.contains(tag), "\(id): tag '\(tag)' not in AssetTag.vocabulary (Core/Tags.swift)") }
         #expect(Set(t.tags).count == t.tags.count, "\(id): duplicate tags")
         #expect(registry[kind]?.contains { $0.id == id } == true, "\(id): kind '\(kind)' assets are listed in \(kindFolder[kind] ?? "?").all")
-        #expect(t.budget <= budgetCap[kind] ?? 0, "\(id): budget \(t.budget) above the \(kind) cap \(budgetCap[kind] ?? 0)")
+        let cap = kind == "prop" && t.tags.contains("vehicle") ? vehiclePropCap : budgetCap[kind] ?? 0
+        #expect(t.budget <= cap, "\(id): budget \(t.budget) above the \(kind) cap \(cap)")
         #expect(!t.author.isEmpty && !t.author.contains(" "), "\(id): author is a handle without spaces")
     }
 

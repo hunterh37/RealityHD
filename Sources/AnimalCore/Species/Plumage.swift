@@ -47,17 +47,25 @@ public struct Plumage: Sendable, Hashable {
     public var featherRows: Float = 30
     /// Metallic sheen on the back (hummingbirds), 0...1.
     public var iridescence: Float = 0
+    /// Wattle, snood and face-patch skin; defaults to the eye ring color.
+    public var ornament: UInt32
+    /// Neck collar feathers; defaults to the belly color.
+    public var collar: UInt32
+    /// Chest beard bristles.
+    public var beard: UInt32
 
     public init(crown: UInt32, cheek: UInt32, mask: UInt32, back: UInt32, belly: UInt32, breast: UInt32, wing: UInt32,
                 flight: UInt32, wingEdge: UInt32, tail: UInt32, tailEdge: UInt32, beak: UInt32, leg: UInt32 = 0x3A332E,
                 eye: UInt32 = 0x0C0A09, eyeRing: UInt32? = nil, breastExtent: Float = 0, flankLine: Float = 0.5,
                 spotting: Float = 0, crownLine: Float = 0.5, throatExtent: Float = 0, maskExtent: Float = 0,
-                barring: Float = 0, fringe: Float = 0.25, featherRows: Float = 30, iridescence: Float = 0) {
+                barring: Float = 0, fringe: Float = 0.25, featherRows: Float = 30, iridescence: Float = 0,
+                ornament: UInt32? = nil, collar: UInt32? = nil, beard: UInt32 = 0x16110D) {
         self.crown = crown; self.cheek = cheek; self.mask = mask; self.back = back; self.belly = belly; self.breast = breast
         self.wing = wing; self.flight = flight; self.wingEdge = wingEdge; self.tail = tail; self.tailEdge = tailEdge
         self.beak = beak; self.leg = leg; self.eye = eye; self.eyeRing = eyeRing ?? cheek
         self.breastExtent = breastExtent; self.flankLine = flankLine; self.spotting = spotting; self.crownLine = crownLine
         self.throatExtent = throatExtent; self.maskExtent = maskExtent; self.barring = barring; self.fringe = fringe
         self.featherRows = featherRows; self.iridescence = iridescence
+        self.ornament = ornament ?? eyeRing ?? cheek; self.collar = collar ?? belly; self.beard = beard
     }
 }

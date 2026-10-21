@@ -1,0 +1,44 @@
+{
+  "budget": 15000,
+  "id": "allotment-rhubarb-crown-bed",
+  "kind": "prop",
+  "materials": [
+    "ground.dirt",
+    "soil.potting",
+    "plant.stem",
+    "ceramic.terracotta",
+    "wood.weathered",
+    "metal.galvanized-aged"
+  ],
+  "name": "Allotment rhubarb crown bed",
+  "notes": "",
+  "parts": [
+    "rhubarb crowns",
+    "red leaf stalks",
+    "crinkled rhubarb leaves",
+    "terracotta forcing pot",
+    "manure mulch",
+    "scaffold board edging",
+    "corner stakes",
+    "path soil"
+  ],
+  "references": [],
+  "size": [
+    2,
+    0.5,
+    2
+  ],
+  "style": "architectural facade customizer, Edwardian Allotment",
+  "summary": "Rhubarb crown bed tile, 2 x 2 m: three red-stalked crowns in a manure-mulched board bed, a fourth under a terracotta forcing pot.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ground",
+    "garden",
+    "outdoor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

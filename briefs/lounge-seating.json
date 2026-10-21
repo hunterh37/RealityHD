@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "lounge-seating",
+  "kind": "prop",
+  "materials": [
+    "fabric.upholstery:7E8A8F",
+    "wood.walnut",
+    "metal.brushed-nickel",
+    "fabric.canvas:B4623A"
+  ],
+  "name": "Lounge seating",
+  "notes": "Floor planning pack C. Back at -Z, seats face +Z.",
+  "parts": [
+    "three seat cushions",
+    "three back cushions with channel seams",
+    "side arm slab",
+    "round side table on metal legs",
+    "accent throw cushion",
+    "wood plinth and feet"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    0.8,
+    0.9
+  ],
+  "style": "grey-green lobby lounge sofa with walnut base and a rust accent cushion",
+  "summary": "Lounge seating, 2.4 m: three-seat low-back sofa with wood plinth, accent cushion and round side table.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "commercial",
+    "living",
+    "furniture",
+    "fabric",
+    "wood",
+    "interior"
+  ],
+  "theme": "Commercial",
+  "threshold": 0.85,
+  "tolerance": 0.06
+}

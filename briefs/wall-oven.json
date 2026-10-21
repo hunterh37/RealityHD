@@ -1,0 +1,46 @@
+{
+  "budget": 10000,
+  "id": "wall-oven",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless",
+    "screen.off",
+    "metal.oven-enamel",
+    "metal.rack-powdercoat",
+    "rubber.silicone-gray",
+    "emissive.warm",
+    "plastic.matte:2A2A2C"
+  ],
+  "name": "Double wall oven tower",
+  "notes": "Rig: upper-door hinge X at its bottom edge 0...90. States: closed, upper-open. Handle included in depth.",
+  "parts": [
+    "upper oven drop-down door with black glass window",
+    "lower oven door",
+    "bar handles on standoffs",
+    "touch control strip with display",
+    "two enamel cavities with wire racks",
+    "divider trim with vent slot",
+    "stainless side and top panels",
+    "door gaskets"
+  ],
+  "references": [],
+  "size": [
+    0.76,
+    1.3,
+    0.6
+  ],
+  "style": "2020s stainless double wall oven, clean with light fingerprints on handles",
+  "summary": "Double wall oven tower, 30 in: stainless drop-down doors with bar handles and glass windows, touch control strip, two lit racked cavities.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "kitchen",
+    "appliance",
+    "metal",
+    "interior",
+    "articulated"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

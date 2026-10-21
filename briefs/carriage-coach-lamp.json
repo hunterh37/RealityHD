@@ -1,0 +1,41 @@
+{
+  "budget": 8000,
+  "id": "carriage-coach-lamp",
+  "kind": "prop",
+  "materials": [
+    "metal.painted",
+    "metal.brass-aged",
+    "glass.pane",
+    "emissive.warm"
+  ],
+  "name": "Carriage coach lamp",
+  "notes": "",
+  "parts": [
+    "round back plate with screws",
+    "bracket arm with C-scroll",
+    "tapered lantern body with four glass panes",
+    "muntin bars and corner posts",
+    "bulb",
+    "domed cap with vent and finial",
+    "base cup"
+  ],
+  "references": [],
+  "size": [
+    0.22,
+    0.5,
+    0.28
+  ],
+  "style": "architectural facade customizer, Colonial Revival, black powder-coated iron with brass trim, clear glass",
+  "summary": "Colonial Revival carriage coach lamp, 0.5 m: wall plate, short arm, tapered glass lantern with muntins, cap and finial.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "light",
+    "metal",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

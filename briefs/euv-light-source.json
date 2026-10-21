@@ -1,0 +1,45 @@
+{
+ "budget": 14000,
+ "id": "euv-light-source",
+ "kind": "prop",
+ "materials": [
+  "metal.powdercoat",
+  "metal.steel",
+  "metal.copper",
+  "metal.mirror-polish",
+  "metal.anodized",
+  "metal.grate-iron",
+  "glass.lamp",
+  "glass.clear",
+  "rubber.tubing",
+  "plastic.matte"
+ ],
+ "name": "EUV light source",
+ "notes": "Generic, no branding. 6 x 4 x 4 m. Part cutaway-cover slides off to show the collector.",
+ "parts": [
+  "CO2 laser drive cabinet with white panels and vents",
+  "tin-droplet vessel with bolted flanges",
+  "collector mirror dish inside vessel",
+  "cutaway cover (named part) exposing collector",
+  "tin droplet generator and plasma glow",
+  "heavy copper and steel plumbing",
+  "status tower",
+  "leveling feet on cleanroom grate"
+ ],
+ "references": [],
+ "size": [
+  6,
+  4,
+  4
+ ],
+ "style": "Generic EUV laser-produced-plasma source sub-fab module, white cabinet, steel vessel, copper water plumbing.",
+ "summary": "EUV light source: CO2 laser drive cabinet, tin vessel with collector mirror, cutaway cover, copper and steel plumbing.",
+ "tags": [
+  "prop",
+  "semiconductor",
+  "articulated"
+ ],
+ "theme": "Fab",
+ "threshold": 0.85,
+ "tolerance": 0.08
+}

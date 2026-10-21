@@ -1,0 +1,38 @@
+{
+  "budget": 12000,
+  "id": "scrolled-pediment-door-hood",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "metal.brass-aged"
+  ],
+  "name": "Scrolled pediment door hood",
+  "notes": "",
+  "parts": [
+    "scrolled pediment",
+    "rosette terminals",
+    "entablature",
+    "frieze",
+    "console brackets",
+    "acanthus drop"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    0.7,
+    0.4
+  ],
+  "style": "architectural facade customizer, Georgian",
+  "summary": "Scrolled pediment door hood, 1.5 m: ogee scroll pediment with rosettes on an entablature carried by two consoles.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "decor",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

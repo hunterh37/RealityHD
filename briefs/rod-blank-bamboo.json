@@ -1,0 +1,37 @@
+{
+  "budget": 10600,
+  "id": "rod-blank-bamboo",
+  "kind": "prop",
+  "materials": [
+    "wood.bamboo-cane",
+    "metal.chrome",
+    "thread.wrap-epoxy"
+  ],
+  "name": "Split cane rod blank",
+  "notes": "reference photo: ../MulberryRiver/notes/reference/tackle/rod-blank-bamboo.jpg (compare runs use --ref)",
+  "parts": [
+    "blank",
+    "guides",
+    "tip-top",
+    "ferrule",
+    "nodes"
+  ],
+  "references": [],
+  "size": [
+    2.1,
+    0.029,
+    0.013
+  ],
+  "style": "flamed hexagonal split cane fly blank, nickel silver ferrule, silk wraps",
+  "summary": "Hexagonal split cane blank 2.1 m with node marks, ferrule, snake guides and tip-top.",
+  "tags": [
+    "prop",
+    "fishing",
+    "handheld",
+    "tool",
+    "wood"
+  ],
+  "theme": "Tackle",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

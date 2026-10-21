@@ -104,6 +104,24 @@ public struct HospitalFloor: RealSceneBuilder {
         scene.farGround = "paving.slab"
         scene.lighting = .init(sky: SunSky(elevation: 34, azimuth: 165, turbidity: 2.4), interior: .clinical, fog: 0)
         scene.bake = .interior
+        // Rooms (interior extents) and the openings between them, for room visibility.
+        let lz = lobby.size.z / 2, erC = V2(-cW / 2 - 2 * t - er.size.z / 2, erZ), orC = V2(cW / 2 + 2 * t + or.size.x / 2, orZ)
+        func box(_ n: String, _ c: V2, _ hx: Float, _ hz: Float, _ h: Float) -> RealCellGraph.Cell {
+            .init(n, min: V3(c.x - hx, -0.5, c.y - hz), max: V3(c.x + hx, h + 0.5, c.y + hz))
+        }
+        var cells = RealCellGraph(cells: [
+            box("lobby", .zero, lobby.size.x / 2, lz, lobby.size.y),
+            box("corridor", V2(0, cz), cW / 2, cL / 2, cH),
+            box("er", erC, er.size.z / 2, er.size.x / 2, er.size.y),
+            box("or", orC, or.size.x / 2, or.size.z / 2, or.size.y),
+        ])
+        let dh = hd.openingHeight
+        cells.portals = [
+            .init(0, 1, center: V3(HospitalLobby.doorX, dh / 2, -lz - t), width: hd.openingWidth, height: dh),
+            .init(1, 2, center: V3(-cW / 2 - t, 1.2, erZ - 0.4), width: 3.6, height: 2.4),
+            .init(1, 3, center: V3(cW / 2 + t, dh / 2, orZ + 1.6), width: hd.openingWidth, height: dh),
+        ]
+        scene.cells = cells
         scene.batchStatics = true
         scene.camera = .init(eye: V3(0.4, 1.65, cz + 7.0), target: V3(-0.2, 1.3, cz - 4), fov: 68)
         scene.spots.insert(.init("corridor", eye: V3(0, 1.65, cz + 1.0), target: V3(0, 1.3, cz - 6)), at: 0)

@@ -19,6 +19,7 @@ struct RenderOptions {
     var studio = false
     var skyGiven = false
     var state: String?
+    var fov: Float = 40
 
     init(hint: PreviewHint = PreviewHint()) {
         azimuth = hint.azimuth; elevation = hint.elevation; distance = hint.distance; ground = hint.ground; fog = hint.fog; studio = hint.studio
@@ -38,6 +39,7 @@ struct RenderOptions {
         lod = Int(a.opt("--lod") ?? "0") ?? 0
         if let v = a.opt("--sky") { sky = v; skyGiven = true }
         state = a.opt("--state")
+        if let v = a.opt("--fov").flatMap(Float.init) { fov = v }
         if let v = a.opt("--fog").flatMap(Float.init) { fog = v }
         sunLux = a.opt("--sun").flatMap(Float.init); iblExposure = a.opt("--ibl").flatMap(Float.init)
         deltaTime = Double(a.opt("--dt") ?? "0.0166") ?? 0.0166
@@ -87,6 +89,7 @@ func render(_ id: String, to out: String, _ o: RenderOptions) async throws -> St
             root.addChild(fe)
         }
         preview.frame(focus, azimuth: o.azimuth, elevation: o.elevation, distanceScale: o.distance)
+        if let eye = o.eye, let at = o.at { preview.look(from: eye, at: at, fov: o.fov) }
     }
     env.illuminate(root)
     preview.add(root)
@@ -101,7 +104,7 @@ func render(_ id: String, to out: String, _ o: RenderOptions) async throws -> St
 
 @MainActor
 func renderCommand(_ args: Args) async throws {
-    let valued: Set<String> = ["--seed", "--w", "--h", "--az", "--el", "--dist", "--lod", "--sky", "--fog", "--dt", "--eye", "--at", "--out", "--sun", "--ibl", "--state"]
+    let valued: Set<String> = ["--seed", "--w", "--h", "--az", "--el", "--dist", "--lod", "--sky", "--fog", "--dt", "--eye", "--at", "--out", "--sun", "--ibl", "--state", "--fov"]
     let r = args.rest
     guard let id = r.indices.first(where: { !r[$0].hasPrefix("-") && ($0 == 0 || !valued.contains(r[$0 - 1])) }).map({ r[$0] }) else { print(usage); return }
     let o = RenderOptions(args, hint: Catalog.type(id)?.preview ?? PreviewHint())

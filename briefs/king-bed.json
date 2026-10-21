@@ -1,0 +1,44 @@
+{
+  "budget": 10800,
+  "id": "king-bed",
+  "kind": "prop",
+  "materials": [
+    "wood.walnut",
+    "wood.plywood",
+    "fabric.linen",
+    "fabric.linen:6C7580",
+    "fabric.wool:B8A98C"
+  ],
+  "name": "King bed",
+  "notes": "",
+  "parts": [
+    "walnut raised-panel headboard with cap",
+    "walnut side rails and paneled footboard",
+    "tapered legs",
+    "mattress with tape edge",
+    "slate linen duvet with drape",
+    "folded top sheet",
+    "two king pillows with cushions",
+    "wool throw at the foot"
+  ],
+  "references": [],
+  "size": [
+    2.05,
+    1.15,
+    2.2
+  ],
+  "style": "made bed, slight duvet wrinkles, oiled walnut",
+  "summary": "Made king bed: walnut panel headboard and frame, 193 cm mattress, slate linen duvet, king pillows and a wool throw.",
+  "tags": [
+    "prop",
+    "floorplan",
+    "bedroom",
+    "furniture",
+    "fabric",
+    "wood",
+    "interior"
+  ],
+  "theme": "Bedroom",
+  "threshold": 0.85,
+  "tolerance": 0.05
+}

@@ -1,0 +1,39 @@
+{
+ "budget": 10000,
+ "id": "ebeam-metrology",
+ "kind": "prop",
+ "materials": [
+  "metal.powdercoat",
+  "metal.stainless",
+  "metal.anodized",
+  "glass.window-tint",
+  "plastic.matte",
+  "plastic.yellow",
+  "glass.lamp"
+ ],
+ "name": "E-beam metrology tool",
+ "notes": "Named part: door",
+ "parts": [
+  "e-beam column dome",
+  "vibration-isolated base with pneumatic isolators",
+  "chamber cabinet",
+  "EFEM with hinged door",
+  "load port",
+  "status tower",
+  "monitor arm"
+ ],
+ "references": [],
+ "size": [
+  3,
+  2.2,
+  2.5
+ ],
+ "style": "Generic CD-SEM style metrology tool, white powdercoat, light wear at handles, fingerprints on door window, no branding.",
+ "summary": "Wafer-level e-beam metrology tool: vibration-isolated base, chamber cabinet, column dome, EFEM with hinged door.",
+ "tags": [
+  "prop"
+ ],
+ "theme": "Fab",
+ "threshold": 0.85,
+ "tolerance": 0.08
+}
