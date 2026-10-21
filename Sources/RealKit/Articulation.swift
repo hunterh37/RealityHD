@@ -153,11 +153,12 @@ public extension Rig {
         let multiLOD = lodCount > 1
 
         func lodChildren(_ models: [Model], under parent: Entity) async throws {
+            let diag = models[0].boundsDiagonal
             for (i, m) in models.enumerated() where m.triangleCount > 0 {
                 let e = try await m.modelEntityAsync(materials: materials, lod: i)
                 e.name = "lod\(i)"
                 e.isEnabled = i == 0
-                e.realTagCost(m.cost(lod: i, size: models[0].boundsDiagonal))
+                e.realTagCost(m.cost(lod: i, size: diag))
                 parent.addChild(e)
             }
         }
@@ -213,11 +214,12 @@ public extension Rig {
             if liveDraws - draws(posedRest.levels[l]) >= RealRestProxyComponent.minSavedDraws {
                 let rest = Entity()
                 rest.name = "rest"
+                let restDiag = posedRest.levels[0].boundsDiagonal
                 for (i, m) in posedRest.levels.enumerated() where i >= l && m.triangleCount > 0 {
                     let e = try await m.modelEntityAsync(materials: materials, lod: i)
                     e.name = "lod\(i)"
                     e.isEnabled = false
-                    e.realTagCost(m.cost(lod: i, size: posedRest.levels[0].boundsDiagonal))
+                    e.realTagCost(m.cost(lod: i, size: restDiag))
                     rest.addChild(e)
                 }
                 root.addChild(rest)

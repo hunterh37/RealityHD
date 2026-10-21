@@ -44,6 +44,7 @@ private func which(_ tool: String) -> String? {
 
 struct GLBWriter {
     var textureSize: Int
+    var resolve: (MaterialKey) -> MaterialSpec = { MaterialLibrary.spec(for: $0) }
     private var bin = Data()
     private var bufferViews: [[String: Any]] = []
     private var accessors: [[String: Any]] = []
@@ -65,7 +66,7 @@ struct GLBWriter {
         var prims: [[String: Any]] = []
         for key in order {
             let s = merged[key]!
-            let spec = MaterialLibrary.spec(for: key)
+            let spec = w.resolve(key)
             let tile: Float = spec.tileSize > 0 && spec.mode != .emissive ? spec.tileSize : 1
             let pos = w.addFloats(s.positions.flatMap { [$0.x, $0.y, $0.z] }, comps: 3, minMax: true, target: 34962)
             let nrm = w.addFloats(s.normals.count == s.positions.count ? s.normals.flatMap { [$0.x, $0.y, $0.z] } : Array(repeating: 0, count: s.positions.count * 3), comps: 3, target: 34962)

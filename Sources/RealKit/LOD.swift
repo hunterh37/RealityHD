@@ -187,11 +187,12 @@ public extension LODModel {
     func entity(name: String = "asset", materials: RealMaterialCache? = nil, castsShadow: Bool = true) throws -> Entity {
         let root = Entity()
         root.name = name
+        let diag = levels[0].boundsDiagonal
         for (i, m) in levels.enumerated() {
             let e = try m.modelEntity(materials: materials)
             e.name = "lod\(i)"
             e.isEnabled = i == 0
-            e.realTagCost(m.cost(lod: i, size: levels[0].boundsDiagonal, shadowEligible: castsShadow))
+            e.realTagCost(m.cost(lod: i, size: diag, shadowEligible: castsShadow))
             root.addChild(e)
         }
         if levels.count > 1 {
@@ -208,11 +209,12 @@ public extension LODModel {
     func entityAsync(name: String = "asset", materials: RealMaterialCache? = nil, castsShadow: Bool = true) async throws -> Entity {
         let root = Entity()
         root.name = name
+        let diag = levels[0].boundsDiagonal
         for (i, m) in levels.enumerated() {
             let e = try await m.modelEntityAsync(materials: materials, lod: i)
             e.name = "lod\(i)"
             e.isEnabled = i == 0
-            e.realTagCost(m.cost(lod: i, size: levels[0].boundsDiagonal, shadowEligible: castsShadow))
+            e.realTagCost(m.cost(lod: i, size: diag, shadowEligible: castsShadow))
             root.addChild(e)
         }
         if levels.count > 1 {
