@@ -25,7 +25,7 @@ Hand grab: assets tagged `handheld` come back grabbable (`ManipulationComponent`
 
 Performance: `RealityHD.setup(.performance)` (tiers battery, performance, balanced, ultra, cinematic) or
 `RealityHD.setup(restoring:)` for saved settings; edit `RealityHD.performance` live, read `RealityHD.stats`.
-Guide: `docs/guides/performance.md`. Offline cost per tier: `realityhd perf [scene]`.
+Guide: `docs/guides/performance.md`. Load time: `docs/guides/prebake.md` (`RealityHD.usePrebaked()`, `RealityHD.preload`). Offline cost per tier: `realityhd perf [scene]`.
 
 Mixed reality: skip the skybox, keep `env` for IBL and sun shadows, or skip `env` entirely and let
 the system lighting apply (fog uses `RealAtmosphere`; set `fogDensity = 0` indoors).

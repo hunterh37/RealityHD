@@ -1,0 +1,41 @@
+{
+  "budget": 18000,
+  "id": "heavy-bag",
+  "kind": "prop",
+  "materials": [
+    "leather.oxblood:A61512",
+    "fabric.webbing:15171A",
+    "leather.black",
+    "metal.steel",
+    "metal.chrome",
+    "thread.white",
+    "fabric.webbing:E8E6DF"
+  ],
+  "name": "Heavy punching bag",
+  "notes": "",
+  "parts": [
+    "red vinyl cylinder bag 1.2 m x 0.35 m with domed ends",
+    "two stitched webbing bands",
+    "vertical seam and panel stitching",
+    "four top tabs with D-rings",
+    "four steel chains to a swivel and hook",
+    "taped patch story detail"
+  ],
+  "references": [],
+  "size": [
+    0.36,
+    1.62,
+    0.36
+  ],
+  "style": "48 inch commercial hanging heavy bag, lightly worn vinyl.",
+  "summary": "Hanging 48 inch red vinyl heavy bag: banded cylinder, four D-ring tabs, steel chains, swivel and hook.",
+  "tags": [
+    "prop",
+    "sports",
+    "leather",
+    "metal"
+  ],
+  "theme": "Sports",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

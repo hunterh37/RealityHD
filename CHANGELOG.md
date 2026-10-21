@@ -309,3 +309,8 @@ Known limits
 ## 0.1.0
 
 - 21 assets, 3 scenes, 29 materials, ShaderGraph materials, sky, instancing, LOD, CLI.
+
+## Prebake
+- `realityhd prebake` writes `RealityHDPrebaked` (asset geometry, scene AO, textures); `RealityHD.usePrebaked()` reads it.
+- `RealityHD.preload(assets:scenes:progress:)` builds geometry in parallel and warms textures and shaders.
+- Release builds cache generation results under Caches; `--verify` lists stale files. Guide: `docs/guides/prebake.md`.

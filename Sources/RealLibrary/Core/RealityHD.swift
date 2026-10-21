@@ -59,7 +59,7 @@ public enum RealityHD {
     /// `grabbable` (default: assets tagged `handheld`) adds hand pick-up on visionOS.
     public static func entity(_ id: String, seed: UInt64 = 1, grabbable: Bool? = nil) async throws -> Entity {
         guard let t = Catalog.type(id) else { throw RealityHDError.unknown(id) }
-        let lod = await Task.detached(priority: .userInitiated) { t.init().build(seed: seed) }.value
+        let lod = await Task.detached(priority: .userInitiated) { RealPrebake.model(id: id, seed: seed) { t.init().build(seed: seed) } }.value
         let e = try await upload(lod, name: id)
         if grabbable ?? t.handheld { await MainActor.run { let b = lod.levels[0].bounds; e.makeGrabbable(min: b.min, max: b.max) } }
         return e
@@ -93,10 +93,56 @@ public enum RealityHD {
 
     /// A composed scene by id (see SceneCatalog.ids).
     public static func scene(_ id: String, seed: UInt64 = 1) async throws -> Entity {
+        if let s = RealPrebake.takePreloaded(id, seed) { return try await s.entity() }
         guard let s = await Task.detached(priority: .userInitiated, operation: { SceneCatalog.build(id, seed: seed) }).value else {
             throw RealityHDError.unknown(id)
         }
         return try await s.entity()
+    }
+
+    /// Registers the prebaked folder in the app bundle (`realityhd prebake` output copied as `RealityHDPrebaked`):
+    /// asset geometry, scene AO and textures load from files instead of being generated. Call after `setup`.
+    /// Returns what was baked, or nil when the bundle holds none (generation runs as before).
+    @discardableResult
+    public static func usePrebaked(bundle: Bundle = .main) -> RealPrebake.Manifest? { RealPrebake.register(bundle: bundle) }
+
+    /// Progress of `preload`: `fraction` in 0...1 and the item in flight.
+    public struct PreloadProgress: Sendable { public var fraction: Double; public var item: String }
+
+    /// Builds everything a screen will need before it appears: asset and scene geometry on background
+    /// threads, then textures and ShaderGraph materials on the GPU. A following `entity`/`scene` call for the
+    /// same id and seed reuses the work. Run it behind a loading screen, or at launch while the user is in
+    /// a menu. Cheap when files were prebaked (see `usePrebaked`).
+    @MainActor
+    public static func preload(assets: [String] = [], scenes: [String] = [], seed: UInt64 = 1,
+                               progress: (@MainActor (PreloadProgress) -> Void)? = nil) async {
+        var keys = Set<MaterialKey>()
+        var done = 0.0
+        var total = Double(assets.count + scenes.count)
+        func tick(_ item: String) { done += 1; progress?(PreloadProgress(fraction: min(1, done / max(total, 1)), item: item)) }
+        // Geometry: every item in parallel, off the main actor.
+        await withTaskGroup(of: (String, Set<MaterialKey>).self) { group in
+            for id in assets {
+                group.addTask(priority: .userInitiated) {
+                    guard let t = Catalog.type(id) else { return (id, []) }
+                    let lod = RealPrebake.model(id: id, seed: seed) { t.init().build(seed: seed) }
+                    return (id, Set(lod.levels.flatMap(\.materials)))
+                }
+            }
+            for id in scenes {
+                group.addTask(priority: .userInitiated) {
+                    guard let s = SceneCatalog.build(id, seed: seed) else { return (id, []) }
+                    RealPrebake.keepPreloaded(s, id, seed)
+                    return (id, s.materialKeys)
+                }
+            }
+            for await (id, k) in group { keys.formUnion(k); tick(id) }
+        }
+        // GPU: textures (disk or synthesis) and shader variants, one material at a time.
+        total += Double(keys.count)
+        let cache = RealMaterialCache.shared
+        for k in keys.sorted() { await cache.warm([k]); tick(k) }
+        progress?(PreloadProgress(fraction: 1, item: ""))
     }
 
     /// GPU-instanced field of one asset at the given transforms (forests, grass, rocks).

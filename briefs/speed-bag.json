@@ -1,0 +1,36 @@
+{
+  "budget": 8500,
+  "id": "speed-bag",
+  "kind": "prop",
+  "materials": [
+    "leather.oxblood:8A1A12",
+    "leather.tan",
+    "metal.chrome",
+    "thread.white"
+  ],
+  "name": "Speed punching bag",
+  "notes": "",
+  "parts": [
+    "teardrop leather bag with bladder bulge",
+    "stitched neck collar and lace-tied neck",
+    "steel swivel hook at the neck",
+    "seam stitching"
+  ],
+  "references": [],
+  "size": [
+    0.17,
+    0.269,
+    0.17
+  ],
+  "style": "Medium speed bag, worn red leather.",
+  "summary": "Red leather teardrop speed bag: stitched panels, tied neck and chrome swivel hook.",
+  "tags": [
+    "prop",
+    "sports",
+    "leather",
+    "metal"
+  ],
+  "theme": "Sports",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
