@@ -12,6 +12,7 @@ public enum GroundSpecies: String, CaseIterable, Codable, Sendable, Identifiable
     case wildBoar = "wild-boar"
     case blackBear = "black-bear"
     case coyote = "coyote"
+    case fennecFox = "fennec-fox"
 
     public var id: String { rawValue }
     /// The standard variant (doe, cow, sow or the only form).
@@ -182,7 +183,7 @@ public struct GroundProfile: Sendable {
 }
 
 extension GroundProfile {
-    static let table: [GroundSpecies: GroundProfile] = Dictionary(uniqueKeysWithValues: ([rabbit, squirrel, chipmunk, hedgehog] + huntingProfiles).map { ($0.species, $0) })
+    static let table: [GroundSpecies: GroundProfile] = Dictionary(uniqueKeysWithValues: ([rabbit, squirrel, chipmunk, hedgehog, fennec] + huntingProfiles).map { ($0.species, $0) })
 
     private static let allSeasons: Set<AnimalSeason> = [.spring, .summer, .autumn, .winter]
 
@@ -230,6 +231,18 @@ extension GroundProfile {
         behavior: GroundBehavior(gait: .walk, walk: 0.3, run: 1.1, climbs: false, boldness: 0.5, skittishRadius: 1.0, rarity: 0.7, seasons: [.spring, .summer, .autumn],
                                  activity: [.dawn: 0.5, .day: 0.05, .dusk: 1.4, .night: 1.6],
                                  likes: [.shrub: 1, .openGround: 0.7, .flowers: 0.4, .water: 0.5], minHabitat: 0.3, alertRate: 0.1))
+    /// Pet species: never sent to yards by `VisitScheduler`.
+    static let fennec = GroundProfile(
+        species: .fennecFox, name: "Fennec Fox", latin: "Vulpes zerda",
+        blurb: "Desert fox with ears as long as its head. Digs, pounces and sits close to a hand.",
+        anatomy: GroundAnatomy(bodyLength: 0.30, bodyDepth: 0.14, bodyWidth: 0.11, headLength: 0.11, headWidth: 0.095, headHeight: 0.078, snout: 0.028,
+                               earLength: 0.12, earWidth: 0.075, tailLength: 0.24, tailWidth: 0.07, foreLeg: 0.085, hindLeg: 0.1, legRadius: 0.0095, pitch: 4, eyeRadius: 0.008,
+                               earTilt: 0.3, tailDrop: 35),
+        palette: GroundPalette(back: 0xE3C9A0, belly: 0xF7EEDC, accent: 0xF1E2C4, ear: 0xF3DDC4, nose: 0x1C1512, eye: 0x120C0A, claw: 0x4A3C32, tail: 0xDDBF93,
+                               tailTip: 0x7A6048, face: 0xEAD2AB, flankLine: 0.55, pattern: 0.15, strands: 90, fuzz: 0.8, muzzle: 0xF7EEDC),
+        behavior: GroundBehavior(gait: .stride, walk: 0.6, run: 3.5, climbs: false, boldness: 0.7, skittishRadius: 1.0, rarity: 0.5, seasons: allSeasons,
+                                 activity: [.dawn: 0.8, .day: 0.4, .dusk: 1.2, .night: 1.4],
+                                 likes: [.openGround: 1], minHabitat: 0.2, alertRate: 0.3, visitsYards: false))
 }
 
 /// Everything that can visit.
@@ -259,6 +272,9 @@ public enum AnimalKind: Hashable, Sendable, Codable, Identifiable {
     public static var all: [AnimalKind] { BirdSpecies.allCases.filter { $0.profile.behavior.visitsYards }.map { .bird($0) } + GroundSpecies.allCases.filter { $0.profile.behavior.visitsYards }.map { .ground($0) } }
     /// Hunting game: whitetail, elk, boar, bear, coyote, turkey, pheasant.
     public static var hunting: [AnimalKind] { BirdSpecies.hunting.map { .bird($0) } + GroundSpecies.hunting.map { .ground($0) } }
+
+    /// Pet species that never visit yards.
+    public static var pets: [AnimalKind] { [.ground(.fennecFox)] }
 
     public var name: String {
         switch self { case .bird(let b): b.profile.name; case .ground(let g): g.profile.name }
