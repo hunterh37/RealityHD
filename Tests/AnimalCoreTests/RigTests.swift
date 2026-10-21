@@ -4,7 +4,7 @@ import XCTest
 final class RigTests: XCTestCase {
     func testYardSpeciesAndGame() {
         XCTAssertEqual(BirdSpecies.allCases.count, 12)
-        XCTAssertEqual(GroundSpecies.allCases.count, 10)
+        XCTAssertEqual(GroundSpecies.allCases.count, 13)
         XCTAssertEqual(AnimalKind.all.count, 14)
         XCTAssertEqual(AnimalKind.hunting.count, 7)
     }
