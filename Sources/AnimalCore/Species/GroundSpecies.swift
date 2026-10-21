@@ -202,7 +202,7 @@ extension GroundProfile {
         var p = GroundProfile(
         species: .easternGraySquirrel, name: "Eastern Gray Squirrel", latin: "Sciurus carolinensis",
         blurb: "Bold and acrobatic. Buries nuts, raids feeders and runs up any tree or fence.",
-        anatomy: GroundAnatomy(bodyLength: 0.21, bodyDepth: 0.1, bodyWidth: 0.085, headLength: 0.058, headWidth: 0.05, headHeight: 0.05, snout: 0.02,
+        anatomy: GroundAnatomy(bodyLength: 0.21, bodyDepth: 0.1, bodyWidth: 0.085, headLength: 0.064, headWidth: 0.062, headHeight: 0.062, snout: 0.02,
                                earLength: 0.028, earWidth: 0.02, tailLength: 0.21, tailWidth: 0.075, foreLeg: 0.07, hindLeg: 0.085, legRadius: 0.009, pitch: 8, eyeRadius: 0.0078),
         palette: GroundPalette(back: 0x8D8C88, belly: 0xE8E4DC, accent: 0xC9C8C2, ear: 0x8D8C88, nose: 0x5E4A44, eye: 0x120E0C, claw: 0x3A332E, tail: 0x8A8985,
                                tailTip: 0xD2D0CA, face: 0x9A9894, flankLine: 0.6, pattern: 0.35, strands: 90),

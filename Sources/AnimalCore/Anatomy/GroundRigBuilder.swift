@@ -49,6 +49,10 @@ struct GroundFrame {
     }
     /// Eye position: shaped heads seat it on the skull surface, the originals keep their placement.
     func eye(_ s: Side) -> V3 {
+        if a.headShape == nil && p.species == .fennecFox {
+            let t: Float = 0.5
+            return headCenter + V3(s.sign * 0.5 * a.headWidth * headProfile(t) * 0.8, 0.16 * a.headHeight, (0.5 - t) * a.headLength)
+        }
         if a.headShape == nil { return headCenter + V3(s.sign * 0.5 * a.headWidth * 0.8, 0.12 * a.headHeight, -0.12 * a.headLength) }
         let t: Float = 0.42
         let hw = 0.5 * a.headWidth * headProfile(t)
@@ -339,6 +343,18 @@ public enum GroundRigBuilder {
                 for k in 0...6 { let al = radians(58 + 40 * Float(k) / 6); rim.append(V2(R * 1.12 * sin(al), R * 1.12 * cos(al) * 0.92)) }
                 rig.add(Prim.lathe(rim, segments: 18, seamTile: 0.02, material: f.mat(.lid)), Xform(translation: c, rotation: face), to: GroundJoint.headPitch.name)
                 rig.add(Prim.cubeSphere(subdivisions: 3, material: f.mat(.eye)) { V3($0.x * R * 0.8, $0.y * R * 0.92, $0.z * R * 1.05) }, Xform(translation: c), to: GroundJoint.headPitch.name)
+                if p.species == .easternGraySquirrel {
+                    // White eye ring outside the dark rim.
+                    var ring: [V2] = []
+                    for k in 0...5 { let al = radians(62 + 34 * Float(k) / 5); ring.append(V2(R * 1.32 * sin(al), R * 1.32 * cos(al) * 0.9)) }
+                    rig.add(Prim.lathe(ring, segments: 18, seamTile: 0.02, material: f.mat(.whisker)), Xform(translation: c + V3(s.sign * R * 0.05, 0, 0), rotation: face), to: GroundJoint.headPitch.name)
+                }
+                if p.species == .fennecFox {
+                    // Dark tear line from the inner eye corner down toward the muzzle.
+                    let e0 = c + V3(s.sign * R * 0.35, -R * 0.4, -R * 0.75)
+                    let pts = [e0, e0 + V3(s.sign * 0.002, -0.006, -0.008), e0 + V3(s.sign * 0.001, -0.012, -0.018)]
+                    rig.add(Prim.tube(pts, radii: [R * 0.18, R * 0.14, R * 0.05], sides: 4, seamTile: 0.01, material: f.mat(.lid)), to: GroundJoint.headPitch.name)
+                }
             }
             if plan == nil && !small { rig.add(Prim.cubeSphere(subdivisions: 3, material: f.mat(.eye)) { $0 * a.eyeRadius }, Xform(translation: c), to: GroundJoint.headPitch.name) }
             let face = simd_quatf(angle: -s.sign * .pi / 2, axis: GroundFrame.Z)
@@ -358,6 +374,14 @@ public enum GroundRigBuilder {
             let part = s == .left ? GroundJoint.earL.name : GroundJoint.earR.name
             for srf in QuadrupedBody.ear(base: base - dir * 0.004, dir: dir, side: side, normal: normal, len: a.earLength, width: a.earWidth,
                                          outer: f.mat(.ear), inner: f.mat(.pinna)) { rig.add(srf, to: part) }
+            if p.species == .easternGraySquirrel {
+                // Rounded ear rim with short fur tufts at the tip.
+                for k in 0..<6 {
+                    let tip = base + dir * (a.earLength * 0.92) + side * (a.earWidth * 0.12 * (Float(k) - 2.5))
+                    let L = a.earLength * 0.16
+                    rig.add(Prim.tube([tip, tip + dir * (0.5 * L) - normal * 0.001, tip + dir * L + side * (0.1 * L * (Float(k) - 2.5))], radii: [0.0011, 0.0007, 0.0001], sides: 3, seamTile: 0.02, material: f.mat(.head)), to: part)
+                }
+            }
             // Fine pale hair fringing the inner ear.
             for k in 0..<9 {
                 let sb = 0.06 + 0.07 * Float(k), sa = (Float(k % 3) - 1) * 0.35
@@ -496,7 +520,7 @@ public enum GroundRigBuilder {
                 // Paw and claws.
                 let pc = a.digitigrade ? c.toe + V3(0, r * 0.35, -r * 0.8) : c.toe + V3(0, 0, 0.004)
                 rig.add(Loft.ellipsoid(center: pc, axis: V3(0, 0, -1), up: GroundFrame.Y, radii: V3(r * 1.1, r * 0.7, r * 1.7), rings: 5, segments: 8, material: limbFur,
-                                       uv: { u, v in V2((small ? 0.42 : legU) + 0.04 * cos(u * 2 * .pi), 0.45) }), to: ankle)
+                                       uv: { u, v in V2(legU + 0.04 * cos(u * 2 * .pi), 0.45) }), to: ankle)
                 let n = a.clawScale > 2 ? 4 : 3
                 if small {
                     // Rounded toes fanned at the front of the paw.
@@ -504,13 +528,13 @@ public enum GroundRigBuilder {
                         let off = (Float(k) - 1.5) * r * 0.62
                         let tc = pc + V3(off, -r * 0.15, -r * (1.45 - 0.12 * abs(Float(k) - 1.5)))
                         rig.add(Loft.ellipsoid(center: tc, axis: V3(off * 8, 0, -1), up: GroundFrame.Y, radii: V3(r * 0.3, r * 0.26, r * 0.5), rings: 5, segments: 8, material: limbFur,
-                                               uv: { u, v in V2(0.42 + 0.03 * cos(u * 2 * .pi), 0.45) }), to: ankle)
+                                               uv: { u, v in V2(legU + 0.03 * cos(u * 2 * .pi), 0.45) }), to: ankle)
                     }
                 }
                 for k in 0..<n {
                     let off = (Float(k) - Float(n - 1) / 2) * r * 0.7
                     let cl = pc + V3(off, -r * 0.3, -r * 1.4)
-                    rig.add(Prim.tube([cl, cl + V3(0, -0.0006 * a.clawScale, -r * 1.6 * a.clawScale)], radii: [r * 0.22 * a.clawScale.squareRoot(), r * 0.05], sides: 4, seamTile: 0.01, material: f.mat(.claw)), to: ankle)
+                    rig.add(Prim.tube([cl, cl + V3(0, -0.0006 * a.clawScale, -r * 1.6 * a.clawScale)], radii: [r * (small ? 0.1 : 0.22) * a.clawScale.squareRoot(), r * 0.02], sides: small ? 5 : 4, seamTile: 0.01, material: f.mat(.claw)), to: ankle)
                 }
             }
         }

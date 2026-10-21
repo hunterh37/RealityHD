@@ -124,3 +124,15 @@ eye inset 0.6 R.
 Iter 4. Issue: head shells hidden (loft wound inward). Fix: centroid vote flips shell direction.
 Budget: 12 shells = 74k tris; 8 shells = 51.2k (test asserts < 60k). `GroundFactory.shellCount`.
 Open: squirrel head still reads smooth; bluebird scale-like plumage (no barbed cards yet); whiskers opaque.
+
+## Pass 7
+
+Iter 1. Squirrel head 0.064 x 0.062 x 0.062 m (cranium +25%), head shells 5 mm, white eye ring,
+ear-tip tufts; paws and toes on leg coat (no pale blobs), claws r 0.1 to 0.02; fennec eye on the skull
+surface (t 0.5, 0.8 half width) plus dark tear line; bluebird matte contour feathers (rows x3, normal
+0.55, roughness 0.82, specular 0.25), muted blues, wing chord 0.052, span 0.28.
+Iter 2. Issues: bluebird grid still visible, squirrel head bare, ear tufts read as spikes. Fixes: rows x5
+body / x6 head, darker iris 0x120804, tufts 0.16 ear length on head coat.
+Iter 3. Issue: head strands below texel size (cutout lost in mips). Fix: `headShell` region with
+0.35x strand density. Head now reads furred.
+Open: bluebird has no barbed cards; ears remain flat sheets.

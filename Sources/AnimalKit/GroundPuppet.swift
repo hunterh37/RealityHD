@@ -127,7 +127,7 @@ public enum GroundFactory {
                         if k.hasSuffix(".tail") { return ("fauna.\(id).tailShell", tw * 0.32) }
                         if k.hasSuffix(".limb") { return ("fauna.\(id).shell", 0.0018) }
                         if k.hasSuffix(".body") { return ("fauna.\(id).shell", 0.0045) }
-                        if k.hasSuffix(".head") || k.hasSuffix(".muzzle") { return ("fauna.\(id).shell", 0.0035) }
+                        if k.hasSuffix(".head") || k.hasSuffix(".muzzle") { return ("fauna.\(id).headShell", 0.005) }
                         return nil
                     }
                 }.value

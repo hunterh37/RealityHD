@@ -32,8 +32,9 @@ public enum FaunaMaterials {
         return [
             make(.body, .plumageBody) {
                 $0.colorA = linear(c.back); $0.colorB = linear(c.belly); $0.colorC = linear(c.breast)
-                $0.knobs = V4(c.featherRows * 1.9, c.flankLine, c.breastExtent, c.spotting)
-                $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 1.3; $0.roughness = 0.66
+                $0.knobs = V4(c.featherRows * 5.0, c.flankLine, c.breastExtent, c.spotting)
+                // Fine contour feathers, matte: no grid read, no lacquer sheen.
+                $0.tileSize = 0; $0.resolution = 2048; $0.normalStrength = 0.55; $0.roughness = 0.82; $0.specular = 0.25
                 if c.iridescence > 0 { $0.roughness = 0.55; $0.specular = 0.5 }   // structural blue: soft sheen, not lacquer
             },
             p.anatomy.caruncle > 0
@@ -44,8 +45,8 @@ public enum FaunaMaterials {
             }
             : make(.head, .plumageHead) {
                 $0.colorA = linear(c.crown); $0.colorB = linear(c.cheek); $0.colorC = linear(c.mask)
-                $0.knobs = V4(c.featherRows * 2.4, c.crownLine, c.throatExtent, c.maskExtent)
-                $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 0.6; $0.roughness = 0.6
+                $0.knobs = V4(c.featherRows * 6.0, c.crownLine, c.throatExtent, c.maskExtent)
+                $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 0.45; $0.roughness = 0.84; $0.specular = 0.25
             },
             make(.flight, .plumageFeather) {
                 $0.colorA = linear(c.flight); $0.colorB = linear(c.flight); $0.colorC = linear(c.wingEdge)
@@ -132,7 +133,7 @@ public enum FaunaMaterials {
     // MARK: ground animals
 
     public enum GroundRegion: String, CaseIterable, Sendable {
-        case body, head, tail, ear, nose, eye, claw, whisker, quill, antler, hoof, muzzle, throat, rump, mane, bristle, pinna, lid, shell, tailShell, limb
+        case body, head, tail, ear, nose, eye, claw, whisker, quill, antler, hoof, muzzle, throat, rump, mane, bristle, pinna, lid, shell, tailShell, limb, headShell
     }
 
     public static func key(_ id: String, _ r: GroundRegion) -> MaterialKey { "fauna.\(id).\(r.rawValue)" }
@@ -181,6 +182,12 @@ public enum FaunaMaterials {
                 $0.knobs = V4(c.strands, c.flankLine, 0.55, 0.3)
                 $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 0.4; $0.roughness = 0.86; $0.mode = .cutout
             },
+            make(.headShell, .furShell) {
+                // Head atlas spans a short loft: fewer strand cells so strands stay above texel size.
+                $0.colorA = linear(c.face); $0.colorB = linear(c.belly); $0.colorC = linear(c.belly)
+                $0.knobs = V4(c.strands * 0.35, c.flankLine + 0.04, 0.5, 0.3)
+                $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 0.4; $0.roughness = 0.86; $0.mode = .cutout
+            },
             make(.tailShell, .furShell) {
                 // Tail brush: coat-coloured strands, many white frosted guard-hair tips.
                 $0.colorA = linear(c.tail); $0.colorB = linear(c.tail); $0.colorC = linear(c.tailTip)
@@ -203,7 +210,7 @@ public enum FaunaMaterials {
             },
             make(.eye, .plastic) {
                 // Dark brown iris under a clear cornea: tiny roughness, full clearcoat for the wet highlight.
-                $0.colorA = linear(0x2A170C); $0.knobs = V4(0.25, 0.2, 0.25, 0)
+                $0.colorA = linear(0x120804); $0.knobs = V4(0.25, 0.2, 0.25, 0)
                 $0.tileSize = 0.004; $0.resolution = 128; $0.normalStrength = 0; $0.roughness = 0.02; $0.clearcoat = 1; $0.specular = 1
             },
             make(.claw, .plastic) {
