@@ -1,0 +1,53 @@
+{
+  "budget": 15000,
+  "id": "campanile-bell-cage",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "metal.wrought-iron",
+    "metal.bronze-cast",
+    "metal.copper-patina",
+    "metal.brass-aged",
+    "metal.cast-iron",
+    "metal.rust",
+    "metal.galvanized-aged",
+    "wood.pine-aged",
+    "fabric.burlap",
+    "stone.cast-grey",
+    "stone.granite-moss"
+  ],
+  "name": "Campanile bell cage",
+  "notes": "",
+  "parts": [
+    "stone base course with bevelled cap",
+    "four wrought iron uprights",
+    "arched straps meeting at crown",
+    "C-scroll brackets",
+    "riveted ring band",
+    "oak headstock with iron straps",
+    "bronze bell with lip and crown",
+    "iron clapper",
+    "bell rope wheel",
+    "ball and cross finial"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.4,
+    1.2
+  ],
+  "style": "architectural facade customizer, Italianate",
+  "summary": "Campanile bell cage, 1.4 m: stone base, arched wrought-iron uprights with scroll feet, oak headstock, bronze bell, ball-and-cross finial.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roof",
+    "metal",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
