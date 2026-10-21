@@ -25,7 +25,9 @@ public struct CompoundBow: RealArticulated {
     public var grip: MaterialKey = "plastic.stock-synthetic"
     public init() {}
 
-    static let levels = 7
+    static let levels = 17
+    /// Limb tip deflection at full draw, degrees about the limb pocket.
+    static let limbFlex: Float = 7
 
     public func rig(seed: UInt64) -> Rig {
         var rig = Rig(name: Self.id, lods: 2, switchDistances: [5])
@@ -36,8 +38,11 @@ public struct CompoundBow: RealArticulated {
         let hardM = hardware, riserM = riser
 
         rig.part("draw", pivot: P.p(V3(-brace, nockY, 0)), joint: .slide(axis: V3(-1, 0, 0), 0...drawLength, duration: 0.9))
-        rig.part("cam-top", pivot: P.p(V3(ax, h, 0)), joint: Joint(.revolute, axis: V3(0, 0, 1), range: -camAngle...camAngle, mimic: .init("draw", ratio: camAngle / drawLength)))
-        rig.part("cam-bottom", pivot: P.p(V3(ax, -h, 0)), joint: Joint(.revolute, axis: V3(0, 0, 1), range: -camAngle...camAngle, mimic: .init("draw", ratio: -camAngle / drawLength)))
+        let flex = Self.limbFlex
+        rig.part("limb-top", pivot: P.p(V3(0.008, 0.205, 0)), joint: Joint(.revolute, axis: V3(0, 0, 1), range: 0...flex, mimic: .init("draw", ratio: flex / drawLength)))
+        rig.part("limb-bottom", pivot: P.p(V3(0.008, -0.205, 0)), joint: Joint(.revolute, axis: V3(0, 0, 1), range: -flex...0, mimic: .init("draw", ratio: -flex / drawLength)))
+        rig.part("cam-top", parent: "limb-top", pivot: P.p(V3(ax, h, 0)), joint: Joint(.revolute, axis: V3(0, 0, 1), range: -camAngle...camAngle, mimic: .init("draw", ratio: camAngle / drawLength)))
+        rig.part("cam-bottom", parent: "limb-bottom", pivot: P.p(V3(ax, -h, 0)), joint: Joint(.revolute, axis: V3(0, 0, 1), range: -camAngle...camAngle, mimic: .init("draw", ratio: -camAngle / drawLength)))
         rig.part("string", pivot: P.p(V3(-brace, nockY, 0)), joint: .fixed, options: Self.levels)
         rig.optionLinks = [RigOptionLink(part: "string", joint: "draw", thresholds: (1..<Self.levels).map { (Float($0) - 0.5) * drawLength / Float(Self.levels - 1) })]
 
@@ -51,6 +56,7 @@ public struct CompoundBow: RealArticulated {
             rig.base[lod].add(HuntKit.box(V3(-0.0225, -0.040, 0), V3(0.013, 0.100, 0.038), r: 0.004, grip), P.at())
             // Limb pockets and limb bolts.
             for s: Float in [1, -1] {
+                let limbPart = s > 0 ? "limb-top" : "limb-bottom"
                 rig.base[lod].add(HuntKit.box(V3(0.000, s * 0.192, 0), V3(0.042, 0.030, 0.050), r: 0.004, hardM), P.at())
                 if hi { rig.base[lod].add(HuntKit.cyl(V3(0.012, s * 0.215, -0.030), V3(0.012, s * 0.215, 0.030), r: 0.0042, bevel: 0.0008, seg: 12, "metal.bolt-bright"), P.at()) }
                 // Split limbs, one pair per end, swept from pocket to axle.
@@ -58,17 +64,13 @@ public struct CompoundBow: RealArticulated {
                 for z: Float in [-0.0185, 0.0185] {
                     let pts = catmull(path.map { V3($0.x, $0.y, z) }, per: hi ? 8 : 4)
                     let limb = Prim.sweep(Shape2D.roundedRect(0.0170, 0.0115, radius: 0.0025, segments: 3), along: pts, up: V3(0, 0, 1), scales: nil, caps: true, grainAlongPath: true, material: riserM)
-                    rig.base[lod].add(limb, P.at())
+                    rig.add(limb, P.at(), to: limbPart, lods: L)
                 }
                 // Axle through both limbs.
-                rig.base[lod].add(HuntKit.cyl(V3(ax, s * h, -0.0290), V3(ax, s * h, 0.0290), r: 0.0036, bevel: 0.0008, seg: hi ? 14 : 8, "metal.bolt-bright"), P.at())
+                rig.add(HuntKit.cyl(V3(ax, s * h, -0.0290), V3(ax, s * h, 0.0290), r: 0.0036, bevel: 0.0008, seg: hi ? 14 : 8, "metal.bolt-bright"), P.at(), to: limbPart, lods: L)
             }
             // Cable guard, cables (static), stabilizer, sight, rest.
             rig.base[lod].add(HuntKit.rod(V3(-0.016, -0.050, 0), V3(-0.046, -0.050, 0.034), r: 0.0030, sides: hi ? 8 : 6, hardM), P.at())
-            for s: Float in [1, -1] {
-                rig.base[lod].add(HuntKit.wire([V3(ax - 0.004, h - 0.016, s * 0.020), V3(-0.040, 0.20, s * 0.034), V3(-0.046, 0.0, s * 0.034), V3(-0.040, -0.20, s * 0.034), V3(ax - 0.004, -h + 0.016, s * 0.020)],
-                                               r: 0.0016, per: 5, sides: 6, string), P.at())
-            }
             rig.base[lod].add(HuntKit.cyl(V3(0.034, -0.065, 0), V3(0.240, -0.065, 0), r: 0.0055, bevel: 0.001, seg: hi ? 14 : 8, hardM), P.at())
             rig.base[lod].add(HuntKit.cyl(V3(0.205, -0.065, 0), V3(0.245, -0.065, 0), r: 0.0125, bevel: 0.002, seg: hi ? 20 : 10, hardM), P.at())
             rig.base[lod].add(HuntKit.cyl(V3(0.245, -0.065, 0), V3(0.262, -0.065, 0), r: 0.0100, bevel: 0.002, seg: hi ? 20 : 10, "rubber.recoil-pad"), P.at())
@@ -112,14 +114,27 @@ public struct CompoundBow: RealArticulated {
             // String meshes per draw level (cams pay out string as the nock travels).
             for k in 0..<Self.levels {
                 let d = Float(k) * drawLength / Float(Self.levels - 1)
-                let a = V3(ax - 0.026, h - 0.012, 0), b = V3(-brace - d, nockY, 0), c = V3(ax - 0.026, -h + 0.012, 0)
+                // Limb tips follow the draw, so string and cable ends ride the flexed limbs.
+                let deg = flex * d / drawLength
+                func flexed(_ v: V3, _ s: Float) -> V3 {
+                    let q = simd_quatf(angle: s * deg * .pi / 180, axis: V3(0, 0, 1))
+                    let pv = V3(0.008, s * 0.205, 0)
+                    return pv + q.act(v - pv)
+                }
+                let a = flexed(V3(ax - 0.026, h - 0.012, 0), 1), b = V3(-brace - d, nockY, 0), c = flexed(V3(ax - 0.026, -h + 0.012, 0), -1)
                 let str = Prim.tube([a, b, c], radii: [0.0013, 0.0013, 0.0013], sides: hi ? 8 : 5, seamTile: 0.01, material: string, capEnd: true)
                 rig.add(str, P.at(), to: "string", option: k, lods: L)
+                for s: Float in [1, -1] {
+                    let tipTop = flexed(V3(ax - 0.004, h - 0.016, 0), 1), tipBot = flexed(V3(ax - 0.004, -h + 0.016, 0), -1)
+                    let cable = HuntKit.wire([V3(tipTop.x, tipTop.y, s * 0.020), V3(-0.040, 0.20, s * 0.034), V3(-0.046, 0.0, s * 0.034), V3(-0.040, -0.20, s * 0.034), V3(tipBot.x, tipBot.y, s * 0.020)],
+                                             r: 0.0016, per: 5, sides: 6, string)
+                    rig.add(cable, P.at(), to: "string", option: k, lods: L)
+                }
             }
         }
         rig.states = [RigState("rest"),
-                      RigState("half-draw", ["draw": drawLength / 2], options: ["string": 3]),
-                      RigState("full-draw", ["draw": drawLength], options: ["string": 6])]
+                      RigState("half-draw", ["draw": drawLength / 2], options: ["string": Self.levels / 2]),
+                      RigState("full-draw", ["draw": drawLength], options: ["string": Self.levels - 1])]
         groundAO(&rig, height: 0.1, floor: 0.7)
         return rig
     }

@@ -1,0 +1,37 @@
+{
+  "budget": 12000,
+  "id": "foup-stocker",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat",
+    "glass.window-tint",
+    "plastic.polycarbonate-tint"
+  ],
+  "name": "FOUP stocker",
+  "notes": "",
+  "parts": [
+    "tall white powdercoat enclosure",
+    "glass front window",
+    "shelves of FOUPs",
+    "internal robot arm (named part)",
+    "OHT load ports on top",
+    "I/O ports at floor",
+    "status tower"
+  ],
+  "references": [],
+  "size": [
+    6,
+    4,
+    2
+  ],
+  "style": "Murata/Daifuku-class automated FOUP stocker, white enclosure, clean room.",
+  "summary": "Automated FOUP stocker: white enclosure, glass front showing FOUP shelves, internal stacker robot, OHT ports on top, I/O ports at floor.",
+  "tags": [
+    "prop",
+    "semiconductor",
+    "articulated"
+  ],
+  "theme": "Fab",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

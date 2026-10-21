@@ -1,0 +1,38 @@
+{
+ "budget": 9000,
+ "id": "probe-station",
+ "kind": "prop",
+ "materials": [
+  "metal.powdercoat",
+  "metal.stainless",
+  "metal.anodized",
+  "glass.window-tint",
+  "plastic.matte",
+  "silicon.thinfilm",
+  "glass.lamp"
+ ],
+ "name": "Probe station",
+ "notes": "Named part: probe-card-lift",
+ "parts": [
+  "isolation table",
+  "chuck with wafer",
+  "probe card lift",
+  "microscope head",
+  "manipulators",
+  "monitor"
+ ],
+ "references": [],
+ "size": [
+  1.5,
+  1.8,
+  1.5
+ ],
+ "style": "Generic manual-semi-auto probe station, grey powdercoat, anodized platen, light wear, no branding.",
+ "summary": "Wafer probe station on isolation table with chuck, manipulators, microscope and lifting probe card holder.",
+ "tags": [
+  "prop"
+ ],
+ "theme": "Fab",
+ "threshold": 0.85,
+ "tolerance": 0.08
+}

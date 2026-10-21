@@ -1,0 +1,45 @@
+{
+ "budget": 14000,
+ "id": "pvd-cluster",
+ "kind": "prop",
+ "materials": [
+  "metal.stainless",
+  "metal.anodized",
+  "metal.powdercoat",
+  "metal.satin-aluminum",
+  "metal.brass",
+  "glass.lamp",
+  "glass.window-tint",
+  "plastic.matte",
+  "rubber.tubing"
+ ],
+ "name": "PVD cluster tool",
+ "notes": "Chamber lids lid-1..lid-4 articulated. Variant of ClusterTool.",
+ "parts": [
+  "4 sputter chambers with hinged magnetron cathode lids",
+  "tall cryopump cylinders under chambers with gate valves",
+  "magnetron cathode housings, HV feedthroughs and water lines",
+  "central hexagonal vacuum transfer chamber with lid and viewport",
+  "2 load locks",
+  "EFEM front with 3 load ports and FOUPs",
+  "cable bundles",
+  "status tower",
+  "named chamber lids"
+ ],
+ "references": [],
+ "size": [
+  4,
+  2.5,
+  4
+ ],
+ "style": "Generic PVD sputter cluster tool, aluminum chambers, magnetron cathode lids, tall cryopumps, white EFEM, light wear, no branding.",
+ "summary": "Hex cluster with 4 PVD chambers, magnetron cathode lids, cryopumps, load locks, EFEM.",
+ "tags": [
+  "prop",
+  "semiconductor",
+  "articulated"
+ ],
+ "theme": "Fab",
+ "threshold": 0.85,
+ "tolerance": 0.08
+}

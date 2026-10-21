@@ -1,0 +1,40 @@
+{
+  "budget": 5500,
+  "id": "cast-iron-roof-hip-knob",
+  "kind": "prop",
+  "materials": [
+    "metal.wrought-iron",
+    "metal.cast-iron",
+    "metal.rust"
+  ],
+  "name": "Cast iron roof hip knob",
+  "notes": "",
+  "parts": [
+    "saddle base shaped to the hip",
+    "cast flange with set screws",
+    "reeded collar",
+    "fluted onion bulb",
+    "acorn knop",
+    "spike",
+    "casting parting line",
+    "rust bloom at paint chips"
+  ],
+  "references": [],
+  "size": [
+    0.2,
+    0.4,
+    0.2
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Cast iron roof hip knob, 0.4 m: hip saddle with set screws, reeded collar, fluted bulb, acorn, spike; painted iron rusting at chips.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roof",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

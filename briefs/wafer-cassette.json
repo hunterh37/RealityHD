@@ -1,0 +1,35 @@
+{
+  "budget": 5000,
+  "id": "wafer-cassette",
+  "kind": "prop",
+  "materials": [
+    "plastic.pfa",
+    "silicon.thinfilm",
+    "plastic.matte"
+  ],
+  "name": "Wafer cassette",
+  "notes": "",
+  "parts": [
+    "translucent milky PFA side walls",
+    "25 slot ribs per side",
+    "H-bar back and top handle",
+    "bottom rails",
+    "wafers loaded in slots"
+  ],
+  "references": [],
+  "size": [
+    0.33,
+    0.3,
+    0.3
+  ],
+  "style": "Entegris-class 300 mm open wafer cassette, milky white PFA, light handling wear.",
+  "summary": "Open 25-slot PFA wafer cassette with H-bar and slot ribs.",
+  "tags": [
+    "prop",
+    "semiconductor",
+    "handheld"
+  ],
+  "theme": "Fab",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

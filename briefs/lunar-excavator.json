@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "lunar-excavator",
+  "kind": "prop",
+  "materials": [
+    "metal.powder-white",
+    "insulation.foil-gold",
+    "metal.aluminum-brushed",
+    "metal.painted"
+  ],
+  "name": "Lunar excavator",
+  "notes": "",
+  "parts": [
+    "chassis",
+    "four wheels",
+    "front bucket drum",
+    "rear bucket drum",
+    "drum arms",
+    "electronics box",
+    "mast camera"
+  ],
+  "references": [],
+  "size": [
+    1.02,
+    0.73,
+    1.43
+  ],
+  "style": "NASA Artemis/LSIC robot, dusty, orange accents",
+  "summary": "RASSOR-like regolith excavator robot: four wheels, white chassis, two scoop drums on front and rear arms, gold MLI electronics box, mast camera.",
+  "tags": [
+    "prop",
+    "aerospace",
+    "metal",
+    "electronics"
+  ],
+  "theme": "Lunar",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

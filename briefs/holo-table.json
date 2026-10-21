@@ -1,0 +1,38 @@
+{
+  "budget": 6000,
+  "id": "holo-table",
+  "kind": "prop",
+  "materials": [
+    "glass.display",
+    "emissive.holo-grid",
+    "metal.anodized-black",
+    "metal.anodized",
+    "rubber"
+  ],
+  "name": "Holo table",
+  "notes": "Ultra realistic 2035 design table.",
+  "parts": [
+    "anodized dark aluminum pedestal frame",
+    "glass display top",
+    "subtle emissive grid",
+    "rounded bevelled edges",
+    "cable port",
+    "leveling feet"
+  ],
+  "references": [],
+  "size": [
+    1.6,
+    0.9,
+    1.0
+  ],
+  "style": "Ultra realistic 2035 design table, 1.6 x 0.9 x 1.0 m, dark anodized aluminum pedestal frame, black glass display top with subtle cyan emissive grid, bevelled rounded edges, cable port, leveling feet.",
+  "summary": "2035 holo table: anodized aluminum pedestal frame, glass top with emissive grid, cable port, leveling feet.",
+  "tags": [
+    "prop",
+    "chiplab",
+    "furniture"
+  ],
+  "theme": "ChipLab",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

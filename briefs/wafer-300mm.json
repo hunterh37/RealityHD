@@ -1,0 +1,36 @@
+{
+  "budget": 2000,
+  "id": "wafer-300mm",
+  "kind": "prop",
+  "materials": [
+    "silicon.thinfilm",
+    "silicon.thinfilm-oxide",
+    "silicon.thinfilm-patterned",
+    "silicon.thinfilm-metal"
+  ],
+  "name": "300 mm silicon wafer",
+  "notes": "",
+  "parts": [
+    "300 mm disk 775 um thick with bevelled edge",
+    "notch at the edge",
+    "laser-marked ID near notch",
+    "state param: bare, oxide, patterned, metal",
+    "die grid on the patterned state"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    0.00078,
+    0.3
+  ],
+  "style": "Polished prime wafer, mirror finish with thin-film interference colour.",
+  "summary": "300 mm silicon wafer with notch, selectable process state.",
+  "tags": [
+    "prop",
+    "semiconductor",
+    "handheld"
+  ],
+  "theme": "Fab",
+  "threshold": 0.9,
+  "tolerance": 0.08
+}

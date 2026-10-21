@@ -1,0 +1,35 @@
+{
+  "budget": 4000,
+  "id": "solar-array-wing",
+  "kind": "prop",
+  "materials": [
+    "solar.cell",
+    "solar.kapton",
+    "composite.carbon",
+    "metal.titanium"
+  ],
+  "name": "Solar array wing",
+  "notes": "",
+  "parts": [
+    "deploy hinge panel",
+    "fold panels 2-10",
+    "cell grid",
+    "root spar",
+    "knuckles",
+    "tip lock bar"
+  ],
+  "references": [],
+  "size": [
+    30,
+    0.1,
+    6
+  ],
+  "style": "Ultra realistic Z-fold rigid-panel solar array wing, ten carbon-tray panels with triple-junction cell grids, titanium knuckles, root drive spar.",
+  "summary": "Z-fold solar array wing: ten hinged cell-grid panels with carbon trays, edge frames, knuckles and a root drive spar.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenterSite",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
