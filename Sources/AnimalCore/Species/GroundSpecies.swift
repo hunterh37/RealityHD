@@ -198,16 +198,21 @@ extension GroundProfile {
                                  activity: [.dawn: 1.4, .day: 0.6, .dusk: 1.4, .night: 0.15],
                                  likes: [.openGround: 1, .shrub: 0.9, .flowers: 0.6, .seedPlants: 0.5], minHabitat: 0.18, alertRate: 0.25))
 
-    static let squirrel = GroundProfile(
+    static let squirrel: GroundProfile = {
+        var p = GroundProfile(
         species: .easternGraySquirrel, name: "Eastern Gray Squirrel", latin: "Sciurus carolinensis",
         blurb: "Bold and acrobatic. Buries nuts, raids feeders and runs up any tree or fence.",
-        anatomy: GroundAnatomy(bodyLength: 0.21, bodyDepth: 0.1, bodyWidth: 0.085, headLength: 0.07, headWidth: 0.05, headHeight: 0.054, snout: 0.02,
-                               earLength: 0.028, earWidth: 0.02, tailLength: 0.21, tailWidth: 0.075, foreLeg: 0.07, hindLeg: 0.085, legRadius: 0.009, pitch: 8, eyeRadius: 0.0065),
+        anatomy: GroundAnatomy(bodyLength: 0.21, bodyDepth: 0.1, bodyWidth: 0.085, headLength: 0.058, headWidth: 0.05, headHeight: 0.05, snout: 0.02,
+                               earLength: 0.028, earWidth: 0.02, tailLength: 0.21, tailWidth: 0.075, foreLeg: 0.07, hindLeg: 0.085, legRadius: 0.009, pitch: 8, eyeRadius: 0.0078),
         palette: GroundPalette(back: 0x8D8C88, belly: 0xE8E4DC, accent: 0xC9C8C2, ear: 0x8D8C88, nose: 0x5E4A44, eye: 0x120E0C, claw: 0x3A332E, tail: 0x8A8985,
                                tailTip: 0xD2D0CA, face: 0x9A9894, flankLine: 0.6, pattern: 0.35, strands: 90),
         behavior: GroundBehavior(gait: .bound, walk: 0.7, run: 4.5, climbs: true, boldness: 0.8, skittishRadius: 1.2, rarity: 0.15, seasons: allSeasons,
                                  activity: [.dawn: 1, .day: 1.2, .dusk: 0.9, .night: 0],
                                  likes: [.tree: 1, .feeder: 0.9, .openGround: 0.5, .seedPlants: 0.4, .perch: 0.5], minHabitat: 0.15, alertRate: 0.35))
+        // Round cranium, short blunt muzzle.
+        p.anatomy.headShape = [0.84, 1.0, 1.0, 0.92, 0.78, 0.6, 0.44, 0.3]
+        return p
+    }()
 
     static let chipmunk = GroundProfile(
         species: .easternChipmunk, name: "Eastern Chipmunk", latin: "Tamias striatus",

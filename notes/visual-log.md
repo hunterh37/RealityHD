@@ -44,3 +44,17 @@ Iter 4. Issues: haunches still read as separate blobs, squirrel tail cards dark.
 Fixes: haunch at 0.1 along thigh, inset by 0.45 thigh radius; squirrel cards on body coat.
 Open: squirrel tail cards still shade dark (thin tube normals); legs remain tubes below the knee;
 head and body still separate parts per joint (no single skinned loft).
+
+## Pets realism pass 2 (squirrel)
+
+Rig has rigid parts only (no joint weights in RealCore.Rig / RealKit upload), so the body is one
+continuous rest-pose surface split at joints, not a linear-blend skin.
+Iter 1. Fixes: chest-to-skull blend loft (9 sections, torso front section to head rear section) replaces
+torso cap + neck tube; squirrel headShape [0.84 1 1 0.92 0.78 0.6 0.44 0.3], head 0.058 m, eye 0.0078 m
+set at 0.26 head height; legs smooth-tapered with calf swell, 4 rounded toes per paw; tail fur as flat
+two-sided cards. Issues seen: tail pure white, back faces near black, thigh tops open and boot-like.
+Iter 2. Fixes: card normals = outward radial on both faces, card u 0.04 to 0.17 (coat root, pale tip);
+thigh starts inside the body. Issues: thighs poke above the body, haunch ellipsoids read as bulbs.
+Iter 3. Fixes: thigh root inset 55% toward midline, haunch ellipsoids off for small mammals.
+Iter 4. Fixes: hind thigh root lowered to 0.12 body depth.
+Open: dark spikes at the tail's upper edge, leg coat streaks, body strand streaks at 640 px.
