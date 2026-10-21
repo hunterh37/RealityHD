@@ -31,5 +31,10 @@ final class SkinnedTests: XCTestCase {
             }
         }
         XCTAssertGreaterThan(parts, 0)
+        // Sim budget: skin with fur shells under 60k triangles.
+        var tris = 0
+        for mdl in model.mesh.contents.models { for p in mdl.parts { tris += (p.triangleIndices?.count ?? 0) / 3 } }
+        print("skinned squirrel tris", tris, "shells", GroundFactory.shellCount)
+        XCTAssertLessThan(tris, 60000)
     }
 }

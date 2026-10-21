@@ -107,3 +107,20 @@ unguarded; a NaN height poisons the derived normal map and mips, which renders b
 Fix: furCoat guards height/AO/soft; `rf_material` kernel replaces non-finite albedo, height, rough,
 AO, metal, alpha for every program. After: squirrel coat lit in 03-perch; tail first, then body.
 Open: squirrel tail reads near white in Kith light.
+
+## Photoreal pass 6: shell fur (close sheets, `--dist close`)
+
+Added `furShell` program (cutout; alpha = strand height from jittered strand cells x length x clump
+fbm; back/belly split; guard hairs tipped with colorC), regions `shell`, `tailShell`, `limb`;
+`Skin.withShells` (copies along the normal, same weights, outward by centroid vote); uploader sets
+per-shell OpacityThreshold 0.08..0.93 and root-dark Tint 0.55..1.05. Squirrel tail: cards off for
+skinned pets, core 0.62 w, tail shells 0.32 tail width, tail width 0.09 m.
+Iter 1. Issues: camera far (flag read after args cleared), head fur thin, fennec eyes on top of skull.
+Fixes: eye inset 0.8 R, head shells 3.5 mm, dark brown iris with clearcoat cornea, pink-black lid rim,
+fennec inner-ear hair, bluebird body normal 1.3 roughness 0.66.
+Iter 2. Issues: close flag ignored, thin tail. Fixes: `--dist close` read before arg reset; tail 0.09 m.
+Iter 3. Issues: legs show shell layering, eyes hidden. Fixes: legs on `limb` coat with 1.8 mm shells,
+eye inset 0.6 R.
+Iter 4. Issue: head shells hidden (loft wound inward). Fix: centroid vote flips shell direction.
+Budget: 12 shells = 74k tris; 8 shells = 51.2k (test asserts < 60k). `GroundFactory.shellCount`.
+Open: squirrel head still reads smooth; bluebird scale-like plumage (no barbed cards yet); whiskers opaque.

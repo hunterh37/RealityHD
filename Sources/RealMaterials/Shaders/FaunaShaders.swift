@@ -370,6 +370,36 @@ S furCoat(float2 uv, constant RFParams &P) {
     return s;
 }
 
+// Shell fur strands for cutout shells. Alpha = strand height 0..1 (length x clump map); a shell at level
+// k keeps texels with alpha > k, so strands thin toward their tips across the stack. Colour: back/belly
+// split at the flank line (P.f.y), guard hairs (share P.f.w) tipped with colorC, P.f.z frost strength.
+S furShell(float2 uv, constant RFParams &P) {
+    S s = defaults(); s.rough = 0.86;
+    float d = min(uv.x, 1.0 - uv.x); float t = d * 2.0;
+    float nx = max(P.f.x, 24.0) * 3.0;
+    float2 g = float2(t * nx, uv.y * nx * 0.7);
+    float2 c0 = floor(g);
+    float best = 9.0; float h1 = 0.0, h2 = 0.0;
+    for (int j = -1; j <= 1; j++) for (int i = -1; i <= 1; i++) {
+        float2 c = c0 + float2(i, j);
+        uint hs = pcg(uint(int(c.x) + 4096) * 7919u + uint(int(c.y) + 4096) * 104729u + P.seed);
+        float2 o = float2(float(hs & 0xffffu), float((hs >> 16) & 0xffffu)) / 65536.0;
+        float r = length(g - (c + 0.15 + 0.7 * o));
+        if (r < best) { best = r; h1 = float(pcg(hs) & 0xffffu) / 65536.0; h2 = o.x; }
+    }
+    float clump = fbm(uv, int2(14, 20), 2, P.seed + 17u);
+    float len = saturate(0.45 + 0.4 * h1 + 0.35 * clump);
+    float strand = 1.0 - smoothstep(0.22, 0.42, best);
+    s.alpha = strand * len;
+    float zn = 0.06 * fbm(float2(t, uv.y), int2(4, 6), 3, P.seed + 3u);
+    bool under = (t + zn) > P.f.y;
+    float3 base = (under ? P.colorB.rgb : P.colorA.rgb) * (0.86 + 0.28 * h2);
+    bool guard = h1 > 1.0 - P.f.w;
+    s.albedo = guard ? mix(base, P.colorC.rgb, P.f.z) : base;
+    s.height = s.alpha; s.ao = 1.0;
+    return s;
+}
+
 S quillCoat(float2 uv, constant RFParams &P) {
     S s = defaults(); s.rough = 0.6;
     int N = max(8, int(P.f.x));

@@ -33,7 +33,7 @@ public enum FaunaMaterials {
             make(.body, .plumageBody) {
                 $0.colorA = linear(c.back); $0.colorB = linear(c.belly); $0.colorC = linear(c.breast)
                 $0.knobs = V4(c.featherRows * 1.9, c.flankLine, c.breastExtent, c.spotting)
-                $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 0.7; $0.roughness = 0.62
+                $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 1.3; $0.roughness = 0.66
                 if c.iridescence > 0 { $0.roughness = 0.55; $0.specular = 0.5 }   // structural blue: soft sheen, not lacquer
             },
             p.anatomy.caruncle > 0
@@ -132,7 +132,7 @@ public enum FaunaMaterials {
     // MARK: ground animals
 
     public enum GroundRegion: String, CaseIterable, Sendable {
-        case body, head, tail, ear, nose, eye, claw, whisker, quill, antler, hoof, muzzle, throat, rump, mane, bristle, pinna, lid
+        case body, head, tail, ear, nose, eye, claw, whisker, quill, antler, hoof, muzzle, throat, rump, mane, bristle, pinna, lid, shell, tailShell, limb
     }
 
     public static func key(_ id: String, _ r: GroundRegion) -> MaterialKey { "fauna.\(id).\(r.rawValue)" }
@@ -169,6 +169,24 @@ public enum FaunaMaterials {
                 $0.colorA = linear(c.ear); $0.knobs = V4(0.6, 0.4, 0.6, 0)
                 $0.tileSize = 0.03; $0.resolution = 256; $0.normalStrength = 0.5; $0.roughness = 0.7
             },
+            make(.limb, .furCoat) {
+                // Leg coat: body coat program, finer strands, no shells (thin limbs show shell layering).
+                $0.colorA = linear(c.back); $0.colorB = linear(c.belly); $0.colorC = linear(c.accent)
+                $0.knobs = V4(c.strands * 1.4, c.flankLine, c.pattern * 0.5, c.fuzz)
+                $0.tileSize = 0; $0.resolution = 512; $0.normalStrength = 1.0; $0.roughness = 0.92
+            },
+            make(.shell, .furShell) {
+                // Shell fur over the coat: back/belly split, pale guard-hair tips.
+                $0.colorA = linear(c.back); $0.colorB = linear(c.belly); $0.colorC = linear(c.belly)
+                $0.knobs = V4(c.strands, c.flankLine, 0.55, 0.3)
+                $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 0.4; $0.roughness = 0.86; $0.mode = .cutout
+            },
+            make(.tailShell, .furShell) {
+                // Tail brush: coat-coloured strands, many white frosted guard-hair tips.
+                $0.colorA = linear(c.tail); $0.colorB = linear(c.tail); $0.colorC = linear(c.tailTip)
+                $0.knobs = V4(c.strands * 0.8, 2, 0.9, 0.45)
+                $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 0.4; $0.roughness = 0.86; $0.mode = .cutout
+            },
             make(.pinna, .plastic) {
                 // Inner ear skin: thin, pink, translucent-looking.
                 $0.colorA = linear(0xE9AFA0); $0.knobs = V4(0.5, 0.35, 0.5, 0)
@@ -176,7 +194,7 @@ public enum FaunaMaterials {
             },
             make(.lid, .plastic) {
                 // Dark rim skin around the eye.
-                $0.colorA = linear(0x1E1714); $0.knobs = V4(0.3, 0.3, 0.3, 0)
+                $0.colorA = linear(0x3A2326); $0.knobs = V4(0.3, 0.3, 0.3, 0)
                 $0.tileSize = 0.01; $0.resolution = 128; $0.normalStrength = 0.2; $0.roughness = 0.5
             },
             make(.nose, .plastic) {
@@ -184,8 +202,9 @@ public enum FaunaMaterials {
                 $0.tileSize = 0.02; $0.resolution = 128; $0.normalStrength = 0.3; $0.roughness = p.anatomy.snoutDisc ? 0.6 : 0.35; $0.clearcoat = p.anatomy.snoutDisc ? 0.04 : 0.3
             },
             make(.eye, .plastic) {
-                $0.colorA = linear(c.eye); $0.knobs = V4(0.2, 0.2, 0.2, 0)
-                $0.tileSize = 0.02; $0.resolution = 128; $0.normalStrength = 0; $0.roughness = 0.04; $0.clearcoat = 1; $0.specular = 1
+                // Dark brown iris under a clear cornea: tiny roughness, full clearcoat for the wet highlight.
+                $0.colorA = linear(0x2A170C); $0.knobs = V4(0.25, 0.2, 0.25, 0)
+                $0.tileSize = 0.004; $0.resolution = 128; $0.normalStrength = 0; $0.roughness = 0.02; $0.clearcoat = 1; $0.specular = 1
             },
             make(.claw, .plastic) {
                 $0.colorA = linear(c.claw); $0.knobs = V4(0.4, 0.4, 0.5, 0)

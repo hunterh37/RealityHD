@@ -211,6 +211,7 @@ extension GroundProfile {
                                  likes: [.tree: 1, .feeder: 0.9, .openGround: 0.5, .seedPlants: 0.4, .perch: 0.5], minHabitat: 0.15, alertRate: 0.35))
         // Round cranium, short blunt muzzle.
         p.anatomy.headShape = [0.84, 1.0, 1.0, 0.92, 0.78, 0.6, 0.44, 0.3]
+        p.anatomy.tailWidth = 0.09
         return p
     }()
 

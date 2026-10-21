@@ -19,6 +19,31 @@ public struct Skin: Sendable {
     public var triangleCount: Int { surfaces.reduce(0) { $0 + $1.triangleCount } }
 }
 
+public extension Skin {
+    /// Shell fur: `count` copies of each surface picked by `shell` (which returns the shell material key and
+    /// fur length in meters), pushed out along the normal and skinned with the source weights. Shell i
+    /// gets material `<key>#shell<i>/<count>` so the uploader can set its cutout level and root shading.
+    func withShells(count: Int, _ shell: (MaterialKey) -> (MaterialKey, Float)?) -> Skin {
+        guard count > 0 else { return self }
+        var result = self
+        for (si, s) in surfaces.enumerated() {
+            guard let (key, len) = shell(s.material) else { continue }
+            // Lofts may wind inward: push shells away from the surface centroid by majority vote.
+            let cen = s.positions.reduce(V3.zero, +) / Float(max(1, s.vertexCount))
+            let out = zip(s.positions, s.normals).reduce(0) { $0 + (simd_dot($1.1, $1.0 - cen) >= 0 ? 1 : -1) }
+            let sign: Float = out >= 0 ? 1 : -1
+            for i in 0..<count {
+                var c = s
+                let h = len * Float(i + 1) / Float(count)
+                c.positions = zip(s.positions, s.normals).map { $0 + $1 * (h * sign) }
+                c.material = "\(key)#shell\(i)/\(count)"
+                result.surfaces.append(c); result.influences.append(influences[si])
+            }
+        }
+        return result
+    }
+}
+
 public extension Rig {
     /// Copy without the surfaces whose material matches `drop` (all LODs and options).
     func removing(_ drop: (MaterialKey) -> Bool) -> Rig {

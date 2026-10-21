@@ -102,6 +102,8 @@ public final class GroundPuppet {
 
 @MainActor
 public enum GroundFactory {
+    /// Fur shells per coat surface on skinned pets (0 disables). LOD tiers can lower it before templates build.
+    public nonisolated(unsafe) static var shellCount = 8
     private struct Key: Hashable { var species: GroundSpecies; var variant: GroundVariant }
     private static var templates: [Key: GroundTemplate] = [:]
     private static var building: [Key: Task<GroundTemplate, Error>] = [:]
@@ -117,9 +119,18 @@ public enum GroundFactory {
             let entity: Entity
             if built.skinned {
                 // One continuous skinned mesh; coat surfaces blend across joints.
-                let coat = [".body", ".head", ".tail", ".muzzle", ".throat", ".rump"]
+                let coat = [".body", ".head", ".tail", ".muzzle", ".throat", ".rump", ".limb"]
                 let isCoat: @Sendable (MaterialKey) -> Bool = { k in coat.contains { k.hasSuffix($0) } }
-                let skin = await Task.detached(priority: .userInitiated) { built.rig.skin(blend: isCoat, include: isCoat) }.value
+                let id = s.rawValue, tw = profile.anatomy.tailWidth
+                let skin = await Task.detached(priority: .userInitiated) {
+                    built.rig.skin(blend: isCoat, include: isCoat).withShells(count: GroundFactory.shellCount) { k in
+                        if k.hasSuffix(".tail") { return ("fauna.\(id).tailShell", tw * 0.32) }
+                        if k.hasSuffix(".limb") { return ("fauna.\(id).shell", 0.0018) }
+                        if k.hasSuffix(".body") { return ("fauna.\(id).shell", 0.0045) }
+                        if k.hasSuffix(".head") || k.hasSuffix(".muzzle") { return ("fauna.\(id).shell", 0.0035) }
+                        return nil
+                    }
+                }.value
                 // Ears, eyes, nose, claws, whiskers stay rigid on joint entities (full uv1 AO and wind channels).
                 entity = try await built.rig.removing(isCoat).entityAsync(name: s.rawValue, state: "stand", interactive: false)
                 entity.removeRestProxy()

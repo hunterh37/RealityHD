@@ -26,6 +26,7 @@ public extension Skin {
             p.textureCoordinates = MeshBuffers.TextureCoordinates(s.uvs)
             p.bitangents = MeshBuffers.Normals((0..<s.vertexCount).map { k in let t = s.tangents[k]; return simd_cross(s.normals[k], SIMD3(t.x, t.y, t.z)) * t.w })
             p.triangleIndices = MeshBuffer(s.indices)
+            _ = 0
             p.skeletonID = "skel"
             // uv1 = (wind weight, baked AO) as in PackedMesh; ShaderGraph reads it as texcoord 1.
             let uv1 = (0..<s.vertexCount).map { SIMD2(s.extra[$0].x, s.occlusion[$0]) }
@@ -42,7 +43,21 @@ public extension Skin {
         contents.instances = MeshInstanceCollection([MeshResource.Instance(id: "i", model: "m")])
         let mesh = try await MeshResource(from: contents)
         var mats: [any RealityKit.Material] = []
-        for k in keys { mats.append(await cache.skinnedMaterialAsync(k)) }
+        for k in keys {
+            guard let r = k.range(of: "#shell") else { mats.append(await cache.skinnedMaterialAsync(k)); continue }
+            // Shell i of n: cutout level rises toward the tips, roots darker (self-shadowed under-coat).
+            let parts = k[r.upperBound...].split(separator: "/")
+            let i = Float(Int(parts[0]) ?? 0), n = Float(Int(parts.last ?? "1") ?? 1)
+            let lvl = (i + 1) / (n + 1)
+            var m = await cache.skinnedMaterialAsync(String(k[..<r.lowerBound]))
+            if var g = m as? ShaderGraphMaterial {
+                try? g.setParameter(name: "OpacityThreshold", value: .float(0.08 + 0.85 * lvl))
+                let sh = CGFloat(0.55 + 0.5 * lvl)
+                try? g.setParameter(name: "Tint", value: .color(CGColor(srgbRed: sh, green: sh, blue: sh, alpha: 1)))
+                m = g
+            }
+            mats.append(m)
+        }
         let e = ModelEntity(mesh: mesh, materials: mats)
         e.name = name
         return e
