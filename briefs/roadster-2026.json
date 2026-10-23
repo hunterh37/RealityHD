@@ -1,29 +1,23 @@
 {
-  "budget" : 10000,
-  "id" : "roadster-2026",
-  "kind" : "prop",
-  "materials" : [
-
-  ],
-  "name" : "Roadster 2026",
-  "notes" : "",
-  "parts" : [
-
-  ],
-  "references" : [
-
-  ],
-  "size" : [
+  "budget": 10000,
+  "id": "roadster-2026",
+  "kind": "prop",
+  "materials": [],
+  "name": "Roadster 2026",
+  "notes": "",
+  "parts": [],
+  "references": [],
+  "size": [
     0,
     0,
     0
   ],
-  "style" : "TODO: era, condition, finish",
-  "summary" : "TODO: one sentence, what it is and how it's built.",
-  "tags" : [
+  "style": "TODO: era, condition, finish",
+  "summary": "Roadster 2026 at 1:1: silver-white wedge coupe, tinted glass, red tail bar, wheel-fl/fr/rl/rr and thruster-fl/fr/rl/rr parts.",
+  "tags": [
     "prop"
   ],
-  "theme" : "Roadster",
-  "threshold" : 0.85,
-  "tolerance" : 0.08
+  "theme": "Roadster",
+  "threshold": 0.85,
+  "tolerance": 0.08
 }

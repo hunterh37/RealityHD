@@ -14,6 +14,11 @@
     "shadowTriangles" : 547000,
     "triangles" : 4688000
   },
+  "archery-range" : {
+    "drawCalls" : 410,
+    "shadowTriangles" : 473000,
+    "triangles" : 742000
+  },
   "autumn-woods" : {
     "drawCalls" : 315,
     "shadowTriangles" : 2398000,
@@ -104,6 +109,11 @@
     "shadowTriangles" : 215000,
     "triangles" : 226000
   },
+  "mountain-downhill-road" : {
+    "drawCalls" : 1215,
+    "shadowTriangles" : 305000,
+    "triangles" : 1625000
+  },
   "mulberry-river" : {
     "drawCalls" : 900,
     "shadowTriangles" : 1072000,
@@ -139,6 +149,11 @@
     "shadowTriangles" : 1000,
     "triangles" : 4219000
   },
+  "roadster-event" : {
+    "drawCalls" : 30,
+    "shadowTriangles" : 25000,
+    "triangles" : 25000
+  },
   "rooftop-plank" : {
     "drawCalls" : 400,
     "shadowTriangles" : 74000,
@@ -148,6 +163,11 @@
     "drawCalls" : 230,
     "shadowTriangles" : 538000,
     "triangles" : 387000
+  },
+  "timberline-backcountry" : {
+    "drawCalls" : 365,
+    "shadowTriangles" : 986000,
+    "triangles" : 1152000
   },
   "winter-forest" : {
     "drawCalls" : 180,

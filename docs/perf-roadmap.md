@@ -396,3 +396,15 @@ Tool: `Scripts/simbench.sh <udid> <outdir> <seconds> <scene...>`.
   (`realityhd perf --budget --write <scene>`).
 - C6 backyard-landscape load stall 222 ms on the sim after the sync init (was 127). Close: < 150 ms.
 - C7 Device on-head bench of the sync init (phase 0 step 1 still open).
+
+Status 2026-10-23 (content-contract-fixes): C1 done (13 thumbnails), C2 done (7 tags: datacenter, cooling,
+semiconductor, chiplab, micro-scale, solar, space), C3 done (9 summaries <= 160, briefs synced to source),
+C4 done (terrain-tagged assets may sit up to 3 m below grade; lunar craters), C5 done (4 budgets written).
+QualityGate now applies the vehicle 30k cap like AssetContractTests. Remaining, confirmed by swift test:
+
+- C8 Stale sign-offs: compact-sedan, staircase, l-shaped-staircase, u-shaped-staircase geometry changed
+  after sign-off. Close: `realityhd gate <id> --verdict ... --signoff` for each.
+- C9 Prop budgets over the 15k cap: hall-shell 20000, heavy-bag 18000. Close: retag hall-shell as a
+  structure or cut tris; cut heavy-bag LOD0.
+- C10 Briefs with no prop id: camera-sony-a7iv, ramp-truss-tower, roadster-ramp, roadster-event (a scene).
+  Close: build the assets or move the briefs out of `briefs/`.

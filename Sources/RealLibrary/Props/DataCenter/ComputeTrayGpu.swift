@@ -4,7 +4,7 @@ import Foundation
 /// GPU compute tray: Clean new hardware, satin brushed aluminium, green PCB visible with lid lifted.. Parts: chassis, lid, slide rails, GPU modules, cold plates, copper tubing, quick disconnects, front handles, PCB, DIMMs.
 public struct ComputeTrayGpu: RealAsset {
     public static let id = "compute-tray-gpu"
-    public static let summary = "2U liquid-cooled GPU compute tray: brushed aluminium chassis, four GPU cold plates with copper tubing to rear blind-mate quick disconnects, PCB, fan-less, removable lid and slide rails."
+    public static let summary = "2U liquid-cooled GPU tray: aluminium chassis, four GPU cold plates piped to rear quick disconnects, PCB, removable lid, slide rails."
     public static let tags = ["prop"]
     public static let budget = 12000
     public static let author = "realityhd"

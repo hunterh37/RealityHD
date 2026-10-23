@@ -2,15 +2,43 @@
   "budget": 14000,
   "id": "immersion-tank",
   "kind": "prop",
-  "materials": ["metal.stainless", "glass.clear", "fluid.dielectric", "copper.polished", "metal.nickel", "plastic.pcb", "metal.aluminum-brushed", "plastic.matte:1A1A1A", "rubber.seal"],
+  "materials": [
+    "metal.stainless",
+    "glass.clear",
+    "fluid.dielectric",
+    "copper.polished",
+    "metal.nickel",
+    "plastic.pcb",
+    "metal.aluminum-brushed",
+    "plastic.matte:1A1A1A",
+    "rubber.seal"
+  ],
   "name": "Two-phase immersion tank",
   "notes": "",
-  "parts": ["stainless tank body", "glass lid", "lid hinge", "dielectric fluid", "submerged servers", "condenser coil", "gauges", "fill port", "legs", "handles"],
+  "parts": [
+    "stainless tank body",
+    "glass lid",
+    "lid hinge",
+    "dielectric fluid",
+    "submerged servers",
+    "condenser coil",
+    "gauges",
+    "fill port",
+    "legs",
+    "handles"
+  ],
   "references": [],
-  "size": [2.4, 1.2, 1.1],
+  "size": [
+    2.4,
+    1.2,
+    1.1
+  ],
   "style": "Brushed stainless bath tank on a frame, glass hinged lid, pale fluid with servers submerged and vapour-zone condenser coil, wear at lid handles.",
-  "summary": "Two-phase immersion cooling tank: brushed stainless bath, hinged glass lid, visible dielectric fluid with vertical servers submerged, copper condenser coil, pressure and temperature gauges.",
-  "tags": ["prop", "articulated"],
+  "summary": "Two-phase immersion tank: stainless bath, hinged glass lid, dielectric fluid with submerged servers, condenser coil, gauges.",
+  "tags": [
+    "prop",
+    "articulated"
+  ],
   "theme": "DataCenter",
   "threshold": 0.85,
   "tolerance": 0.08

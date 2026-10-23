@@ -4,7 +4,7 @@ import Foundation
 /// Switchgear lineup: four-bay ANSI 61 grey low-voltage metal-clad lineup. Each bay has an instrument panel (meters, lamps, selector, nameplate), a hinged breaker door with viewing window and a bolted cable cover. A red mimic bus strip runs across all bays. Named parts "door-1"..."door-4" (hinged) and "breaker-rackout-2", "breaker-rackout-3" (slide out 0.55 m).
 public struct SwitchgearLineup: RealArticulated {
     public static let id = "switchgear-lineup"
-    public static let summary = "Four-bay ANSI-grey switchgear lineup with hinged breaker doors and viewing windows, rack-out breakers, meters, lamps, a red mimic bus strip and arc-flash warning labels."
+    public static let summary = "Four-bay grey switchgear: hinged breaker doors with windows, rack-out breakers, meters, lamps, mimic bus strip, arc-flash labels."
     public static let tags = ["prop", "articulated"]
     public static let budget = 10000
     public static let author = "realityhd"
