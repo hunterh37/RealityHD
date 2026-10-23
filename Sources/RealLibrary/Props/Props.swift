@@ -1014,6 +1014,7 @@ public enum Props {
         SleepingPorchScreenPanel.self,
         ScreenedPorchDoor.self,
         RailPicketBalusterRun.self,
+        MetalSpiralStairExterior.self,
         // realityhd:prop
     ]
 }
