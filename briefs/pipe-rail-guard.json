@@ -1,0 +1,17 @@
+{
+  "budget": 15000,
+  "id": "pipe-rail-guard",
+  "kind": "prop",
+  "materials": ["metal.signal-yellow", "metal.galvanized", "metal.galvanized-aged", "metal.rust", "metal.bolt-bright", "metal.steel", "metal.rust-grime"],
+  "name": "Pipe rail guard",
+  "notes": "",
+  "parts": ["top rail", "mid rail", "posts", "cross fittings", "set screws", "toe plate", "base flanges", "anchor bolts", "rail coupling", "weld beads", "end caps"],
+  "references": [],
+  "size": [3.0, 1.0, 0.05],
+  "style": "Industrial safety-yellow steel pipe guard rail on galvanized flanges, chipped paint, rust bleed at bolts and welds",
+  "summary": "Industrial pipe guard rail, 3.0 m: yellow steel pipe rails in cross fittings on three posts, toe plate and bolted flanges.",
+  "tags": ["prop", "architecture", "facade", "metal"],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
