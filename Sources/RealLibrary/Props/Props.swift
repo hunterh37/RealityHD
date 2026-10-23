@@ -1001,6 +1001,7 @@ public enum Props {
         TurnedNewelPost.self,
         SquareNewelPostCap.self,
         WroughtIronStairRail.self,
+        CastIronLaceworkRailing.self,
         // realityhd:prop
     ]
 }
