@@ -1,0 +1,38 @@
+{
+  "budget": 14000,
+  "id": "bamboo-roll-blind",
+  "kind": "prop",
+  "materials": [
+    "wood.bamboo-cane",
+    "fabric.linen:CFC1A0",
+    "metal.brass-aged",
+    "wood.weathered"
+  ],
+  "name": "Bamboo Roll Blind",
+  "notes": "",
+  "parts": [
+    "split-cane slat field",
+    "woven cord binding rows",
+    "rolled head with hanging loops",
+    "pull cord with cleat",
+    "wall mounting brackets",
+    "bottom batten"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.8,
+    0.08
+  ],
+  "style": "architectural facade customizer, tropical; Tropical, sun-bleached honey cane, darker edge ties, frayed cord.",
+  "summary": "Tropical bamboo roll-up blind, 1.2 m wide: split-cane slats bound with cotton cord, rolled to a head roll on a wall bracket.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
