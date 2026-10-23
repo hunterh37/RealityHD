@@ -1000,6 +1000,7 @@ public enum Props {
         ChaletCutworkBalconyBoard.self,
         JulietBalconyIronScroll.self,
         GlassCanopyRodHung.self,
+        SteelAndGlassAwning.self,
         // realityhd:prop
     ]
 }
