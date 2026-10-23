@@ -1,0 +1,39 @@
+{
+  "budget": 14000,
+  "id": "ogee-gutter-run",
+  "kind": "prop",
+  "materials": [
+    "metal.painted:4A5A48",
+    "metal.galvanized-aged",
+    "metal.screw-zinc",
+    "metal.rust-grime",
+    "metal.solder"
+  ],
+  "name": "Ogee gutter run",
+  "notes": "",
+  "parts": [
+    "ogee front profile",
+    "hanger straps",
+    "end caps",
+    "seam laps",
+    "outlet",
+    "fascia screws"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    0.14,
+    0.14
+  ],
+  "style": "architectural facade customizer, Victorian, galvanized ogee (K-style) gutter run with end caps, hangers and downspout outlet",
+  "summary": "Ogee gutter run, 3.0 x 0.14 x 0.14 m: painted K-style gutter with hangers, end caps and outlet.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

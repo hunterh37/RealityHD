@@ -1,0 +1,50 @@
+{
+  "budget": 10000,
+  "id": "cooling-tower-cell",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized-aged",
+    "metal.painted:6E7F86",
+    "metal.rust",
+    "metal.rust-grime",
+    "metal.cast-iron",
+    "metal.screw-zinc",
+    "stone.cast-grey",
+    "asphalt.worn",
+    "wood.weathered"
+  ],
+  "name": "Cooling Tower Cell",
+  "notes": "",
+  "parts": [
+    "concrete basin curb",
+    "corner posts",
+    "louver fill faces",
+    "corrugated upper casing",
+    "deck",
+    "fan stack",
+    "fan guard",
+    "fan blades and hub",
+    "access door",
+    "ladder",
+    "inlet pipe and flange",
+    "overflow pipe"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    2.4,
+    2.4
+  ],
+  "style": "architectural facade customizer, Commercial, rooftop induced-draft cooling tower cell with louvered faces, fan stack and guard",
+  "summary": "Cooling tower cell, 2.4 x 2.4 x 2.4 m: basin curb, louvered casing, corrugated upper panels, fan stack with guard.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.75,
+  "tolerance": 0.08
+}

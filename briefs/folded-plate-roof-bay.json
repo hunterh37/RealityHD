@@ -1,0 +1,43 @@
+{
+  "budget": 24000,
+  "id": "folded-plate-roof-bay",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized",
+    "metal.galvanized-aged",
+    "metal.anodized-worn",
+    "metal.screw-zinc",
+    "metal.rust-grime",
+    "wood.cedar-weathered"
+  ],
+  "name": "Folded plate roof bay",
+  "notes": "",
+  "parts": [
+    "folded galvanized plates",
+    "ridge cap flashing",
+    "valley gutter",
+    "timber valley beams",
+    "corner posts with base plates",
+    "end fascia band",
+    "downpipe",
+    "fastener rows"
+  ],
+  "references": [],
+  "size": [
+    4.0,
+    1.5,
+    6.0
+  ],
+  "style": "architectural facade customizer, modernism, weathered galvanized folded roof",
+  "summary": "Folded plate roof bay, 4.0 x 1.5 x 6.0 m: six galvanized folded plates on timber valley beams and corner posts.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roof",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

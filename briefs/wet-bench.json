@@ -1,41 +1,41 @@
 {
- "budget": 10000,
- "id": "wet-bench",
- "kind": "prop",
- "materials": [
-  "plastic.pvdf",
-  "glass.clear",
-  "metal.stainless",
-  "metal.powdercoat",
-  "plastic.matte",
-  "glass.lamp",
-  "rubber.tubing"
- ],
- "name": "Wet bench",
- "notes": "Part sash slides along Y.",
- "parts": [
-  "white PVDF deck with recessed chemical baths",
-  "clear sash window on the front",
-  "exhaust plenum on top",
-  "DI rinse tanks",
-  "control panel",
-  "splash marks",
-  "named sash"
- ],
- "references": [],
- "size": [
-  4,
-  2.2,
-  1.5
- ],
- "style": "Semiconductor wet bench, white PVDF/polypropylene deck, recessed baths, clear sash, exhaust plenum, light chemical splash stains, no branding.",
- "summary": "TODO: one sentence, what it is and how it's built.",
- "tags": [
-  "prop",
-  "semiconductor",
-  "articulated"
- ],
- "theme": "Fab",
- "threshold": 0.85,
- "tolerance": 0.08
+  "budget": 10000,
+  "id": "wet-bench",
+  "kind": "prop",
+  "materials": [
+    "plastic.pvdf",
+    "glass.clear",
+    "metal.stainless",
+    "metal.powdercoat",
+    "plastic.matte",
+    "glass.lamp",
+    "rubber.tubing"
+  ],
+  "name": "Wet bench",
+  "notes": "Part sash slides along Y.",
+  "parts": [
+    "white PVDF deck with recessed chemical baths",
+    "clear sash window on the front",
+    "exhaust plenum on top",
+    "DI rinse tanks",
+    "control panel",
+    "splash marks",
+    "named sash"
+  ],
+  "references": [],
+  "size": [
+    4,
+    2.2,
+    1.5
+  ],
+  "style": "Semiconductor wet bench, white PVDF/polypropylene deck, recessed baths, clear sash, exhaust plenum, light chemical splash stains, no branding.",
+  "summary": "Wet bench: white PVDF deck with recessed baths, DI rinse tanks, clear sliding sash, exhaust plenum, control panel.",
+  "tags": [
+    "prop",
+    "semiconductor",
+    "articulated"
+  ],
+  "theme": "Fab",
+  "threshold": 0.85,
+  "tolerance": 0.08
 }

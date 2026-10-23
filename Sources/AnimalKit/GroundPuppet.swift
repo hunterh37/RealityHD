@@ -20,6 +20,9 @@ public final class GroundPuppet {
     public let holder = Entity()
     public let model: Entity
     private var joints: [Entity?]
+    /// Skinned body and the skeleton joint index per spec (part index + 1).
+    private let skin: ModelEntity?
+    private var skinIndex: [Int] = []
     private var rest: [Xform]
     private var defs: [Joint]
     private var last: [Float]
@@ -39,6 +42,8 @@ public final class GroundPuppet {
             ds.append(template.schema.parts[i].joint)
         }
         joints = js; rest = rs; defs = ds
+        skin = model.findEntity(named: "skin") as? ModelEntity
+        if skin != nil { skinIndex = specs.map { template.schema.index($0.name)! + 1 } }
         last = [Float](repeating: .nan, count: specs.count)
         holder.name = "ground:\(species.rawValue)"
         model.position = [0, -built.comHeight, 0]
@@ -72,21 +77,33 @@ public final class GroundPuppet {
         play(action, phase: cycle, time: clock)
     }
 
+    private var pending: [(Int, Transform)] = []
+
     public func apply(_ pose: GroundPose) {
         for i in 0..<specs.count {
             let r = specs[i].range
             let v = min(max(pose.values[i], r.lowerBound), r.upperBound)
             if abs(v - last[i]) < 1e-3 { continue }
             last[i] = v
-            guard let e = joints[i] else { continue }
             let x = defs[i].motion(v).then(rest[i])
-            e.transform = Transform(scale: x.scale, rotation: x.rotation, translation: x.translation)
+            let t = Transform(scale: x.scale, rotation: x.rotation, translation: x.translation)
+            if skin != nil { pending.append((skinIndex[i], t)) }
+            guard let e = joints[i] else { continue }
+            e.transform = t
+        }
+        if let skin, !pending.isEmpty {
+            var jt = skin.jointTransforms
+            for (k, t) in pending where k < jt.count { jt[k] = t }
+            skin.jointTransforms = jt
+            pending.removeAll(keepingCapacity: true)
         }
     }
 }
 
 @MainActor
 public enum GroundFactory {
+    /// Fur shells per coat surface on skinned pets (0 disables). LOD tiers can lower it before templates build.
+    public nonisolated(unsafe) static var shellCount = 8
     private struct Key: Hashable { var species: GroundSpecies; var variant: GroundVariant }
     private static var templates: [Key: GroundTemplate] = [:]
     private static var building: [Key: Task<GroundTemplate, Error>] = [:]
@@ -99,8 +116,29 @@ public enum GroundFactory {
             let profile = s.profile(key.variant)
             AnimalMaterials.register(profile)
             let built = await Task.detached(priority: .userInitiated) { GroundRigBuilder.build(profile) }.value
-            let entity = try await built.rig.entityAsync(name: s.rawValue, state: "stand", interactive: false)
-            entity.removeRestProxy()
+            let entity: Entity
+            if built.skinned {
+                // One continuous skinned mesh; coat surfaces blend across joints.
+                let coat = [".body", ".head", ".tail", ".muzzle", ".throat", ".rump", ".limb"]
+                let isCoat: @Sendable (MaterialKey) -> Bool = { k in coat.contains { k.hasSuffix($0) } }
+                let id = s.rawValue, tw = profile.anatomy.tailWidth
+                let skin = await Task.detached(priority: .userInitiated) {
+                    built.rig.skin(blend: isCoat, include: isCoat).withShells(count: GroundFactory.shellCount) { k in
+                        if k.hasSuffix(".tail") { return ("fauna.\(id).tailShell", tw * 0.32) }
+                        if k.hasSuffix(".limb") { return ("fauna.\(id).shell", 0.0018) }
+                        if k.hasSuffix(".body") { return ("fauna.\(id).shell", 0.0045) }
+                        if k.hasSuffix(".head") || k.hasSuffix(".muzzle") { return ("fauna.\(id).headShell", 0.005) }
+                        return nil
+                    }
+                }.value
+                // Ears, eyes, nose, claws, whiskers stay rigid on joint entities (full uv1 AO and wind channels).
+                entity = try await built.rig.removing(isCoat).entityAsync(name: s.rawValue, state: "stand", interactive: false)
+                entity.removeRestProxy()
+                entity.addChild(try await skin.modelEntityAsync(name: "skin"))
+            } else {
+                entity = try await built.rig.entityAsync(name: s.rawValue, state: "stand", interactive: false)
+                entity.removeRestProxy()
+            }
             return GroundTemplate(built: built, schema: built.rig.schema, entity: entity)
         }
         building[key] = task

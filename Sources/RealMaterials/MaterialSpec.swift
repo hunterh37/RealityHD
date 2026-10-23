@@ -29,7 +29,7 @@ public enum TextureProgram: Int32, Sendable, CaseIterable {
     case foodTissue
     case chitin, insectFur, compoundEye, insectWing, insectVeins, caterpillarBands
     case petal
-    case plumageBody, plumageHead, plumageFeather, furCoat, quillCoat
+    case plumageBody, plumageHead, plumageFeather, furCoat, quillCoat, furShell
     case carbonWeave, foilCrinkle
     case barkSycamore
     case fishSkin, fishFin, fishEye

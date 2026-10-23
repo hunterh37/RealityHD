@@ -1,0 +1,40 @@
+{
+  "budget": 14000,
+  "id": "half-round-gutter-run",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized",
+    "metal.galvanized-aged",
+    "metal.cast-iron",
+    "metal.screw-zinc",
+    "metal.rust-grime",
+    "metal.solder"
+  ],
+  "name": "Half-round gutter run",
+  "notes": "",
+  "parts": [
+    "half-round trough",
+    "bead rim",
+    "strap brackets",
+    "end caps",
+    "joint collar",
+    "outlet"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    0.12,
+    0.1
+  ],
+  "style": "architectural facade customizer, Georgian, half-round gutter run on rafter brackets with end caps and outlet",
+  "summary": "Half-round gutter run, 3.0 x 0.12 x 0.1 m: galvanized trough on strap brackets with end caps.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

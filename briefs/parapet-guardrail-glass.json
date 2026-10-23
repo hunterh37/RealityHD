@@ -1,0 +1,44 @@
+{
+  "budget": 14000,
+  "id": "parapet-guardrail-glass",
+  "kind": "prop",
+  "materials": [
+    "glass.clear",
+    "metal.stainless",
+    "metal.satin-aluminum",
+    "metal.screw-zinc",
+    "stone.limestone-sooted",
+    "metal.rust-grime",
+    "asphalt.worn",
+    "plastic.black"
+  ],
+  "name": "Parapet glass guardrail",
+  "notes": "",
+  "parts": [
+    "laminated glass panel",
+    "stainless patch fittings",
+    "stainless handrail",
+    "rail end caps",
+    "base shoe",
+    "fasteners",
+    "coping stone",
+    "glass edge"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    1.1,
+    0.1
+  ],
+  "style": "architectural facade customizer, Contemporary, frameless glass guardrail with patch fittings and stainless handrail on a parapet",
+  "summary": "Parapet glass guardrail, 2.0 x 1.1 x 0.1 m: laminated glass, patch fittings, stainless handrail on a parapet.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.75,
+  "tolerance": 0.08
+}

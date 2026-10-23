@@ -42,6 +42,7 @@ func run() async throws {
     let w = Int(opt("--w") ?? "640") ?? 640, h = Int(opt("--h") ?? "520") ?? 520
     let globalPose = opt("--pose") ?? "perched"
     let tight = args.contains("--tight")
+    let close = opt("--dist") == "close"
     let azArg = Float(opt("--az") ?? "-62") ?? -62
     let names = args.filter { !$0.hasPrefix("-") && ![out, opt("--pose") ?? "", opt("--w") ?? "", opt("--h") ?? ""].contains($0) }
     if args.contains("--dump") {
@@ -89,6 +90,8 @@ func run() async throws {
     args.removeAll()
     RealityHD_setup()
     let sheetPoses: [(String, Float)] = [("idle", 0), ("walk", 0.1), ("trot", 0.1), ("run", 0.2), ("graze", 0.5), ("alert", 0)]
+    // One environment for every frame: a fresh sky per frame sometimes rendered before its texture landed (black sky).
+    let env = try RealEnvironment(.afternoon, skybox: true)
     for (k, variant) in targets {
       var sheetFrames: [CGImage] = []
       var sheetBase = k.rawValue
@@ -128,7 +131,6 @@ func run() async throws {
             holder = g.holder; comHeight = g.built.comHeight; length = a.bodyLength + a.headLength + a.tailLength * 0.5 + (a.antlers == .elk ? 0.5 : 0); tris = g.built.triangleCount
         }
         var frames: [CGImage] = []
-        let env = try RealEnvironment(.afternoon, skybox: true)
         let preview = try RealPreview(environment: env)
         let root = Entity()
         root.addChild(holder)
@@ -142,7 +144,7 @@ func run() async throws {
         let c = SIMD3<Float>(0, 0.0, 0)
         let d = max(0.28, length * (tight ? 1.7 : 2.6))
         if sheet {
-            let dist = max(0.28, length * 2.7)
+            let dist = close ? max(0.24, length * 1.5) : max(0.28, length * 2.7)
             let a = azArg * Float.pi / 180, e = 9 * Float.pi / 180
             let eye = c + SIMD3(sin(a) * cos(e), sin(e), -cos(a) * cos(e)) * dist
             preview.look(from: eye, at: c, fov: 32)

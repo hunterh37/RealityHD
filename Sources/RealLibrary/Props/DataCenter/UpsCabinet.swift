@@ -4,7 +4,7 @@ import Foundation
 /// Floor-standing double-conversion UPS cabinet, 0.8 x 2.0 x 0.9 m: powder-coat body, hinged front door with vent slots, LCD panel, status LEDs, top exhaust grille, rear cable gland plate.
 public struct UpsCabinet: RealArticulated {
     public static let id = "ups-cabinet"
-    public static let summary = "Floor-standing UPS cabinet: dark grey powder-coat body, hinged front door with vent slots and LCD panel, status LEDs, top fan grille, plinth and cable gland plate."
+    public static let summary = "Floor-standing UPS cabinet: grey powder-coat body, vented door with LCD panel, status LEDs, top fan grille, plinth, gland plate."
     public static let tags = ["prop", "articulated"]
     public static let budget = 9000
     public static let author = "realityhd"
