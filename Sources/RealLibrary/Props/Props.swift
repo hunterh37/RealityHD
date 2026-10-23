@@ -1009,6 +1009,7 @@ public enum Props {
         PorchSwing.self,
         PorchRocker.self,
         PorchLatticeSkirt.self,
+        PorchCeilingBeadboardPanel.self,
         // realityhd:prop
     ]
 }
