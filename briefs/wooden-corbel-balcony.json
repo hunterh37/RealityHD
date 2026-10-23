@@ -1,0 +1,26 @@
+{
+  "budget": 14500,
+  "id": "wooden-corbel-balcony",
+  "kind": "prop",
+  "materials": ["wood.weathered", "wood.cedar-weathered", "wood.pine-aged", "wood.deadwood", "metal.rust", "metal.wrought-iron", "stone.granite-moss"],
+  "name": "Wooden corbel balcony",
+  "notes": "",
+  "parts": [
+    "three carved timber corbels with scroll tips and groove lines",
+    "wall ledger with iron through-bolts",
+    "five floor joists with chamfered ends",
+    "scalloped front fascia board",
+    "plank floor with gaps",
+    "four chamfered posts with pyramid caps",
+    "pointed slat balustrade on three sides with top and bottom rails",
+    "vertical-plank wall patch"
+  ],
+  "references": [],
+  "size": [2.0, 1.0, 1.0],
+  "style": "Alpine chalet timber balcony, silver-brown weathered spruce, checks and splits, dark stained corbels, rust bleed at bolts, moss in the corbel joints",
+  "summary": "Alpine timber balcony, 2.0 m: carved corbels, joists, scalloped fascia, plank floor, pointed slat balustrade.",
+  "tags": ["prop", "architecture", "facade", "trim", "wood"],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
