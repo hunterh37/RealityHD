@@ -994,6 +994,7 @@ public enum Props {
         SkylightBarrelVault.self,
         RoofLanternGlazed.self,
         SawtoothRoofSection.self,
+        ButterflyRoofPair.self,
         // realityhd:prop
     ]
 }
