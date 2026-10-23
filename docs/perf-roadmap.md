@@ -366,3 +366,33 @@ Items, in order. Each lists the measure that proves it and the sim bench that cl
     Both fail on HEAD. Staircase centering now passes.
 
 Celebrated sim-proven milestones live in `docs/perf-milestones.json`.
+
+## Completed 2026-10-23: synchronous MeshResource init
+
+`MeshResource(from: LowLevelMesh)` called with `await` resolved to the async overload, which waits about one
+frame per mesh (17 ms each, measured with stage timers in `realityhd bench`). Interiors upload hundreds of
+meshes serially, so load time was frame-bound. `Model.syncResource` forces the synchronous init (0.3 ms per
+mesh); packing stays off the main actor. Also applied to `RealCook`.
+
+Offline `realityhd bench` upload: hospital 21101 -> 1856 ms, er-room 6245 -> 541, siphon-cafe 2966 -> 283,
+boston-common 3427 -> 591, forest-glade 4495 -> 2366.
+
+Sim bench (new Director-RealityHD-Perf sim, visionOS 26.4, Release, 20 s dolly 1.4 m/s, warm prebake cache),
+scene build ms before -> after: hospital 24094 -> 5152, mulberry-river 15235 -> 9455, er-room 8492 -> 2791,
+operating-room 7476 -> 2689, open-office 6533 -> 2088, winter-forest 8711 -> 4810, cooking-counter 6150 -> 3438.
+All 30 demo scenes faster. Main-actor load stall max 98-222 ms (was 95-178). Walk p99 11.1 ms in all scenes
+before and after; frames over 25 ms per 20 s walk: 3 before, 3 after.
+Tool: `Scripts/simbench.sh <udid> <outdir> <seconds> <scene...>`.
+
+## Backlog added 2026-10-23 (confirmed by swift test on 6456b7a)
+
+- C1 Thumbnails missing for merged terawatt and boxing props (wafer-cassette, ups-cabinet, switchgear-lineup,
+  reticle-pod, rack-pdu, network-patch-panel, fire-suppression-cylinder, dry-cooler, crah-unit, cold-plate,
+  chiller-unit, others) and scene roadster-event. Close: `realityhd thumbs`, AssetContractTests green.
+- C2 Tags outside `AssetTag.vocabulary` on 56 assets. Close: vocabulary or tags fixed, metadata test green.
+- C3 Asset summaries over 160 characters (9). Close: shortened.
+- C4 Two assets with base below y = -0.6 (geometry test). Close: base at y = 0.
+- C5 Perf budgets missing for mountain-downhill-road, timberline-backcountry, archery-range, roadster-event
+  (`realityhd perf --budget --write <scene>`).
+- C6 backyard-landscape load stall 222 ms on the sim after the sync init (was 127). Close: < 150 ms.
+- C7 Device on-head bench of the sync init (phase 0 step 1 still open).
