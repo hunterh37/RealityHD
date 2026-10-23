@@ -993,6 +993,7 @@ public enum Props {
         ChillerUnit.self,
         BullnoseCanvasAwning.self,
         DutchAwning.self,
+        ScallopedValanceAwning.self,
         // realityhd:prop
     ]
 }
