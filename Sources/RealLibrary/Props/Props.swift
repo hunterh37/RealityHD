@@ -997,6 +997,7 @@ public enum Props {
         WoodenLatticeSunscreen.self,
         PrecastConcreteSolarScreen.self,
         AluminumAerofoilBlade.self,
+        WireTrellisCurtain.self,
         // realityhd:prop
     ]
 }
