@@ -995,6 +995,7 @@ public enum Props {
         BracketedPorchHood.self,
         PedimentPorticoTwoColumn.self,
         HippedPorchRoofBay.self,
+        BalconyUndersideBracketPair.self,
         // realityhd:prop
     ]
 }
