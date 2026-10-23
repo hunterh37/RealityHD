@@ -997,6 +997,7 @@ public enum Props {
         CabanaStripeAwning.self,
         ShadeSailTriangle.self,
         TensileMembraneCanopy.self,
+        LouveredPergolaRoof.self,
         // realityhd:prop
     ]
 }
