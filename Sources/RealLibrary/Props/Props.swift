@@ -1006,6 +1006,7 @@ public enum Props {
         RopeHandrailRun.self,
         PipeRailGuard.self,
         PergolaCornerPost.self,
+        PorchSwing.self,
         // realityhd:prop
     ]
 }
