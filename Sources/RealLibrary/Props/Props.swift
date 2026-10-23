@@ -1017,6 +1017,7 @@ public enum Props {
         MetalSpiralStairExterior.self,
         ExteriorSteelStairFlight.self,
         ShipLadderStair.self,
+        BrownstoneStoopRailing.self,
         // realityhd:prop
     ]
 }
