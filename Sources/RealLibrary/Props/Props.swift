@@ -1005,6 +1005,7 @@ public enum Props {
         RoofDrainDome.self,
         LightningRodAirTerminal.self,
         RooftopWaterTankEnclosure.self,
+        OculusRoofLight.self,
         // realityhd:prop
     ]
 }
