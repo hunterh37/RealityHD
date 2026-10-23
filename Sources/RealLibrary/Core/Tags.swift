@@ -53,6 +53,8 @@ public enum AssetTag {
         "hunting",
         // lunar: regolith ground, boulders and craters
         "lunar",
+        // terawatt: data center, semiconductor fab and chip lab equipment; `space` for orbital/solar hardware
+        "datacenter", "cooling", "semiconductor", "chiplab", "micro-scale", "solar", "space",
     ])
 
     /// Scene tags: any vocabulary tag plus these.

@@ -7,7 +7,7 @@ import Foundation
 /// nanosheet-1..3, gate-oxide, gate-metal, spacers, epi-source, epi-drain, contacts; state "exploded" separates layers.
 public struct TransistorGaaCutaway: RealArticulated {
     public static let id = "transistor-gaa-cutaway"
-    public static let summary = "GAA nanosheet FET cutaway at 1e6x scale: 3 nanosheets wrapped by HfO2 and tungsten gate, epi source/drain, spacers, contacts, backside power rail; explodes by layer."
+    public static let summary = "GAA nanosheet FET cutaway at 1e6x: 3 sheets in HfO2 and tungsten gate, epi source/drain, spacers, contacts, backside power; explodes."
     public static let tags = ["prop", "chiplab", "micro-scale", "articulated"]
     public static let budget = 8000
     public static let author = "realityhd"

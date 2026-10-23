@@ -30,7 +30,7 @@
     0.5
   ],
   "style": "Gate-all-around nanosheet FET cutaway, front half of gate removed to show hafnium oxide and tungsten wrapping three silicon nanosheets, epi source/drain, spacers, contacts, backside power rail below.",
-  "summary": "GAA nanosheet FET cutaway at 1e6x scale: 3 nanosheets wrapped by HfO2 and tungsten gate, epi source/drain, spacers, contacts, backside power rail; explodes by layer.",
+  "summary": "GAA nanosheet FET cutaway at 1e6x: 3 sheets in HfO2 and tungsten gate, epi source/drain, spacers, contacts, backside power; explodes.",
   "tags": [
     "prop",
     "chiplab",
