@@ -1003,6 +1003,7 @@ public enum Props {
         WroughtIronStairRail.self,
         CastIronLaceworkRailing.self,
         CastIronGalleryBracket.self,
+        RopeHandrailRun.self,
         // realityhd:prop
     ]
 }
