@@ -995,6 +995,7 @@ public enum Props {
         RoofLanternGlazed.self,
         SawtoothRoofSection.self,
         ButterflyRoofPair.self,
+        FoldedPlateRoofBay.self,
         // realityhd:prop
     ]
 }
