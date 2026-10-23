@@ -1001,6 +1001,7 @@ public enum Props {
         OgeeGutterRun.self,
         HalfRoundGutterRun.self,
         RoofHatchAccess.self,
+        ParapetScupper.self,
         // realityhd:prop
     ]
 }
