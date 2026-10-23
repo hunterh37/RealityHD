@@ -1000,6 +1000,7 @@ public enum Props {
         LouveredPergolaRoof.self,
         BambooRollBlind.self,
         ExteriorRollingScreenShade.self,
+        SolidWoodHurricaneShutter.self,
         // realityhd:prop
     ]
 }
