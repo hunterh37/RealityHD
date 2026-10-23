@@ -4,8 +4,12 @@
   "kind": "prop",
   "materials": [
     "plastic.black",
-    "asphalt.worn",
-    "metal.galvanized-aged"
+    "plastic.pom",
+    "plastic.medical-grey",
+    "roofing.shingle-granule",
+    "wood.painted-exterior",
+    "wood.plywood-osb",
+    "metal.painted"
   ],
   "name": "Roof ridge vent",
   "notes": "",
