@@ -1,0 +1,43 @@
+{
+  "budget": 14000,
+  "id": "turned-newel-post",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "wood.weathered",
+    "wood.oak",
+    "stone.limestone-sooted"
+  ],
+  "name": "Turned newel post",
+  "notes": "",
+  "parts": [
+    "plinth base",
+    "square base block",
+    "turned shaft",
+    "ring mouldings",
+    "square top block",
+    "cap",
+    "ball finial",
+    "rail mortise",
+    "pegs"
+  ],
+  "references": [],
+  "size": [
+    0.15,
+    1.1,
+    0.15
+  ],
+  "style": "Victorian porch newel, white lead paint, flaked and greyed, damp-stained foot",
+  "summary": "Victorian turned newel post, 1.1 m: square base block, lathe-turned vase shaft with bead and ring mouldings, chamfered cap and ball finial.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "wood",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
