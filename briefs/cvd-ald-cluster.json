@@ -1,46 +1,46 @@
 {
- "budget": 14000,
- "id": "cvd-ald-cluster",
- "kind": "prop",
- "materials": [
-  "metal.stainless",
-  "metal.anodized",
-  "metal.powdercoat",
-  "metal.satin-aluminum",
-  "metal.brass",
-  "glass.lamp",
-  "glass.window-tint",
-  "plastic.matte",
-  "rubber.tubing"
- ],
- "name": "CVD ALD cluster tool",
- "notes": "Chamber lids lid-1..lid-4 articulated. Variant of ClusterTool.",
- "parts": [
-  "4 process chambers with hinged heated showerhead lids",
-  "heated lid ring with insulation jacket and heat-traced lines",
-  "precursor ampoule cabinets with ampoules and heated delivery lines",
-  "extended gas sticks with valves",
-  "central hexagonal vacuum transfer chamber with lid and viewport",
-  "2 load locks",
-  "EFEM front with 3 load ports and FOUPs",
-  "cable bundles",
-  "status tower",
-  "named chamber lids"
- ],
- "references": [],
- "size": [
-  4,
-  2.5,
-  4
- ],
- "style": "Generic CVD/ALD cluster tool, aluminum chambers, heated showerhead lids with insulation wrap, white EFEM, light wear, no branding.",
- "summary": "Hex cluster with 4 CVD/ALD chambers, heated showerhead lids, precursor ampoule cabinets, extra gas sticks, load locks, EFEM.",
- "tags": [
-  "prop",
-  "semiconductor",
-  "articulated"
- ],
- "theme": "Fab",
- "threshold": 0.85,
- "tolerance": 0.08
+  "budget": 14000,
+  "id": "cvd-ald-cluster",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless",
+    "metal.anodized",
+    "metal.powdercoat",
+    "metal.satin-aluminum",
+    "metal.brass",
+    "glass.lamp",
+    "glass.window-tint",
+    "plastic.matte",
+    "rubber.tubing"
+  ],
+  "name": "CVD ALD cluster tool",
+  "notes": "Chamber lids lid-1..lid-4 articulated. Variant of ClusterTool.",
+  "parts": [
+    "4 process chambers with hinged heated showerhead lids",
+    "heated lid ring with insulation jacket and heat-traced lines",
+    "precursor ampoule cabinets with ampoules and heated delivery lines",
+    "extended gas sticks with valves",
+    "central hexagonal vacuum transfer chamber with lid and viewport",
+    "2 load locks",
+    "EFEM front with 3 load ports and FOUPs",
+    "cable bundles",
+    "status tower",
+    "named chamber lids"
+  ],
+  "references": [],
+  "size": [
+    4,
+    2.5,
+    4
+  ],
+  "style": "Generic CVD/ALD cluster tool, aluminum chambers, heated showerhead lids with insulation wrap, white EFEM, light wear, no branding.",
+  "summary": "CVD/ALD cluster: hex transfer chamber, 4 chambers with heated showerhead lids, precursor ampoule cabinets, 8 gas sticks each, EFEM.",
+  "tags": [
+    "prop",
+    "semiconductor",
+    "articulated"
+  ],
+  "theme": "Fab",
+  "threshold": 0.85,
+  "tolerance": 0.08
 }

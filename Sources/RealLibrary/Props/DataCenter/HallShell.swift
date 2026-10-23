@@ -4,7 +4,7 @@ import Foundation
 /// Hall shell: parametric data-center building shell with tilt-up concrete wall panels, steel columns with yellow impact guards, Warren roof trusses with purlins, partial roof deck, exposed MEP (duct, cable tray, chilled-water pipes, sprinkler main) and a sealed concrete floor with expansion joints. Origin at the floor center, +z is the open loading wall.
 public struct HallShell: RealAsset {
     public static let id = "hall-shell"
-    public static let summary = "Parametric data-center hall shell with tilt-up concrete walls, steel columns with impact guards, roof trusses, exposed MEP and sealed concrete floor with expansion joints."
+    public static let summary = "Parametric data-center hall: tilt-up concrete walls, guarded steel columns, roof trusses, exposed MEP, jointed concrete floor."
     public static let tags = ["prop"]
     public static let budget = 20000
     public static let author = "realityhd"

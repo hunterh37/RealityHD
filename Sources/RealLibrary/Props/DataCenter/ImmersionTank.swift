@@ -4,7 +4,7 @@ import Foundation
 /// Two-phase immersion tank: brushed stainless bath on a frame, hinged glass lid, dielectric fluid with servers submerged and a vapour-zone condenser coil.
 public struct ImmersionTank: RealArticulated {
     public static let id = "immersion-tank"
-    public static let summary = "Two-phase immersion cooling tank: brushed stainless bath, hinged glass lid, visible dielectric fluid with vertical servers submerged, copper condenser coil, pressure and temperature gauges."
+    public static let summary = "Two-phase immersion tank: stainless bath, hinged glass lid, dielectric fluid with submerged servers, condenser coil, gauges."
     public static let tags = ["prop", "articulated"]
     public static let budget = 14000
     public static let author = "realityhd"

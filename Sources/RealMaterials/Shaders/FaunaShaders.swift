@@ -266,7 +266,8 @@ FaStrand fa_strand(float t, float v, int nx, float lenV, uint sd, float wmax, fl
             float sl = loc / Lk;
             if (sl <= 0.0 || sl >= 1.0) continue;
             float wave = wavy * sin(yy * 2.3 + g2 * 6.28) * (0.4 + 0.6 * sl) * ((fp < 0.05 || fp > hp - 0.05) ? 0.0 : 1.0);
-            float cu = fp + jit + wave;
+            float rj = (g3 - 0.5) * 0.9 * ((fp < 0.05 || fp > hp - 0.05) ? 0.0 : 1.0);   // per-row offset breaks column alignment
+            float cu = fp + jit + rj + wave;
             float cx = lo ? -cu : (hi ? 2.0 * hp - cu : cu);
             float hw = wmax * pow(saturate(sl * 4.0), 0.6) * (1.0 - 0.25 * sl);
             float a = (x - cx) / max(hw, 1e-3);
@@ -291,18 +292,18 @@ S furCoat(float2 uv, constant RFParams &P) {
     // Coat-wide colour variation: broad light/dark patches plus a warm/cool drift.
     float patch = fbm(uv, int2(5, 7), 3, P.seed + 111u);
     float drift = fbm(uv, int2(9, 13), 2, P.seed + 211u);
-    float3 tint = float3(1.0 + 0.10 * drift, 1.0, 1.0 - 0.10 * drift) * (1.0 + 0.30 * patch);
+    float3 tint = float3(1.0 + 0.06 * drift, 1.0, 1.0 - 0.06 * drift) * (1.0 + 0.14 * patch);
     // Low-frequency domain warp breaks strand-row alignment (tile banding). Mirror safe: t stays >= 0.
     float2 wp = float2(fbm(uv, int2(6, 9), 2, P.seed + 301u), fbm(uv, int2(7, 5), 2, P.seed + 303u));
-    float tw = fabs(t + 0.02 * wp.x), vw = uv.y + 0.03 * wp.y;
+    float tw = fabs(t + 0.006 * wp.x), vw = uv.y + 0.008 * wp.y;
     // Layers from the surface down: sparse long guard hairs, then four dense fine coat layers.
     const float scl[5] = { 0.42, 1.0, 1.17, 0.88, 1.31 };
     float3 outC = float3(0.0); float hgt = 0.1, ao = 0.3; bool got = false;
     for (int l = 0; l < 5; l++) {
         bool gl = (l == 0);
         int nx = max(8, int(round(nx0 * scl[l] * (gl ? 1.0 : 1.35))));
-        float lenV = (gl ? (12.0 + 14.0 * fuzz) : (5.5 + 8.0 * fuzz)) / float(nx);
-        FaStrand st = fa_strand(tw, vw, nx, lenV, P.seed + uint(l) * 977u, gl ? 0.36 : 0.40, gl ? 0.18 : 0.26);
+        float lenV = (gl ? (5.0 + 5.0 * fuzz) : (2.6 + 2.6 * fuzz)) / float(nx);   // short strands: 2-4x width, no grain streaks
+        FaStrand st = fa_strand(tw, vw, nx, lenV, P.seed + uint(l) * 977u, gl ? 0.36 : 0.56, gl ? 0.18 : 0.30);
         if (!st.hit) continue;
         if (gl && st.h1 < 0.55) continue;                                  // guard hairs are a sparse subset
         got = true;
@@ -315,8 +316,11 @@ S furCoat(float2 uv, constant RFParams &P) {
         float guard = step(0.72 - 0.35 * P.f.z, st.h1);
         float3 tip = under ? baseC * 1.05 : mix(baseC * 0.82, P.colorC.rgb, guard);
         float sl = st.sl;
-        float3 c = mix(tip, band, smoothstep(0.14, 0.24, sl));
-        c = mix(c, uc, smoothstep(0.50, 0.70, sl));
+        // Root dark, mid band, light tip: smooth gradient along the strand (sl 0 tip .. 1 root).
+        float3 c = mix(tip * 1.12, band, smoothstep(0.05, 0.40, sl));
+        c = mix(c, uc * 0.72, smoothstep(0.45, 0.95, sl));
+        // Per-strand fine noise across and along the hair.
+        c *= 0.9 + 0.2 * fract(st.h3 * 37.0 + st.across * 3.1) * (0.6 + 0.4 * sl);
         // Pale, translucent-looking tip.
         c += baseC * 0.25 * (1.0 - smoothstep(0.0, 0.10, sl)) * (0.4 + 0.6 * st.h2);
         if (gl) {
@@ -345,15 +349,54 @@ S furCoat(float2 uv, constant RFParams &P) {
     if (!got) {
         bool under = (t + zn) > P.f.y;
         float3 baseC = (under ? P.colorB.rgb : P.colorA.rgb) * tint;
-        outC = baseC * 0.55 * (0.8 + 0.4 * fbm(uv, int2(40, 40), 2, P.seed + 31u));
+        outC = baseC * 0.72 * (0.85 + 0.3 * fbm(uv, int2(120, 120), 2, P.seed + 31u));
         hgt = 0.03; ao = 0.08;
     }
-    float soft = fbm(uv, int2(48, 48), 2, P.seed + 71u);
+    float soft = fbm(uv, int2(160, 160), 2, P.seed + 71u);
     outC *= 1.0 + (0.06 + 0.10 * fuzz) * soft;
+    // Soften strand contrast toward the local coat colour so the coat reads as fur, not grain.
+    bool underM = (t + zn) > P.f.y;
+    float3 coat = (underM ? P.colorB.rgb : P.colorA.rgb) * tint * (0.92 + 0.12 * soft);
+    outC = mix(outC, coat, 0.45);
+    // Guard every channel: a NaN height turns the derived normal map NaN, which renders black under IBL.
+    if (!all(isfinite(outC))) outC = coat;
+    if (!isfinite(hgt)) hgt = 0.2;
+    if (!isfinite(ao)) ao = 0.6;
+    if (!isfinite(soft)) soft = 0.0;
     s.albedo = outC;
     s.height = hgt;
     s.ao = clamp(ao, 0.0, 1.0);
     s.rough = 0.88 + 0.06 * soft;
+    return s;
+}
+
+// Shell fur strands for cutout shells. Alpha = strand height 0..1 (length x clump map); a shell at level
+// k keeps texels with alpha > k, so strands thin toward their tips across the stack. Colour: back/belly
+// split at the flank line (P.f.y), guard hairs (share P.f.w) tipped with colorC, P.f.z frost strength.
+S furShell(float2 uv, constant RFParams &P) {
+    S s = defaults(); s.rough = 0.86;
+    float d = min(uv.x, 1.0 - uv.x); float t = d * 2.0;
+    float nx = max(P.f.x, 24.0) * 3.0;
+    float2 g = float2(t * nx, uv.y * nx * 0.7);
+    float2 c0 = floor(g);
+    float best = 9.0; float h1 = 0.0, h2 = 0.0;
+    for (int j = -1; j <= 1; j++) for (int i = -1; i <= 1; i++) {
+        float2 c = c0 + float2(i, j);
+        uint hs = pcg(uint(int(c.x) + 4096) * 7919u + uint(int(c.y) + 4096) * 104729u + P.seed);
+        float2 o = float2(float(hs & 0xffffu), float((hs >> 16) & 0xffffu)) / 65536.0;
+        float r = length(g - (c + 0.15 + 0.7 * o));
+        if (r < best) { best = r; h1 = float(pcg(hs) & 0xffffu) / 65536.0; h2 = o.x; }
+    }
+    float clump = fbm(uv, int2(14, 20), 2, P.seed + 17u);
+    float len = saturate(0.45 + 0.4 * h1 + 0.35 * clump);
+    float strand = 1.0 - smoothstep(0.22, 0.42, best);
+    s.alpha = strand * len;
+    float zn = 0.06 * fbm(float2(t, uv.y), int2(4, 6), 3, P.seed + 3u);
+    bool under = (t + zn) > P.f.y;
+    float3 base = (under ? P.colorB.rgb : P.colorA.rgb) * (0.86 + 0.28 * h2);
+    bool guard = h1 > 1.0 - P.f.w;
+    s.albedo = guard ? mix(base, P.colorC.rgb, P.f.z) : base;
+    s.height = s.alpha; s.ao = 1.0;
     return s;
 }
 

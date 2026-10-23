@@ -1,34 +1,34 @@
 {
- "budget": 600,
- "id": "tool-status-tower",
- "kind": "prop",
- "materials": [
-  "plastic.translucent",
-  "glass.lamp",
-  "metal.stainless",
-  "metal.anodized",
-  "plastic.matte"
- ],
- "name": "tool-status-tower",
- "notes": "",
- "parts": [
-  "4 stacked lamps red amber green blue",
-  "buzzer cap",
-  "mounting bracket",
-  "lamp state knob"
- ],
- "references": [],
- "size": [
-  0.05,
-  0.4,
-  0.05
- ],
- "style": "Generic 4-tier signal tower, translucent lenses with ribbing, matte black bases, steel L bracket, no branding.",
- "summary": "Four-lamp status tower with buzzer cap and mounting bracket.",
- "tags": [
-  "prop"
- ],
- "theme": "Fab",
- "threshold": 0.85,
- "tolerance": 0.08
+  "budget": 600,
+  "id": "tool-status-tower",
+  "kind": "prop",
+  "materials": [
+    "plastic.translucent",
+    "glass.lamp",
+    "metal.stainless",
+    "metal.anodized",
+    "plastic.matte"
+  ],
+  "name": "tool-status-tower",
+  "notes": "",
+  "parts": [
+    "4 stacked lamps red amber green blue",
+    "buzzer cap",
+    "mounting bracket",
+    "lamp state knob"
+  ],
+  "references": [],
+  "size": [
+    0.05,
+    0.4,
+    0.05
+  ],
+  "style": "Generic 4-tier signal tower, translucent lenses with ribbing, matte black bases, steel L bracket, no branding.",
+  "summary": "Tool status tower: mounting bracket, pole, four stacked translucent lamps, buzzer cap, lamp state knob.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "Fab",
+  "threshold": 0.85,
+  "tolerance": 0.08
 }

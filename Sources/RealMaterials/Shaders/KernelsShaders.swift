@@ -17,6 +17,13 @@ kernel void rf_material(texture2d<float, access::write> albedo [[texture(0)]],
     if (int(gid.x) >= P.size || int(gid.y) >= P.size) return;
     float2 uv = float2((float(gid.x) + 0.5) / float(P.size), (float(gid.y) + 0.5) / float(P.size));
     S s = evaluate(uv, P);
+    // Never write NaN or inf: one bad texel poisons mips and the derived normal map (black under IBL).
+    if (!all(isfinite(s.albedo))) s.albedo = float3(0.5);
+    if (!isfinite(s.height)) s.height = 0.0;
+    if (!isfinite(s.rough)) s.rough = 0.8;
+    if (!isfinite(s.ao)) s.ao = 1.0;
+    if (!isfinite(s.metal)) s.metal = 0.0;
+    if (!isfinite(s.alpha)) s.alpha = 1.0;
     float a = P.alphaMode == 1 ? s.alpha : 1.0;
     albedo.write(float4(rf_to_srgb(s.albedo), a), gid);
     height.write(float4(s.height), gid);

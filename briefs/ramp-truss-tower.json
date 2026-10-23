@@ -1,29 +1,23 @@
 {
-  "budget" : 10000,
-  "id" : "ramp-truss-tower",
-  "kind" : "prop",
-  "materials" : [
-
-  ],
-  "name" : "Ramp Truss Tower",
-  "notes" : "",
-  "parts" : [
-
-  ],
-  "references" : [
-
-  ],
-  "size" : [
+  "budget": 10000,
+  "id": "ramp-truss-tower",
+  "kind": "prop",
+  "materials": [],
+  "name": "Ramp Truss Tower",
+  "notes": "",
+  "parts": [],
+  "references": [],
+  "size": [
     0,
     0,
     0
   ],
-  "style" : "TODO: era, condition, finish",
-  "summary" : "TODO: one sentence, what it is and how it's built.",
-  "tags" : [
+  "style": "TODO: era, condition, finish",
+  "summary": "White steel box truss tower 27 m tall with a 3.6 m overhead arm at the top, diagonal-braced bays.",
+  "tags": [
     "prop"
   ],
-  "theme" : "Roadster",
-  "threshold" : 0.85,
-  "tolerance" : 0.08
+  "theme": "Roadster",
+  "threshold": 0.85,
+  "tolerance": 0.08
 }

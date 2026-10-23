@@ -4,7 +4,7 @@ import Foundation
 /// Hot aisle containment module: clear anodized aluminum frame, hazy polycarbonate roof and transom panels, bi-parting sliding end doors ("door-left", "door-right", slide joints 0...0.2 m) with push handles, EPDM seals, labels and brush-sealed cable penetrations.
 public struct HotAisleContainment: RealArticulated {
     public static let id = "hot-aisle-containment"
-    public static let summary = "Hot aisle containment module: anodized aluminum frame, hazy polycarbonate roof and transom panels, end-of-row bi-parting sliding doors with push handles, rubber seals, labels and brush-sealed cable penetrations."
+    public static let summary = "Hot aisle containment: aluminium frame, polycarbonate roof and transoms, bi-parting end doors, seals, labels, brush cable ports."
     public static let tags = ["prop", "articulated"]
     public static let budget = 8000
     public static let author = "realityhd"

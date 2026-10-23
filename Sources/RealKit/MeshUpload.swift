@@ -71,6 +71,10 @@ public extension Model {
         return mesh
     }
 
+    /// Synchronous init: the async overload waits about one frame per call (17 ms each on interiors).
+    @MainActor
+    static func syncResource(_ ll: LowLevelMesh) throws -> MeshResource { try MeshResource(from: ll) }
+
     @MainActor
     func meshResource() throws -> MeshResource { try MeshResource(from: lowLevelMesh()) }
 
@@ -80,7 +84,7 @@ public extension Model {
     func meshResourceAsync() async throws -> MeshResource {
         let model = self
         let packed = await Task.detached(priority: .userInitiated) { PackedMesh(model) }.value
-        return try await MeshResource(from: packed.lowLevelMesh())
+        return try Self.syncResource(packed.lowLevelMesh())
     }
 
     /// ModelEntity with cached PBR materials (textures generated on first use).
@@ -148,3 +152,4 @@ struct PackedMesh: Sendable {
         return mesh
     }
 }
+

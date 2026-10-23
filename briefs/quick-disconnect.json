@@ -1,17 +1,35 @@
 {
-  "budget" : 1500,
-  "id" : "quick-disconnect",
-  "kind" : "prop",
-  "materials" : ["metal.stainless", "rubber.tubing:1A1A1A", "plastic.matte:1F6FD0"],
-  "name" : "Quick disconnect",
-  "notes" : "",
-  "parts" : ["stainless body", "knurled sleeve", "color ring", "barbed hose tail", "EPDM hose stub", "latch button", "poppet face"],
-  "references" : [],
-  "size" : [0.03, 0.03, 0.08],
-  "style" : "New brushed stainless dry-break liquid cooling coupling, UQD style, blue supply ring, clean.",
-  "summary" : "UQD-style liquid cooling dry-break quick disconnect with knurled sleeve, color ring, barbed hose tail and latch button.",
-  "tags" : ["prop"],
-  "theme" : "DataCenter",
-  "threshold" : 0.85,
-  "tolerance" : 0.08
+  "budget": 1500,
+  "id": "quick-disconnect",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless",
+    "rubber.tubing:1A1A1A",
+    "plastic.matte:1F6FD0"
+  ],
+  "name": "Quick disconnect",
+  "notes": "",
+  "parts": [
+    "stainless body",
+    "knurled sleeve",
+    "color ring",
+    "barbed hose tail",
+    "EPDM hose stub",
+    "latch button",
+    "poppet face"
+  ],
+  "references": [],
+  "size": [
+    0.03,
+    0.03,
+    0.08
+  ],
+  "style": "New brushed stainless dry-break liquid cooling coupling, UQD style, blue supply ring, clean.",
+  "summary": "Dry-break liquid cooling quick disconnect: knurled sleeve, color ring, barbed tail, hose stub, latch; the sleeve slides when coupled.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "DataCenter",
+  "threshold": 0.85,
+  "tolerance": 0.08
 }

@@ -26,7 +26,7 @@
     2.48
   ],
   "style": "NASA LCRNS relay smallsat, gold and black MLI",
-  "summary": "LCRNS-style lunar relay smallsat: gold/black MLI bus with seams, two solar wings with cell grid, 0.8 m Ka dish on boom, S-band patches, thrusters, star trackers.",
+  "summary": "Lunar relay smallsat: gold and black MLI bus, two solar wings, 0.8 m Ka dish on a boom, S-band patches, thrusters, star trackers.",
   "tags": [
     "prop"
   ],
