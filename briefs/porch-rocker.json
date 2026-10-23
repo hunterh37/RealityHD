@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "porch-rocker",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-shaker-worn",
+    "wood.weathered",
+    "wood.pine-aged",
+    "metal.steel"
+  ],
+  "name": "Porch rocker",
+  "notes": "",
+  "parts": [
+    "curved rockers",
+    "turned front legs",
+    "back posts",
+    "slat back",
+    "slat seat",
+    "arms",
+    "turned arm posts",
+    "stretchers",
+    "pegs and screws",
+    "wear"
+  ],
+  "references": [],
+  "size": [
+    0.65,
+    1.0,
+    0.8
+  ],
+  "style": "Southern vernacular porch rocker, painted white slat back, turned spindle legs, bentwood rockers, sun-faded and chipped",
+  "summary": "Southern porch rocking chair, 0.65 m wide: painted slat back and seat on turned legs, curved rockers, rounded arms.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

@@ -1007,6 +1007,7 @@ public enum Props {
         PipeRailGuard.self,
         PergolaCornerPost.self,
         PorchSwing.self,
+        PorchRocker.self,
         // realityhd:prop
     ]
 }
