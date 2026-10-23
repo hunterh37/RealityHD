@@ -1,0 +1,39 @@
+{
+  "budget": 11000,
+  "id": "accordion-hurricane-shutter",
+  "kind": "prop",
+  "materials": [
+    "metal.aluminum",
+    "metal.anodized-worn",
+    "metal.stainless",
+    "metal.brass-aged"
+  ],
+  "name": "Accordion hurricane shutter",
+  "notes": "",
+  "parts": [
+    "interlocking ribbed blades with rolled knuckles",
+    "folded accordion stack at the hinge jamb",
+    "header track with fasteners",
+    "sill track with drain slots",
+    "leading-edge pull handle",
+    "hasp and brass padlock",
+    "masonry anchor screws"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.5,
+    0.12
+  ],
+  "style": "architectural facade customizer, coastal hurricane protection, mill-finish aluminum with salt-spray oxidation",
+  "summary": "Aluminum accordion hurricane shutter 1.2 x 1.5 m: interlocking ribbed blades, header and sill tracks, folded stack, padlocked hasp.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}
