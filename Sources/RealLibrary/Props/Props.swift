@@ -992,6 +992,7 @@ public enum Props {
         DryCooler.self,
         ChillerUnit.self,
         AccordionHurricaneShutter.self,
+        PersianaShutterPair.self,
         // realityhd:prop
     ]
 }
