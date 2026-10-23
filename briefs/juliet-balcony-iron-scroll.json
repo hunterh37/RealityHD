@@ -1,0 +1,26 @@
+{
+  "budget": 14500,
+  "id": "juliet-balcony-iron-scroll",
+  "kind": "prop",
+  "materials": ["metal.painted", "metal.rust", "metal.gold-leaf"],
+  "name": "Juliet balcony iron scroll",
+  "notes": "",
+  "parts": [
+    "bowed handrail with round section and flat cap",
+    "flat bottom rail and thin mid rail",
+    "two panels each with two large spiral scrolls and a ring",
+    "centre medallion with quatrefoil, ring and gilt boss",
+    "vertical balusters with collars at the ends",
+    "two end posts with ball and spear finials",
+    "wall plates with rusted bolts",
+    "chipped black paint with rust"
+  ],
+  "references": [],
+  "size": [1.2, 1.0, 0.2],
+  "style": "French Provincial wrought iron Juliet balcony, black paint chipped to rust at the rail top, gilt finials and boss, hand-forged scrolls",
+  "summary": "French Provincial Juliet balcony, 1.2 m: bowed iron rail with spiral scroll panels, medallion, gilt finials, wall plates.",
+  "tags": ["prop", "architecture", "facade", "trim", "metal"],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
