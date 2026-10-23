@@ -994,6 +994,7 @@ public enum Props {
         HipRoofRidgeCap.self,
         RoofRidgeVent.self,
         GreenRoofSedumTray.self,
+        SlopedGlazingAtriumBay.self,
         // realityhd:prop
     ]
 }
