@@ -1003,6 +1003,7 @@ public enum Props {
         RoofHatchAccess.self,
         ParapetScupper.self,
         RoofDrainDome.self,
+        RooftopWaterTankEnclosure.self,
         // realityhd:prop
     ]
 }
