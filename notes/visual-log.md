@@ -27,3 +27,121 @@ Shader (RealMaterials furCoat) is out of scope; changes are geometry, material k
 - whitetail-deer-buck: same body, rack unchanged.
 - wild-turkey it1-2: iridescence 0.9 bronze, broader tail (0.3), beard 0.26, crown 0x8EA6D6. Remaining: tail not fanned at rest.
 - rocky-mountain-elk-bull it1-2: 6x6 rack (5 tines plus beam tip), shorter tines tilted up. GroundFactory.puppet default variant for elk is .antlered.
+
+## Pets realism pass (squirrel, fennec, chipmunk)
+
+Iter 1. Issues: wood-grain fur, white mouth disc, grey fennec ears, plank tail, bulging eyes, neck seam.
+Fixes: furCoat strands shortened (lenV 12-26/nx to 2.6-10/nx), warp cut, root-dark to tip-light gradient,
+normalStrength 2.4 to 1.1, 2048 body atlas; jaw tucked into skull; cupped ear sheets with `pinna` (pink)
+inner and cream outer; 110 fur cards per tail segment over a half-width core; eyes sunk 0.55R with dark
+`lid` rim; neck starts inside the chest at body width (small mammals).
+Iter 2. Issues: strand columns aligned (grain), dark gap fallback, grey throat collar, haunch bulbs.
+Fixes: per-row strand x jitter, wider strands, lighter fallback; throat coat off for small mammals;
+haunch moved up and inward.
+Iter 3. Issues: squirrel head black (NaN in furCoat at head knobs), strand contrast high.
+Fixes: isfinite guard; strand colour blended 45% toward local coat colour.
+Iter 4. Issues: haunches still read as separate blobs, squirrel tail cards dark.
+Fixes: haunch at 0.1 along thigh, inset by 0.45 thigh radius; squirrel cards on body coat.
+Open: squirrel tail cards still shade dark (thin tube normals); legs remain tubes below the knee;
+head and body still separate parts per joint (no single skinned loft).
+
+## Pets realism pass 2 (squirrel)
+
+Rig has rigid parts only (no joint weights in RealCore.Rig / RealKit upload), so the body is one
+continuous rest-pose surface split at joints, not a linear-blend skin.
+Iter 1. Fixes: chest-to-skull blend loft (9 sections, torso front section to head rear section) replaces
+torso cap + neck tube; squirrel headShape [0.84 1 1 0.92 0.78 0.6 0.44 0.3], head 0.058 m, eye 0.0078 m
+set at 0.26 head height; legs smooth-tapered with calf swell, 4 rounded toes per paw; tail fur as flat
+two-sided cards. Issues seen: tail pure white, back faces near black, thigh tops open and boot-like.
+Iter 2. Fixes: card normals = outward radial on both faces, card u 0.04 to 0.17 (coat root, pale tip);
+thigh starts inside the body. Issues: thighs poke above the body, haunch ellipsoids read as bulbs.
+Iter 3. Fixes: thigh root inset 55% toward midline, haunch ellipsoids off for small mammals.
+Iter 4. Fixes: hind thigh root lowered to 0.12 body depth.
+Open: dark spikes at the tail's upper edge, leg coat streaks, body strand streaks at 640 px.
+
+## Pets pass 3: skinned mesh
+
+Added `RealCore/Skin.swift` (`Rig.skin(blend:)`: joint 0 root + one joint per part, 4 influences per
+vertex, inverse-distance^4 weights to bone segments over own/parent/child joints, own joint x2; non-coat
+surfaces rigid) and `RealKit/SkinUpload.swift` (MeshResource.Contents with Skeleton, MeshJointInfluence
+parts). `GroundRig.skinned` is true for small mammals; `GroundFactory` builds one skinned ModelEntity
+named `skin`; `GroundPuppet.apply` writes `jointTransforms` (rigid joint entities for hunting species).
+Iter 1. Skinned sheets render and deform through run/graze. Issue: whole animal darker; tail spikes.
+Fix: uv1 custom buffer (not read by ShaderGraph texcoord 1); tail cards shorter (0.55-0.9 w), wider,
+150 per segment rooted within 0.18 w of the core.
+Iter 2. Issue: still dark (baked AO reads 0, albedo x0.6). Fix: Tint x1/0.6 on ShaderGraph materials.
+Tail cards read as blocks. Iter 3. Fix: card half width 0.34 w, linear taper to 0.2 at the tip.
+Open: plastic materials (ears, eyes, pinna) still dark in the skinned path (no uv1); alpha-tapered cards
+need a cutout fur program; legs still dark on shadow side.
+
+## Pets pass 4
+
+Iter 1. Issue: head, ears, eyes near black in the skinned path. Fix: skin holds coat surfaces only
+(`Rig.skin(blend:include:)`); ears, eyes, nose, lids, claws, whiskers stay rigid on joint entities
+(`Rig.removing`), driven alongside `jointTransforms`. Legs 1.3x radius, paws and toes on pale coat
+(u 0.42), legs on flank coat; squirrel tail fuller at the base, card tips reach the pale tip coat.
+Iter 2. Issue: coat still dark on mirrored side. Fix: explicit bitangents (cross(n, t) * w) on skinned
+parts. Eyes now show the clearcoat highlight. Bluebird top issue: lacquered blue; iridescent plumage
+roughness 0.42 to 0.55, specular 0.8 to 0.5. Fennec top issue: dark ears (fixed by the rigid split).
+Iter 3. Tail tip coat range trimmed (u to 0.21) so tips frost instead of whiting out.
+Open: leg undersides dark in shadow; tail cards opaque (no cutout fur program).
+
+## Pets pass 5: black skinned squirrel under IBL only
+
+Cause: skinned MeshResource parts carry no texcoord 1, so the ShaderGraph read vertex AO as 0 and set
+`ambientOcclusion = ao * 0`, which removes all image-based light. Mixed reality with IBL only rendered
+the coat black; the preview sun hid it (albedo x0.6 only).
+Fix: `RealShaderOptions.vertexAO` (off reads AO as 1), `RealMaterialCache.skinnedMaterialAsync` (far
+variant, no wind, vertexAO off) used by `Skin.modelEntityAsync`; Tint lift removed.
+Test: `SkinnedTests.testSkinnedSquirrelMaterialsAndNormals` (BaseColor texture bound, normals and joint
+influences on every part, material index in range).
+Black-sky frame: animalpreview built a new sky per frame; one shared `RealEnvironment` now.
+
+## Pets pass 6: squirrel black in Kith (visionOS sim)
+
+Shots: Kith `vdd.py shoot kith-flow --only 02-roam,03-perch` (squirrel), `08-roam-fennec`.
+Before: squirrel skin black (ears lit), fennec lit. Skin data identical in kind (27 joints, 22 vs 23
+surfaces, no NaN normals/tangents/weights), so the cause was in the texels: the squirrel furCoat
+knobs produced NaN on the simulator GPU (fast math). The albedo guard from pass 1 left height and AO
+unguarded; a NaN height poisons the derived normal map and mips, which renders black under IBL.
+Fix: furCoat guards height/AO/soft; `rf_material` kernel replaces non-finite albedo, height, rough,
+AO, metal, alpha for every program. After: squirrel coat lit in 03-perch; tail first, then body.
+Open: squirrel tail reads near white in Kith light.
+
+## Photoreal pass 6: shell fur (close sheets, `--dist close`)
+
+Added `furShell` program (cutout; alpha = strand height from jittered strand cells x length x clump
+fbm; back/belly split; guard hairs tipped with colorC), regions `shell`, `tailShell`, `limb`;
+`Skin.withShells` (copies along the normal, same weights, outward by centroid vote); uploader sets
+per-shell OpacityThreshold 0.08..0.93 and root-dark Tint 0.55..1.05. Squirrel tail: cards off for
+skinned pets, core 0.62 w, tail shells 0.32 tail width, tail width 0.09 m.
+Iter 1. Issues: camera far (flag read after args cleared), head fur thin, fennec eyes on top of skull.
+Fixes: eye inset 0.8 R, head shells 3.5 mm, dark brown iris with clearcoat cornea, pink-black lid rim,
+fennec inner-ear hair, bluebird body normal 1.3 roughness 0.66.
+Iter 2. Issues: close flag ignored, thin tail. Fixes: `--dist close` read before arg reset; tail 0.09 m.
+Iter 3. Issues: legs show shell layering, eyes hidden. Fixes: legs on `limb` coat with 1.8 mm shells,
+eye inset 0.6 R.
+Iter 4. Issue: head shells hidden (loft wound inward). Fix: centroid vote flips shell direction.
+Budget: 12 shells = 74k tris; 8 shells = 51.2k (test asserts < 60k). `GroundFactory.shellCount`.
+Open: squirrel head still reads smooth; bluebird scale-like plumage (no barbed cards yet); whiskers opaque.
+
+## Pass 7
+
+Iter 1. Squirrel head 0.064 x 0.062 x 0.062 m (cranium +25%), head shells 5 mm, white eye ring,
+ear-tip tufts; paws and toes on leg coat (no pale blobs), claws r 0.1 to 0.02; fennec eye on the skull
+surface (t 0.5, 0.8 half width) plus dark tear line; bluebird matte contour feathers (rows x3, normal
+0.55, roughness 0.82, specular 0.25), muted blues, wing chord 0.052, span 0.28.
+Iter 2. Issues: bluebird grid still visible, squirrel head bare, ear tufts read as spikes. Fixes: rows x5
+body / x6 head, darker iris 0x120804, tufts 0.16 ear length on head coat.
+Iter 3. Issue: head strands below texel size (cutout lost in mips). Fix: `headShell` region with
+0.35x strand density. Head now reads furred.
+Open: bluebird has no barbed cards; ears remain flat sheets.
+
+## 2026-10-21 dog breeds (golden-retriever, german-shepherd, pembroke-corgi), 3 render iterations
+
+Dogs use the `QuadrupedPlan` path (`DogPlans.swift`) with `plan.dog`: paws with toes and claws, dog eyes (lid rim, brown iris), black nose
+without the deer muzzle band, erect or hanging ears (`GroundAnatomy.earDrop`), skinned fur shells (`GroundRig.skinned`).
+- it1: small-mammal path (`bodyLength < 0.35` rule) on dog proportions. Thighs detached, legs sticks, ears cupped. Dropped.
+- it2: plan path. Fur cards read as white spikes, torso narrow, floppy ears hidden in the skull. Cards 420 to 170/110, card length 0.05 to 0.03/0.022, feather fringe off, bodyWidth up, ears base 0.3 head widths outward.
+- it3: legScale 1.5/1.4/1.15, tail core full width for dogs, haunch mass uses the limb coat (white belly coat showed on corgi).
+Remaining: shoulder and haunch masses read as separate blobs, golden has no feathering, corgi hind legs kink, tail is a tapered slab, coat still shows furCoat banding.
