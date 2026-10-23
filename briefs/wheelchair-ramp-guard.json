@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "wheelchair-ramp-guard",
+  "kind": "prop",
+  "materials": [
+    "metal.aluminum-brushed",
+    "metal.galvanized-aged",
+    "metal.bolt-bright",
+    "metal.painted",
+    "metal.anodized-worn"
+  ],
+  "name": "Wheelchair ramp guard",
+  "notes": "",
+  "parts": [
+    "top handrail",
+    "intermediate rail",
+    "curb rail",
+    "posts",
+    "wall brackets",
+    "end returns",
+    "base flanges",
+    "fasteners"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    1.0,
+    0.05
+  ],
+  "style": "Accessible ramp edge guard, galvanized steel posts and aluminum rails, ADA heights",
+  "summary": "Accessible ramp guard 3.0 m: ADA handrail at 865 mm, mid rail, 100 mm curb rail, tubular posts, extension returns.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
