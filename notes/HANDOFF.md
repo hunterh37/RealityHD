@@ -17,3 +17,6 @@ Gate threshold 0.85, max 6 rounds, honest verdict. Pass => --signoff, commit per
 - hip-roof-ridge-cap: ~0.70 est (2 rounds, fascia slab and open framing read flat); lowest: wear 6, materials 7, construction 7; not passed, not committed; none
 - roof-ridge-vent: not started, call limit; none
 - roof-turbine-vent: 0.856 (vision 0.780); lowest: wear 6; passed; 95426f0
+- hip-roof-ridge-cap: 0.779 (vision 0.688, 2 rounds); lowest: silhouette 6, wear 6, materials 7, construction 7; not passed, not committed; none
+- roof-ridge-vent: 0.767 (vision 0.654, 1 round); lowest: silhouette 6, construction 6, materials 6, wear 6; not passed, not committed; none
+- box-gutter-hopper-head: not started, call limit reached; none
