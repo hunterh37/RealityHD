@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "mission-clay-tile-ridge",
+  "kind": "prop",
+  "materials": [
+    "ceramic.terracotta",
+    "concrete.smooth",
+    "wood.cedar-weathered",
+    "metal.galvanized-aged"
+  ],
+  "name": "Mission clay tile ridge",
+  "notes": "",
+  "parts": [
+    "pan tiles",
+    "cover tiles",
+    "ridge tiles",
+    "mortar bed",
+    "end closures",
+    "battens",
+    "fascia"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    0.3,
+    0.4
+  ],
+  "style": "Mission Revival, hand-formed terracotta barrel tiles, mortar-bedded ridge, aged",
+  "summary": "Mission clay tile ridge, 3.0 m: tapered barrel pan and cover tiles on a mortar-bedded ridge with half-round ridge tiles, end closures and eave birdstops.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roofline",
+    "roof"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
