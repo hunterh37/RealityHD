@@ -1000,6 +1000,7 @@ public enum Props {
         CedarShakeRoofPatch.self,
         TurnedNewelPost.self,
         SquareNewelPostCap.self,
+        WroughtIronStairRail.self,
         // realityhd:prop
     ]
 }
