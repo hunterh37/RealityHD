@@ -999,6 +999,7 @@ public enum Props {
         SlateRoofPatch.self,
         CedarShakeRoofPatch.self,
         TurnedNewelPost.self,
+        SquareNewelPostCap.self,
         // realityhd:prop
     ]
 }
