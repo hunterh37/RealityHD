@@ -1,0 +1,52 @@
+{
+  "budget": 15000,
+  "id": "pergola-corner-post",
+  "kind": "prop",
+  "materials": [
+    "wood.lumber-oak",
+    "wood.cedar-weathered",
+    "wood.walnut-oiled",
+    "wood.painted-exterior",
+    "wood.weathered",
+    "wood.charred",
+    "stone.wall-block",
+    "stone.limestone-sooted",
+    "stone.cast-stone",
+    "metal.wrought-iron",
+    "metal.galvanized-aged",
+    "metal.rust",
+    "metal.bolt-bright"
+  ],
+  "name": "Pergola corner post",
+  "notes": "",
+  "parts": [
+    "stone pier",
+    "pier cap slab",
+    "post base strap",
+    "tapered post",
+    "face battens",
+    "capital moulding",
+    "beam stubs",
+    "carriage bolts",
+    "checks",
+    "moss"
+  ],
+  "references": [],
+  "size": [
+    0.2,
+    2.4,
+    0.2
+  ],
+  "style": "Craftsman tapered timber post on a battered fieldstone pier, strap base, stacked capital mouldings and notched beam ends, weathered cedar",
+  "summary": "Craftsman pergola corner post, 2.4 m: tapered cedar post with batten faces on a coursed stone pier, iron strap base, moulded capital and beam stubs.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
