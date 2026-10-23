@@ -997,6 +997,7 @@ public enum Props {
         HippedPorchRoofBay.self,
         BalconyUndersideBracketPair.self,
         WoodenCorbelBalcony.self,
+        ChaletCutworkBalconyBoard.self,
         // realityhd:prop
     ]
 }
