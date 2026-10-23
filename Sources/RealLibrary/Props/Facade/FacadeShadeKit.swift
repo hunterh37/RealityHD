@@ -76,4 +76,9 @@ enum FSH {
     static func boltRow(_ m: inout Model, xs: [Float], y: Float, z: Float, r: Float = 0.006, _ mat: MaterialKey) {
         for x in xs { hexBolt(&m, at: V3(x, y, z), normal: FA.Z, size: r * 2, material: mat) }
     }
+    /// Low-poly hex bolt head (6 sides, no washer) on a surface with normal `n`.
+    static func nut(_ m: inout Model, at p: V3, normal n: V3, size: Float, _ mat: MaterialKey) {
+        m.add(Prim.cylinder(radius: size * 0.58, height: size * 0.5, bevel: 0.0006, segments: 6, bevelSegments: 1, material: mat),
+              Xform(translation: p, rotation: facing(n)))
+    }
 }
