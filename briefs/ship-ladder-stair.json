@@ -1,0 +1,43 @@
+{
+  "budget": 15000,
+  "id": "ship-ladder-stair",
+  "kind": "prop",
+  "materials": [
+    "metal.painted",
+    "wood.mahogany",
+    "metal.stainless",
+    "metal.brass-aged",
+    "metal.rust",
+    "metal.bolt-bright"
+  ],
+  "name": "Ship ladder stair",
+  "notes": "",
+  "parts": [
+    "channel stringers",
+    "teak treads",
+    "stainless nosings",
+    "handrails",
+    "stanchions",
+    "deck platform",
+    "base plates",
+    "fasteners"
+  ],
+  "references": [],
+  "size": [
+    0.7,
+    2.5,
+    1.0
+  ],
+  "style": "Nautical steep ship ladder, painted steel and teak, salt weathered",
+  "summary": "Steep ship ladder 0.7 x 1.0 m, 1.7 m rise: channel stringers, teak treads, stainless rails on stanchions, deck platform.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

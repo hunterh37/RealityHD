@@ -1,0 +1,40 @@
+{
+  "budget": 12000,
+  "id": "cast-iron-gallery-bracket",
+  "kind": "prop",
+  "materials": [
+    "metal.wrought-iron",
+    "metal.cast-iron",
+    "metal.rust",
+    "metal.bolt-bright"
+  ],
+  "name": "Cast iron gallery bracket",
+  "notes": "",
+  "parts": [
+    "wall plate",
+    "diagonal strut",
+    "scroll brace",
+    "horizontal arm",
+    "seat plate",
+    "bolts",
+    "acanthus leaf"
+  ],
+  "references": [],
+  "size": [
+    0.5,
+    0.6,
+    0.04
+  ],
+  "style": "New Orleans French Quarter cast iron gallery bracket, black paint with rust at the bolts",
+  "summary": "New Orleans cast-iron gallery bracket, 0.5 x 0.6 m: wall plate, scrolled diagonal brace and a bolted seat plate for a gallery floor.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

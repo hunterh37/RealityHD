@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "exterior-steel-stair-flight",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized-aged",
+    "metal.painted",
+    "metal.rust",
+    "metal.bolt-bright"
+  ],
+  "name": "Exterior steel stair flight",
+  "notes": "",
+  "parts": [
+    "channel stringers",
+    "checker-plate treads",
+    "handrails",
+    "balusters",
+    "landing",
+    "base plates",
+    "fasteners"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    3.0,
+    4.0
+  ],
+  "style": "Industrial exterior steel stair flight, weathered",
+  "summary": "Exterior steel stair, 4.0 m run, 2.0 m rise: channel stringers, pan treads, landing on columns, pipe handrails.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

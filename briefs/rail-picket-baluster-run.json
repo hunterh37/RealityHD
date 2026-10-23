@@ -1,0 +1,38 @@
+{
+  "budget": 15000,
+  "id": "rail-picket-baluster-run",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "wood.trim-weathered",
+    "metal.screw-zinc"
+  ],
+  "name": "Rail picket baluster run",
+  "notes": "",
+  "parts": [
+    "moulded top rail",
+    "bottom rail",
+    "turned pickets",
+    "newel posts",
+    "post caps",
+    "fasteners"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    0.95,
+    0.05
+  ],
+  "style": "American Traditional painted wood balustrade, weathered",
+  "summary": "Porch baluster run, 2.4 m: moulded top rail, bottom rail, turned pickets, newels with caps, painted and weathered.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

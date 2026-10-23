@@ -1,0 +1,17 @@
+{
+  "budget": 15000,
+  "id": "porch-fan",
+  "kind": "prop",
+  "materials": ["metal.bronze-weathered", "metal.painted", "wood.lumber-cedar", "metal.brass-aged", "metal.screw-zinc", "metal.verdigris-roof"],
+  "name": "Porch fan",
+  "notes": "",
+  "parts": ["ceiling canopy", "downrod", "motor housing", "blade irons", "five wood blades", "pull chains", "screws", "wear"],
+  "references": [],
+  "size": [1.2, 0.35, 1.2],
+  "style": "Southern vernacular porch ceiling fan, dulled bronze housing with verdigris, five sun-greyed cedar blades on cast iron irons, pull chains",
+  "summary": "Southern porch ceiling fan, 1.2 m sweep: five weathered cedar blades, bronze motor housing, downrod, canopy and pull chains.",
+  "tags": ["prop", "architecture", "facade", "metal"],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

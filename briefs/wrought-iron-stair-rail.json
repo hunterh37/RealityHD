@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "wrought-iron-stair-rail",
+  "kind": "prop",
+  "materials": [
+    "metal.wrought-iron",
+    "metal.rust",
+    "metal.cast-iron",
+    "metal.bolt-bright"
+  ],
+  "name": "Wrought iron stair rail",
+  "notes": "",
+  "parts": [
+    "top rail",
+    "bottom rail",
+    "pickets",
+    "scroll panel",
+    "collars",
+    "end posts",
+    "base flanges",
+    "bolts"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    1.0,
+    0.05
+  ],
+  "style": "Victorian wrought iron, black paint, chipped with rust bleeding at joints",
+  "summary": "Victorian wrought iron stair rail, 2.0 m: flat top and bottom rails, forged pickets with collars, scroll panel, end posts on base flanges.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

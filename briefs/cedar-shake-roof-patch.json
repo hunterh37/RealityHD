@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "cedar-shake-roof-patch",
+  "kind": "prop",
+  "materials": [
+    "wood.cedar-weathered",
+    "wood.lumber-pine",
+    "wood.pine-aged",
+    "metal.galvanized-aged",
+    "metal.copper-patina"
+  ],
+  "name": "Cedar shake roof patch",
+  "notes": "",
+  "parts": [
+    "shakes",
+    "battens",
+    "felt",
+    "drip edge",
+    "nails",
+    "replacement shakes",
+    "moss"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    0.12,
+    1.5
+  ],
+  "style": "Shingle Style, hand-split cedar shakes, silvered, partly repaired",
+  "summary": "Cedar shake roof patch, 1.5 x 1.5 m: tapered hand-split shakes in staggered courses on battens and felt, galvanized drip edge, replacement shakes, curled and split shakes, moss.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roofline",
+    "roof",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

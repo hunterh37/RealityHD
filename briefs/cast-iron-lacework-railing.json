@@ -1,0 +1,43 @@
+{
+  "budget": 15000,
+  "id": "cast-iron-lacework-railing",
+  "kind": "prop",
+  "materials": [
+    "metal.wrought-iron",
+    "metal.cast-iron",
+    "metal.rust",
+    "metal.bolt-bright"
+  ],
+  "name": "Cast iron lacework railing",
+  "notes": "",
+  "parts": [
+    "top rail",
+    "handrail cap",
+    "bottom rail",
+    "lace panels",
+    "ring rosettes",
+    "C-scrolls",
+    "stiles",
+    "newel posts",
+    "base flanges",
+    "bolts"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    1.0,
+    0.05
+  ],
+  "style": "New Orleans French Quarter cast iron lacework, black paint chipped to rust at the lower rail and flanges",
+  "summary": "New Orleans cast-iron lacework railing, 2.4 m: five ring-and-scroll lace panels, moulded rails, stiles and end posts on flanges.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

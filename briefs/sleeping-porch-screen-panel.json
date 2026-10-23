@@ -1,0 +1,17 @@
+{
+  "budget": 15000,
+  "id": "sleeping-porch-screen-panel",
+  "kind": "prop",
+  "materials": ["wood.painted-shaker-worn", "metal.wrought-iron", "metal.screw-zinc", "metal.galvanized-aged", "metal.steel", "wood.weathered", "wood.charred", "wood.endgrain-weathered"],
+  "name": "Sleeping porch screen panel",
+  "notes": "",
+  "parts": ["stiles and rails", "ovolo sticking", "raised kick panel", "wire mesh", "muntins", "screen stops", "hook latch", "bar pull", "corner plates", "mesh patch", "wear"],
+  "references": [],
+  "size": [1.2, 2.2, 0.05],
+  "style": "Craftsman sleeping porch screen panel, faded olive painted frame with ovolo sticking, raised kick panel, wire mesh, muntins, hook and eye latch, chipped paint and mud splash",
+  "summary": "Craftsman sleeping-porch screen panel, 1.2 x 2.2 m: olive painted frame, raised kick panel, wire mesh with muntins and patch, hook latch.",
+  "tags": ["prop", "architecture", "facade", "wood"],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}
