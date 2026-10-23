@@ -60,7 +60,7 @@ public enum RealCook {
         let surfaces = m.surfaces.filter { !$0.isEmpty }
         var mats: [any RealityKit.Material] = []
         for s in surfaces { mats.append(await RealMaterialCache.shared.cookMaterialAsync(s.material)) }
-        let e = ModelEntity(mesh: try await MeshResource(from: try m.lowLevelMesh()), materials: mats)
+        let e = ModelEntity(mesh: try Model.syncResource(m.lowLevelMesh()), materials: mats)
         e.name = comp.source
         e.components.set(comp)
         if physics { e.realFoodPhysics() }
@@ -166,7 +166,7 @@ public extension RealCook {
         s.finalize()
         var m = Model(name: "fill")
         m.add(s)
-        let e = ModelEntity(mesh: try await MeshResource(from: try m.lowLevelMesh()), materials: [await RealMaterialCache.shared.cookMaterialAsync(material)])
+        let e = ModelEntity(mesh: try Model.syncResource(m.lowLevelMesh()), materials: [await RealMaterialCache.shared.cookMaterialAsync(material)])
         e.name = "fill"
         return e
     }
