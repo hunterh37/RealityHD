@@ -996,6 +996,7 @@ public enum Props {
         RolladenShutterBox.self,
         WoodenLatticeSunscreen.self,
         PrecastConcreteSolarScreen.self,
+        AluminumAerofoilBlade.self,
         // realityhd:prop
     ]
 }
