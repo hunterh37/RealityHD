@@ -1,0 +1,39 @@
+{
+  "budget": 14000,
+  "id": "cabana-stripe-awning",
+  "kind": "prop",
+  "materials": [
+    "fabric.canvas:1F6F8B",
+    "fabric.canvas:F2EDE0",
+    "metal.aluminum-brushed",
+    "metal.powder-white"
+  ],
+  "name": "Cabana Stripe Awning",
+  "notes": "",
+  "parts": [
+    "aluminium wall channel",
+    "pipe rafters",
+    "wide-stripe canvas roof with seams",
+    "straight-hem valance with piping",
+    "rope tie-back loops",
+    "front bar with end caps"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    0.9,
+    1.2
+  ],
+  "style": "architectural facade customizer, resort; Seaside resort, aqua and white stripes, salt-faded.",
+  "summary": "Resort cabana awning, 2.4 m wide: bold-striped canvas on a pitched pipe frame with wavy-edge valance and rope tie-backs.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "fabric",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

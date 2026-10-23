@@ -1001,6 +1001,16 @@ public enum Props {
         JulietBalconyIronScroll.self,
         GlassCanopyRodHung.self,
         SteelAndGlassAwning.self,
+        BullnoseCanvasAwning.self,
+        DutchAwning.self,
+        ScallopedValanceAwning.self,
+        CabanaStripeAwning.self,
+        ShadeSailTriangle.self,
+        TensileMembraneCanopy.self,
+        LouveredPergolaRoof.self,
+        BambooRollBlind.self,
+        ExteriorRollingScreenShade.self,
+        SolidWoodHurricaneShutter.self,
         // realityhd:prop
     ]
 }
