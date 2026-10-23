@@ -66,5 +66,5 @@ public enum Nature {
         LunarBoulder.self,
         LunarCraterRim.self,
         // realityhd:nature
-    ]
+    ] + NatureDetails.all
 }
