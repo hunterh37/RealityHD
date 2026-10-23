@@ -999,6 +999,7 @@ public enum Props {
         BarrelVaultRoof.self,
         RoofTurbineVent.self,
         OgeeGutterRun.self,
+        HalfRoundGutterRun.self,
         // realityhd:prop
     ]
 }
