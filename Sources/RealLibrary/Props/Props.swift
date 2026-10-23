@@ -996,6 +996,7 @@ public enum Props {
         GreenRoofSedumTray.self,
         SlopedGlazingAtriumBay.self,
         MissionClayTileRidge.self,
+        SlateRoofPatch.self,
         // realityhd:prop
     ]
 }
