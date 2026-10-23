@@ -1,0 +1,40 @@
+{
+  "budget": 14000,
+  "id": "roof-drain-dome",
+  "kind": "prop",
+  "materials": [
+    "metal.cast-iron",
+    "metal.galvanized-aged",
+    "metal.screw-zinc",
+    "metal.rust-grime",
+    "asphalt.worn"
+  ],
+  "name": "Roof drain dome",
+  "notes": "",
+  "parts": [
+    "cast iron drain body",
+    "clamping ring",
+    "bolts",
+    "wire dome strainer",
+    "sump plate",
+    "membrane flashing",
+    "debris"
+  ],
+  "references": [],
+  "size": [
+    0.4,
+    0.2,
+    0.4
+  ],
+  "style": "architectural facade customizer, Commercial, cast iron roof drain with domed strainer, clamping ring and membrane sump",
+  "summary": "Roof drain dome, 0.4 x 0.2 x 0.4 m: cast iron drain with dome strainer, clamp ring and sump.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
