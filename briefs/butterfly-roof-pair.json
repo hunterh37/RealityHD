@@ -1,0 +1,37 @@
+{
+  "budget": 24000,
+  "id": "butterfly-roof-pair",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized-aged",
+    "wood.cedar-weathered",
+    "glass.clear",
+    "metal.anodized-worn",
+    "metal.screw-zinc"
+  ],
+  "name": "Butterfly roof pair",
+  "notes": "",
+  "parts": [
+    "inverted-V roof planes",
+    "central valley gutter",
+    "clerestory glazing band",
+    "fascia boards",
+    "timber posts",
+    "rafter ends",
+    "downspout scupper"
+  ],
+  "references": [],
+  "size": [
+    6.0,
+    1.8,
+    4.0
+  ],
+  "style": "architectural facade customizer, mid-century modern, weathered",
+  "summary": "Butterfly roof pair, 6.0 x 4.0 m: two inward-sloping roof planes, central gutter, clerestory glazing, timber fascia and posts.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

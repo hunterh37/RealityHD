@@ -1,0 +1,41 @@
+{
+  "budget": 14000,
+  "id": "downspout-collector-head",
+  "kind": "prop",
+  "materials": [
+    "metal.painted:2F3A33",
+    "metal.galvanized-aged",
+    "metal.screw-zinc",
+    "metal.rust-grime",
+    "metal.solder",
+    "stone.cast-stone"
+  ],
+  "name": "Downspout collector head",
+  "notes": "",
+  "parts": [
+    "tapered hopper body",
+    "embossed front panel",
+    "top rim and overflow notch",
+    "wall ear straps",
+    "downspout stub and pipe clips",
+    "splash block",
+    "seam solder and fasteners"
+  ],
+  "references": [],
+  "size": [
+    0.25,
+    0.35,
+    0.2
+  ],
+  "style": "architectural facade customizer, Georgian, painted galvanized collector head (conductor head) with embossed panel, ear straps and downspout stub",
+  "summary": "Downspout collector head, 0.25 x 0.35 x 0.2 m: Georgian tapered hopper with embossed panel, downspout and splash block.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.75,
+  "tolerance": 0.08
+}

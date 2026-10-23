@@ -1,0 +1,43 @@
+{
+  "budget": 24000,
+  "id": "barrel-vault-roof",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized",
+    "metal.galvanized-aged",
+    "metal.anodized-worn",
+    "metal.screw-zinc",
+    "metal.rust-grime",
+    "concrete.smooth",
+    "concrete.rough"
+  ],
+  "name": "Barrel vault roof",
+  "notes": "",
+  "parts": [
+    "standing-seam barrel sheets",
+    "seam caps",
+    "steel arch ribs",
+    "end arch frames",
+    "concrete edge beams",
+    "eave gutter",
+    "fastener rows"
+  ],
+  "references": [],
+  "size": [
+    6.0,
+    2.0,
+    4.0
+  ],
+  "style": "architectural facade customizer, modernism, weathered galvanized barrel vault",
+  "summary": "Barrel vault roof, 6.0 x 2.0 x 4.0 m: six standing-seam galvanized sheets on steel arch ribs and concrete edge beams.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roof",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

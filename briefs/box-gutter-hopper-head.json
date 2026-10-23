@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "box-gutter-hopper-head",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized-aged",
+    "metal.brass-aged",
+    "metal.rust-grime",
+    "metal.screw-zinc",
+    "stone.limestone-sooted"
+  ],
+  "name": "Box gutter hopper head",
+  "notes": "",
+  "parts": [
+    "flared hopper box",
+    "embossed front panel",
+    "dated rib band",
+    "overflow slot",
+    "downspout outlet",
+    "wall brackets",
+    "rivet seams",
+    "gutter spigot"
+  ],
+  "references": [],
+  "size": [
+    0.4,
+    0.3,
+    0.4
+  ],
+  "style": "architectural facade customizer, Victorian, cast lead hopper head",
+  "summary": "Victorian box gutter hopper head, 0.4 x 0.3 x 0.4 m: flared riveted sheet-metal box with embossed panel and outlet.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.75,
+  "tolerance": 0.08
+}

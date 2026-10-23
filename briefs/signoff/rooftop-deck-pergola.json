@@ -1,0 +1,22 @@
+{
+  "automated" : 0.9914854,
+  "date" : "2026-10-23",
+  "final" : 0.7955198,
+  "fingerprint" : "af1fae541544eb1d",
+  "id" : "rooftop-deck-pergola",
+  "iterations" : 2,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 6,
+    "construction" : 7,
+    "edges" : 7,
+    "grounding" : 7,
+    "materials" : 7,
+    "proportion" : 8,
+    "silhouette" : 7,
+    "wear" : 6
+  },
+  "seed" : 1,
+  "threshold" : 0.75,
+  "vision" : 0.69
+}

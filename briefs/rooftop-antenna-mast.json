@@ -1,0 +1,45 @@
+{
+  "budget": 14000,
+  "id": "rooftop-antenna-mast",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized-aged",
+    "metal.galvanized",
+    "metal.rust-grime",
+    "metal.screw-zinc",
+    "metal.aluminum",
+    "rubber.tubing",
+    "metal.steel"
+  ],
+  "name": "Rooftop antenna mast",
+  "notes": "",
+  "parts": [
+    "base plate",
+    "anchor bolts",
+    "gussets",
+    "telescoping mast sections",
+    "coupling collars",
+    "guy wires",
+    "turnbuckles",
+    "dipole crossarm",
+    "coax cable",
+    "whip tip"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    6.0,
+    0.3
+  ],
+  "style": "architectural facade customizer, Commercial, galvanized telescoping antenna mast on a bolted base plate with guy wires, turnbuckles, dipole array and coax run",
+  "summary": "Rooftop antenna mast, 0.3 x 6.0 x 0.3 m: galvanized telescoping mast on a bolted plate with guy wires and dipole.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.75,
+  "tolerance": 0.08
+}

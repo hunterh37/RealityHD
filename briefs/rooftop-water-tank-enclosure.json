@@ -1,0 +1,44 @@
+{
+  "budget": 15000,
+  "id": "rooftop-water-tank-enclosure",
+  "kind": "prop",
+  "materials": [
+    "wood.weathered",
+    "metal.rust",
+    "metal.galvanized-aged",
+    "metal.screw-zinc",
+    "metal.cast-iron",
+    "stone.cast-grey",
+    "asphalt.worn"
+  ],
+  "name": "Rooftop water tank enclosure",
+  "notes": "",
+  "parts": [
+    "stave barrel",
+    "steel hoops with lugs",
+    "conical roof",
+    "steel stilts",
+    "cross bracing",
+    "joist platform",
+    "ladder",
+    "base plates"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    3.5,
+    3.0
+  ],
+  "style": "architectural facade customizer, New York, wooden rooftop water tank on steel stilts with hoops, conical roof and ladder",
+  "summary": "Rooftop water tank, 3.0 x 3.5 x 3.0 m: staved wood barrel on steel stilts with hoops, cone roof, ladder.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

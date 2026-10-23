@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "skylight-barrel-vault",
+  "kind": "prop",
+  "materials": [
+    "metal.anodized-worn",
+    "metal.aluminum-brushed",
+    "metal.galvanized-aged",
+    "glass.clear",
+    "metal.screw-zinc"
+  ],
+  "name": "Barrel vault skylight",
+  "notes": "",
+  "parts": [
+    "aluminium curb upstand",
+    "base flashing apron",
+    "barrel-vault glazing",
+    "arched glazing bars",
+    "ridge cap",
+    "end arch frames",
+    "cap screws"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.8,
+    1.5
+  ],
+  "style": "architectural facade customizer, contemporary, weathered",
+  "summary": "Barrel vault skylight, 2.0 x 1.5 m: aluminium curb, arched glazing bars, curved glass, flashing apron.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roof",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

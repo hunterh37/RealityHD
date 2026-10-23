@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "copper-downspout-straight",
+  "kind": "prop",
+  "materials": [
+    "metal.copper",
+    "metal.copper-patina",
+    "metal.brass-aged",
+    "metal.screw-zinc",
+    "metal.solder"
+  ],
+  "name": "Copper downspout straight",
+  "notes": "",
+  "parts": [
+    "round tube",
+    "wall straps",
+    "sleeve joints",
+    "top collar",
+    "bottom shoe",
+    "fasteners"
+  ],
+  "references": [],
+  "size": [
+    0.1,
+    3.0,
+    0.1
+  ],
+  "style": "architectural facade customizer, Georgian, copper round downspout with wall straps, joints and patina",
+  "summary": "Copper downspout, 0.1 x 3.0 x 0.1 m: round copper tube with straps, sleeve joints and patina.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.75,
+  "tolerance": 0.08
+}
