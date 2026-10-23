@@ -1,0 +1,43 @@
+{
+  "budget": 15000,
+  "id": "wisteria-pergola-bay",
+  "kind": "prop",
+  "materials": [
+    "wood.barn-white",
+    "stone.limestone-sooted",
+    "leaf.plain",
+    "flower.petal",
+    "plant.stem"
+  ],
+  "name": "Wisteria pergola bay",
+  "notes": "",
+  "parts": [
+    "four moulded timber posts on stone plinths",
+    "scroll brackets",
+    "ring beams",
+    "cut rafters",
+    "twining wisteria trunks",
+    "leaf clusters",
+    "hanging purple racemes"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    2.6,
+    3.0
+  ],
+  "style": "architectural facade customizer, Victorian garden pergola, cream painted timber with peeling at the foot, old wisteria in bloom",
+  "summary": "Victorian garden pergola bay 3.0 x 2.6 m: painted timber posts on stone plinths, scroll brackets, ring beams and rafters, twining wisteria with hanging racemes.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "stone",
+    "plant",
+    "garden"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

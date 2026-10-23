@@ -1000,6 +1000,7 @@ public enum Props {
         WireTrellisCurtain.self,
         EspalierFruitWall.self,
         ClimbingRoseArch.self,
+        WisteriaPergolaBay.self,
         // realityhd:prop
     ]
 }
