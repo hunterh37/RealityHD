@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "hip-roof-ridge-cap",
+  "kind": "prop",
+  "materials": [
+    "roofing.shingle-granule",
+    "wood.plywood-osb",
+    "wood.painted-exterior",
+    "metal.powdercoat",
+    "wood.deadwood"
+  ],
+  "name": "Hip roof ridge cap",
+  "notes": "",
+  "parts": [
+    "ridge cap shingles",
+    "asphalt field shingles",
+    "underlayment",
+    "drip edge",
+    "fascia",
+    "rake board",
+    "gable end"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    0.3,
+    0.3
+  ],
+  "style": "American Traditional, weathered asphalt shingle roof",
+  "summary": "Hip roof ridge cap, 3.0 m: lapped bent ridge shingles over asphalt field shingles, drip edge, fascia and rake board.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roofline",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
