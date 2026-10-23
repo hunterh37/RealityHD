@@ -991,6 +991,7 @@ public enum Props {
         EarthSitePin.self,
         DryCooler.self,
         ChillerUnit.self,
+        StoneStairFlightCurved.self,
         // realityhd:prop
     ]
 }

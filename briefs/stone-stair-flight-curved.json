@@ -1,0 +1,31 @@
+{
+  "budget": 15000,
+  "id": "stone-stair-flight-curved",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "stone.cast-stone",
+    "stone.granite-moss",
+    "metal.rust"
+  ],
+  "name": "Curved stone stair flight",
+  "notes": "",
+  "parts": [
+    "six radial limestone treads with bullnose nosings",
+    "sooted riser blocks and top landing",
+    "stepped plinth cheek walls with coping",
+    "turned baluster balustrades on both sides",
+    "sloped moulded handrails",
+    "newel piers with panels, caps and ball finials",
+    "skirting course with moss patch"
+  ],
+  "references": [],
+  "size": [3.0, 1.5, 2.4],
+  "style": "Beaux-Arts limestone entrance stair, quarter-turn curved flight, sooted risers, moss at the foot",
+  "summary": "Beaux-Arts curved stone stair, 3.0 m: six limestone treads in a quarter turn, landing, baluster parapets with piers.",
+  "tags": ["prop", "architecture", "facade", "stone", "trim"],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
