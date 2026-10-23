@@ -1006,6 +1006,15 @@ public enum Props {
         LightningRodAirTerminal.self,
         RooftopWaterTankEnclosure.self,
         OculusRoofLight.self,
+        RooftopDeckPergola.self,
+        ParapetGuardrailGlass.self,
+        RoofWalkwayPad.self,
+        RooftopAntennaMast.self,
+        CoolingTowerCell.self,
+        SnowGuardRow.self,
+        DownspoutCollectorHead.self,
+        CopperDownspoutStraight.self,
+        BoxGutterHopperHead.self,
         // realityhd:prop
     ]
 }

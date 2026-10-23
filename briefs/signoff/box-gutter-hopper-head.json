@@ -1,0 +1,22 @@
+{
+  "automated" : 0.8756599,
+  "date" : "2026-10-23",
+  "final" : 0.75904346,
+  "fingerprint" : "869b275784804c9a",
+  "id" : "box-gutter-hopper-head",
+  "iterations" : 2,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 7,
+    "edges" : 7,
+    "grounding" : 6,
+    "materials" : 7,
+    "proportion" : 7,
+    "silhouette" : 7,
+    "wear" : 6
+  },
+  "seed" : 1,
+  "threshold" : 0.75,
+  "vision" : 0.69625
+}
