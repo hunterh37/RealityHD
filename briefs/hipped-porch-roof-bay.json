@@ -1,0 +1,25 @@
+{
+  "budget": 14000,
+  "id": "hipped-porch-roof-bay",
+  "kind": "prop",
+  "materials": ["wood.cedar-weathered", "wood.weathered", "wood.painted-exterior", "brick.common", "metal.copper-patina", "metal.brass-aged"],
+  "name": "Hipped porch roof bay",
+  "notes": "",
+  "parts": [
+    "low hipped cedar-shake roof, front slope and two hip returns",
+    "exposed rafter tails with plumb cuts on front and sides",
+    "front beam and side beams with chamfered outrigger ends",
+    "two tapered posts on brick pier caps",
+    "four triangular knee braces",
+    "beaded ceiling board",
+    "hip rolls and copper wall flashing"
+  ],
+  "references": [],
+  "size": [3.0, 0.9, 1.8],
+  "style": "Craftsman porch roof bay, weathered cedar shakes with moss, stained beams, cream painted tapered posts on brick pier caps",
+  "summary": "Craftsman hipped porch roof bay, 3.0 m: cedar shake hip roof, exposed rafter tails, beams, tapered posts, knee braces.",
+  "tags": ["prop", "architecture", "facade", "trim", "wood"],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

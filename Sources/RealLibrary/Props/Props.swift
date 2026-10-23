@@ -994,6 +994,7 @@ public enum Props {
         StoneStairFlightCurved.self,
         BracketedPorchHood.self,
         PedimentPorticoTwoColumn.self,
+        HippedPorchRoofBay.self,
         // realityhd:prop
     ]
 }
