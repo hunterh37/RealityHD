@@ -1,0 +1,40 @@
+{
+  "budget": 14000,
+  "id": "persiana-shutter-pair",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-shaker-worn",
+    "wood.weathered",
+    "metal.wrought-iron"
+  ],
+  "name": "Persiana shutter pair",
+  "notes": "",
+  "parts": [
+    "stiles and rails",
+    "raked louvers in two fields",
+    "central tilt rod",
+    "forged strap hinges and pintles",
+    "cremone latch",
+    "shutter dogs",
+    "flaked paint"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.8,
+    0.08
+  ],
+  "style": "architectural facade customizer, Spanish colonial, hand-planed wood painted dark green, flaked and sun-bleached",
+  "summary": "Spanish colonial louvered wood persiana pair 1.2 x 1.8 m: mortised stiles and rails, tilting louvers, strap hinges, shutter dogs.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "wood",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

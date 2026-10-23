@@ -1,0 +1,37 @@
+{
+  "budget": 8000,
+  "id": "aluminum-aerofoil-blade",
+  "kind": "prop",
+  "materials": [
+    "metal.anodized",
+    "metal.anodized-worn",
+    "metal.stainless"
+  ],
+  "name": "Aluminum aerofoil blade",
+  "notes": "",
+  "parts": [
+    "extruded aerofoil blade",
+    "screw-channel grooves",
+    "end caps with rivets",
+    "cast outrigger brackets with wall plates",
+    "clamp saddles and pins",
+    "anodized finish with grime"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    0.3,
+    0.5
+  ],
+  "style": "architectural facade customizer, contemporary brise-soleil, champagne anodized aluminum with weathered grime",
+  "summary": "Contemporary extruded aluminum aerofoil sunshade blade 2.4 m: tilted section, end caps, wall outrigger brackets and clamp plates.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

@@ -1011,6 +1011,16 @@ public enum Props {
         BambooRollBlind.self,
         ExteriorRollingScreenShade.self,
         SolidWoodHurricaneShutter.self,
+        AccordionHurricaneShutter.self,
+        PersianaShutterPair.self,
+        RolladenShutterBox.self,
+        WoodenLatticeSunscreen.self,
+        PrecastConcreteSolarScreen.self,
+        AluminumAerofoilBlade.self,
+        WireTrellisCurtain.self,
+        EspalierFruitWall.self,
+        ClimbingRoseArch.self,
+        WisteriaPergolaBay.self,
         // realityhd:prop
     ]
 }

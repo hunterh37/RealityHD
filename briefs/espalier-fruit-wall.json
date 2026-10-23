@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "espalier-fruit-wall",
+  "kind": "prop",
+  "materials": [
+    "brick.unit-red",
+    "brick.mortar-lime",
+    "stone.cap",
+    "leaf.plain",
+    "flower.petal"
+  ],
+  "name": "Espalier fruit wall",
+  "notes": "",
+  "parts": [
+    "stretcher-bond brick wall in lime mortar",
+    "stone coping",
+    "galvanized training wires on vine eyes",
+    "central trunk",
+    "three tiers of horizontal cordons",
+    "fruit spurs with leaves",
+    "apples and raffia ties"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    2.0,
+    0.15
+  ],
+  "style": "architectural facade customizer, English walled garden, soft old red brick with lichen, apple espalier trained on wires",
+  "summary": "English garden espalier fruit wall 1.5 x 2.0 m: stretcher-bond brick wall with stone coping, wire-trained three-tier apple cordons, fruit and leaves.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "brick",
+    "plant",
+    "garden"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

@@ -1,0 +1,39 @@
+{
+  "budget": 14000,
+  "id": "wooden-lattice-sunscreen",
+  "kind": "prop",
+  "materials": [
+    "wood.mahogany",
+    "wood.cedar-weathered",
+    "metal.stainless"
+  ],
+  "name": "Wooden lattice sunscreen",
+  "notes": "",
+  "parts": [
+    "hardwood frame with mitred corners",
+    "vertical battens",
+    "horizontal slats",
+    "half-lap pegged crossings",
+    "stainless standoffs and caps",
+    "silvered weathering"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    2.4,
+    0.06
+  ],
+  "style": "architectural facade customizer, tropical modern, teak-toned hardwood silvering at exposed tops and edges",
+  "summary": "Tropical modern hardwood lattice sunscreen 1.5 x 2.4 m: framed square slat lattice, half-lap crossings, stainless standoffs.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "metal",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}
