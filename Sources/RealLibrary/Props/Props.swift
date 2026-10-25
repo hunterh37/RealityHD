@@ -1079,6 +1079,12 @@ public enum Props {
         GasMeterAssembly.self,
         ElectricServiceMastWeatherhead.self,
         CableTvJunctionBox.self,
+        NetworkDemarcationEnclosure.self,
+        TelephoneEntranceBox.self,
+        ExteriorGfciOutlet.self,
+        HoseBibbSpigot.self,
+        FrostFreeHoseBibBox.self,
+        DryerVentLouverHood.self,
         // realityhd:prop
     ]
 }

@@ -1,0 +1,47 @@
+{
+  "budget": 12000,
+  "id": "network-demarcation-enclosure",
+  "kind": "prop",
+  "materials": [
+    "emissive.led-green",
+    "glass.tinted",
+    "metal.brass-aged",
+    "metal.galvanized",
+    "metal.screw-zinc",
+    "metal.stainless",
+    "paint.cylinder-green",
+    "plastic.black",
+    "plastic.medical-grey",
+    "plastic.white",
+    "plastic.yellow",
+    "rubber.silicone"
+  ],
+  "name": "Network demarcation enclosure",
+  "notes": "",
+  "parts": [
+    "UV-stabilised ABS base and cover",
+    "Louver band and drip hood",
+    "Smoked status window with LED row",
+    "Snap latches and tamper screw with seal",
+    "Rubber grommet glands with fiber and coax drops",
+    "Ground lug with green conductor",
+    "Rating label"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    0.4,
+    0.15
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Network demarcation enclosure: UV-stabilised ABS wall cabinet, snap-latched cover with louver band, smoked status window with LEDs, tamper screw with seal, bottom grommet glands with fiber and coax drops, ground lug.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

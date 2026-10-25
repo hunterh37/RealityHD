@@ -1,0 +1,43 @@
+{
+  "budget": 10500,
+  "id": "hose-bibb-spigot",
+  "kind": "prop",
+  "materials": [
+    "metal.brass",
+    "metal.brass-aged",
+    "metal.bronze-weathered",
+    "metal.cast-iron",
+    "metal.copper-patina",
+    "metal.painted:CFCBBE",
+    "metal.screw-zinc",
+    "metal.stainless",
+    "rubber.silicone"
+  ],
+  "name": "Hose bibb spigot",
+  "notes": "",
+  "parts": [
+    "Two-hole brass flange with screws",
+    "Forged brass body with packing nut and stem",
+    "Cast wheel handle with four spokes",
+    "Hose-thread spout with ribbed collar",
+    "Vacuum breaker cap with vent slots",
+    "Hard-water scale and verdigris"
+  ],
+  "references": [],
+  "size": [
+    0.1,
+    0.15,
+    0.12
+  ],
+  "style": "architectural facade customizer, Traditional",
+  "summary": "Brass hose bibb: two-hole sillcock flange, forged brass body with packing nut, cast wheel handle, hose-thread spout with vacuum breaker cap and hard-water scale.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
