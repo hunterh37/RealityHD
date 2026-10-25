@@ -1,0 +1,48 @@
+{
+  "budget": 15000,
+  "id": "ev-charging-pedestal",
+  "kind": "prop",
+  "materials": [
+    "concrete.rough",
+    "emissive.led-green",
+    "glass.display",
+    "metal.galvanized",
+    "metal.painted:34383D",
+    "metal.painted:5A5E63",
+    "metal.rust",
+    "metal.screw-zinc",
+    "metal.stainless",
+    "plastic.black",
+    "plastic.medical-grey",
+    "rubber.silicone",
+    "rubber.tubing"
+  ],
+  "name": "EV charging pedestal",
+  "notes": "",
+  "parts": [
+    "Concrete footing with anchor bolts and base flange",
+    "Graphite steel column with service door and lock",
+    "Display head with glass screen and LED bar",
+    "RFID pad",
+    "Two holsters with docked J1772 handles and cables",
+    "Vent louvers and rating label"
+  ],
+  "references": [],
+  "size": [
+    0.35,
+    1.5,
+    0.3
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Free-standing EV charging pedestal, 1.5 m: graphite steel column on anchor-bolted flange and concrete footing, display head, RFID pad, two docked J1772 handles with cables, locked service door.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
