@@ -1,0 +1,41 @@
+{
+  "budget": 12000,
+  "id": "hanging-basket-bracket",
+  "kind": "prop",
+  "materials": [
+    "metal.wrought-iron",
+    "metal.rust",
+    "soil.potting",
+    "leaf.plain"
+  ],
+  "name": "Hanging basket bracket",
+  "notes": "",
+  "parts": [
+    "wall plate",
+    "arm",
+    "diagonal strut",
+    "scroll volute",
+    "finial",
+    "hook and chain",
+    "wire basket",
+    "coir liner"
+  ],
+  "references": [],
+  "size": [
+    0.45,
+    0.7,
+    0.4
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Cast and wrought iron scroll bracket with wall plate, diagonal strut, scroll volutes, hook and a coir-lined wire hanging basket with trailing plants.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,39 @@
+{
+  "budget": 14000,
+  "id": "cascading-rooftop-planter",
+  "kind": "prop",
+  "materials": [
+    "metal.corten",
+    "soil.potting",
+    "leaf.plain",
+    "plant.stem"
+  ],
+  "name": "Cascading rooftop planter",
+  "notes": "",
+  "parts": [
+    "corten tiers",
+    "welded seams",
+    "drain slots",
+    "plinth feet",
+    "soil",
+    "grasses"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    1.0,
+    0.6
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Three-tier Corten steel stepped planter with welded seams, drainage slots, soil and grasses.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,40 @@
+{
+  "budget": 10000,
+  "id": "bird-box-wall-mounted",
+  "kind": "prop",
+  "materials": [
+    "wood.cedar-weathered",
+    "metal.brass-aged",
+    "metal.screw-zinc",
+    "metal.galvanized-aged"
+  ],
+  "name": "Bird box wall mounted",
+  "notes": "",
+  "parts": [
+    "front board",
+    "side boards",
+    "pitched lid",
+    "entrance hole",
+    "brass plate",
+    "back plate",
+    "screws",
+    "hinge"
+  ],
+  "references": [],
+  "size": [
+    0.18,
+    0.3,
+    0.2
+  ],
+  "style": "architectural facade customizer, Garden",
+  "summary": "Cedar nest box: pitched hinged roof, 32 mm entrance hole with brass plate, perch-free front, rebated joints, screws and backplate with hanging holes.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

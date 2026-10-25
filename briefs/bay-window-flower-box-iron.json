@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "bay-window-flower-box-iron",
+  "kind": "prop",
+  "materials": [
+    "metal.wrought-iron",
+    "metal.rust",
+    "soil.potting",
+    "leaf.plain",
+    "flower.petal"
+  ],
+  "name": "Bay window flower box iron",
+  "notes": "",
+  "parts": [
+    "iron cradle",
+    "top rail",
+    "pickets",
+    "scroll panels",
+    "wall brackets",
+    "coir liner",
+    "soil",
+    "plants"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    0.35,
+    0.3
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Wrought iron window box cradle with scrolled front rail, vertical pickets, coir liner, soil and pelargoniums.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1073,6 +1073,12 @@ public enum Props {
         DownspoutCollectorHead.self,
         CopperDownspoutStraight.self,
         BoxGutterHopperHead.self,
+        BirdBoxWallMounted.self,
+        BatBoxWallMounted.self,
+        InsectHotelPanel.self,
+        CascadingRooftopPlanter.self,
+        BayWindowFlowerBoxIron.self,
+        HangingBasketBracket.self,
         // realityhd:prop
     ]
 }

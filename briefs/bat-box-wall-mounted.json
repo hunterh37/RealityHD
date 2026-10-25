@@ -1,0 +1,39 @@
+{
+  "budget": 10000,
+  "id": "bat-box-wall-mounted",
+  "kind": "prop",
+  "materials": [
+    "wood.pine-aged",
+    "wood.cedar-weathered",
+    "metal.galvanized-aged",
+    "metal.screw-zinc"
+  ],
+  "name": "Bat box wall mounted",
+  "notes": "",
+  "parts": [
+    "back board",
+    "grooved baffles",
+    "landing plate",
+    "entrance slit",
+    "roof",
+    "tin cap",
+    "screws"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    0.6,
+    0.14
+  ],
+  "style": "architectural facade customizer, Garden",
+  "summary": "Rough sawn timber bat roost: grooved baffles, landing board, narrow bottom slit, tin-capped roof, stained and weathered.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
