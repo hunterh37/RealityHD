@@ -1107,6 +1107,22 @@ public enum Props {
         CombustionFlueVentCap.self,
         DirectVentFireplaceTerminal.self,
         CrawlspaceVentGrille.self,
+        FoundationVentCastIron.self,
+        AtticGableLouver.self,
+        CupolaWeatherVent.self,
+        CallBoxFireAlarm.self,
+        StandpipeFdcSiamese.self,
+        FireSprinklerWallStub.self,
+        KnoxBox.self,
+        EmergencyExitSignageLight.self,
+        WallPackLedLuminaire.self,
+        CobraHeadWallLight.self,
+        BulkheadPortholeLight.self,
+        BarnLampGooseneckLong.self,
+        PendantLanternPorch.self,
+        LanternPostMountPier.self,
+        UplightWallWasher.self,
+        LinearLedRevealStrip.self,
         // realityhd:prop
     ]
 }

@@ -1,0 +1,37 @@
+{
+  "budget": 10000,
+  "id": "linear-led-reveal-strip",
+  "kind": "prop",
+  "materials": [
+    "metal.anodized",
+    "plastic.diffuser",
+    "metal.screw-zinc"
+  ],
+  "name": "Linear LED reveal strip",
+  "notes": "",
+  "parts": [
+    "aluminum channel",
+    "diffuser",
+    "end caps",
+    "mounting clips",
+    "wire entry",
+    "reveal edge"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.03,
+    0.03
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Linear LED reveal strip, 2.0 m: anodized extrusion with opal diffuser and end caps.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,39 @@
+{
+  "budget": 10000,
+  "id": "wall-pack-led-luminaire",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat-worn",
+    "metal.diecast",
+    "glass.led-lens",
+    "metal.screw-zinc"
+  ],
+  "name": "LED wall pack",
+  "notes": "",
+  "parts": [
+    "die-cast housing",
+    "cooling fins",
+    "lens",
+    "visor hood",
+    "gasket",
+    "mounting plate",
+    "screw fasteners"
+  ],
+  "references": [],
+  "size": [
+    0.35,
+    0.2,
+    0.2
+  ],
+  "style": "architectural facade customizer, Commercial",
+  "summary": "Commercial LED wall pack, 0.35 m: finned die cast housing, visor and prismatic lens.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

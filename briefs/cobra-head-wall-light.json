@@ -1,0 +1,39 @@
+{
+  "budget": 10000,
+  "id": "cobra-head-wall-light",
+  "kind": "prop",
+  "materials": [
+    "metal.transformer-gray",
+    "glass.polycarbonate",
+    "metal.galvanized",
+    "metal.screw-zinc"
+  ],
+  "name": "Cobra head wall light",
+  "notes": "",
+  "parts": [
+    "tapered housing",
+    "bracket arm",
+    "refractor",
+    "latch",
+    "photocell",
+    "hinged door",
+    "bolts"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    0.2,
+    0.3
+  ],
+  "style": "architectural facade customizer, Commercial",
+  "summary": "Cobra head luminaire on wall arm, 0.6 m: grey tapered housing with refractor and photocell.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
