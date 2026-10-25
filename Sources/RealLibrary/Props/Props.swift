@@ -1079,6 +1079,12 @@ public enum Props {
         CallBoxFireAlarm.self,
         StandpipeFdcSiamese.self,
         FireSprinklerWallStub.self,
+        KnoxBox.self,
+        EmergencyExitSignageLight.self,
+        WallPackLedLuminaire.self,
+        CobraHeadWallLight.self,
+        BulkheadPortholeLight.self,
+        BarnLampGooseneckLong.self,
         // realityhd:prop
     ]
 }

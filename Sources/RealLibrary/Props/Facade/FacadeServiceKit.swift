@@ -57,7 +57,11 @@ extension FSV {
             case "I": bar(w / 2, 0, stroke, h)
             case "R": bar(l, 0, stroke, h); bar(w / 2, t, w, stroke); bar(w / 2, 0, w, stroke); bar(r, h / 4, stroke, h / 2); bar(w * 0.7, b + h * 0.12, stroke, h * 0.32)
             case "E": bar(l, 0, stroke, h); bar(w / 2, t, w, stroke); bar(w / 2, 0, w * 0.8, stroke); bar(w / 2, b, w, stroke)
-            case "X": bar(w / 2, 0, stroke, h); bar(w / 2, 0, w, stroke)
+            case "X":
+                let ang = atan2(w, h) * 180 / .pi, len = sqrt(w * w + h * h)
+                for sg: Float in [-1, 1] {
+                    FA.box(&m, V3(stroke, len, stroke * 0.5), rot.act(V3(x + w / 2, 0, 0)) + c, mat, r: stroke * 0.12, rot: rot * FA.q(sg * ang, FA.Z))
+                }
             case "T": bar(w / 2, 0, stroke, h); bar(w / 2, t, w, stroke)
             case "L": bar(l, 0, stroke, h); bar(w / 2, b, w, stroke)
             case "D": bar(l, 0, stroke, h); bar(w / 2 - stroke / 4, t, w - stroke / 2, stroke); bar(w / 2 - stroke / 4, b, w - stroke / 2, stroke); bar(r, 0, stroke, h * 0.7)
