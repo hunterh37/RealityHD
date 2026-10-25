@@ -1085,6 +1085,10 @@ public enum Props {
         CobraHeadWallLight.self,
         BulkheadPortholeLight.self,
         BarnLampGooseneckLong.self,
+        PendantLanternPorch.self,
+        LanternPostMountPier.self,
+        UplightWallWasher.self,
+        LinearLedRevealStrip.self,
         // realityhd:prop
     ]
 }
