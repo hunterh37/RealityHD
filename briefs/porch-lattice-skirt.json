@@ -1,0 +1,38 @@
+{
+  "budget": 15000,
+  "id": "porch-lattice-skirt",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "wood.weathered",
+    "metal.galvanized-aged"
+  ],
+  "name": "Porch lattice skirt",
+  "notes": "",
+  "parts": [
+    "diagonal lattice",
+    "frame stiles",
+    "top rail",
+    "bottom rail",
+    "cap moulding",
+    "staples and nails",
+    "wear"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    0.8,
+    0.03
+  ],
+  "style": "Victorian porch lattice skirt, white painted diagonal lattice in a moulded frame, weathered and chipped",
+  "summary": "Victorian porch lattice skirt, 3.0 m: diagonal lattice in a moulded painted frame with a top cap and bottom rail.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

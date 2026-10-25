@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "brownstone-stoop-railing",
+  "kind": "prop",
+  "materials": [
+    "metal.cast-iron",
+    "metal.rust",
+    "metal.bolt-bright",
+    "metal.painted",
+    "stone.brownstone"
+  ],
+  "name": "Brownstone stoop railing",
+  "notes": "",
+  "parts": [
+    "cast iron top rail",
+    "bottom rail",
+    "pickets",
+    "scroll panels",
+    "newel posts",
+    "finials",
+    "base shoes",
+    "fasteners"
+  ],
+  "references": [],
+  "size": [
+    2.6,
+    1.0,
+    0.05
+  ],
+  "style": "New York brownstone stoop railing, black painted cast and wrought iron, chipped",
+  "summary": "Brownstone stoop railing 2.6 m: wrought pickets, scroll panels, flat rails, cast newels with finials, lead-set base shoes.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

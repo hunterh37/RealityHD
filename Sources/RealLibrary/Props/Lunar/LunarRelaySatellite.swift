@@ -6,7 +6,7 @@ import Foundation
 /// main engine bell, RCS thrusters and star trackers. Bus +Z is the antenna face, wings extend along X.
 public struct LunarRelaySatellite: RealAsset {
     public static let id = "lunar-relay-satellite"
-    public static let summary = "LCRNS-style lunar relay smallsat: gold/black MLI bus with seams, two solar wings with cell grid, 0.8 m Ka dish on boom, S-band patches, thrusters, star trackers."
+    public static let summary = "Lunar relay smallsat: gold and black MLI bus, two solar wings, 0.8 m Ka dish on a boom, S-band patches, thrusters, star trackers."
     public static let tags = ["prop", "aerospace", "metal", "electronics", "vehicle"]
     public static let budget = 30000
     public static let author = "realityhd"

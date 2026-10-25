@@ -1,0 +1,40 @@
+{
+  "budget": 12000,
+  "id": "roof-walkway-pad",
+  "kind": "prop",
+  "materials": [
+    "rubber.tire-worn",
+    "rubber.floor-mat",
+    "asphalt.worn",
+    "metal.solder",
+    "wood.deadwood"
+  ],
+  "name": "Roof walkway pad",
+  "notes": "",
+  "parts": [
+    "membrane underlay",
+    "rubber pad",
+    "tread ribs",
+    "edge chamfer",
+    "seam strip",
+    "adhesive bleed",
+    "debris",
+    "wear scuffs"
+  ],
+  "references": [],
+  "size": [
+    1.0,
+    0.05,
+    3.0
+  ],
+  "style": "architectural facade customizer, Commercial, ribbed rubber roof walkway pad bonded over membrane with seam strip and scuffing",
+  "summary": "Roof walkway pad, 1.0 x 0.05 x 3.0 m: ribbed rubber pad bonded over roof membrane.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade"
+  ],
+  "theme": "Facade",
+  "threshold": 0.75,
+  "tolerance": 0.08
+}

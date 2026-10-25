@@ -12,6 +12,10 @@ public enum GroundSpecies: String, CaseIterable, Codable, Sendable, Identifiable
     case wildBoar = "wild-boar"
     case blackBear = "black-bear"
     case coyote = "coyote"
+    case fennecFox = "fennec-fox"
+    case goldenRetriever = "golden-retriever"
+    case germanShepherd = "german-shepherd"
+    case pembrokeCorgi = "pembroke-corgi"
 
     public var id: String { rawValue }
     /// The standard variant (doe, cow, sow or the only form).
@@ -20,6 +24,8 @@ public enum GroundSpecies: String, CaseIterable, Codable, Sendable, Identifiable
 
     /// Hunting game species, never sent to yards by `VisitScheduler`.
     public static let hunting: [GroundSpecies] = [.whitetailDeer, .rockyMountainElk, .wildBoar, .blackBear, .coyote]
+    /// Dog breeds (pets, never sent to yards).
+    public static let dogs: [GroundSpecies] = [.goldenRetriever, .germanShepherd, .pembrokeCorgi]
     /// Species that have an `.antlered` variant (buck, bull).
     public var hasAntlers: Bool { self == .whitetailDeer || self == .rockyMountainElk }
 }
@@ -118,6 +124,8 @@ public struct GroundAnatomy: Sendable {
     public var throatFrom: Float = 1
     /// Shoulder hump (withers) scale, 0 for none.
     public var withers: Float = 0
+    /// Ear fold 0 (erect) ... 1 (hanging against the cheek).
+    public var earDrop: Float = 0
     /// Height of the body center above the feet.
     public var standHeight: Float { rideHeight ?? (max(foreLeg, hindLeg) * 0.74 + bodyDepth * 0.32) }
 }
@@ -182,7 +190,7 @@ public struct GroundProfile: Sendable {
 }
 
 extension GroundProfile {
-    static let table: [GroundSpecies: GroundProfile] = Dictionary(uniqueKeysWithValues: ([rabbit, squirrel, chipmunk, hedgehog] + huntingProfiles).map { ($0.species, $0) })
+    static let table: [GroundSpecies: GroundProfile] = Dictionary(uniqueKeysWithValues: ([rabbit, squirrel, chipmunk, hedgehog, fennec] + huntingProfiles + dogProfiles).map { ($0.species, $0) })
 
     private static let allSeasons: Set<AnimalSeason> = [.spring, .summer, .autumn, .winter]
 
@@ -197,16 +205,22 @@ extension GroundProfile {
                                  activity: [.dawn: 1.4, .day: 0.6, .dusk: 1.4, .night: 0.15],
                                  likes: [.openGround: 1, .shrub: 0.9, .flowers: 0.6, .seedPlants: 0.5], minHabitat: 0.18, alertRate: 0.25))
 
-    static let squirrel = GroundProfile(
+    static let squirrel: GroundProfile = {
+        var p = GroundProfile(
         species: .easternGraySquirrel, name: "Eastern Gray Squirrel", latin: "Sciurus carolinensis",
         blurb: "Bold and acrobatic. Buries nuts, raids feeders and runs up any tree or fence.",
-        anatomy: GroundAnatomy(bodyLength: 0.21, bodyDepth: 0.1, bodyWidth: 0.085, headLength: 0.07, headWidth: 0.05, headHeight: 0.054, snout: 0.02,
-                               earLength: 0.028, earWidth: 0.02, tailLength: 0.21, tailWidth: 0.075, foreLeg: 0.07, hindLeg: 0.085, legRadius: 0.009, pitch: 8, eyeRadius: 0.0065),
+        anatomy: GroundAnatomy(bodyLength: 0.21, bodyDepth: 0.1, bodyWidth: 0.085, headLength: 0.064, headWidth: 0.062, headHeight: 0.062, snout: 0.02,
+                               earLength: 0.028, earWidth: 0.02, tailLength: 0.21, tailWidth: 0.075, foreLeg: 0.07, hindLeg: 0.085, legRadius: 0.009, pitch: 8, eyeRadius: 0.0078),
         palette: GroundPalette(back: 0x8D8C88, belly: 0xE8E4DC, accent: 0xC9C8C2, ear: 0x8D8C88, nose: 0x5E4A44, eye: 0x120E0C, claw: 0x3A332E, tail: 0x8A8985,
                                tailTip: 0xD2D0CA, face: 0x9A9894, flankLine: 0.6, pattern: 0.35, strands: 90),
         behavior: GroundBehavior(gait: .bound, walk: 0.7, run: 4.5, climbs: true, boldness: 0.8, skittishRadius: 1.2, rarity: 0.15, seasons: allSeasons,
                                  activity: [.dawn: 1, .day: 1.2, .dusk: 0.9, .night: 0],
                                  likes: [.tree: 1, .feeder: 0.9, .openGround: 0.5, .seedPlants: 0.4, .perch: 0.5], minHabitat: 0.15, alertRate: 0.35))
+        // Round cranium, short blunt muzzle.
+        p.anatomy.headShape = [0.84, 1.0, 1.0, 0.92, 0.78, 0.6, 0.44, 0.3]
+        p.anatomy.tailWidth = 0.09
+        return p
+    }()
 
     static let chipmunk = GroundProfile(
         species: .easternChipmunk, name: "Eastern Chipmunk", latin: "Tamias striatus",
@@ -230,6 +244,18 @@ extension GroundProfile {
         behavior: GroundBehavior(gait: .walk, walk: 0.3, run: 1.1, climbs: false, boldness: 0.5, skittishRadius: 1.0, rarity: 0.7, seasons: [.spring, .summer, .autumn],
                                  activity: [.dawn: 0.5, .day: 0.05, .dusk: 1.4, .night: 1.6],
                                  likes: [.shrub: 1, .openGround: 0.7, .flowers: 0.4, .water: 0.5], minHabitat: 0.3, alertRate: 0.1))
+    /// Pet species: never sent to yards by `VisitScheduler`.
+    static let fennec = GroundProfile(
+        species: .fennecFox, name: "Fennec Fox", latin: "Vulpes zerda",
+        blurb: "Desert fox with ears as long as its head. Digs, pounces and sits close to a hand.",
+        anatomy: GroundAnatomy(bodyLength: 0.30, bodyDepth: 0.14, bodyWidth: 0.11, headLength: 0.11, headWidth: 0.095, headHeight: 0.078, snout: 0.028,
+                               earLength: 0.12, earWidth: 0.075, tailLength: 0.24, tailWidth: 0.07, foreLeg: 0.085, hindLeg: 0.1, legRadius: 0.0095, pitch: 4, eyeRadius: 0.008,
+                               earTilt: 0.3, tailDrop: 35),
+        palette: GroundPalette(back: 0xE3C9A0, belly: 0xF7EEDC, accent: 0xF1E2C4, ear: 0xF3DDC4, nose: 0x1C1512, eye: 0x120C0A, claw: 0x4A3C32, tail: 0xDDBF93,
+                               tailTip: 0x7A6048, face: 0xEAD2AB, flankLine: 0.55, pattern: 0.15, strands: 90, fuzz: 0.8, muzzle: 0xF7EEDC),
+        behavior: GroundBehavior(gait: .stride, walk: 0.6, run: 3.5, climbs: false, boldness: 0.7, skittishRadius: 1.0, rarity: 0.5, seasons: allSeasons,
+                                 activity: [.dawn: 0.8, .day: 0.4, .dusk: 1.2, .night: 1.4],
+                                 likes: [.openGround: 1], minHabitat: 0.2, alertRate: 0.3, visitsYards: false))
 }
 
 /// Everything that can visit.
@@ -259,6 +285,9 @@ public enum AnimalKind: Hashable, Sendable, Codable, Identifiable {
     public static var all: [AnimalKind] { BirdSpecies.allCases.filter { $0.profile.behavior.visitsYards }.map { .bird($0) } + GroundSpecies.allCases.filter { $0.profile.behavior.visitsYards }.map { .ground($0) } }
     /// Hunting game: whitetail, elk, boar, bear, coyote, turkey, pheasant.
     public static var hunting: [AnimalKind] { BirdSpecies.hunting.map { .bird($0) } + GroundSpecies.hunting.map { .ground($0) } }
+
+    /// Pet species that never visit yards.
+    public static var pets: [AnimalKind] { [.ground(.fennecFox)] + GroundSpecies.dogs.map { .ground($0) } }
 
     public var name: String {
         switch self { case .bird(let b): b.profile.name; case .ground(let g): g.profile.name }

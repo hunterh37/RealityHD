@@ -1,0 +1,46 @@
+{
+  "budget": 15000,
+  "id": "rope-handrail-run",
+  "kind": "prop",
+  "materials": [
+    "sack.jute",
+    "metal.brass-aged",
+    "metal.galvanized",
+    "metal.stainless",
+    "metal.rust",
+    "metal.copper-patina",
+    "metal.bolt-bright",
+    "fabric.canvas",
+    "stone.limestone"
+  ],
+  "name": "Rope handrail run",
+  "notes": "",
+  "parts": [
+    "rope handrail",
+    "stanchions",
+    "brass eyes",
+    "whipping",
+    "knots",
+    "base flanges",
+    "bolts",
+    "end splice"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    0.9,
+    0.05
+  ],
+  "style": "Nautical manila rope handrail run through galvanized stanchions with brass eyes, sun-bleached and salt-stained",
+  "summary": "Nautical rope handrail run, 3.0 m: manila rope through four stanchions with brass eyes, whipped ends and flanged bases.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

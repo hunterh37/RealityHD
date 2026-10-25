@@ -1,0 +1,42 @@
+{
+  "budget": 12000,
+  "id": "roof-lantern-glazed",
+  "kind": "prop",
+  "materials": [
+    "wood.barn-white",
+    "glass.clear",
+    "metal.galvanized-aged",
+    "stone.limestone-sooted",
+    "metal.bronze-weathered"
+  ],
+  "name": "Glazed roof lantern",
+  "notes": "",
+  "parts": [
+    "masonry upstand",
+    "timber sill and curb",
+    "hipped glazed roof",
+    "hip and ridge rafters",
+    "glazing bars",
+    "lead flashing",
+    "finial",
+    "corner posts"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    1.0,
+    1.5
+  ],
+  "style": "architectural facade customizer, georgian contemporary, weathered",
+  "summary": "Glazed roof lantern, 1.5 x 1.5 m: painted timber lantern, hipped glass roof, glazing bars, lead flashing, finial.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roof",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

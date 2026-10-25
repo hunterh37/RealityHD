@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "roof-hatch-access",
+  "kind": "prop",
+  "materials": [
+    "metal.painted:8A8D8E",
+    "metal.galvanized-aged",
+    "metal.screw-zinc",
+    "metal.rust-grime",
+    "metal.aluminum",
+    "asphalt.worn"
+  ],
+  "name": "Roof hatch access",
+  "notes": "",
+  "parts": [
+    "insulated curb",
+    "hinged lid",
+    "gas strut",
+    "hasp latch",
+    "hinges",
+    "counterflashing",
+    "membrane skirt",
+    "fasteners"
+  ],
+  "references": [],
+  "size": [
+    1.0,
+    0.5,
+    1.0
+  ],
+  "style": "architectural facade customizer, Commercial, roof access hatch with curb, hinged lid, strut, latch and membrane flashing",
+  "summary": "Roof access hatch, 1.0 x 0.5 x 1.0 m: curbed lid with hinges, strut, latch and flashing.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

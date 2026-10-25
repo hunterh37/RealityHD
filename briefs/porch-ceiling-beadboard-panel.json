@@ -1,0 +1,37 @@
+{
+  "budget": 15000,
+  "id": "porch-ceiling-beadboard-panel",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-shaker-worn",
+    "wood.weathered",
+    "metal.steel"
+  ],
+  "name": "Porch ceiling beadboard panel",
+  "notes": "",
+  "parts": [
+    "beadboard boards",
+    "bead and groove joints",
+    "edge battens",
+    "cross batten",
+    "nails",
+    "wear"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    0.02,
+    1.2
+  ],
+  "style": "Southern vernacular porch ceiling beadboard, haint-blue painted tongue and groove with bead profile, sun-faded, nail holes and chips",
+  "summary": "Southern porch ceiling beadboard panel, 2.4 x 1.2 m: tongue and groove boards with bead profile, blue painted, framed by battens.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

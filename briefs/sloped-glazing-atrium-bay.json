@@ -1,0 +1,43 @@
+{
+  "budget": 15000,
+  "id": "sloped-glazing-atrium-bay",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat",
+    "metal.galvanized-aged",
+    "glass.pane",
+    "brick.unit-buff",
+    "rubber.seal",
+    "concrete.smooth"
+  ],
+  "name": "Sloped glazing atrium bay",
+  "notes": "",
+  "parts": [
+    "aluminium rafters",
+    "pressure plates and caps",
+    "double glazed units",
+    "curb",
+    "wall flashing",
+    "vent light actuator",
+    "eaves gutter",
+    "end glazing"
+  ],
+  "references": [],
+  "size": [
+    4.0,
+    1.5,
+    3.0
+  ],
+  "style": "Contemporary, anthracite aluminium rafters, double glazed, lightly weathered",
+  "summary": "Sloped glazing atrium bay, 4.0 m wide: aluminium rafters with pressure plates and caps, double-glazed units, curb, zinc wall flashing, vent light with chain actuator and gutter.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roofline",
+    "roof"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

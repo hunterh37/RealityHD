@@ -1,0 +1,42 @@
+{
+  "budget": 10000,
+  "id": "slate-roof-patch",
+  "kind": "prop",
+  "materials": [
+    "stone.slate",
+    "wood.cedar-weathered",
+    "wood.pine-aged",
+    "wood.lumber-pine",
+    "metal.copper-patina",
+    "metal.galvanized-aged"
+  ],
+  "name": "Slate roof patch",
+  "notes": "",
+  "parts": [
+    "slates",
+    "battens",
+    "copper nail heads",
+    "lead soaker",
+    "replacement slates",
+    "slipped slate",
+    "underlay"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    0.1,
+    1.5
+  ],
+  "style": "Victorian, Welsh slate, nailed with lead and copper, partially repaired",
+  "summary": "Slate roof patch, 1.5 x 1.5 m: graded diminishing-course slates on battens, copper nails, lead soakers, with a few replacement slates and one slipped slate.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roofline",
+    "roof"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

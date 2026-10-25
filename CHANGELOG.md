@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Dog pets (AnimalCore/AnimalKit): `golden-retriever`, `german-shepherd`, `pembroke-corgi` as `GroundSpecies`, listed in `AnimalKind.pets` and
+  `GroundSpecies.dogs`, never sent to yards. `QuadrupedPlan` gains a dog path (paws, dog eyes and nose, hanging or erect ears via
+  `GroundAnatomy.earDrop`, skinned fur shells). Contact sheets in `docs/animals/pets/`.
+
 - 15 insects for BugHunt (Nature/Insects): `insect-periodical-cicada`, `insect-european-hornet`, `insect-paper-wasp`,
   `insect-carpenter-bee`, `insect-hover-fly`, `insect-green-bottle-fly`, `insect-crane-fly`, `insect-green-lacewing`,
   `insect-earwig`, `insect-eyed-click-beetle`, `insect-goliath-beetle`, `insect-tiger-beetle`, `insect-green-shield-bug`,

@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "metal-spiral-stair-exterior",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized-aged",
+    "metal.painted",
+    "metal.rust",
+    "metal.bolt-bright"
+  ],
+  "name": "Metal spiral stair exterior",
+  "notes": "",
+  "parts": [
+    "central column",
+    "wedge treads",
+    "balusters",
+    "helical handrail",
+    "top landing plate",
+    "base plate",
+    "fasteners"
+  ],
+  "references": [],
+  "size": [
+    1.6,
+    3.0,
+    1.6
+  ],
+  "style": "Industrial exterior galvanized steel spiral stair, weathered",
+  "summary": "Exterior spiral stair, 1.6 m diameter, 3.0 m high: pipe column, galvanized wedge treads, landing, yellow helical handrail.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

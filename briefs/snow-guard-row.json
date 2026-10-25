@@ -1,0 +1,40 @@
+{
+  "budget": 14000,
+  "id": "snow-guard-row",
+  "kind": "prop",
+  "materials": [
+    "metal.painted:5B5F61",
+    "metal.galvanized-aged",
+    "metal.screw-zinc",
+    "metal.rust-grime",
+    "metal.aluminum"
+  ],
+  "name": "Snow guard row",
+  "notes": "",
+  "parts": [
+    "pad-style guards",
+    "guard bars",
+    "roof clamps",
+    "seam lap",
+    "fasteners",
+    "seam-mounted base plates",
+    "rust staining"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    0.1,
+    0.1
+  ],
+  "style": "architectural facade customizer, Alpine, row of snow guards with rail bars clamped to standing seams of a metal roof strip",
+  "summary": "Snow guard row, 3.0 x 0.1 x 0.1 m: clamped rail snow guards on standing-seam roof strip.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.75,
+  "tolerance": 0.08
+}

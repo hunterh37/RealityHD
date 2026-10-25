@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "green-roof-sedum-tray",
+  "kind": "prop",
+  "materials": [
+    "metal.aluminum-brushed",
+    "soil.potting",
+    "leaf.hosta",
+    "leaf.boxwood"
+  ],
+  "name": "Green roof sedum tray",
+  "notes": "",
+  "parts": [
+    "aluminium tray",
+    "drainage cups",
+    "growing medium",
+    "sedum plants",
+    "edge restraint",
+    "corner fasteners"
+  ],
+  "references": [],
+  "size": [
+    1.0,
+    0.15,
+    1.0
+  ],
+  "style": "Contemporary modular green roof tray with sedum mat, weathered",
+  "summary": "Green roof sedum tray, 1.0 m square: aluminium tray with drain cups, substrate and mixed sedum, moss and grass tufts.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roofline",
+    "landscaping",
+    "garden"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

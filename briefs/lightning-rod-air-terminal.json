@@ -1,0 +1,42 @@
+{
+  "budget": 14000,
+  "id": "lightning-rod-air-terminal",
+  "kind": "prop",
+  "materials": [
+    "metal.copper",
+    "metal.copper-patina",
+    "metal.verdigris-roof",
+    "metal.bronze-weathered",
+    "metal.copper-strand",
+    "metal.screw-zinc"
+  ],
+  "name": "Lightning rod air terminal",
+  "notes": "",
+  "parts": [
+    "copper rod",
+    "pointed tip",
+    "bronze tripod base",
+    "roof feet",
+    "cable clamp",
+    "copper conductor",
+    "mid brace ring",
+    "set screws"
+  ],
+  "references": [],
+  "size": [
+    0.2,
+    1.0,
+    0.2
+  ],
+  "style": "architectural facade customizer, Traditional, copper air terminal on a bronze tripod roof base with conductor cable, clamps and verdigris",
+  "summary": "Lightning rod air terminal, 0.2 x 1.0 x 0.2 m: copper rod on a bronze tripod base with conductor cable.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

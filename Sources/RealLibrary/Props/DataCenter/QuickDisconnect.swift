@@ -4,7 +4,7 @@ import Foundation
 /// Quick disconnect: new brushed stainless dry-break liquid cooling coupling, UQD style, blue supply ring. Parts: stainless body, knurled sleeve, color ring, barbed hose tail, EPDM hose stub, latch button, poppet face.
 public struct QuickDisconnect: RealArticulated {
     public static let id = "quick-disconnect"
-    public static let summary = "UQD-style liquid cooling dry-break quick disconnect with knurled sleeve, color ring, barbed hose tail, EPDM hose stub and latch button; the sleeve slides back when coupled."
+    public static let summary = "Dry-break liquid cooling quick disconnect: knurled sleeve, color ring, barbed tail, hose stub, latch; the sleeve slides when coupled."
     public static let tags = ["prop", "handheld", "articulated"]
     public static let budget = 1500
     public static let author = "realityhd"

@@ -1,0 +1,46 @@
+{
+  "budget": 15000,
+  "id": "porch-swing",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-shaker-worn",
+    "wood.weathered",
+    "metal.galvanized-aged",
+    "metal.galvanized",
+    "metal.steel",
+    "metal.bolt-bright",
+    "metal.rust"
+  ],
+  "name": "Porch swing",
+  "notes": "",
+  "parts": [
+    "slat seat",
+    "slat back",
+    "armrests",
+    "side frames",
+    "chains",
+    "eye bolts",
+    "ceiling hooks",
+    "seat rails",
+    "turned arm posts",
+    "wear"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    1.6,
+    0.7
+  ],
+  "style": "Southern vernacular hanging porch swing, painted haint-blue slats on a pine frame, galvanized chains and eye bolts, sun-faded and chipped",
+  "summary": "Southern porch swing, 1.5 m: haint-blue slat seat and back with turned arms, hung on four galvanized chains from ceiling hooks.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

@@ -1,29 +1,23 @@
 {
-  "budget" : 10000,
-  "id" : "roadster-event",
-  "kind" : "prop",
-  "materials" : [
-
-  ],
-  "name" : "Roadster Event",
-  "notes" : "",
-  "parts" : [
-
-  ],
-  "references" : [
-
-  ],
-  "size" : [
+  "budget": 10000,
+  "id": "roadster-event",
+  "kind": "prop",
+  "materials": [],
+  "name": "Roadster Event",
+  "notes": "",
+  "parts": [],
+  "references": [],
+  "size": [
     0,
     0,
     0
   ],
-  "style" : "TODO: era, condition, finish",
-  "summary" : "TODO: one sentence, what it is and how it's built.",
-  "tags" : [
+  "style": "TODO: era, condition, finish",
+  "summary": "Night launch event: dark 60 x 40 m floor, 26 m red-LED concrete ramp with truss tower, roadster on the apron, near-zero ambient light.",
+  "tags": [
     "prop"
   ],
-  "theme" : "Roadster",
-  "threshold" : 0.85,
-  "tolerance" : 0.08
+  "theme": "Roadster",
+  "threshold": 0.85,
+  "tolerance": 0.08
 }

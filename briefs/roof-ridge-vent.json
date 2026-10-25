@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "roof-ridge-vent",
+  "kind": "prop",
+  "materials": [
+    "plastic.black",
+    "plastic.pom",
+    "plastic.medical-grey",
+    "roofing.shingle-granule",
+    "wood.painted-exterior",
+    "wood.plywood-osb",
+    "metal.painted"
+  ],
+  "name": "Roof ridge vent",
+  "notes": "",
+  "parts": [
+    "vent body",
+    "baffle louvers",
+    "end caps",
+    "cap shingles",
+    "fasteners",
+    "field shingles"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    0.2,
+    0.35
+  ],
+  "style": "American Traditional, weathered ridge vent under cap shingles",
+  "summary": "Roof ridge vent, 3.0 m: baffled vent strip with end caps, nailing slots and ridge cap shingles on an asphalt roof.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roofline",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

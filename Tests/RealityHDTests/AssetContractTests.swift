@@ -50,6 +50,9 @@ import RealMaterials
         let bb = lod0.bounds, c = (bb.min + bb.max) / 2, e = bb.max - bb.min
         if t.tags.contains("ceiling") {
             #expect(bb.min.y > -0.02 && bb.max.y > 2.2 && bb.max.y < 4.5, "\(id): ceiling mount top at y \(bb.max.y), expected a ceiling height")
+        } else if t.tags.contains("terrain") {
+            // Terrain tiles sit at grade y = 0; craters and basins cut below it.
+            #expect(bb.min.y > -3 && bb.min.y < 0.2, "\(id): terrain base at y \(bb.min.y), expected within 3 m of grade")
         } else {
             #expect(bb.min.y > -0.6 && bb.min.y < 0.2, "\(id): base at y \(bb.min.y), expected ~0")
         }

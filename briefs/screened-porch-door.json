@@ -1,0 +1,17 @@
+{
+  "budget": 15000,
+  "id": "screened-porch-door",
+  "kind": "prop",
+  "materials": ["wood.painted-shaker-worn", "metal.galvanized-aged", "metal.wrought-iron", "metal.screw-zinc", "metal.aluminum-brushed", "metal.rust", "metal.brass-aged", "wood.weathered", "wood.endgrain-weathered"],
+  "name": "Screened porch door",
+  "notes": "",
+  "parts": ["stiles and rails", "ovolo sticking", "beadboard kick", "wire mesh", "cross muntin", "screen stops", "butt hinges", "thumb latch", "closer spring", "kick plate", "wear"],
+  "references": [],
+  "size": [0.9, 2.1, 0.05],
+  "style": "American vernacular screened porch door, sun-faded white painted frame with ovolo sticking, beadboard kick panel, hardware cloth mesh, iron butt hinges, thumb latch, coil closer spring, aluminium kick plate, flaking paint",
+  "summary": "American vernacular screened porch door, 0.9 x 2.1 m: white painted frame, beadboard kick, wire mesh, hinges, thumb latch, closer spring.",
+  "tags": ["prop", "architecture", "facade", "wood"],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

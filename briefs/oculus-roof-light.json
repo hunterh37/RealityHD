@@ -1,0 +1,42 @@
+{
+  "budget": 12000,
+  "id": "oculus-roof-light",
+  "kind": "prop",
+  "materials": [
+    "glass.clear",
+    "stone.cast-stone",
+    "metal.galvanized-aged",
+    "metal.anodized-worn",
+    "metal.roofing"
+  ],
+  "name": "Oculus roof light",
+  "notes": "",
+  "parts": [
+    "concrete kerb ring",
+    "glass dome",
+    "aluminium clamp ring",
+    "stainless bolts",
+    "dome bars",
+    "lead skirt flashing",
+    "roof deck"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    0.5,
+    1.2
+  ],
+  "style": "architectural facade customizer, modernism, weathered",
+  "summary": "Oculus roof light, 1.2 m: round concrete kerb, clamped glass dome, bolted ring, lead skirt, roof deck.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roof",
+    "metal",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

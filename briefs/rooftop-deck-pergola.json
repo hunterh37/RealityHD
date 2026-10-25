@@ -1,0 +1,44 @@
+{
+  "budget": 15000,
+  "id": "rooftop-deck-pergola",
+  "kind": "prop",
+  "materials": [
+    "wood.cedar-weathered",
+    "wood.lumber-cedar",
+    "wood.weathered",
+    "metal.galvanized-aged",
+    "metal.screw-zinc",
+    "metal.rust-grime",
+    "metal.painted:2E3135",
+    "concrete.rough"
+  ],
+  "name": "Rooftop deck pergola",
+  "notes": "",
+  "parts": [
+    "square steel base plates",
+    "timber posts",
+    "double beams with mortise joints",
+    "rafters with notched ends",
+    "through bolts and washers",
+    "knee braces",
+    "timber deck boards",
+    "grain and weathering"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    2.6,
+    3.0
+  ],
+  "style": "architectural facade customizer, Contemporary, rooftop timber pergola with steel base plates, mortised beams, rafters and through bolts",
+  "summary": "Rooftop deck pergola, 3.0 x 2.6 x 3.0 m: four posts, double beams, rafters, bolts and deck boards.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.75,
+  "tolerance": 0.08
+}

@@ -1,0 +1,38 @@
+{
+  "budget": 30000,
+  "id": "sawtooth-roof-section",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized-aged",
+    "glass.clear",
+    "metal.anodized-worn",
+    "metal.screw-zinc",
+    "metal.rust-grime"
+  ],
+  "name": "Sawtooth roof section",
+  "notes": "",
+  "parts": [
+    "standing-seam steel roof slopes",
+    "north-light vertical glazing",
+    "glazing mullions",
+    "steel purlins and rafters",
+    "valley gutter",
+    "ridge flashing",
+    "end gable wall",
+    "downpipe"
+  ],
+  "references": [],
+  "size": [
+    6.0,
+    2.0,
+    4.0
+  ],
+  "style": "architectural facade customizer, industrial, weathered",
+  "summary": "Sawtooth roof section, 6.0 x 4.0 m: three saw-tooth bays with standing-seam slopes, north-light glazing, valley gutters.",
+  "tags": [
+    "prop"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

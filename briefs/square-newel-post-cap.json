@@ -1,0 +1,42 @@
+{
+  "budget": 10000,
+  "id": "square-newel-post-cap",
+  "kind": "prop",
+  "materials": [
+    "wood.oak",
+    "wood.weathered",
+    "wood.lumber-oak",
+    "metal.screw-zinc"
+  ],
+  "name": "Square newel post cap",
+  "notes": "",
+  "parts": [
+    "post shaft",
+    "chamfered stop",
+    "neck moulding",
+    "overhanging cap slab",
+    "cap chamfer",
+    "pyramid top",
+    "base moulding",
+    "pegs"
+  ],
+  "references": [],
+  "size": [
+    0.18,
+    1.1,
+    0.18
+  ],
+  "style": "Craftsman square oak newel with a pyramid cap, tapered, stained and weathered",
+  "summary": "Craftsman square newel post, 1.1 m: tapered oak shaft with recessed panels, overhanging cap slab and low pyramid top.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "wood",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
