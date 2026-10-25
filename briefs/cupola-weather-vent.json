@@ -1,0 +1,42 @@
+{
+  "budget": 10000,
+  "id": "cupola-weather-vent",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "metal.copper-patina",
+    "metal.copper",
+    "metal.iron"
+  ],
+  "name": "Cupola with weather vane",
+  "notes": "",
+  "parts": [
+    "square base",
+    "louvered sides",
+    "corner pilasters",
+    "cornice",
+    "pyramidal copper roof",
+    "finial ball",
+    "weather vane",
+    "flashing"
+  ],
+  "references": [],
+  "size": [
+    0.8,
+    1.0,
+    0.8
+  ],
+  "style": "architectural facade customizer, Colonial Revival",
+  "summary": "Colonial Revival roof cupola, 0.8 m: louvered sides, cornice, copper roof and vane.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "wood",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

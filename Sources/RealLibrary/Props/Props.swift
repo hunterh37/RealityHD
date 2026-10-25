@@ -1073,6 +1073,12 @@ public enum Props {
         DownspoutCollectorHead.self,
         CopperDownspoutStraight.self,
         BoxGutterHopperHead.self,
+        FoundationVentCastIron.self,
+        AtticGableLouver.self,
+        CupolaWeatherVent.self,
+        CallBoxFireAlarm.self,
+        StandpipeFdcSiamese.self,
+        FireSprinklerWallStub.self,
         // realityhd:prop
     ]
 }

@@ -1,0 +1,38 @@
+{
+  "budget": 10000,
+  "id": "fire-sprinkler-wall-stub",
+  "kind": "prop",
+  "materials": [
+    "metal.chrome",
+    "metal.brass",
+    "glass.signal-off"
+  ],
+  "name": "Wall sprinkler stub",
+  "notes": "",
+  "parts": [
+    "pipe stub",
+    "threaded fitting",
+    "escutcheon",
+    "sprinkler frame",
+    "deflector",
+    "glass bulb",
+    "wall plate"
+  ],
+  "references": [],
+  "size": [
+    0.1,
+    0.3,
+    0.1
+  ],
+  "style": "architectural facade customizer, Commercial",
+  "summary": "Sidewall sprinkler on pipe stub, 0.3 m: chrome escutcheon, frame, deflector and red glass bulb.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

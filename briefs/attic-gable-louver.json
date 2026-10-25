@@ -1,0 +1,38 @@
+{
+  "budget": 10000,
+  "id": "attic-gable-louver",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "wood.trim-weathered",
+    "glass.wire-mesh"
+  ],
+  "name": "Attic gable louver",
+  "notes": "",
+  "parts": [
+    "half-round frame",
+    "brickmould casing",
+    "fixed slats",
+    "insect screen",
+    "keystone",
+    "sill"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    0.6,
+    0.1
+  ],
+  "style": "architectural facade customizer, Colonial Revival",
+  "summary": "Colonial Revival half-round gable louver, 0.6 m: brickmould casing, fixed slats, keystone and screen.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
