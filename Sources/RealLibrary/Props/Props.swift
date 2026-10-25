@@ -1085,6 +1085,11 @@ public enum Props {
         HoseBibbSpigot.self,
         FrostFreeHoseBibBox.self,
         DryerVentLouverHood.self,
+        BathroomExhaustCap.self,
+        RangeHoodWallCap.self,
+        CombustionFlueVentCap.self,
+        DirectVentFireplaceTerminal.self,
+        CrawlspaceVentGrille.self,
         // realityhd:prop
     ]
 }

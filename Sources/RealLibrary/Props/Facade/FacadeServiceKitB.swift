@@ -110,3 +110,11 @@ extension FS {
         m.add(Prim.cylinder(radius: r, height: h, bevel: bevel, segments: segments, bevelSegments: 1, material: mat), Xform(translation: p, rotation: facing(n)))
     }
 }
+
+extension FS {
+    /// Hollow round sleeve along +Z (open both ends): outer radius, inner radius, from z0 to z1, centred on (cx, cy).
+    static func sleeveZ(_ m: inout Model, rOut: Float, rIn: Float, z0: Float, z1: Float, cx: Float = 0, cy: Float, _ mat: MaterialKey, segments: Int = 36) {
+        let prof: [V2] = [V2(rIn, z0), V2(rOut, z0), V2(rOut, z1), V2(rIn, z1)]
+        m.add(Prim.lathe(prof, segments: segments, seamTile: 0.2, material: mat), Xform(translation: V3(cx, cy, 0), rotation: FA.q(90, FA.X)))
+    }
+}

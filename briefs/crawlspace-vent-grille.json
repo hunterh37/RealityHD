@@ -1,0 +1,44 @@
+{
+  "budget": 9000,
+  "id": "crawlspace-vent-grille",
+  "kind": "prop",
+  "materials": [
+    "concrete.rough",
+    "glass.wire-mesh",
+    "metal.galvanized",
+    "metal.galvanized-aged",
+    "metal.painted:D9D5C8",
+    "metal.rust",
+    "metal.screw-zinc",
+    "metal.stainless",
+    "plastic.black"
+  ],
+  "name": "Crawlspace vent grille",
+  "notes": "",
+  "parts": [
+    "Galvanized frame with screws",
+    "Seven angled louver slats",
+    "Wire mesh behind",
+    "Sliding closure plate with pull tab and rails",
+    "Mortar smears on the flange",
+    "Rust and mud nest"
+  ],
+  "references": [],
+  "size": [
+    0.4,
+    0.2,
+    0.05
+  ],
+  "style": "architectural facade customizer, Traditional",
+  "summary": "Crawlspace foundation vent: 16 by 8 inch galvanized frame with seven angled louver slats, wire mesh behind, sliding closure plate with pull tab on rails, mortar smears, rust at screws and a mud dauber nest.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
