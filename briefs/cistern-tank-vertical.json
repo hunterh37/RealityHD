@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "cistern-tank-vertical",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized-aged",
+    "metal.rust",
+    "metal.steel",
+    "plastic.black",
+    "concrete.rough"
+  ],
+  "name": "Cistern tank vertical",
+  "notes": "",
+  "parts": [
+    "corrugated rings",
+    "bolt flanges",
+    "domed roof",
+    "hatch",
+    "inlet pipe",
+    "overflow pipe",
+    "sight gauge",
+    "outlet valve",
+    "concrete plinth"
+  ],
+  "references": [],
+  "size": [
+    1.8,
+    2.4,
+    1.8
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Corrugated galvanised steel vertical cistern: bolted rings, lid hatch, inlet, overflow, gauge, outlet valve, rust stains.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
