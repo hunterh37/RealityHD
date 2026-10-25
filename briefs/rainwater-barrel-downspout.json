@@ -1,0 +1,43 @@
+{
+  "budget": 14000,
+  "id": "rainwater-barrel-downspout",
+  "kind": "prop",
+  "materials": [
+    "wood.oak",
+    "metal.galvanized-aged",
+    "metal.wrought-iron",
+    "metal.brass-aged",
+    "metal.rust"
+  ],
+  "name": "Rainwater barrel downspout",
+  "notes": "",
+  "parts": [
+    "oak staves",
+    "iron hoops",
+    "lid",
+    "mesh filter",
+    "diverter",
+    "spigot",
+    "overflow",
+    "downspout",
+    "brackets"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    0.9,
+    0.6
+  ],
+  "style": "architectural facade customizer, Garden",
+  "summary": "Oak stave water butt with galvanised hoops, mesh lid, diverter, brass hose bib, overflow and clipped downpipe.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

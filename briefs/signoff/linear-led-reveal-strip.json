@@ -1,0 +1,22 @@
+{
+  "automated" : 0.9925527,
+  "date" : "2026-10-25",
+  "final" : 0.8543935,
+  "fingerprint" : "441189b5a5269c4c",
+  "id" : "linear-led-reveal-strip",
+  "iterations" : 1,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 8,
+    "edges" : 7,
+    "grounding" : 8,
+    "materials" : 8,
+    "proportion" : 8,
+    "silhouette" : 8,
+    "wear" : 7
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.78000003
+}

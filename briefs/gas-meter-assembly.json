@@ -1,0 +1,47 @@
+{
+  "budget": 12000,
+  "id": "gas-meter-assembly",
+  "kind": "prop",
+  "materials": [
+    "concrete.rough",
+    "glass.gauge-lens",
+    "metal.aluminum-brushed",
+    "metal.brass-aged",
+    "metal.cast-iron",
+    "metal.galvanized",
+    "metal.painted:A9A89F",
+    "metal.rust",
+    "metal.screw-zinc",
+    "metal.signal-yellow",
+    "plastic.black"
+  ],
+  "name": "Gas meter assembly",
+  "notes": "",
+  "parts": [
+    "Case with crimped seams and index dial",
+    "Swivel unions with hex nuts and lead seal",
+    "Yellow riser with lever shutoff valve",
+    "Regulator with vent cap",
+    "Black iron outlet to wall with escutcheon",
+    "Wall bracket with U-bolt",
+    "Brass serial tag",
+    "Concrete floor collar"
+  ],
+  "references": [],
+  "size": [
+    0.4,
+    0.6,
+    0.2
+  ],
+  "style": "architectural facade customizer, Traditional",
+  "summary": "Residential diaphragm gas meter on swivel unions: tin-plated case with crimped seams and index dial, yellow riser with quarter-turn shutoff and regulator, black iron outlet nipple, wall bracket, lead seal and serial tag.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

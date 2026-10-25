@@ -1,0 +1,44 @@
+{
+  "budget": 9000,
+  "id": "range-hood-wall-cap",
+  "kind": "prop",
+  "materials": [
+    "glass.wire-mesh",
+    "metal.aluminum-brushed",
+    "metal.galvanized",
+    "metal.painted:5B4426",
+    "metal.rust",
+    "metal.screw-zinc",
+    "metal.stainless",
+    "metal.stainless-smudged",
+    "plastic.black",
+    "plastic.white"
+  ],
+  "name": "Range hood wall cap",
+  "notes": "",
+  "parts": [
+    "Stainless square plate with screws and caulk",
+    "Sloped hood roof and cheeks",
+    "Bird screen in a frame",
+    "6 in galvanized collar",
+    "Butterfly backdraft damper blades",
+    "Grease staining"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    0.3,
+    0.2
+  ],
+  "style": "architectural facade customizer, Traditional",
+  "summary": "Range hood wall cap: stainless steel plate with sloped hood and cheeks, open front covered by a bird screen in a folded frame, 6 inch galvanized duct collar with butterfly backdraft damper, caulk bead, screws and grease staining.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

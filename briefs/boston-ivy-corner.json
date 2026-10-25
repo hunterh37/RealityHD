@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "boston-ivy-corner",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "brick.red",
+    "leaf.maple-red",
+    "leaf.plain"
+  ],
+  "name": "Boston ivy corner",
+  "notes": "",
+  "parts": [
+    "ashlar quoins",
+    "brick infill",
+    "string course",
+    "ivy vines",
+    "maple-form leaves",
+    "adhesive discs"
+  ],
+  "references": [],
+  "size": [
+    0.8,
+    3.0,
+    0.8
+  ],
+  "style": "architectural facade customizer, Collegiate Gothic",
+  "summary": "Collegiate Gothic brick corner with limestone quoins, string course and merlons under autumn Boston ivy.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,39 @@
+{
+  "budget": 10000,
+  "id": "bulkhead-porthole-light",
+  "kind": "prop",
+  "materials": [
+    "metal.bronze-weathered",
+    "metal.brass-aged",
+    "glass.pane",
+    "emissive.warm"
+  ],
+  "name": "Bulkhead porthole light",
+  "notes": "",
+  "parts": [
+    "cast guard cage",
+    "oval dome",
+    "glass globe",
+    "gasket ring",
+    "base plate",
+    "bolts",
+    "lamp"
+  ],
+  "references": [],
+  "size": [
+    0.25,
+    0.25,
+    0.15
+  ],
+  "style": "architectural facade customizer, Nautical",
+  "summary": "Nautical bulkhead light, 0.25 m: cast bronze base and guard around a glass dome.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

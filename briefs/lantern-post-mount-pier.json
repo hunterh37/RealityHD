@@ -1,0 +1,40 @@
+{
+  "budget": 10000,
+  "id": "lantern-post-mount-pier",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "metal.bronze-weathered",
+    "glass.pane",
+    "emissive.warm"
+  ],
+  "name": "Lantern on pier post mount",
+  "notes": "",
+  "parts": [
+    "stone pier cap",
+    "mounting flange",
+    "post adapter",
+    "lantern cage",
+    "glass panes",
+    "finial",
+    "bolts"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    0.6,
+    0.3
+  ],
+  "style": "architectural facade customizer, Colonial Revival",
+  "summary": "Colonial Revival post lantern on pier cap, 0.6 m: cast flange and tapered glass lantern.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

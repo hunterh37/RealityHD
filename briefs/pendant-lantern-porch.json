@@ -1,0 +1,40 @@
+{
+  "budget": 10000,
+  "id": "pendant-lantern-porch",
+  "kind": "prop",
+  "materials": [
+    "metal.bronze-weathered",
+    "metal.iron",
+    "glass.pane",
+    "emissive.warm"
+  ],
+  "name": "Porch pendant lantern",
+  "notes": "",
+  "parts": [
+    "ceiling canopy",
+    "chain",
+    "hanging loop",
+    "lantern cage",
+    "glass panes",
+    "finial",
+    "cap",
+    "candle socket"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    0.7,
+    0.3
+  ],
+  "style": "architectural facade customizer, Colonial Revival",
+  "summary": "Colonial Revival hanging porch lantern, 0.7 m: tapered cage with candle socket on chain.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

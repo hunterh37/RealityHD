@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "climbing-rose-arch",
+  "kind": "prop",
+  "materials": [
+    "metal.wrought-iron",
+    "leaf.plain",
+    "flower.petal",
+    "plant.stem"
+  ],
+  "name": "Climbing rose arch",
+  "notes": "",
+  "parts": [
+    "paired arched hoops with finials",
+    "cross purlins",
+    "diamond side lattice",
+    "foot plates with bolts",
+    "rose canes tied in",
+    "leaf clusters",
+    "pink white and crimson blooms"
+  ],
+  "references": [],
+  "size": [
+    1.4,
+    2.4,
+    0.6
+  ],
+  "style": "architectural facade customizer, English cottage garden, black wrought iron with rust at joints, old climbing roses in full bloom",
+  "summary": "Cottage garden climbing rose arch 1.4 x 2.4 m: wrought iron hoops with side lattice, foot plates, finials and trained roses in bloom.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "plant",
+    "garden"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

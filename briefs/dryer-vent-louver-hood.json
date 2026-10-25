@@ -1,0 +1,44 @@
+{
+  "budget": 9000,
+  "id": "dryer-vent-louver-hood",
+  "kind": "prop",
+  "materials": [
+    "fabric.linen",
+    "metal.aluminum-brushed",
+    "metal.galvanized",
+    "metal.painted:CFCBBE",
+    "metal.satin-aluminum",
+    "metal.rust",
+    "metal.screw-zinc",
+    "plastic.black",
+    "plastic.white",
+    "rubber.silicone"
+  ],
+  "name": "Dryer vent louver hood",
+  "notes": "",
+  "parts": [
+    "Square flange with screws and caulk bead",
+    "Sloped hood roof and side cheeks",
+    "Seven fixed louver blades",
+    "4 in duct collar with gravity damper",
+    "Lint tufts in louvers",
+    "Weathering streaks"
+  ],
+  "references": [],
+  "size": [
+    0.2,
+    0.2,
+    0.15
+  ],
+  "style": "architectural facade customizer, Traditional",
+  "summary": "Dryer vent louver hood: powder-coated aluminum flange with sloped hood and side cheeks, seven fixed louver blades, 4 inch duct collar with gravity damper, caulk bead, screws and lint.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

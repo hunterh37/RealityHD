@@ -1,0 +1,40 @@
+{
+  "budget": 9000,
+  "id": "building-integrated-pv-tile",
+  "kind": "prop",
+  "materials": [
+    "solar.cell",
+    "glass.pane",
+    "metal.anodized-black",
+    "plastic.black"
+  ],
+  "name": "Building integrated PV tile",
+  "notes": "",
+  "parts": [
+    "glass laminate",
+    "cells",
+    "busbars",
+    "frame",
+    "junction box",
+    "MC4 connectors",
+    "interlocking edges"
+  ],
+  "references": [],
+  "size": [
+    1.0,
+    1.0,
+    0.04
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Glass-glass BIPV roof module: 36 mono cells, black frame with lap, junction box, MC4 leads, hot-spot cell and dust.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "glass",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

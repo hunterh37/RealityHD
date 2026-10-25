@@ -1,0 +1,39 @@
+{
+  "budget": 12000,
+  "id": "living-wall-modular-tray",
+  "kind": "prop",
+  "materials": [
+    "metal.powder-white",
+    "fabric.burlap",
+    "soil.potting",
+    "leaf.plain"
+  ],
+  "name": "Living wall modular tray",
+  "notes": "",
+  "parts": [
+    "steel tray",
+    "felt pockets",
+    "drip lip",
+    "rail clips",
+    "plants",
+    "soil"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    0.6,
+    0.2
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Steel living wall cassette: stitched felt pockets, drip irrigation, Z-rail hanger, hosta and trailing foliage.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

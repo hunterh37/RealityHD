@@ -1,0 +1,40 @@
+{
+  "budget": 10000,
+  "id": "emergency-exit-signage-light",
+  "kind": "prop",
+  "materials": [
+    "plastic.white",
+    "sign.red",
+    "emissive.led-green",
+    "metal.powdercoat-worn"
+  ],
+  "name": "Emergency exit sign light",
+  "notes": "",
+  "parts": [
+    "housing",
+    "EXIT lettering panel",
+    "running figure",
+    "chevron",
+    "emergency lamp heads",
+    "battery cover",
+    "test button",
+    "LED indicator"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    0.2,
+    0.1
+  ],
+  "style": "architectural facade customizer, Commercial",
+  "summary": "Exit sign with emergency lamp heads, 0.3 m: white housing with red EXIT legend.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

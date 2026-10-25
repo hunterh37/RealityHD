@@ -1,0 +1,40 @@
+{
+  "budget": 14000,
+  "id": "scalloped-valance-awning",
+  "kind": "prop",
+  "materials": [
+    "fabric.canvas:274A7C",
+    "fabric.canvas:ECE6D4",
+    "metal.wrought-iron",
+    "metal.galvanized"
+  ],
+  "name": "Scalloped Valance Awning",
+  "notes": "",
+  "parts": [
+    "wall rail and iron arm brackets",
+    "sloped striped canvas roof with seams",
+    "scalloped valance with bound edge",
+    "front pipe bar",
+    "side scroll arms",
+    "fabric binding and welt"
+  ],
+  "references": [],
+  "size": [
+    1.8,
+    0.9,
+    1.1
+  ],
+  "style": "architectural facade customizer, Victorian commercial; Victorian, navy and cream stripes, bound scallops, lightly weathered.",
+  "summary": "Victorian window awning, 1.8 m wide: sloped striped canvas with a scalloped drop valance hung from a front bar and wall rail.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "fabric",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

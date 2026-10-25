@@ -1,0 +1,42 @@
+{
+  "budget": 14000,
+  "id": "bullnose-canvas-awning",
+  "kind": "prop",
+  "materials": [
+    "fabric.canvas:2F5D50",
+    "fabric.canvas:E8E0CC",
+    "metal.galvanized",
+    "metal.wrought-iron",
+    "wood.painted-exterior"
+  ],
+  "name": "Bullnose Canvas Awning",
+  "notes": "",
+  "parts": [
+    "wall mounting rail with lag bolts",
+    "bent steel-pipe hoop ribs",
+    "convex quarter-round canvas skin with seams",
+    "hemmed front valance with welt cord",
+    "side end-cap gussets",
+    "lace-up lacing eyelets at the hem",
+    "front tie rod"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.9,
+    1.0
+  ],
+  "style": "architectural facade customizer, Victorian commercial; Victorian commercial shopfront, forest-green canvas with cream trim stripe, sun-faded, hardware lightly rusted at the lower fixings.",
+  "summary": "Victorian bullnose shop awning, 2 m wide: quarter-round canvas dome on a bent iron-pipe frame with boxed valance and wall rail.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal",
+    "fabric"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

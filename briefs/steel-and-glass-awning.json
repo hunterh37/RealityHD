@@ -1,0 +1,25 @@
+{
+  "budget": 12000,
+  "id": "steel-and-glass-awning",
+  "kind": "prop",
+  "materials": ["metal.painted", "metal.stainless", "metal.rust", "glass.pane", "glass.emerald", "glass.frosted", "concrete.smooth", "metal.screw-zinc"],
+  "name": "Steel and glass awning",
+  "notes": "",
+  "parts": [
+    "welded steel perimeter frame in box tube with mitred corners",
+    "two T-bar purlins dividing three laminated glass panes",
+    "three drilled triangular gusset plates under the frame",
+    "wall plate with a double row of hex bolts",
+    "stainless drip edge on the front bar",
+    "concrete wall strip with water stains",
+    "powder-coat chips with rust, limescale haze and bird droppings"
+  ],
+  "references": [],
+  "size": [2.0, 0.2, 1.0],
+  "style": "Contemporary steel and glass awning, anthracite powder-coated frame, green laminated glass, gusset plates with lightening holes, chipped coating and rust at welds and bolts",
+  "summary": "Contemporary steel and glass awning, 2.0 m: anthracite frame, three laminated panes, drilled gusset plates, wall plate, drip edge.",
+  "tags": ["prop", "architecture", "facade", "glass", "metal"],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

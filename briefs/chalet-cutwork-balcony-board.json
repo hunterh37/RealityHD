@@ -1,0 +1,25 @@
+{
+  "budget": 12000,
+  "id": "chalet-cutwork-balcony-board",
+  "kind": "prop",
+  "materials": ["wood.weathered", "wood.cedar-weathered", "wood.pine-aged", "metal.rust", "metal.screw-zinc", "stone.granite-moss"],
+  "name": "Chalet cutwork balcony board",
+  "notes": "",
+  "parts": [
+    "twelve vertical boards with pointed tops and scalloped bottoms",
+    "sawn heart and pine tree openings alternating along the run",
+    "diamond openings above and below each motif",
+    "top rail and bottom rail across the front",
+    "end stiles with pyramid caps",
+    "rusted screw heads",
+    "replaced pale board among the weathered ones"
+  ],
+  "references": [],
+  "size": [2.4, 1.0, 0.03],
+  "style": "Alpine chalet balcony board, sawn larch boards stained dark brown and silvered by sun, split checks, rust bleed at screws, lichen along the bottom edge",
+  "summary": "Alpine chalet cutwork balcony board, 2.4 m: twelve sawn boards with heart and pine openings, rails and end stiles.",
+  "tags": ["prop", "architecture", "facade", "trim", "wood"],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

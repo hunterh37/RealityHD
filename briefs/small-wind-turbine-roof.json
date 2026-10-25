@@ -1,0 +1,42 @@
+{
+  "budget": 14000,
+  "id": "small-wind-turbine-roof",
+  "kind": "prop",
+  "materials": [
+    "metal.powder-white",
+    "plastic.white",
+    "metal.galvanized",
+    "metal.steel"
+  ],
+  "name": "Small wind turbine roof",
+  "notes": "",
+  "parts": [
+    "blades",
+    "hub nosecone",
+    "nacelle",
+    "tail boom",
+    "tail vane",
+    "yaw collar",
+    "pole",
+    "guy wires",
+    "roof base plate",
+    "anchor bolts"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    2.5,
+    1.5
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Roof mounted small wind turbine: three lofted blades, nacelle, tail vane, guyed galvanised mast, flashing boot and plate.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

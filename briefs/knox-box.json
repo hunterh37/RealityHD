@@ -1,0 +1,38 @@
+{
+  "budget": 10000,
+  "id": "knox-box",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat-worn",
+    "metal.stainless",
+    "metal.screw-zinc"
+  ],
+  "name": "Knox Box",
+  "notes": "",
+  "parts": [
+    "housing",
+    "hinged door",
+    "lock cylinder",
+    "dust cover",
+    "mounting screws",
+    "hinge",
+    "decal plate"
+  ],
+  "references": [],
+  "size": [
+    0.2,
+    0.25,
+    0.1
+  ],
+  "style": "architectural facade customizer, Commercial",
+  "summary": "Knox rapid entry key box, 0.2 m: surface mount housing with hinged door and lock.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

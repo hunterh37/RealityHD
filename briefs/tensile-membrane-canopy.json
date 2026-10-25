@@ -1,0 +1,39 @@
+{
+  "budget": 14000,
+  "id": "tensile-membrane-canopy",
+  "kind": "prop",
+  "materials": [
+    "fabric.canvas:E9E7DF",
+    "metal.stainless",
+    "metal.galvanized",
+    "metal.powder-white"
+  ],
+  "name": "Tensile Membrane Canopy",
+  "notes": "",
+  "parts": [
+    "central steel mast with ring collar",
+    "membrane saddle surface with welded seams",
+    "perimeter edge cable in sleeve",
+    "corner clamp plates with shackles",
+    "tension rods and fork heads",
+    "anchor base plates with bolts"
+  ],
+  "references": [],
+  "size": [
+    5.0,
+    2.0,
+    5.0
+  ],
+  "style": "architectural facade customizer, high-tech; High-tech, white PTFE-glass membrane, stainless fittings, slight dust at the low points.",
+  "summary": "High-tech tensile canopy, 5 m square: PTFE membrane cone tensioned between a steel mast, edge cables and corner anchor plates.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "fabric"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

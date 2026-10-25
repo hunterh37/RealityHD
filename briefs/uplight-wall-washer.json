@@ -1,0 +1,39 @@
+{
+  "budget": 10000,
+  "id": "uplight-wall-washer",
+  "kind": "prop",
+  "materials": [
+    "metal.anodized-black",
+    "metal.stainless",
+    "glass.led-lens",
+    "metal.screw-zinc"
+  ],
+  "name": "Wall washer uplight",
+  "notes": "",
+  "parts": [
+    "housing",
+    "lens",
+    "louver",
+    "mounting bracket",
+    "cable gland",
+    "heat sink",
+    "aiming knuckle"
+  ],
+  "references": [],
+  "size": [
+    0.2,
+    0.3,
+    0.2
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Contemporary wall washer uplight, 0.3 m: anodized housing with lens, louver and aiming knuckle.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
