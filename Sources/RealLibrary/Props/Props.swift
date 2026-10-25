@@ -991,7 +991,6 @@ public enum Props {
         EarthSitePin.self,
         DryCooler.self,
         ChillerUnit.self,
-<<<<<<< HEAD
         StoneStairFlightCurved.self,
         BracketedPorchHood.self,
         PedimentPorticoTwoColumn.self,
@@ -1022,7 +1021,6 @@ public enum Props {
         EspalierFruitWall.self,
         ClimbingRoseArch.self,
         WisteriaPergolaBay.self,
-=======
         HipRoofRidgeCap.self,
         RoofRidgeVent.self,
         GreenRoofSedumTray.self,
@@ -1075,7 +1073,6 @@ public enum Props {
         DownspoutCollectorHead.self,
         CopperDownspoutStraight.self,
         BoxGutterHopperHead.self,
->>>>>>> github/main
         // realityhd:prop
     ]
 }
