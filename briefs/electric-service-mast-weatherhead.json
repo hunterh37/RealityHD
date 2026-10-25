@@ -1,0 +1,44 @@
+{
+  "budget": 12000,
+  "id": "electric-service-mast-weatherhead",
+  "kind": "prop",
+  "materials": [
+    "ceramic.porcelain-gray",
+    "metal.aluminum-brushed",
+    "metal.copper",
+    "metal.galvanized",
+    "metal.galvanized-aged",
+    "metal.rust",
+    "metal.screw-zinc",
+    "metal.stainless",
+    "plastic.black",
+    "rubber.silicone"
+  ],
+  "name": "Electric service mast and weatherhead",
+  "notes": "",
+  "parts": [
+    "2 in rigid conduit mast with coupling",
+    "Cast aluminum weatherhead with bushings",
+    "Three service conductors with drip loops",
+    "Porcelain spool insulator bracket",
+    "One-hole standoff straps",
+    "Ground clamp and bare copper conductor"
+  ],
+  "references": [],
+  "size": [
+    0.2,
+    2.0,
+    0.2
+  ],
+  "style": "architectural facade customizer, Traditional",
+  "summary": "Overhead electric service entrance: 2 inch rigid galvanized conduit mast with coupling, standoff straps, cast aluminum weatherhead with three wires and drip loops, porcelain spool service bracket, ground clamp and bare copper.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

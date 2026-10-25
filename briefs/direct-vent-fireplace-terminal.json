@@ -1,0 +1,44 @@
+{
+  "budget": 11000,
+  "id": "direct-vent-fireplace-terminal",
+  "kind": "prop",
+  "materials": [
+    "metal.aluminum-brushed",
+    "metal.galvanized-aged",
+    "metal.painted:2A241E",
+    "metal.painted:BDB9AE",
+    "metal.powdercoat:1C1C1E",
+    "metal.rust",
+    "metal.screw-zinc",
+    "metal.stainless",
+    "plastic.black",
+    "plastic.medical-grey"
+  ],
+  "name": "Direct vent fireplace terminal",
+  "notes": "",
+  "parts": [
+    "Black plate with screws and gasket frame",
+    "Terminal box with exhaust and intake louvers",
+    "Stand-off wire guard",
+    "Side heat shields",
+    "Drip hood",
+    "Soot fan and condensate runs"
+  ],
+  "references": [],
+  "size": [
+    0.4,
+    0.4,
+    0.15
+  ],
+  "style": "architectural facade customizer, Traditional",
+  "summary": "Direct vent fireplace terminal: black powder-coated square plate with screws and gasket, rectangular terminal box with split exhaust and intake louver slots, stand-off wire guard, side heat shields, soot fan above and condensate runs below.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

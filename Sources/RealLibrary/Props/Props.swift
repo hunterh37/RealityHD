@@ -1090,6 +1090,23 @@ public enum Props {
         CascadingRooftopPlanter.self,
         BayWindowFlowerBoxIron.self,
         HangingBasketBracket.self,
+        HeatPumpCondenserFan.self,
+        EvWallCharger.self,
+        EvChargingPedestal.self,
+        GasMeterAssembly.self,
+        ElectricServiceMastWeatherhead.self,
+        CableTvJunctionBox.self,
+        NetworkDemarcationEnclosure.self,
+        TelephoneEntranceBox.self,
+        ExteriorGfciOutlet.self,
+        HoseBibbSpigot.self,
+        FrostFreeHoseBibBox.self,
+        DryerVentLouverHood.self,
+        BathroomExhaustCap.self,
+        RangeHoodWallCap.self,
+        CombustionFlueVentCap.self,
+        DirectVentFireplaceTerminal.self,
+        CrawlspaceVentGrille.self,
         // realityhd:prop
     ]
 }

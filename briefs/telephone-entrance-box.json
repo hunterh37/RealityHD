@@ -1,0 +1,47 @@
+{
+  "budget": 9000,
+  "id": "telephone-entrance-box",
+  "kind": "prop",
+  "materials": [
+    "metal.brass-aged",
+    "metal.copper",
+    "metal.galvanized",
+    "metal.painted:C9A92E",
+    "metal.screw-zinc",
+    "metal.stainless",
+    "paint.cylinder-green",
+    "plastic.black",
+    "plastic.medical-grey",
+    "plastic.medical-grey-worn",
+    "plastic.white",
+    "rubber.silicone"
+  ],
+  "name": "Telephone entrance box",
+  "notes": "",
+  "parts": [
+    "Grey ABS base and covers",
+    "Telco cover with tamper screw",
+    "Customer door with thumb latch and ribs",
+    "Rain hood",
+    "Drop wire boot with drip loop",
+    "Copper ground clamp with green conductor",
+    "Mounting ears and screws"
+  ],
+  "references": [],
+  "size": [
+    0.2,
+    0.3,
+    0.1
+  ],
+  "style": "architectural facade customizer, Traditional",
+  "summary": "Telephone network interface box: grey ABS two-compartment cabinet with telco and customer covers, tamper screw, thumb latch, rain hood, bottom drop-wire boot with drip loop, copper ground clamp and mounting ears.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
