@@ -1,0 +1,40 @@
+{
+  "budget": 12000,
+  "id": "rain-garden-curb-cut",
+  "kind": "prop",
+  "materials": [
+    "stone.granite-curb",
+    "concrete.sidewalk",
+    "stone.granite-paver",
+    "soil.potting",
+    "leaf.plain"
+  ],
+  "name": "Rain garden curb cut",
+  "notes": "",
+  "parts": [
+    "granite curb",
+    "curb cut throat",
+    "concrete apron",
+    "cobble splash pad",
+    "gravel",
+    "sedges",
+    "sediment stain"
+  ],
+  "references": [],
+  "size": [
+    1.0,
+    0.2,
+    0.5
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Granite curb with a cut inlet, concrete apron, cobble splash pad, rills and sedges at the entry.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
