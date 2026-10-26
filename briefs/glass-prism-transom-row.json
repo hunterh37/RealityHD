@@ -1,0 +1,45 @@
+{
+  "budget": 15000,
+  "id": "glass-prism-transom-row",
+  "kind": "prop",
+  "materials": [
+    "glass.clear",
+    "glass.frosted",
+    "metal.cast-iron",
+    "metal.brass-aged",
+    "metal.rust",
+    "wood.trim-weathered"
+  ],
+  "name": "Glass prism transom row",
+  "notes": "",
+  "parts": [
+    "row of nine prism glass tiles",
+    "faceted pyramid prism relief",
+    "cast-iron frame with muntins",
+    "cast-iron cap rail",
+    "wood sill",
+    "corner brackets",
+    "screw heads",
+    "putty line",
+    "grime at edges",
+    "one cracked tile"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.4,
+    0.1
+  ],
+  "style": "architectural facade customizer, Victorian Commercial",
+  "summary": "Victorian Commercial glass prism transom row, 2.0 x 0.4 m: nine prism tiles in a cast iron grid, rail, sill, brackets, fasteners, grime.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "openings",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
