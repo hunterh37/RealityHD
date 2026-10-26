@@ -1,0 +1,43 @@
+{
+  "budget": 15000,
+  "id": "carriage-house-sliding-door",
+  "kind": "prop",
+  "materials": [
+    "wood.barn-red",
+    "wood.painted-shaker-worn",
+    "wood.lumber-pine",
+    "metal.steel",
+    "metal.cast-iron"
+  ],
+  "name": "Carriage house sliding door",
+  "notes": "",
+  "parts": [
+    "tongue-and-groove painted plank leaf",
+    "Z-braced framing battens",
+    "overhead steel track with brackets",
+    "wheel hangers with bolts",
+    "floor guide and stop",
+    "cast iron pull handle",
+    "sill plate",
+    "weathered paint with grime at the base"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    2.4,
+    0.15
+  ],
+  "style": "architectural facade customizer, Carriage House",
+  "summary": "Carriage house sliding barn door: painted X-braced plank leaf on an overhead steel track with wheel hangers, a flat guide at the floor and a pull handle.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "door",
+    "wood",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

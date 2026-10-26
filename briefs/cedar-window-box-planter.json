@@ -1,0 +1,41 @@
+{
+  "budget": 14000,
+  "id": "cedar-window-box-planter",
+  "kind": "prop",
+  "materials": [
+    "wood.cedar",
+    "wood.cedar-weathered",
+    "metal.iron",
+    "metal.galvanized"
+  ],
+  "name": "Cedar window box planter",
+  "notes": "",
+  "parts": [
+    "cedar front board",
+    "fretwork cutouts",
+    "end boards",
+    "bottom slats with drain gaps",
+    "iron brackets",
+    "screws",
+    "soil",
+    "geranium foliage and blooms",
+    "weathering"
+  ],
+  "references": [],
+  "size": [
+    1.0,
+    0.25,
+    0.3
+  ],
+  "style": "architectural facade customizer, Alpine Chalet",
+  "summary": "Alpine Chalet cedar window box, 1.0 m: tongue-and-groove cedar planks with heart-cut front fretwork, iron brackets, screw heads, soil and trailing geraniums.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

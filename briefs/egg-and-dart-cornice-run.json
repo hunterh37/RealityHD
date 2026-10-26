@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "egg-and-dart-cornice-run",
+  "kind": "prop",
+  "materials": [
+    "wood.barn-white",
+    "wood.trim-weathered",
+    "wood.painted-exterior"
+  ],
+  "name": "Egg and dart cornice run",
+  "notes": "",
+  "parts": [
+    "fascia backer",
+    "bed mould",
+    "egg-and-dart ovolo",
+    "dentil course",
+    "corona with drip groove",
+    "cyma recta crown",
+    "butt joint at one third",
+    "nail heads"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    0.2,
+    0.2
+  ],
+  "style": "architectural facade customizer, Georgian",
+  "summary": "Georgian egg-and-dart cornice, 2.4 m: timber bed mould, dentils, carved ovolo, corona and cyma crown with a butt joint.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

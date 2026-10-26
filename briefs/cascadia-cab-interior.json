@@ -1,0 +1,63 @@
+{
+  "budget": 30000,
+  "id": "cascadia-cab-interior",
+  "kind": "prop",
+  "materials": [
+    "plastic.dash",
+    "vinyl.seat-grey",
+    "rubber.floor-mat",
+    "rubber.plate",
+    "metal.chrome",
+    "plastic.black",
+    "plastic.yellow",
+    "plastic.gloss",
+    "glass.cabin",
+    "screen.cluster",
+    "screen.ui",
+    "fabric.upholstery",
+    "fabric.headliner",
+    "leather.soft-touch",
+    "emissive.signal-orange"
+  ],
+  "name": "Freightliner Cascadia cab interior",
+  "notes": "cab floor at y = 0, driver faces +Z, driver seat on +X, sleeper opening at -Z. CascadiaCabInterior.driverEye = (0.5, 1.30, -0.20).",
+  "parts": [
+    "air-ride high-back driver seat with armrests, quilted grey/black vinyl",
+    "passenger seat",
+    "four-spoke steering wheel with buttons steering (-900...900)",
+    "curved wraparound dash",
+    "12 in digital cluster with speedNeedle and rpmNeedle",
+    "center infotainment screen (emissive)",
+    "DT12 stalk shifter right of column",
+    "yellow diamond parkingBrake knob",
+    "red octagon trailerSupply knob",
+    "throttle and brake pedals",
+    "floor and center console",
+    "door panels with window openings and glass",
+    "A-pillars and split windshield frame (glass.cabin)",
+    "wiperLeft and wiperRight",
+    "sun visors and overhead console",
+    "West Coast mirrors outside doors",
+    "sleeper opening behind the seats"
+  ],
+  "references": [],
+  "size": [
+    2.84,
+    1.95,
+    2.5
+  ],
+  "style": "2024 Cascadia, charcoal soft-touch dash, grey and black quilted vinyl seats, clean fleet condition.",
+  "summary": "Freightliner Cascadia 2024 sleeper cab driver area at 1:1: air-ride seats, four-spoke wheel, wraparound dash, digital cluster, DT12 stalk, air brake knobs, split windshield, mirrors.",
+  "tags": [
+    "prop",
+    "vehicle",
+    "plastic",
+    "glass",
+    "interior",
+    "electronics",
+    "articulated"
+  ],
+  "theme": "Vehicle",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

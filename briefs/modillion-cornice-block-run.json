@@ -1,0 +1,43 @@
+{
+  "budget": 15000,
+  "id": "modillion-cornice-block-run",
+  "kind": "prop",
+  "materials": [
+    "stone.cast-stone",
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "stone.sandstone"
+  ],
+  "name": "Modillion block cornice run",
+  "notes": "",
+  "parts": [
+    "scrolled modillion blocks",
+    "acanthus leaf faces",
+    "coffer rosettes",
+    "egg-and-dart band",
+    "bed mould",
+    "deep corona with drip",
+    "cyma recta crown",
+    "frieze",
+    "joint at midspan"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.5,
+    0.45
+  ],
+  "style": "architectural facade customizer, Baroque",
+  "summary": "Baroque modillion cornice run, 2.0 m: scrolled modillions with acanthus, coffer rosettes, egg-and-dart, corona with drip, cyma crown.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "stone",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

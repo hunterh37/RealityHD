@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "cast-iron-balconette-window-guard",
+  "kind": "prop",
+  "materials": [
+    "metal.wrought-iron",
+    "metal.cast-iron",
+    "metal.rust",
+    "metal.bolt-bright"
+  ],
+  "name": "Cast iron balconette window guard",
+  "notes": "",
+  "parts": [
+    "top handrail",
+    "bottom rail",
+    "balusters",
+    "scroll panel",
+    "lozenge rosettes",
+    "end posts",
+    "finials",
+    "side returns",
+    "wall fixing pins"
+  ],
+  "references": [],
+  "size": [
+    1.4,
+    0.9,
+    0.2
+  ],
+  "style": "architectural facade customizer, Haussmann",
+  "summary": "Haussmann cast-iron balconette guard, 1.4 x 0.9 m: handrail, collared balusters, S-scroll band, central ring panel, urn finials and side returns.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

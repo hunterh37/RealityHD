@@ -1,0 +1,46 @@
+{
+  "budget": 15000,
+  "id": "neon-blade-sign-vertical",
+  "kind": "prop",
+  "materials": [
+    "metal.painted",
+    "metal.galvanized-aged",
+    "emissive.warm",
+    "emissive.signal-red",
+    "glass.frosted",
+    "metal.rust",
+    "metal.steel"
+  ],
+  "name": "Vertical neon blade sign",
+  "notes": "",
+  "parts": [
+    "steel can cabinet with returns",
+    "vertical letter tube channels",
+    "neon tubes with electrodes",
+    "tube support standoffs",
+    "transformer box",
+    "wall mounting angles with lag bolts",
+    "conduit and GTO cable",
+    "painted face with border",
+    "rust and paint chips",
+    "wall plate"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    2.0,
+    0.25
+  ],
+  "style": "architectural facade customizer, Mid-century Commercial",
+  "summary": "Mid-century Commercial vertical neon blade sign, 0.6 x 2.0 m: steel cabinet, glass neon tubes, standoffs, transformer, wall brackets, conduit.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "sign",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

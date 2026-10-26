@@ -1,0 +1,43 @@
+{
+  "budget": 10000,
+  "id": "cast-iron-window-cap-lintel",
+  "kind": "prop",
+  "materials": [
+    "metal.cast-iron",
+    "metal.painted",
+    "metal.rust",
+    "metal.brass-aged"
+  ],
+  "name": "Cast iron window cap lintel",
+  "notes": "",
+  "parts": [
+    "flat lintel face",
+    "raised panel",
+    "console end brackets",
+    "dentil band",
+    "cap moulding",
+    "anthemion crest",
+    "bolt bosses",
+    "bottom flange",
+    "casting seam",
+    "rust bleed"
+  ],
+  "references": [],
+  "size": [
+    1.3,
+    0.35,
+    0.12
+  ],
+  "style": "architectural facade customizer, Italianate",
+  "summary": "Italianate cast iron window cap, 1.3 m: moulded lintel, raised panel with bolts, dentil band, console brackets, anthemion crest.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

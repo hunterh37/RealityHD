@@ -1,0 +1,43 @@
+{
+  "budget": 8000,
+  "id": "gas-lantern-wall-sconce",
+  "kind": "prop",
+  "materials": [
+    "emissive.warm",
+    "glass.pane",
+    "metal.brass-aged",
+    "metal.cast-iron",
+    "metal.powdercoat",
+    "metal.rust",
+    "metal.rust-grime"
+  ],
+  "name": "Gas lantern wall sconce",
+  "notes": "",
+  "parts": [
+    "wall bracket scroll arm",
+    "lantern cage",
+    "glass panes",
+    "burner and mantle",
+    "finial cap",
+    "bolted back plate"
+  ],
+  "references": [],
+  "size": [
+    0.25,
+    0.6,
+    0.3
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Gas lantern wall sconce, 0.6 m: plate, scroll bracket, gas cock, glass cage lantern, burner, vented cap.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "light",
+    "metal",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

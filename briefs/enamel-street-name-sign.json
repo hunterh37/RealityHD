@@ -1,0 +1,38 @@
+{
+  "budget": 10000,
+  "id": "enamel-street-name-sign",
+  "kind": "prop",
+  "materials": [
+    "metal.enamel",
+    "metal.rust",
+    "metal.steel"
+  ],
+  "name": "Enamel street name sign",
+  "notes": "",
+  "parts": [
+    "pressed steel blade",
+    "blue enamel field",
+    "white raised border",
+    "white lettering",
+    "corner screws",
+    "enamel chips and rust"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    0.15,
+    0.03
+  ],
+  "style": "architectural facade customizer, Parisian Haussmann",
+  "summary": "Enamel street name sign, Parisian Haussmann facade prop, 0.6 x 0.15 x 0.03 m.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

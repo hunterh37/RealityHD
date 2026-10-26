@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "iron-door-knocker-lion",
+  "kind": "prop",
+  "materials": [
+    "metal.cast-iron",
+    "metal.rust",
+    "metal.brass-aged",
+    "metal.painted"
+  ],
+  "name": "Lion head door knocker",
+  "notes": "",
+  "parts": [
+    "modelled lion mask with brow, nose and muzzle",
+    "mane in layered curls",
+    "ring held in the mouth",
+    "striker plate boss",
+    "mounting bolt heads",
+    "black paint worn to bare iron on high points",
+    "verdigris-free cast iron with seam line"
+  ],
+  "references": [],
+  "size": [
+    0.12,
+    0.2,
+    0.06
+  ],
+  "style": "architectural facade customizer, Georgian",
+  "summary": "Georgian cast iron lion head door knocker: modelled mask with a ring in its mouth, strike plate and bolts, black paint worn at the high points.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "door",
+    "metal",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

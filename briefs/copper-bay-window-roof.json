@@ -1,0 +1,40 @@
+{
+  "budget": 14000,
+  "id": "copper-bay-window-roof",
+  "kind": "prop",
+  "materials": [
+    "metal.copper",
+    "metal.copper-patina",
+    "wood.painted-exterior",
+    "metal.brass-aged"
+  ],
+  "name": "Copper bay window roof",
+  "notes": "",
+  "parts": [
+    "standing-seam pans",
+    "rolled hips",
+    "fascia",
+    "dentils",
+    "finial",
+    "cresting"
+  ],
+  "references": [],
+  "size": [
+    1.8,
+    0.5,
+    0.9
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Victorian bay window roof, 1.8 m: standing-seam copper hip, rolled hips, half-round gutter, bracketed cornice, finial.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "wood",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,46 @@
+{
+  "budget": 12000,
+  "id": "roman-bath-thermae-window",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.sandstone",
+    "metal.wrought-iron",
+    "glass.tinted",
+    "metal.brass-aged"
+  ],
+  "name": "Roman bath (thermae) window",
+  "notes": "",
+  "parts": [
+    "semicircular arch head",
+    "two stone mullions",
+    "three lights",
+    "moulded architrave",
+    "voussoir joints",
+    "impost blocks",
+    "keystone",
+    "iron glazing bars",
+    "glass",
+    "projecting sill with drip",
+    "bolt heads"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    2.2,
+    0.3
+  ],
+  "style": "architectural facade customizer, Roman Revival",
+  "summary": "Roman Revival thermae window, 2.4 m: semicircular lunette, two stone mullions, wedge voussoirs, keystone, iron glazing bars, sill.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "stone",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

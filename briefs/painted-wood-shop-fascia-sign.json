@@ -1,0 +1,44 @@
+{
+  "budget": 15000,
+  "id": "painted-wood-shop-fascia-sign",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "wood.trim-weathered",
+    "metal.gold-leaf",
+    "metal.brass",
+    "metal.wrought-iron",
+    "metal.rust"
+  ],
+  "name": "Painted wood shop fascia sign",
+  "notes": "",
+  "parts": [
+    "fascia board",
+    "moulded cornice",
+    "raised panel border",
+    "gilt sign lettering",
+    "end console brackets",
+    "scroll volutes",
+    "drip rail",
+    "fixing screws",
+    "hanging hooks"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    0.5,
+    0.12
+  ],
+  "style": "architectural facade customizer, English Shopfront",
+  "summary": "English shopfront fascia sign, 3.0 x 0.5 m: painted pine board, moulded cornice, panel border, gilt lettering, scrolled end consoles and brass screws.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

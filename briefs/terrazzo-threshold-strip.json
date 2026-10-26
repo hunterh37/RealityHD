@@ -1,0 +1,40 @@
+{
+  "budget": 12000,
+  "id": "terrazzo-threshold-strip",
+  "kind": "prop",
+  "materials": [
+    "metal.brass",
+    "stone.marble-honed",
+    "stone.slate",
+    "stone.terrazzo"
+  ],
+  "name": "Terrazzo threshold strip",
+  "notes": "",
+  "parts": [
+    "terrazzo slab",
+    "brass divider strips",
+    "aggregate chips",
+    "eased nosing",
+    "countersunk screws",
+    "hairline crack"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    0.03,
+    0.25
+  ],
+  "style": "architectural facade customizer, Mid-century Modern",
+  "summary": "Terrazzo threshold strip, 1.2 m: chip aggregate slab with brass divider strips and a worn nosing.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "stone",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

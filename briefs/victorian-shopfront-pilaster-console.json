@@ -1,0 +1,44 @@
+{
+  "budget": 15000,
+  "id": "victorian-shopfront-pilaster-console",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "metal.gold-leaf",
+    "metal.brass",
+    "metal.rust"
+  ],
+  "name": "Victorian shopfront pilaster with console",
+  "notes": "",
+  "parts": [
+    "plinth",
+    "base moulding",
+    "fluted shaft",
+    "reeds",
+    "necking",
+    "capital",
+    "console bracket",
+    "volute scroll",
+    "anthemion boss",
+    "fixing screws"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    2.8,
+    0.2
+  ],
+  "style": "architectural facade customizer, English Shopfront",
+  "summary": "Victorian shopfront pilaster, 0.3 x 2.8 m: plinth, base moulding, reeded shaft, capital with anthemion boss and a scrolled console bracket.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "wood",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

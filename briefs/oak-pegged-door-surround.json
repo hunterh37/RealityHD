@@ -1,0 +1,42 @@
+{
+  "budget": 12000,
+  "id": "oak-pegged-door-surround",
+  "kind": "prop",
+  "materials": [
+    "wood.oak",
+    "wood.weathered",
+    "stone.sandstone",
+    "metal.cast-iron"
+  ],
+  "name": "Oak pegged door surround",
+  "notes": "",
+  "parts": [
+    "oak jambs",
+    "oak lintel",
+    "four-centred arch spandrel infill",
+    "hollow chamfer moulding",
+    "stop chamfers",
+    "draw-bored oak pegs",
+    "mortise and tenon joints",
+    "stone threshold sill",
+    "weathered grain"
+  ],
+  "references": [],
+  "size": [
+    1.3,
+    2.5,
+    0.2
+  ],
+  "style": "architectural facade customizer, English Tudor",
+  "summary": "Tudor oak door surround 1.3 m x 2.5 m: chamfered jambs, four-centred head, pegged joints, sill.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

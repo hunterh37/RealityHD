@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "rustic-log-corner-notch",
+  "kind": "prop",
+  "materials": [
+    "wood.pine-aged",
+    "wood.cedar-weathered",
+    "wood.endgrain-weathered",
+    "brick.mortar-lime",
+    "metal.rust",
+    "wood.charred",
+    "wood.deadwood"
+  ],
+  "name": "Rustic log corner notch",
+  "notes": "",
+  "parts": [
+    "round logs",
+    "saddle notches",
+    "log ends",
+    "bark",
+    "chinking",
+    "drift pins",
+    "knots"
+  ],
+  "references": [],
+  "size": [
+    0.5,
+    1.2,
+    0.5
+  ],
+  "style": "architectural facade customizer, Rustic Log Cabin",
+  "summary": "Rustic log cabin corner, 0.5 x 1.2 m: seven courses of round pine logs with nested saddle notches, ring-marked end cuts, lime chinking and a drift pin.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

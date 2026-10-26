@@ -1,0 +1,41 @@
+{
+  "budget": 14000,
+  "id": "stone-corbel-table-course",
+  "kind": "prop",
+  "materials": [
+    "stone.sandstone",
+    "stone.brownstone",
+    "stone.limestone-sooted",
+    "stone.limestone"
+  ],
+  "name": "Stone corbel table course",
+  "notes": "",
+  "parts": [
+    "stepped corbels",
+    "carved roll profile",
+    "corbel arches",
+    "cornice slab with drip",
+    "ashlar frieze course",
+    "mortar joints",
+    "face masks on end corbels",
+    "weathering stains"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.35,
+    0.3
+  ],
+  "style": "architectural facade customizer, Romanesque Revival",
+  "summary": "Romanesque Revival stone corbel table, 2.0 m: stepped corbels with roll noses and masks, blind arches, cornice slab with drip, ashlar base.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

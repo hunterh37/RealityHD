@@ -1,0 +1,39 @@
+{
+  "budget": 14000,
+  "id": "brise-soleil-fin-blade",
+  "kind": "prop",
+  "materials": [
+    "concrete.smooth",
+    "concrete.sealed-dim",
+    "metal.steel"
+  ],
+  "name": "Brise soleil fin blade",
+  "notes": "",
+  "parts": [
+    "board-marked concrete blade",
+    "tapered fin",
+    "chamfered arrises",
+    "shuttering lines",
+    "anchor plate",
+    "form-tie holes",
+    "stain streaks",
+    "weathering drip"
+  ],
+  "references": [],
+  "size": [
+    0.1,
+    2.4,
+    0.6
+  ],
+  "style": "architectural facade customizer, Brutalist",
+  "summary": "Brutalist concrete brise-soleil fin 0.1x2.4x0.6 m: tapered board-marked blade, anchor plates.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

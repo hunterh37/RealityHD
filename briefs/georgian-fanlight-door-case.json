@@ -1,0 +1,47 @@
+{
+  "budget": 15000,
+  "id": "georgian-fanlight-door-case",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "wood.trim-weathered",
+    "stone.limestone",
+    "metal.brass-aged",
+    "glass.tinted",
+    "stone.sandstone"
+  ],
+  "name": "Georgian fanlight door case",
+  "notes": "",
+  "parts": [
+    "six-panel door",
+    "semicircular fanlight",
+    "radial glazing bars",
+    "pilasters with capitals",
+    "entablature",
+    "dentil course",
+    "triangular pediment",
+    "brass knob and knocker",
+    "letterbox",
+    "stone step",
+    "architrave"
+  ],
+  "references": [],
+  "size": [
+    1.4,
+    3.0,
+    0.35
+  ],
+  "style": "architectural facade customizer, Georgian",
+  "summary": "Georgian door case, 1.4 x 3.0 m: six-panel door, semicircular fanlight, reeded pilasters, dentil cornice, pediment, stone steps.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "wood",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
