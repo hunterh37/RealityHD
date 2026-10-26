@@ -1,0 +1,42 @@
+{
+  "budget": 10500,
+  "id": "channel-letter-sign-lit",
+  "kind": "prop",
+  "materials": [
+    "metal.painted",
+    "metal.aluminum-brushed",
+    "emissive.warm",
+    "glass.frosted",
+    "metal.galvanized",
+    "plastic.black"
+  ],
+  "name": "Channel letter sign, lit",
+  "notes": "",
+  "parts": [
+    "raceway",
+    "letter return cans",
+    "acrylic faces",
+    "trim cap",
+    "mounting studs",
+    "conduit and junction box",
+    "dead letter segment"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.5,
+    0.15
+  ],
+  "style": "architectural facade customizer, Commercial",
+  "summary": "Illuminated channel letter sign DINER, 2.0 m: aluminium return cans, acrylic faces with jewelite trim cap, raceway and conduit.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

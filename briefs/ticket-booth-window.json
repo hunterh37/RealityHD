@@ -1,0 +1,44 @@
+{
+  "budget": 9000,
+  "id": "ticket-booth-window",
+  "kind": "prop",
+  "materials": [
+    "stone.terrazzo",
+    "metal.painted",
+    "metal.stainless",
+    "glass.pane",
+    "metal.brass",
+    "emissive.warm"
+  ],
+  "name": "Ticket booth",
+  "notes": "",
+  "parts": [
+    "terrazzo base",
+    "body panels",
+    "window",
+    "speaking grille",
+    "ticket slot",
+    "counter",
+    "roof cap",
+    "sign"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    2.4,
+    1.2
+  ],
+  "style": "architectural facade customizer, Art Deco Commercial",
+  "summary": "Art Deco ticket booth 1.2 x 2.4 m: terrazzo base, glass window, brass speaking grille, ticket slot, counter, canopy.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "metal",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

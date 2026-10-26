@@ -1123,6 +1123,23 @@ public enum Props {
         LanternPostMountPier.self,
         UplightWallWasher.self,
         LinearLedRevealStrip.self,
+        ChannelLetterSignLit.self,
+        HaloLitLetterSet.self,
+        PaintedGhostSignPanel.self,
+        EnamelStreetNumberPlate.self,
+        BrassHouseNumberSet.self,
+        CastBronzePlaque.self,
+        FoundationCornerstone.self,
+        WarMemorialTablet.self,
+        BarberPole.self,
+        PawnbrokerHangingBalls.self,
+        ProjectingBracketSignScroll.self,
+        PubHangingSign.self,
+        TheaterMarqueeVerticalBlade.self,
+        TheaterMarqueeCanopy.self,
+        TicketBoothWindow.self,
+        AwningSignValanceBoard.self,
+        OculusDoorTransomLettering.self,
         // realityhd:prop
     ]
 }

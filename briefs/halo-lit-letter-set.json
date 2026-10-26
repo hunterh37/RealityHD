@@ -1,0 +1,38 @@
+{
+  "budget": 10500,
+  "id": "halo-lit-letter-set",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless",
+    "metal.anodized-black",
+    "emissive.lamp-white",
+    "metal.aluminum-brushed"
+  ],
+  "name": "Halo lit letter set",
+  "notes": "",
+  "parts": [
+    "letter faces",
+    "black return",
+    "standoff studs",
+    "halo glow",
+    "wall plate"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    0.4,
+    0.1
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Reverse channel letter set HOTEL, 1.5 m: stainless faced letters on standoff studs over a lit wall halo.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

@@ -1,0 +1,38 @@
+{
+  "budget": 9000,
+  "id": "enamel-street-number-plate",
+  "kind": "prop",
+  "materials": [
+    "metal.enamel",
+    "sign.white",
+    "metal.rust",
+    "metal.brass"
+  ],
+  "name": "Enamel street number plate",
+  "notes": "",
+  "parts": [
+    "steel blank",
+    "enamel ground",
+    "rolled rim",
+    "numerals",
+    "screw holes",
+    "enamel chips"
+  ],
+  "references": [],
+  "size": [
+    0.2,
+    0.15,
+    0.02
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Victorian pressed steel number plate 0.2 m: vitreous enamel, white numerals, rolled rim, chipped to bare steel at screw holes.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

@@ -1,0 +1,42 @@
+{
+  "budget": 9000,
+  "id": "painted-ghost-sign-panel",
+  "kind": "prop",
+  "materials": [
+    "brick.red",
+    "brick.unit-red-dark",
+    "stone.limestone-sooted",
+    "paint.stucco",
+    "sign.white",
+    "metal.rust-grime"
+  ],
+  "name": "Painted ghost sign panel",
+  "notes": "",
+  "parts": [
+    "brick panel",
+    "limestone cap and cill",
+    "painted ground",
+    "lettering",
+    "border rule",
+    "spalls",
+    "rain stain"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    2.0,
+    0.03
+  ],
+  "style": "architectural facade customizer, Industrial Heritage",
+  "summary": "Faded painted brick advertisement panel, 3.0 x 2.0 m: lime wash ground, flaking lettering, spalled bricks, stone cills.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
