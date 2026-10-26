@@ -1135,6 +1135,10 @@ public enum Props {
         BollardCastIronHistoric.self,
         AntiRamBollardSteel.self,
         RailWheelGuardStone.self,
+        BootScraperIron.self,
+        PlanterBarrierConcrete.self,
+        BikeHoopRack.self,
+        WayfindingPylon.self,
         // realityhd:prop
     ]
 }

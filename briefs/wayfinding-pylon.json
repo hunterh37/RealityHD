@@ -1,0 +1,42 @@
+{
+  "budget": 14000,
+  "id": "wayfinding-pylon",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat",
+    "metal.anodized",
+    "metal.powder-white",
+    "glass.clear",
+    "emissive.warm",
+    "metal.stainless"
+  ],
+  "name": "Wayfinding pylon",
+  "notes": "",
+  "parts": [
+    "powder-coated steel body",
+    "anodised sign panels",
+    "arrow pictograms",
+    "map panel",
+    "LED header strip",
+    "stainless base shroud",
+    "anchor bolts",
+    "scuffs"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    2.4,
+    0.2
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Wayfinding pylon 2.4 m: powder-coated steel monolith with anodised sign panels, arrow pictograms, a map panel, an LED header and a stainless base.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

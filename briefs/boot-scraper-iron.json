@@ -1,0 +1,38 @@
+{
+  "budget": 14000,
+  "id": "boot-scraper-iron",
+  "kind": "prop",
+  "materials": [
+    "metal.wrought-iron",
+    "metal.cast-iron-street",
+    "metal.rust",
+    "metal.steel"
+  ],
+  "name": "Cast iron boot scraper",
+  "notes": "",
+  "parts": [
+    "cast base plate",
+    "two scroll standards",
+    "wedge scraper blade",
+    "tie bar",
+    "bolt holes",
+    "paint and rust"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    0.3,
+    0.2
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Cast iron boot scraper 0.3 m: base plate with two scrolled standards, a wedge scraper blade and tie bar, bolted down.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}
