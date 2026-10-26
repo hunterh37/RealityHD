@@ -3,10 +3,14 @@
   "id": "brick-gate-pier",
   "kind": "prop",
   "materials": [
-    "stone.sandstone",
-    "stone.cast-stone",
-    "metal.wrought-iron",
-    "stone.brownstone"
+    "brick.unit-red",
+    "brick.unit-red-dark",
+    "brick.unit-red-light",
+    "brick.unit-header",
+    "brick.mortar-lime",
+    "brick.unit-sooted",
+    "stone.limestone",
+    "metal.wrought-iron"
   ],
   "name": "Brick gate pier",
   "notes": "",

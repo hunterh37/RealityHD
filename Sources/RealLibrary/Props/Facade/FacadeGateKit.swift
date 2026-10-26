@@ -77,3 +77,17 @@ extension SIMD3 where Scalar == Float {
     /// Rotates the vector by a quaternion (rotating a face-local offset around the Y axis).
     func rotated(by q: simd_quatf) -> SIMD3<Float> { q.act(self) }
 }
+
+extension FG {
+    /// Unbeveled thin slab (joint slot, streak, stain patch): 12 triangles.
+    static func slab(_ m: inout Model, _ size: V3, _ c: V3, _ mat: MaterialKey, rot: simd_quatf = .identity) {
+        m.add(Prim.extrude(Shape2D.rect(size.x, size.y), depth: size.z, bevel: 0, bevelSegments: 1, material: mat),
+              Xform(translation: c, rotation: rot))
+    }
+    /// Axis-aligned slab placed on a pier face: `face` 0...3 rotates around Y, `u` along the face, `y` height,
+    /// `out` the offset from the pier centre along the face normal.
+    static func faceSlab(_ m: inout Model, face: Int, size: V3, u: Float, y: Float, out: Float, _ mat: MaterialKey) {
+        let rot = FA.q(Float(face) * 90, FA.Y)
+        slab(&m, size, V3(u, y, out).rotated(by: rot), mat, rot: rot)
+    }
+}
