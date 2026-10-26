@@ -1,0 +1,43 @@
+{
+  "budget": 15000,
+  "id": "fanlight-leaded-glass",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "wood.painted-shaker-worn",
+    "metal.wrought-iron",
+    "glass.clear",
+    "stone.cast-stone"
+  ],
+  "name": "Leaded glass fanlight",
+  "notes": "",
+  "parts": [
+    "semi-elliptical wood frame with moulded outer bead",
+    "radiating muntins from a turned fan hub",
+    "two concentric tracery arcs",
+    "leaded clear glass in lead cames",
+    "carved keystone block",
+    "applied gesso-and-wood swag ornaments at the springing",
+    "sill rail with ovolo bead",
+    "paint wear on the upper arc"
+  ],
+  "references": [],
+  "size": [
+    1.6,
+    0.8,
+    0.15
+  ],
+  "style": "architectural facade customizer, Federal",
+  "summary": "Federal semi-elliptical fanlight over a door: painted wood frame with radiating muntins and tracery arcs, leaded clear glass and a carved keystone.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "window",
+    "wood",
+    "glass"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

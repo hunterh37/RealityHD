@@ -1,0 +1,44 @@
+{
+  "budget": 15000,
+  "id": "studded-oak-plank-door",
+  "kind": "prop",
+  "materials": [
+    "wood.oak",
+    "wood.weathered",
+    "metal.wrought-iron",
+    "metal.rust",
+    "stone.limestone"
+  ],
+  "name": "Studded oak plank door",
+  "notes": "",
+  "parts": [
+    "vertical oak planks with chamfered edges",
+    "three oak ledgers behind",
+    "diagonal brace",
+    "forged rose-head nail studs in rows",
+    "long strap hinges on pintles",
+    "iron ring pull with backplate",
+    "stone jambs with chamfer",
+    "iron lock plate and keyhole",
+    "worn oak grain with dark stains"
+  ],
+  "references": [],
+  "size": [
+    1.1,
+    2.2,
+    0.12
+  ],
+  "style": "architectural facade customizer, Medieval Tudor",
+  "summary": "Tudor studded oak plank door: vertical oak planks on oak ledgers, rows of forged nail heads, strap hinges, a ring pull and a pointed oak frame.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "door",
+    "wood",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
