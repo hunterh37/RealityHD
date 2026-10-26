@@ -39,7 +39,7 @@ public struct WroughtIronGatePair: RealAsset {
             // Stiles run the full leaf height and carry the larger finials.
             for sx in [xo - side * stile / 2 + side * 0.0, xi - side * stile / 2 * -1 * 0 + (-side) * stile / 2] {
                 FA.box(&m, V3(stile, topY - bot + 0.1, 0.03), V3(sx, (bot - 0.02 + topY + 0.08) / 2, 0), iron, r: 0.003)
-                FG.spear(&m, x: sx, y: topY + 0.08, z: 0, h: 0.15, w: 0.05, cast)
+                FGate.spear(&m, x: sx, y: topY + 0.08, z: 0, h: 0.15, w: 0.05, cast)
                 FA.box(&m, V3(0.046, 0.016, 0.046), V3(sx, topY + 0.07, 0), cast, r: 0.003)
             }
             // Rails: flat bars with a stepped double rail at top and mid.
@@ -54,21 +54,21 @@ public struct WroughtIronGatePair: RealAsset {
             let p0 = x0 + stile + (inner - Float(n - 1) * picketPitch) / 2 - 0.0
             for i in 0..<max(n, 1) {
                 let px = p0 + Float(i) * picketPitch
-                FG.picket(&m, x: px, y0: bot, y1: topY + 0.03, z: 0, r: 0.0075, iron, sides: 6)
-                FG.spear(&m, x: px, y: topY + 0.03, z: 0, h: 0.1, w: 0.032, cast)
+                FGate.picket(&m, x: px, y0: bot, y1: topY + 0.03, z: 0, r: 0.0075, iron, sides: 6)
+                FGate.spear(&m, x: px, y: topY + 0.03, z: 0, h: 0.1, w: 0.032, cast)
             }
             // Scroll panel between the bottom and mid rails: facing C-scrolls on each picket bay.
             let bays = max(n / 2, 1)
             for b in 0..<bays {
                 let bx = p0 + Float(b * 2) * picketPitch + picketPitch / 2
                 let cy = (bot + 0.05 + midY) / 2
-                FG.scroll(&m, c: V3(bx - 0.0, cy + 0.115, 0.012), r0: 0.085, turns: 1.2, start: 90, dir: 1, wire: 0.007, iron)
-                FG.scroll(&m, c: V3(bx + picketPitch * 0.0, cy - 0.115, 0.012), r0: 0.085, turns: 1.2, start: -90, dir: -1, wire: 0.007, iron)
-                if b % 2 == 0 { FG.scroll(&m, c: V3(bx + picketPitch, cy, -0.012), r0: 0.075, turns: 1.3, start: 180, dir: -1, wire: 0.007, iron) }
+                FGate.scroll(&m, c: V3(bx - 0.0, cy + 0.115, 0.012), r0: 0.085, turns: 1.2, start: 90, dir: 1, wire: 0.007, iron)
+                FGate.scroll(&m, c: V3(bx + picketPitch * 0.0, cy - 0.115, 0.012), r0: 0.085, turns: 1.2, start: -90, dir: -1, wire: 0.007, iron)
+                if b % 2 == 0 { FGate.scroll(&m, c: V3(bx + picketPitch, cy, -0.012), r0: 0.075, turns: 1.3, start: 180, dir: -1, wire: 0.007, iron) }
             }
             // Strap hinges on the outer stile, riveted through to the pintle.
             for y in [bot + 0.15, topY - 0.15] {
-                FG.strapHinge(&m, at: V3(xo + side * 0.012, y, 0.0), length: 0.34, dirX: -side, w: 0.034, cast)
+                FGate.strapHinge(&m, at: V3(xo + side * 0.012, y, 0.0), length: 0.34, dirX: -side, w: 0.034, cast)
             }
             // Paint loss on the hinge stile and rust drips under each strap.
             for y in [bot + 0.15, topY - 0.15] {

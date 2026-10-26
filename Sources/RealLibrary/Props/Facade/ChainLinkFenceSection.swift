@@ -49,12 +49,12 @@ public struct ChainLinkFenceSection: RealAsset {
         let mh = H - 0.07 - 0.05
         let mcy = 0.04 + mh / 2 + 0.02
         for (x0, x1) in [(-tx + pr + 0.016, -0.026), (0.026, tx - pr - 0.016)] {
-            FG.slab(&m, V3(x1 - x0, mh, 0.0022), V3((x0 + x1) / 2, mcy, mz), mesh)
+            FGate.slab(&m, V3(x1 - x0, mh, 0.0022), V3((x0 + x1) / 2, mcy, mz), mesh)
             // Knuckled selvage: small twisted-wire loops every 50 mm along top and bottom.
             var x = x0 + 0.01
             while x < x1 - 0.01 {
-                FG.slab(&m, V3(0.011, 0.011, 0.0035), V3(x, mcy + mh / 2 - 0.004, mz), fitting, rot: FA.q(45, FA.Z))
-                FG.slab(&m, V3(0.011, 0.011, 0.0035), V3(x, mcy - mh / 2 + 0.004, mz), fitting, rot: FA.q(45, FA.Z))
+                FGate.slab(&m, V3(0.011, 0.011, 0.0035), V3(x, mcy + mh / 2 - 0.004, mz), fitting, rot: FA.q(45, FA.Z))
+                FGate.slab(&m, V3(0.011, 0.011, 0.0035), V3(x, mcy - mh / 2 + 0.004, mz), fitting, rot: FA.q(45, FA.Z))
                 x += 0.05
             }
         }
@@ -65,7 +65,7 @@ public struct ChainLinkFenceSection: RealAsset {
             for k in 0..<6 {
                 let y = 0.2 + Float(k) * (mh - 0.2) / 5
                 FA.box(&m, V3(0.034, 0.012, 0.012), V3(sx * (tx - 0.0), y, 0.0), fitting, r: 0.002)
-                FG.slab(&m, V3(0.016, 0.016, 0.004), V3(bx - sx * 0.012, y, mz + 0.0), fitting)
+                FGate.slab(&m, V3(0.016, 0.016, 0.004), V3(bx - sx * 0.012, y, mz + 0.0), fitting)
             }
         }
         // Bottom tension wire and aluminium tie wires on the top rail and line post.
@@ -73,15 +73,15 @@ public struct ChainLinkFenceSection: RealAsset {
         for k in 0..<10 {
             let x = -W / 2 + 0.2 + Float(k) * (W - 0.4) / 9
             if abs(x) < 0.04 { continue }
-            FG.slab(&m, V3(0.003, 0.034, 0.0045), V3(x, railY - 0.002, mz + 0.0012), "metal.screw-zinc")
+            FGate.slab(&m, V3(0.003, 0.034, 0.0045), V3(x, railY - 0.002, mz + 0.0012), "metal.screw-zinc")
         }
         for k in 0..<5 {
-            FG.slab(&m, V3(0.034, 0.003, 0.0045), V3(0, 0.3 + Float(k) * 0.34, mz + 0.0012), "metal.screw-zinc")
+            FGate.slab(&m, V3(0.034, 0.003, 0.0045), V3(0, 0.3 + Float(k) * 0.34, mz + 0.0012), "metal.screw-zinc")
         }
         // Wear: white-rust bloom at the bottom edge, rust at the bands, and a dent in the mesh.
         for k in 0..<7 {
             var r = rng.fork(k)
-            FG.slab(&m, V3(r.float(0.03...0.12), r.float(0.02...0.05), 0.0012), V3(r.float(-1.3...1.3), r.float(0.06...0.2), mz + 0.0015), rust)
+            FGate.slab(&m, V3(r.float(0.03...0.12), r.float(0.02...0.05), 0.0012), V3(r.float(-1.3...1.3), r.float(0.06...0.2), mz + 0.0015), rust)
         }
         groundAO(&m, height: 0.2, floor: 0.55)
         return LODModel(FC.place(m))

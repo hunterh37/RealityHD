@@ -33,7 +33,7 @@ public struct CattleGuardGrate: RealAsset {
         let r: Float = 0.05, railY = H - r                     // 100 mm pipe, crown at H
         let bx: Float = W / 2 - 0.3                             // support beam centre x
         // Pit floor between the footings, dark so the gaps read as depth.
-        FG.slab(&m, V3(2 * bx - 0.2, D - 0.1, 0.01), V3(0, 0.005, 0), pitFloor, rot: FA.q(-90, FA.X))
+        FGate.slab(&m, V3(2 * bx - 0.2, D - 0.1, 0.01), V3(0, 0.005, 0), pitFloor, rot: FA.q(-90, FA.X))
         for sx in [-1, 1] as [Float] {
             // Concrete footing under each support beam, chamfered and with a spalled corner.
             FA.box(&m, V3(0.34, 0.05, D), V3(sx * bx, 0.025, 0), concrete, r: 0.006)
@@ -42,7 +42,7 @@ public struct CattleGuardGrate: RealAsset {
             FA.box(&m, V3(0.16, 0.05, D - 0.06), V3(sx * bx, 0.075, 0), "metal.rust-grime", r: 0.003)
             for ez in [-1, 1] as [Float] {
                 FA.box(&m, V3(0.18, 0.06, 0.01), V3(sx * bx, 0.08, ez * (D / 2 - 0.025)), "metal.galvanized-aged", r: 0.002)
-                for bxo in [-0.06, 0.06] as [Float] { FG.slab(&m, V3(0.014, 0.014, 0.004), V3(sx * bx + bxo, 0.094, ez * (D / 2 - 0.02)), "metal.steel") }
+                for bxo in [-0.06, 0.06] as [Float] { FGate.slab(&m, V3(0.014, 0.014, 0.004), V3(sx * bx + bxo, 0.094, ez * (D / 2 - 0.02)), "metal.steel") }
             }
             // Anchor plates and nuts into the footing.
             for z in [-D / 3, 0, D / 3] as [Float] {
@@ -65,7 +65,7 @@ public struct CattleGuardGrate: RealAsset {
             // Polished wheel tracks on the crown, stronger on the leading rails.
             if rr.chance(0.85) {
                 for sx in [-1, 1] as [Float] {
-                    FG.slab(&m, V3(0.5, 0.036, 0.0015), V3(sx * 0.62, H - 0.0012, z), polished, rot: FA.q(-90, FA.X))
+                    FGate.slab(&m, V3(0.5, 0.036, 0.0015), V3(sx * 0.62, H - 0.0012, z), polished, rot: FA.q(-90, FA.X))
                 }
             }
         }
@@ -75,17 +75,17 @@ public struct CattleGuardGrate: RealAsset {
             FA.box(&m, V3(0.12, H - 0.004, D), V3(sx * (W / 2 - 0.06), (H - 0.004) / 2, 0), concrete, r: 0.005)
             FA.box(&m, V3(0.13, 0.012, D), V3(sx * (W / 2 - 0.06), H - 0.002, 0), "metal.galvanized-aged", r: 0.002)
             FA.box(&m, V3(0.004, 0.012, D), V3(sx * (W / 2 - 0.12), H - 0.01, 0), "metal.galvanized-aged", r: 0.001)
-            FG.slab(&m, V3(0.003, 0.09, 0.003), V3(sx * (W / 2 - 0.0015), 0.1, 0.6), "metal.rust-grime", rot: FA.q(8, FA.Z))
-            FG.slab(&m, V3(0.003, 0.09, 0.003), V3(sx * (W / 2 - 0.0015), 0.1, -0.8), "metal.rust-grime", rot: FA.q(-6, FA.Z))
+            FGate.slab(&m, V3(0.003, 0.09, 0.003), V3(sx * (W / 2 - 0.0015), 0.1, 0.6), "metal.rust-grime", rot: FA.q(8, FA.Z))
+            FGate.slab(&m, V3(0.003, 0.09, 0.003), V3(sx * (W / 2 - 0.0015), 0.1, -0.8), "metal.rust-grime", rot: FA.q(-6, FA.Z))
             // Rust bleed from the angle cap down the wall.
             for z in [-0.9, -0.2, 0.5, 0.95] as [Float] {
-                FG.slab(&m, V3(0.002, 0.06 + abs(z) * 0.03, 0.02), V3(sx * (W / 2 - 0.0005), H - 0.07, z), "metal.rust-grime")
+                FGate.slab(&m, V3(0.002, 0.06 + abs(z) * 0.03, 0.02), V3(sx * (W / 2 - 0.0005), H - 0.07, z), "metal.rust-grime")
             }
         }
         // Grit and dried mud tracked onto the rails.
         for k in 0..<7 {
             var rr = rng.fork(60 + k)
-            FG.slab(&m, V3(rr.float(0.1...0.3), rr.float(0.04...0.1), 0.0015), V3(rr.float(-W / 2 + 0.3...W / 2 - 0.3), H - 0.0008, rr.float(-D / 2 + 0.2...D / 2 - 0.2)), "concrete.smooth", rot: FA.q(-90, FA.X))
+            FGate.slab(&m, V3(rr.float(0.1...0.3), rr.float(0.04...0.1), 0.0015), V3(rr.float(-W / 2 + 0.3...W / 2 - 0.3), H - 0.0008, rr.float(-D / 2 + 0.2...D / 2 - 0.2)), "concrete.smooth", rot: FA.q(-90, FA.X))
         }
         groundAO(&m, height: 0.1, floor: 0.5)
         return LODModel(FC.place(m))

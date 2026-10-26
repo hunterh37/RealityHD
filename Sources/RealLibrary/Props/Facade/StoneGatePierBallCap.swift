@@ -29,7 +29,7 @@ public struct StoneGatePierBallCap: RealAsset {
         let sh: Float = 0.46                       // shaft width
         // Footing, chamfered plinth and fillet.
         FA.box(&m, V3(W, 0.12, W), V3(0, 0.06, 0), sooted, r: 0.005)
-        FG.frustum(&m, w0: W - 0.04, w1: sh + 0.04, y0: 0.12, y1: 0.24, sooted)
+        FGate.frustum(&m, w0: W - 0.04, w1: sh + 0.04, y0: 0.12, y1: 0.24, sooted)
         FA.box(&m, V3(sh + 0.04, 0.025, sh + 0.04), V3(0, 0.2375 + 0.0125, 0), sooted, r: 0.004)
         // Ashlar courses: alternating tone, vertical joint on every face, bed joints as recessed gaps.
         let y0: Float = 0.2625, courses = 5, ch: Float = 0.2275
@@ -52,16 +52,16 @@ public struct StoneGatePierBallCap: RealAsset {
         let top = y0 + Float(courses) * ch              // 1.4
         // String course: fillet and ovolo.
         FA.box(&m, V3(sh + 0.04, 0.025, sh + 0.04), V3(0, top + 0.0125, 0), stone, r: 0.004)
-        FG.frustum(&m, w0: sh + 0.04, w1: sh + 0.07, y0: top + 0.025, y1: top + 0.06, stone)
+        FGate.frustum(&m, w0: sh + 0.04, w1: sh + 0.07, y0: top + 0.025, y1: top + 0.06, stone)
         // Frieze and cornice (cyma, corona with drip, sloping weathering).
         FA.box(&m, V3(sh + 0.04, 0.09, sh + 0.04), V3(0, top + 0.105, 0), cast, r: 0.004)
-        FG.frustum(&m, w0: sh + 0.04, w1: W - 0.01, y0: top + 0.15, y1: top + 0.21, stone)
+        FGate.frustum(&m, w0: sh + 0.04, w1: W - 0.01, y0: top + 0.15, y1: top + 0.21, stone)
         FA.box(&m, V3(W, 0.06, W), V3(0, top + 0.24, 0), stone, r: 0.004)
         FA.box(&m, V3(W - 0.03, 0.01, W - 0.03), V3(0, top + 0.205, 0), sooted, r: 0.002)   // drip shadow
-        FG.frustum(&m, w0: W - 0.02, w1: 0.42, y0: top + 0.27, y1: top + 0.33, cast)
+        FGate.frustum(&m, w0: W - 0.02, w1: 0.42, y0: top + 0.27, y1: top + 0.33, cast)
         // Blocking course and ball socket.
         FA.box(&m, V3(0.42, 0.08, 0.42), V3(0, top + 0.37, 0), stone, r: 0.004)
-        FG.frustum(&m, w0: 0.36, w1: 0.26, y0: top + 0.41, y1: top + 0.45, cast)
+        FGate.frustum(&m, w0: 0.36, w1: 0.26, y0: top + 0.41, y1: top + 0.45, cast)
         // Ball finial with a polished bead and a lichen-darkened crown.
         let br = (H - (top + 0.45)) / 2
         m.add(Prim.superellipsoid(V3(repeating: br * 2), exponent: 2, subdivisions: 14, material: cast), Xform(translation: V3(0, top + 0.45 + br - 0.01, 0)))

@@ -38,7 +38,7 @@ public struct HorizontalSlatFencePanel: RealAsset {
             FA.box(&m, V3(pw, H - 0.012, pw), V3(sx * pxc, (H - 0.012) / 2 + 0.006, 0), coat, r: 0.003)
             FA.box(&m, V3(pw + 0.004, 0.012, pw), V3(sx * pxc, H - 0.006, 0), coat, r: 0.002)
             FA.box(&m, V3(pw, 0.008, pw), V3(sx * pxc, 0.004, 0), zinc, r: 0.002)
-            for bx in [-0.018, 0.018] as [Float] { FG.slab(&m, V3(0.01, 0.01, 0.004), V3(sx * pxc + bx, 0.012, 0.0), screw) }
+            for bx in [-0.018, 0.018] as [Float] { FGate.slab(&m, V3(0.01, 0.01, 0.004), V3(sx * pxc + bx, 0.012, 0.0), screw) }
         }
         // Two flat-bar uprights behind the slats, riveted through to the posts' rail line, and a top channel cap.
         for x in [-0.45, 0.45] as [Float] { FA.box(&m, V3(0.04, y1 - y0 + 0.02, 0.01), V3(x, (y0 + y1) / 2, -0.012), coat, r: 0.0015) }
@@ -58,14 +58,14 @@ public struct HorizontalSlatFencePanel: RealAsset {
             m.add(sl, Xform(translation: V3(r.float(-0.002...0.002), y, 0.006)))
             // Two countersunk screws per upright, aligned down the column.
             for x in [-0.45, 0.45] as [Float] {
-                for dx in [-0.011, 0.011] as [Float] { FG.slab(&m, V3(0.006, 0.006, 0.002), V3(x + dx, y + r.float(-0.001...0.001), 0.0165), screw) }
+                for dx in [-0.011, 0.011] as [Float] { FGate.slab(&m, V3(0.006, 0.006, 0.002), V3(x + dx, y + r.float(-0.001...0.001), 0.0165), screw) }
             }
             // Checking at a slat end and a knot on some boards.
-            if r.chance(0.45) { FG.slab(&m, V3(r.float(0.08...0.2), 0.002, 0.0012), V3(r.float(-inner / 2 + 0.15...inner / 2 - 0.15), y + r.float(-0.02...0.02), 0.0166), "wood.charred") }
-            if r.chance(0.25) { FG.slab(&m, V3(0.026, 0.026, 0.0012), V3(r.float(-0.7...0.7), y, 0.0166), "wood.charred") }
+            if r.chance(0.45) { FGate.slab(&m, V3(r.float(0.08...0.2), 0.002, 0.0012), V3(r.float(-inner / 2 + 0.15...inner / 2 - 0.15), y + r.float(-0.02...0.02), 0.0166), "wood.charred") }
+            if r.chance(0.25) { FGate.slab(&m, V3(0.026, 0.026, 0.0012), V3(r.float(-0.7...0.7), y, 0.0166), "wood.charred") }
         }
         // Water staining on the lowest slats, bleached top slat band.
-        FG.slab(&m, V3(inner - 0.01, 0.2, 0.0012), V3(0, y0 + 0.11, 0.0166), damp)
+        FGate.slab(&m, V3(inner - 0.01, 0.2, 0.0012), V3(0, y0 + 0.11, 0.0166), damp)
         groundAO(&m, height: 0.2, floor: 0.55)
         return LODModel(FC.place(m))
     }

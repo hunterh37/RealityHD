@@ -35,7 +35,7 @@ public struct ShadowboxFencePanel: RealAsset {
         // Posts: 4x4 with weathered pyramid caps and a damp stain at the foot.
         for sx in [-1, 1] as [Float] {
             FA.box(&m, V3(pw, H - 0.05, pw), V3(sx * pxc, (H - 0.05) / 2, 0), frame, r: 0.004)
-            FG.frustum(&m, w0: 0.092, w1: 0.05, y0: H - 0.05, y1: H, d0: 0.1, d1: 0.05, at: V3(sx * pxc, 0, 0), grey)
+            FGate.frustum(&m, w0: 0.092, w1: 0.05, y0: H - 0.05, y1: H, d0: 0.1, d1: 0.05, at: V3(sx * pxc, 0, 0), grey)
             FA.box(&m, V3(0.092, 0.012, 0.1), V3(sx * pxc, H - 0.054, 0), grey, r: 0.003)
             FA.box(&m, V3(pw + 0.002, 0.26, pw + 0.002), V3(sx * pxc, 0.13, 0), damp, r: 0.002)
         }
@@ -56,26 +56,26 @@ public struct ShadowboxFencePanel: RealAsset {
             let y0: Float = 0.17 + r.float(-0.004...0.004)
             let y1 = top + 0.05 - 0.002 + r.float(-0.004...0.002)
             let z: Float = front ? 0.038 : -0.038
-            FG.verticalBoard(&m, x: x, y0: y0, y1: y1, w: bw, z: front ? 0.0285 : -0.0285, thick: 0.019, ear: 0.018, mat)
+            FGate.verticalBoard(&m, x: x, y0: y0, y1: y1, w: bw, z: front ? 0.0285 : -0.0285, thick: 0.019, ear: 0.018, mat)
             let nz: Float = front ? 0.0393 : -0.0393
             for y in [0.34, 0.9, 1.5] as [Float] {
                 for dx in [-0.035, 0.035] as [Float] {
-                    FG.slab(&m, V3(0.0065, 0.0065, 0.0025), V3(x + dx + r.float(-0.004...0.004), y + r.float(-0.012...0.012), nz), nail)
+                    FGate.slab(&m, V3(0.0065, 0.0065, 0.0025), V3(x + dx + r.float(-0.004...0.004), y + r.float(-0.012...0.012), nz), nail)
                 }
-                if r.chance(0.15) { FG.slab(&m, V3(0.008, r.float(0.05...0.12), 0.0012), V3(x + 0.035, y - 0.07, nz + (front ? 0.0003 : -0.0003)), stain) }
+                if r.chance(0.15) { FGate.slab(&m, V3(0.008, r.float(0.05...0.12), 0.0012), V3(x + 0.035, y - 0.07, nz + (front ? 0.0003 : -0.0003)), stain) }
             }
-            if r.chance(0.4) { FG.slab(&m, V3(0.028, 0.045, 0.0012), V3(x + r.float(-0.03...0.03), r.float(0.3...1.4), front ? 0.0387 : -0.0387), stain) }
-            if r.chance(0.25) { FG.slab(&m, V3(0.003, r.float(0.15...0.35), 0.0012), V3(x + r.float(-0.04...0.04), r.float(0.4...1.2), front ? 0.0387 : -0.0387), stain) }
+            if r.chance(0.4) { FGate.slab(&m, V3(0.028, 0.045, 0.0012), V3(x + r.float(-0.03...0.03), r.float(0.3...1.4), front ? 0.0387 : -0.0387), stain) }
+            if r.chance(0.25) { FGate.slab(&m, V3(0.003, r.float(0.15...0.35), 0.0012), V3(x + r.float(-0.04...0.04), r.float(0.4...1.2), front ? 0.0387 : -0.0387), stain) }
         }
         // Lag screws through the posts into each stringer end.
         for sx in [-1, 1] as [Float] {
             for y in [0.34, 0.9, 1.5] as [Float] {
-                for dy in [-0.02, 0.02] as [Float] { FG.slab(&m, V3(0.014, 0.014, 0.004), V3(sx * pxc, y + dy, 0.0465), nail) }
+                for dy in [-0.02, 0.02] as [Float] { FGate.slab(&m, V3(0.014, 0.014, 0.004), V3(sx * pxc, y + dy, 0.0465), nail) }
             }
         }
         // Damp band on the lowest boards, both faces.
         for zf in [0.0388, -0.0388] as [Float] {
-            FG.slab(&m, V3(inner, 0.16, 0.0012), V3(0, 0.25, zf), damp)
+            FGate.slab(&m, V3(inner, 0.16, 0.0012), V3(0, 0.25, zf), damp)
         }
         groundAO(&m, height: 0.22, floor: 0.55)
         return LODModel(FC.place(m))

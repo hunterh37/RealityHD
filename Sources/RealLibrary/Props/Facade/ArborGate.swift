@@ -31,13 +31,13 @@ public struct ArborGate: RealAsset {
         for sx in [-1, 1] as [Float] { for sz in [-1, 1] as [Float] {
             FA.box(&m, V3(pw, spring - 0.03, pw), V3(sx * px, (spring + 0.03) / 2, sz * pz), paint, r: 0.004)
             FA.box(&m, V3(pw + 0.012, 0.03, pw + 0.012), V3(sx * px, 0.015, sz * pz), worn, r: 0.003)
-            FG.frustum(&m, w0: pw + 0.014, w1: 0.04, y0: spring, y1: spring + 0.045, at: V3(sx * px, 0, sz * pz), paint)
+            FGate.frustum(&m, w0: pw + 0.014, w1: 0.04, y0: spring, y1: spring + 0.045, at: V3(sx * px, 0, sz * pz), paint)
             FA.box(&m, V3(pw + 0.014, 0.012, pw + 0.014), V3(sx * px, spring - 0.006, sz * pz), paint, r: 0.003)
         } }
         // Front and back arch ribs (doubled) with a spandrel fillet each side.
         for sz in [-1, 1] as [Float] {
-            FG.archBoard(&m, a: px, rise: rise, y0: spring, z: sz * pz, thick: 0.035, depth: 0.1, paint)
-            FG.archBoard(&m, a: px - 0.02, rise: rise - 0.04, y0: spring - 0.03, z: sz * (pz - 0.03), thick: 0.025, depth: 0.05, worn, steps: 12)
+            FGate.archBoard(&m, a: px, rise: rise, y0: spring, z: sz * pz, thick: 0.035, depth: 0.1, paint)
+            FGate.archBoard(&m, a: px - 0.02, rise: rise - 0.04, y0: spring - 0.03, z: sz * (pz - 0.03), thick: 0.025, depth: 0.05, worn, steps: 12)
             // Tie rail across the posts under the springing.
             FA.box(&m, V3(2 * px, 0.08, 0.04), V3(0, spring - 0.065, sz * pz), paint, r: 0.004)
         }
@@ -52,7 +52,7 @@ public struct ArborGate: RealAsset {
         for sx in [-1, 1] as [Float] {
             FA.box(&m, V3(0.05, 0.07, 2 * pz), V3(sx * px, 1.79, 0), paint, r: 0.003)
             FA.box(&m, V3(0.05, 0.1, 2 * pz), V3(sx * px, 0.38, 0), paint, r: 0.003)
-            FG.lattice(&m, x: sx * px - 0.012, z0: -pz + pw / 2, z1: pz - pw / 2, y0: 0.43, y1: 1.755, pitch: 0.1, lath: 0.016, paint)
+            FGate.lattice(&m, x: sx * px - 0.012, z0: -pz + pw / 2, z1: pz - pw / 2, y0: 0.43, y1: 1.755, pitch: 0.1, lath: 0.016, paint)
             // Lattice frame beads.
             for z in [-1, 1] as [Float] { FA.box(&m, V3(0.032, 1.33, 0.02), V3(sx * px, 1.09, z * (pz - pw / 2 - 0.01)), paint, r: 0.003) }
         }
@@ -65,21 +65,21 @@ public struct ArborGate: RealAsset {
         for k in 0..<n {
             var r = rng.fork(k)
             let x = -0.40 + 0.80 * Float(k) / Float(n - 1)
-            FG.pointedPicket(&m, x: x, y: 0.12, w: 0.052, h: 0.94 + r.float(-0.004...0.004), tip: 0.045, z: gz + 0.011, thick: 0.02, paint)
+            FGate.pointedPicket(&m, x: x, y: 0.12, w: 0.052, h: 0.94 + r.float(-0.004...0.004), tip: 0.045, z: gz + 0.011, thick: 0.02, paint)
         }
         // Strap hinges at the left stile and a thumb latch at the right.
         for y in [0.24, 0.92] as [Float] {
-            FG.strapHinge(&m, at: V3(-0.49, y, gz + 0.03), length: 0.34, dirX: 1, w: 0.028, iron)
+            FGate.strapHinge(&m, at: V3(-0.49, y, gz + 0.03), length: 0.34, dirX: 1, w: 0.028, iron)
         }
         FA.box(&m, V3(0.06, 0.14, 0.01), V3(0.455, 0.7, gz + 0.02), iron, r: 0.003)
         FA.box(&m, V3(0.14, 0.014, 0.012), V3(0.40, 0.72, gz + 0.03), iron, r: 0.003, rot: FA.q(8, FA.Z))
         FC.bead(&m, r: 0.012, at: V3(0.46, 0.65, gz + 0.032), iron, sub: 2)
         // Wear: paint loss at the gate foot and the post bases, drip streaks under the arch.
         for sx in [-1, 1] as [Float] { for sz in [-1, 1] as [Float] {
-            FG.slab(&m, V3(pw + 0.004, 0.18, 0.004), V3(sx * px, 0.12, sz * (pz + pw / 2 + 0.0015)), bare)
-            FG.slab(&m, V3(0.004, 0.2, pw + 0.004), V3(sx * (px + pw / 2 + 0.0015), 0.14, sz * pz), bare)
+            FGate.slab(&m, V3(pw + 0.004, 0.18, 0.004), V3(sx * px, 0.12, sz * (pz + pw / 2 + 0.0015)), bare)
+            FGate.slab(&m, V3(0.004, 0.2, pw + 0.004), V3(sx * (px + pw / 2 + 0.0015), 0.14, sz * pz), bare)
         } }
-        FG.slab(&m, V3(0.9, 0.06, 0.004), V3(0, 0.15, gz + 0.0225), bare)
+        FGate.slab(&m, V3(0.9, 0.06, 0.004), V3(0, 0.15, gz + 0.0225), bare)
         groundAO(&m, height: 0.2, floor: 0.5)
         return LODModel(FC.place(m))
     }

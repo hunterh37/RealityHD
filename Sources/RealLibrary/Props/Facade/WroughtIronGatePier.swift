@@ -28,7 +28,7 @@ public struct WroughtIronGatePier: RealAsset {
         let y0: Float = 0.16, y1: Float = 1.58     // shaft run
         // Plinth: square foot, chamfered sill, torus moulding.
         FA.box(&m, V3(W, 0.08, W), V3(0, 0.04, 0), paint, r: 0.004)
-        FG.frustum(&m, w0: W - 0.04, w1: sh + 0.06, y0: 0.08, y1: y0 - 0.02, paint)
+        FGate.frustum(&m, w0: W - 0.04, w1: sh + 0.06, y0: 0.08, y1: y0 - 0.02, paint)
         FA.box(&m, V3(sh + 0.07, 0.022, sh + 0.07), V3(0, y0 - 0.011, 0), paint, r: 0.004)
         // Shaft core and corner beads.
         FA.box(&m, V3(sh, y1 - y0, sh), V3(0, (y0 + y1) / 2, 0), paint, r: 0.004)
@@ -58,12 +58,12 @@ public struct WroughtIronGatePier: RealAsset {
         }
         // Neck: fillet, cavetto flare, abacus.
         FA.box(&m, V3(sh + 0.03, 0.02, sh + 0.03), V3(0, y1 + 0.01, 0), paint, r: 0.004)
-        FG.frustum(&m, w0: sh + 0.02, w1: sh + 0.12, y0: y1 + 0.02, y1: y1 + 0.1, paint)
+        FGate.frustum(&m, w0: sh + 0.02, w1: sh + 0.12, y0: y1 + 0.02, y1: y1 + 0.1, paint)
         FA.box(&m, V3(sh + 0.14, 0.03, sh + 0.14), V3(0, y1 + 0.115, 0), paint, r: 0.005)
         // Cap pyramid and urn finial.
-        FG.frustum(&m, w0: sh + 0.1, w1: 0.14, y0: y1 + 0.13, y1: y1 + 0.26, paint)
+        FGate.frustum(&m, w0: sh + 0.1, w1: 0.14, y0: y1 + 0.13, y1: y1 + 0.26, paint)
         FA.box(&m, V3(0.16, 0.02, 0.16), V3(0, y1 + 0.27, 0), paint, r: 0.004)
-        FG.urn(&m, at: V3(0, y1 + 0.28, 0), r: 0.058, h: H - (y1 + 0.28), paint)
+        FGate.urn(&m, at: V3(0, y1 + 0.28, 0), r: 0.058, h: H - (y1 + 0.28), paint)
         // Gudgeon straps on the +X face: two eyes with pins, bolted through.
         for y in [0.55, 1.25] as [Float] {
             FA.box(&m, V3(0.09, 0.09, 0.014), V3(h2 + 0.02, y, 0), iron, r: 0.003, rot: FA.q(90, FA.Y))

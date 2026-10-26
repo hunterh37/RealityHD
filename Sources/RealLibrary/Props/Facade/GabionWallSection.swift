@@ -78,7 +78,7 @@ public struct GabionWallSection: RealAsset {
         // Welded mesh outside the stones: 4.5 mm wire on a 100 mm grid, wires crossing in two layers.
         func line(_ len: Float, _ c: V3, axis: Int, _ t: Float = 0.0045, _ mat: MaterialKey? = nil) {
             let size: V3 = axis == 0 ? V3(len, t, t) : (axis == 1 ? V3(t, len, t) : V3(t, t, len))
-            FG.slab(&m, size, c, mat ?? wire)
+            FGate.slab(&m, size, c, mat ?? wire)
         }
         for face in [-1, 1] as [Float] {
             let z = face * (hd + 0.0145)
@@ -101,7 +101,7 @@ public struct GabionWallSection: RealAsset {
                 line(H, V3(x, H / 2, face * (hd + 0.0215)), axis: 1, 0.007, binder)
                 var y: Float = 0.04
                 while y < H - 0.02 {
-                    FG.slab(&m, V3(0.006, 0.024, 0.0095), V3(x, y, face * (hd + 0.0215)), binder, rot: FA.q(35 * face, FA.X))
+                    FGate.slab(&m, V3(0.006, 0.024, 0.0095), V3(x, y, face * (hd + 0.0215)), binder, rot: FA.q(35 * face, FA.X))
                     y += 0.075
                 }
             }
@@ -109,7 +109,7 @@ public struct GabionWallSection: RealAsset {
         // Wear: rust at the lowest wires, soil splash, a bent wire end.
         for k in 0..<10 {
             var r = rng.fork(60 + k)
-            FG.slab(&m, V3(r.float(0.04...0.12), r.float(0.03...0.06), 0.0015), V3(r.float(-hw + 0.1...hw - 0.1), r.float(0.02...0.16), (r.chance(0.5) ? 1 : -1) * (hd + 0.0215)), rust)
+            FGate.slab(&m, V3(r.float(0.04...0.12), r.float(0.03...0.06), 0.0015), V3(r.float(-hw + 0.1...hw - 0.1), r.float(0.02...0.16), (r.chance(0.5) ? 1 : -1) * (hd + 0.0215)), rust)
         }
         groundAO(&m, height: 0.25, floor: 0.55)
         return LODModel(FC.place(m))

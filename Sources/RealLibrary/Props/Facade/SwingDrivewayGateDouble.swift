@@ -64,11 +64,11 @@ public struct SwingDrivewayGateDouble: RealAsset {
                 FA.box(&m, V3(0.088, top - y0 - 0.04, 0.016), V3(bx0 + Float(k) * pitch, (top + y0 + 0.04) / 2, lz + 0.027), mat, r: 0.0025)
             }
             // Sun-bleach at the board ends and road splash along the foot.
-            FG.slab(&m, V3(lw - 0.16, 0.12, 0.002), V3(cx, y1 - 0.11, lz + 0.0355), aged, rot: .identity)
-            FG.slab(&m, V3(lw - 0.16, 0.09, 0.002), V3(cx, y0 + 0.095, lz + 0.0355), rust)
+            FGate.slab(&m, V3(lw - 0.16, 0.12, 0.002), V3(cx, y1 - 0.11, lz + 0.0355), aged, rot: .identity)
+            FGate.slab(&m, V3(lw - 0.16, 0.09, 0.002), V3(cx, y0 + 0.095, lz + 0.0355), rust)
             for k in 0..<5 {
                 var r = lr.fork(70 + k)
-                FG.slab(&m, V3(r.float(0.02...0.05), r.float(0.12...0.4), 0.002), V3(r.float(xmin + 0.12...xmax - 0.12), y0 + 0.28, lz + 0.0355), rust)
+                FGate.slab(&m, V3(r.float(0.02...0.05), r.float(0.12...0.4), 0.002), V3(r.float(xmin + 0.12...xmax - 0.12), y0 + 0.28, lz + 0.0355), rust)
             }
             // Top cap rail over the board ends.
             FA.box(&m, V3(lw - 0.06, 0.03, 0.058), V3(cx, y1 + 0.015, lz), coat, r: 0.003)

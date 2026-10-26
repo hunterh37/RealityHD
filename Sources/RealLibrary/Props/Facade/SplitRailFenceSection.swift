@@ -61,13 +61,13 @@ public struct SplitRailFenceSection: RealAsset {
             FA.box(&m, V3(0.1, 0.008, 0.12), V3(sx * px, H + 0.001, 0), endGrain, r: 0.003, rot: FA.q(r.float(-8...8), FA.Y))
             // Long checks down the post face and a knot.
             for k in 0..<4 {
-                FG.slab(&m, V3(0.004, r.float(0.2...0.45), 0.003), V3(sx * px + r.float(-0.04...0.04), r.float(0.3...0.9), 0.0745 * (k % 2 == 0 ? 1 : -1)), check)
+                FGate.slab(&m, V3(0.004, r.float(0.2...0.45), 0.003), V3(sx * px + r.float(-0.04...0.04), r.float(0.3...0.9), 0.0745 * (k % 2 == 0 ? 1 : -1)), check)
             }
-            FG.slab(&m, V3(0.03, 0.04, 0.003), V3(sx * px + 0.01, 0.55, 0.0748), check)
+            FGate.slab(&m, V3(0.03, 0.04, 0.003), V3(sx * px + 0.01, 0.55, 0.0748), check)
             // Mortise shadows on the inside and outside faces at each rail height.
             for y in [0.3, 0.62, 0.94] as [Float] {
                 for f in [-1, 1] as [Float] {
-                    FG.slab(&m, V3(0.1, 0.1, 0.003), V3(sx * px + f * 0.0635, y, 0.0), check, rot: FA.q(90, FA.Y))
+                    FGate.slab(&m, V3(0.1, 0.1, 0.003), V3(sx * px + f * 0.0635, y, 0.0), check, rot: FA.q(90, FA.Y))
                 }
             }
             // Soil banked at the foot, trodden and uneven.
@@ -90,7 +90,7 @@ public struct SplitRailFenceSection: RealAsset {
                   Xform(translation: V3(-W / 2, y + r.float(-0.008...0.008), r.float(-0.012...0.012)), rotation: FA.q(-90, FA.Z)))
             // Checks along the rail and a nail-less pegged joint (stub peg) at each post.
             for k in 0..<3 {
-                FG.slab(&m, V3(r.float(0.3...0.7), 0.004, 0.003), V3(r.float(-1.0...1.0), y + 0.04, 0.064), check)
+                FGate.slab(&m, V3(r.float(0.3...0.7), 0.004, 0.003), V3(r.float(-1.0...1.0), y + 0.04, 0.064), check)
             }
             for sx in [-1, 1] as [Float] {
                 FA.rod(&m, V3(sx * px + 0.02, y + 0.07, 0.0), V3(sx * px + 0.02, y + 0.1, 0.0), r: 0.009, endGrain, sides: 6)

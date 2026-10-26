@@ -51,12 +51,12 @@ public struct PostAndRopeFence: RealAsset {
             m.add(Prim.lathe([V2(0.0001, 0.001), V2(rad * 1.045, 0.001), V2(rad * 1.09, 0.04), V2(rad * 1.02, 0.15), V2(rad * 1.01, 0.16), V2(0.0001, 0.16)], segments: 18, seamTile: 0.2, material: tarred, swapUV: true),
                   Xform(translation: V3(sx * px, 0, 0)).self)
             m.add(Prim.cylinder(radius: rad * 0.66, height: 0.006, bevel: 0.002, segments: 14, bevelSegments: 1, material: endGrain), Xform(translation: V3(sx * px, H - 0.004, 0)))
-            FG.slab(&m, V3(0.004, 0.05, 0.003), V3(sx * px + 0.006, H - 0.0005, 0.0), check, rot: FA.q(-90, FA.X))
+            FGate.slab(&m, V3(0.004, 0.05, 0.003), V3(sx * px + 0.006, H - 0.0005, 0.0), check, rot: FA.q(-90, FA.X))
             // Long vertical checks and a knot on the weather face.
             for k in 0..<5 {
                 let ang = r.float(0...6.28)
                 let cx = cos(ang) * (rad * 0.97), cz = sin(ang) * (rad * 0.97)
-                FG.slab(&m, V3(0.004, r.float(0.15...0.35), 0.003), V3(sx * px + cx, r.float(0.2...0.7), cz), check, rot: FA.q(-ang * 180 / .pi + 90, FA.Y))
+                FGate.slab(&m, V3(0.004, r.float(0.15...0.35), 0.003), V3(sx * px + cx, r.float(0.2...0.7), cz), check, rot: FA.q(-ang * 180 / .pi + 90, FA.Y))
             }
         }
         // Eye screws: shank, ring facing along the rope, small rust run below.
@@ -68,7 +68,7 @@ public struct PostAndRopeFence: RealAsset {
                 m.add(Prim.torus(major: 0.0145, minor: 0.0032, segments: 14, sides: 6, material: eye),
                       Xform(translation: V3(sx * px - sx * 0.086, y, 0.0), rotation: FA.q(90, FA.Z)))
                 _ = ex
-                FG.slab(&m, V3(0.01, y * 0.1 + 0.05, 0.002), V3(sx * px - sx * 0.04, y - 0.04, 0.046), rust)
+                FGate.slab(&m, V3(0.01, y * 0.1 + 0.05, 0.002), V3(sx * px - sx * 0.04, y - 0.04, 0.046), rust)
             }
         }
         // Rope runs: path with a catenary-like sag, three-strand lay, knotted over each eye, one tail hanging free.

@@ -87,16 +87,16 @@ public struct LychgateRoofed: RealAsset {
             for c in 0..<courses {
                 var r = rng.fork(c + 10 * (side > 0 ? 1 : 0))
                 let center = eave + d * (0.075 + Float(c) * 0.1155) - n * (0.007 - Float(c % 2) * 0.0015)
-                FG.slab(&m, V3(0.155, 0.014, 3.0), center, tile, rot: rot)
+                FGate.slab(&m, V3(0.155, 0.014, 3.0), center, tile, rot: rot)
                 var z: Float = -1.5 + (c % 2 == 0 ? 0.0 : 0.165)
                 while z < 1.5 {
                     z += 0.33
                     if z > 1.49 { break }
-                    FG.slab(&m, V3(0.155, 0.015, 0.003), center + n * 0.0004 + V3(0, 0, z), "wood.charred", rot: rot)
+                    FGate.slab(&m, V3(0.155, 0.015, 0.003), center + n * 0.0004 + V3(0, 0, z), "wood.charred", rot: rot)
                 }
                 // Cracked or slipped tile and lichen on some courses.
                 if r.chance(0.0) {
-                    FG.slab(&m, V3(0.08, 0.0155, r.float(0.05...0.1)), center + n * 0.0006 + V3(0, 0, r.float(-1.3...1.3)), "stone.limestone-sooted", rot: rot)
+                    FGate.slab(&m, V3(0.08, 0.0155, r.float(0.05...0.1)), center + n * 0.0006 + V3(0, 0, r.float(-1.3...1.3)), "stone.limestone-sooted", rot: rot)
                 }
             }
             // Bargeboards at both gables, with peg heads, and a pendant finial at the apex.
@@ -131,7 +131,7 @@ public struct LychgateRoofed: RealAsset {
             FA.box(&m, V3(0.1, 1.1, 0.028), V3(side * (0.012 + lw / 2), 0.72, gz - 0.054), freshOak, r: 0.003, rot: FA.q(side * -25, FA.Z))
             // Strap hinges across the face and a ring latch.
             for y in [0.22, 1.22] as [Float] {
-                FG.strapHinge(&m, at: V3(side * (inner - 0.006), y, gz + 0.03), length: 0.42, dirX: -side, w: 0.036, iron)
+                FGate.strapHinge(&m, at: V3(side * (inner - 0.006), y, gz + 0.03), length: 0.42, dirX: -side, w: 0.036, iron)
             }
         }
         m.add(Prim.torus(major: 0.03, minor: 0.005, segments: 16, sides: 6, material: iron), Xform(translation: V3(0.05, 0.75, gz + 0.045), rotation: FA.q(90, FA.X)))
@@ -148,15 +148,15 @@ public struct LychgateRoofed: RealAsset {
         for k in 0..<6 {
             var r = rng.fork(200 + k)
             let sx: Float = r.chance(0.5) ? -1 : 1, sz: Float = r.chance(0.5) ? -1 : 1
-            FG.slab(&m, V3(r.float(0.05...0.12), r.float(0.04...0.1), 0.004), V3(sx * px + r.float(-0.1...0.1), 0.05, sz * pz + (sz * 0.162)), moss)
+            FGate.slab(&m, V3(r.float(0.05...0.12), r.float(0.04...0.1), 0.004), V3(sx * px + r.float(-0.1...0.1), 0.05, sz * pz + (sz * 0.162)), moss)
         }
         // Water staining: dark runs down the posts from the plate joints and a damp band at the gate foot.
         for sx in [-1, 1] as [Float] { for sz in [-1, 1] as [Float] {
             var r = rng.fork(300 + Int(sx * 2 + sz))
-            FG.slab(&m, V3(0.02, r.float(0.3...0.6), 0.004), V3(sx * px + r.float(-0.05...0.05), 1.35, sz * pz + sz * (pw / 2 + 0.002)), "wood.charred")
-            FG.slab(&m, V3(0.16, r.float(0.1...0.18), 0.004), V3(sx * px, sillH + 0.12, sz * pz + sz * (pw / 2 + 0.002)), "wood.charred")
+            FGate.slab(&m, V3(0.02, r.float(0.3...0.6), 0.004), V3(sx * px + r.float(-0.05...0.05), 1.35, sz * pz + sz * (pw / 2 + 0.002)), "wood.charred")
+            FGate.slab(&m, V3(0.16, r.float(0.1...0.18), 0.004), V3(sx * px, sillH + 0.12, sz * pz + sz * (pw / 2 + 0.002)), "wood.charred")
         } }
-        FG.slab(&m, V3(1.1, 0.12, 0.004), V3(0, 0.1, pz + 0.0215), "wood.charred")
+        FGate.slab(&m, V3(1.1, 0.12, 0.004), V3(0, 0.1, pz + 0.0215), "wood.charred")
         groundAO(&m, height: 0.2, floor: 0.5)
         return LODModel(FC.place(m))
     }

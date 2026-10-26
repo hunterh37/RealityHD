@@ -55,24 +55,24 @@ public struct SlidingDrivewayGate: RealAsset {
             // Stainless pan-head fixings at each vertical support, black plastic end caps.
             for b in 0..<bars {
                 let bx = x0 + 0.06 + (lw - 0.12) * Float(b) / Float(bars - 1)
-                if abs(bx) < lw / 2 - 0.08 || true { FG.slab(&m, V3(0.007, 0.007, 0.003), V3(bx, y, lz + 0.0235), "metal.nickel-worn") }
+                if abs(bx) < lw / 2 - 0.08 || true { FGate.slab(&m, V3(0.007, 0.007, 0.003), V3(bx, y, lz + 0.0235), "metal.nickel-worn") }
             }
             for ex in [-1, 1] as [Float] { FA.box(&m, V3(0.008, 0.095, 0.017), V3(cx + ex * (lw - 0.12) / 2, y, lz + 0.014), "plastic.black", r: 0.0015) }
             FA.box(&m, V3(lw - 0.12 - 0.01, 0.012, 0.01), V3(cx, y - 0.0535, lz + 0.01), slat, r: 0.001)
             // Grime and scuffs on the lowest slats.
-            if k < 3 && r.chance(0.8) { FG.slab(&m, V3(r.float(0.2...0.6), 0.03, 0.002), V3(cx + r.float(-1...1), y - 0.02, lz + 0.0225), zinc) }
+            if k < 3 && r.chance(0.8) { FGate.slab(&m, V3(r.float(0.2...0.6), 0.03, 0.002), V3(cx + r.float(-1...1), y - 0.02, lz + 0.0225), zinc) }
         }
         // Road-splash grime band on the lower slats and rust runs from the rack.
-        FG.slab(&m, V3(lw - 0.14, 0.11, 0.002), V3(cx, sy0 + 0.055, lz + 0.0225), "metal.rust-grime")
+        FGate.slab(&m, V3(lw - 0.14, 0.11, 0.002), V3(cx, sy0 + 0.055, lz + 0.0225), "metal.rust-grime")
         for k in 0..<7 {
             var r = rng.fork(150 + k)
-            FG.slab(&m, V3(r.float(0.015...0.03), r.float(0.1...0.3), 0.002), V3(r.float(x0 + 0.2...x1 - 0.2), sy0 + 0.25, lz + 0.0228), "metal.rust-grime")
+            FGate.slab(&m, V3(r.float(0.015...0.03), r.float(0.1...0.3), 0.002), V3(r.float(x0 + 0.2...x1 - 0.2), sy0 + 0.25, lz + 0.0228), "metal.rust-grime")
         }
         // Drive rack on the face of the bottom rail: plate and ~31 mm pitch teeth.
         FA.box(&m, V3(lw - 0.2, 0.03, 0.006), V3(cx, by0 + 0.06, lz + 0.028), zinc, r: 0.001)
         var tx = x0 + 0.1
         while tx < x1 - 0.1 {
-            FG.slab(&m, V3(0.017, 0.018, 0.009), V3(tx, by0 + 0.06, lz + 0.031), zinc)
+            FGate.slab(&m, V3(0.017, 0.018, 0.009), V3(tx, by0 + 0.06, lz + 0.031), zinc)
             tx += 0.0314
         }
         // Carriage posts: two cassette posts behind the leaf, each with two nylon rollers on the track flange.

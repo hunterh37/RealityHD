@@ -54,7 +54,7 @@ public struct PedestrianGateIronwork: RealAsset {
             let top = ly1 + 0.11 + r.float(-0.002...0.002)
             FA.box(&m, V3(0.02, top - ly0 - 0.02, 0.012), V3(x, (top + ly0 + 0.02) / 2, 0), coat, r: 0.002)
             // Chamfered top: a short pyramid cap welded on the flat.
-            FG.frustum(&m, w0: 0.02, w1: 0.008, y0: top, y1: top + 0.018, d0: 0.012, d1: 0.006, at: V3(x, 0, 0), coat)
+            FGate.frustum(&m, w0: 0.02, w1: 0.008, y0: top, y1: top + 0.018, d0: 0.012, d1: 0.006, at: V3(x, 0, 0), coat)
             // Weld beads at both rail crossings.
             for y in [ly0 + 0.04, ly1 - 0.02, 0.98 + 0.0] as [Float] { FC.bead(&m, r: 0.0048, at: V3(x, y, 0.0125), worn, sub: 1) }
         }

@@ -3,7 +3,7 @@ import Foundation
 
 /// Helpers for gate, pier and fence props (lib-n6b). Same units as `FA`; pieces are authored with
 /// the run along X, height along Y and thickness along Z, then seated with `FC.place`.
-enum FG {
+enum FGate {
     static let tau: Float = 2 * .pi
 
     /// Square or flat bar between two axis-aligned points.
@@ -78,7 +78,7 @@ extension SIMD3 where Scalar == Float {
     func rotated(by q: simd_quatf) -> SIMD3<Float> { q.act(self) }
 }
 
-extension FG {
+extension FGate {
     /// Unbeveled thin slab (joint slot, streak, stain patch): 12 triangles.
     static func slab(_ m: inout Model, _ size: V3, _ c: V3, _ mat: MaterialKey, rot: simd_quatf = .identity) {
         m.add(Prim.extrude(Shape2D.rect(size.x, size.y), depth: size.z, bevel: 0, bevelSegments: 1, material: mat),
@@ -92,7 +92,7 @@ extension FG {
     }
 }
 
-extension FG {
+extension FGate {
     /// Flat-profile board bent along an arc in the XY plane at depth z: segmental arch with half-width `a`,
     /// rise `s`, springing at `y0`; board `thick` along Z and `depth` radially. Returns the centreline points.
     @discardableResult
@@ -129,7 +129,7 @@ extension FG {
                     let za = z0 + c + dir * lo, zb = z0 + c + dir * hi
                     let len = ((yb - ya) * (yb - ya) + (zb - za) * (zb - za)).squareRoot()
                     let ang = atan2(zb - za, yb - ya) * 180 / .pi
-                    FG.slab(&m, V3(lath, len, lath * 0.8), V3(x + layer, (ya + yb) / 2, (za + zb) / 2), mat, rot: FA.q(-ang, FA.X))
+                    FGate.slab(&m, V3(lath, len, lath * 0.8), V3(x + layer, (ya + yb) / 2, (za + zb) / 2), mat, rot: FA.q(-ang, FA.X))
                 }
                 c += pitch
             }
@@ -137,7 +137,7 @@ extension FG {
     }
 }
 
-extension FG {
+extension FGate {
     /// Vertical board outline extruded along Z with the grain running along Y (UVs swapped), dog-eared top corners.
     static func verticalBoard(_ m: inout Model, x: Float, y0: Float, y1: Float, w: Float, z: Float, thick: Float,
                               ear: Float = 0, _ mat: MaterialKey, round: Float = 0) {
