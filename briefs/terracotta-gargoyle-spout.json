@@ -1,12 +1,12 @@
 {
-  "budget": 14000,
+  "budget": 15000,
   "id": "terracotta-gargoyle-spout",
   "kind": "prop",
   "materials": [
-    "ceramic.terracotta",
     "ceramic.bisque",
     "stone.limestone-sooted",
-    "metal.cast-iron"
+    "metal.cast-iron",
+    "stone.limestone"
   ],
   "name": "Terracotta gargoyle spout",
   "notes": "",
