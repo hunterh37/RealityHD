@@ -42,6 +42,7 @@ func run() async throws {
     let w = Int(opt("--w") ?? "640") ?? 640, h = Int(opt("--h") ?? "520") ?? 520
     let globalPose = opt("--pose") ?? "perched"
     let tight = args.contains("--tight")
+    let focusArg = opt("--focus")
     let close = opt("--dist") == "close"
     let azArg = Float(opt("--az") ?? "-62") ?? -62
     let names = args.filter { !$0.hasPrefix("-") && ![out, opt("--pose") ?? "", opt("--w") ?? "", opt("--h") ?? ""].contains($0) }
@@ -152,14 +153,28 @@ func run() async throws {
             sheetBase = fileBase
             continue
         }
-        let views: [(Float, Float)] = [(90, 4), (0, 4), (0, 80), (35, 16), (145, 14), (-50, 22)]
+        var views: [(Float, Float)] = [(90, 4), (0, 4), (0, 80), (35, 16), (145, 14), (-50, 22)]
+        var aim = c, dd = d
+        if focusArg == "head", case .ground(let s) = k, let hj = holder.findEntity(named: "joint:\(GroundJoint.headPitch.name)") {
+            // Head close-up: side, front, three-quarter views around the head joint.
+            aim = hj.position(relativeTo: nil) + SIMD3(0, 0.01, -0.02)
+            dd = max(0.3, s.profile.anatomy.headLength * 2.4)
+            views = [(90, 3), (0, 3), (50, 12), (-35, 18), (125, 10), (0, 60)]
+        }
+        if focusArg == "leg", case .ground = k, let kj = holder.findEntity(named: "joint:\(GroundJoint.leg(.foreL, .knee).name)"), let hj = holder.findEntity(named: "joint:\(GroundJoint.leg(.hindL, .knee).name)") {
+            // Fore and hind leg close-ups: side and three-quarter views of each.
+            aim = (kj.position(relativeTo: nil) + hj.position(relativeTo: nil)) / 2
+            dd = 0.95
+            views = [(90, 3), (60, 14), (120, 14), (-35, 18), (150, 12), (0, 3)]
+        }
         for (az, el) in views {
             let a = az * .pi / 180, e = el * .pi / 180
-            let eye = c + SIMD3(sin(a) * cos(e), sin(e), -cos(a) * cos(e)) * d
+            let eye = aim + SIMD3(sin(a) * cos(e), sin(e), -cos(a) * cos(e)) * dd
+            let c = aim
             preview.look(from: eye, at: c, fov: 32)
             if let img = try await preview.render(width: w, height: h, frames: 4) { frames.append(img) }
         }
-        if let sheet = tile(frames, cols: 3) { writePNG(sheet, "\(out)/\(fileBase)-\(poseName).png") }
+        if let sheet = tile(frames, cols: 3) { writePNG(sheet, "\(out)/\(fileBase)-\(poseName)\(focusArg.map { "-" + $0 } ?? "").png") }
         print("\(fileBase) \(poseName): \(tris) tris, \(Int(Date().timeIntervalSince(t0) * 1000)) ms")
       }
       if sheet, let sheetImg = tile(sheetFrames, cols: 3) {
