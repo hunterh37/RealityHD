@@ -3,9 +3,10 @@
   "id": "chain-link-fence-section",
   "kind": "prop",
   "materials": [
-    "metal.galvanized",
+    "fence.chainlink",
     "metal.galvanized-aged",
-    "metal.steel"
+    "metal.galvanized",
+    "metal.rust-grime"
   ],
   "name": "Chain link fence section",
   "notes": "",

@@ -5,8 +5,10 @@
   "materials": [
     "wood.cedar",
     "wood.cedar-weathered",
-    "metal.powdercoat-worn",
-    "metal.galvanized"
+    "metal.powdercoat",
+    "metal.galvanized-aged",
+    "metal.nickel-worn",
+    "wood.waterlogged"
   ],
   "name": "Horizontal slat fence panel",
   "notes": "",
