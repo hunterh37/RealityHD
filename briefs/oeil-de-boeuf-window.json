@@ -1,0 +1,45 @@
+{
+  "budget": 15000,
+  "id": "oeil-de-boeuf-window",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "stone.sandstone",
+    "wood.painted-exterior",
+    "glass.pane",
+    "metal.wrought-iron",
+    "stone.granite-moss"
+  ],
+  "name": "Oeil de boeuf window",
+  "notes": "",
+  "parts": [
+    "moulded stone surround",
+    "four keystones",
+    "volute scrolls",
+    "reveal",
+    "round sash",
+    "glazing bars",
+    "glass",
+    "sill drip",
+    "laurel bead"
+  ],
+  "references": [],
+  "size": [
+    0.8,
+    0.8,
+    0.2
+  ],
+  "style": "architectural facade customizer, French Baroque",
+  "summary": "French Baroque oeil-de-boeuf, 0.8 m diameter: moulded limestone ring with four scrolled keystones, a painted round sash with glazing bars and glass.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
