@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 5.15.0
+
+- 50 small forest and river detail assets (Nature/Details, batch 3); `BoxingGlove` and fabric shader updates; `MaterialSpec` and `TextureSynth` changes.
+
 ## 5.14.0
 
 - `cascadia-cab-interior` articulated Freightliner Cascadia driver area; `rural-highway-tile` 12 m two-lane rural highway cell.
