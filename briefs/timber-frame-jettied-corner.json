@@ -4,10 +4,14 @@
   "kind": "prop",
   "materials": [
     "wood.weathered",
-    "wood.oak",
+    "wood.pole-creosote",
+    "wood.endgrain-weathered",
     "paint.stucco",
-    "stone.limestone",
-    "metal.cast-iron"
+    "brick.red",
+    "stone.limestone-sooted",
+    "stone.granite-moss",
+    "wood.cedar-weathered",
+    "wood.charred"
   ],
   "name": "Timber frame jettied corner",
   "notes": "",

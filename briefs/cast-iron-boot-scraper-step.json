@@ -6,7 +6,8 @@
     "metal.wrought-iron",
     "metal.cast-iron",
     "metal.rust",
-    "metal.bolt-bright"
+    "metal.bolt-bright",
+    "paint.stucco"
   ],
   "name": "Cast iron boot scraper",
   "notes": "",
