@@ -100,6 +100,9 @@ public struct MaterialSpec: Sendable, Hashable {
     /// `Doneness` parameter, then layers Maillard browning and char by `BrownTop`/`BrownBottom`
     /// (RealKit `RealCookMaterial`). nil = not cookable.
     public var cooked: MaterialKey? = nil
+    /// Coat marking for `furCoat` and `furShell`, painted in `colorC`: 0 none, 1 tabby stripes, 2 spots,
+    /// 3 patches, 4 saddle (dorsal cape).
+    public var coatPattern: Int32 = 0
 
     public init(key: MaterialKey, program: TextureProgram?) { self.key = key; self.program = program }
 

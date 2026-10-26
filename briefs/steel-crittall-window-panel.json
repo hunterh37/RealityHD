@@ -1,0 +1,41 @@
+{
+  "budget": 12000,
+  "id": "steel-crittall-window-panel",
+  "kind": "prop",
+  "materials": [
+    "metal.painted",
+    "metal.rust",
+    "metal.steel",
+    "glass.pane"
+  ],
+  "name": "Steel Crittall window panel",
+  "notes": "",
+  "parts": [
+    "rolled steel outer frame",
+    "T-section glazing bars",
+    "opening vent with butt hinges",
+    "cockspur fastener",
+    "stay arm",
+    "glass panes",
+    "putty bead",
+    "corner welds",
+    "rust wear"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.5,
+    0.08
+  ],
+  "style": "architectural facade customizer, Industrial",
+  "summary": "Crittall steel window 1.2x1.5 m: slim T-section bars, opening vent, fastener, stay.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

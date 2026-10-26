@@ -1,0 +1,46 @@
+{
+  "budget": 15000,
+  "id": "lychgate-roofed",
+  "kind": "prop",
+  "materials": [
+    "wood.oak",
+    "wood.weathered",
+    "ceramic.terracotta",
+    "stone.sandstone",
+    "stone.slate",
+    "stone.granite-moss",
+    "metal.wrought-iron"
+  ],
+  "name": "Lychgate roofed",
+  "notes": "",
+  "parts": [
+    "four oak posts",
+    "tie beams",
+    "king post truss",
+    "ridge beam",
+    "roof rafters",
+    "clay or slate roof",
+    "bargeboards",
+    "coffin rest bench",
+    "stone sill plinth",
+    "swing gates"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    2.8,
+    3.0
+  ],
+  "style": "architectural facade customizer, English Churchyard",
+  "summary": "English churchyard timber lychgate, oak frame on stone sills, steep gabled roof with coffin rest.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

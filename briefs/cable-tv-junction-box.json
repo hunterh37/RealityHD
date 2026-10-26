@@ -1,0 +1,46 @@
+{
+  "budget": 8000,
+  "id": "cable-tv-junction-box",
+  "kind": "prop",
+  "materials": [
+    "metal.brass-aged",
+    "metal.galvanized",
+    "metal.powdercoat:8F9296",
+    "metal.painted:C9A92E",
+    "metal.rust",
+    "metal.screw-zinc",
+    "metal.stainless",
+    "paint.cylinder-green",
+    "plastic.black",
+    "rubber.silicone"
+  ],
+  "name": "Cable TV junction box",
+  "notes": "",
+  "parts": [
+    "Sheet steel enclosure with mounting ears",
+    "Hinged door with drip lip",
+    "Barrel hinges with pins",
+    "Quarter-turn latch and padlock hasp",
+    "Brass padlock",
+    "Bottom conduit hubs with coax drops",
+    "Ground lug with green conductor",
+    "Warning label"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    0.4,
+    0.12
+  ],
+  "style": "architectural facade customizer, Traditional",
+  "summary": "Cable TV junction box: NEMA 3R sheet steel enclosure with drip-lip hinged door, barrel hinges, quarter-turn latch with padlock hasp, mounting ears, bottom hubs with coax drops and ground lug.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

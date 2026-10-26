@@ -1,0 +1,43 @@
+{
+  "budget": 15000,
+  "id": "insect-hotel-panel",
+  "kind": "prop",
+  "materials": [
+    "wood.lumber-pine",
+    "wood.endgrain-weathered",
+    "wood.bamboo-cane",
+    "metal.galvanized",
+    "glass.wire-mesh"
+  ],
+  "name": "Insect hotel panel",
+  "notes": "",
+  "parts": [
+    "frame",
+    "bamboo canes",
+    "drilled logs",
+    "pine cones",
+    "straw bundle",
+    "perforated brick",
+    "roof",
+    "roofing felt",
+    "wire mesh"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    0.8,
+    0.2
+  ],
+  "style": "architectural facade customizer, Garden",
+  "summary": "Weathered pine insect hotel: bamboo canes, drilled logs, pine cones behind wire mesh, perforated brick, felt roof.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

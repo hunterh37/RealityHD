@@ -1,0 +1,39 @@
+{
+  "budget": 12000,
+  "id": "exterior-rolling-screen-shade",
+  "kind": "prop",
+  "materials": [
+    "fabric.canvas:5A5A58",
+    "metal.powdercoat:2E3033",
+    "metal.anodized",
+    "metal.stainless"
+  ],
+  "name": "Exterior Rolling Screen Shade",
+  "notes": "",
+  "parts": [
+    "extruded cassette housing with end caps",
+    "side zip guide rails",
+    "woven mesh screen",
+    "weighted bottom bar with gasket",
+    "zip tape beads",
+    "mounting brackets with screws"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    2.0,
+    0.15
+  ],
+  "style": "architectural facade customizer, contemporary; Contemporary charcoal screen, anthracite aluminium, half lowered.",
+  "summary": "Exterior solar screen roller shade, 1.5 m wide: woven PVC-glass mesh in aluminium cassette with side zip guides and bottom bar.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "fabric"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

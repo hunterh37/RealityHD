@@ -1,0 +1,35 @@
+{
+  "budget": 9000,
+  "id": "brass-house-number-set",
+  "kind": "prop",
+  "materials": [
+    "metal.brass",
+    "metal.brass-aged",
+    "metal.stainless"
+  ],
+  "name": "Brass house number set",
+  "notes": "",
+  "parts": [
+    "numerals",
+    "pins",
+    "pin washers"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    0.12,
+    0.02
+  ],
+  "style": "architectural facade customizer, Colonial Revival",
+  "summary": "Three cast brass house numerals 0.3 m on stand-off pins, polished edges and aged faces.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

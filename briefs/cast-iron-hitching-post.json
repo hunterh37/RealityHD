@@ -1,0 +1,38 @@
+{
+  "budget": 14000,
+  "id": "cast-iron-hitching-post",
+  "kind": "prop",
+  "materials": [
+    "metal.cast-iron-street",
+    "metal.wrought-iron",
+    "metal.rust",
+    "metal.brass-aged"
+  ],
+  "name": "Cast iron hitching post",
+  "notes": "",
+  "parts": [
+    "stepped fluted base",
+    "tapered shaft",
+    "collar mouldings",
+    "hitching ring on lug",
+    "acorn finial",
+    "paint chips and rust"
+  ],
+  "references": [],
+  "size": [
+    0.2,
+    1.0,
+    0.2
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Cast iron hitching post 1.0 m: stepped base, tapered shaft with collar mouldings, a hitching ring on a lug and an acorn finial.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

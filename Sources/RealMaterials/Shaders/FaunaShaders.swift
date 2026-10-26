@@ -281,6 +281,34 @@ FaStrand fa_strand(float t, float v, int nx, float lenV, uint sd, float wmax, fl
     return o;
 }
 
+// Coat marking weight 0..1 in atlas space (t: 0 dorsal midline .. 1 ventral midline, v: 0 rear .. 1 front).
+// kind 1 tabby stripes, 2 spots, 3 patches, 4 saddle. Painted in the accent colour by furCoat and furShell.
+float coatMark(float2 uv, int kind, uint sd) {
+    kind = kind & 15;
+    if (kind <= 0) return 0.0;
+    float t = min(uv.x, 1.0 - uv.x) * 2.0;
+    float n = fbm(uv, int2(6, 8), 3, sd + 4001u);
+    if (kind == 1) {
+        float w = fbm(uv, int2(4, 6), 2, sd + 4003u);
+        float band = sin((uv.y * 15.0 + t * 2.2 + w * 2.6) * 3.14159265);
+        return smoothstep(0.30, 0.52, band) * (1.0 - smoothstep(0.62, 0.86, t + 0.08 * n));
+    }
+    if (kind == 2) {
+        float2 g = float2(t * 9.0, uv.y * 15.0);
+        float2 c0 = floor(g); float best = 9.0; float rad = 0.3;
+        for (int j = -1; j <= 1; j++) for (int i = -1; i <= 1; i++) {
+            float2 c = c0 + float2(i, j);
+            uint hs = pcg(uint(int(c.x) + 4096) * 7919u + uint(int(c.y) + 4096) * 104729u + sd + 4007u);
+            float2 o = float2(float(hs & 0xffffu), float((hs >> 16) & 0xffffu)) / 65536.0;
+            float r = length(g - (c + 0.2 + 0.6 * o));
+            if (r < best) { best = r; rad = 0.18 + 0.2 * (float(pcg(hs) & 0xffffu) / 65536.0); }
+        }
+        return (1.0 - smoothstep(rad * 0.7, rad, best)) * (1.0 - smoothstep(0.8, 0.95, t));
+    }
+    if (kind == 3) return smoothstep(0.0, 0.06, fbm(uv, int2(3, 4), 3, sd + 4011u));
+    return 1.0 - smoothstep(0.34, 0.46, t + 0.07 * n);
+}
+
 S furCoat(float2 uv, constant RFParams &P) {
     S s = defaults(); s.rough = 0.9;
     float nx0 = max(P.f.x, 24.0);
@@ -290,11 +318,14 @@ S furCoat(float2 uv, constant RFParams &P) {
     float lum = dot(P.colorC.rgb, float3(0.3, 0.55, 0.15));
     float sw = P.f.z * (1.0 - smoothstep(0.08, 0.30, lum));            // stripes only with a dark colorC
     // Coat-wide colour variation: broad light/dark patches plus a warm/cool drift.
-    float patch = fbm(uv, int2(5, 7), 3, P.seed + 111u);
-    float drift = fbm(uv, int2(9, 13), 2, P.seed + 211u);
+    // Dog charts (pad0 bit 16) cover u 0..0.5 per half circumference but v 0..1, so halve the u frequency for round blotches.
+    bool dg = int(P.pad0) >= 16;
+    int2 fP = dg ? int2(3, 6) : int2(5, 7), fD = dg ? int2(6, 12) : int2(9, 13);
+    float patch = fbm(uv, fP, 3, P.seed + 111u);
+    float drift = fbm(uv, fD, 2, P.seed + 211u);
     float3 tint = float3(1.0 + 0.06 * drift, 1.0, 1.0 - 0.06 * drift) * (1.0 + 0.14 * patch);
     // Low-frequency domain warp breaks strand-row alignment (tile banding). Mirror safe: t stays >= 0.
-    float2 wp = float2(fbm(uv, int2(6, 9), 2, P.seed + 301u), fbm(uv, int2(7, 5), 2, P.seed + 303u));
+    float2 wp = float2(fbm(uv, dg ? int2(4, 8) : int2(6, 9), 2, P.seed + 301u), fbm(uv, dg ? int2(3, 6) : int2(7, 5), 2, P.seed + 303u));
     float tw = fabs(t + 0.006 * wp.x), vw = uv.y + 0.008 * wp.y;
     // Layers from the surface down: sparse long guard hairs, then four dense fine coat layers.
     const float scl[5] = { 0.42, 1.0, 1.17, 0.88, 1.31 };
@@ -358,6 +389,12 @@ S furCoat(float2 uv, constant RFParams &P) {
     bool underM = (t + zn) > P.f.y;
     float3 coat = (underM ? P.colorB.rgb : P.colorA.rgb) * tint * (0.92 + 0.12 * soft);
     outC = mix(outC, coat, 0.45);
+    float mk = coatMark(uv, int(P.pad0), P.seed);
+    if (mk > 0.001) {
+        float dr = clamp(dot(outC, float3(0.3, 0.55, 0.15)) / max(dot(coat, float3(0.3, 0.55, 0.15)), 0.02), 0.55, 1.5);
+        outC = mix(outC, P.colorC.rgb * dr, mk * 0.94);
+        coat = mix(coat, P.colorC.rgb, mk * 0.94);
+    }
     // Guard every channel: a NaN height turns the derived normal map NaN, which renders black under IBL.
     if (!all(isfinite(outC))) outC = coat;
     if (!isfinite(hgt)) hgt = 0.2;
@@ -395,6 +432,8 @@ S furShell(float2 uv, constant RFParams &P) {
     bool under = (t + zn) > P.f.y;
     float3 base = (under ? P.colorB.rgb : P.colorA.rgb) * (0.86 + 0.28 * h2);
     bool guard = h1 > 1.0 - P.f.w;
+    float mk = coatMark(uv, int(P.pad0), P.seed);
+    base = mix(base, P.colorC.rgb * (0.86 + 0.28 * h2), mk * 0.94);
     s.albedo = guard ? mix(base, P.colorC.rgb, P.f.z) : base;
     s.height = s.alpha; s.ao = 1.0;
     return s;

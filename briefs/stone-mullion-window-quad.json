@@ -1,0 +1,42 @@
+{
+  "budget": 12000,
+  "id": "stone-mullion-window-quad",
+  "kind": "prop",
+  "materials": [
+    "stone.sandstone",
+    "stone.limestone-sooted",
+    "glass.pane",
+    "metal.iron"
+  ],
+  "name": "Stone mullion window quad",
+  "notes": "",
+  "parts": [
+    "ashlar jambs",
+    "sill",
+    "head",
+    "hood label moulding",
+    "central mullion",
+    "transom",
+    "four lights",
+    "iron glazing bars",
+    "leaded quarries",
+    "chamfered reveals"
+  ],
+  "references": [],
+  "size": [
+    1.6,
+    1.4,
+    0.25
+  ],
+  "style": "architectural facade customizer, Elizabethan",
+  "summary": "Elizabethan stone mullion and transom window, four lights, label hood, leaded glazing.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

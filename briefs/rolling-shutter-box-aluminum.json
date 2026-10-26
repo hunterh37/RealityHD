@@ -1,0 +1,40 @@
+{
+  "budget": 12000,
+  "id": "rolling-shutter-box-aluminum",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat-worn",
+    "metal.aluminum-brushed",
+    "metal.bolt-bright",
+    "plastic.black"
+  ],
+  "name": "Rolling shutter box aluminum",
+  "notes": "",
+  "parts": [
+    "extruded aluminum box",
+    "removable front inspection hatch",
+    "end caps",
+    "slat curtain exit slot",
+    "rolled curtain visible",
+    "guide rail stubs",
+    "rubber brush seal",
+    "fixing screws"
+  ],
+  "references": [],
+  "size": [
+    1.4,
+    0.3,
+    0.3
+  ],
+  "style": "architectural facade customizer, Mediterranean",
+  "summary": "Aluminium roller shutter box 1.4x0.3x0.3 m: extruded housing, hatch, end caps, guide stubs.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

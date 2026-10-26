@@ -1,0 +1,43 @@
+{
+  "budget": 15000,
+  "id": "lancet-window-tracery-pair",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "metal.wrought-iron",
+    "glass.tinted",
+    "metal.steel"
+  ],
+  "name": "Paired lancet window",
+  "notes": "",
+  "parts": [
+    "two pointed lancet openings sharing a central stone mullion",
+    "roll-moulded limestone jamb and arch surrounds",
+    "hood mould with carved label stops",
+    "diamond-quarry leaded glass in lead cames",
+    "wrought-iron saddle bars and ferramenta",
+    "coursed limestone ashlar blocks with mortar joints",
+    "chamfered stone sill with throated drip",
+    "sooted weathering on the upper sill"
+  ],
+  "references": [],
+  "size": [
+    1.0,
+    2.4,
+    0.3
+  ],
+  "style": "architectural facade customizer, Gothic Revival",
+  "summary": "Paired Gothic Revival lancet windows: two pointed limestone openings under one hood mould, with leaded glass, iron saddle bars and a shared drip sill.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "window",
+    "stone",
+    "glass"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

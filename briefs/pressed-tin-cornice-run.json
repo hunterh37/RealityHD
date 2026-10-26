@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "pressed-tin-cornice-run",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized-aged",
+    "metal.painted",
+    "metal.rust"
+  ],
+  "name": "Pressed tin cornice run",
+  "notes": "",
+  "parts": [
+    "pressed sheet profile",
+    "bracket modillions",
+    "egg and dart band",
+    "lap joint",
+    "nail heads",
+    "rust bloom"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    0.4,
+    0.25
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Pressed tin cornice run, 3.0 m: stamped sheets, pearl bed mould, rosette frieze, modillions, ogee crown.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

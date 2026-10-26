@@ -1,0 +1,44 @@
+{
+  "budget": 15000,
+  "id": "terracotta-ridge-finial",
+  "kind": "prop",
+  "materials": [
+    "ceramic.terracotta",
+    "ceramic.bisque",
+    "stone.limestone-sooted",
+    "metal.rust",
+    "brick.mortar-lime"
+  ],
+  "name": "Terracotta ridge finial",
+  "notes": "",
+  "parts": [
+    "square ridge-tile base with flanges",
+    "lead-flashed collar",
+    "turned baluster stem",
+    "acanthus leaf crown",
+    "pointed spire tip",
+    "stem ring mouldings",
+    "mortar bedding",
+    "iron cramp",
+    "moss and soot staining",
+    "chipped leaf tips"
+  ],
+  "references": [],
+  "size": [
+    0.25,
+    0.8,
+    0.25
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Victorian terracotta ridge finial, 0.25 x 0.8 m: ridge-tile base, collar, baluster stem, acanthus crown, spire, mortar bed, weathering.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roof",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

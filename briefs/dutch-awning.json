@@ -1,0 +1,39 @@
+{
+  "budget": 14000,
+  "id": "dutch-awning",
+  "kind": "prop",
+  "materials": [
+    "fabric.canvas:7A1F2B",
+    "fabric.canvas:EFE8D8",
+    "metal.galvanized",
+    "metal.powder-white"
+  ],
+  "name": "Dutch Awning",
+  "notes": "",
+  "parts": [
+    "wall rail with expansion anchors",
+    "pipe rafters sloping to the front bar",
+    "pipe front bar and curved bottom hoop",
+    "closed triangular side end panels",
+    "striped canvas hood with piped seams",
+    "straight hemmed valance"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.8,
+    0.9
+  ],
+  "style": "architectural facade customizer, American commercial; 1930s American storefront, burgundy and cream stripes, mildly sun-faded with dirt streaks near the wall.",
+  "summary": "Dutch (waterfall) awning, 2 m wide: sloped fixed canvas hood with closed triangular side ends on a welded steel pipe frame.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "fabric"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

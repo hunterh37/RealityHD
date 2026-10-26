@@ -83,6 +83,14 @@ public final class TextureSynth: @unchecked Sendable {
         do { return try TextureSynth() } catch { FileHandle.standardError.write(Data("TextureSynth init: \(error)\n".utf8)); return nil }
     }()
 
+    /// Builds `shared` off the main thread. The first `shared` access compiles the Metal library and six
+    /// compute pipelines (several seconds on device); doing that on the main thread during scene creation
+    /// trips the visionOS 10 s scene-create watchdog (0x8BADF00D). `RealityHD.setup` starts this.
+    @discardableResult
+    public static func warmUp() async -> TextureSynth? {
+        await Task.detached(priority: .userInitiated) { TextureSynth.shared }.value
+    }
+
     public let device: MTLDevice
     public let queue: MTLCommandQueue
     let material: MTLComputePipelineState
@@ -135,7 +143,7 @@ public final class TextureSynth: @unchecked Sendable {
         let n = set.albedo.width
         var p = RFParams(kind: program.rawValue, seed: spec.seed, size: Int32(n), alphaMode: spec.mode == .cutout || (spec.mode == .emissive && spec.opacity < 1) ? 1 : 0,
                          colorA: spec.colorA, colorB: spec.colorB, colorC: spec.colorC, f: spec.knobs,
-                         normalStrength: spec.normalStrength, flipGreen: Self.flipGreen)
+                         normalStrength: spec.normalStrength, flipGreen: Self.flipGreen, pad0: Float(spec.coatPattern))
         let height = makeTexture(.r16Float, n, mips: false)
         let scratchR = spec.hasAOMap ? nil : makeTexture(.r8Unorm, n, mips: false)
         let scratchM = spec.hasMetallicMap ? nil : makeTexture(.r8Unorm, n, mips: false)

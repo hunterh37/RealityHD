@@ -1,0 +1,39 @@
+{
+  "budget": 13000,
+  "id": "shade-sail-triangle",
+  "kind": "prop",
+  "materials": [
+    "fabric.nylon:B7A98F",
+    "metal.stainless",
+    "metal.galvanized",
+    "fabric.webbing"
+  ],
+  "name": "Triangular Shade Sail",
+  "notes": "",
+  "parts": [
+    "hyperbolic-paraboloid knitted fabric panel",
+    "webbing reinforced edge",
+    "three stainless D-ring corner plates",
+    "turnbuckles with shackles",
+    "wall eye-plate fixings",
+    "stitched hem seams"
+  ],
+  "references": [],
+  "size": [
+    4.0,
+    0.1,
+    4.0
+  ],
+  "style": "architectural facade customizer, contemporary; Contemporary, sand HDPE knit, sagging edge curves, stainless hardware with water staining.",
+  "summary": "Triangular HDPE shade sail, 4 m sides, tensioned from three stainless corner rings with turnbuckles and wall eye plates.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "fabric"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,37 @@
+{
+  "budget": 3000,
+  "id": "ashlar-cut-stone-plinth-course",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized-aged",
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "stone.sandstone"
+  ],
+  "name": "Ashlar cut stone plinth course",
+  "notes": "",
+  "parts": [
+    "rusticated ashlar blocks",
+    "chamfered water table cap",
+    "base moulding",
+    "recessed joints",
+    "weathered arris chips"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    0.5,
+    0.3
+  ],
+  "style": "architectural facade customizer, Georgian",
+  "summary": "Ashlar cut stone plinth course, 3.0 m: dressed blocks, raked joints, roll base, sloped water table with drip.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

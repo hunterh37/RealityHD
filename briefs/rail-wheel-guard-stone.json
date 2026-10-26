@@ -1,0 +1,39 @@
+{
+  "budget": 14000,
+  "id": "rail-wheel-guard-stone",
+  "kind": "prop",
+  "materials": [
+    "stone.granite-curb",
+    "stone.granite-paver",
+    "stone.slate",
+    "metal.cast-iron-street"
+  ],
+  "name": "Stone wheel guard",
+  "notes": "",
+  "parts": [
+    "rock-faced granite body",
+    "bullnose cap",
+    "moulded base",
+    "wheel scuff band",
+    "iron strap",
+    "chips"
+  ],
+  "references": [],
+  "size": [
+    0.35,
+    0.5,
+    0.35
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Stone wheel guard 0.5 m: tapered rock-faced granite post with a bullnose cap, moulded base, wheel scuff band and iron strap.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

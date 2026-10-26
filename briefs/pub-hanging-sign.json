@@ -1,0 +1,41 @@
+{
+  "budget": 14500,
+  "id": "pub-hanging-sign",
+  "kind": "prop",
+  "materials": [
+    "metal.wrought-iron",
+    "wood.painted-shaker-worn",
+    "metal.gold-leaf",
+    "sign.white"
+  ],
+  "name": "Pub hanging sign",
+  "notes": "",
+  "parts": [
+    "iron frame",
+    "scroll crest",
+    "hanging links",
+    "painted board",
+    "roundel",
+    "lettering",
+    "finials"
+  ],
+  "references": [],
+  "size": [
+    0.8,
+    1.0,
+    0.1
+  ],
+  "style": "architectural facade customizer, English Vernacular",
+  "summary": "English pub swinging sign 0.8 x 1.0 m: wrought iron frame with scroll crest, painted board, gilt lettering, hanging links.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "metal",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

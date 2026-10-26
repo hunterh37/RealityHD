@@ -1,0 +1,45 @@
+{
+  "budget": 15000,
+  "id": "vitrolite-storefront-panel",
+  "kind": "prop",
+  "materials": [
+    "glass.emerald",
+    "stone.marble-dark",
+    "metal.stainless",
+    "metal.brass-aged",
+    "brick.mortar-grey",
+    "metal.rust"
+  ],
+  "name": "Vitrolite storefront panel",
+  "notes": "",
+  "parts": [
+    "structural glass slabs in a 2x4 grid",
+    "stainless reveal strips",
+    "rounded bullnose edge",
+    "bottom stainless kickplate",
+    "mastic joints",
+    "curved corner cap",
+    "engraved horizontal groove lines",
+    "brass screw caps",
+    "edge chip",
+    "water stain at the base"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    2.4,
+    0.05
+  ],
+  "style": "architectural facade customizer, Art Moderne",
+  "summary": "Art Moderne Vitrolite storefront panel, 1.2 x 2.4 m: structural glass slabs, stainless reveals, kickplate, grooved bands, screw caps, chips.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wall",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

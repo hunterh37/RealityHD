@@ -1,0 +1,48 @@
+{
+  "budget": 12000,
+  "id": "frost-free-hose-bib-box",
+  "kind": "prop",
+  "materials": [
+    "metal.brass",
+    "metal.brass-aged",
+    "metal.copper-patina",
+    "metal.galvanized-aged",
+    "metal.painted:A82A22",
+    "metal.painted:DAD7CB",
+    "metal.rust",
+    "metal.screw-zinc",
+    "metal.stainless",
+    "metal.stainless-smudged",
+    "plastic.black",
+    "plastic.white",
+    "rubber.silicone"
+  ],
+  "name": "Frost-free hose bib box",
+  "notes": "",
+  "parts": [
+    "Painted flange frame with screws and caulk",
+    "Galvanized box shell and rear plate",
+    "Brass frost-free sillcock with vacuum breaker",
+    "Red cast wheel handle",
+    "Hinged stainless door open with lock cylinder",
+    "Hinge knuckles and pin",
+    "Weep slot and weathering"
+  ],
+  "references": [],
+  "size": [
+    0.2,
+    0.2,
+    0.15
+  ],
+  "style": "architectural facade customizer, Traditional",
+  "summary": "Frost-free hose bib in a wall box: painted flange frame with caulk bead, galvanized shell, brass frost-free sillcock with vacuum breaker and red wheel handle, hinged stainless door swung open with lock cylinder and hinge knuckles.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

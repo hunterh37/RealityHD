@@ -1,0 +1,24 @@
+{
+  "budget": 10000,
+  "id": "balcony-underside-bracket-pair",
+  "kind": "prop",
+  "materials": ["stone.sandstone", "stone.limestone", "paint.stucco", "brick.common", "metal.wrought-iron", "metal.rust", "stone.granite-moss"],
+  "name": "Balcony underside bracket pair",
+  "notes": "",
+  "parts": [
+    "two carved sandstone scroll corbels with volutes, raised panels and acanthus leaves",
+    "moulded stone balcony slab with nosing and drip groove",
+    "wrought iron tie bar with square end plates and rusted bolts",
+    "star wall anchor plate",
+    "ochre stucco wall patch with chipped plaster and exposed brick",
+    "moss, salt stains and rust streaks"
+  ],
+  "references": [],
+  "size": [0.5, 0.5, 0.5],
+  "style": "Mediterranean stone balcony support, golden sandstone, ochre stucco, hand-forged iron, salt stains and chipped plaster",
+  "summary": "Mediterranean balcony support, 0.5 m: two carved sandstone scroll corbels, moulded slab, iron tie bar and star anchor.",
+  "tags": ["prop", "architecture", "facade", "trim", "stone", "metal"],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

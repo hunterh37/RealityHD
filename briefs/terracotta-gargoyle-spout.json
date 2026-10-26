@@ -1,0 +1,44 @@
+{
+  "budget": 15000,
+  "id": "terracotta-gargoyle-spout",
+  "kind": "prop",
+  "materials": [
+    "ceramic.bisque",
+    "stone.limestone-sooted",
+    "metal.cast-iron",
+    "stone.limestone"
+  ],
+  "name": "Terracotta gargoyle spout",
+  "notes": "",
+  "parts": [
+    "grotesque head",
+    "open mouth spout channel",
+    "brow ridge",
+    "pointed ears",
+    "horns",
+    "folded wing",
+    "forelegs",
+    "haunch",
+    "wall tail plate",
+    "iron fixing straps",
+    "fixing bolts"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    0.6,
+    0.7
+  ],
+  "style": "architectural facade customizer, Gothic Revival",
+  "summary": "Gothic Revival terracotta gargoyle spout, 0.7 m projection: crouching grotesque, open mouth spout, horns, folded wings, trough, tail plate, iron strap.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

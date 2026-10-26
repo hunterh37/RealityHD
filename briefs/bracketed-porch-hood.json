@@ -1,0 +1,25 @@
+{
+  "budget": 14000,
+  "id": "bracketed-porch-hood",
+  "kind": "prop",
+  "materials": ["wood.painted-exterior", "wood.painted-shaker-worn", "wood.weathered", "metal.copper-patina", "metal.copper", "metal.brass-aged"],
+  "name": "Bracketed porch hood",
+  "notes": "",
+  "parts": [
+    "two scrolled console brackets with volutes and relief panels",
+    "architrave, dentil band and cornice across the front",
+    "shallow gable pediment with raking cornice and fan sunburst tympanum",
+    "side eave beams and wall backboard",
+    "beaded soffit board",
+    "copper standing-seam gable roof with ridge roll and drip edges",
+    "brass screws and verdigris streaks"
+  ],
+  "references": [],
+  "size": [1.8, 0.9, 1.0],
+  "style": "Colonial Revival door hood, white painted wood, aged copper roof, verdigris runs and flaked paint on the brackets",
+  "summary": "Colonial Revival bracketed door hood, 1.8 m: scrolled consoles, dentil cornice, fan pediment, copper gable roof.",
+  "tags": ["prop", "architecture", "facade", "trim", "wood", "metal"],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

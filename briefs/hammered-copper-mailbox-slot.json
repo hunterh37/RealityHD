@@ -1,0 +1,37 @@
+{
+  "budget": 14000,
+  "id": "hammered-copper-mailbox-slot",
+  "kind": "prop",
+  "materials": [
+    "metal.copper",
+    "metal.copper-patina",
+    "metal.brass-aged"
+  ],
+  "name": "Hammered copper mailbox slot",
+  "notes": "",
+  "parts": [
+    "hammered plate",
+    "slot",
+    "spring flap",
+    "rivets",
+    "LETTERS plate"
+  ],
+  "references": [],
+  "size": [
+    0.35,
+    0.1,
+    0.06
+  ],
+  "style": "architectural facade customizer, Arts and Crafts",
+  "summary": "Arts and Crafts hammered copper mail slot, 0.35 m: dimpled plate, sprung hood flap, riveted corners, brass pull.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

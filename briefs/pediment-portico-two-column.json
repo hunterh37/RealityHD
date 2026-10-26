@@ -1,0 +1,26 @@
+{
+  "budget": 14000,
+  "id": "pediment-portico-two-column",
+  "kind": "prop",
+  "materials": ["wood.painted-exterior", "wood.weathered", "stone.cast-stone", "stone.granite-paver", "stone.granite-moss", "stone.slate", "metal.brass-aged"],
+  "name": "Two-column pediment portico",
+  "notes": "",
+  "parts": [
+    "stone stylobate with front step",
+    "two Tuscan columns with entasis, torus bases, necking, echinus and abacus",
+    "two wall pilasters",
+    "architrave, plain frieze, dentil band and cornice with side returns",
+    "shallow triangular pediment with raking cornice",
+    "louvered oval vent in the tympanum",
+    "slate-clad roof planes with ridge cap",
+    "beaded soffit"
+  ],
+  "references": [],
+  "size": [2.4, 3.4, 1.4],
+  "style": "Colonial Revival entry portico, white painted wood Tuscan order, slate roof, damp and flaking paint at the column feet, moss on the stone",
+  "summary": "Colonial Revival two-column portico, 3.4 m: Tuscan columns on a stone stylobate, dentil entablature, pediment, slate roof.",
+  "tags": ["prop", "architecture", "facade", "trim", "wood", "stone"],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

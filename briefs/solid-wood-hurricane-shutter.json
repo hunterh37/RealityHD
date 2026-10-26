@@ -1,0 +1,40 @@
+{
+  "budget": 13000,
+  "id": "solid-wood-hurricane-shutter",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-shaker-worn:2F6F80",
+    "wood.weathered",
+    "metal.wrought-iron",
+    "metal.screw-zinc"
+  ],
+  "name": "Solid Wood Hurricane Shutter",
+  "notes": "",
+  "parts": [
+    "tongue-and-groove plank leaves",
+    "Z-pattern battens",
+    "pintle strap hinges",
+    "slide bolt latch",
+    "hold-back stay",
+    "screws and nail heads"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.5,
+    0.06
+  ],
+  "style": "architectural facade customizer, coastal; Coastal, salt-weathered teal paint peeling at plank edges, rusty strap hinges.",
+  "summary": "Coastal solid-wood hurricane shutter pair, 1.2 m wide: tongue-and-groove planks on Z-battens with strap hinges and slide bolt.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "window",
+    "wood",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

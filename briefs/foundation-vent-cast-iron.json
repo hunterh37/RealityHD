@@ -1,0 +1,38 @@
+{
+  "budget": 10000,
+  "id": "foundation-vent-cast-iron",
+  "kind": "prop",
+  "materials": [
+    "metal.cast-iron",
+    "metal.rust",
+    "metal.rust-grime"
+  ],
+  "name": "Foundation vent, cast iron",
+  "notes": "",
+  "parts": [
+    "cast-iron frame",
+    "fretwork scroll grille",
+    "border bead",
+    "corner bosses",
+    "mounting lugs",
+    "rust bloom"
+  ],
+  "references": [],
+  "size": [
+    0.4,
+    0.2,
+    0.04
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Victorian cast iron foundation vent, 0.4 m: scrolled fretwork grille in a beaded frame.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

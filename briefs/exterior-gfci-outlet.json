@@ -1,0 +1,46 @@
+{
+  "budget": 6000,
+  "id": "exterior-gfci-outlet",
+  "kind": "prop",
+  "materials": [
+    "emissive.led-green",
+    "glass.polycarbonate",
+    "metal.aluminum-brushed",
+    "metal.brass-aged",
+    "metal.painted:A5A8A8",
+    "metal.screw-zinc",
+    "metal.stainless",
+    "paint.cylinder-green",
+    "plastic.black",
+    "plastic.orange",
+    "plastic.white",
+    "rubber.silicone"
+  ],
+  "name": "Exterior GFCI outlet",
+  "notes": "",
+  "parts": [
+    "Die-cast cover plate on rubber gasket",
+    "Clear polycarbonate bubble lid on hinge",
+    "Latch tab",
+    "GFCI duplex receptacle with test and reset",
+    "Stainless screws and caulk bead",
+    "Weathering streaks"
+  ],
+  "references": [],
+  "size": [
+    0.1,
+    0.12,
+    0.05
+  ],
+  "style": "architectural facade customizer, Traditional",
+  "summary": "Exterior GFCI outlet: die-cast in-use cover plate on a gasket with a clear bubble lid, GFCI duplex receptacle with test and reset buttons, stainless screws, hinge, latch tab and caulk bead.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

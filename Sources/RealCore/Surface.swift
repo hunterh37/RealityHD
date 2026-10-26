@@ -20,6 +20,8 @@ public struct Surface: Sendable {
     /// Optional per-vertex weight (0...1) of the material's second layer (`MaterialSpec.splat`):
     /// path wear, mud or moss on terrain. Empty = no splat. Set with `paintSplat`.
     public var splat: [Float] = []
+    /// Optional explicit skin influences per vertex (skeleton joint indices). `Rig.skin` uses them instead of bone-distance weights.
+    public var skinWeights: [SkinInfluence] = []
     public var indices: [UInt32] = []
 
     public init(material: MaterialKey) { self.material = material }

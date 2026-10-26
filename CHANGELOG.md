@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+## 5.14.0
+
+- `cascadia-cab-interior` articulated Freightliner Cascadia driver area; `rural-highway-tile` 12 m two-lane rural highway cell.
+
+## 5.13.0
+
+- Fix: `RealityHD.setup` compiles texture-synthesis shaders off the main thread (`TextureSynth.warmUp()`).
+  First `environment`/`entity` call inside `RealityView` no longer blocks for seconds and no longer trips the
+  visionOS scene-create watchdog (0x8BADF00D). New `RealityHD.prepare()` to await readiness before opening a space.
+
 - Dog pets (AnimalCore/AnimalKit): `golden-retriever`, `german-shepherd`, `pembroke-corgi` as `GroundSpecies`, listed in `AnimalKind.pets` and
   `GroundSpecies.dogs`, never sent to yards. `QuadrupedPlan` gains a dog path (paws, dog eyes and nose, hanging or erect ears via
   `GroundAnatomy.earDrop`, skinned fur shells). Contact sheets in `docs/animals/pets/`.

@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "oriel-window-bay",
+  "kind": "prop",
+  "materials": [
+    "glass.pane",
+    "metal.galvanized-aged",
+    "metal.wrought-iron",
+    "stone.limestone-sooted",
+    "stone.sandstone",
+    "wood.oak",
+    "wood.weathered"
+  ],
+  "name": "Oriel window bay",
+  "notes": "",
+  "parts": [
+    "corbelled underside",
+    "timber mullions and transoms",
+    "leaded lights",
+    "oak frame",
+    "moulded sill",
+    "lead-clad roof"
+  ],
+  "references": [],
+  "size": [
+    1.6,
+    1.8,
+    0.8
+  ],
+  "style": "architectural facade customizer, Tudor Revival",
+  "summary": "Oriel window bay, 1.6 m: sandstone corbels, oak bressummer, linenfold aprons, leaded casements, lead roof.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

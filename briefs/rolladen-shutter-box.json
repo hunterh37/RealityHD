@@ -1,0 +1,39 @@
+{
+  "budget": 7000,
+  "id": "rolladen-shutter-box",
+  "kind": "prop",
+  "materials": [
+    "plastic.white",
+    "metal.powder-white",
+    "fabric.webbing",
+    "plastic.black"
+  ],
+  "name": "Rolladen shutter box",
+  "notes": "",
+  "parts": [
+    "extruded housing with rounded front",
+    "inspection hatch with screw caps",
+    "end caps",
+    "slot with brush seal",
+    "aluminum guide rails",
+    "slat curtain with end bar",
+    "belt winder plate and belt"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    0.3,
+    0.3
+  ],
+  "style": "architectural facade customizer, Central European, white PVC housing yellowed by sun and grime, aluminum curtain",
+  "summary": "Central European Rolladen roller shutter box 1.5 m: PVC housing with inspection hatch, end caps, aluminum guide rails, slats, belt winder.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

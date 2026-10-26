@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "mosaic-tile-entry-arch",
+  "kind": "prop",
+  "materials": [
+    "tile.wall",
+    "ceramic.cobalt",
+    "ceramic.celadon",
+    "stone.limestone",
+    "brick.mortar-grey"
+  ],
+  "name": "Mosaic tile entry arch",
+  "notes": "",
+  "parts": [
+    "horseshoe arch",
+    "tile mosaic voussoirs",
+    "jamb pilasters",
+    "archivolt mould",
+    "base plinth"
+  ],
+  "references": [],
+  "size": [
+    1.6,
+    2.6,
+    0.2
+  ],
+  "style": "architectural facade customizer, Moorish Revival",
+  "summary": "Moorish Revival tiled entry arch, 1.6 x 2.6 m: horseshoe arch of tile voussoirs, alfiz band, tiled jambs, threshold.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone",
+    "decor",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

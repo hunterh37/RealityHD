@@ -1,0 +1,41 @@
+{
+  "budget": 14000,
+  "id": "canvas-awning-scalloped",
+  "kind": "prop",
+  "materials": [
+    "fabric.canvas",
+    "metal.wrought-iron",
+    "metal.rust"
+  ],
+  "name": "Canvas awning scalloped",
+  "notes": "",
+  "parts": [
+    "wrought iron arms",
+    "wall bracket plates",
+    "front bar",
+    "canvas striped sloped sheet",
+    "scalloped valance",
+    "seam stitching",
+    "piping edge",
+    "side triangles",
+    "bolts"
+  ],
+  "references": [],
+  "size": [
+    1.6,
+    0.9,
+    0.9
+  ],
+  "style": "architectural facade customizer, Parisian Haussmann",
+  "summary": "Parisian scalloped canvas awning 1.6 m: iron frame, striped canvas, scalloped valance.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,45 @@
+{
+  "budget": 15000,
+  "id": "cast-iron-roof-cresting",
+  "kind": "prop",
+  "materials": [
+    "metal.cast-iron",
+    "metal.wrought-iron",
+    "metal.rust",
+    "metal.gold-leaf",
+    "metal.verdigris-roof"
+  ],
+  "name": "Cast iron roof cresting",
+  "notes": "",
+  "parts": [
+    "bottom rail and cast shoes",
+    "cast fleur-de-lis panels",
+    "pierced circle and scroll infill",
+    "top rail with bead",
+    "spear finials",
+    "corner standards with urn finials",
+    "bolted panel joints",
+    "bolt heads on shoes",
+    "gilt tips on finials",
+    "rust bloom and flaking paint"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    0.5,
+    0.08
+  ],
+  "style": "architectural facade customizer, Second Empire",
+  "summary": "Second Empire cast iron roof cresting, 2.4 m run: base rail, pierced scroll panels, fleur-de-lis, spear finials, corner urns, bolted joints.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roof",
+    "metal",
+    "ornament"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

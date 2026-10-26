@@ -1,0 +1,39 @@
+{
+  "budget": 10000,
+  "id": "blade-neon-sign-frame",
+  "kind": "prop",
+  "materials": [
+    "metal.powder-white",
+    "metal.anodized-black",
+    "emissive.warm"
+  ],
+  "name": "Blade neon sign frame",
+  "notes": "",
+  "parts": [
+    "steel box spine",
+    "wall bracket",
+    "neon tube channels",
+    "tube supports",
+    "transformer box",
+    "stepped Deco crown",
+    "chrome trim"
+  ],
+  "references": [],
+  "size": [
+    0.5,
+    1.2,
+    0.1
+  ],
+  "style": "architectural facade customizer, Art Deco",
+  "summary": "Blade neon sign frame, Art Deco facade prop, 0.5 x 1.2 x 0.1 m.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

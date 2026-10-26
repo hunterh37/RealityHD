@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "espaliered-fruit-tree-wire-trellis",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized",
+    "metal.galvanized-aged",
+    "wood.lumber-oak",
+    "wood.pole-pine"
+  ],
+  "name": "Espaliered fruit tree wire trellis",
+  "notes": "",
+  "parts": [
+    "wall eye bolts",
+    "tensioned galvanised wires",
+    "straining screws",
+    "tree trunk",
+    "tiered horizontal branches",
+    "leaves",
+    "fruit",
+    "twine ties",
+    "soil mound"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    2.0,
+    0.1
+  ],
+  "style": "architectural facade customizer, English Cottage",
+  "summary": "English Cottage espalier, 1.5 m x 2.0 m: tiered fruit tree tied to galvanised wires on eye bolts with a straining screw.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

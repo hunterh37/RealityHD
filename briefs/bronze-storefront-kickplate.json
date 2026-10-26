@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "bronze-storefront-kickplate",
+  "kind": "prop",
+  "materials": [
+    "metal.bronze-cast",
+    "metal.bronze-weathered",
+    "metal.brass-aged",
+    "metal.copper-patina"
+  ],
+  "name": "Bronze storefront kickplate",
+  "notes": "",
+  "parts": [
+    "bronze plate",
+    "stepped border",
+    "fluted panel",
+    "chevron inlay",
+    "corner rosettes",
+    "countersunk screws",
+    "base rail"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.4,
+    0.08
+  ],
+  "style": "architectural facade customizer, Art Deco",
+  "summary": "Bronze storefront kickplate, 2.0 x 0.4 m: stepped Deco border, fluted center panel, chevron inlay, corner rosettes, screws.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

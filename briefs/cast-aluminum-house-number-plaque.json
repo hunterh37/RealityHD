@@ -1,0 +1,37 @@
+{
+  "budget": 10000,
+  "id": "cast-aluminum-house-number-plaque",
+  "kind": "prop",
+  "materials": [
+    "metal.aluminum-cast",
+    "metal.anodized-black",
+    "metal.satin-aluminum"
+  ],
+  "name": "Cast aluminum house number plaque",
+  "notes": "",
+  "parts": [
+    "cast plate",
+    "raised numerals",
+    "stud mounts",
+    "beveled border",
+    "oxidation"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    0.15,
+    0.02
+  ],
+  "style": "architectural facade customizer, Mid-Century Modern",
+  "summary": "Cast aluminum house number plaque, Mid-Century Modern facade prop, 0.3 x 0.15 x 0.02 m.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

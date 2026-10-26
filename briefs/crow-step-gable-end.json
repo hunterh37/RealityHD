@@ -1,0 +1,45 @@
+{
+  "budget": 15000,
+  "id": "crow-step-gable-end",
+  "kind": "prop",
+  "materials": [
+    "stone.sandstone",
+    "stone.brownstone",
+    "stone.limestone-sooted",
+    "stone.granite-moss",
+    "metal.wrought-iron",
+    "metal.verdigris-roof"
+  ],
+  "name": "Crow-step gable end",
+  "notes": "",
+  "parts": [
+    "rubble sandstone gable wall",
+    "corbiestep copings on every step",
+    "dressed ashlar margins",
+    "skewputt at the foot",
+    "apex chimney stack with cans",
+    "dormer-style window with dressed surround",
+    "moulded string course",
+    "lead flashing under copings",
+    "iron tie plates",
+    "lichen and soot staining"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    1.8,
+    0.4
+  ],
+  "style": "architectural facade customizer, Scottish Baronial",
+  "summary": "Scottish Baronial crow-step gable end, 2.4 x 1.8 m: sandstone rubble with ashlar margins, corbiestep copings, skewputts, apex stack, window, flashing.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roof",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
