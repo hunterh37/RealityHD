@@ -1,0 +1,22 @@
+{
+  "automated" : 0.9971247,
+  "date" : "2026-10-26",
+  "final" : 0.85111856,
+  "fingerprint" : "8d8e51aeff80dd8c",
+  "id" : "carriage-house-sliding-door",
+  "iterations" : 2,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 8,
+    "edges" : 7,
+    "grounding" : 8,
+    "materials" : 7,
+    "proportion" : 8,
+    "silhouette" : 8,
+    "wear" : 8
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.7725
+}
