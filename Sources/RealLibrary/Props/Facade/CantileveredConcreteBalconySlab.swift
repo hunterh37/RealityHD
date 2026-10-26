@@ -7,7 +7,7 @@ import Foundation
 /// stainless drain scupper. Algae and soot staining. Wall plane at z = 0.
 public struct CantileveredConcreteBalconySlab: RealAsset {
     public static let id = "cantilevered-concrete-balcony-slab"
-    public static let summary = "Brutalist cantilevered balcony slab, 2.4 m wide, 1.2 m projection: board-formed concrete with drip groove, upstand kerb, tie holes, thermal break strip, stainless flashing and a drain scupper."
+    public static let summary = "Brutalist balcony slab, 2.4 m wide, 1.2 m projection: board-formed concrete, drip groove, kerbs, thermal break and scupper."
     public static let tags = ["prop", "architecture", "facade", "metal"]
     public static let budget = 12000
     public static let author = "realityhd"

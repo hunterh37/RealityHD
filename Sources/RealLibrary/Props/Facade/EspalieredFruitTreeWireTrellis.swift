@@ -7,7 +7,7 @@ import Foundation
 /// mound with mulch. Wall plane at z = 0.
 public struct EspalieredFruitTreeWireTrellis: RealAsset {
     public static let id = "espaliered-fruit-tree-wire-trellis"
-    public static let summary = "English Cottage espalier trellis, 1.5 m x 2.0 m: horizontal galvanised wires on eye bolts and straining screws trained with a fruit tree in a tiered candelabra form, tied with twine."
+    public static let summary = "English Cottage espalier, 1.5 m x 2.0 m: tiered fruit tree tied to galvanised wires on eye bolts with a straining screw."
     public static let tags = ["prop", "architecture", "facade", "wood", "metal"]
     public static let budget = 15000
     public static let author = "realityhd"

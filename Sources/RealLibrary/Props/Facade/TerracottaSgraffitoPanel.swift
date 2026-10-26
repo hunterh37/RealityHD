@@ -6,7 +6,7 @@ import Foundation
 /// brass screws. Edge chips and a hairline crack. Wall plane at z = 0.
 public struct TerracottaSgraffitoPanel: RealAsset {
     public static let id = "terracotta-sgraffito-panel"
-    public static let summary = "Arts and Crafts sgraffito panel, 0.8 m square: cream slip scratched through to terracotta body in a stylized tulip and scroll pattern inside a moulded oak frame."
+    public static let summary = "Arts and Crafts sgraffito panel, 0.8 m square: cream slip scratched to terracotta in a tulip and vine pattern, in an oak frame."
     public static let tags = ["prop", "architecture", "facade", "decor", "stone"]
     public static let budget = 14000
     public static let author = "realityhd"

@@ -6,7 +6,7 @@ import Foundation
 /// lead-lined bore. Wall plane at z = 0.
 public struct CarvedStoneGargoyleSpout: RealAsset {
     public static let id = "carved-stone-gargoyle-spout"
-    public static let summary = "Gothic Revival gargoyle water spout, 0.7 m projection: carved limestone grotesque on a moulded corbel base with a lead-lined bore, brow, horns, wings and weathering."
+    public static let summary = "Gothic Revival gargoyle spout, 0.7 m projection: carved limestone grotesque on a corbel, with horns, wings and a lead-lined bore."
     public static let tags = ["prop", "architecture", "facade", "decor", "stone"]
     public static let budget = 13000
     public static let author = "realityhd"

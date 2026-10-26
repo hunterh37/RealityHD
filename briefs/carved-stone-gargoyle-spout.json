@@ -5,7 +5,7 @@
   "materials": [
     "stone.limestone-sooted",
     "stone.limestone",
-    "metal.rust",
+    "metal.rust"
   ],
   "name": "Carved stone gargoyle spout",
   "notes": "",
@@ -26,7 +26,7 @@
     0.7
   ],
   "style": "architectural facade customizer, Gothic Revival",
-  "summary": "Gothic Revival gargoyle water spout, 0.7 m projection: carved limestone grotesque on a moulded corbel base with a lead-lined bore, brow, horns, wings and weathering.",
+  "summary": "Gothic Revival gargoyle spout, 0.7 m projection: carved limestone grotesque on a corbel, with horns, wings and a lead-lined bore.",
   "tags": [
     "prop",
     "architecture",

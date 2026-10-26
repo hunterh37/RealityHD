@@ -6,7 +6,7 @@ import Foundation
 /// groove and a cyma recta crown. Fixing nails, one replacement dentil and flaking paint. Wall plane z = 0.
 public struct EggAndDartCorniceRun: RealAsset {
     public static let id = "egg-and-dart-cornice-run"
-    public static let summary = "Georgian egg-and-dart cornice run, 2.4 m: painted timber bed mould with carved egg-and-dart ovolo, dentil course, corona with drip and cyma crown, with a butt joint and fixing nails."
+    public static let summary = "Georgian egg-and-dart cornice, 2.4 m: timber bed mould, dentils, carved ovolo, corona and cyma crown with a butt joint."
     public static let tags = ["prop", "architecture", "facade", "trim", "wood"]
     public static let budget = 15000
     public static let author = "realityhd"

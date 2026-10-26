@@ -6,7 +6,7 @@ import Foundation
 /// red brick infill beside the short blocks. Chipped arrises and sooted tops. Wall face at z = 0.
 public struct RusticatedQuoinBlockSet: RealAsset {
     public static let id = "rusticated-quoin-block-set"
-    public static let summary = "Italianate rusticated quoin set, 0.9 m tall: alternating long and short blocks with chamfered rusticated joints and vermiculated faces, with mortar-line and soot staining."
+    public static let summary = "Italianate rusticated quoin set, 0.9 m tall: long and short brownstone blocks with chamfered joints, brick infill and soot staining."
     public static let tags = ["prop", "architecture", "facade", "trim", "stone"]
     public static let budget = 12000
     public static let author = "realityhd"

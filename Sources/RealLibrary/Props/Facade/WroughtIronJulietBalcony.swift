@@ -7,7 +7,7 @@ import Foundation
 /// and anchors. Wall plane at z = 0.
 public struct WroughtIronJulietBalcony: RealAsset {
     public static let id = "wrought-iron-juliet-balcony"
-    public static let summary = "Spanish Colonial Juliet balcony, 1.4 m wide: forged iron bowed rail with twisted balusters, scroll panels, flat-bar frame, rivets, wall anchor plates and a worn black finish."
+    public static let summary = "Spanish Colonial Juliet balcony, 1.4 m wide: bowed wrought iron rail with twisted balusters, scroll infill and wall anchors."
     public static let tags = ["prop", "architecture", "facade", "metal"]
     public static let budget = 15000
     public static let author = "realityhd"
