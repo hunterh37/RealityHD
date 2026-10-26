@@ -8,7 +8,7 @@ import Foundation
 /// to red body on the arrises, with run-off streaks below the corona.
 public struct TerracottaCorniceModillionRun: RealAsset {
     public static let id = "terracotta-cornice-modillion-run"
-    public static let summary = "Beaux-Arts terracotta cornice run: crown moulding, corona, carved modillions with acanthus scrolls, dentils and an egg-and-dart bed moulding, in glazed terracotta units."
+    public static let summary = "Beaux-Arts terracotta cornice run: crown moulding, corona, carved modillions, dentils and egg-and-dart bed moulding in glazed units."
     public static let tags = ["prop", "architecture", "facade", "ornament", "trim", "stone"]
     public static let budget = 15000
     public static let author = "realityhd"

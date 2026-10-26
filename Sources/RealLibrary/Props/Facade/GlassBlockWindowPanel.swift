@@ -7,7 +7,7 @@ import Foundation
 /// hazed with dust and the sill front is streaked with run-off.
 public struct GlassBlockWindowPanel: RealAsset {
     public static let id = "glass-block-window-panel"
-    public static let summary = "Streamline Moderne glass block window: 6 x 6 grid of 180 mm wave-pattern glass blocks in tooled mortar joints, framed by a stainless channel on a cast stone sill."
+    public static let summary = "Streamline Moderne glass block window: 6 x 6 grid of 180 mm wave-pattern blocks in tooled mortar, stainless channel frame, cast stone sill."
     public static let tags = ["prop", "architecture", "facade", "window", "glass", "stone"]
     public static let budget = 15000
     public static let author = "realityhd"

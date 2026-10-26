@@ -7,7 +7,7 @@ import Foundation
 /// The lower leaf is dark Colonial green, the upper leaf sun-faded; boots and hands have scuffed paint to bare wood.
 public struct DutchDoorSplitLeaf: RealAsset {
     public static let id = "dutch-door-split-leaf"
-    public static let summary = "Dutch Colonial split door: two independently hung painted board-and-batten leaves with a shelf cap, strap hinges, thumb latches, a barrel bolt and a worn oak sill."
+    public static let summary = "Dutch Colonial split door: two hung painted board-and-batten leaves with shelf cap, strap hinges, thumb latches, barrel bolt and worn oak sill."
     public static let tags = ["prop", "architecture", "facade", "door", "wood", "metal"]
     public static let budget = 15000
     public static let author = "realityhd"

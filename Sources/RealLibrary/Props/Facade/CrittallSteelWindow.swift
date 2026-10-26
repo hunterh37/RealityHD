@@ -8,7 +8,7 @@ import Foundation
 /// bleeds onto the sill.
 public struct CrittallSteelWindow: RealAsset {
     public static let id = "crittall-steel-window"
-    public static let summary = "Art Deco Crittall steel casement window: slim painted steel frame in a grid of lights, two opening casements with espagnolette fasteners, putty-glazed glass and a concrete sill."
+    public static let summary = "Art Deco Crittall steel casement window: slim painted frame in a grid of lights, two opening casements with espagnolettes, putty glazing, concrete sill."
     public static let tags = ["prop", "architecture", "facade", "window", "metal", "glass"]
     public static let budget = 15000
     public static let author = "realityhd"

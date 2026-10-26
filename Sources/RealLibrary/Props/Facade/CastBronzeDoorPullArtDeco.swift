@@ -7,7 +7,7 @@ import Foundation
 /// patina in the recesses; the grip, collar crowns and block edges are polished bright by hands.
 public struct CastBronzeDoorPullArtDeco: RealAsset {
     public static let id = "cast-bronze-door-pull-art-deco"
-    public static let summary = "Art Deco cast bronze door pull: tall vertical bar with stepped ziggurat ends, fluted shaft, mounting plates and bolts, polished high points and darkened recesses."
+    public static let summary = "Art Deco cast bronze door pull: fluted vertical bar with stepped ziggurat ends, mounting plates and bolts, polished high points, dark recesses."
     public static let tags = ["prop", "architecture", "facade", "door", "metal", "decor"]
     public static let budget = 15000
     public static let author = "realityhd"

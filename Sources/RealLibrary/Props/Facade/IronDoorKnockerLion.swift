@@ -7,7 +7,7 @@ import Foundation
 /// burnished iron on the brow, nose, mane tips and the base of the ring; rust sits at the bolts and in the lower hollows.
 public struct IronDoorKnockerLion: RealAsset {
     public static let id = "iron-door-knocker-lion"
-    public static let summary = "Georgian cast iron lion head door knocker: modelled lion mask with a ring in its mouth, strike plate and mounting bosses, black painted and worn at the high points."
+    public static let summary = "Georgian cast iron lion head door knocker: modelled mask with a ring in its mouth, strike plate and bolts, black paint worn at the high points."
     public static let tags = ["prop", "architecture", "facade", "door", "metal", "decor"]
     public static let budget = 15000
     public static let author = "realityhd"
