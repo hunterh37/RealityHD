@@ -1157,6 +1157,22 @@ public enum Props {
         HorizontalSlatFencePanel.self,
         ChainLinkFenceSection.self,
         GabionWallSection.self,
+        DryStoneWallSection.self,
+        LowBrickGardenWall.self,
+        CurvedConcreteRetainingWall.self,
+        StoneStepsWithRisers.self,
+        BrickStoopWithIronRails.self,
+        GraniteCurbStep.self,
+        CarriageStepBlock.self,
+        MountingBlockStone.self,
+        CastIronHitchingPost.self,
+        BollardCastIronHistoric.self,
+        AntiRamBollardSteel.self,
+        RailWheelGuardStone.self,
+        BootScraperIron.self,
+        PlanterBarrierConcrete.self,
+        BikeHoopRack.self,
+        WayfindingPylon.self,
         // realityhd:prop
     ]
 }

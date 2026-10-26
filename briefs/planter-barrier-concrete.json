@@ -1,0 +1,46 @@
+{
+  "budget": 14000,
+  "id": "planter-barrier-concrete",
+  "kind": "prop",
+  "materials": [
+    "concrete.river-algae",
+    "concrete.rough",
+    "concrete.sealed-dark",
+    "concrete.sealed-void",
+    "concrete.smooth",
+    "grass.plume",
+    "leaf.boxwood-mass",
+    "leaf.lavender-mass",
+    "metal.steel",
+    "soil.potting"
+  ],
+  "name": "Concrete planter barrier",
+  "notes": "",
+  "parts": [
+    "precast concrete box",
+    "chamfered rim",
+    "forklift pockets",
+    "lifting loops",
+    "planting soil",
+    "shrub planting",
+    "drain weeps",
+    "tyre scuffs"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    0.8,
+    0.6
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Concrete planter barrier 1.5 m: precast box with chamfered rim, forklift pockets and lifting loops, planted with low shrubs and grasses.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

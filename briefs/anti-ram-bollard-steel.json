@@ -1,0 +1,38 @@
+{
+  "budget": 14000,
+  "id": "anti-ram-bollard-steel",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless",
+    "metal.stainless-smudged",
+    "metal.signal-yellow",
+    "metal.steel"
+  ],
+  "name": "Anti-ram steel bollard",
+  "notes": "",
+  "parts": [
+    "stainless steel pipe",
+    "welded domed cap",
+    "reflective yellow bands",
+    "ground flange plate",
+    "flange bolts",
+    "scuffs and tyre marks"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    1.0,
+    0.3
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Anti-ram bollard 1.0 m: stainless steel pipe with a welded domed cap, reflective bands, a ground flange with bolts and scuffs.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}
