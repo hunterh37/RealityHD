@@ -81,6 +81,14 @@ public struct SkyParams {
 public final class TextureSynth: @unchecked Sendable {
     public static let shared: TextureSynth? = try? TextureSynth()
 
+    /// Builds `shared` off the main thread. The first `shared` access compiles the Metal library and six
+    /// compute pipelines (several seconds on device); doing that on the main thread during scene creation
+    /// trips the visionOS 10 s scene-create watchdog (0x8BADF00D). `RealityHD.setup` starts this.
+    @discardableResult
+    public static func warmUp() async -> TextureSynth? {
+        await Task.detached(priority: .userInitiated) { TextureSynth.shared }.value
+    }
+
     public let device: MTLDevice
     public let queue: MTLCommandQueue
     let material: MTLComputePipelineState
