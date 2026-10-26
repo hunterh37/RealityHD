@@ -136,3 +136,20 @@ extension FG {
         }
     }
 }
+
+extension FG {
+    /// Vertical board outline extruded along Z with the grain running along Y (UVs swapped), dog-eared top corners.
+    static func verticalBoard(_ m: inout Model, x: Float, y0: Float, y1: Float, w: Float, z: Float, thick: Float,
+                              ear: Float = 0, _ mat: MaterialKey, round: Float = 0) {
+        var o: [V2]
+        if ear > 0 {
+            o = [V2(-w / 2, 0), V2(w / 2, 0), V2(w / 2, y1 - y0 - ear), V2(w / 2 - ear, y1 - y0), V2(-w / 2 + ear, y1 - y0), V2(-w / 2, y1 - y0 - ear)]
+        } else {
+            o = Shape2D.rect(w, y1 - y0).map { V2($0.x, $0.y + (y1 - y0) / 2) }
+        }
+        var s = Prim.extrude(o, depth: thick, bevel: 0.0012, bevelSegments: 1, material: mat)
+        s.uvs = s.uvs.map { V2($0.y * 1.8, $0.x * 1.8) }
+        s.computeTangents()
+        m.add(s, Xform(translation: V3(x, y0, z)))
+    }
+}
