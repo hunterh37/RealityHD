@@ -1,0 +1,42 @@
+{
+  "budget": 5000,
+  "id": "steel-casement-window-grid",
+  "kind": "prop",
+  "materials": [
+    "glass.pane",
+    "metal.chrome",
+    "metal.galvanized-aged",
+    "metal.powdercoat",
+    "metal.powdercoat-worn",
+    "metal.rust",
+    "metal.satin-aluminum",
+    "metal.screw-zinc"
+  ],
+  "name": "Steel casement window grid",
+  "notes": "",
+  "parts": [
+    "slim steel frame",
+    "vent sashes",
+    "glazing bars",
+    "espagnolette handle",
+    "hinges",
+    "putty glazing"
+  ],
+  "references": [],
+  "size": [
+    1.4,
+    1.4,
+    0.1
+  ],
+  "style": "architectural facade customizer, Modernism",
+  "summary": "Steel casement window grid, 1.4 m: slim frame, 3 x 3 lights, two opening casements, handles, hinges, sill.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

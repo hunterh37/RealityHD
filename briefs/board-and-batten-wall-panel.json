@@ -1,0 +1,38 @@
+{
+  "budget": 11000,
+  "id": "board-and-batten-wall-panel",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized",
+    "metal.rust",
+    "wood.painted-exterior",
+    "wood.weathered"
+  ],
+  "name": "Board and batten wall panel",
+  "notes": "",
+  "parts": [
+    "vertical boards",
+    "battens covering joints",
+    "top cap rail",
+    "bottom skirt board",
+    "nail heads",
+    "paint wear"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    2.4,
+    0.04
+  ],
+  "style": "architectural facade customizer, Farmhouse",
+  "summary": "Board and batten wall panel, 2.0 x 2.4 m: vertical boards, battens, cap rail with flashing, skirt, nails.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

@@ -1049,6 +1049,16 @@ public enum Props {
         TerrazzoThresholdStrip.self,
         LimestoneVoussoirArchHead.self,
         WroughtIronWindowGrille.self,
+        AshlarCutStonePlinthCourse.self,
+        OrielWindowBay.self,
+        LeadCameLeadedGlassSash.self,
+        PressedTinCorniceRun.self,
+        CastStoneDoorSurround.self,
+        GasLanternWallSconce.self,
+        BoardAndBattenWallPanel.self,
+        SteelCasementWindowGrid.self,
+        GlazedTerracottaSpandrel.self,
+        TimberBracePergolaBay.self,
         // realityhd:prop
     ]
 }

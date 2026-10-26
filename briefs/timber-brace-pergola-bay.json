@@ -1,0 +1,40 @@
+{
+  "budget": 10000,
+  "id": "timber-brace-pergola-bay",
+  "kind": "prop",
+  "materials": [
+    "metal.iron",
+    "metal.rust",
+    "stone.granite-paver",
+    "wood.cedar-weathered",
+    "wood.deadwood",
+    "wood.lumber-oak"
+  ],
+  "name": "Timber brace pergola bay",
+  "notes": "",
+  "parts": [
+    "square posts",
+    "tapered knee braces",
+    "beams with cut ends",
+    "rafters",
+    "through bolts",
+    "stone footings"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    2.6,
+    3.0
+  ],
+  "style": "architectural facade customizer, Craftsman",
+  "summary": "Timber brace pergola bay, 3.0 m: four posts on piers, knee braces, beams, tailed rafters, slats, bolts.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
