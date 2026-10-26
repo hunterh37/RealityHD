@@ -1,0 +1,40 @@
+{
+  "budget": 12000,
+  "id": "stone-gate-pier-ball-cap",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "stone.cast-stone",
+    "metal.wrought-iron"
+  ],
+  "name": "Stone gate pier with ball cap",
+  "notes": "",
+  "parts": [
+    "plinth",
+    "rusticated shaft",
+    "string course",
+    "cornice",
+    "capstone",
+    "stone ball finial",
+    "iron hinge pins"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    2.2,
+    0.6
+  ],
+  "style": "architectural facade customizer, Georgian",
+  "summary": "Georgian ashlar gate pier, 2.2 m, moulded plinth, shaft with ashlar joints, cornice, stepped cap and ball finial.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

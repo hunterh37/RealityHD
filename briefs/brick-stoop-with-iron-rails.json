@@ -1,0 +1,45 @@
+{
+  "budget": 14000,
+  "id": "brick-stoop-with-iron-rails",
+  "kind": "prop",
+  "materials": [
+    "brick.red",
+    "brick.mortar-lime",
+    "stone.limestone",
+    "stone.limestone",
+    "stone.cap",
+    "metal.wrought-iron",
+    "metal.cast-iron-worn"
+  ],
+  "name": "Brick stoop with iron rails",
+  "notes": "",
+  "parts": [
+    "brick cheek walls",
+    "stone water table",
+    "marble treads and risers",
+    "stone landing slab",
+    "wrought iron handrails",
+    "square balusters",
+    "newel posts with urn finials",
+    "lyre scroll panels",
+    "stone cap coping"
+  ],
+  "references": [],
+  "size": [
+    1.8,
+    1.1,
+    1.6
+  ],
+  "style": "architectural facade customizer, Federal",
+  "summary": "Federal brick stoop 1.8 m: brick cheek walls on a stone water table, marble steps, and wrought iron rails with lyre scrolls and urn newels.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

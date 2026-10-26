@@ -1,0 +1,41 @@
+{
+  "budget": 9000,
+  "id": "barber-pole",
+  "kind": "prop",
+  "materials": [
+    "glass.pane",
+    "sign.white",
+    "sign.red",
+    "metal.cast-iron",
+    "metal.brass-aged",
+    "metal.painted"
+  ],
+  "name": "Barber pole",
+  "notes": "",
+  "parts": [
+    "glass cylinder",
+    "spiral stripes",
+    "top cap",
+    "base cap",
+    "finial",
+    "wall brackets"
+  ],
+  "references": [],
+  "size": [
+    0.2,
+    1.0,
+    0.2
+  ],
+  "style": "architectural facade customizer, Victorian Commercial",
+  "summary": "Victorian barber pole 1.0 m: glass cylinder with red, white and blue spiral, cast iron caps, finial and wall brackets.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

@@ -1,0 +1,37 @@
+{
+  "budget": 14000,
+  "id": "bollard-cast-iron-historic",
+  "kind": "prop",
+  "materials": [
+    "metal.cast-iron-street",
+    "metal.wrought-iron",
+    "metal.rust"
+  ],
+  "name": "Historic cast iron bollard",
+  "notes": "",
+  "parts": [
+    "moulded base ring",
+    "fluted shaft",
+    "raised lettering band",
+    "shoulder collar",
+    "domed cap with button",
+    "rust and paint chips"
+  ],
+  "references": [],
+  "size": [
+    0.25,
+    0.9,
+    0.25
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Historic cast iron bollard 0.9 m: moulded base, fluted shaft with a raised lettering band, shoulder collar and domed cap.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

@@ -1,0 +1,39 @@
+{
+  "budget": 14000,
+  "id": "stone-steps-with-risers",
+  "kind": "prop",
+  "materials": [
+    "stone.sandstone",
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "stone.wall-block",
+    "stone.cap"
+  ],
+  "name": "Stone steps with risers",
+  "notes": "",
+  "parts": [
+    "sandstone treads with nosing",
+    "limestone risers",
+    "stepped cheek walls with cap stones",
+    "mortar bed",
+    "worn tread dips",
+    "moss in joints"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    0.9,
+    2.0
+  ],
+  "style": "architectural facade customizer, Vernacular",
+  "summary": "Stone steps 1.5 m wide: five sandstone treads with rounded nosings over limestone risers between stepped rubble cheek walls with cap stones.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

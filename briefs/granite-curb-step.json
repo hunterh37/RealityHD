@@ -1,0 +1,42 @@
+{
+  "budget": 14000,
+  "id": "granite-curb-step",
+  "kind": "prop",
+  "materials": [
+    "brick.mortar-grey",
+    "concrete.sealed-dark",
+    "stone.cast-grey",
+    "stone.granite-curb","stone.limestone",
+    "stone.granite-paver",
+    "stone.limestone-sooted",
+    "stone.slate"
+  ],
+  "name": "Granite curb step",
+  "notes": "",
+  "parts": [
+    "two granite slabs",
+    "bullnose front arris",
+    "flame-finished top",
+    "chiselled draft margin",
+    "tight mortar joint",
+    "feather and tare drill marks",
+    "tyre scuffs and chips"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    0.15,
+    0.5
+  ],
+  "style": "architectural facade customizer, Municipal",
+  "summary": "Granite curb step 1.5 m: two quarried slabs with bullnose arris, flame-finished tread, chiselled margin and drill marks on the ends.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

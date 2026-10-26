@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "theater-marquee-canopy",
+  "kind": "prop",
+  "materials": [
+    "metal.painted",
+    "metal.stainless",
+    "emissive.warm",
+    "sign.white",
+    "metal.brass-aged"
+  ],
+  "name": "Theater marquee canopy",
+  "notes": "",
+  "parts": [
+    "fascia",
+    "stepped moulding",
+    "letter boards",
+    "bulb chase",
+    "soffit lights",
+    "tie rods",
+    "side fascias"
+  ],
+  "references": [],
+  "size": [
+    4.0,
+    1.0,
+    1.4
+  ],
+  "style": "architectural facade customizer, Art Deco Commercial",
+  "summary": "Art Deco marquee canopy 4.0 x 1.0 x 1.4 m: stepped fascia, changeable letter boards, bulb chase, soffit lights, tie rods.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

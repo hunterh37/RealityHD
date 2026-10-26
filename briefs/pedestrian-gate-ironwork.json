@@ -1,0 +1,40 @@
+{
+  "budget": 12000,
+  "id": "pedestrian-gate-ironwork",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat",
+    "metal.powdercoat-worn",
+    "metal.stainless",
+    "metal.galvanized"
+  ],
+  "name": "Pedestrian gate ironwork",
+  "notes": "",
+  "parts": [
+    "steel frame",
+    "flat bar pickets",
+    "horizontal rails",
+    "gate leaf",
+    "hinge",
+    "magnetic latch",
+    "post",
+    "striker plate"
+  ],
+  "references": [],
+  "size": [
+    1.0,
+    1.8,
+    0.05
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Contemporary powder-coated steel pedestrian gate with slim flat pickets and concealed hardware.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

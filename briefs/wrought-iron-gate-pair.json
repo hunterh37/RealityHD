@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "wrought-iron-gate-pair",
+  "kind": "prop",
+  "materials": [
+    "metal.wrought-iron",
+    "metal.rust-grime",
+    "metal.brass-aged",
+    "metal.painted"
+  ],
+  "name": "Wrought iron gate pair",
+  "notes": "",
+  "parts": [
+    "two gate leaves",
+    "top and bottom rails",
+    "vertical pickets",
+    "scroll panels",
+    "spear finials",
+    "strap hinges",
+    "drop bolt",
+    "centre latch"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    1.8,
+    0.06
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Victorian cast and wrought iron double gate, 2.4 m wide, black paint with scrolls and spear-point finials.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

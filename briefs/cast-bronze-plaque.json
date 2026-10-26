@@ -1,0 +1,37 @@
+{
+  "budget": 11500,
+  "id": "cast-bronze-plaque",
+  "kind": "prop",
+  "materials": [
+    "metal.bronze-cast",
+    "metal.bronze-weathered",
+    "metal.brass"
+  ],
+  "name": "Cast bronze plaque",
+  "notes": "",
+  "parts": [
+    "plaque plate",
+    "raised border",
+    "bead moulding",
+    "raised lettering",
+    "seal roundel",
+    "cap screws"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    0.4,
+    0.03
+  ],
+  "style": "architectural facade customizer, Civic",
+  "summary": "Civic cast bronze plaque 0.6 x 0.4 m: raised border with bead, cast lettering, dedication seal, domed cap screws.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

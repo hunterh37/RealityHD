@@ -1,0 +1,39 @@
+{
+  "budget": 14000,
+  "id": "curved-concrete-retaining-wall",
+  "kind": "prop",
+  "materials": [
+    "concrete.smooth",
+    "concrete.rough",
+    "concrete.river-algae",
+    "concrete.sealed-void"
+  ],
+  "name": "Curved concrete retaining wall",
+  "notes": "",
+  "parts": [
+    "board-formed concrete panels",
+    "precast coping",
+    "expansion joint with sealant",
+    "weep holes",
+    "form tie holes",
+    "plinth",
+    "rising damp staining"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    1.2,
+    0.3
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Curved concrete retaining wall 3.0 m: board-formed panels on a plinth with precast coping, a sealed expansion joint, weep holes and form-tie holes.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}
