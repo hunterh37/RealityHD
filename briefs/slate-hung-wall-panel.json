@@ -4,10 +4,12 @@
   "kind": "prop",
   "materials": [
     "stone.slate",
-    "stone.slate-aged",
-    "wood.trim-weathered",
-    "metal.copper",
-    "metal.rust"
+    "wood.painted-exterior",
+    "wood.charred",
+    "metal.galvanized-aged",
+    "metal.copper-patina",
+    "metal.rust",
+    "stone.granite-moss"
   ],
   "name": "Slate hung wall panel",
   "notes": "",

@@ -5,9 +5,11 @@
   "materials": [
     "stone.limestone",
     "stone.limestone-sooted",
+    "stone.sandstone",
     "wood.painted-exterior",
     "glass.pane",
-    "metal.wrought-iron"
+    "metal.wrought-iron",
+    "stone.granite-moss"
   ],
   "name": "Oeil de boeuf window",
   "notes": "",

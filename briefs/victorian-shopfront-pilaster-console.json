@@ -4,9 +4,9 @@
   "kind": "prop",
   "materials": [
     "wood.painted-exterior",
-    "wood.trim-weathered",
+    "metal.gold-leaf",
     "metal.brass",
-    "metal.screw-zinc"
+    "metal.rust"
   ],
   "name": "Victorian shopfront pilaster with console",
   "notes": "",
