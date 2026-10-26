@@ -15,7 +15,7 @@ public struct CascadiaCabInterior: RealArticulated {
     public static let id = "cascadia-cab-interior"
     public static let summary = "Freightliner Cascadia 2024 sleeper cab driver area at 1:1: air-ride seats, four-spoke wheel, wraparound dash, digital cluster, DT12 stalk, air brake knobs, split windshield, mirrors."
     public static let tags = ["prop", "vehicle", "plastic", "glass", "interior", "electronics", "articulated"]
-    public static let budget = 29_000
+    public static let budget = 30_000
     public static let author = "realityhd"
     public static let preview = PreviewHint(azimuth: 215, elevation: 48, distance: 1.0, studio: true)
 
@@ -49,6 +49,7 @@ public struct CascadiaCabInterior: RealArticulated {
         let dashZ: [Float] = [0.30, 0.62, 0.78, 0.80, 0.78, 0.62, 0.30]
         let dashPath = catmull(zip(dashX, dashZ).map { V3($0, 0.86, $1) }, per: 6)
 
+        func fb(_ size: V3, _ c: V3, _ mat: MaterialKey) -> Surface { cuboid(size, material: mat).transformed(Xform(translation: c)) }
         for l in 0..<2 {
             var m = Model(name: Self.id)
             let hi = l == 0
@@ -72,7 +73,7 @@ public struct CascadiaCabInterior: RealArticulated {
             m.add(Prim.sweep(Shape2D.roundedRect(0.012, 0.012, radius: 0.003, segments: 1), along: dashPath.map { $0 + V3(0, -0.03, -0.248) }, up: .up, caps: true, material: "metal.aluminum-brushed"))
             for sg: Float in [-1, 1] {
                 m.add(VK.span(V3(sg * 1.05, 0.46, -0.45), V3(sg * 1.07, 0.6, 0.75), "vinyl.seat-grey:3A3C40", r: 0.006))
-                m.add(VK.span(V3(sg * 1.045, 0.7, -0.45), V3(sg * 1.075, 0.74, 0.75), "metal.aluminum-brushed", r: 0.003))
+                m.add(VK.span(V3(sg * 1.045, 0.703, -0.45), V3(sg * 1.075, 0.74, 0.75), "metal.aluminum-brushed", r: 0.003))
             }
             // Cluster binnacle and bezel (12 in cluster, 0.30 x 0.11 m screen).
             let cz: Float = 0.64, cyy: Float = 1.12
@@ -85,8 +86,8 @@ public struct CascadiaCabInterior: RealArticulated {
             // Switch rows under the screen and left vents.
             m.add(VK.span(V3(-0.15, 0.74, 0.525), V3(0.15, 0.8, 0.55), trim, r: 0.004))
             if hi {
-                for k in 0..<7 { m.add(HK.box(V3(0.02, 0.026, 0.01), V3(-0.12 + Float(k) * 0.04, 0.77, 0.52), black, r: 0.004, seg: 1)) }
-                for k in 0..<5 { m.add(HK.box(V3(0.09, 0.004, 0.012), V3(cx + 0.38, 0.8 + Float(k) * 0.012, 0.52), black, r: 0.001, seg: 1)) }
+                for k in 0..<7 { m.add(fb(V3(0.02, 0.026, 0.01), V3(-0.12 + Float(k) * 0.04, 0.77, 0.52), black)) }
+                for k in 0..<5 { m.add(fb(V3(0.09, 0.004, 0.012), V3(cx + 0.38, 0.8 + Float(k) * 0.012, 0.52), black)) }
             }
             // Warning lamp strip above the cluster.
             m.add(HK.box(V3(0.14, 0.008, 0.004), V3(cx, cyy + 0.085, cz - 0.01), "emissive.led-red", r: 0.001, seg: 1))
@@ -109,7 +110,6 @@ public struct CascadiaCabInterior: RealArticulated {
             for (x0, x1) in [(Float(0.03), Float(1.0)), (Float(-1.0), Float(-0.03))] {
                 let c = gp((x0 + x1) / 2, 0.45)
                 m.add(HK.rect(glass, center: c, right: V3(-1, 0, 0), up: u, w: x1 - x0, h: 0.9))
-                m.add(HK.rect(glass, center: c, right: V3(1, 0, 0), up: u, w: x1 - x0, h: 0.9))
             }
             m.add(HK.pipe([gp(0, 0.0), gp(0, 0.92)], r: 0.018, sides: hi ? 8 : 5, mat: trim))
             m.add(HK.pipe([gp(-1.02, 0.92), gp(1.02, 0.92)], r: 0.022, sides: hi ? 8 : 5, mat: trim))
@@ -125,19 +125,18 @@ public struct CascadiaCabInterior: RealArticulated {
             for sg: Float in [-1, 1] {
                 let xi = sg * 1.06, xo = sg * 1.12
                 m.add(VK.span(V3(xi, 0.28, -0.55), V3(xo, 0.98, 0.9), "fabric.headliner:3A3C40", r: 0.008, seg: s))
-                m.add(VK.span(V3(xi - sg * 0.02, 0.62, -0.5), V3(xo, 0.7, 0.55), trim, r: 0.012, seg: s))
+                m.add(VK.span(V3(xi - sg * 0.02, 0.62, -0.5), V3(xo + sg * 0.004, 0.7, 0.55), trim, r: 0.012, seg: s))
                 m.add(VK.span(V3(xi - sg * 0.05, 0.76, -0.2), V3(xi, 0.82, 0.42), black, r: 0.015, seg: s))
-                m.add(VK.span(V3(xi - sg * 0.02, 0.93, -0.5), V3(xo, 1.0, 0.9), trim, r: 0.012, seg: s))
+                m.add(VK.span(V3(xi - sg * 0.03, 0.93, -0.5), V3(xo + sg * 0.008, 1.0, 0.9), trim, r: 0.012, seg: s))
                 // Window frame: B-pillar, A-pillar side, top rail around the opening z -0.5...0.78, y 1.0...1.75.
-                m.add(VK.span(V3(xi, 1.0, -0.58), V3(xo, 1.93, -0.5), trim, r: 0.01, seg: s))
-                m.add(VK.span(V3(xi, 1.75, -0.58), V3(xo, 1.82, 0.62), trim, r: 0.01, seg: s))
-                m.add(VK.span(V3(xi, 1.0, 0.76), V3(xo, 1.75, 0.84), trim, r: 0.01, seg: s))
+                m.add(VK.span(V3(xi - sg * 0.012, 1.0, -0.58), V3(xo + sg * 0.004, 1.93, -0.5), trim, r: 0.01, seg: s))
+                m.add(VK.span(V3(xi - sg * 0.024, 1.75, -0.5), V3(xo + sg * 0.008, 1.82, 0.62), trim, r: 0.01, seg: s))
+                m.add(VK.span(V3(xi - sg * 0.012, 1.0, 0.76), V3(xo + sg * 0.004, 1.75, 0.84), trim, r: 0.01, seg: s))
                 m.add(HK.rect(glass, center: V3(sg * 1.09, 1.375, 0.14), right: V3(0, 0, 1), up: .up, w: 1.26, h: 0.75))
-                m.add(HK.rect(glass, center: V3(sg * 1.09, 1.375, 0.14), right: V3(0, 0, -1), up: .up, w: 1.26, h: 0.75))
                 m.add(HK.cyl(r: 0.05, len: 0.012, at: V3(xi - sg * 0.006, 0.45, 0.2), axis: V3(-sg, 0, 0), mat: black, seg: hi ? 16 : 8, bevel: 0.003))
                 if hi {
                     m.add(HK.box(V3(0.03, 0.03, 0.16), V3(xi - sg * 0.04, 0.88, 0.1), chrome, r: 0.006, seg: 1))
-                    for k in 0..<4 { m.add(HK.box(V3(0.012, 0.014, 0.02), V3(xi - sg * 0.055, 0.795, -0.12 + Float(k) * 0.045), "plastic.gloss:2A2C2F", r: 0.003, seg: 1)) }
+                    for k in 0..<4 { m.add(fb(V3(0.012, 0.014, 0.02), V3(xi - sg * 0.055, 0.795, -0.12 + Float(k) * 0.045), "plastic.gloss:2A2C2F")) }
                 }
                 // West Coast mirror: two arms, black housing, chrome face (0.18 x 0.40 m).
                 let mx = sg * 1.42
@@ -152,11 +151,11 @@ public struct CascadiaCabInterior: RealArticulated {
             m.add(VK.span(V3(-1.1, 0.03, -1.0), V3(-0.45, 1.93, -0.94), wallM, r: 0.008))
             m.add(VK.span(V3(-0.45, 1.72, -1.0), V3(0.45, 1.93, -0.94), wallM, r: 0.008))
             m.add(VK.span(V3(-0.45, 0.03, -1.0), V3(0.45, 0.3, -0.94), wallM, r: 0.008))
-            m.add(VK.span(V3(-0.47, 0.3, -1.0), V3(-0.45, 1.72, -0.93), black, r: 0.002))
-            m.add(VK.span(V3(0.45, 0.3, -1.0), V3(0.47, 1.72, -0.93), black, r: 0.002))
+            m.add(VK.span(V3(-0.47, 0.3, -0.998), V3(-0.452, 1.72, -0.93), black, r: 0.002))
+            m.add(VK.span(V3(0.452, 0.3, -0.998), V3(0.47, 1.72, -0.93), black, r: 0.002))
             // Overhead console and sun visors.
             m.add(VK.span(V3(-0.5, 1.78, 0.0), V3(0.5, 1.9, 0.28), trim, r: 0.02, seg: s))
-            if hi { for k in 0..<8 { m.add(HK.box(V3(0.03, 0.006, 0.03), V3(-0.38 + Float(k) * 0.11, 1.775, 0.14), black, r: 0.002, seg: 1)) } }
+            if hi { for k in 0..<8 { m.add(fb(V3(0.03, 0.006, 0.03), V3(-0.38 + Float(k) * 0.11, 1.775, 0.14), black)) } }
             for vx in [cx, -cx] {
                 m.add(HK.box(V3(0.58, 0.02, 0.22), V3(vx, 1.8, 0.5), "fabric.headliner:55575A", r: 0.008, seg: s, rot: simd_quatf(angle: 0.35, axis: V3(1, 0, 0))))
                 m.add(HK.cyl(r: 0.007, len: 0.2, at: V3(vx + 0.31, 1.84, 0.6), axis: V3(1, 0, 0), mat: chrome, seg: 6))
@@ -166,33 +165,33 @@ public struct CascadiaCabInterior: RealArticulated {
                 let sz: Float = -0.3
                 m.add(VK.span(V3(sx - 0.24, 0.03, sz - 0.28), V3(sx + 0.24, 0.07, sz + 0.28), black, r: 0.008))
                 m.add(VK.span(V3(sx - 0.2, 0.07, sz - 0.2), V3(sx + 0.2, 0.3, sz + 0.2), "rubber.plate", r: 0.012, seg: s))
-                if hi { for k in 0..<5 { m.add(HK.box(V3(0.42, 0.01, 0.42), V3(sx, 0.1 + Float(k) * 0.04, sz), black, r: 0.004, seg: 1)) } }
+                if hi && driver { for k in 0..<5 { m.add(fb(V3(0.42, 0.01, 0.42), V3(sx, 0.1 + Float(k) * 0.04, sz), black)) } }
                 m.add(VK.span(V3(sx - 0.25, 0.3, sz - 0.28), V3(sx + 0.25, 0.37, sz + 0.28), black, r: 0.01, seg: s))
                 // Cushion and bolsters.
-                m.add(Prim.superellipsoid(V3(0.54, 0.14, 0.54), exponent: 5, subdivisions: hi ? 5 : 3, material: bolster), Xform(translation: V3(sx, 0.5, sz)))
-                if hi {
+                m.add(Prim.superellipsoid(V3(0.54, 0.14, 0.54), exponent: 5, subdivisions: 3, material: bolster), Xform(translation: V3(sx, 0.5, sz)))
+                if hi && driver {
                     let (cp, _) = tuftedPanel(width: 0.28, height: 0.42, spacing: V2(0.07, 0.07), puff: 0.024, edgeTuck: 0.02, cell: 0.05, material: seat)
                     m.add(cp, Xform(translation: V3(sx, 0.568, sz + 0.0), rotation: simd_quatf(angle: -.pi / 2, axis: V3(1, 0, 0))))
                 } else {
                     m.add(Prim.superellipsoid(V3(0.3, 0.06, 0.44), exponent: 5, subdivisions: 3, material: seat), Xform(translation: V3(sx, 0.55, sz)))
                 }
                 for sg: Float in [-1, 1] {
-                    m.add(Prim.superellipsoid(V3(0.1, 0.12, 0.5), exponent: 4, subdivisions: hi ? 5 : 3, material: driver && sg < 0 ? "vinyl.seat-grey:4A4C50" : bolster), Xform(translation: V3(sx + sg * 0.21, 0.56, sz)))
+                    m.add(Prim.superellipsoid(V3(0.1, 0.12, 0.5), exponent: 4, subdivisions: 3, material: driver && sg < 0 ? "vinyl.seat-grey:4A4C50" : bolster), Xform(translation: V3(sx + sg * 0.21, 0.56, sz)))
                 }
                 // High back: shell, quilted center, bolsters, headrest, lumbar.
                 let tilt = simd_quatf(angle: -0.14, axis: V3(1, 0, 0))
                 let bz = sz - 0.28
-                m.add(Prim.superellipsoid(V3(0.54, 0.86, 0.11), exponent: 5, subdivisions: hi ? 5 : 3, material: bolster), Xform(translation: V3(sx, 1.0, bz), rotation: tilt))
-                if hi {
+                m.add(Prim.superellipsoid(V3(0.54, 0.86, 0.11), exponent: 5, subdivisions: 3, material: bolster), Xform(translation: V3(sx, 1.0, bz), rotation: tilt))
+                if hi && driver {
                     let (bp, _) = tuftedPanel(width: 0.3, height: 0.66, spacing: V2(0.075, 0.095), puff: 0.026, edgeTuck: 0.02, cell: 0.05, material: seat)
                     m.add(bp, Xform(translation: tilt.act(V3(0, 0.0, 0.055)) + V3(sx, 0.98, bz), rotation: tilt))
                 } else {
                     m.add(Prim.superellipsoid(V3(0.3, 0.66, 0.05), exponent: 5, subdivisions: 3, material: seat), Xform(translation: tilt.act(V3(0, 0, 0.045)) + V3(sx, 0.98, bz), rotation: tilt))
                 }
                 for sg: Float in [-1, 1] {
-                    m.add(Prim.superellipsoid(V3(0.11, 0.8, 0.15), exponent: 4, subdivisions: hi ? 5 : 3, material: bolster), Xform(translation: tilt.act(V3(sg * 0.2, 0, 0.03)) + V3(sx, 1.0, bz), rotation: tilt))
+                    m.add(Prim.superellipsoid(V3(0.11, 0.8, 0.15), exponent: 4, subdivisions: 3, material: bolster), Xform(translation: tilt.act(V3(sg * 0.2, 0, 0.03)) + V3(sx, 1.0, bz), rotation: tilt))
                 }
-                m.add(Prim.superellipsoid(V3(0.34, 0.22, 0.1), exponent: 4, subdivisions: hi ? 5 : 3, material: seat), Xform(translation: tilt.act(V3(0, 0.0, 0.0)) + V3(sx, 1.5, bz - 0.04), rotation: tilt))
+                m.add(Prim.superellipsoid(V3(0.34, 0.22, 0.1), exponent: 4, subdivisions: 3, material: seat), Xform(translation: tilt.act(V3(0, 0.0, 0.0)) + V3(sx, 1.5, bz - 0.04), rotation: tilt))
                 m.add(HK.cyl(r: 0.008, len: 0.1, at: V3(sx - 0.05, 1.41, bz - 0.04), axis: .up, mat: chrome, seg: 6))
                 m.add(HK.cyl(r: 0.008, len: 0.1, at: V3(sx + 0.05, 1.41, bz - 0.04), axis: .up, mat: chrome, seg: 6))
                 // Armrests.
@@ -201,6 +200,48 @@ public struct CascadiaCabInterior: RealArticulated {
                     m.add(HK.box(V3(0.075, 0.055, 0.3), V3(sx + sg * 0.3, 0.77, sz - 0.14), bolster, r: 0.02, seg: s))
                 }
             }
+            // Headliner: flat ceiling and sloped front panel, set 5 mm above the rail pipes' underside.
+            let hl: MaterialKey = "fabric.headliner:4A4C50"
+            m.add(HK.rect(hl, center: V3(0, 1.9545, -0.135), right: V3(-1, 0, 0), up: V3(0, 0, 1), w: 2.1, h: 0.83))
+            let fa = gp(0, 0.95) + V3(0, -0.012, 0), fq = V3(0, 1.95, 0.3)
+            m.add(HK.rect(hl, center: (fa + fq) / 2, right: V3(-1, 0, 0), up: simd_normalize(fa - fq), w: 2.1, h: simd_length(fa - fq)))
+            // Rear side panels behind the doors, door skirts and sill plates.
+            let skirt: MaterialKey = "plastic.dash:35373A"
+            for sg: Float in [-1, 1] {
+                let xi = sg * 1.06, xo = sg * 1.12
+                m.add(VK.span(V3(xi - sg * 0.003, 0.03, -0.95), V3(xo, 1.93, -0.56), "fabric.headliner:3A3C40", r: 0.008, seg: s))
+                m.add(VK.span(V3(xi - sg * 0.004, 0.03, -0.55), V3(xo, 0.285, 0.9), skirt, r: 0.006, seg: s))
+                m.add(VK.span(V3(xi - sg * 0.05, 0.03, -0.4), V3(xi - sg * 0.006, 0.036, 0.8), "metal.aluminum-brushed", r: 0.002))
+            }
+            // Sleeper curtain: pleated panel pulled across the left of the doorway.
+            for k in 0..<9 {
+                let px = -0.43 + Float(k) * 0.05
+                m.add(VK.span(V3(px, 0.3, -0.935 + (k % 2 == 0 ? 0 : 0.012)), V3(px + 0.048, 1.72, -0.9 + (k % 2 == 0 ? 0 : 0.012)), "fabric.upholstery:3A3D46", r: 0.01, seg: 1))
+            }
+            m.add(HK.pipe([V3(-0.46, 1.72, -0.895), V3(0.46, 1.72, -0.895)], r: 0.008, sides: 6, mat: chrome))
+            // Exterior seen through the windshield: hood, fender tops, wiper cowl.
+            let paint: MaterialKey = "metal.painted:D5D9DC"
+            m.add(VK.span(V3(-0.78, 0.88, 1.14), V3(0.78, 1.0, 1.5), paint, r: 0.03, seg: 2))
+            for sg: Float in [-1, 1] {
+                m.add(VK.span(V3(sg * 0.8, 0.84, 1.14), V3(sg * 1.12, 0.94, 1.4), paint, r: 0.03, seg: 2))
+            }
+            m.add(VK.span(V3(-1.04, 0.93, 1.0), V3(1.04, 0.99, 1.13), "plastic.black", r: 0.01, seg: 1))
+            // Dash details: round vents, HVAC knobs, switch bank, cup holders.
+            for vx in [Float(-0.3), 0.3, cx + 0.36, cx - 0.3] {
+                m.add(HK.cyl(r: 0.04, len: 0.03, at: V3(vx, 0.9, 0.52), axis: V3(0, 0, -1), mat: black, seg: hi ? 16 : 8, bevel: 0.004))
+                if hi { for k in 0..<4 { m.add(fb(V3(0.07, 0.004, 0.006), V3(vx, 0.9 + (Float(k) - 1.5) * 0.014, 0.503), "plastic.gloss:2A2C2F")) } }
+            }
+            for k in 0..<3 {
+                m.add(HK.cyl(r: 0.017, len: 0.02, at: V3(-0.09 + Float(k) * 0.09, 0.665, 0.52), axis: V3(0, 0, -1), mat: k == 1 ? "plastic.gloss:7A7D80" : black, seg: hi ? 14 : 8, bevel: 0.002))
+            }
+            if hi {
+                for k in 0..<6 { m.add(fb(V3(0.026, 0.02, 0.01), V3(cx + 0.55 + Float(k % 3) * 0.04, 0.82 + Float(k / 3) * 0.03, 0.4), black)) }
+                for sx: Float in [-1, 1] {
+                    m.add(Prim.torus(major: 0.036, minor: 0.003, segments: 20, sides: 4, material: chrome).transformed(Xform(translation: V3(sx * 0.055, 0.4775, -0.15))))
+                    m.add(HK.cyl(r: 0.034, len: 0.004, at: V3(sx * 0.055, 0.4765, -0.15), axis: .up, mat: "plastic.gloss:0C0D0F", seg: 16, bevel: 0.0005))
+                }
+            }
+            m.add(HK.cyl(r: 0.08, len: 0.1, at: Self.steeringCenter - Self.steeringAxis * 0.33, axis: Self.steeringAxis, mat: dash, seg: hi ? 16 : 8, bevel: 0.01))
             rig.base[l] = m
         }
 
