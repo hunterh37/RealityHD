@@ -8,7 +8,7 @@ import Foundation
 public struct NeonBladeSignVertical: RealAsset {
     public static let id = "neon-blade-sign-vertical"
     public static let summary = "Mid-century Commercial vertical neon blade sign, 0.6 x 2.0 m: steel cabinet, glass neon tubes, standoffs, transformer, wall brackets, conduit."
-    public static let tags = ["prop", "architecture", "facade", "signage", "metal"]
+    public static let tags = ["prop", "architecture", "facade", "sign", "metal"]
     public static let budget = 15000
     public static let author = "realityhd"
     public static let preview = PreviewHint(azimuth: 22, elevation: 5, distance: 3.6)

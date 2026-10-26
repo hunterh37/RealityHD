@@ -8,7 +8,7 @@ import Foundation
 public struct VitroliteStorefrontPanel: RealAsset {
     public static let id = "vitrolite-storefront-panel"
     public static let summary = "Art Moderne Vitrolite storefront panel, 1.2 x 2.4 m: structural glass slabs, stainless reveals, kickplate, grooved bands, screw caps, chips."
-    public static let tags = ["prop", "architecture", "facade", "walls", "stone"]
+    public static let tags = ["prop", "architecture", "facade", "wall", "stone"]
     public static let budget = 15000
     public static let author = "realityhd"
     public static let preview = PreviewHint(azimuth: 24, elevation: 6, distance: 3.3)

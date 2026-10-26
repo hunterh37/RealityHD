@@ -7,7 +7,7 @@ import Foundation
 public struct GlassPrismTransomRow: RealAsset {
     public static let id = "glass-prism-transom-row"
     public static let summary = "Victorian Commercial glass prism transom row, 2.0 x 0.4 m: eight prism tiles in a cast iron grid, rail, sill, brackets, fasteners, grime."
-    public static let tags = ["prop", "architecture", "facade", "openings", "metal"]
+    public static let tags = ["prop", "architecture", "facade", "window", "metal"]
     public static let budget = 15000
     public static let author = "realityhd"
     public static let preview = PreviewHint(azimuth: 28, elevation: 6, distance: 2.7)
