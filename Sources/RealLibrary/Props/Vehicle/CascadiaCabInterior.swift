@@ -29,7 +29,7 @@ public struct CascadiaCabInterior: RealArticulated {
     public static let steeringAxis = simd_normalize(V3(0, 0.5, -0.87))
 
     /// Dash plastic.
-    public var dash: MaterialKey = "plastic.dash:70747A"
+    public var dash: MaterialKey = "plastic.dash:4A4D52"
     /// Seat upholstery (center panels).
     public var seat: MaterialKey = "vinyl.seat-grey"
     /// Seat bolsters and trim.
@@ -39,7 +39,7 @@ public struct CascadiaCabInterior: RealArticulated {
     public func rig(seed: UInt64) -> Rig {
         var rig = Rig(name: Self.id, lods: 2, switchDistances: [5])
         let black: MaterialKey = "plastic.black", chrome: MaterialKey = "metal.chrome"
-        let trim: MaterialKey = "plastic.dash:8A8D92", glass: MaterialKey = "glass.cabin"
+        let trim: MaterialKey = "plastic.dash:3C3E42", glass: MaterialKey = "glass.cabin"
         let cx = Self.dx
         // Windshield plane: bottom edge at (z 1.05, y 0.98), rake up and back.
         let u = simd_normalize(V3(0, 0.903, -0.43)), n = simd_normalize(V3(0, 0.43, 0.903))
@@ -54,8 +54,10 @@ public struct CascadiaCabInterior: RealArticulated {
             let hi = l == 0
             let s = hi ? 2 : 1
             // Floor, driver mat, center console, step sill.
-            m.add(VK.span(V3(-1.1, 0, -0.95), V3(1.1, 0.03, 0.95), "rubber.floor-mat:77797C", r: 0.006))
+            m.add(VK.span(V3(-1.1, 0, -0.95), V3(1.1, 0.03, 0.95), "rubber.floor-mat:3A3B3E", r: 0.006))
             m.add(VK.span(V3(cx - 0.4, 0.03, -0.1), V3(cx + 0.4, 0.034, 0.95), "rubber.floor-mat:2A2B2D", r: 0.002))
+            // Wear: scuffed lighter mat patch under the pedals and a worn driver seat entry bolster.
+            m.add(VK.span(V3(cx - 0.22, 0.034, 0.5), V3(cx + 0.2, 0.0355, 0.84), "rubber.floor-mat:55575A", r: 0.001))
             if hi { for k in 0..<10 { m.add(cuboid(V3(0.7, 0.004, 0.01), material: "rubber.floor-mat"), Xform(translation: V3(cx, 0.036, 0.1 + Float(k) * 0.08))) } }
             m.add(VK.span(V3(-0.14, 0.03, -0.45), V3(0.14, 0.46, 0.5), trim, r: 0.02, seg: s))
             m.add(VK.span(V3(-0.11, 0.46, -0.3), V3(0.11, 0.475, 0.0), "plastic.gloss:121417", r: 0.004))
@@ -122,7 +124,7 @@ public struct CascadiaCabInterior: RealArticulated {
             // Door panels at x = +/-1.1 with window openings, glass, pulls, armrests, switch pods, speakers.
             for sg: Float in [-1, 1] {
                 let xi = sg * 1.06, xo = sg * 1.12
-                m.add(VK.span(V3(xi, 0.28, -0.55), V3(xo, 0.98, 0.9), "fabric.headliner:8C8D90", r: 0.008, seg: s))
+                m.add(VK.span(V3(xi, 0.28, -0.55), V3(xo, 0.98, 0.9), "fabric.headliner:3A3C40", r: 0.008, seg: s))
                 m.add(VK.span(V3(xi - sg * 0.02, 0.62, -0.5), V3(xo, 0.7, 0.55), trim, r: 0.012, seg: s))
                 m.add(VK.span(V3(xi - sg * 0.05, 0.76, -0.2), V3(xi, 0.82, 0.42), black, r: 0.015, seg: s))
                 m.add(VK.span(V3(xi - sg * 0.02, 0.93, -0.5), V3(xo, 1.0, 0.9), trim, r: 0.012, seg: s))
@@ -145,7 +147,7 @@ public struct CascadiaCabInterior: RealArticulated {
                 m.add(HK.rect("metal.chrome", center: V3(mx - sg * 0.024, 1.32, 0.9), right: V3(0, 0, sg), up: .up, w: 0.18, h: 0.4))
             }
             // Sleeper opening: rear wall with a doorway behind the seats.
-            let wallM: MaterialKey = "plastic.dash:5A5C5F"
+            let wallM: MaterialKey = "plastic.dash:35373A"
             m.add(VK.span(V3(0.45, 0.03, -1.0), V3(1.1, 1.93, -0.94), wallM, r: 0.008))
             m.add(VK.span(V3(-1.1, 0.03, -1.0), V3(-0.45, 1.93, -0.94), wallM, r: 0.008))
             m.add(VK.span(V3(-0.45, 1.72, -1.0), V3(0.45, 1.93, -0.94), wallM, r: 0.008))
@@ -169,20 +171,20 @@ public struct CascadiaCabInterior: RealArticulated {
                 // Cushion and bolsters.
                 m.add(Prim.superellipsoid(V3(0.54, 0.14, 0.54), exponent: 5, subdivisions: hi ? 5 : 3, material: bolster), Xform(translation: V3(sx, 0.5, sz)))
                 if hi {
-                    let (cp, _) = tuftedPanel(width: 0.28, height: 0.42, spacing: V2(0.07, 0.07), puff: 0.012, edgeTuck: 0.012, cell: 0.05, material: seat)
+                    let (cp, _) = tuftedPanel(width: 0.28, height: 0.42, spacing: V2(0.07, 0.07), puff: 0.024, edgeTuck: 0.02, cell: 0.05, material: seat)
                     m.add(cp, Xform(translation: V3(sx, 0.568, sz + 0.0), rotation: simd_quatf(angle: -.pi / 2, axis: V3(1, 0, 0))))
                 } else {
                     m.add(Prim.superellipsoid(V3(0.3, 0.06, 0.44), exponent: 5, subdivisions: 3, material: seat), Xform(translation: V3(sx, 0.55, sz)))
                 }
                 for sg: Float in [-1, 1] {
-                    m.add(Prim.superellipsoid(V3(0.1, 0.12, 0.5), exponent: 4, subdivisions: hi ? 5 : 3, material: bolster), Xform(translation: V3(sx + sg * 0.21, 0.56, sz)))
+                    m.add(Prim.superellipsoid(V3(0.1, 0.12, 0.5), exponent: 4, subdivisions: hi ? 5 : 3, material: driver && sg < 0 ? "vinyl.seat-grey:4A4C50" : bolster), Xform(translation: V3(sx + sg * 0.21, 0.56, sz)))
                 }
                 // High back: shell, quilted center, bolsters, headrest, lumbar.
                 let tilt = simd_quatf(angle: -0.14, axis: V3(1, 0, 0))
                 let bz = sz - 0.28
                 m.add(Prim.superellipsoid(V3(0.54, 0.86, 0.11), exponent: 5, subdivisions: hi ? 5 : 3, material: bolster), Xform(translation: V3(sx, 1.0, bz), rotation: tilt))
                 if hi {
-                    let (bp, _) = tuftedPanel(width: 0.3, height: 0.66, spacing: V2(0.075, 0.095), puff: 0.014, edgeTuck: 0.012, cell: 0.05, material: seat)
+                    let (bp, _) = tuftedPanel(width: 0.3, height: 0.66, spacing: V2(0.075, 0.095), puff: 0.026, edgeTuck: 0.02, cell: 0.05, material: seat)
                     m.add(bp, Xform(translation: tilt.act(V3(0, 0.0, 0.055)) + V3(sx, 0.98, bz), rotation: tilt))
                 } else {
                     m.add(Prim.superellipsoid(V3(0.3, 0.66, 0.05), exponent: 5, subdivisions: 3, material: seat), Xform(translation: tilt.act(V3(0, 0, 0.045)) + V3(sx, 0.98, bz), rotation: tilt))
