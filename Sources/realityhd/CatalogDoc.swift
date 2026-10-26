@@ -16,7 +16,7 @@ func catalogCommand() throws {
             let m = t.init().build(seed: 1)
             let tris = m.levels.map { "\($0.triangleCount)" }.joined(separator: " / ")
             let mats = m.levels[0].materials.map { "`\($0)`" }.joined(separator: " ")
-            md += "| [`\(t.id)`](docs/assets/\(t.id).png) | \(t.tags.joined(separator: ", ")) | \(tris) | \(t.budget) | \(mats) | \(t.author) | \(t.summary) |\n"
+            md += "| `\(t.id)` | \(t.tags.joined(separator: ", ")) | \(tris) | \(t.budget) | \(mats) | \(t.author) | \(t.summary) |\n"
         }
     }
     md += "\n## Articulated\n\nLive with `RealityHD.articulated(id)` or `scene.addLive`; bake one state with `build(seed:state:)`. `realityhd states <id>` renders every state.\n\n"
@@ -28,7 +28,7 @@ func catalogCommand() throws {
             return "`\(p.name)` \(fmtRange(p.joint.range))\(unit)"
         }
         let tris = rig.stateNames.map { rig.posed($0).levels[0].triangleCount }
-        md += "| [`\(t.id)`](docs/assets/\(t.id).png) | \(rig.stateNames.joined(separator: ", ")) | \(joints.joined(separator: ", ")) | \(tris.min() ?? 0)-\(tris.max() ?? 0) |\n"
+        md += "| `\(t.id)` | \(rig.stateNames.joined(separator: ", ")) | \(joints.joined(separator: ", ")) | \(tris.min() ?? 0)-\(tris.max() ?? 0) |\n"
     }
     md += "\n## Scenes\n\n| id | tags | author | summary |\n|---|---|---|---|\n"
     for s in SceneCatalog.all {

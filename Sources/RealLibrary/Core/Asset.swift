@@ -11,7 +11,6 @@ import Foundation
 /// - `build(seed:)` is deterministic; LOD 0 has triangles within `budget`; LODs get cheaper.
 /// - Every surface uses a `MaterialLibrary` key (optionally with a `:RRGGBB` tint).
 /// - Meters, +Y up, base at y = 0, centered on X/Z.
-/// - `docs/assets/<id>.png` exists (`swift run -q realityhd thumbs <id>`).
 public protocol RealAsset: Sendable {
     static var id: String { get }
     static var summary: String { get }

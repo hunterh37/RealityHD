@@ -61,11 +61,6 @@ import RealMaterials
         for seed: UInt64 in [1, 2, 99] { #expect(t.init().build(seed: seed).levels[0].triangleCount > 0) }
     }
 
-    @Test(arguments: Catalog.assets.map { $0.id })
-    func thumbnail(_ id: String) {
-        #expect(exists("docs/assets/\(id).png"), "\(id): missing docs/assets/\(id).png, run `swift run -q realityhd thumbs \(id)`")
-    }
-
     /// One asset per file, named after the type, under the kind's folder.
     @Test func sourceLayout() {
         let files = swiftFiles(under: "Sources/RealLibrary")

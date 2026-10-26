@@ -35,6 +35,7 @@ public enum TextureProgram: Int32, Sendable, CaseIterable {
     case fishSkin, fishFin, fishEye
     case perforatedSheet
     case solarCell
+    case pinstripe
 }
 
 /// A fully specified PBR material: which texture program, its colors/knobs, and how RealityKit should
