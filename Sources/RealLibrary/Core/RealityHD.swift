@@ -1,3 +1,4 @@
+import RealMaterials
 import Foundation
 import RealityKit
 import RealKit
@@ -19,6 +20,13 @@ public enum RealityHD {
     public static func setup(_ settings: RealPerformance) {
         RealKitSetup.register()
         RealPerformance.current = settings
+        Task { await TextureSynth.warmUp() }
+    }
+
+    /// Await before the first `environment`, `entity` or `scene` call on the main thread (for example
+    /// before `openImmersiveSpace`). Compiles texture-synthesis shaders off the main thread.
+    public static func prepare() async {
+        await TextureSynth.warmUp()
     }
 
     /// Register systems/components and restore settings saved with `RealPerformance.save()`
@@ -36,6 +44,7 @@ public enum RealityHD {
     public static func setup(quality: RealQuality.Preset) {
         RealQuality.apply(quality)
         RealKitSetup.register()
+        Task { await TextureSynth.warmUp() }
     }
 
     /// The active performance settings. Assigning applies live settings at once; build-time settings
