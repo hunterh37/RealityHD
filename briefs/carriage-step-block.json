@@ -1,0 +1,43 @@
+{
+  "budget": 14000,
+  "id": "carriage-step-block",
+  "kind": "prop",
+  "materials": [
+    "stone.brownstone",
+    "stone.brownstone-sooted",
+    "stone.slate",
+    "stone.sandstone",
+    "metal.cast-iron-worn",
+    "metal.rust"
+  ],
+  "name": "Carriage step block",
+  "notes": "",
+  "parts": [
+    "stepped monolith",
+    "rock-faced sides",
+    "chiselled draft margins",
+    "tooled top",
+    "worn dip",
+    "iron ring bolt",
+    "moss at base",
+    "chipped arris"
+  ],
+  "references": [],
+  "size": [
+    0.8,
+    0.3,
+    0.5
+  ],
+  "style": "architectural facade customizer, Colonial",
+  "summary": "Carriage step block 0.8 m: two-tier cut stone monolith with rock-faced sides, chiselled margins, a worn tread dip and an iron ring bolt.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

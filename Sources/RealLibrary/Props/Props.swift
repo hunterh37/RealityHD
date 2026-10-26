@@ -1127,6 +1127,10 @@ public enum Props {
         LowBrickGardenWall.self,
         CurvedConcreteRetainingWall.self,
         StoneStepsWithRisers.self,
+        BrickStoopWithIronRails.self,
+        GraniteCurbStep.self,
+        CarriageStepBlock.self,
+        MountingBlockStone.self,
         // realityhd:prop
     ]
 }

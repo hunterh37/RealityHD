@@ -77,3 +77,50 @@ extension FE {
               Xform(translation: V3((x0 + x1) / 2, (y0 + y1) / 2, zc)))
     }
 }
+
+extension FE {
+    /// Smooth 3D value noise in -1...1 (hash lattice), deterministic per seed.
+    static func noise(_ p: V3, seed: Float) -> Float {
+        func h(_ x: Float, _ y: Float, _ z: Float) -> Float {
+            let v = sin(x * 127.1 + y * 311.7 + z * 74.7 + seed * 19.19) * 43758.5453
+            return (v - v.rounded(.down)) * 2 - 1
+        }
+        let ix = p.x.rounded(.down), iy = p.y.rounded(.down), iz = p.z.rounded(.down)
+        let fx = p.x - ix, fy = p.y - iy, fz = p.z - iz
+        let u = fx * fx * (3 - 2 * fx), v = fy * fy * (3 - 2 * fy), w = fz * fz * (3 - 2 * fz)
+        func l(_ a: Float, _ b: Float, _ t: Float) -> Float { a + (b - a) * t }
+        let c00 = l(h(ix, iy, iz), h(ix + 1, iy, iz), u), c10 = l(h(ix, iy + 1, iz), h(ix + 1, iy + 1, iz), u)
+        let c01 = l(h(ix, iy, iz + 1), h(ix + 1, iy, iz + 1), u), c11 = l(h(ix, iy + 1, iz + 1), h(ix + 1, iy + 1, iz + 1), u)
+        return l(l(c00, c10, v), l(c01, c11, v), w)
+    }
+
+    /// Rock-faced block: subdivided rounded box displaced by noise, with a smooth chisel-drafted margin
+    /// of `margin` meters along every edge. `amp` is the relief in meters.
+    static func rockBlock(_ m: inout Model, _ size: V3, _ c: V3, _ mat: MaterialKey, seed: Float, amp: Float = 0.008, margin: Float = 0.03,
+                          r: Float = 0.008, flatTop: Bool = true, yaw: Float = 0, subs: Int = 2) {
+        var s = Prim.roundedBox(size, radius: r, bevelSegments: 1, material: mat)
+        for _ in 0..<subs { s = s.subdivided() }
+        let h = size / 2
+        s.displace { p, n in
+            let d = min(h.x - abs(p.x), min(h.y - abs(p.y), h.z - abs(p.z)))
+            // Distance to the nearest edge along the face plane.
+            var e: Float = 1e9
+            let dx = h.x - abs(p.x), dy = h.y - abs(p.y), dz = h.z - abs(p.z)
+            if abs(n.x) > 0.7 { e = min(dy, dz) } else if abs(n.y) > 0.7 { e = min(dx, dz) } else { e = min(dx, dy) }
+            _ = d
+            if flatTop && n.y > 0.7 { return 0.0006 * noise(p * 60, seed: seed) }
+            let t = max(0, min(1, (e - margin * 0.4) / margin))
+            let w = t * t * (3 - 2 * t)
+            let big = noise(p * 14, seed: seed), fine = noise(p * 45, seed: seed + 3)
+            return amp * w * (0.7 * big + 0.3 * fine)
+        }
+        m.add(s, Xform(translation: c, rotation: FA.q(yaw, FA.Y)))
+    }
+}
+
+extension FE {
+    /// Soft elliptical stain lying on a horizontal surface.
+    static func stain(_ m: inout Model, _ c: V3, w: Float, d: Float, _ mat: MaterialKey, yaw: Float = 0) {
+        m.add(Prim.superellipsoid(V3(w, 0.0016, d), exponent: 2, subdivisions: 3, material: mat), Xform(translation: c, rotation: FA.q(yaw, FA.Y)))
+    }
+}
