@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "cast-iron-boot-scraper-step",
+  "kind": "prop",
+  "materials": [
+    "metal.wrought-iron",
+    "metal.cast-iron",
+    "metal.rust",
+    "metal.bolt-bright"
+  ],
+  "name": "Cast iron boot scraper",
+  "notes": "",
+  "parts": [
+    "base plate",
+    "drain slots",
+    "end plates",
+    "scroll cutouts",
+    "scraper blade",
+    "lower blade",
+    "fixing bolts",
+    "feet"
+  ],
+  "references": [],
+  "size": [
+    0.4,
+    0.25,
+    0.2
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Victorian cast-iron boot scraper, 0.4 x 0.25 x 0.2 m: slotted base plate, two scrolled end plates and a bevelled scraper blade with a lower bar.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

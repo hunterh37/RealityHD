@@ -1,0 +1,45 @@
+{
+  "budget": 15000,
+  "id": "haussmann-balcony-continuous",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "metal.wrought-iron",
+    "metal.rust",
+    "metal.bolt-bright"
+  ],
+  "name": "Haussmann continuous balcony",
+  "notes": "",
+  "parts": [
+    "stone slab",
+    "moulded slab edge",
+    "stone corbels",
+    "iron handrail",
+    "balusters",
+    "scroll panels",
+    "end posts",
+    "bottom rail",
+    "finial caps",
+    "drip groove"
+  ],
+  "references": [],
+  "size": [
+    6.0,
+    1.0,
+    0.9
+  ],
+  "style": "architectural facade customizer, Haussmann",
+  "summary": "Haussmann continuous balcony, 6.0 x 1.0 x 0.9 m: limestone slab on end corbels with an iron railing of scroll panels between posts.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "stone",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

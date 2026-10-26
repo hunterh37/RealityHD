@@ -1,0 +1,45 @@
+{
+  "budget": 15000,
+  "id": "timber-frame-jettied-corner",
+  "kind": "prop",
+  "materials": [
+    "wood.weathered",
+    "wood.oak",
+    "paint.stucco",
+    "stone.limestone",
+    "metal.cast-iron"
+  ],
+  "name": "Timber frame jettied corner",
+  "notes": "",
+  "parts": [
+    "corner post",
+    "dragon beam",
+    "jetty joist ends",
+    "bressumer",
+    "studs",
+    "diagonal braces",
+    "wattle and daub infill",
+    "sill beam",
+    "plinth",
+    "pegged joints",
+    "jowled post head"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    2.8,
+    1.5
+  ],
+  "style": "architectural facade customizer, Medieval Tudor",
+  "summary": "Medieval Tudor jettied corner, 1.5 x 2.8 x 1.5 m: oak frame with a corner post, dragon beam and joist ends carrying an overhanging upper storey of studs, braces and plaster infill.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

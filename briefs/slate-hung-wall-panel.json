@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "slate-hung-wall-panel",
+  "kind": "prop",
+  "materials": [
+    "stone.slate",
+    "stone.slate-aged",
+    "wood.trim-weathered",
+    "metal.copper",
+    "metal.rust"
+  ],
+  "name": "Slate hung wall panel",
+  "notes": "",
+  "parts": [
+    "slate courses",
+    "staggered joints",
+    "battens",
+    "underlay",
+    "copper nails",
+    "lead verge flashing",
+    "timber edge trim",
+    "head lap"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    2.0,
+    0.05
+  ],
+  "style": "architectural facade customizer, Cornish Vernacular",
+  "summary": "Cornish slate-hung wall panel, 1.2 x 2.0 m: staggered courses of riven slate over battens and underlay, copper nailed, lead verge flashing and timber edge trim.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

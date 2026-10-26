@@ -1,0 +1,43 @@
+{
+  "budget": 15000,
+  "id": "carved-stone-stoup-niche",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "stone.sandstone",
+    "stone.granite-moss"
+  ],
+  "name": "Carved stone stoup niche",
+  "notes": "",
+  "parts": [
+    "pointed arch niche",
+    "hood mould",
+    "crockets",
+    "finial",
+    "trefoil head",
+    "colonettes",
+    "capitals",
+    "stoup basin",
+    "corbel",
+    "back wall"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    1.1,
+    0.3
+  ],
+  "style": "architectural facade customizer, Gothic Revival",
+  "summary": "Gothic Revival stoup niche, 0.6 x 1.1 m: limestone block with a pointed arch, hood mould with crockets and finial, trefoil head, colonettes and a carved basin on a corbel.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
