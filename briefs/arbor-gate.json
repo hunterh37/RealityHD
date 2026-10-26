@@ -1,0 +1,40 @@
+{
+  "budget": 12000,
+  "id": "arbor-gate",
+  "kind": "prop",
+  "materials": [
+    "wood.cedar",
+    "wood.cedar-weathered",
+    "metal.wrought-iron"
+  ],
+  "name": "Arbor gate",
+  "notes": "",
+  "parts": [
+    "posts",
+    "arched top",
+    "lattice side panels",
+    "picket gate leaf",
+    "strap hinges",
+    "latch",
+    "post caps",
+    "cross rails"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    2.4,
+    0.6
+  ],
+  "style": "architectural facade customizer, Cottage",
+  "summary": "Cottage garden arbor with arched head, lattice sides and picket gate, painted cedar",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

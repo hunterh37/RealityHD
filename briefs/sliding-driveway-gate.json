@@ -1,0 +1,40 @@
+{
+  "budget": 12000,
+  "id": "sliding-driveway-gate",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat-worn",
+    "metal.galvanized",
+    "metal.stainless"
+  ],
+  "name": "Sliding driveway gate",
+  "notes": "",
+  "parts": [
+    "steel frame",
+    "infill slats",
+    "top track rail",
+    "guide rollers",
+    "bottom rail",
+    "drive rack",
+    "tail wheels",
+    "gate post",
+    "receiver post"
+  ],
+  "references": [],
+  "size": [
+    4.0,
+    1.8,
+    0.1
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Contemporary cantilever sliding gate, aluminium slat infill in steel frame with rack and rollers",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

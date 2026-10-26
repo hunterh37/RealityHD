@@ -1,0 +1,39 @@
+{
+  "budget": 12000,
+  "id": "gabion-wall-section",
+  "kind": "prop",
+  "materials": [
+    "stone.granite-paver",
+    "stone.sandstone",
+    "metal.galvanized",
+    "stone.wall-block"
+  ],
+  "name": "Gabion wall section",
+  "notes": "",
+  "parts": [
+    "welded wire cages",
+    "stacked stone fill",
+    "corner posts",
+    "spiral binders",
+    "top lid mesh",
+    "stone variation",
+    "stepped cells"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    1.0,
+    0.4
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Contemporary gabion wall, galvanized welded wire baskets filled with angular stone",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
