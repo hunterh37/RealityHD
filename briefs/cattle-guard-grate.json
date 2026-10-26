@@ -5,8 +5,10 @@
   "materials": [
     "metal.galvanized-aged",
     "metal.rust",
+    "metal.rust-grime",
+    "metal.steel",
     "concrete.rough",
-    "metal.steel"
+    "asphalt.worn"
   ],
   "name": "Cattle guard grate",
   "notes": "",
