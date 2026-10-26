@@ -1043,6 +1043,7 @@ public enum Props {
         DownspoutCollectorHead.self,
         CopperDownspoutStraight.self,
         BoxGutterHopperHead.self,
+        CascadiaCabInterior.self,
         // realityhd:prop
     ]
 }
