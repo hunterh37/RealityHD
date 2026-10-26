@@ -91,3 +91,48 @@ extension FG {
         slab(&m, size, V3(u, y, out).rotated(by: rot), mat, rot: rot)
     }
 }
+
+extension FG {
+    /// Flat-profile board bent along an arc in the XY plane at depth z: segmental arch with half-width `a`,
+    /// rise `s`, springing at `y0`; board `thick` along Z and `depth` radially. Returns the centreline points.
+    @discardableResult
+    static func archBoard(_ m: inout Model, a: Float, rise s: Float, y0: Float, z: Float, thick: Float, depth: Float,
+                          _ mat: MaterialKey, steps: Int = 14) -> [V3] {
+        let R = (a * a + s * s) / (2 * s), cy = y0 + s - R, t0 = asin(a / R)
+        var pts: [V3] = []
+        for i in 0...steps {
+            let t = -t0 + 2 * t0 * Float(i) / Float(steps)
+            pts.append(V3(R * sin(t), cy + R * cos(t), z))
+        }
+        m.add(Prim.sweep(Shape2D.rect(thick, depth), along: pts, up: V3(0, 0, 1), caps: true, grainAlongPath: true, material: mat))
+        return pts
+    }
+    /// Pointed picket outline (flat, extruded along Z) standing on y = 0.
+    static func pointedPicket(_ m: inout Model, x: Float, y: Float, w: Float, h: Float, tip: Float, z: Float, thick: Float, _ mat: MaterialKey) {
+        let o: [V2] = [V2(-w / 2, 0), V2(w / 2, 0), V2(w / 2, h), V2(0, h + tip), V2(-w / 2, h)]
+        m.add(Prim.extrude(o, depth: thick, bevel: 0.0015, bevelSegments: 1, material: mat), Xform(translation: V3(x, y, z)))
+    }
+    /// Diagonal lattice of thin laths clipped to a rectangle in the YZ plane at x (z0..z1, y0..y1).
+    static func lattice(_ m: inout Model, x: Float, z0: Float, z1: Float, y0: Float, y1: Float, pitch: Float, lath: Float,
+                        _ mat: MaterialKey) {
+        let w = z1 - z0, h = y1 - y0
+        for dir in [-1, 1] as [Float] {
+            let layer: Float = dir > 0 ? 0 : lath * 1.1
+            var c: Float = dir > 0 ? -h : 0
+            let cEnd: Float = dir > 0 ? w : w + h
+            while c < cEnd {
+                // dir > 0: z = z0 + c + (y - y0); dir < 0: z = z0 + c - (y - y0).
+                let lo: Float = dir > 0 ? max(0, -c) : max(0, c - w)
+                let hi: Float = dir > 0 ? min(h, w - c) : min(h, c)
+                if hi - lo > 0.02 {
+                    let ya = y0 + lo, yb = y0 + hi
+                    let za = z0 + c + dir * lo, zb = z0 + c + dir * hi
+                    let len = ((yb - ya) * (yb - ya) + (zb - za) * (zb - za)).squareRoot()
+                    let ang = atan2(zb - za, yb - ya) * 180 / .pi
+                    FG.slab(&m, V3(lath, len, lath * 0.8), V3(x + layer, (ya + yb) / 2, (za + zb) / 2), mat, rot: FA.q(-ang, FA.X))
+                }
+                c += pitch
+            }
+        }
+    }
+}

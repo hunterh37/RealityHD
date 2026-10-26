@@ -3,7 +3,8 @@
   "id": "arbor-gate",
   "kind": "prop",
   "materials": [
-    "wood.cedar",
+    "wood.barn-white",
+    "wood.trim-weathered",
     "wood.cedar-weathered",
     "metal.wrought-iron"
   ],

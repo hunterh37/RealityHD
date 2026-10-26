@@ -3,9 +3,10 @@
   "id": "pedestrian-gate-ironwork",
   "kind": "prop",
   "materials": [
-    "metal.powdercoat-worn",
     "metal.powdercoat",
-    "metal.stainless"
+    "metal.powdercoat-worn",
+    "metal.stainless",
+    "metal.galvanized"
   ],
   "name": "Pedestrian gate ironwork",
   "notes": "",
