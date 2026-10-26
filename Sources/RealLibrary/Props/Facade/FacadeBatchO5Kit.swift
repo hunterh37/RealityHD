@@ -60,4 +60,10 @@ enum FO {
         let ang = atan2(dv.y, dv.x) * 180 / .pi
         FJ.slab(&m, V3(len, w, d), V3((a.x + b.x) / 2, (a.y + b.y) / 2, z), mat, rot: FA.q(ang, FA.Z))
     }
+
+    /// Thin weathering patch lying on a face with normal +/-X at x (size is (z, y), centre is (z, y)).
+    static func patchSide(_ m: inout Model, _ size: V2, _ c: V2, x: Float, _ mat: MaterialKey) {
+        let sgn: Float = x >= 0 ? 1 : -1
+        FJ.slab(&m, V3(0.0012, size.y, size.x), V3(x + sgn * 0.0004, c.y, c.x), mat)
+    }
 }

@@ -3,8 +3,8 @@
   "id": "timber-pergola-rafter-end",
   "kind": "prop",
   "materials": [
-    "wood.cedar-weathered",
-    "wood.endgrain-weathered",
+    "wood.cedar",
+    "wood.weathered",
     "metal.galvanized-aged"
   ],
   "name": "Timber pergola rafter end",

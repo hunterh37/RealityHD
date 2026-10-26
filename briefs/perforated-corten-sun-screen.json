@@ -1,11 +1,11 @@
 {
-  "budget": 12000,
+  "budget": 14000,
   "id": "perforated-corten-sun-screen",
   "kind": "prop",
   "materials": [
     "metal.corten",
     "metal.rust",
-    "metal.steel"
+    "metal.stainless"
   ],
   "name": "Perforated corten sun screen",
   "notes": "",
