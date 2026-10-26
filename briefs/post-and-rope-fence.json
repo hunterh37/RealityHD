@@ -1,13 +1,15 @@
 {
-  "budget": 12000,
+  "budget": 15000,
   "id": "post-and-rope-fence",
   "kind": "prop",
   "materials": [
     "wood.pole-creosote",
     "wood.driftwood",
-    "wood.pine-aged",
+    "wood.driftwood-end",
     "wood.rattan",
-    "metal.galvanized"
+    "metal.galvanized-aged",
+    "metal.rust-grime",
+    "wood.charred"
   ],
   "name": "Post and rope fence",
   "notes": "",

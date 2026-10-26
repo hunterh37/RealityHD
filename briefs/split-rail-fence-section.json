@@ -4,8 +4,10 @@
   "kind": "prop",
   "materials": [
     "wood.cedar-weathered",
-    "wood.pole-pine",
-    "wood.weathered"
+    "wood.weathered",
+    "wood.endgrain-weathered",
+    "wood.charred",
+    "ground.yard"
   ],
   "name": "Split rail fence section",
   "notes": "",
