@@ -1044,6 +1044,16 @@ public enum Props {
         CopperDownspoutStraight.self,
         BoxGutterHopperHead.self,
         CascadiaCabInterior.self,
+        LancetWindowTraceryPair.self,
+        FanlightLeadedGlass.self,
+        CrittallSteelWindow.self,
+        GlassBlockWindowPanel.self,
+        DutchDoorSplitLeaf.self,
+        StuddedOakPlankDoor.self,
+        CarriageHouseSlidingDoor.self,
+        IronDoorKnockerLion.self,
+        CastBronzeDoorPullArtDeco.self,
+        TerracottaCorniceModillionRun.self,
         // realityhd:prop
     ]
 }

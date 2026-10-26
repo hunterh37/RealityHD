@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "glass-block-window-panel",
+  "kind": "prop",
+  "materials": [
+    "glass.frosted",
+    "glass.clear",
+    "concrete.smooth",
+    "metal.aluminum-brushed",
+    "stone.cast-stone"
+  ],
+  "name": "Glass block window panel",
+  "notes": "",
+  "parts": [
+    "16 hollow glass blocks with moulded edge rim and wave pattern",
+    "white mortar joints with recessed tooling",
+    "stainless steel perimeter channel",
+    "anchor clips and sealant bead at the frame",
+    "cast stone sill with drip",
+    "dirt streaking below the sill",
+    "one block with a dust haze"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    1.2,
+    0.1
+  ],
+  "style": "architectural facade customizer, Streamline Moderne",
+  "summary": "Streamline Moderne glass block window: 4 x 4 grid of pillowed glass blocks in mortar joints, framed by an aluminium channel and a cast sill.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "window",
+    "glass",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

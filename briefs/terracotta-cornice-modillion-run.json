@@ -1,0 +1,43 @@
+{
+  "budget": 15000,
+  "id": "terracotta-cornice-modillion-run",
+  "kind": "prop",
+  "materials": [
+    "stone.cast-stone",
+    "stone.sandstone",
+    "stone.limestone-sooted",
+    "metal.galvanized"
+  ],
+  "name": "Terracotta modillion cornice run",
+  "notes": "",
+  "parts": [
+    "crown moulding with cyma recta",
+    "corona drip",
+    "scrolled modillion brackets with acanthus",
+    "coffered soffit between modillions",
+    "egg-and-dart bed moulding",
+    "dentil course",
+    "unit joints between terracotta blocks",
+    "soot and glaze crazing",
+    "anchor straps at the back"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.4,
+    0.35
+  ],
+  "style": "architectural facade customizer, Beaux-Arts",
+  "summary": "Beaux-Arts terracotta cornice run: crown moulding, corona, carved modillions with acanthus scrolls, dentils and an egg-and-dart bed moulding, in glazed terracotta units.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "ornament",
+    "trim",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "cast-bronze-door-pull-art-deco",
+  "kind": "prop",
+  "materials": [
+    "metal.bronze-cast",
+    "metal.bronze-weathered",
+    "metal.brass-aged",
+    "metal.steel"
+  ],
+  "name": "Art Deco bronze door pull",
+  "notes": "",
+  "parts": [
+    "vertical fluted bar 0.8 m",
+    "stepped ziggurat end blocks",
+    "chevron banding",
+    "mounting plates with bevelled edges",
+    "hex socket fasteners",
+    "polished high points with dark patina",
+    "hand-worn centre grip"
+  ],
+  "references": [],
+  "size": [
+    0.12,
+    0.8,
+    0.1
+  ],
+  "style": "architectural facade customizer, Art Deco",
+  "summary": "Art Deco cast bronze door pull: tall vertical bar with stepped ziggurat ends, fluted shaft, mounting plates and bolts, polished high points and darkened recesses.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "door",
+    "metal",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

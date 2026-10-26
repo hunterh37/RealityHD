@@ -1,0 +1,43 @@
+{
+  "budget": 15000,
+  "id": "crittall-steel-window",
+  "kind": "prop",
+  "materials": [
+    "metal.painted",
+    "metal.rust",
+    "metal.steel",
+    "glass.clear",
+    "concrete.smooth"
+  ],
+  "name": "Crittall steel window",
+  "notes": "",
+  "parts": [
+    "thin Z-section steel outer frame with welded corners",
+    "grid of 3 x 4 glazed lights",
+    "two opening casement sashes",
+    "espagnolette rod, handle and keeper",
+    "butt hinges with pins",
+    "putty glazing beads around each pane",
+    "cast concrete sill with drip",
+    "paint flaking and rust at the sill"
+  ],
+  "references": [],
+  "size": [
+    1.4,
+    1.6,
+    0.12
+  ],
+  "style": "architectural facade customizer, Art Deco",
+  "summary": "Art Deco Crittall steel casement window: slim painted steel frame in a grid of lights, two opening casements with espagnolette fasteners, putty-glazed glass and a concrete sill.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "window",
+    "metal",
+    "glass"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
