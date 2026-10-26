@@ -1,0 +1,39 @@
+{
+  "budget": 12000,
+  "id": "timber-pergola-rafter-end",
+  "kind": "prop",
+  "materials": [
+    "wood.cedar-weathered",
+    "wood.endgrain-weathered",
+    "metal.galvanized-aged"
+  ],
+  "name": "Timber pergola rafter end",
+  "notes": "",
+  "parts": [
+    "rafter tail with ogee cut",
+    "beam notch",
+    "carriage bolt",
+    "rafter",
+    "washer",
+    "end grain",
+    "weathered cedar",
+    "drip kerf"
+  ],
+  "references": [],
+  "size": [
+    0.1,
+    0.2,
+    1.2
+  ],
+  "style": "architectural facade customizer, Craftsman",
+  "summary": "Craftsman pergola rafter tail 0.1x0.2x1.2 m: shaped end, bolted, weathered.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

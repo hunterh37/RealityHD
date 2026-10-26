@@ -1,0 +1,41 @@
+{
+  "budget": 12000,
+  "id": "fanlight-sash-bar-transom",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "wood.trim-weathered",
+    "glass.pane",
+    "metal.brass-aged"
+  ],
+  "name": "Fanlight sash bar transom",
+  "notes": "",
+  "parts": [
+    "semicircular head frame",
+    "radiating astragal bars",
+    "concentric ring bar",
+    "central keystone boss",
+    "transom rail",
+    "glass",
+    "putty line",
+    "painted frame"
+  ],
+  "references": [],
+  "size": [
+    1.1,
+    0.5,
+    0.1
+  ],
+  "style": "architectural facade customizer, Regency",
+  "summary": "Regency fanlight 1.1 m: radiating astragal bars, ring bar, transom rail, glazed.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
