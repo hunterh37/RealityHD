@@ -106,6 +106,20 @@ let fgGlyphs: [Character: [[(Float, Float)]]] = [
 ]
 
 extension FG {
+    /// Light-weight marquee bulbs: socket cuboid plus a faceted glass bead, facing +Z. `dead` indices are dark.
+    static func lamps(_ m: inout Model, from a: V3, to b: V3, count: Int, r: Float = 0.016, lit: MaterialKey = "emissive.warm", dead: Set<Int> = []) {
+        var glass = Surface(material: lit), off = Surface(material: "glass.frosted"), sock = Surface(material: "metal.brass-aged")
+        let bead = Prim.superellipsoid(V3(r * 2, r * 2, r * 2.2), exponent: 2, subdivisions: 1, material: lit)
+        let cap = cuboid(V3(r * 1.2, r * 1.2, r * 0.7), material: "metal.brass-aged")
+        for i in 0..<count {
+            let t = count == 1 ? 0.5 : Float(i) / Float(count - 1)
+            let p = a + (b - a) * t
+            sock.append(cap, Xform(translation: p))
+            if dead.contains(i) { off.append(bead, Xform(translation: p + V3(0, 0, r * 1.0))) } else { glass.append(bead, Xform(translation: p + V3(0, 0, r * 1.0))) }
+        }
+        m.add(sock); m.add(glass)
+        if !dead.isEmpty { m.add(off) }
+    }
     /// Lettering built from beveled strokes with round joints, centered on `at`, depth along +Z from at.z.
     /// `bevel` rounds every stroke edge (m). Pass `bulge` > 0 to swell the stroke joints for cast lettering.
     static func soft(_ m: inout Model, _ s: String, h: Float, stroke w: Float, depth: Float, at: V3, _ mat: MaterialKey,
