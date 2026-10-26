@@ -1123,6 +1123,10 @@ public enum Props {
         LanternPostMountPier.self,
         UplightWallWasher.self,
         LinearLedRevealStrip.self,
+        DryStoneWallSection.self,
+        LowBrickGardenWall.self,
+        CurvedConcreteRetainingWall.self,
+        StoneStepsWithRisers.self,
         // realityhd:prop
     ]
 }
