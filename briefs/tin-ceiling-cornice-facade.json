@@ -1,0 +1,45 @@
+{
+  "budget": 15000,
+  "id": "tin-ceiling-cornice-facade",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized-aged",
+    "metal.painted",
+    "metal.rust",
+    "wood.trim-weathered",
+    "metal.brass-aged"
+  ],
+  "name": "Tin ceiling cornice facade",
+  "notes": "",
+  "parts": [
+    "stamped sheet-metal crown profile",
+    "egg-and-dart band",
+    "dentil band",
+    "bracket modillions",
+    "bed mould",
+    "crimped seams",
+    "nail heads along flange",
+    "wood backing rails",
+    "corner mitre blocks",
+    "rust bleed and paint loss"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.5,
+    0.4
+  ],
+  "style": "architectural facade customizer, American Commercial",
+  "summary": "American Commercial pressed tin cornice, 2.0 x 0.5 m: stamped crown, egg-and-dart, dentils, modillions, crimped seams, nail heads, wood backing.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

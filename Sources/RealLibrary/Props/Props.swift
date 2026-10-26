@@ -1109,6 +1109,16 @@ public enum Props {
         CastIronWindowCapLintel.self,
         TerracottaGargoyleSpout.self,
         StoneCorbelTableCourse.self,
+        CrenellatedParapetSection.self,
+        FlemishScrolledGable.self,
+        CrowStepGableEnd.self,
+        CastIronRoofCresting.self,
+        TerracottaRidgeFinial.self,
+        TinCeilingCorniceFacade.self,
+        PressedMetalStorefrontCornice.self,
+        GlassPrismTransomRow.self,
+        VitroliteStorefrontPanel.self,
+        NeonBladeSignVertical.self,
         // realityhd:prop
     ]
 }
