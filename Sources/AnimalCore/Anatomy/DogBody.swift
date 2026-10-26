@@ -20,7 +20,7 @@ extension QuadrupedBody {
             let rx = 0.5 * a.bodyWidth * st.w, rd = 0.5 * a.bodyDepth * st.d, rv = 0.5 * a.bodyDepth * 0.95 * st.v
             let end = st.t < 0.05 || st.t > 0.97
             sdf.ellipsoid(c + f.U * (0.5 * (rd - rv)), V3(rx, 0.5 * (rd + rv), L * (end ? 0.09 : 0.15)), x: X, y: f.U,
-                          joint: st.t < 0.5 ? GroundJoint.spine.name : "root", chart: bodyChart, blend: 0.07)
+                          joint: st.t < 0.5 ? GroundJoint.spine.name : "root", chart: bodyChart, blend: 0.07, bias: 0.03)
         }
 
         // Neck: two cones from the withers to the back of the skull.

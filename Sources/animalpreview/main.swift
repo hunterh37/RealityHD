@@ -46,6 +46,15 @@ func run() async throws {
     let close = opt("--dist") == "close"
     let azArg = Float(opt("--az") ?? "-62") ?? -62
     let names = args.filter { !$0.hasPrefix("-") && ![out, opt("--pose") ?? "", opt("--w") ?? "", opt("--h") ?? ""].contains($0) }
+    if args.contains("--dump-tex"), let sp = GroundSpecies(rawValue: names.first ?? "") {
+        // Writes the albedo atlas of every fauna material of a ground species to `<out>/<key>.png`.
+        guard let synth = TextureSynth.shared else { exit(1) }
+        for spec in FaunaMaterials.specs(for: sp.profile) where spec.program != nil {
+            let set = try synth.generate(spec, size: min(spec.resolution, 1024))
+            writePNG(synth.cgImage(set.albedo)!, "\(out)/\(spec.key).png")
+        }
+        exit(0)
+    }
     if args.contains("--dump") {
         let sp = BirdSpecies(rawValue: names.first ?? "eastern-bluebird") ?? .easternBluebird
         let built = BirdRigBuilder.build(sp.profile)

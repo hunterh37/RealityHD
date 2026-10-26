@@ -156,6 +156,10 @@ public struct GroundPalette: Sendable, Hashable {
     public var patch: UInt32 = 0xF4EEE2
     /// Neck mane and bristle coat.
     public var mane: UInt32?
+    /// Coat marking painted in `accent`: 0 none, 1 tabby, 2 spots, 3 patches, 4 saddle (`MaterialSpec.coatPattern`).
+    public var markings: Int32 = 0
+    /// Lower leg coat colour for dogs (defaults to `belly`).
+    public var limb: UInt32?
 }
 
 public struct GroundBehavior: Sendable {
