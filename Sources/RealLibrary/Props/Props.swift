@@ -1047,6 +1047,11 @@ public enum Props {
         CrenellatedParapetSection.self,
         FlemishScrolledGable.self,
         CrowStepGableEnd.self,
+        CrenellatedParapetSection.self,
+        FlemishScrolledGable.self,
+        CrowStepGableEnd.self,
+        CastIronRoofCresting.self,
+        TerracottaRidgeFinial.self,
         // realityhd:prop
     ]
 }
