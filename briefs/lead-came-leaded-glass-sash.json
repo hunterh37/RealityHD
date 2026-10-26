@@ -1,0 +1,41 @@
+{
+  "budget": 6000,
+  "id": "lead-came-leaded-glass-sash",
+  "kind": "prop",
+  "materials": [
+    "glass.pane",
+    "metal.copper",
+    "metal.galvanized-aged",
+    "metal.wrought-iron",
+    "wood.deadwood",
+    "wood.oak",
+    "wood.weathered"
+  ],
+  "name": "Lead came leaded glass sash",
+  "notes": "",
+  "parts": [
+    "diamond lead cames",
+    "solder joints",
+    "oak sash frame",
+    "saddle bars",
+    "casement stay and latch"
+  ],
+  "references": [],
+  "size": [
+    0.9,
+    1.3,
+    0.06
+  ],
+  "style": "architectural facade customizer, Tudor Revival",
+  "summary": "Lead came leaded glass sash, 0.9 x 1.3 m: oak casement, diamond quarries, saddle bars, strap hinges, stay.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

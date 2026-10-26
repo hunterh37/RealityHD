@@ -1,0 +1,40 @@
+{
+  "budget": 12000,
+  "id": "glazed-terracotta-spandrel",
+  "kind": "prop",
+  "materials": [
+    "ceramic.terracotta",
+    "ceramic.vitreous",
+    "metal.rust",
+    "stone.limestone",
+    "stone.limestone-sooted"
+  ],
+  "name": "Glazed terracotta spandrel",
+  "notes": "",
+  "parts": [
+    "glazed tile blocks",
+    "relief ornament",
+    "joint lines",
+    "crazing",
+    "spalled corner",
+    "cornice cap"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.8,
+    0.1
+  ],
+  "style": "architectural facade customizer, Chicago School",
+  "summary": "Glazed terracotta spandrel, 2.0 x 0.8 m: eight relief tiles, joints, glazed coping, crazing, spalled corner.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
