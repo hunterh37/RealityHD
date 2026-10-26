@@ -41,6 +41,8 @@ struct SDFPrim {
     var joint: String
     var chart: Int
     var blend: Float
+    /// Meters subtracted from this shape's distance when picking a vertex's fur chart, so a torso chart wins where a limb only just emerges.
+    var bias: Float = 0
     var lo: V3 = .zero, hi: V3 = .zero
 
     init(_ kind: Kind, joint: String, chart: Int, blend: Float) {
@@ -88,16 +90,18 @@ struct SDFBody {
     var charts: [SDFChart] = []
 
     mutating func chart(_ c: SDFChart) -> Int { charts.append(c); return charts.count - 1 }
-    mutating func add(_ k: SDFPrim.Kind, joint: String, chart: Int, blend: Float) { prims.append(SDFPrim(k, joint: joint, chart: chart, blend: blend)) }
+    mutating func add(_ k: SDFPrim.Kind, joint: String, chart: Int, blend: Float, bias: Float = 0) {
+        var p = SDFPrim(k, joint: joint, chart: chart, blend: blend); p.bias = bias; prims.append(p)
+    }
     mutating func cone(_ a: V3, _ b: V3, _ ra: Float, _ rb: Float, joint: String, chart: Int, blend: Float) {
         add(.cone(a: a, b: b, ra: ra, rb: rb), joint: joint, chart: chart, blend: blend)
     }
     /// Ellipsoid with radii `r` along `x`, `y` and `z` (axes need not be exactly orthogonal).
-    mutating func ellipsoid(_ c: V3, _ r: V3, x: V3, y: V3, joint: String, chart: Int, blend: Float) {
+    mutating func ellipsoid(_ c: V3, _ r: V3, x: V3, y: V3, joint: String, chart: Int, blend: Float, bias: Float = 0) {
         let xn = simd_normalize(x)
         var yn = y - xn * simd_dot(y, xn); yn = simd_normalize(yn)
         let zn = simd_cross(xn, yn)
-        add(.ellipsoid(c: c, r: r, q: simd_quatf(simd_float3x3(columns: (xn, yn, zn)))), joint: joint, chart: chart, blend: blend)
+        add(.ellipsoid(c: c, r: r, q: simd_quatf(simd_float3x3(columns: (xn, yn, zn)))), joint: joint, chart: chart, blend: blend, bias: bias)
     }
 
     func field(_ p: V3) -> Float {
@@ -205,7 +209,9 @@ struct SDFBody {
             normal[i] = simd_length(g) > 1e-8 ? simd_normalize(g) : V3(0, 1, 0)
             let ds = prims.map { $0.distance(pos[i]) }
             let dmin = ds.filter { $0.isFinite }.min() ?? 0
-            primary[i] = prims[ds.firstIndex(of: dmin) ?? 0].chart
+            var best = 0, bestD = Float.greatestFiniteMagnitude
+            for (n, d) in ds.enumerated() where d.isFinite && d - prims[n].bias < bestD { bestD = d - prims[n].bias; best = n }
+            primary[i] = prims[best].chart
             var byJoint: [Int: Float] = [:]
             for (s, d) in zip(prims, ds) where d.isFinite { byJoint[jointIdx[s.joint]!, default: 0] += exp(-(d - dmin) / tau) }
             let top = byJoint.sorted { $0.value > $1.value }.prefix(4)

@@ -332,8 +332,10 @@ public enum GroundRigBuilder {
         // Nose, eyes, lids.
         let nr = a.noseSize * a.headWidth
         let disc = a.snoutDisc
-        rig.add(Prim.cubeSphere(subdivisions: 3, material: f.mat(.nose)) { disc ? V3($0.x * nr, $0.y * nr * 0.8, $0.z * nr * 0.4) : $0 * nr },
-                Xform(translation: noseTip + V3(0, 0, disc ? -0.002 : 0.004)), to: GroundJoint.headPitch.name)
+        if !sdfDog {
+            rig.add(Prim.cubeSphere(subdivisions: 3, material: f.mat(.nose)) { disc ? V3($0.x * nr, $0.y * nr * 0.8, $0.z * nr * 0.4) : $0 * nr },
+                    Xform(translation: noseTip + V3(0, 0, disc ? -0.002 : 0.004)), to: GroundJoint.headPitch.name)
+        }
         for s in Side.allCases {
             var c = eyeAt(s)
             if small {

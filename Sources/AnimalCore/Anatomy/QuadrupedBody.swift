@@ -213,10 +213,12 @@ enum QuadrupedBody {
         // Nose pad with nostrils, white muzzle band and chin.
         let hw = a.headWidth
         rig.add(Loft.ellipsoid(center: noseTip + V3(0, 0.002, 0.004), axis: V3(0, 0, -1), up: GroundFrame.Y,
-                               radii: V3(hw * 0.19, hw * 0.13, hw * 0.1), rings: 7, segments: 12, material: f.mat(.nose)), to: GroundJoint.headPitch.name)
+                               radii: plan.dog ? V3(hw * 0.15, hw * 0.1, hw * 0.075) : V3(hw * 0.19, hw * 0.13, hw * 0.1), rings: 7, segments: 12, material: f.mat(.nose)), to: GroundJoint.headPitch.name)
         for sd in Side.allCases {
-            rig.add(Loft.ellipsoid(center: noseTip + V3(sd.sign * hw * 0.09, 0.0, -hw * 0.085), axis: V3(sd.sign * 0.6, 0.3, -1), up: GroundFrame.Y,
-                                   radii: V3(hw * 0.03, hw * 0.045, hw * 0.02), rings: 5, segments: 8, material: f.mat(.eye)), to: GroundJoint.headPitch.name)
+            // Dog nostrils are comma slits sunk into the pad face; other species keep the round studs.
+            let slit = plan.dog
+            rig.add(Loft.ellipsoid(center: noseTip + V3(sd.sign * hw * (slit ? 0.065 : 0.09), slit ? -0.001 : 0.0, -hw * (slit ? 0.065 : 0.085)), axis: V3(sd.sign * 0.6, 0.3, -1), up: GroundFrame.Y,
+                                   radii: slit ? V3(hw * 0.016, hw * 0.034, hw * 0.012) : V3(hw * 0.03, hw * 0.045, hw * 0.02), rings: 5, segments: 8, material: f.mat(.eye)), to: GroundJoint.headPitch.name)
         }
         if !plan.dog {
             rig.add(Loft.ellipsoid(center: noseTip + V3(0, -0.004, 0.034), axis: V3(0, 0, -1), up: GroundFrame.Y,

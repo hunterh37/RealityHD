@@ -133,7 +133,7 @@ public final class TextureSynth: @unchecked Sendable {
         let n = set.albedo.width
         var p = RFParams(kind: program.rawValue, seed: spec.seed, size: Int32(n), alphaMode: spec.mode == .cutout || (spec.mode == .emissive && spec.opacity < 1) ? 1 : 0,
                          colorA: spec.colorA, colorB: spec.colorB, colorC: spec.colorC, f: spec.knobs,
-                         normalStrength: spec.normalStrength, flipGreen: Self.flipGreen)
+                         normalStrength: spec.normalStrength, flipGreen: Self.flipGreen, pad0: Float(spec.coatPattern))
         let height = makeTexture(.r16Float, n, mips: false)
         let scratchR = spec.hasAOMap ? nil : makeTexture(.r8Unorm, n, mips: false)
         let scratchM = spec.hasMetallicMap ? nil : makeTexture(.r8Unorm, n, mips: false)
