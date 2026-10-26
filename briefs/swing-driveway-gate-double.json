@@ -1,11 +1,15 @@
 {
-  "budget": 12000,
+  "budget": 15000,
   "id": "swing-driveway-gate-double",
   "kind": "prop",
   "materials": [
-    "metal.powdercoat-worn",
-    "metal.galvanized",
-    "metal.stainless"
+    "metal.powdercoat",
+    "wood.cedar",
+    "wood.cedar-weathered",
+    "metal.galvanized-aged",
+    "plastic.black",
+    "metal.rust-grime",
+    "concrete.rough"
   ],
   "name": "Double swing driveway gate",
   "notes": "",
