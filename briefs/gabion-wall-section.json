@@ -1,12 +1,16 @@
 {
-  "budget": 12000,
+  "budget": 15000,
   "id": "gabion-wall-section",
   "kind": "prop",
   "materials": [
+    "stone.wall-block",
     "stone.granite-paver",
-    "stone.sandstone",
+    "stone.slate",
+    "stone.granite-moss",
+    "metal.galvanized-aged",
     "metal.galvanized",
-    "stone.wall-block"
+    "metal.rust-grime",
+    "stone.limestone"
   ],
   "name": "Gabion wall section",
   "notes": "",
