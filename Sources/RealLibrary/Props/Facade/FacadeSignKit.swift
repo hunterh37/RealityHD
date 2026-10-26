@@ -54,10 +54,11 @@ enum FS {
     /// Bar between two points on the wall plane at depth z (center), thickness `t` along Z, stroke width `w`.
     static func bar(_ m: inout Model, _ a: V2, _ b: V2, w: Float, z: Float, t: Float, _ mat: MaterialKey) {
         let d = b - a
-        let len = simd_length(d) + w
         let ang = atan2(d.y, d.x)
-        let hw = len / 2, hh = w / 2
-        m.add(Prim.extrude([V2(-hw, -hh), V2(hw, -hh), V2(hw, hh), V2(-hw, hh)], depth: t, bevel: min(w, t) * 0.3, bevelSegments: 1, material: mat),
+        let hh = w / 2
+        let hx = simd_length(d) / 2 + hh
+        let hexa: [V2] = [V2(-hx, 0), V2(-hx + hh, -hh), V2(hx - hh, -hh), V2(hx, 0), V2(hx - hh, hh), V2(-hx + hh, hh)]
+        m.add(Prim.extrude(hexa, depth: t, bevel: min(w, t) * 0.3, bevelSegments: 1, material: mat),
               Xform(translation: V3((a.x + b.x) / 2, (a.y + b.y) / 2, z), rotation: simd_quatf(angle: ang, axis: V3(0, 0, 1))))
     }
 
