@@ -5,4 +5,6 @@ public enum NatureDetails {
         + DetailsGroup06.all + DetailsGroup07.all + DetailsGroup08.all + DetailsGroup09.all + DetailsGroup10.all
         + DetailsGroup11.all + DetailsGroup12.all + DetailsGroup13.all + DetailsGroup14.all + DetailsGroup15.all
         + DetailsGroup16.all + DetailsGroup17.all + DetailsGroup18.all + DetailsGroup19.all + DetailsGroup20.all
+        + DetailsGroup21.all + DetailsGroup22.all + DetailsGroup23.all + DetailsGroup24.all + DetailsGroup25.all
+        + DetailsGroup26.all + DetailsGroup27.all + DetailsGroup28.all + DetailsGroup29.all + DetailsGroup30.all
 }

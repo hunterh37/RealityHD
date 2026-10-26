@@ -275,9 +275,9 @@ Material keys accept a hex tint: `"metal.painted:1F4E8C"`. All keys are listed i
 
 | | | | |
 |---|---|---|---|
-| ![wooden-crate](docs/assets/wooden-crate.png)<br>`wooden-crate` | ![barrel](docs/assets/barrel.png)<br>`barrel` | ![oil-drum](docs/assets/oil-drum.png)<br>`oil-drum` | ![park-bench](docs/assets/park-bench.png)<br>`park-bench` |
-| ![picnic-table](docs/assets/picnic-table.png)<br>`picnic-table` | ![street-lamp](docs/assets/street-lamp.png)<br>`street-lamp` | ![traffic-cone](docs/assets/traffic-cone.png)<br>`traffic-cone` | ![fire-hydrant](docs/assets/fire-hydrant.png)<br>`fire-hydrant` |
-| ![bollard](docs/assets/bollard.png)<br>`bollard` | ![pallet](docs/assets/pallet.png)<br>`pallet` | ![mailbox](docs/assets/mailbox.png)<br>`mailbox` | ![trash-can](docs/assets/trash-can.png)<br>`trash-can` |
+| `wooden-crate` | `barrel` | `oil-drum` | `park-bench` |
+| `picnic-table` | `street-lamp` | `traffic-cone` | `fire-hydrant` |
+| `bollard` | `pallet` | `mailbox` | `trash-can` |
 
 ### Photoreal props (3.0)
 
@@ -323,9 +323,9 @@ Static office props:
 
 | | | | |
 |---|---|---|---|
-| ![office-desk](docs/assets/office-desk.png)<br>`office-desk` | ![bookshelf](docs/assets/bookshelf.png)<br>`bookshelf` | ![conference-table](docs/assets/conference-table.png)<br>`conference-table` | ![lobby-sofa](docs/assets/lobby-sofa.png)<br>`lobby-sofa` |
-| ![reception-desk](docs/assets/reception-desk.png)<br>`reception-desk` | ![whiteboard](docs/assets/whiteboard.png)<br>`whiteboard` | ![water-cooler](docs/assets/water-cooler.png)<br>`water-cooler` | ![snake-plant](docs/assets/snake-plant.png)<br>`snake-plant` |
-| ![keyboard-mouse](docs/assets/keyboard-mouse.png)<br>`keyboard-mouse` | ![coffee-mug](docs/assets/coffee-mug.png)<br>`coffee-mug` | ![paper-stack](docs/assets/paper-stack.png)<br>`paper-stack` | ![office-block](docs/assets/office-block.png)<br>`office-block` |
+| `office-desk` | `bookshelf` | `conference-table` | `lobby-sofa` |
+| `reception-desk` | `whiteboard` | `water-cooler` | `snake-plant` |
+| `keyboard-mouse` | `coffee-mug` | `paper-stack` | `office-block` |
 
 ```swift
 let cabinet = try await RealityHD.articulated("filing-cabinet")
@@ -448,24 +448,24 @@ Tools and PPE:
 
 | | | | |
 |---|---|---|---|
-| ![hot-stick](docs/assets/hot-stick.png)<br>`hot-stick` | ![lineman-pliers](docs/assets/lineman-pliers.png)<br>`lineman-pliers` | ![cable-cutter](docs/assets/cable-cutter.png)<br>`cable-cutter` | ![hydraulic-crimper](docs/assets/hydraulic-crimper.png)<br>`hydraulic-crimper` |
-| ![wire-grip](docs/assets/wire-grip.png)<br>`wire-grip` | ![wire-brush](docs/assets/wire-brush.png)<br>`wire-brush` | ![voltage-detector](docs/assets/voltage-detector.png)<br>`voltage-detector` | ![grounding-set](docs/assets/grounding-set.png)<br>`grounding-set` |
-| ![rubber-gloves](docs/assets/rubber-gloves.png)<br>`rubber-gloves` | ![leather-protectors](docs/assets/leather-protectors.png)<br>`leather-protectors` | ![insulating-blanket](docs/assets/insulating-blanket.png)<br>`insulating-blanket` | ![hard-hat](docs/assets/hard-hat.png)<br>`hard-hat` |
-| ![fall-harness](docs/assets/fall-harness.png)<br>`fall-harness` |   |   |   |
+| `hot-stick` | `lineman-pliers` | `cable-cutter` | `hydraulic-crimper` |
+| `wire-grip` | `wire-brush` | `voltage-detector` | `grounding-set` |
+| `rubber-gloves` | `leather-protectors` | `insulating-blanket` | `hard-hat` |
+| `fall-harness` |   |   |   |
 
 Pole hardware:
 
 | | | | |
 |---|---|---|---|
-| ![distribution-pole](docs/assets/distribution-pole.png)<br>`distribution-pole` | ![pole-transformer](docs/assets/pole-transformer.png)<br>`pole-transformer` | ![fused-cutout](docs/assets/fused-cutout.png)<br>`fused-cutout` | ![fuse-link](docs/assets/fuse-link.png)<br>`fuse-link` |
-| ![lightning-arrester](docs/assets/lightning-arrester.png)<br>`lightning-arrester` | ![pin-insulator](docs/assets/pin-insulator.png)<br>`pin-insulator` | ![polymer-deadend](docs/assets/polymer-deadend.png)<br>`polymer-deadend` | ![hot-line-clamp](docs/assets/hot-line-clamp.png)<br>`hot-line-clamp` |
-| ![automatic-splice](docs/assets/automatic-splice.png)<br>`automatic-splice` | ![conductor-coil](docs/assets/conductor-coil.png)<br>`conductor-coil` |   |   |
+| `distribution-pole` | `pole-transformer` | `fused-cutout` | `fuse-link` |
+| `lightning-arrester` | `pin-insulator` | `polymer-deadend` | `hot-line-clamp` |
+| `automatic-splice` | `conductor-coil` |   |   |
 
 Vehicle:
 
 | | | | |
 |---|---|---|---|
-| ![aerial-bucket](docs/assets/aerial-bucket.png)<br>`aerial-bucket` | ![truck-cab-interior](docs/assets/truck-cab-interior.png)<br>`truck-cab-interior` |   |   |
+| `aerial-bucket` | `truck-cab-interior` |   |   |
 
 ### Architecture
 
@@ -477,45 +477,45 @@ Material libraries `Architecture`, `Facade`, `City`. Tags `architecture`, `facad
 
 | | |
 |---|---|
-| ![city-block](docs/scenes/city-block.png)<br>`city-block` | ![generated-building](docs/assets/generated-building.png)<br>`generated-building` |
+| ![city-block](docs/scenes/city-block.png)<br>`city-block` | `generated-building` |
 
 Trim and ornament:
 
 | | | | |
 |---|---|---|---|
-| ![architrave-surround](docs/assets/architrave-surround.png)<br>`architrave-surround` | ![balustrade-run](docs/assets/balustrade-run.png)<br>`balustrade-run` | ![classical-pilaster](docs/assets/classical-pilaster.png)<br>`classical-pilaster` | ![corinthian-column](docs/assets/corinthian-column.png)<br>`corinthian-column` |
-| ![dentil-course](docs/assets/dentil-course.png)<br>`dentil-course` | ![doric-column](docs/assets/doric-column.png)<br>`doric-column` | ![entablature](docs/assets/entablature.png)<br>`entablature` | ![frieze-band](docs/assets/frieze-band.png)<br>`frieze-band` |
-| ![ionic-column](docs/assets/ionic-column.png)<br>`ionic-column` | ![louvered-shutter-pair](docs/assets/louvered-shutter-pair.png)<br>`louvered-shutter-pair` | ![modillion-cornice](docs/assets/modillion-cornice.png)<br>`modillion-cornice` | ![parapet-coping](docs/assets/parapet-coping.png)<br>`parapet-coping` |
-| ![quoin-stack](docs/assets/quoin-stack.png)<br>`quoin-stack` | ![rusticated-base](docs/assets/rusticated-base.png)<br>`rusticated-base` | ![scroll-corbel](docs/assets/scroll-corbel.png)<br>`scroll-corbel` | ![segmental-pediment](docs/assets/segmental-pediment.png)<br>`segmental-pediment` |
-| ![string-course](docs/assets/string-course.png)<br>`string-course` | ![triangular-pediment](docs/assets/triangular-pediment.png)<br>`triangular-pediment` | ![voussoir-arch](docs/assets/voussoir-arch.png)<br>`voussoir-arch` | ![window-hood](docs/assets/window-hood.png)<br>`window-hood` |
+| `architrave-surround` | `balustrade-run` | `classical-pilaster` | `corinthian-column` |
+| `dentil-course` | `doric-column` | `entablature` | `frieze-band` |
+| `ionic-column` | `louvered-shutter-pair` | `modillion-cornice` | `parapet-coping` |
+| `quoin-stack` | `rusticated-base` | `scroll-corbel` | `segmental-pediment` |
+| `string-course` | `triangular-pediment` | `voussoir-arch` | `window-hood` |
 
 Facade and roof:
 
 | | | | |
 |---|---|---|---|
-| ![bay-window](docs/assets/bay-window.png)<br>`bay-window` | ![brick-chimney](docs/assets/brick-chimney.png)<br>`brick-chimney` | ![brownstone-double-door](docs/assets/brownstone-double-door.png)<br>`brownstone-double-door` | ![brownstone-stoop](docs/assets/brownstone-stoop.png)<br>`brownstone-stoop` |
-| ![canvas-awning](docs/assets/canvas-awning.png)<br>`canvas-awning` | ![casement-window](docs/assets/casement-window.png)<br>`casement-window` | ![curtain-wall-panel](docs/assets/curtain-wall-panel.png)<br>`curtain-wall-panel` | ![dormer-window](docs/assets/dormer-window.png)<br>`dormer-window` |
-| ![double-hung-window](docs/assets/double-hung-window.png)<br>`double-hung-window` | ![fire-escape-bay](docs/assets/fire-escape-bay.png)<br>`fire-escape-bay` | ![french-balcony-door](docs/assets/french-balcony-door.png)<br>`french-balcony-door` | ![gable-roof-panel](docs/assets/gable-roof-panel.png)<br>`gable-roof-panel` |
-| ![garage-door](docs/assets/garage-door.png)<br>`garage-door` | ![georgian-entry](docs/assets/georgian-entry.png)<br>`georgian-entry` | ![gutter-downspout](docs/assets/gutter-downspout.png)<br>`gutter-downspout` | ![rooftop-hvac](docs/assets/rooftop-hvac.png)<br>`rooftop-hvac` |
-| ![six-panel-door](docs/assets/six-panel-door.png)<br>`six-panel-door` | ![standing-seam-roof](docs/assets/standing-seam-roof.png)<br>`standing-seam-roof` | ![storefront-bay](docs/assets/storefront-bay.png)<br>`storefront-bay` | ![water-tower](docs/assets/water-tower.png)<br>`water-tower` |
-| ![wrought-iron-balcony](docs/assets/wrought-iron-balcony.png)<br>`wrought-iron-balcony` |    |    |    |
+| `bay-window` | `brick-chimney` | `brownstone-double-door` | `brownstone-stoop` |
+| `canvas-awning` | `casement-window` | `curtain-wall-panel` | `dormer-window` |
+| `double-hung-window` | `fire-escape-bay` | `french-balcony-door` | `gable-roof-panel` |
+| `garage-door` | `georgian-entry` | `gutter-downspout` | `rooftop-hvac` |
+| `six-panel-door` | `standing-seam-roof` | `storefront-bay` | `water-tower` |
+| `wrought-iron-balcony` |    |    |    |
 
 City tiles:
 
 | | | | |
 |---|---|---|---|
-| ![cobblestone-tile](docs/assets/cobblestone-tile.png)<br>`cobblestone-tile` | ![plaza-paving](docs/assets/plaza-paving.png)<br>`plaza-paving` | ![road-corner](docs/assets/road-corner.png)<br>`road-corner` | ![road-intersection](docs/assets/road-intersection.png)<br>`road-intersection` |
-| ![road-straight](docs/assets/road-straight.png)<br>`road-straight` | ![road-t-junction](docs/assets/road-t-junction.png)<br>`road-t-junction` | ![sidewalk-curb](docs/assets/sidewalk-curb.png)<br>`sidewalk-curb` |    |
+| `cobblestone-tile` | `plaza-paving` | `road-corner` | `road-intersection` |
+| `road-straight` | `road-t-junction` | `sidewalk-curb` |    |
 
 Street props:
 
 | | | | |
 |---|---|---|---|
-| ![bike-rack](docs/assets/bike-rack.png)<br>`bike-rack` | ![bus-shelter](docs/assets/bus-shelter.png)<br>`bus-shelter` | ![cafe-table-set](docs/assets/cafe-table-set.png)<br>`cafe-table-set` | ![concrete-planter](docs/assets/concrete-planter.png)<br>`concrete-planter` |
-| ![drinking-fountain](docs/assets/drinking-fountain.png)<br>`drinking-fountain` | ![manhole-cover](docs/assets/manhole-cover.png)<br>`manhole-cover` | ![newspaper-box](docs/assets/newspaper-box.png)<br>`newspaper-box` | ![ornamental-fence](docs/assets/ornamental-fence.png)<br>`ornamental-fence` |
-| ![parking-meter](docs/assets/parking-meter.png)<br>`parking-meter` | ![pedestrian-signal](docs/assets/pedestrian-signal.png)<br>`pedestrian-signal` | ![plaza-fountain](docs/assets/plaza-fountain.png)<br>`plaza-fountain` | ![police-call-box](docs/assets/police-call-box.png)<br>`police-call-box` |
-| ![stop-sign](docs/assets/stop-sign.png)<br>`stop-sign` | ![storm-drain-grate](docs/assets/storm-drain-grate.png)<br>`storm-drain-grate` | ![street-clock](docs/assets/street-clock.png)<br>`street-clock` | ![street-name-sign](docs/assets/street-name-sign.png)<br>`street-name-sign` |
-| ![traffic-signal](docs/assets/traffic-signal.png)<br>`traffic-signal` | ![tree-grate](docs/assets/tree-grate.png)<br>`tree-grate` | ![utility-pole](docs/assets/utility-pole.png)<br>`utility-pole` |    |
+| `bike-rack` | `bus-shelter` | `cafe-table-set` | `concrete-planter` |
+| `drinking-fountain` | `manhole-cover` | `newspaper-box` | `ornamental-fence` |
+| `parking-meter` | `pedestrian-signal` | `plaza-fountain` | `police-call-box` |
+| `stop-sign` | `storm-drain-grate` | `street-clock` | `street-name-sign` |
+| `traffic-signal` | `tree-grate` | `utility-pole` |    |
 
 ### BugHunt
 
@@ -523,20 +523,20 @@ Insects:
 
 | | | | |
 |---|---|---|---|
-| ![insect-bumblebee](docs/assets/insect-bumblebee.png)<br>`insect-bumblebee` | ![insect-caterpillar](docs/assets/insect-caterpillar.png)<br>`insect-caterpillar` | ![insect-centipede](docs/assets/insect-centipede.png)<br>`insect-centipede` | ![insect-cicada](docs/assets/insect-cicada.png)<br>`insect-cicada` |
-| ![insect-cricket](docs/assets/insect-cricket.png)<br>`insect-cricket` | ![insect-damselfly](docs/assets/insect-damselfly.png)<br>`insect-damselfly` | ![insect-dragonfly](docs/assets/insect-dragonfly.png)<br>`insect-dragonfly` | ![insect-dung-beetle](docs/assets/insect-dung-beetle.png)<br>`insect-dung-beetle` |
-| ![insect-firefly](docs/assets/insect-firefly.png)<br>`insect-firefly` | ![insect-garden-ant](docs/assets/insect-garden-ant.png)<br>`insect-garden-ant` | ![insect-grasshopper](docs/assets/insect-grasshopper.png)<br>`insect-grasshopper` | ![insect-honeybee](docs/assets/insect-honeybee.png)<br>`insect-honeybee` |
-| ![insect-jewel-beetle](docs/assets/insect-jewel-beetle.png)<br>`insect-jewel-beetle` | ![insect-katydid](docs/assets/insect-katydid.png)<br>`insect-katydid` | ![insect-ladybug](docs/assets/insect-ladybug.png)<br>`insect-ladybug` | ![insect-luna-moth](docs/assets/insect-luna-moth.png)<br>`insect-luna-moth` |
-| ![insect-mantis](docs/assets/insect-mantis.png)<br>`insect-mantis` | ![insect-monarch](docs/assets/insect-monarch.png)<br>`insect-monarch` | ![insect-morpho](docs/assets/insect-morpho.png)<br>`insect-morpho` | ![insect-pill-bug](docs/assets/insect-pill-bug.png)<br>`insect-pill-bug` |
-| ![insect-rhino-beetle](docs/assets/insect-rhino-beetle.png)<br>`insect-rhino-beetle` | ![insect-stag-beetle](docs/assets/insect-stag-beetle.png)<br>`insect-stag-beetle` | ![insect-stick-insect](docs/assets/insect-stick-insect.png)<br>`insect-stick-insect` | ![insect-swallowtail](docs/assets/insect-swallowtail.png)<br>`insect-swallowtail` |
+| `insect-bumblebee` | `insect-caterpillar` | `insect-centipede` | `insect-cicada` |
+| `insect-cricket` | `insect-damselfly` | `insect-dragonfly` | `insect-dung-beetle` |
+| `insect-firefly` | `insect-garden-ant` | `insect-grasshopper` | `insect-honeybee` |
+| `insect-jewel-beetle` | `insect-katydid` | `insect-ladybug` | `insect-luna-moth` |
+| `insect-mantis` | `insect-monarch` | `insect-morpho` | `insect-pill-bug` |
+| `insect-rhino-beetle` | `insect-stag-beetle` | `insect-stick-insect` | `insect-swallowtail` |
 
 Props:
 
 | | | | |
 |---|---|---|---|
-| ![anthill](docs/assets/anthill.png)<br>`anthill` | ![bark-slab](docs/assets/bark-slab.png)<br>`bark-slab` | ![bug-net](docs/assets/bug-net.png)<br>`bug-net` | ![capture-net-pod](docs/assets/capture-net-pod.png)<br>`capture-net-pod` |
-| ![field-journal](docs/assets/field-journal.png)<br>`field-journal` | ![flower-bush](docs/assets/flower-bush.png)<br>`flower-bush` | ![liftable-stone](docs/assets/liftable-stone.png)<br>`liftable-stone` | ![milkweed](docs/assets/milkweed.png)<br>`milkweed` |
-| ![specimen-jar](docs/assets/specimen-jar.png)<br>`specimen-jar` | ![wrist-launcher](docs/assets/wrist-launcher.png)<br>`wrist-launcher` |    |    |
+| `anthill` | `bark-slab` | `bug-net` | `capture-net-pod` |
+| `field-journal` | `flower-bush` | `liftable-stone` | `milkweed` |
+| `specimen-jar` | `wrist-launcher` |    |    |
 
 ## Performance
 

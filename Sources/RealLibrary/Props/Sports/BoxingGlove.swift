@@ -1,6 +1,9 @@
 import simd
 import Foundation
 
+/// Glove design. Raw value is the wire value; do not reorder.
+public enum GloveStyle: Int, CaseIterable, Sendable { case classic, twoTone, stripe, laceUp, vintage }
+
 /// Boxing glove, 14 oz competition style, as worn: +Z runs from the wrist toward the knuckles, +Y is the back
 /// of the hand, the thumb sits on +X (left hand; `leftHand = false` mirrors it). Red leather with a curled
 /// padded fist, a sewn-on thumb, piping and saddle stitching on every panel seam, a creased wrist break, and a
@@ -28,6 +31,10 @@ public struct BoxingGlove: RealAsset {
     public var leftHand = true
     /// Scale of the whole glove (1 = 14 oz, about 0.30 m long).
     public var scale: Float = 0.92
+    /// Design variant.
+    public var style: GloveStyle = .classic
+    /// Accent panels, stripes and laces colour.
+    public var accent: MaterialKey = "leather.oxblood:F1F0EC"
     public init() {}
 
     /// One cross-section of the body or thumb loft.
@@ -114,6 +121,10 @@ public struct BoxingGlove: RealAsset {
         let n = lod == 0 ? 56 : 32, per = lod == 0 ? 5 : 3
         let st = Self.resampled(Self.body, per: per)
         let rings = st.map { Self.ring($0, n: n) }
+        let laced = style == .laceUp || style == .vintage
+        let pipe = style == .vintage ? accent : piping
+        let sides = lod == 0 ? 8 : 5
+        func nearest(_ z: Float) -> Int { st.indices.min(by: { abs(st[$0].z - z) < abs(st[$1].z - z) })! }
 
         // Body: loft skin, then leather feel: wrist-break creases, soft padding sag, piping grooves.
         var body = Prim.loft(rings, capStart: false, capEnd: true, material: leather)
@@ -141,11 +152,11 @@ public struct BoxingGlove: RealAsset {
         let liningRings = st.prefix(per * 2 + 1).map { Self.ring($0, n: lod == 0 ? 32 : 20, grow: -0.0075) }
         m.add(Prim.loft(Array(liningRings), capStart: false, capEnd: true, material: lining).flipped())
         // Rolled opening edge: a piping torus around the cuff mouth.
-        m.add(Prim.loft([Self.ring(st[0], n: n, grow: 0.0006), Self.ring(st[0], n: n, grow: -0.0075)].map { r in r }, capStart: false, capEnd: false, material: piping))
+        m.add(Prim.loft([Self.ring(st[0], n: n, grow: 0.0006), Self.ring(st[0], n: n, grow: -0.0075)].map { r in r }, capStart: false, capEnd: false, material: pipe))
 
         // Strap: white velcro band wrapped over the cuff with a tab.
         let bandIdx = st.indices.filter { st[$0].z > -0.088 && st[$0].z < -0.046 }
-        if let f = bandIdx.first, let l = bandIdx.last {
+        if !laced, let f = bandIdx.first, let l = bandIdx.last {
             var strapS = Prim.loft((f...l).map { Self.ring(st[$0], n: n, grow: 0.0028) }, capStart: false, capEnd: false, material: strap)
             strapS.displace { p, _ in 0.0003 * sin(p.z * 1400) }
             m.add(strapS)
@@ -156,7 +167,7 @@ public struct BoxingGlove: RealAsset {
         // Cuff mouth band in white.
         let mouth = st.indices.filter { st[$0].z < -0.1 }
         if let f = mouth.first, let l = mouth.last, l > f {
-            m.add(Prim.loft((f...l).map { Self.ring(st[$0], n: n, grow: 0.0018) }, capStart: false, capEnd: false, material: strap))
+            m.add(Prim.loft((f...l).map { Self.ring(st[$0], n: n, grow: 0.0018) }, capStart: false, capEnd: false, material: laced ? accent : strap))
         }
 
         // Piping along both side seams and the knuckle break, with saddle stitching either side.
@@ -167,7 +178,7 @@ public struct BoxingGlove: RealAsset {
             let line = sideLine(k, from: 0.0, to: 0.19)
             guard line.count > 2 else { continue }
             let path = catmull(line, per: 3)
-            m.add(Prim.tube(path, radii: path.map { _ in 0.0029 }, sides: 6, seamTile: 0.02, material: piping, capEnd: false))
+            m.add(Prim.tube(path, radii: path.map { _ in 0.0029 }, sides: 6, seamTile: 0.02, material: pipe, capEnd: false))
             for off: Float in [-0.0075, 0.0075] {
                 let side = path.map { p in p + V3(0, 0, off) }
                 m.add(stitches(along: side, normal: { _ in V3(k == 0 ? 1 : -1, 0.4, 0) }, pitch: 0.0045, material: thread))
@@ -191,11 +202,57 @@ public struct BoxingGlove: RealAsset {
         m.add(stitches(along: attach, normal: { _ in V3(0.3, -1, 0) }, pitch: 0.0045, material: thread))
 
         // Maker patch on the back of the fist.
-        let pi = st.indices.min(by: { abs(st[$0].z - 0.06) < abs(st[$1].z - 0.06) })!
-        let top = V3(0, st[pi].y + st[pi].h / 2 + 0.0012, st[pi].z)
-        m.add(Prim.roundedBox(V3(0.07, 0.0016, 0.026), radius: 0.0007, bevelSegments: 1, material: strap), Xform(translation: top, rotation: simd_quatf(angle: -0.17, axis: V3(1, 0, 0))))
+        if style != .vintage {
+            let pi = st.indices.min(by: { abs(st[$0].z - 0.06) < abs(st[$1].z - 0.06) })!
+            let top = V3(0, st[pi].y + st[pi].h / 2 + 0.0012, st[pi].z)
+            m.add(Prim.roundedBox(V3(0.07, 0.0016, 0.026), radius: 0.0007, bevelSegments: 1, material: strap), Xform(translation: top, rotation: simd_quatf(angle: -0.17, axis: V3(1, 0, 0))))
+        }
 
-        if scale != 1 { m = m.transformed(Xform(scale: V3(repeating: scale))) }
+        // Style extras in the accent colour.
+        switch style {
+        case .classic: break
+        case .twoTone:
+            // Knuckle-break band and a wide thumb-gusset panel.
+            let kj = nearest(0.118)
+            let band = catmull((0...(n / 2)).map { Self.ring(st[kj], n: n, grow: 0.0015)[$0] }, per: 2)
+            m.add(Prim.tube(band, radii: band.map { _ in 0.006 }, sides: sides, seamTile: 0.02, material: accent, capEnd: false))
+            let gus = catmull(tst.indices.map { Self.ring(tst[$0], n: 32, grow: 0.0015)[24] }, per: 2)
+            m.add(Prim.tube(gus, radii: gus.map { _ in 0.006 }, sides: sides, seamTile: 0.02, material: accent, capEnd: false))
+            let cuffIdx = st.indices.filter { st[$0].z > -0.128 && st[$0].z < -0.1 }
+            if let f = cuffIdx.first, let l = cuffIdx.last, l > f {
+                m.add(Prim.loft((f...l).map { Self.ring(st[$0], n: n, grow: 0.0032) }, capStart: false, capEnd: false, material: accent))
+            }
+        case .stripe:
+            let zr = st.indices.filter { st[$0].z >= 0.02 && st[$0].z <= 0.15 }
+            let cl = zr.map { rings[$0][n / 4] }
+            if cl.count > 2 {
+                let path = catmull(cl, per: 2)
+                m.add(Prim.tube(path, radii: path.map { _ in 0.010 }, sides: sides, seamTile: 0.02, material: accent, capEnd: false))
+            }
+            for k in [0, n / 2] {
+                let line = zr.map { rings[$0][k] }
+                guard line.count > 2 else { continue }
+                let path = catmull(line, per: 2)
+                m.add(Prim.tube(path, radii: path.map { _ in 0.005 }, sides: sides, seamTile: 0.02, material: accent, capEnd: false))
+            }
+        case .laceUp, .vintage:
+            // Cross laces zigzagging across the back of the cuff.
+            let levels = 6
+            for j in 0..<(levels - 1) {
+                let zl = -0.095 + 0.05 * Float(j) / Float(levels - 1)
+                let zr = -0.095 + 0.05 * Float(j + 1) / Float(levels - 1)
+                let (a, b) = j % 2 == 0 ? (zl, zr) : (zr, zl)
+                let pts: [V3] = (0...10).map { t in
+                    let f = Float(t) / 10
+                    let i = nearest(a + (b - a) * f)
+                    return rings[i][n / 4 - 5 + t] + V3(0, 0.0028, 0)
+                }
+                m.add(Prim.tube(pts, radii: pts.map { _ in 0.0022 }, sides: 6, seamTile: 0.02, material: accent, capEnd: false))
+            }
+        }
+
+        let sc = style == .vintage ? scale * 1.08 : scale
+        if sc != 1 { m = m.transformed(Xform(scale: V3(repeating: sc))) }
         if !leftHand {
             var mirrored = Model(name: m.name)
             for var sf in m.surfaces {

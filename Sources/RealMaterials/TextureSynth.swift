@@ -79,7 +79,9 @@ public struct SkyParams {
 /// Runtime-compiled Metal texture synthesis. Generating a 1024² PBR set takes ~1-3 ms of GPU time,
 /// so assets ship as code (zero bytes of textures in the app bundle) and build on load.
 public final class TextureSynth: @unchecked Sendable {
-    public static let shared: TextureSynth? = try? TextureSynth()
+    public static let shared: TextureSynth? = {
+        do { return try TextureSynth() } catch { FileHandle.standardError.write(Data("TextureSynth init: \(error)\n".utf8)); return nil }
+    }()
 
     /// Builds `shared` off the main thread. The first `shared` access compiles the Metal library and six
     /// compute pipelines (several seconds on device); doing that on the main thread during scene creation

@@ -1,11 +1,11 @@
-// Fabric and camp-wood programs: fabricWeave, woodEndGrain, charcoal.
+// Fabric and camp-wood programs: fabricWeave, pinstripe, woodEndGrain, charcoal.
 
 let metalFabric = #"""
 // ---------------------------------------------------------------- fabric and camp wood
 // Plain weave. Warp threads run along V, weft along U; each passes over and under alternate crossings.
 // colorA yarn, colorB second yarn tone (a = per-thread mix, 0 keeps tints clean), colorC dirt (a = dirt amount).
 // knobs: x threads per tile (rounded to even), y fuzz and slubs, z base roughness, w ripstop cells per tile (0 = none).
-S fabricWeave(float2 uv, constant RFParams &P) {
+S fabricWeaveImpl(float2 uv, thread const RFParams &P) {
     S s = defaults(); uint sd = P.seed;
     int n = max(2, int(P.f.x * 0.5 + 0.5) * 2);
     float fn = float(n);
@@ -68,6 +68,20 @@ S fabricWeave(float2 uv, constant RFParams &P) {
     s.height = mix(hh, 0.5, halo * 0.3) + twist * 0.03 * (1.0 - gap) + rip * 0.12;
     s.rough = sat(P.f.z + (1.0 - sat(profile)) * 0.08 + fuzz * 0.15 + dirt * 0.1 + gap * 0.1);
     s.ao = gap > 0.5 ? 0.45 : mix(0.7, 1.0, sat(profile));
+    return s;
+}
+
+S fabricWeave(float2 uv, constant RFParams &P) { RFParams Q = P; return fabricWeaveImpl(uv, Q); }
+
+// Striped shirting: the plain weave with every second band of width 1/knobs.w tile dyed colorB.rgb.
+// Bands run along V. knobs: x threads per tile, y fuzz, z base roughness, w stripe pairs per tile.
+S pinstripe(float2 uv, constant RFParams &P) {
+    RFParams Q = P;
+    Q.f.w = 0.0;
+    S s = fabricWeaveImpl(uv, Q);
+    float ph = fract(uv.x * max(1.0, P.f.w));
+    float band = smoothstep(0.47, 0.5, ph) * (1.0 - smoothstep(0.97, 1.0, ph));
+    s.albedo = mix(s.albedo, s.albedo * P.colorB.rgb, band);
     return s;
 }
 
