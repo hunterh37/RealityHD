@@ -124,3 +124,13 @@ extension FE {
         m.add(Prim.superellipsoid(V3(w, 0.0016, d), exponent: 2, subdivisions: 3, material: mat), Xform(translation: c, rotation: FA.q(yaw, FA.Y)))
     }
 }
+
+extension FE {
+    /// Lathe surface displaced along its normals by `d(position)` meters (flutes, rock face, pitting).
+    static func turnDisp(_ m: inout Model, _ prof: [V2], at c: V3 = .zero, _ mat: MaterialKey, segments: Int = 64, seamTile: Float = 0.3,
+                         _ d: (V3) -> Float) {
+        var s = Prim.lathe(prof, segments: segments, seamTile: seamTile, material: mat)
+        s.displace { p, _ in d(p) }
+        m.add(s, Xform(translation: c))
+    }
+}

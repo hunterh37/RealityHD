@@ -1131,6 +1131,10 @@ public enum Props {
         GraniteCurbStep.self,
         CarriageStepBlock.self,
         MountingBlockStone.self,
+        CastIronHitchingPost.self,
+        BollardCastIronHistoric.self,
+        AntiRamBollardSteel.self,
+        RailWheelGuardStone.self,
         // realityhd:prop
     ]
 }
