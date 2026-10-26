@@ -1,0 +1,40 @@
+{
+  "budget": 10000,
+  "id": "cantilevered-concrete-balcony-slab",
+  "kind": "prop",
+  "materials": [
+    "concrete.rough",
+    "concrete.river-algae",
+    "metal.galvanized",
+    "metal.stainless"
+  ],
+  "name": "Cantilevered concrete balcony slab",
+  "notes": "",
+  "parts": [
+    "slab",
+    "board-formed texture",
+    "drip groove",
+    "upstand kerb",
+    "tie holes",
+    "thermal break strip",
+    "drain scupper",
+    "stainless balustrade posts"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    0.2,
+    1.2
+  ],
+  "style": "architectural facade customizer, Brutalist",
+  "summary": "Brutalist cantilevered balcony slab, 2.4 m wide, 1.2 m projection: board-formed concrete with drip groove, upturned parapet kerb, tie holes, thermal break strip and stainless rail posts.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

@@ -1,0 +1,40 @@
+{
+  "budget": 13000,
+  "id": "carved-stone-gargoyle-spout",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone-sooted",
+    "stone.limestone",
+    "metal.rust",
+  ],
+  "name": "Carved stone gargoyle spout",
+  "notes": "",
+  "parts": [
+    "moulded corbel block",
+    "carved neck and body",
+    "grotesque head with brow, horns, ears",
+    "open mouth with teeth and tongue",
+    "dark bore with lead lip",
+    "folded wing stubs",
+    "dorsal spine ridge",
+    "staining streaks"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    0.5,
+    0.7
+  ],
+  "style": "architectural facade customizer, Gothic Revival",
+  "summary": "Gothic Revival gargoyle water spout, 0.7 m projection: carved limestone grotesque on a moulded corbel base with a lead-lined bore, brow, horns, wings and weathering.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

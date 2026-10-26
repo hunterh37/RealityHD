@@ -1,0 +1,41 @@
+{
+  "budget": 10000,
+  "id": "wrought-iron-juliet-balcony",
+  "kind": "prop",
+  "materials": [
+    "metal.wrought-iron",
+    "metal.rust",
+    "metal.iron",
+    "metal.hammer-painted"
+  ],
+  "name": "Wrought iron Juliet balcony",
+  "notes": "",
+  "parts": [
+    "top handrail",
+    "bottom rail",
+    "bowed front",
+    "twisted balusters",
+    "scroll panels",
+    "side returns",
+    "wall anchor plates",
+    "rivets and collars",
+    "rust at the lower rail"
+  ],
+  "references": [],
+  "size": [
+    1.4,
+    1.0,
+    0.35
+  ],
+  "style": "architectural facade customizer, Spanish Colonial",
+  "summary": "Spanish Colonial Juliet balcony, 1.4 m wide: forged iron bowed rail with twisted balusters, scroll panels, flat-bar frame, rivets, wall anchor plates and a worn black finish.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

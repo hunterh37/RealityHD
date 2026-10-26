@@ -1,0 +1,41 @@
+{
+  "budget": 14000,
+  "id": "terracotta-sgraffito-panel",
+  "kind": "prop",
+  "materials": [
+    "ceramic.terracotta",
+    "stone.cast-stone",
+    "wood.oak",
+    "stone.limestone"
+  ],
+  "name": "Terracotta sgraffito panel",
+  "notes": "",
+  "parts": [
+    "oak frame",
+    "terracotta ground",
+    "scratched slip pattern",
+    "tulip motif",
+    "border scroll",
+    "corner rosettes",
+    "frame fixings",
+    "edge chips"
+  ],
+  "references": [],
+  "size": [
+    0.8,
+    0.8,
+    0.04
+  ],
+  "style": "architectural facade customizer, Arts and Crafts",
+  "summary": "Arts and Crafts sgraffito panel, 0.8 m square: cream slip scratched through to terracotta body in a stylized tulip and scroll pattern inside a moulded oak frame.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

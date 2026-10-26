@@ -1,0 +1,39 @@
+{
+  "budget": 13000,
+  "id": "acanthus-leaf-corbel",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "stone.cast-stone"
+  ],
+  "name": "Acanthus leaf corbel",
+  "notes": "",
+  "parts": [
+    "abacus top block",
+    "S-scroll volute",
+    "layered acanthus leaves",
+    "lower leaf tip",
+    "wall plate",
+    "fillet mouldings",
+    "chip and soot wear"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    0.5,
+    0.3
+  ],
+  "style": "architectural facade customizer, Beaux-Arts",
+  "summary": "Beaux-Arts acanthus corbel, 0.5 m tall: carved limestone S-scroll bracket with layered acanthus leaves, abacus-capped top, wall plate and a chipped lower tip.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

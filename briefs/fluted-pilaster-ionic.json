@@ -1,0 +1,42 @@
+{
+  "budget": 10000,
+  "id": "fluted-pilaster-ionic",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "stone.marble-honed",
+    "stone.cast-stone"
+  ],
+  "name": "Fluted pilaster Ionic",
+  "notes": "",
+  "parts": [
+    "plinth",
+    "attic base torus and scotia",
+    "fluted shaft",
+    "arrises",
+    "necking",
+    "egg-and-dart echinus",
+    "volute scrolls",
+    "abacus",
+    "weathering at base"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    2.6,
+    0.12
+  ],
+  "style": "architectural facade customizer, Neoclassical",
+  "summary": "Neoclassical Ionic pilaster, 2.6 m: attic-style base with plinth, 20-flute shaft with arrises, Ionic capital with volutes and echinus, and abacus.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
