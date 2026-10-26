@@ -1,0 +1,45 @@
+{
+  "budget": 15000,
+  "id": "pressed-metal-storefront-cornice",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized-aged",
+    "metal.painted",
+    "metal.rust",
+    "wood.trim-weathered",
+    "metal.brass-aged"
+  ],
+  "name": "Pressed metal storefront cornice",
+  "notes": "",
+  "parts": [
+    "galvanized sheet crown",
+    "large end brackets",
+    "modillion row",
+    "central pediment panel with rosette",
+    "egg-and-dart band",
+    "frieze panel with embossed swags",
+    "bed mould and fascia",
+    "bolted joints with rivets",
+    "wood nailer",
+    "paint loss and rust streaks"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    0.8,
+    0.5
+  ],
+  "style": "architectural facade customizer, American Commercial",
+  "summary": "American Commercial pressed metal storefront cornice, 2.4 x 0.8 m: crown, brackets, modillions, pediment rosette, frieze swags, rivets, rust.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
