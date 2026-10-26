@@ -263,3 +263,23 @@ import RealityKit
         #expect(RealPerformance.adaptiveHoldUntil > max(before, CFAbsoluteTimeGetCurrent()))
     }
 }
+
+@Suite struct LivePacerTests {
+    @Test func staticViewDropsToStaticInterval() {
+        var p = RealLivePacer(movingInterval: 0, staticInterval: 0.1)
+        let k = SIMD8<Float>(1, 2, 3, 40, 0, 0, 0, 0)
+        let first = p.shouldRender(key: k, now: 0)
+        let held = p.shouldRender(key: k, now: 0.05)
+        let due = p.shouldRender(key: k, now: 0.11)
+        let moved = p.shouldRender(key: SIMD8(1, 2, 3.5, 40, 0, 0, 0, 0), now: 0.12)
+        #expect(first && !held && due && moved)
+    }
+
+    @Test func animatedAlwaysRenders() {
+        var p = RealLivePacer(movingInterval: 0, staticInterval: 0.1)
+        let k = SIMD8<Float>(0, 0, 0, 40, 0, 0, 0, 0)
+        let a = p.shouldRender(key: k, animated: true, now: 0)
+        let b = p.shouldRender(key: k, animated: true, now: 0.01)
+        #expect(a && b)
+    }
+}

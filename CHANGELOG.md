@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+## 5.16.0
+
+- `RealLivePacer` and `RealPreview.renderLive(into:)` (RealKit/LiveRender.swift): pacing for live secondary renders
+  (camera LCDs, mirrors). A held view in a still scene renders at `staticInterval` (10 Hz default) instead of every
+  call; animated content renders every call. ShutterLab's Viewfinder uses it, and runs `setup(.balanced, adaptive: true)`.
+
 ## 5.15.0
 
 - 50 small forest and river detail assets (Nature/Details, batch 3); `BoxingGlove` and fabric shader updates; `MaterialSpec` and `TextureSynth` changes.

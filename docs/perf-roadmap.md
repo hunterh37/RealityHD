@@ -238,6 +238,13 @@ one upgrade per second. Fails the phase 5 gate (0 frames > 22 ms), so materials 
 Phase 5 closed in the simulator. Open, device only: phase 0 on-head GPU trace, phase 4 per-family far
 variants and texture streaming by LOD (sized by that trace), phase 5 walk gate on device.
 
+## Live secondary renders (2026-10-26)
+
+ShutterLab renders a second copy of the scene into a camera LCD every 50 ms; the simulator measured 167-200 ms
+per `viewfinder.update`, the largest single cost in that app. `RealLivePacer` drops a held view in a still scene
+to 10 Hz (wind is the only change) and `RealPreview.renderLive(into:)` is the shared render call. Wildlife
+lessons keep the full rate. Device Time Profiler share still open (B12).
+
 ## Not planned
 
 - Further load-stall or governor work: measured at target already.
