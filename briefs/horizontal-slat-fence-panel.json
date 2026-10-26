@@ -1,0 +1,41 @@
+{
+  "budget": 12000,
+  "id": "horizontal-slat-fence-panel",
+  "kind": "prop",
+  "materials": [
+    "wood.cedar",
+    "wood.cedar-weathered",
+    "metal.powdercoat",
+    "metal.galvanized-aged",
+    "metal.nickel-worn",
+    "wood.waterlogged"
+  ],
+  "name": "Horizontal slat fence panel",
+  "notes": "",
+  "parts": [
+    "steel posts",
+    "horizontal cedar slats with gaps",
+    "top cap",
+    "back channel",
+    "fixing screws",
+    "base plate"
+  ],
+  "references": [],
+  "size": [
+    1.8,
+    1.8,
+    0.05
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Contemporary horizontal cedar slat screen in powder-coated posts",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

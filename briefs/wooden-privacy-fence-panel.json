@@ -1,0 +1,42 @@
+{
+  "budget": 12000,
+  "id": "wooden-privacy-fence-panel",
+  "kind": "prop",
+  "materials": [
+    "wood.cedar-weathered",
+    "wood.pine-aged",
+    "wood.lumber-pine",
+    "wood.weathered",
+    "wood.waterlogged",
+    "wood.charred",
+    "metal.galvanized"
+  ],
+  "name": "Wooden privacy fence panel",
+  "notes": "",
+  "parts": [
+    "posts",
+    "post caps",
+    "stringers",
+    "vertical boards",
+    "cap rail",
+    "kickboard",
+    "galvanised nails"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    1.8,
+    0.1
+  ],
+  "style": "architectural facade customizer, American Traditional",
+  "summary": "American traditional dog-ear privacy panel, 1x6 boards on 2x4 stringers between 4x4 posts",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

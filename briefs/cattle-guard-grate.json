@@ -1,0 +1,41 @@
+{
+  "budget": 12000,
+  "id": "cattle-guard-grate",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized-aged",
+    "metal.rust",
+    "metal.rust-grime",
+    "metal.steel",
+    "concrete.rough",
+    "asphalt.worn"
+  ],
+  "name": "Cattle guard grate",
+  "notes": "",
+  "parts": [
+    "pipe rails",
+    "end frames",
+    "concrete footings",
+    "wing rails",
+    "weld beads",
+    "support beams",
+    "pit"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    0.2,
+    2.4
+  ],
+  "style": "architectural facade customizer, Rural",
+  "summary": "Rural cattle guard, welded steel pipe rails spanning a pit on concrete footings",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

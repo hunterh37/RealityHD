@@ -1140,6 +1140,23 @@ public enum Props {
         TicketBoothWindow.self,
         AwningSignValanceBoard.self,
         OculusDoorTransomLettering.self,
+        WroughtIronGatePair.self,
+        WroughtIronGatePier.self,
+        StoneGatePierBallCap.self,
+        BrickGatePier.self,
+        LychgateRoofed.self,
+        ArborGate.self,
+        PedestrianGateIronwork.self,
+        SlidingDrivewayGate.self,
+        SwingDrivewayGateDouble.self,
+        CattleGuardGrate.self,
+        WoodenPrivacyFencePanel.self,
+        ShadowboxFencePanel.self,
+        SplitRailFenceSection.self,
+        PostAndRopeFence.self,
+        HorizontalSlatFencePanel.self,
+        ChainLinkFenceSection.self,
+        GabionWallSection.self,
         // realityhd:prop
     ]
 }

@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "post-and-rope-fence",
+  "kind": "prop",
+  "materials": [
+    "wood.pole-creosote",
+    "wood.driftwood",
+    "wood.driftwood-end",
+    "wood.rattan",
+    "metal.galvanized-aged",
+    "metal.rust-grime",
+    "wood.charred"
+  ],
+  "name": "Post and rope fence",
+  "notes": "",
+  "parts": [
+    "round posts",
+    "rope runs",
+    "rope sag",
+    "eye screws",
+    "post caps",
+    "knots",
+    "base"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    1.0,
+    0.1
+  ],
+  "style": "architectural facade customizer, Coastal",
+  "summary": "Coastal weathered round posts with sagging manila rope through eye hooks",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

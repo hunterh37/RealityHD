@@ -1,0 +1,43 @@
+{
+  "budget": 12000,
+  "id": "brick-gate-pier",
+  "kind": "prop",
+  "materials": [
+    "brick.unit-red",
+    "brick.unit-red-dark",
+    "brick.unit-red-light",
+    "brick.unit-header",
+    "brick.mortar-lime",
+    "brick.unit-sooted",
+    "stone.limestone",
+    "metal.wrought-iron"
+  ],
+  "name": "Brick gate pier",
+  "notes": "",
+  "parts": [
+    "brick shaft in stretcher bond",
+    "corbelled plinth",
+    "stone cap",
+    "soldier course band",
+    "iron hinge pins",
+    "mortar joints"
+  ],
+  "references": [],
+  "size": [
+    0.5,
+    1.8,
+    0.5
+  ],
+  "style": "architectural facade customizer, Colonial Revival",
+  "summary": "Colonial Revival brick gate pier, running bond with header band, limestone cap and corbelled brick base",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

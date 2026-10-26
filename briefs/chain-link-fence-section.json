@@ -1,0 +1,41 @@
+{
+  "budget": 12000,
+  "id": "chain-link-fence-section",
+  "kind": "prop",
+  "materials": [
+    "fence.chainlink",
+    "metal.galvanized-aged",
+    "metal.galvanized",
+    "metal.rust-grime"
+  ],
+  "name": "Chain link fence section",
+  "notes": "",
+  "parts": [
+    "terminal posts",
+    "line post",
+    "top rail",
+    "chain link mesh",
+    "tension bar",
+    "tension band",
+    "tie wires",
+    "post caps",
+    "bottom tension wire"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    1.8,
+    0.05
+  ],
+  "style": "architectural facade customizer, Commercial",
+  "summary": "Commercial galvanized chain link fence, 2 inch mesh, tubular posts and top rail",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

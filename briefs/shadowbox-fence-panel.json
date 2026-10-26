@@ -1,0 +1,42 @@
+{
+  "budget": 12000,
+  "id": "shadowbox-fence-panel",
+  "kind": "prop",
+  "materials": [
+    "wood.cedar-weathered",
+    "wood.cedar",
+    "wood.pine-aged",
+    "wood.weathered",
+    "wood.waterlogged",
+    "wood.charred",
+    "metal.galvanized"
+  ],
+  "name": "Shadowbox fence panel",
+  "notes": "",
+  "parts": [
+    "posts",
+    "post caps",
+    "stringers",
+    "alternating boards front and back",
+    "cap rail",
+    "kickboard",
+    "nails"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    1.8,
+    0.1
+  ],
+  "style": "architectural facade customizer, American Traditional",
+  "summary": "American traditional shadowbox fence, boards alternating each side of the rails",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
