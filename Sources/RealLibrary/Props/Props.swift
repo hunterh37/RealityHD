@@ -1069,6 +1069,16 @@ public enum Props {
         ArtDecoChevronFrieze.self,
         MosaicTileEntryArch.self,
         BrickCorbelTable.self,
+        CopperStandingSeamValleyFlashing.self,
+        LeadRollRidgeCap.self,
+        TerracottaFinialPinnacle.self,
+        CastLeadRainwaterHopper.self,
+        CastIronDownpipeShoe.self,
+        BrassHoseBibEscutcheon.self,
+        CastAluminumHouseNumberPlaque.self,
+        EnamelStreetNameSign.self,
+        ProjectingPubBracketSign.self,
+        BladeNeonSignFrame.self,
         // realityhd:prop
     ]
 }
