@@ -1,0 +1,38 @@
+{
+  "budget": 15000,
+  "id": "dry-stone-wall-section",
+  "kind": "prop",
+  "materials": [
+    "stone.slate",
+    "stone.granite-moss",
+    "stone.wall-block",
+    "stone.cap"
+  ],
+  "name": "Dry stone wall section",
+  "notes": "",
+  "parts": [
+    "base footing course",
+    "through stones",
+    "coursed rubble",
+    "hearting",
+    "cope stones on edge",
+    "lichen"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    1.0,
+    0.5
+  ],
+  "style": "architectural facade customizer, Vernacular",
+  "summary": "Dry stone wall section 2.0 m: battered double-skin wall of coursed rubble with through stones, hearting and cock-and-hen cope.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

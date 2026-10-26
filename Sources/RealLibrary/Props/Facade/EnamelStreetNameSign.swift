@@ -40,12 +40,12 @@ public struct EnamelStreetNameSign: RealAsset {
         m.add(Prim.sweep(Shape2D.circle(0.0006, segments: 5), along: fil2, up: FA.Z, closedPath: true, caps: false, material: white))
         // Lettering.
         let h: Float = 0.046
-        let w = FS.width(name, h: h)
-        FS.text(&m, name, origin: V2(-w / 2, -h / 2), h: h, w: 0.0072, z: zT + 0.0004, t: 0.0014, white)
+        let w = FSO.width(name, h: h)
+        FSO.text(&m, name, origin: V2(-w / 2, -h / 2), h: h, w: 0.0072, z: zT + 0.0004, t: 0.0014, white)
         // Corner screws.
         for sx: Float in [-1, 1] {
             for sy: Float in [-1, 1] {
-                FS.screw(&m, at: V3(sx * 0.2825, sy * 0.0535, zT + 0.0003), r: 0.0036, "metal.steel", angle: rng.float(0...180))
+                FSO.screw(&m, at: V3(sx * 0.2825, sy * 0.0535, zT + 0.0003), r: 0.0036, "metal.steel", angle: rng.float(0...180))
             }
         }
         // Pressed mounting lugs: bent flanges behind the plate, bolted to the wall.
@@ -59,22 +59,22 @@ public struct EnamelStreetNameSign: RealAsset {
         for _ in 0..<14 {
             let top = rng.chance(0.5)
             let x = rng.float(-0.28...0.28)
-            FS.blob(&m, at: V3(x, (top ? 1 : -1) * (H / 2 - 0.0062), zT + 0.0006), size: V3(rng.float(0.006...0.02), rng.float(0.003...0.007), 0.0008), rng.chance(0.55) ? "metal.steel" : "metal.rust")
+            FSO.blob(&m, at: V3(x, (top ? 1 : -1) * (H / 2 - 0.0062), zT + 0.0006), size: V3(rng.float(0.006...0.02), rng.float(0.003...0.007), 0.0008), rng.chance(0.55) ? "metal.steel" : "metal.rust")
         }
         for sx: Float in [-1, 1] {
             for sy: Float in [-1, 1] {
-                FS.blob(&m, at: V3(sx * 0.2825, sy * 0.0535 - sy * 0.002, zT + 0.0001), size: V3(0.011, 0.011, 0.0008), "metal.rust")
-                if sy > 0 { FS.blob(&m, at: V3(sx * 0.2825, sy * 0.0535 - 0.02, zT + 0.0001), size: V3(0.004, rng.float(0.02...0.04), 0.0006), "metal.rust-grime") }
+                FSO.blob(&m, at: V3(sx * 0.2825, sy * 0.0535 - sy * 0.002, zT + 0.0001), size: V3(0.011, 0.011, 0.0008), "metal.rust")
+                if sy > 0 { FSO.blob(&m, at: V3(sx * 0.2825, sy * 0.0535 - 0.02, zT + 0.0001), size: V3(0.004, rng.float(0.02...0.04), 0.0006), "metal.rust-grime") }
             }
         }
         for _ in 0..<8 {
             let a = V2(rng.float(-0.26...0.26), rng.float(-0.05...0.05))
-            FS.bar(&m, a, a + V2(rng.float(-0.03...0.03), rng.float(-0.02...0.02)), w: 0.0004, z: zT + 0.0001, t: 0.0003, "metal.painted:0E1E42")
+            FSO.bar(&m, a, a + V2(rng.float(-0.03...0.03), rng.float(-0.02...0.02)), w: 0.0004, z: zT + 0.0001, t: 0.0003, "metal.painted:0E1E42")
         }
-        FS.blob(&m, at: V3(0, -H / 2 + 0.0075, zT + 0.0002), size: V3(0.5, 0.005, 0.0007), "stone.limestone-sooted")
+        FSO.blob(&m, at: V3(0, -H / 2 + 0.0075, zT + 0.0002), size: V3(0.5, 0.005, 0.0007), "stone.limestone-sooted")
         // Letter wear: a few white strokes chipped through to the blue.
         for _ in 0..<6 {
-            FS.blob(&m, at: V3(rng.float(-w / 2...w / 2), rng.float(-0.02...0.02), zT + 0.0021), size: V3(0.004, 0.004, 0.0008), blue)
+            FSO.blob(&m, at: V3(rng.float(-w / 2...w / 2), rng.float(-0.02...0.02), zT + 0.0021), size: V3(0.004, 0.004, 0.0008), blue)
         }
         groundAO(&m)
         return LODModel(FC.place(m))

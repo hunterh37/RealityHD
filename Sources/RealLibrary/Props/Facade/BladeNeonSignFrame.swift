@@ -81,8 +81,8 @@ public struct BladeNeonSignFrame: RealAsset {
         let top0 = y1 - 0.17
         for (i, ch) in word.enumerated() {
             let y = top0 - Float(i + 1) * h - Float(i) * gap
-            let w = FS.width(String(ch), h: h, ws: 0.95)
-            let r = FS.segments(String(ch), origin: V2(-w / 2, y), h: h, ws: 0.95)
+            let w = FSO.width(String(ch), h: h, ws: 0.95)
+            let r = FSO.segments(String(ch), origin: V2(-w / 2, y), h: h, ws: 0.95)
             for (si, (a, b)) in r.segs.enumerated() {
                 let dead = (i == 3 && si == 2)       // one dead tube in the second E
                 FA.rod(&m, V3(a.x, a.y, zN), V3(b.x, b.y, zN), r: tr, dead ? "glass.frosted" : glow, sides: 8)
@@ -98,7 +98,7 @@ public struct BladeNeonSignFrame: RealAsset {
         // Transformer box under the can with a conduit and clamps, wall flanges at top and bottom.
         FA.box(&m, V3(0.15, 0.092, 0.07), V3(0.1, 0.046, 0.035), "metal.painted:6B6F73", r: 0.004)
         FA.box(&m, V3(0.15, 0.012, 0.074), V3(0.1, 0.092, 0.037), "metal.painted:595D61", r: 0.003)
-        for dx: Float in [-0.055, 0.055] { FS.screw(&m, at: V3(0.1 + dx, 0.046, 0.0702), r: 0.0048, "metal.steel", angle: rng.float(0...180)) }
+        for dx: Float in [-0.055, 0.055] { FSO.screw(&m, at: V3(0.1 + dx, 0.046, 0.0702), r: 0.0048, "metal.steel", angle: rng.float(0...180)) }
         FA.rod(&m, V3(0.06, 0.092, 0.035), V3(0.06, y0 + 0.008, 0.035), r: 0.008, "metal.galvanized-aged", sides: 8)
         for sy: Float in [0.125, 0.5, 1.0] { FA.box(&m, V3(0.016, 0.01, 0.01), V3(0.06, sy, 0.04), "metal.steel", r: 0.002) }
         for (sx, yb) in [(-1, y0 + 0.07), (1, y0 + 0.07), (-1, y1 - 0.07), (1, y1 - 0.07)] as [(Float, Float)] {
@@ -106,14 +106,14 @@ public struct BladeNeonSignFrame: RealAsset {
         }
         // Weathering: enamel chips to steel near the base, rust bleed from the seams, dust and bird lime on the crown.
         for _ in 0..<12 {
-            FS.blob(&m, at: V3(rng.float(-0.2...0.2), rng.float(y0 + 0.02...y0 + 0.2), dC + 0.0026), size: V3(rng.float(0.008...0.022), rng.float(0.006...0.014), 0.0008), rng.chance(0.5) ? "metal.steel" : "metal.rust")
+            FSO.blob(&m, at: V3(rng.float(-0.2...0.2), rng.float(y0 + 0.02...y0 + 0.2), dC + 0.0026), size: V3(rng.float(0.008...0.022), rng.float(0.006...0.014), 0.0008), rng.chance(0.5) ? "metal.steel" : "metal.rust")
         }
-        for sgn: Float in [-1, 1] { FS.blob(&m, at: V3(sgn * 0.233, y0 + 0.3, dC + 0.0027), size: V3(0.008, rng.float(0.1...0.2), 0.0008), "metal.rust-grime") }
+        for sgn: Float in [-1, 1] { FSO.blob(&m, at: V3(sgn * 0.233, y0 + 0.3, dC + 0.0027), size: V3(0.008, rng.float(0.1...0.2), 0.0008), "metal.rust-grime") }
         for (k, (w, h)) in steps.enumerated() {
             let ytop = y1 + Float(k) * 0.04 + h
-            FS.blob(&m, at: V3(rng.float(-w / 3...w / 3), ytop + 0.0008, dC * 0.45), size: V3(rng.float(0.03...0.07), 0.0014, 0.02), rng.chance(0.5) ? "stone.limestone" : "stone.limestone-sooted")
+            FSO.blob(&m, at: V3(rng.float(-w / 3...w / 3), ytop + 0.0008, dC * 0.45), size: V3(rng.float(0.03...0.07), 0.0014, 0.02), rng.chance(0.5) ? "stone.limestone" : "stone.limestone-sooted")
         }
-        FS.blob(&m, at: V3(0, y0 + 0.012, dC + 0.0028), size: V3(0.3, 0.012, 0.0012), "stone.limestone-sooted")
+        FSO.blob(&m, at: V3(0, y0 + 0.012, dC + 0.0028), size: V3(0.3, 0.012, 0.0012), "stone.limestone-sooted")
         groundAO(&m)
         return LODModel(FC.place(m))
     }

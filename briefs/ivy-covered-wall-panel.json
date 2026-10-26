@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "ivy-covered-wall-panel",
+  "kind": "prop",
+  "materials": [
+    "brick.red",
+    "brick.mortar-lime",
+    "stone.limestone-sooted",
+    "leaf.plain"
+  ],
+  "name": "Ivy covered wall panel",
+  "notes": "",
+  "parts": [
+    "English bond brickwork",
+    "lime mortar joints",
+    "stone coping",
+    "ivy stems",
+    "ivy leaves",
+    "rootlets"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    2.4,
+    0.2
+  ],
+  "style": "architectural facade customizer, English Vernacular",
+  "summary": "English bond brick wall panel with limestone plinth and coping, one spalled brick and ivy over two thirds of the face.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

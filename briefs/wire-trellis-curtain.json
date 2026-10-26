@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "wire-trellis-curtain",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless",
+    "metal.bolt-bright",
+    "leaf.plain",
+    "plant.stem"
+  ],
+  "name": "Wire trellis curtain",
+  "notes": "",
+  "parts": [
+    "vertical wire ropes with swage terminals",
+    "horizontal cable rows",
+    "side posts on wall standoffs",
+    "top and bottom rails",
+    "turnbuckles",
+    "crossing clamps",
+    "climbing jasmine stems and leaves"
+  ],
+  "references": [],
+  "size": [
+    1.5,
+    3.0,
+    0.1
+  ],
+  "style": "architectural facade customizer, contemporary green wall, brushed stainless cable trellis with a young star jasmine",
+  "summary": "Contemporary stainless wire trellis curtain 1.5 x 3.0 m: tensioned cable grid on standoff posts with turnbuckles and a climbing jasmine.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "plant",
+    "garden"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

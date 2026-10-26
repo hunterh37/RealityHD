@@ -28,7 +28,7 @@ public struct BrassHoseBibEscutcheon: RealAsset {
         // Four slotted screws on a 100 mm bolt circle.
         for k in 0..<4 {
             let a = (Float(k) * 90 + 45) * .pi / 180
-            FS.screw(&m, at: V3(cos(a) * 0.042, sin(a) * 0.042, 0.0066), r: 0.0042, "metal.brass-aged", angle: Float(k) * 31 + 12)
+            FSO.screw(&m, at: V3(cos(a) * 0.042, sin(a) * 0.042, 0.0066), r: 0.0042, "metal.brass-aged", angle: Float(k) * 31 + 12)
         }
         // Hex packing nut and collar against the flange.
         m.add(Prim.extrude(Shape2D.rounded(Shape2D.polygon(sides: 6, radius: 0.0235), radius: 0.0012, segments: 1), depth: 0.014, bevel: 0.0014, bevelSegments: 1, material: brass), Xform(translation: V3(0, 0, 0.0135 + 0.007)))
@@ -60,7 +60,7 @@ public struct BrassHoseBibEscutcheon: RealAsset {
         // Weathering: verdigris blooms at the nut and gland, mineral streak below the spout, polish on the lobes.
         for k in 0..<5 {
             let a = Float(k) * 1.3 + 0.4
-            FS.blob(&m, at: V3(cos(a) * 0.0225, sin(a) * 0.0225, 0.0135 + 0.0145), size: V3(0.006, 0.004, 0.0024), "metal.bronze-weathered", rot: FA.q(a * 180 / .pi, FA.Z))
+            FSO.blob(&m, at: V3(cos(a) * 0.0225, sin(a) * 0.0225, 0.0135 + 0.0145), size: V3(0.006, 0.004, 0.0024), "metal.bronze-weathered", rot: FA.q(a * 180 / .pi, FA.Z))
         }
         groundAO(&m)
         return LODModel(FC.place(m))

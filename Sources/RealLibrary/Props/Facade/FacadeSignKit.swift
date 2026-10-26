@@ -1,92 +1,146 @@
 import simd
 import Foundation
 
-/// Stroke lettering for the facade signage props. Glyphs are polylines in a unit cell (x 0...1, y 0...1)
-/// laid on the wall plane (XY), facing +Z. Each stroke is a beveled bar (raised cast, enamel or gilded
-/// lettering) or a round rod (neon tube).
-enum FS {
-    typealias Stroke = (Float, Float, Float, Float)
+/// Helpers for the signage facade props (batch n6a). Same frame as `FA`: wall plane at z = 0, piece
+/// projecting toward +Z. Finish every prop with `FC.place`.
+enum FG {
+    /// Low-poly flat patch (stain, spall, streak, decal): a plain cuboid, no bevel.
+    static func flat(_ m: inout Model, _ size: V3, _ c: V3, _ mat: MaterialKey, rot: simd_quatf = .identity) {
+        m.add(cuboid(size, material: mat), Xform(translation: c, rotation: rot))
+    }
+    /// Block lettering from `strokeText`, centered on `at` (x, y), standing off the wall from z = `at.z`.
+    static func text(_ m: inout Model, _ s: String, h: Float, stroke: Float, depth: Float, at: V3, _ mat: MaterialKey,
+                     rot: simd_quatf = .identity, squeeze: Float = 1) {
+        let t = strokeText(s, height: h, stroke: stroke, depth: depth, material: mat)
+        m.add(t, Xform(translation: at, rotation: rot, scale: V3(squeeze, 1, 1)))
+    }
+    /// Width of block lettering with a squeeze factor.
+    static func width(_ s: String, h: Float, squeeze: Float = 1) -> Float { strokeTextWidth(s, height: h) * squeeze }
 
-    static func flip(_ s: [Stroke]) -> [Stroke] { s.map { (1 - $0.0, 1 - $0.1, 1 - $0.2, 1 - $0.3) } }
-
-    static let six: [Stroke] = [(1, 0.85, 0.75, 1), (0.75, 1, 0.25, 1), (0.25, 1, 0, 0.75), (0, 0.75, 0, 0.25), (0, 0.25, 0.25, 0),
-                                (0.25, 0, 0.75, 0), (0.75, 0, 1, 0.25), (1, 0.25, 1, 0.45), (1, 0.45, 0.75, 0.62), (0.75, 0.62, 0, 0.6)]
-
-    static let glyphs: [Character: (w: Float, s: [Stroke])] = [
-        "D": (0.8, [(0, 0, 0, 1), (0, 1, 0.55, 1), (0, 0, 0.55, 0), (0.55, 1, 1, 0.7), (1, 0.7, 1, 0.3), (1, 0.3, 0.55, 0)]),
-        "E": (0.7, [(0, 0, 0, 1), (0, 1, 1, 1), (0, 0.5, 0.8, 0.5), (0, 0, 1, 0)]),
-        "H": (0.8, [(0, 0, 0, 1), (1, 0, 1, 1), (0, 0.5, 1, 0.5)]),
-        "I": (0.35, [(0.5, 0, 0.5, 1), (0.1, 1, 0.9, 1), (0.1, 0, 0.9, 0)]),
-        "L": (0.65, [(0, 0, 0, 1), (0, 0, 1, 0)]),
-        "N": (0.85, [(0, 0, 0, 1), (1, 0, 1, 1), (0, 1, 1, 0)]),
-        "O": (0.85, [(0.25, 1, 0.75, 1), (0.75, 1, 1, 0.75), (1, 0.75, 1, 0.25), (1, 0.25, 0.75, 0), (0.75, 0, 0.25, 0), (0.25, 0, 0, 0.25), (0, 0.25, 0, 0.75), (0, 0.75, 0.25, 1)]),
-        "R": (0.8, [(0, 0, 0, 1), (0, 1, 0.7, 1), (0, 0.5, 0.7, 0.5), (0.7, 1, 1, 0.85), (1, 0.85, 1, 0.65), (1, 0.65, 0.7, 0.5), (0.45, 0.5, 1, 0)]),
-        "T": (0.75, [(0, 1, 1, 1), (0.5, 0, 0.5, 1)]),
-        "U": (0.8, [(0, 1, 0, 0.25), (0, 0.25, 0.25, 0), (0.25, 0, 0.75, 0), (0.75, 0, 1, 0.25), (1, 0.25, 1, 1)]),
-        "V": (0.8, [(0, 1, 0.5, 0), (0.5, 0, 1, 1)]),
-        "1": (0.5, [(0.5, 0, 0.5, 1), (0.5, 1, 0.1, 0.8), (0.1, 0, 0.9, 0)]),
-        "2": (0.75, [(0, 0.8, 0.25, 1), (0.25, 1, 0.75, 1), (0.75, 1, 1, 0.8), (1, 0.8, 1, 0.6), (1, 0.6, 0, 0), (0, 0, 1, 0)]),
-        "6": (0.75, six),
-        "9": (0.75, flip(six)),
-    ]
-
-    /// Stroke segments (start, end) in meters for `text` with its lower-left at `origin` (XY), cap height `h`,
-    /// width scale `ws`, letter gap `gap` (fraction of h). Returns segments and the total advance.
-    static func segments(_ text: String, origin: V2, h: Float, ws: Float = 1, gap: Float = 0.28) -> (segs: [(V2, V2)], width: Float) {
-        var x: Float = 0
-        var out: [(V2, V2)] = []
-        for ch in text {
-            guard let g = glyphs[ch] else { x += h * 0.45; continue }
-            let w = g.w * h * ws
-            for s in g.s {
-                out.append((V2(origin.x + x + s.0 * w, origin.y + s.1 * h), V2(origin.x + x + s.2 * w, origin.y + s.3 * h)))
-            }
-            x += w + gap * h
+    /// Slotted round-head screw on a +Z facing surface at `p` (z = surface).
+    static func screw(_ m: inout Model, at p: V3, r: Float = 0.004, mat: MaterialKey = "metal.brass", slot: MaterialKey = "metal.steel:1A1A1A", ang: Float = 0.6) {
+        FA.cylZ(&m, r: r, h: r * 0.55, at: p, mat, bevel: r * 0.25, segments: 12)
+        FA.box(&m, V3(r * 1.7, r * 0.3, r * 0.2), V3(p.x, p.y, p.z + r * 0.52), slot, r: 0.0002, rot: FA.q(ang * 57.3, FA.Z))
+    }
+    /// Acorn / dome cap nut.
+    static func dome(_ m: inout Model, at p: V3, r: Float, mat: MaterialKey) {
+        m.add(Prim.superellipsoid(V3(r * 2, r * 2, r * 1.3), exponent: 2, subdivisions: 4, material: mat), Xform(translation: p))
+    }
+    /// Spiral scroll in the plane spanned by `u`, `v` around `c`, radius `r0` to `r1` over `turns`.
+    static func spiral(c: V3, u: V3, v: V3, r0: Float, r1: Float, a0: Float, turns: Float, steps: Int = 28) -> [V3] {
+        (0...steps).map { k in
+            let t = Float(k) / Float(steps), a = a0 + turns * 2 * .pi * t, r = r0 + (r1 - r0) * t
+            return c + u * (cos(a) * r) + v * (sin(a) * r)
         }
-        return (out, max(0, x - gap * h))
     }
-
-    /// Width of `text` without building it.
-    static func width(_ text: String, h: Float, ws: Float = 1, gap: Float = 0.28) -> Float {
-        segments(text, origin: .zero, h: h, ws: ws, gap: gap).width
+    /// Smooth path through control points (Catmull-Rom).
+    static func smooth(_ pts: [V3], per: Int = 6) -> [V3] {
+        guard pts.count > 2 else { return pts }
+        var out: [V3] = []
+        for i in 0..<(pts.count - 1) {
+            let p0 = pts[max(0, i - 1)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[min(pts.count - 1, i + 2)]
+            for k in 0..<per {
+                let t = Float(k) / Float(per), t2 = t * t, t3 = t2 * t
+                let a: V3 = 2 * p1
+                let b: V3 = (p2 - p0) * t
+                let c: V3 = (2 * p0 - 5 * p1 + 4 * p2 - p3) * t2
+                let d: V3 = (3 * p1 - p0 - 3 * p2 + p3) * t3
+                out.append((a + b + c + d) * 0.5)
+            }
+        }
+        out.append(pts[pts.count - 1])
+        return out
     }
-
-    /// Bar between two points on the wall plane at depth z (center), thickness `t` along Z, stroke width `w`.
-    static func bar(_ m: inout Model, _ a: V2, _ b: V2, w: Float, z: Float, t: Float, _ mat: MaterialKey) {
-        let d = b - a
-        let ang = atan2(d.y, d.x)
-        let hh = w / 2
-        let hx = simd_length(d) / 2 + hh
-        let hexa: [V2] = [V2(-hx, 0), V2(-hx + hh, -hh), V2(hx - hh, -hh), V2(hx, 0), V2(hx - hh, hh), V2(-hx + hh, hh)]
-        m.add(Prim.extrude(hexa, depth: t, bevel: min(w, t) * 0.3, bevelSegments: 1, material: mat),
-              Xform(translation: V3((a.x + b.x) / 2, (a.y + b.y) / 2, z), rotation: simd_quatf(angle: ang, axis: V3(0, 0, 1))))
+    /// Bulb row (lamp bases are dull brass, glass is emissive) along a line, bulbs facing +Z.
+    static func bulbs(_ m: inout Model, from a: V3, to b: V3, count: Int, r: Float = 0.014, lit: MaterialKey = "emissive.warm", dead: Set<Int> = []) {
+        for i in 0..<count {
+            let t = count == 1 ? 0.5 : Float(i) / Float(count - 1)
+            let p = a + (b - a) * t
+            FA.cylZ(&m, r: r * 0.7, h: r * 0.8, at: p - V3(0, 0, r * 0.2), "metal.brass-aged", bevel: 0.0005, segments: 8)
+            m.add(Prim.superellipsoid(V3(r * 2, r * 2, r * 2.2), exponent: 2, subdivisions: 3, material: dead.contains(i) ? "glass.frosted" : lit),
+                  Xform(translation: p + V3(0, 0, r * 0.9)))
+        }
     }
+}
 
-    /// Raised lettering built from bars.
-    @discardableResult
-    static func text(_ m: inout Model, _ s: String, origin: V2, h: Float, ws: Float = 1, w: Float, z: Float, t: Float, _ mat: MaterialKey) -> Float {
-        let r = segments(s, origin: origin, h: h, ws: ws)
-        for (a, b) in r.segs { bar(&m, a, b, w: w, z: z, t: t, mat) }
-        return r.width
+/// Block capitals (copy of the City stroke font table), 4 x 6 grid.
+let fgGlyphs: [Character: [[(Float, Float)]]] = [
+    "A": [[(0, 0), (0, 4.5), (1, 6), (3, 6), (4, 4.5), (4, 0)], [(0, 3), (4, 3)]],
+    "B": [[(0, 0), (0, 6), (3, 6), (4, 5), (4, 4), (3, 3.1), (0, 3.1)], [(3, 3.1), (4, 2.1), (4, 1), (3, 0), (0, 0)]],
+    "C": [[(4, 5), (3, 6), (1, 6), (0, 5), (0, 1), (1, 0), (3, 0), (4, 1)]],
+    "D": [[(0, 0), (0, 6), (2.6, 6), (4, 4.6), (4, 1.4), (2.6, 0), (0, 0)]],
+    "E": [[(4, 6), (0, 6), (0, 0), (4, 0)], [(0, 3.1), (3, 3.1)]],
+    "F": [[(4, 6), (0, 6), (0, 0)], [(0, 3.1), (3, 3.1)]],
+    "G": [[(4, 5), (3, 6), (1, 6), (0, 5), (0, 1), (1, 0), (3, 0), (4, 1), (4, 2.8), (2.2, 2.8)]],
+    "H": [[(0, 0), (0, 6)], [(4, 0), (4, 6)], [(0, 3.1), (4, 3.1)]],
+    "I": [[(2, 0), (2, 6)], [(1, 6), (3, 6)], [(1, 0), (3, 0)]],
+    "J": [[(4, 6), (4, 1), (3, 0), (1, 0), (0, 1)]],
+    "K": [[(0, 0), (0, 6)], [(4, 6), (0, 2.6)], [(1.3, 3.7), (4, 0)]],
+    "L": [[(0, 6), (0, 0), (4, 0)]],
+    "M": [[(0, 0), (0, 6), (2, 3), (4, 6), (4, 0)]],
+    "N": [[(0, 0), (0, 6), (4, 0), (4, 6)]],
+    "O": [[(1, 0), (0, 1), (0, 5), (1, 6), (3, 6), (4, 5), (4, 1), (3, 0), (1, 0)]],
+    "P": [[(0, 0), (0, 6), (3, 6), (4, 5), (4, 3.8), (3, 2.8), (0, 2.8)]],
+    "Q": [[(1, 0), (0, 1), (0, 5), (1, 6), (3, 6), (4, 5), (4, 1), (3, 0), (1, 0)], [(2.5, 1.5), (4, 0)]],
+    "R": [[(0, 0), (0, 6), (3, 6), (4, 5), (4, 3.8), (3, 2.8), (0, 2.8)], [(2.2, 2.8), (4, 0)]],
+    "S": [[(4, 5), (3, 6), (1, 6), (0, 5), (0, 4), (1, 3.1), (3, 3.1), (4, 2.1), (4, 1), (3, 0), (1, 0), (0, 1)]],
+    "T": [[(0, 6), (4, 6)], [(2, 6), (2, 0)]],
+    "U": [[(0, 6), (0, 1), (1, 0), (3, 0), (4, 1), (4, 6)]],
+    "V": [[(0, 6), (2, 0), (4, 6)]],
+    "W": [[(0, 6), (0.8, 0), (2, 3.5), (3.2, 0), (4, 6)]],
+    "X": [[(0, 0), (4, 6)], [(0, 6), (4, 0)]],
+    "Y": [[(0, 6), (2, 3), (4, 6)], [(2, 3), (2, 0)]],
+    "Z": [[(0, 6), (4, 6), (0, 0), (4, 0)]],
+    "0": [[(1, 0), (0, 1), (0, 5), (1, 6), (3, 6), (4, 5), (4, 1), (3, 0), (1, 0)]],
+    "1": [[(1, 5), (2, 6), (2, 0)], [(1, 0), (3, 0)]],
+    "2": [[(0, 5), (1, 6), (3, 6), (4, 5), (4, 4), (0, 0), (4, 0)]],
+    "3": [[(0, 5), (1, 6), (3, 6), (4, 5), (4, 4), (3, 3.1), (1.5, 3.1)], [(3, 3.1), (4, 2.1), (4, 1), (3, 0), (1, 0), (0, 1)]],
+    "4": [[(3, 0), (3, 6), (0, 2), (4, 2)]],
+    "5": [[(4, 6), (0, 6), (0, 3.4), (3, 3.4), (4, 2.4), (4, 1), (3, 0), (0, 0)]],
+    "6": [[(4, 5.2), (3, 6), (1, 6), (0, 5), (0, 1), (1, 0), (3, 0), (4, 1), (4, 2.4), (3, 3.4), (0, 3.4)]],
+    "7": [[(0, 6), (4, 6), (1.5, 0)]],
+    "8": [[(1, 3.1), (0, 4), (0, 5), (1, 6), (3, 6), (4, 5), (4, 4), (3, 3.1), (1, 3.1), (0, 2.1), (0, 1), (1, 0), (3, 0), (4, 1), (4, 2.1), (3, 3.1)]],
+    "9": [[(4, 2.6), (1, 2.6), (0, 3.6), (0, 5), (1, 6), (3, 6), (4, 5), (4, 1), (3, 0), (0, 0)]],
+    ".": [[(1.6, 0), (1.6, 0.6)]],
+    "-": [[(0.8, 3), (3.2, 3)]],
+]
+
+extension FG {
+    /// Light-weight marquee bulbs: socket cuboid plus a faceted glass bead, facing +Z. `dead` indices are dark.
+    static func lamps(_ m: inout Model, from a: V3, to b: V3, count: Int, r: Float = 0.016, lit: MaterialKey = "emissive.warm", dead: Set<Int> = []) {
+        var glass = Surface(material: lit), off = Surface(material: "glass.frosted"), sock = Surface(material: "metal.brass-aged")
+        let bead = Prim.superellipsoid(V3(r * 2, r * 2, r * 2.2), exponent: 2, subdivisions: 1, material: lit)
+        let cap = cuboid(V3(r * 1.2, r * 1.2, r * 0.7), material: "metal.brass-aged")
+        for i in 0..<count {
+            let t = count == 1 ? 0.5 : Float(i) / Float(count - 1)
+            let p = a + (b - a) * t
+            sock.append(cap, Xform(translation: p))
+            if dead.contains(i) { off.append(bead, Xform(translation: p + V3(0, 0, r * 1.0))) } else { glass.append(bead, Xform(translation: p + V3(0, 0, r * 1.0))) }
+        }
+        m.add(sock); m.add(glass)
+        if !dead.isEmpty { m.add(off) }
     }
-
-    /// Neon tube lettering (round rods) with dark electrode caps at stroke ends is left to the caller.
-    @discardableResult
-    static func tubes(_ m: inout Model, _ s: String, origin: V2, h: Float, ws: Float = 1, r: Float, z: Float, sides: Int = 8, _ mat: MaterialKey) -> Float {
-        let rs = segments(s, origin: origin, h: h, ws: ws)
-        for (a, b) in rs.segs { FA.rod(&m, V3(a.x, a.y, z), V3(b.x, b.y, z), r: r, mat, sides: sides) }
-        return rs.width
-    }
-
-    /// Slotted round screw head with its axis along +Z.
-    static func screw(_ m: inout Model, at p: V3, r: Float, _ mat: MaterialKey, angle: Float = 0) {
-        m.add(Prim.cylinder(radius: r, height: r * 0.45, bevel: r * 0.18, segments: 10, bevelSegments: 1, material: mat), Xform(translation: p - V3(0, 0, r * 0.05), rotation: FA.q(90, FA.X)))
-        m.add(Prim.extrude([V2(-r * 0.8, -r * 0.1), V2(r * 0.8, -r * 0.1), V2(r * 0.8, r * 0.1), V2(-r * 0.8, r * 0.1)], depth: r * 0.12, bevel: 0.0002, bevelSegments: 1, material: "metal.painted:1B1B1D"),
-              Xform(translation: p + V3(0, 0, r * 0.42), rotation: FA.q(angle, FA.Z)))
-    }
-
-    /// Flat irregular patch (stain, bloom, chip) as a squashed superellipsoid; `size` is its extent, z thin.
-    static func blob(_ m: inout Model, at p: V3, size: V3, _ mat: MaterialKey, rot: simd_quatf = .identity) {
-        m.add(Prim.superellipsoid(size, exponent: 2.2, subdivisions: 2, material: mat), Xform(translation: p, rotation: rot))
+    /// Lettering built from beveled strokes with round joints, centered on `at`, depth along +Z from at.z.
+    /// `bevel` rounds every stroke edge (m). Pass `bulge` > 0 to swell the stroke joints for cast lettering.
+    static func soft(_ m: inout Model, _ s: String, h: Float, stroke w: Float, depth: Float, at: V3, _ mat: MaterialKey,
+                     bevel: Float = 0.002, squeeze: Float = 1, rot: simd_quatf = .identity) {
+        let u = h / 6
+        let total = strokeTextWidth(s, height: h)
+        var surf = Surface(material: mat)
+        let bv = min(bevel, min(w, depth) * 0.45)
+        for (i, ch) in s.uppercased().enumerated() {
+            guard let lines = fgGlyphs[ch] else { continue }
+            let ox = -total / 2 + Float(i) * 5.4 * u
+            for line in lines {
+                for k in 0..<(line.count - 1) {
+                    let a = V2(ox + line[k].0 * u, line[k].1 * u - h / 2), b = V2(ox + line[k + 1].0 * u, line[k + 1].1 * u - h / 2)
+                    let d = b - a, L = simd_length(d)
+                    guard L > 1e-5 else { continue }
+                    let box = Prim.roundedBox(V3(L + w * 0.55, w, depth), radius: bv, bevelSegments: 1, material: mat)
+                    surf.append(box, Xform(translation: V3((a.x + b.x) / 2, (a.y + b.y) / 2, depth / 2), rotation: simd_quatf(angle: atan2(d.y, d.x), axis: V3(0, 0, 1))))
+                }
+            }
+        }
+        m.add(surf, Xform(translation: at, rotation: rot, scale: V3(squeeze, 1, 1)))
     }
 }

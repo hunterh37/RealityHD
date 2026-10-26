@@ -1,0 +1,39 @@
+{
+  "budget": 10000,
+  "id": "standpipe-fdc-siamese",
+  "kind": "prop",
+  "materials": [
+    "metal.brass",
+    "metal.brass-aged",
+    "metal.steel",
+    "metal.chrome"
+  ],
+  "name": "Siamese fire department connection",
+  "notes": "",
+  "parts": [
+    "siamese body",
+    "two 2.5 in swivel inlets",
+    "knurled caps",
+    "chains",
+    "clapper check",
+    "wall escutcheon",
+    "FDC plate"
+  ],
+  "references": [],
+  "size": [
+    0.4,
+    0.3,
+    0.3
+  ],
+  "style": "architectural facade customizer, Commercial",
+  "summary": "Wall mount Siamese FDC, 0.4 m: polished brass inlets with plugs, chains and escutcheon plate.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

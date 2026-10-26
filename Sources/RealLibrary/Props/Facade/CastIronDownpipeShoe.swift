@@ -62,7 +62,7 @@ public struct CastIronDownpipeShoe: RealAsset {
         // Weathering: chipped paint to red lead, rust arcs on the lip, grime on the bend.
         for _ in 0..<10 {
             let a = rng.float(0...(.pi * 2)), y = rng.float(yV + 0.02...yTop - 0.07)
-            FS.blob(&m, at: V3(sin(a) * (r + 0.0005), y, zc + cos(a) * (r + 0.0005)), size: V3(rng.float(0.008...0.02), rng.float(0.006...0.014), 0.0016), rng.chance(0.55) ? "metal.painted:8E3B2A" : bare, rot: FA.q(a * 180 / .pi, FA.Y))
+            FSO.blob(&m, at: V3(sin(a) * (r + 0.0005), y, zc + cos(a) * (r + 0.0005)), size: V3(rng.float(0.008...0.02), rng.float(0.006...0.014), 0.0016), rng.chance(0.55) ? "metal.painted:8E3B2A" : bare, rot: FA.q(a * 180 / .pi, FA.Y))
         }
         for k in 0..<3 {
             m.add(Prim.torus(major: r + 0.0065, minor: 0.0058, segments: 8, sides: 8, arc: rng.float(0.5...1.1), material: bare),
@@ -70,7 +70,7 @@ public struct CastIronDownpipeShoe: RealAsset {
         }
         for _ in 0..<5 {
             let t = rng.float(0.15...0.85), a = t * .pi / 2
-            FS.blob(&m, at: V3(rng.float(-0.025...0.025), cy - (R + r + 0.0006) * sin(a), cz - (R + r + 0.0006) * cos(a)), size: V3(rng.float(0.012...0.026), 0.0016, rng.float(0.01...0.02)), "wood.deadwood", rot: FA.q(-(1 - t) * 90, FA.X))
+            FSO.blob(&m, at: V3(rng.float(-0.025...0.025), cy - (R + r + 0.0006) * sin(a), cz - (R + r + 0.0006) * cos(a)), size: V3(rng.float(0.012...0.026), 0.0016, rng.float(0.01...0.02)), "wood.deadwood", rot: FA.q(-(1 - t) * 90, FA.X))
         }
         groundAO(&m)
         return LODModel(FC.place(m))

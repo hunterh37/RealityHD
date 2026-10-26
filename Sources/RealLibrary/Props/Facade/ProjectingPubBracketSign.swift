@@ -93,30 +93,30 @@ public struct ProjectingPubBracketSign: RealAsset {
         m.add(Prim.torus(major: 0.082, minor: 0.0042, segments: 40, sides: 8, material: gilt), Xform(translation: V3(0, cy + 0.15, zT), rotation: FA.q(90, FA.X)))
         m.add(Prim.torus(major: 0.068, minor: 0.0022, segments: 32, sides: 6, material: gilt), Xform(translation: V3(0, cy + 0.15, zT), rotation: FA.q(90, FA.X)))
         let hT: Float = 0.052
-        let wT = FS.width("THE", h: hT)
-        FS.text(&m, "THE", origin: V2(-wT / 2, cy + 0.15 - hT / 2), h: hT, w: 0.0075, z: zT + 0.0015, t: 0.0028, gilt)
+        let wT = FSO.width("THE", h: hT)
+        FSO.text(&m, "THE", origin: V2(-wT / 2, cy + 0.15 - hT / 2), h: hT, w: 0.0075, z: zT + 0.0015, t: 0.0028, gilt)
         let hR: Float = 0.105
         for (word, y) in [("RED", cy - 0.012), ("LION", cy - 0.14)] as [(String, Float)] {
-            let w = FS.width(word, h: hR)
-            FS.text(&m, word, origin: V2(-w / 2, y - hR / 2), h: hR, w: 0.0135, z: zT + 0.0015, t: 0.0028, gilt)
+            let w = FSO.width(word, h: hR)
+            FSO.text(&m, word, origin: V2(-w / 2, y - hR / 2), h: hR, w: 0.0135, z: zT + 0.0015, t: 0.0028, gilt)
         }
         // Gilded rules above and below the lettering.
         FA.box(&m, V3(0.4, 0.004, 0.003), V3(0, cy - 0.215, zT + 0.0015), gilt, r: 0.001)
         FA.box(&m, V3(0.4, 0.004, 0.003), V3(0, cy + 0.015 + 0.065, zT + 0.0015), gilt, r: 0.001)
         // Weathering: paint flaking to bare oak, gilding loss, rust bleed from the hooks and bracket, bird lime on top.
         for _ in 0..<16 {
-            FS.blob(&m, at: V3(rng.float(-0.23...0.23), rng.float(board0 + 0.06...boardTop - 0.06), zT + 0.0004), size: V3(rng.float(0.014...0.04), rng.float(0.01...0.03), 0.0012), "wood.weathered")
+            FSO.blob(&m, at: V3(rng.float(-0.23...0.23), rng.float(board0 + 0.06...boardTop - 0.06), zT + 0.0004), size: V3(rng.float(0.014...0.04), rng.float(0.01...0.03), 0.0012), "wood.weathered")
         }
         for _ in 0..<10 {
-            FS.blob(&m, at: V3(rng.float(-0.2...0.2), rng.float(cy - 0.2...cy + 0.2), zT + 0.0044), size: V3(rng.float(0.004...0.01), rng.float(0.004...0.01), 0.001), "wood.weathered")
+            FSO.blob(&m, at: V3(rng.float(-0.2...0.2), rng.float(cy - 0.2...cy + 0.2), zT + 0.0044), size: V3(rng.float(0.004...0.01), rng.float(0.004...0.01), 0.001), "wood.weathered")
         }
         for sgn: Float in [-1, 1] {
-            FS.blob(&m, at: V3(sgn * bx, boardTop - 0.06, zA + bd / 2 + 0.0006), size: V3(0.012, rng.float(0.09...0.14), 0.0012), "metal.rust")
-            FS.blob(&m, at: V3(sgn * bx + 0.01, yArm - 0.0, zA + 0.0108), size: V3(0.016, 0.012, 0.0012), "metal.rust")
+            FSO.blob(&m, at: V3(sgn * bx, boardTop - 0.06, zA + bd / 2 + 0.0006), size: V3(0.012, rng.float(0.09...0.14), 0.0012), "metal.rust")
+            FSO.blob(&m, at: V3(sgn * bx + 0.01, yArm - 0.0, zA + 0.0108), size: V3(0.016, 0.012, 0.0012), "metal.rust")
         }
-        for dy: Float in [-0.1, 0.1] { FS.blob(&m, at: V3(xP + 0.004, 0.66 + dy - 0.03, 0.0124), size: V3(0.008, 0.05, 0.0012), "metal.rust") }
-        for _ in 0..<5 { FS.blob(&m, at: V3(rng.float(-0.25...0.25), boardTop + 0.0005, zA + rng.float(-0.01...0.01)), size: V3(rng.float(0.02...0.04), 0.0012, 0.012), "stone.limestone") }
-        FS.blob(&m, at: V3(0.0, cy - 0.215, zT + 0.0035), size: V3(0.03, 0.006, 0.0012), "wood.weathered")
+        for dy: Float in [-0.1, 0.1] { FSO.blob(&m, at: V3(xP + 0.004, 0.66 + dy - 0.03, 0.0124), size: V3(0.008, 0.05, 0.0012), "metal.rust") }
+        for _ in 0..<5 { FSO.blob(&m, at: V3(rng.float(-0.25...0.25), boardTop + 0.0005, zA + rng.float(-0.01...0.01)), size: V3(rng.float(0.02...0.04), 0.0012, 0.012), "stone.limestone") }
+        FSO.blob(&m, at: V3(0.0, cy - 0.215, zT + 0.0035), size: V3(0.03, 0.006, 0.0012), "wood.weathered")
         groundAO(&m)
         return LODModel(FC.place(m))
     }

@@ -1,0 +1,41 @@
+{
+  "budget": 8000,
+  "id": "bathroom-exhaust-cap",
+  "kind": "prop",
+  "materials": [
+    "fabric.linen",
+    "metal.aluminum-brushed",
+    "metal.painted:D9CF9E",
+    "metal.screw-zinc",
+    "plastic.black",
+    "plastic.medical-grey",
+    "plastic.white",
+    "rubber.silicone"
+  ],
+  "name": "Bathroom exhaust cap",
+  "notes": "",
+  "parts": [
+    "Round flange with screws and caulk ring",
+    "Round body with rolled rim",
+    "Nine moulded louver slats",
+    "Hinged damper flap on rod",
+    "Weathering and dirt"
+  ],
+  "references": [],
+  "size": [
+    0.2,
+    0.2,
+    0.12
+  ],
+  "style": "architectural facade customizer, Traditional",
+  "summary": "Bathroom exhaust wall cap: UV-yellowed ABS round flange, 4 inch body with moulded louver slats, hinged damper behind, caulk ring, screws and dirt.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

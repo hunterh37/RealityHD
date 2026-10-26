@@ -1,0 +1,38 @@
+{
+  "budget": 12000,
+  "id": "split-rail-fence-section",
+  "kind": "prop",
+  "materials": [
+    "wood.cedar-weathered",
+    "wood.weathered",
+    "wood.endgrain-weathered",
+    "wood.charred",
+    "ground.yard"
+  ],
+  "name": "Split rail fence section",
+  "notes": "",
+  "parts": [
+    "split posts with mortises",
+    "rails with tapered ends",
+    "stacked rails",
+    "ground wear",
+    "cracks and checks"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    1.1,
+    0.15
+  ],
+  "style": "architectural facade customizer, Rural",
+  "summary": "Rural post-and-rail fence, split cedar rails tapering into mortised posts.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

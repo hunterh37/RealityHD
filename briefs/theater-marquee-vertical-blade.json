@@ -1,0 +1,40 @@
+{
+  "budget": 9000,
+  "id": "theater-marquee-vertical-blade",
+  "kind": "prop",
+  "materials": [
+    "metal.painted",
+    "metal.stainless",
+    "emissive.signal-red",
+    "emissive.warm",
+    "emissive.signal-white"
+  ],
+  "name": "Theater vertical blade sign",
+  "notes": "",
+  "parts": [
+    "steel body",
+    "stepped crown",
+    "neon outline",
+    "vertical lettering",
+    "bulb rows",
+    "wall brackets"
+  ],
+  "references": [],
+  "size": [
+    1.0,
+    4.0,
+    0.5
+  ],
+  "style": "architectural facade customizer, Art Deco Commercial",
+  "summary": "Art Deco theatre blade sign 4.0 m: stepped crown, neon outline, vertical lamp letters, bulb borders, steel body.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

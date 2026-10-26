@@ -1,0 +1,41 @@
+{
+  "budget": 9000,
+  "id": "projecting-bracket-sign-scroll",
+  "kind": "prop",
+  "materials": [
+    "metal.wrought-iron",
+    "wood.paint",
+    "wood.painted-shaker-worn",
+    "metal.gold-leaf"
+  ],
+  "name": "Projecting bracket sign, scroll",
+  "notes": "",
+  "parts": [
+    "wall plates",
+    "scroll brackets",
+    "head rail",
+    "S-hooks",
+    "sign board",
+    "gilded border",
+    "lettering"
+  ],
+  "references": [],
+  "size": [
+    0.9,
+    0.7,
+    0.5
+  ],
+  "style": "architectural facade customizer, Georgian Commercial",
+  "summary": "Georgian trade sign on twin scroll iron brackets 0.9 m: rail, S-hooks, painted board with gilded border.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "metal",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

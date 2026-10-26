@@ -1,0 +1,39 @@
+{
+  "budget": 14500,
+  "id": "precast-concrete-solar-screen",
+  "kind": "prop",
+  "materials": [
+    "concrete.rough",
+    "stone.cast-stone",
+    "metal.galvanized-aged"
+  ],
+  "name": "Precast concrete solar screen",
+  "notes": "",
+  "parts": [
+    "pierced precast blocks with round openings",
+    "mortar joints",
+    "chamfered plinth",
+    "coping cap",
+    "galvanized tie plates and bolts",
+    "algae and efflorescence staining"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    2.4,
+    0.15
+  ],
+  "style": "architectural facade customizer, mid-century modern, precast concrete breeze screen, weathered with algae and efflorescence",
+  "summary": "Mid-century precast concrete solar screen 2.0 x 2.4 m: pierced round-hole blocks in mortar joints, plinth, coping and steel ties.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "concrete",
+    "metal",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

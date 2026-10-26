@@ -1,0 +1,40 @@
+{
+  "budget": 10000,
+  "id": "barn-lamp-gooseneck-long",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized",
+    "metal.powdercoat-worn",
+    "metal.rust",
+    "emissive.warm"
+  ],
+  "name": "Gooseneck barn lamp",
+  "notes": "",
+  "parts": [
+    "wall plate",
+    "backplate",
+    "long gooseneck arm",
+    "goose neck joint",
+    "shade dome",
+    "socket",
+    "finial",
+    "hardware"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    0.4,
+    0.8
+  ],
+  "style": "architectural facade customizer, Modern Farmhouse",
+  "summary": "Gooseneck barn light, 0.8 m reach: galvanized dome shade on a curved arm.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

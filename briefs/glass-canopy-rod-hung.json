@@ -1,0 +1,26 @@
+{
+  "budget": 12000,
+  "id": "glass-canopy-rod-hung",
+  "kind": "prop",
+  "materials": ["glass.clear", "glass.tinted", "glass.frosted", "metal.stainless", "metal.rust", "paint.stucco", "metal.screw-zinc"],
+  "name": "Rod-hung glass canopy",
+  "notes": "",
+  "parts": [
+    "two laminated glass panes with visible edge layers",
+    "stainless wall channel with silicone bead",
+    "four tie rods with hex turnbuckles",
+    "wall bracket plates with cheek lugs, pins and hex bolts",
+    "front spider clamps with discs and studs",
+    "silicone joint between the panes",
+    "stucco wall strip with tea stains",
+    "dust film, leaf debris and bird droppings on the glass"
+  ],
+  "references": [],
+  "size": [2.4, 0.2, 1.2],
+  "style": "Contemporary frameless glass canopy hung on stainless tie rods, aged outdoors with dust film, leaf litter and tea-stained fittings",
+  "summary": "Contemporary glass canopy, 2.4 m: two laminated panes hung on four stainless tie rods with turnbuckles and spider clamps.",
+  "tags": ["prop", "architecture", "facade", "glass", "metal"],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

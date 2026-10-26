@@ -1,0 +1,41 @@
+{
+  "budget": 14000,
+  "id": "heat-pump-condenser-fan",
+  "kind": "prop",
+  "materials": [
+    "metal.copper",
+    "metal.galvanized",
+    "metal.powder-white",
+    "metal.screw-zinc",
+    "metal.stainless",
+    "plastic.black",
+    "rubber.silicone"
+  ],
+  "name": "Heat pump condenser fan",
+  "notes": "",
+  "parts": [
+    "Powder-coated galvanized cabinet",
+    "Round fan opening with wire guard and 5-blade fan",
+    "Corner posts and top cover",
+    "Service valve cover with line set",
+    "Rubber isolator feet and base rails",
+    "Rating plate"
+  ],
+  "references": [],
+  "size": [
+    0.9,
+    0.8,
+    0.4
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Mini-split heat pump condenser, 0.9 x 0.8 m cabinet: front axial fan with wire guard, coil guard, valve cover, insulated line set, isolator feet.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

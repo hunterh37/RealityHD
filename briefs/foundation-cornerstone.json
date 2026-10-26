@@ -1,0 +1,39 @@
+{
+  "budget": 9000,
+  "id": "foundation-cornerstone",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "concrete.rough",
+    "metal.bronze-weathered"
+  ],
+  "name": "Foundation cornerstone",
+  "notes": "",
+  "parts": [
+    "stone block",
+    "margin draft",
+    "inscription panel",
+    "incised lettering",
+    "mortar joints",
+    "chipped arris"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    0.4,
+    0.3
+  ],
+  "style": "architectural facade customizer, Civic",
+  "summary": "Civic cornerstone block 0.6 x 0.4 x 0.3 m: dressed limestone with margin draft, incised dated inscription, mortar bed joints, weathered arris.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

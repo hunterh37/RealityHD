@@ -1,0 +1,37 @@
+{
+  "budget": 14000,
+  "id": "bike-hoop-rack",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless",
+    "metal.stainless-smudged",
+    "metal.steel"
+  ],
+  "name": "Bike hoop rack",
+  "notes": "",
+  "parts": [
+    "stainless tube hoop",
+    "radiused corners",
+    "weld seams",
+    "base flanges",
+    "flange bolts",
+    "scuffs"
+  ],
+  "references": [],
+  "size": [
+    0.7,
+    0.8,
+    0.05
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Bike hoop rack 0.7 m: stainless steel inverted-U tube with radiused corners, base flanges and bolts.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

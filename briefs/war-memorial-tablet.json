@@ -1,0 +1,42 @@
+{
+  "budget": 14000,
+  "id": "war-memorial-tablet",
+  "kind": "prop",
+  "materials": [
+    "stone.marble",
+    "stone.marble-honed",
+    "metal.bronze-weathered",
+    "sign.red",
+    "stone.granite-moss"
+  ],
+  "name": "War memorial tablet",
+  "notes": "",
+  "parts": [
+    "slab",
+    "pediment",
+    "cornice",
+    "cast name lines",
+    "bronze wreath",
+    "poppies",
+    "plinth"
+  ],
+  "references": [],
+  "size": [
+    0.8,
+    1.2,
+    0.12
+  ],
+  "style": "architectural facade customizer, Civic",
+  "summary": "Civic memorial tablet 0.8 x 1.2 m: marble slab with pediment, cast bronze names, wreath, plinth.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "stone",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

@@ -1,0 +1,42 @@
+{
+  "budget": 10000,
+  "id": "combustion-flue-vent-cap",
+  "kind": "prop",
+  "materials": [
+    "metal.aluminum-brushed",
+    "metal.galvanized",
+    "metal.galvanized-aged",
+    "metal.painted:2A241E",
+    "metal.painted:CFCBBE",
+    "metal.rust",
+    "metal.screw-zinc",
+    "metal.stainless"
+  ],
+  "name": "Combustion flue vent cap",
+  "notes": "",
+  "parts": [
+    "Double-wall galvanized vent pipe with twist-lock bands",
+    "Aluminum inner liner at the top",
+    "Conical rain cap on three struts",
+    "Two standoff wall straps with screws",
+    "Base plate with bolts",
+    "Soot staining and rust"
+  ],
+  "references": [],
+  "size": [
+    0.2,
+    0.3,
+    0.2
+  ],
+  "style": "architectural facade customizer, Traditional",
+  "summary": "Combustion flue vent: 5 inch double-wall Type B gas vent with twist-lock bands, standoff wall straps, base plate, inner aluminum liner and conical rain cap on three struts with soot staining.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

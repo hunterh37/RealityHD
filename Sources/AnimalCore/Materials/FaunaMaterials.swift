@@ -133,7 +133,7 @@ public enum FaunaMaterials {
     // MARK: ground animals
 
     public enum GroundRegion: String, CaseIterable, Sendable {
-        case body, head, tail, ear, nose, eye, claw, whisker, quill, antler, hoof, muzzle, throat, rump, mane, bristle, pinna, lid, shell, tailShell, limb, headShell
+        case body, head, tail, ear, nose, eye, claw, whisker, quill, antler, hoof, muzzle, throat, rump, mane, bristle, pinna, lid, shell, tailShell, limb, headShell, limbShell
     }
 
     public static func key(_ id: String, _ r: GroundRegion) -> MaterialKey { "fauna.\(id).\(r.rawValue)" }
@@ -148,7 +148,10 @@ public enum FaunaMaterials {
     public static func specs(for p: GroundProfile) -> [MaterialSpec] {
         let id = p.species.rawValue, c = p.palette
         func make(_ r: GroundRegion, _ program: TextureProgram, _ edit: (inout MaterialSpec) -> Void) -> MaterialSpec {
-            MaterialSpec(key: key(id, r), program: program).with { $0.seed = seed(id, r); edit(&$0) }
+            MaterialSpec(key: key(id, r), program: program).with {
+                $0.seed = seed(id, r); edit(&$0)
+                if program == .furCoat || program == .furShell, c.markings != 0 || GroundSpecies.dogs.contains(p.species) { $0.coatPattern = c.markings | (GroundSpecies.dogs.contains(p.species) ? 16 : 0) }
+            }
         }
         return [
             make(.body, .furCoat) {
@@ -172,14 +175,21 @@ public enum FaunaMaterials {
             },
             make(.limb, .furCoat) {
                 // Leg coat: body coat program, finer strands, no shells (thin limbs show shell layering).
-                $0.colorA = linear(c.back); $0.colorB = linear(c.belly); $0.colorC = linear(c.accent)
-                $0.knobs = V4(c.strands * 1.4, c.flankLine, c.pattern * 0.5, c.fuzz)
+                let dog = p.anatomy.earDrop >= 0 && GroundSpecies.dogs.contains(p.species)
+                $0.colorA = linear(dog ? (c.limb ?? c.belly) : c.back); $0.colorB = linear(c.belly); $0.colorC = linear(c.accent)
+                $0.knobs = V4(c.strands * 1.4, dog ? 1.2 : c.flankLine, c.pattern * 0.5, c.fuzz)
                 $0.tileSize = 0; $0.resolution = 512; $0.normalStrength = 1.0; $0.roughness = 0.92
             },
             make(.shell, .furShell) {
                 // Shell fur over the coat: back/belly split, pale guard-hair tips.
                 $0.colorA = linear(c.back); $0.colorB = linear(c.belly); $0.colorC = linear(c.belly)
                 $0.knobs = V4(c.strands, c.flankLine, 0.55, 0.3)
+                $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 0.4; $0.roughness = 0.86; $0.mode = .cutout
+            },
+            make(.limbShell, .furShell) {
+                // Dog leg fur: one coat colour all round (the back/belly split reads as stripes on a cylinder).
+                $0.colorA = linear(c.limb ?? c.belly); $0.colorB = linear(c.limb ?? c.belly); $0.colorC = linear(c.accent)
+                $0.knobs = V4(c.strands * 0.4, 1.2, 0.5, 0.25)
                 $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 0.4; $0.roughness = 0.86; $0.mode = .cutout
             },
             make(.headShell, .furShell) {
@@ -205,12 +215,13 @@ public enum FaunaMaterials {
                 $0.tileSize = 0.01; $0.resolution = 128; $0.normalStrength = 0.2; $0.roughness = 0.5
             },
             make(.nose, .plastic) {
+                let dog = GroundSpecies.dogs.contains(p.species)
                 $0.colorA = linear(c.nose); $0.knobs = V4(0.4, 0.3, 0.3, 0)
-                $0.tileSize = 0.02; $0.resolution = 128; $0.normalStrength = 0.3; $0.roughness = p.anatomy.snoutDisc ? 0.6 : 0.35; $0.clearcoat = p.anatomy.snoutDisc ? 0.04 : 0.3
+                $0.tileSize = 0.02; $0.resolution = 128; $0.normalStrength = dog ? 1.4 : 0.3; $0.roughness = p.anatomy.snoutDisc ? 0.6 : (dog ? 0.5 : 0.35); $0.clearcoat = p.anatomy.snoutDisc ? 0.04 : (dog ? 0.12 : 0.3)
             },
             make(.eye, .plastic) {
                 // Dark brown iris under a clear cornea: tiny roughness, full clearcoat for the wet highlight.
-                $0.colorA = linear(0x120804); $0.knobs = V4(0.25, 0.2, 0.25, 0)
+                $0.colorA = linear(GroundSpecies.dogs.contains(p.species) ? c.eye : 0x120804); $0.knobs = V4(0.25, 0.2, 0.25, 0)
                 $0.tileSize = 0.004; $0.resolution = 128; $0.normalStrength = 0; $0.roughness = 0.02; $0.clearcoat = 1; $0.specular = 1
             },
             make(.claw, .plastic) {

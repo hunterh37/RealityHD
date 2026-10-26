@@ -1,0 +1,38 @@
+{
+  "budget": 14900,
+  "id": "louvered-pergola-roof",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat:3A3D40",
+    "metal.aluminum-brushed",
+    "metal.stainless",
+    "metal.galvanized-aged"
+  ],
+  "name": "Louvered Pergola Roof",
+  "notes": "",
+  "parts": [
+    "four box-section posts on base plates",
+    "perimeter gutter beams",
+    "pivoting louvre blades with end caps",
+    "blade pivot pins and linkage bar",
+    "motor housing",
+    "post knee brackets"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    2.7,
+    3.0
+  ],
+  "style": "architectural facade customizer, contemporary; Contemporary charcoal powdercoat, tilted at 35 degrees, light dust.",
+  "summary": "Contemporary aluminium pergola, 3 m square: four posts, perimeter gutter beams and 22 motorised louvre blades.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,41 @@
+{
+  "budget": 10000,
+  "id": "call-box-fire-alarm",
+  "kind": "prop",
+  "materials": [
+    "metal.fire-extinguisher-red",
+    "metal.cast-iron",
+    "metal.enamel",
+    "metal.brass-aged"
+  ],
+  "name": "Fire alarm call box",
+  "notes": "",
+  "parts": [
+    "cast pedestal",
+    "tapered post",
+    "cast housing",
+    "hinged door",
+    "pull handle",
+    "ornamental cap",
+    "base flange bolts",
+    "enamel signage"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    1.0,
+    0.3
+  ],
+  "style": "architectural facade customizer, Municipal",
+  "summary": "Municipal pedestal fire alarm call box, 1.0 m: red cast housing on a flanged post.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

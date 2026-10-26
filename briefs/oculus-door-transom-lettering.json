@@ -1,0 +1,39 @@
+{
+  "budget": 9000,
+  "id": "oculus-door-transom-lettering",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "glass.pane",
+    "metal.gold-leaf",
+    "metal.brass-aged"
+  ],
+  "name": "Transom lettering light",
+  "notes": "",
+  "parts": [
+    "timber frame",
+    "putty bead",
+    "glass",
+    "glazing bar",
+    "gold leaf lettering",
+    "pivot pins"
+  ],
+  "references": [],
+  "size": [
+    1.0,
+    0.4,
+    0.02
+  ],
+  "style": "architectural facade customizer, Commercial",
+  "summary": "Shopfront transom light 1.0 x 0.4 m: moulded timber frame, putty bead, glazing bar and gold leaf lettering with shadow.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

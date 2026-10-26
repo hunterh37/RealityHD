@@ -1,0 +1,40 @@
+{
+  "budget": 14000,
+  "id": "thatch-roof-edge",
+  "kind": "prop",
+  "materials": [
+    "wood.weathered",
+    "wood.lumber-pine",
+    "metal.galvanized-aged",
+    "plant.stem"
+  ],
+  "name": "Thatch roof edge",
+  "notes": "",
+  "parts": [
+    "reed courses",
+    "butt-end eaves",
+    "liggers",
+    "hazel spars",
+    "wire netting",
+    "fascia rafter",
+    "moss patches"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    0.5,
+    0.6
+  ],
+  "style": "architectural facade customizer, English Cottage",
+  "summary": "Water reed thatch eaves: butt-end face with eyebrow bulge, hazel liggers and spars, wire netting, oak wall plate and rafter feet.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

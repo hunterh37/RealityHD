@@ -1,0 +1,43 @@
+{
+  "budget": 14000,
+  "id": "mounting-block-stone",
+  "kind": "prop",
+  "materials": [
+    "stone.granite-curb",
+    "stone.granite-paver",
+    "stone.slate",
+    "metal.cast-iron-worn",
+    "metal.rust",
+    "moss.sedum-gold"
+  ],
+  "name": "Stone mounting block",
+  "notes": "",
+  "parts": [
+    "stepped monolith",
+    "rock-faced sides",
+    "chiselled margins",
+    "top platform with dished wear",
+    "lower step",
+    "iron ring bolt",
+    "lichen and moss",
+    "chipped arris"
+  ],
+  "references": [],
+  "size": [
+    0.8,
+    0.4,
+    0.5
+  ],
+  "style": "architectural facade customizer, Colonial",
+  "summary": "Stone mounting block 0.8 m: tall two-step rock-faced monolith with a dished top platform, iron ring bolt and lichen.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

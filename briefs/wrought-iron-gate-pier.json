@@ -1,0 +1,38 @@
+{
+  "budget": 12000,
+  "id": "wrought-iron-gate-pier",
+  "kind": "prop",
+  "materials": [
+    "metal.painted",
+    "metal.rust-grime",
+    "metal.wrought-iron"
+  ],
+  "name": "Wrought iron gate pier",
+  "notes": "",
+  "parts": [
+    "square hollow post",
+    "base collar",
+    "panel mouldings",
+    "hinge pintles",
+    "cap",
+    "urn finial",
+    "latch keeper"
+  ],
+  "references": [],
+  "size": [
+    0.5,
+    2.0,
+    0.5
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Victorian iron gate post, 0.5 m footprint, fluted base, panelled shaft, capped with an urn finial.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

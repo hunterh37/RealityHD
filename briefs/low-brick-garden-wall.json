@@ -1,0 +1,40 @@
+{
+  "budget": 14000,
+  "id": "low-brick-garden-wall",
+  "kind": "prop",
+  "materials": [
+    "brick.unit-red",
+    "brick.unit-header",
+    "brick.mortar-lime",
+    "stone.cast-stone"
+  ],
+  "name": "Low brick garden wall",
+  "notes": "",
+  "parts": [
+    "stone plinth",
+    "Flemish bond brick faces",
+    "lime mortar joints",
+    "end piers",
+    "pier caps",
+    "cast stone coping with drip",
+    "weathering"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    0.6,
+    0.22
+  ],
+  "style": "architectural facade customizer, Colonial Revival",
+  "summary": "Low brick garden wall 2.4 m: Flemish bond brick on a stone plinth with end piers and a cast stone coping.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

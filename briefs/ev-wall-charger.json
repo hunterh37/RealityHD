@@ -1,0 +1,43 @@
+{
+  "budget": 9000,
+  "id": "ev-wall-charger",
+  "kind": "prop",
+  "materials": [
+    "glass.display",
+    "glass.lamp",
+    "metal.galvanized",
+    "metal.painted:2E3034",
+    "metal.screw-zinc",
+    "metal.stainless",
+    "plastic.black",
+    "rubber.silicone",
+    "rubber.tubing"
+  ],
+  "name": "EV wall charger",
+  "notes": "",
+  "parts": [
+    "Graphite powder-coated housing",
+    "Glass fascia with LED status bar",
+    "Mounting plate with screws",
+    "Cable gland and cable",
+    "J1772 handle docked in holster",
+    "Rating label"
+  ],
+  "references": [],
+  "size": [
+    0.25,
+    0.45,
+    0.15
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Level 2 EV wall charger: graphite housing on mounting plate, glass fascia with LED bar, gland, coiled cable and docked J1772 handle in holster.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

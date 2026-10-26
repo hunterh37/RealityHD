@@ -1,0 +1,39 @@
+{
+  "budget": 9000,
+  "id": "awning-sign-valance-board",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "metal.gold-leaf",
+    "metal.aluminum-brushed",
+    "plastic.black"
+  ],
+  "name": "Awning valance board",
+  "notes": "",
+  "parts": [
+    "moulded board",
+    "gilt lettering",
+    "shadow letters",
+    "top channel",
+    "clips",
+    "screws"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.3,
+    0.05
+  ],
+  "style": "architectural facade customizer, Commercial",
+  "summary": "Shopfront awning valance board 2.0 m: moulded timber board, gilt lettering with shadow, aluminium channel, clips.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

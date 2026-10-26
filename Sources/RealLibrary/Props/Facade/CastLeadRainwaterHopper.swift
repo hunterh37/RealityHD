@@ -52,9 +52,9 @@ public struct CastLeadRainwaterHopper: RealAsset {
         let pc = front(0, 0.27, 0.005)
         FA.box(&m, V3(0.17, 0.085, 0.006), pc, cast, r: 0.003, rot: FA.q(tdeg, FA.X))
         FA.box(&m, V3(0.15, 0.065, 0.004), pc + nF * 0.003, "metal.rust-grime", r: 0.002, rot: FA.q(tdeg, FA.X))
-        let digits = FS.segments("1789", origin: V2(0, 0), h: 0.04, ws: 0.9, gap: 0.3)
+        let digits = FSO.segments("1789", origin: V2(0, 0), h: 0.04, ws: 0.9, gap: 0.3)
         var dm = Model(name: "digits")
-        for (a, b) in digits.segs { FS.bar(&dm, a - V2(digits.width / 2, 0.02), b - V2(digits.width / 2, 0.02), w: 0.005, z: 0, t: 0.004, cast) }
+        for (a, b) in digits.segs { FSO.bar(&dm, a - V2(digits.width / 2, 0.02), b - V2(digits.width / 2, 0.02), w: 0.005, z: 0, t: 0.004, cast) }
         m.add(dm, Xform(translation: pc + nF * 0.0055, rotation: FA.q(tdeg, FA.X)))
         for (dx, dy) in [(-0.095, -0.05), (0.095, -0.05), (-0.095, 0.05), (0.095, 0.05)] as [(Float, Float)] {
             let y = 0.27 + dy * cos(tilt)
@@ -74,22 +74,22 @@ public struct CastLeadRainwaterHopper: RealAsset {
         // Weathering: oxide bloom blobs on the front, run-off streaks below the ornament, leaf litter inside.
         for _ in 0..<10 {
             let y = rng.float(0.13...0.42)
-            FS.blob(&m, at: front(rng.float(-0.6...0.6) * halfW(y), y, 0.0006), size: V3(rng.float(0.02...0.05), rng.float(0.015...0.035), 0.0016), rng.chance(0.55) ? "stone.limestone" : "stone.limestone-sooted", rot: FA.q(tdeg, FA.X))
+            FSO.blob(&m, at: front(rng.float(-0.6...0.6) * halfW(y), y, 0.0006), size: V3(rng.float(0.02...0.05), rng.float(0.015...0.035), 0.0016), rng.chance(0.55) ? "stone.limestone" : "stone.limestone-sooted", rot: FA.q(tdeg, FA.X))
         }
         for _ in 0..<5 {
             let y = rng.float(0.15...0.22)
-            FS.blob(&m, at: front(rng.float(-0.5...0.5) * halfW(y), y, 0.0007), size: V3(rng.float(0.008...0.014), rng.float(0.07...0.12), 0.0014), "wood.deadwood", rot: FA.q(tdeg, FA.X))
+            FSO.blob(&m, at: front(rng.float(-0.5...0.5) * halfW(y), y, 0.0007), size: V3(rng.float(0.008...0.014), rng.float(0.07...0.12), 0.0014), "wood.deadwood", rot: FA.q(tdeg, FA.X))
         }
         // Pressed dent on the left face, bird lime on the lip, rust at the ear nails, green algae at the spigot.
-        FS.blob(&m, at: front(-0.5 * halfW(0.2), 0.2, 0.0), size: V3(0.06, 0.05, 0.007), "stone.slate", rot: FA.q(tdeg, FA.X))
+        FSO.blob(&m, at: front(-0.5 * halfW(0.2), 0.2, 0.0), size: V3(0.06, 0.05, 0.007), "stone.slate", rot: FA.q(tdeg, FA.X))
         for _ in 0..<5 {
-            FS.blob(&m, at: V3(rng.float(-0.17...0.17), yT + lipH / 2 + 0.0004, topD + 0.001), size: V3(rng.float(0.02...0.04), 0.0018, 0.012), "stone.limestone")
-            FS.blob(&m, at: front(rng.float(-0.5...0.5) * halfW(0.4), 0.4, 0.0006), size: V3(0.012, rng.float(0.04...0.08), 0.0014), "stone.limestone", rot: FA.q(tdeg, FA.X))
+            FSO.blob(&m, at: V3(rng.float(-0.17...0.17), yT + lipH / 2 + 0.0004, topD + 0.001), size: V3(rng.float(0.02...0.04), 0.0018, 0.012), "stone.limestone")
+            FSO.blob(&m, at: front(rng.float(-0.5...0.5) * halfW(0.4), 0.4, 0.0006), size: V3(0.012, rng.float(0.04...0.08), 0.0014), "stone.limestone", rot: FA.q(tdeg, FA.X))
         }
-        for sgn: Float in [-1, 1] { FS.blob(&m, at: V3(sgn * 0.16, 0.36, 0.0095), size: V3(0.012, 0.03, 0.0016), "metal.rust") }
-        FS.blob(&m, at: front(0, 0.11, 0.0006), size: V3(0.07, 0.03, 0.0016), "stone.granite-moss", rot: FA.q(tdeg, FA.X))
+        for sgn: Float in [-1, 1] { FSO.blob(&m, at: V3(sgn * 0.16, 0.36, 0.0095), size: V3(0.012, 0.03, 0.0016), "metal.rust") }
+        FSO.blob(&m, at: front(0, 0.11, 0.0006), size: V3(0.07, 0.03, 0.0016), "stone.granite-moss", rot: FA.q(tdeg, FA.X))
         for k in 0..<4 {
-            FS.blob(&m, at: V3(rng.float(-0.1...0.1), yT - 0.062, topD / 2 + rng.float(-0.06...0.06)), size: V3(rng.float(0.03...0.05), 0.005, rng.float(0.02...0.04)), k % 2 == 0 ? "wood.deadwood" : "stone.granite-moss", rot: FA.q(rng.float(0...180), FA.Y))
+            FSO.blob(&m, at: V3(rng.float(-0.1...0.1), yT - 0.062, topD / 2 + rng.float(-0.06...0.06)), size: V3(rng.float(0.03...0.05), 0.005, rng.float(0.02...0.04)), k % 2 == 0 ? "wood.deadwood" : "stone.granite-moss", rot: FA.q(rng.float(0...180), FA.Y))
         }
         groundAO(&m)
         return LODModel(FC.place(m))

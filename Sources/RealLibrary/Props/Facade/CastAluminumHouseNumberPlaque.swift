@@ -34,8 +34,8 @@ public struct CastAluminumHouseNumberPlaque: RealAsset {
         m.add(Prim.sweep(Shape2D.circle(0.0011, segments: 6), along: lip, up: FA.Z, closedPath: true, caps: false, material: alu))
         // Raised numerals.
         let h: Float = 0.062
-        let w = FS.width(number, h: h)
-        FS.text(&m, number, origin: V2(-w / 2, -h / 2 + 0.002), h: h, w: 0.0085, z: zFront + 0.00175, t: 0.0035, alu)
+        let w = FSO.width(number, h: h)
+        FSO.text(&m, number, origin: V2(-w / 2, -h / 2 + 0.002), h: h, w: 0.0085, z: zFront + 0.00175, t: 0.0035, alu)
         // Studs, standoffs and acorn nuts through the border.
         let acorn: [(Float, Float)] = [(0, 0), (0.0066, 0), (0.0066, 0.0014), (0.0058, 0.0034), (0.0036, 0.005), (0, 0.0056)]
         for sgn: Float in [-1, 1] {
@@ -45,17 +45,17 @@ public struct CastAluminumHouseNumberPlaque: RealAsset {
         }
         // Weathering: oxide bloom on the numerals, rain dirt below, scratches, corner ding.
         for _ in 0..<12 {
-            FS.blob(&m, at: V3(rng.float(-0.09...0.09), rng.float(-0.025...0.03), zFront + 0.0036), size: V3(rng.float(0.003...0.007), rng.float(0.002...0.005), 0.0008), "stone.limestone")
+            FSO.blob(&m, at: V3(rng.float(-0.09...0.09), rng.float(-0.025...0.03), zFront + 0.0036), size: V3(rng.float(0.003...0.007), rng.float(0.002...0.005), 0.0008), "stone.limestone")
         }
         for _ in 0..<6 {
-            FS.blob(&m, at: V3(rng.float(-0.1...0.1), rng.float(-0.05...(-0.034)), zFront + 0.0003), size: V3(rng.float(0.003...0.006), rng.float(0.016...0.034), 0.0006), "stone.limestone-sooted")
+            FSO.blob(&m, at: V3(rng.float(-0.1...0.1), rng.float(-0.05...(-0.034)), zFront + 0.0003), size: V3(rng.float(0.003...0.006), rng.float(0.016...0.034), 0.0006), "stone.limestone-sooted")
         }
         for _ in 0..<9 {
             let a = V2(rng.float(-0.12...0.12), rng.float(-0.05...0.05))
-            FS.bar(&m, a, a + V2(rng.float(0.01...0.03), rng.float(-0.01...0.01)), w: 0.0007, z: zFront + 0.0002, t: 0.0004, "metal.steel")
+            FSO.bar(&m, a, a + V2(rng.float(0.01...0.03), rng.float(-0.01...0.01)), w: 0.0007, z: zFront + 0.0002, t: 0.0004, "metal.steel")
         }
-        FS.blob(&m, at: V3(0.146, 0.069, zF + 0.0004), size: V3(0.012, 0.009, 0.0016), "metal.steel")
-        FS.blob(&m, at: V3(-0.07, 0.07, zF + 0.0004), size: V3(0.03, 0.003, 0.0014), "stone.limestone")
+        FSO.blob(&m, at: V3(0.146, 0.069, zF + 0.0004), size: V3(0.012, 0.009, 0.0016), "metal.steel")
+        FSO.blob(&m, at: V3(-0.07, 0.07, zF + 0.0004), size: V3(0.03, 0.003, 0.0014), "stone.limestone")
         groundAO(&m)
         return LODModel(FC.place(m))
     }
