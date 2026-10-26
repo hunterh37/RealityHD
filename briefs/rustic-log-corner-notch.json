@@ -3,11 +3,13 @@
   "id": "rustic-log-corner-notch",
   "kind": "prop",
   "materials": [
+    "wood.pine-aged",
     "wood.cedar-weathered",
     "wood.endgrain-weathered",
-    "wood.pole-pine",
-    "concrete.mortar-lime",
-    "metal.rust"
+    "brick.mortar-lime",
+    "metal.rust",
+    "wood.charred",
+    "wood.deadwood"
   ],
   "name": "Rustic log corner notch",
   "notes": "",
