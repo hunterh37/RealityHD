@@ -10,12 +10,12 @@ public struct ArtDecoChevronFrieze: RealAsset {
     public static let tags = ["prop", "architecture", "facade", "decor", "stone"]
     public static let budget = 14000
     public static let author = "realityhd"
-    public static let preview = PreviewHint(azimuth: 20, elevation: 10, distance: 2.2)
+    public static let preview = PreviewHint(azimuth: 20, elevation: 10, distance: 0.95)
 
     /// Band length in meters.
     public var length: Float = 3.0
     /// Cast stone ground.
-    public var stone: MaterialKey = "stone.cast-stone:B8AE98"
+    public var stone: MaterialKey = "stone.cast-stone:A89D86"
     /// Lighter stone for the raised chevrons.
     public var raised: MaterialKey = "stone.cast-stone:E6DFCF"
     /// Brass inlay.
@@ -58,31 +58,48 @@ public struct ArtDecoChevronFrieze: RealAsset {
             let cx = -fieldL / 2 + (Float(i) + 0.5) * bay
             for r in 0..<3 {
                 let hw = bay / 2 - 0.012
-                let rise = fieldH * 0.42
-                let off = Float(r) * 0.045
-                let t: Float = 0.022
-                let ytop = fy0 + fieldH * 0.76 - off
-                let pts: [V2] = [V2(-hw, ytop), V2(0, ytop - rise), V2(hw, ytop), V2(hw, ytop + t), V2(0, ytop - rise + t), V2(-hw, ytop + t)]
-                _ = pts
-                let outline: [V2] = [V2(-hw, ytop), V2(0, ytop - rise * 0.5), V2(hw, ytop), V2(hw, ytop + t), V2(0, ytop - rise * 0.5 + t), V2(-hw, ytop + t)]
+                let rise: Float = 0.097
+                let t: Float = 0.026
+                let ytop = fy0 + 0.197 - Float(r) * 0.045
+                let outline: [V2] = [V2(-hw, ytop), V2(0, ytop - rise), V2(hw, ytop), V2(hw, ytop + t), V2(0, ytop - rise + t), V2(-hw, ytop + t)]
                 let mat = (r == 1) ? raised : stone
-                m.add(Prim.extrude(outline, depth: 0.014, bevel: 0.0016, bevelSegments: 1, material: mat),
-                      Xform(translation: V3(cx, 0, 0.027)))
+                m.add(Prim.extrude(outline, depth: 0.02, bevel: 0.0018, bevelSegments: 1, material: mat),
+                      Xform(translation: V3(cx, 0, 0.03)))
             }
-            // Brass inlay: V line through the centre ring, with the occasional dulled bay.
+            // Brass inlay: V line along the centre of the middle chevron, with the occasional dulled bay.
             let hw = bay / 2 - 0.012
-            let ytop = fy0 + fieldH * 0.76 - 0.045, rise = fieldH * 0.42 * 0.5
+            let ytop = fy0 + 0.197 - 0.045
             let mat = rng.chance(0.2) ? brassAged : brass
             for s: Float in [-1, 1] {
-                let a = V3(cx, ytop - rise + 0.011, 0.0355), b = V3(cx + s * hw, ytop + 0.011, 0.0355)
+                let a = V3(cx, ytop - 0.097 + 0.013, 0.0405), b = V3(cx + s * hw, ytop + 0.013, 0.0405)
                 FA.rod(&m, a, b, r: 0.0028, mat, sides: 6)
             }
             // Small stone lozenge between chevron points.
             let lz: [V2] = [V2(0, 0.0), V2(0.014, 0.014), V2(0, 0.028), V2(-0.014, 0.014)]
-            m.add(Prim.extrude(lz, depth: 0.012, bevel: 0.0012, bevelSegments: 1, material: raised), Xform(translation: V3(cx + bay / 2, fy0 + 0.04, 0.026)))
+            m.add(Prim.extrude(lz, depth: 0.012, bevel: 0.0012, bevelSegments: 1, material: raised), Xform(translation: V3(cx + bay / 2, fy0 + 0.1, 0.026)))
         }
         // Chipped corner: replacement stone patch at the right cornice.
         FA.box(&m, V3(0.08, 0.02, 0.0025), V3(0.9, H - 0.022, 0.0575), "stone.limestone", r: 0.0006)
+        // Weathering: soot under the cornice, damp staining above the base, efflorescence on the raised chevrons, chipped arrises.
+        var wr = rng.fork(41)
+        func blob(_ cx: Float, _ cy: Float, _ rx: Float, _ ry: Float, _ mat: MaterialKey, _ z: Float, _ depth: Float) {
+            var pts: [V2] = []
+            for k in 0..<9 {
+                let a = Float(k) / 9 * 2 * .pi
+                let j = wr.float(0.6...1.2)
+                pts.append(V2(cx + cos(a) * rx * j, cy + sin(a) * ry * j))
+            }
+            m.add(Prim.extrude(Shape2D.deduped(pts), depth: depth, bevel: 0.0003, bevelSegments: 1, material: mat), Xform(translation: V3(0, 0, z)))
+        }
+        for _ in 0..<16 {
+            blob(wr.float(-L / 2 + 0.2...L / 2 - 0.2), H - 0.07 - wr.float(0...0.06), wr.float(0.01...0.04), wr.float(0.012...0.035), "stone.cast-stone:6F665A", 0.0201, 0.0012)
+        }
+        for _ in 0..<10 {
+            blob(wr.float(-L / 2 + 0.2...L / 2 - 0.2), 0.06 + wr.float(0...0.03), wr.float(0.03...0.08), wr.float(0.01...0.02), "stone.cast-stone:7C7364", 0.0201, 0.0012)
+        }
+        for _ in 0..<8 {
+            blob(wr.float(-L / 2 + 0.2...L / 2 - 0.2), wr.float(0.1...0.28), wr.float(0.008...0.02), wr.float(0.004...0.01), "stone.limestone", 0.0402, 0.0012)
+        }
         groundAO(&m, height: 0.05, floor: 0.92)
         return LODModel(FC.seatY(FA.centerZ(m)))
     }

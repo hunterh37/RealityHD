@@ -8,9 +8,9 @@ public struct MosaicTileEntryArch: RealAsset {
     public static let id = "mosaic-tile-entry-arch"
     public static let summary = "Moorish Revival tiled entry arch, 1.6 x 2.6 m: horseshoe arch of tile voussoirs, alfiz band, tiled jambs, threshold."
     public static let tags = ["prop", "architecture", "facade", "stone", "decor", "trim"]
-    public static let budget = 14000
+    public static let budget = 15000
     public static let author = "realityhd"
-    public static let preview = PreviewHint(azimuth: 24, elevation: 10, distance: 2.7)
+    public static let preview = PreviewHint(azimuth: 24, elevation: 10, distance: 1.15)
 
     /// Cobalt tile.
     public var cobalt: MaterialKey = "ceramic.cobalt"
@@ -30,12 +30,18 @@ public struct MosaicTileEntryArch: RealAsset {
         let W: Float = 1.6, H: Float = 2.6, D: Float = 0.2
         let jamb: Float = 0.25
         let openW: Float = W - jamb * 2     // 1.1 m clear
-        let R: Float = openW / 2 * 1.04       // horseshoe radius > half span
+        let R: Float = openW / 2 * 1.07       // horseshoe radius > half span
         let spring: Float = 1.45
         let hw = openW / 2
         // Backing mass: piers and head wall (mortar), behind the tiles.
         for s: Float in [-1, 1] {
-            FC.brickBox(&m, V3(jamb, spring, D - 0.02), V3(s * (hw + jamb / 2), spring / 2, (D - 0.02) / 2), mortar, r: 0.003)
+            FC.brickBox(&m, V3(jamb, spring, D - 0.02), V3(s * (hw + jamb / 2), spring / 2, (D - 0.02) / 2), stone, r: 0.003)
+            // Tiled reveal on the inside face of each jamb: a column of 75 mm glazed tiles running the full depth.
+            let rows = Int((spring - 0.07) / 0.075)
+            for r in 0..<rows {
+                let mat: MaterialKey = r % 2 == 0 ? cobalt : celadon
+                FC.brickBox(&m, V3(0.01, 0.069, D - 0.04), V3(s * (hw - 0.004), 0.07 + (Float(r) + 0.5) * 0.075, (D - 0.04) / 2 + 0.01), mat, r: 0.0015, rot: FA.q(90, FA.Y))
+            }
         }
         // Head wall above the arch: outline of a rectangle with the horseshoe cut out (two sides built from fan polys).
         let cy = spring
@@ -43,7 +49,7 @@ public struct MosaicTileEntryArch: RealAsset {
         func archPoint(_ a: Float, _ r: Float) -> V2 { V2(cos(a) * r, cy + sin(a) * r) }
         // Horseshoe arc runs from angle -asin(hw/R)... use the circle arc from just below the centre line.
         let drop = asin(min(0.999, hw / R))
-        let a0 = -(.pi / 2 - drop) * 0 - 0.22    // start slightly below the spring (horseshoe returns inward)
+        let a0 = -(.pi / 2 - drop) * 0 - 0.3    // start slightly below the spring (horseshoe returns inward)
         let a1 = Float.pi - a0
         // Voussoirs: 23 tiles around the arc, alternating colour, projecting 0.06 beyond the head wall.
         let vN = 23
@@ -105,6 +111,11 @@ public struct MosaicTileEntryArch: RealAsset {
             let dx = -0.56 + Float(k) * 0.07
             FC.brickBox(&m, V3(0.05, 0.05, 0.01), V3(dx, bandY, D - 0.04 + 0.005), k % 2 == 0 ? cobalt : celadon, r: 0.002, rot: FA.q(45, FA.Z))
         }
+        // Back face: plaster render with a tile course tying into the front band, so the reverse is finished too.
+        for k in 0..<17 {
+            let dx = -0.56 + Float(k) * 0.07
+            FC.brickBox(&m, V3(0.05, 0.05, 0.008), V3(dx, bandY, 0.004), k % 2 == 0 ? celadon : cobalt, r: 0.002, rot: FA.q(45, FA.Z))
+        }
         // Alfiz frame: rectangular border of mosaic tile bands, alternating cobalt and celadon, 0.07 wide.
         let bt: Float = 0.07, tile: Float = 0.07
         func tileRun(_ a: V3, _ b: V3, tmat: Bool) {
@@ -126,25 +137,88 @@ public struct MosaicTileEntryArch: RealAsset {
             let jx = s * (hw + jamb / 2)
             FC.brickBox(&m, V3(jamb - 0.04, spring - 0.1, 0.02), V3(jx, 0.065 + (spring - 0.1) / 2, D - 0.01), mortar, r: 0.002)
             // Zellige dado: columns of 70 mm tiles in cobalt, celadon and terracotta on the diagonal.
-            let rows = Int((spring - 0.2) / 0.075)
+            let rows = Int((spring - 0.175) / 0.075)
             for r in 0..<rows { for c in 0..<3 {
                 let tx = jx + (Float(c) - 1) * 0.073
                 let ty = 0.1 + Float(r) * 0.075 + 0.0375
                 let k = (r + c) % 3
                 let mat: MaterialKey = k == 0 ? cobalt : (k == 1 ? celadon : terracotta)
-                FC.brickBox(&m, V3(0.068, 0.068, 0.009), V3(tx, ty, D - 0.0045), mat, r: 0.0015)
+                FC.brickBox(&m, V3(0.068, 0.068, 0.009), V3(tx, ty, D - 0.003), mat, r: 0.0015)
             } }
             FC.brickBox(&m, V3(jamb - 0.04, 0.03, 0.024), V3(jx, spring - 0.065, D - 0.012), stone, r: 0.004)
             // Capital: a lathe-turned bead and block at the spring line.
             FC.brickBox(&m, V3(jamb - 0.02, 0.05, 0.03), V3(jx, spring - 0.025, D - 0.015), stone, r: 0.005)
         }
         // Carved cornice: two stepped limestone courses and a drip on top of the alfiz.
-        FC.brickBox(&m, V3(W, 0.04, 0.16), V3(0, H - 0.1, 0.08), stone, r: 0.004)
-        FC.brickBox(&m, V3(W, 0.06, 0.2), V3(0, H - 0.03, 0.1), stone, r: 0.006)
+        // Profiled cornice: x = projection from the wall, y up. Bed fillet, cove, corona with drip, ogee and cap fillet.
+        var prof: [V2] = [V2(0, 0), V2(0.15, 0), V2(0.15, 0.008), V2(0.13, 0.012)]
+        prof += FL.ogee(from: V2(0.13, 0.012), to: V2(0.17, 0.036), steps: 6)
+        prof += [V2(0.2, 0.036), V2(0.2, 0.052), V2(0.19, 0.056), V2(0.19, 0.062), V2(0.16, 0.066), V2(0, 0.066)]
+        FA.run(&m, Shape2D.deduped(prof), length: W, at: V3(0, H - 0.066, 0), stone, bevel: 0.0015)
+        // Dentil blocks under the corona, every 0.06 m.
+        for k in 0..<13 {
+            FC.brickBox(&m, V3(0.04, 0.022, 0.03), V3(-W / 2 + 0.06 + Float(k) * (W - 0.12) / 12, H - 0.08, 0.115), stone, r: 0.002)
+        }
         FC.brickBox(&m, V3(W - 0.04, 0.012, 0.012), V3(0, H - 0.06, D - 0.002), mortar, r: 0.002)
         // Threshold plinth: limestone step with worn centre.
         FC.brickBox(&m, V3(openW + 0.2, 0.06, 0.2), V3(0, 0.03, 0.1), stone, r: 0.004)
         FC.brickBox(&m, V3(0.6, 0.004, 0.14), V3(0, 0.0605, 0.12), "stone.limestone-sooted", r: 0.001)
+        // Weathering: rising damp and splash on the dado, soot under the cornice, lost tiles, grout efflorescence, moss on the cornice.
+        var wr = rng.fork(51)
+        func blob(_ cx: Float, _ cy: Float, _ rx: Float, _ ry: Float, _ mat: MaterialKey, _ z: Float, _ depth: Float) {
+            var pts: [V2] = []
+            for k in 0..<9 {
+                let a = Float(k) / 9 * 2 * .pi
+                let j = wr.float(0.6...1.2)
+                pts.append(V2(cx + cos(a) * rx * j, cy + sin(a) * ry * j))
+            }
+            m.add(Prim.extrude(Shape2D.deduped(pts), depth: depth, bevel: 0.0004, bevelSegments: 1, material: mat), Xform(translation: V3(0, 0, z)))
+        }
+        for s: Float in [-1, 1] {
+            for _ in 0..<4 {
+                blob(s * (hw + jamb / 2) + wr.float(-0.07...0.07), 0.1 + wr.float(0...0.3), wr.float(0.015...0.04), wr.float(0.02...0.06), "stone.limestone-sooted", D + 0.002, 0.0012)
+            }
+            // Lost tiles on the dado show the grey mortar bed.
+            for _ in 0..<2 {
+                FC.brickBox(&m, V3(0.066, 0.066, 0.002), V3(s * (hw + jamb / 2) + Float(wr.int(-1...1)) * 0.073, 0.1 + Float(wr.int(0...15)) * 0.075 + 0.0375, D - 0.0012), mortar, r: 0.0004)
+            }
+        }
+        // Glaze crazing and chipped corners on the dado and voussoir tiles: dark hairlines plus mortar-coloured chips.
+        for s: Float in [-1, 1] {
+            for _ in 0..<12 {
+                let tx = s * (hw + jamb / 2) + Float(wr.int(-1...1)) * 0.073 + wr.float(-0.02...0.02)
+                let ty = 0.1 + Float(wr.int(0...16)) * 0.075 + wr.float(0.01...0.06)
+                FC.brickBox(&m, V3(0.0014, wr.float(0.02...0.05), 0.0004), V3(tx, ty, D + 0.0016), "ceramic.porcelain-black", r: 0.0002, rot: FA.q(wr.float(-35...35), FA.Z))
+            }
+            for _ in 0..<6 {
+                let tx = s * (hw + jamb / 2) + Float(wr.int(-1...1)) * 0.073 + wr.float(-0.025...0.025)
+                let ty = 0.1 + Float(wr.int(0...16)) * 0.075 + wr.float(0.0...0.07)
+                FC.brickBox(&m, V3(wr.float(0.01...0.02), wr.float(0.008...0.016), 0.0006), V3(tx, ty, D + 0.0018), "stone.limestone-sooted", r: 0.0002, rot: FA.q(wr.float(0...90), FA.Z))
+            }
+        }
+        for k in 0..<vN where k % 3 == 1 {
+            let u = a0 + (a1 - a0) * (Float(k) + 0.5) / Float(vN)
+            let p = archPoint(u, R + 0.1)
+            FC.brickBox(&m, V3(0.025, 0.012, 0.0006), V3(p.x, p.y, D - 0.0074), "stone.limestone-sooted", r: 0.0002, rot: FA.q(u * 180 / .pi - 90, FA.Z))
+        }
+        // Lime runs under the extrados ring, a splash band of soil on the lowest dado rows and the plinth.
+        for k in 0..<12 {
+            let u = a0 + (a1 - a0) * (Float(k) + 0.5) / 12
+            let p = archPoint(u, R + 0.215)
+            if p.y > spring - 0.1 { blob(p.x, p.y - wr.float(0.03...0.07), wr.float(0.006...0.012), wr.float(0.03...0.07), "stone.limestone", D - 0.0148, 0.0008) }
+        }
+        for s: Float in [-1, 1] {
+            for _ in 0..<5 {
+                blob(s * (hw + jamb / 2) + wr.float(-0.08...0.08), 0.1 + wr.float(0...0.08), wr.float(0.025...0.05), wr.float(0.015...0.03), "soil.potting", D + 0.0022, 0.0009)
+            }
+        }
+        FC.brickBox(&m, V3(openW + 0.2, 0.012, 0.202), V3(0, 0.054, 0.1), "stone.limestone-sooted", r: 0.002)
+        for _ in 0..<10 {
+            blob(wr.float(-W / 2 + 0.1...W / 2 - 0.1), H - 0.14 + wr.float(-0.01...0.01), wr.float(0.01...0.04), wr.float(0.02...0.05), "stone.limestone-sooted", D - 0.0002, 0.001)
+        }
+        for _ in 0..<6 {
+            FC.brickBox(&m, V3(wr.float(0.04...0.1), 0.005, wr.float(0.03...0.08)), V3(wr.float(-W / 2 + 0.1...W / 2 - 0.1), H + 0.0005, wr.float(0.04...0.16)), "moss.cushion", r: 0.002)
+        }
         groundAO(&m, height: 0.4, floor: 0.82)
         return LODModel(FC.place(m))
     }

@@ -10,14 +10,14 @@ public struct BrickCorbelTable: RealAsset {
     public static let tags = ["prop", "architecture", "facade", "trim", "stone"]
     public static let budget = 14000
     public static let author = "realityhd"
-    public static let preview = PreviewHint(azimuth: 24, elevation: 14, distance: 1.7)
+    public static let preview = PreviewHint(azimuth: 24, elevation: 14, distance: 0.95)
 
     /// Run length in meters.
     public var length: Float = 3.0
     /// Bay pitch between corbel piers in meters.
     public var pitch: Float = 0.25
     /// Brick backing wall.
-    public var backing: MaterialKey = "brick.common"
+    public var backing: MaterialKey = "brick.common:9A4733"
     /// Common face brick.
     public var brick: MaterialKey = "brick.unit-red"
     /// Darker over-fired brick mixed into courses.
@@ -72,6 +72,12 @@ public struct BrickCorbelTable: RealAsset {
             let outline = FC.archOutline(width: 2 * R, spring: spring, pointed: false, steps: 10)
             m.add(Prim.extrude(outline, depth: 0.004, bevel: 0.0008, bevelSegments: 1, material: brickSooted),
                   Xform(translation: V3(cx, 0.0, wall + 0.0015)))
+            var ringPath: [V3] = []
+            for q in 0...14 {
+                let a = Float.pi * Float(q) / 14
+                ringPath.append(V3(cx + cos(a) * (R + 0.025), spring + sin(a) * (R + 0.025), wall + 0.012))
+            }
+            m.add(Prim.tube(ringPath, radii: Array(repeating: 0.0235, count: ringPath.count), sides: 6, seamTile: 0.1, material: mortar, capEnd: true))
             let k = 7
             for j in 0..<k {
                 let a0 = Float.pi * Float(j) / Float(k), a1 = Float.pi * Float(j + 1) / Float(k)
@@ -99,6 +105,39 @@ public struct BrickCorbelTable: RealAsset {
         // Cap joints every 0.5 m and a weathered spall on one arris.
         for k in 1..<6 { FC.brickBox(&m, V3(0.004, 0.036, 0.202), V3(-L / 2 + Float(k) * 0.5, 0.2825, 0.1), mortar, r: 0.0008) }
         FC.brickBox(&m, V3(0.09, 0.012, 0.0025), V3(0.62, 0.289, 0.2005), "stone.limestone", r: 0.0008)
+        // Weathering: efflorescence on the string course, soot drips down the cap face, moss on the cap top, spalled bricks.
+        var wr = rng.fork(31)
+        func blob(_ cx: Float, _ cy: Float, _ rx: Float, _ ry: Float, _ mat: MaterialKey, _ z: Float, _ depth: Float) {
+            var pts: [V2] = []
+            for k in 0..<9 {
+                let a = Float(k) / 9 * 2 * .pi
+                let j = wr.float(0.6...1.2)
+                pts.append(V2(cx + cos(a) * rx * j, cy + sin(a) * ry * j))
+            }
+            m.add(Prim.extrude(Shape2D.deduped(pts), depth: depth, bevel: 0.0003, bevelSegments: 1, material: mat), Xform(translation: V3(0, 0, z)))
+        }
+        for _ in 0..<12 {
+            blob(wr.float(-L / 2 + 0.05...L / 2 - 0.05), 0.247 + wr.float(-0.008...0.008), wr.float(0.015...0.05), wr.float(0.006...0.014), mortar, wall + 0.0805, 0.0012)
+        }
+        for _ in 0..<14 {
+            blob(wr.float(-L / 2 + 0.05...L / 2 - 0.05), 0.275 + wr.float(-0.005...0.005), wr.float(0.004...0.01), wr.float(0.012...0.026), brickSooted, 0.2005, 0.0012)
+        }
+        for _ in 0..<7 {
+            // Moss tufts on the cap top: flat blobs laid in the XZ plane (extrude rotated onto the top face).
+            let cx = wr.float(-L / 2 + 0.1...L / 2 - 0.1), cz = wr.float(0.04...0.17)
+            var pts: [V2] = []
+            for k in 0..<9 {
+                let a = Float(k) / 9 * 2 * .pi
+                let j = wr.float(0.6...1.2)
+                pts.append(V2(cx + cos(a) * wr.float(0.015...0.04) * j, -cz + sin(a) * 0.014 * j))
+            }
+            m.add(Prim.extrude(Shape2D.deduped(pts), depth: 0.003, bevel: 0.0008, bevelSegments: 1, material: "moss.cushion"),
+                  Xform(translation: V3(0, 0.3005, 0), rotation: FA.q(-90, FA.X)))
+        }
+        for k in 0..<5 {
+            let cx = -L / 2 + 0.4 + Float(k) * 0.55 + wr.float(-0.1...0.1)
+            blob(cx, 0.19, 0.02, 0.014, brickDark, wall + 0.0475 + 0.0006, 0.001)
+        }
         groundAO(&m, height: 0.08, floor: 0.88)
         return LODModel(FC.seatY(FA.centerZ(m)))
     }

@@ -1,5 +1,5 @@
 {
-  "budget": 14000,
+  "budget": 15000,
   "id": "mosaic-tile-entry-arch",
   "kind": "prop",
   "materials": [
@@ -25,7 +25,7 @@
     0.2
   ],
   "style": "architectural facade customizer, Moorish Revival",
-  "summary": "Moorish Revival tiled entry arch, 1.6 x 2.6 m: horseshoe arch surround with mosaic tile bands, alternating voussoirs and stepped jambs.",
+  "summary": "Moorish Revival tiled entry arch, 1.6 x 2.6 m: horseshoe arch of tile voussoirs, alfiz band, tiled jambs, threshold.",
   "tags": [
     "prop",
     "architecture",
