@@ -1079,6 +1079,16 @@ public enum Props {
         EnamelStreetNameSign.self,
         ProjectingPubBracketSign.self,
         BladeNeonSignFrame.self,
+        OakPeggedDoorSurround.self,
+        FanlightSashBarTransom.self,
+        OrielBayWindowCorbel.self,
+        StoneMullionWindowQuad.self,
+        SteelCrittallWindowPanel.self,
+        RollingShutterBoxAluminum.self,
+        CanvasAwningScalloped.self,
+        PerforatedCortenSunScreen.self,
+        BriseSoleilFinBlade.self,
+        TimberPergolaRafterEnd.self,
         // realityhd:prop
     ]
 }

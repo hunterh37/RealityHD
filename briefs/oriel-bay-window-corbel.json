@@ -1,0 +1,40 @@
+{
+  "budget": 12000,
+  "id": "oriel-bay-window-corbel",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "stone.sandstone"
+  ],
+  "name": "Oriel bay window corbel",
+  "notes": "",
+  "parts": [
+    "stepped corbel courses",
+    "chamfered stops",
+    "trefoil carved face",
+    "moulded base",
+    "tapered cone",
+    "weathered ashlar",
+    "moss at the underside",
+    "dowel hole"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    0.5,
+    0.4
+  ],
+  "style": "architectural facade customizer, Gothic Revival",
+  "summary": "Gothic Revival oriel corbel 0.3x0.5x0.4 m: stepped moulded stone cone with trefoil face.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "stone",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

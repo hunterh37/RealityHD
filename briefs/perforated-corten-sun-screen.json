@@ -1,0 +1,38 @@
+{
+  "budget": 14000,
+  "id": "perforated-corten-sun-screen",
+  "kind": "prop",
+  "materials": [
+    "metal.corten",
+    "metal.rust",
+    "metal.stainless"
+  ],
+  "name": "Perforated corten sun screen",
+  "notes": "",
+  "parts": [
+    "corten panel",
+    "perforation pattern",
+    "folded return edges",
+    "standoff brackets",
+    "fixing bolts",
+    "weathered patina",
+    "rust run-off"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    2.4,
+    0.05
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Perforated corten sun screen 1.2x2.4 m: folded-edge panel, round hole pattern, standoffs.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
