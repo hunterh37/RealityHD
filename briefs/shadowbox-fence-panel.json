@@ -4,8 +4,11 @@
   "kind": "prop",
   "materials": [
     "wood.cedar-weathered",
+    "wood.cedar",
     "wood.pine-aged",
-    "wood.lumber-pine",
+    "wood.weathered",
+    "wood.waterlogged",
+    "wood.charred",
     "metal.galvanized"
   ],
   "name": "Shadowbox fence panel",
