@@ -4,7 +4,7 @@ import Foundation
 /// Chain link fence section: architectural facade customizer, Commercial. Parts: terminal posts, line post, top rail, chain link mesh, tension bar, tension band, tie wires, post caps, bottom tension wire.
 public struct ChainLinkFenceSection: RealAsset {
     public static let id = "chain-link-fence-section"
-    public static let summary = "Commercial galvanized chain link fence, 2 inch mesh, tubular posts and top rail"
+    public static let summary = "Commercial galvanized chain link fence, 2 inch mesh, tubular posts and top rail."
     public static let tags = ["prop", "architecture", "facade", "metal"]
     public static let budget = 12000
     public static let author = "realityhd"

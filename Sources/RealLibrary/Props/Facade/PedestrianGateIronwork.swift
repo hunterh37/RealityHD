@@ -4,7 +4,7 @@ import Foundation
 /// Pedestrian gate ironwork: architectural facade customizer, Contemporary. Parts: steel frame, flat bar pickets, horizontal rails, gate leaf, hinge, magnetic latch, post, striker plate.
 public struct PedestrianGateIronwork: RealAsset {
     public static let id = "pedestrian-gate-ironwork"
-    public static let summary = "Contemporary powder-coated steel pedestrian gate with slim flat pickets and concealed hardware"
+    public static let summary = "Contemporary powder-coated steel pedestrian gate with slim flat pickets and concealed hardware."
     public static let tags = ["prop", "architecture", "facade", "metal"]
     public static let budget = 12000
     public static let author = "realityhd"

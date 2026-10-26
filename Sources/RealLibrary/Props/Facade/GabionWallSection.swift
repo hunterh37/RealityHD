@@ -4,7 +4,7 @@ import Foundation
 /// Gabion wall section: architectural facade customizer, Contemporary. Parts: welded wire cages, stacked stone fill, corner posts, spiral binders, top lid mesh, stone variation, stepped cells.
 public struct GabionWallSection: RealAsset {
     public static let id = "gabion-wall-section"
-    public static let summary = "Contemporary gabion wall, galvanized welded wire baskets filled with angular stone"
+    public static let summary = "Contemporary gabion wall, galvanized welded wire baskets filled with angular stone."
     public static let tags = ["prop", "architecture", "facade", "stone"]
     public static let budget = 15000
     public static let author = "realityhd"

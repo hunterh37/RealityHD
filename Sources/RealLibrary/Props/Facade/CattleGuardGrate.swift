@@ -4,7 +4,7 @@ import Foundation
 /// Cattle guard grate: architectural facade customizer, Rural. Parts: pipe rails, end frames, concrete footings, wing rails, weld beads, support beams, pit.
 public struct CattleGuardGrate: RealAsset {
     public static let id = "cattle-guard-grate"
-    public static let summary = "Rural cattle guard, welded steel pipe rails spanning a pit on concrete footings"
+    public static let summary = "Rural cattle guard, welded steel pipe rails spanning a pit on concrete footings."
     public static let tags = ["prop", "architecture", "facade", "metal"]
     public static let budget = 12000
     public static let author = "realityhd"

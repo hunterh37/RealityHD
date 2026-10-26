@@ -4,7 +4,7 @@ import Foundation
 /// Wrought iron gate pier: architectural facade customizer, Victorian. Parts: square hollow post, base collar, panel mouldings, hinge pintles, cap, urn finial, latch keeper.
 public struct WroughtIronGatePier: RealAsset {
     public static let id = "wrought-iron-gate-pier"
-    public static let summary = "Victorian iron gate post, 0.5 m footprint, fluted base, panelled shaft, capped with an urn finial"
+    public static let summary = "Victorian iron gate post, 0.5 m footprint, fluted base, panelled shaft, capped with an urn finial."
     public static let tags = ["prop", "architecture", "facade", "metal"]
     public static let budget = 12000
     public static let author = "realityhd"

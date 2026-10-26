@@ -4,7 +4,7 @@ import Foundation
 /// Wrought iron gate pair: architectural facade customizer, Victorian. Parts: two gate leaves, top and bottom rails, vertical pickets, scroll panels, spear finials, strap hinges, drop bolt, centre latch.
 public struct WroughtIronGatePair: RealAsset {
     public static let id = "wrought-iron-gate-pair"
-    public static let summary = "Victorian cast and wrought iron double gate, 2.4 m wide, black paint with scrolls and spear-point finials"
+    public static let summary = "Victorian cast and wrought iron double gate, 2.4 m wide, black paint with scrolls and spear-point finials."
     public static let tags = ["prop", "architecture", "facade", "metal"]
     public static let budget = 15000
     public static let author = "realityhd"

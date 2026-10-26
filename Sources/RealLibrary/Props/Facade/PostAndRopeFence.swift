@@ -4,7 +4,7 @@ import Foundation
 /// Post and rope fence: architectural facade customizer, Coastal. Parts: round posts, rope runs, rope sag, eye screws, post caps, knots, base.
 public struct PostAndRopeFence: RealAsset {
     public static let id = "post-and-rope-fence"
-    public static let summary = "Coastal weathered round posts with sagging manila rope through eye hooks"
+    public static let summary = "Coastal weathered round posts with sagging manila rope through eye hooks."
     public static let tags = ["prop", "architecture", "facade", "wood"]
     public static let budget = 15000
     public static let author = "realityhd"

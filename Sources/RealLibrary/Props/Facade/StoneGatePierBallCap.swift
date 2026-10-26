@@ -4,7 +4,7 @@ import Foundation
 /// Stone gate pier with ball cap: architectural facade customizer, Georgian. Parts: plinth, rusticated shaft, string course, cornice, capstone, stone ball finial, iron hinge pins.
 public struct StoneGatePierBallCap: RealAsset {
     public static let id = "stone-gate-pier-ball-cap"
-    public static let summary = "Georgian ashlar gate pier, 2.2 m, moulded plinth, shaft with ashlar joints, cornice, stepped cap and ball finial"
+    public static let summary = "Georgian ashlar gate pier, 2.2 m, moulded plinth, shaft with ashlar joints, cornice, stepped cap and ball finial."
     public static let tags = ["prop", "architecture", "facade", "stone", "trim"]
     public static let budget = 12000
     public static let author = "realityhd"

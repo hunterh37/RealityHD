@@ -6,7 +6,7 @@ import Foundation
 /// topped with cast urns.
 public struct BrickStoopWithIronRails: RealAsset {
     public static let id = "brick-stoop-with-iron-rails"
-    public static let summary = "Federal brick stoop 1.8 m: brick cheek walls on a stone water table, marble steps and landing, and wrought iron rails with square balusters, lyre scrolls and urn-topped newels."
+    public static let summary = "Federal brick stoop 1.8 m: brick cheek walls on a stone water table, marble steps, and wrought iron rails with lyre scrolls and urn newels."
     public static let tags = ["prop", "architecture", "facade", "metal", "stone"]
     public static let budget = 14000
     public static let author = "realityhd"

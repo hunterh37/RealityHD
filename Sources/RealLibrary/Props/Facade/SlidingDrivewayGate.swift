@@ -4,7 +4,7 @@ import Foundation
 /// Sliding driveway gate: architectural facade customizer, Contemporary. Parts: steel frame, infill slats, top track rail, guide rollers, bottom rail, drive rack, tail wheels, gate post, receiver post.
 public struct SlidingDrivewayGate: RealAsset {
     public static let id = "sliding-driveway-gate"
-    public static let summary = "Contemporary cantilever sliding gate, aluminium slat infill in steel frame with rack and rollers"
+    public static let summary = "Contemporary cantilever sliding gate, aluminium slat infill in steel frame with rack and rollers."
     public static let tags = ["prop", "architecture", "facade", "metal"]
     public static let budget = 15000
     public static let author = "realityhd"

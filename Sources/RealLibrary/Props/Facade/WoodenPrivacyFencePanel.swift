@@ -4,7 +4,7 @@ import Foundation
 /// Wooden privacy fence panel: architectural facade customizer, American Traditional. Parts: posts, post caps, stringers, vertical boards, cap rail, kickboard, galvanised nails.
 public struct WoodenPrivacyFencePanel: RealAsset {
     public static let id = "wooden-privacy-fence-panel"
-    public static let summary = "American traditional dog-ear privacy panel, 1x6 boards on 2x4 stringers between 4x4 posts"
+    public static let summary = "American traditional dog-ear privacy panel, 1x6 boards on 2x4 stringers between 4x4 posts."
     public static let tags = ["prop", "architecture", "facade", "wood"]
     public static let budget = 12000
     public static let author = "realityhd"

@@ -4,7 +4,7 @@ import Foundation
 /// Split rail fence section: architectural facade customizer, Rural. Parts: split posts with mortises, rails with tapered ends, stacked rails, ground wear, cracks and checks.
 public struct SplitRailFenceSection: RealAsset {
     public static let id = "split-rail-fence-section"
-    public static let summary = "Rural post-and-rail fence, split cedar rails tapering into mortised posts"
+    public static let summary = "Rural post-and-rail fence, split cedar rails tapering into mortised posts."
     public static let tags = ["prop", "architecture", "facade", "wood"]
     public static let budget = 12000
     public static let author = "realityhd"

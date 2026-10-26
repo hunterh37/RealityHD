@@ -4,7 +4,7 @@ import Foundation
 /// Horizontal slat fence panel: architectural facade customizer, Contemporary. Parts: steel posts, horizontal cedar slats with gaps, top cap, back channel, fixing screws, base plate.
 public struct HorizontalSlatFencePanel: RealAsset {
     public static let id = "horizontal-slat-fence-panel"
-    public static let summary = "Contemporary horizontal cedar slat screen in powder-coated posts"
+    public static let summary = "Contemporary horizontal cedar slat screen in powder-coated posts."
     public static let tags = ["prop", "architecture", "facade", "wood", "metal"]
     public static let budget = 12000
     public static let author = "realityhd"

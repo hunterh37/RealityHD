@@ -4,7 +4,7 @@ import Foundation
 /// Double swing driveway gate: architectural facade customizer, Contemporary. Parts: two leaves, steel frame, slat infill, hinges, gate posts, drop bolt, centre stop, actuator arm, leaf stile.
 public struct SwingDrivewayGateDouble: RealAsset {
     public static let id = "swing-driveway-gate-double"
-    public static let summary = "Contemporary double swing driveway gate with slatted leaves, heavy hinges and linear actuators"
+    public static let summary = "Contemporary double swing driveway gate with slatted leaves, heavy hinges and linear actuators."
     public static let tags = ["prop", "architecture", "facade", "metal"]
     public static let budget = 15000
     public static let author = "realityhd"

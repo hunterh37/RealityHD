@@ -4,7 +4,7 @@ import Foundation
 /// Arbor gate: architectural facade customizer, Cottage. Parts: posts, arched top, lattice side panels, picket gate leaf, strap hinges, latch, post caps, cross rails.
 public struct ArborGate: RealAsset {
     public static let id = "arbor-gate"
-    public static let summary = "Cottage garden arbor with arched head, lattice sides and picket gate, painted cedar"
+    public static let summary = "Cottage garden arbor with arched head, lattice sides and picket gate, painted cedar."
     public static let tags = ["prop", "architecture", "facade", "wood", "decor"]
     public static let budget = 12000
     public static let author = "realityhd"

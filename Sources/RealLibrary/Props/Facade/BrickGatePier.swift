@@ -4,7 +4,7 @@ import Foundation
 /// Brick gate pier: architectural facade customizer, Colonial Revival. Parts: brick shaft in stretcher bond, corbelled plinth, stone cap, soldier course band, iron hinge pins, mortar joints.
 public struct BrickGatePier: RealAsset {
     public static let id = "brick-gate-pier"
-    public static let summary = "Colonial Revival brick gate pier, running bond with header band, limestone cap and corbelled brick base"
+    public static let summary = "Colonial Revival brick gate pier, running bond with header band, limestone cap and corbelled brick base."
     public static let tags = ["prop", "architecture", "facade", "stone", "trim"]
     public static let budget = 12000
     public static let author = "realityhd"

@@ -4,7 +4,7 @@ import Foundation
 /// Shadowbox fence panel: architectural facade customizer, American Traditional. Parts: posts, post caps, stringers, alternating boards front and back, cap rail, kickboard, nails.
 public struct ShadowboxFencePanel: RealAsset {
     public static let id = "shadowbox-fence-panel"
-    public static let summary = "American traditional shadowbox fence, boards alternating each side of the rails"
+    public static let summary = "American traditional shadowbox fence, boards alternating each side of the rails."
     public static let tags = ["prop", "architecture", "facade", "wood"]
     public static let budget = 12000
     public static let author = "realityhd"

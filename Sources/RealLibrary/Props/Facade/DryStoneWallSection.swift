@@ -7,7 +7,7 @@ public struct DryStoneWallSection: RealAsset {
     public static let id = "dry-stone-wall-section"
     public static let summary = "Dry stone wall section 2.0 m: battered double-skin wall of coursed rubble with through stones, hearting and cock-and-hen cope."
     public static let tags = ["prop", "architecture", "facade", "stone"]
-    public static let budget = 14000
+    public static let budget = 15000
     public static let author = "realityhd"
     public static let preview = PreviewHint(azimuth: 30, elevation: 14, distance: 3.2)
 
