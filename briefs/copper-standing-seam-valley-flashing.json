@@ -1,0 +1,39 @@
+{
+  "budget": 10000,
+  "id": "copper-standing-seam-valley-flashing",
+  "kind": "prop",
+  "materials": [
+    "metal.copper",
+    "metal.copper-patina",
+    "metal.steel"
+  ],
+  "name": "Copper standing seam valley flashing",
+  "notes": "",
+  "parts": [
+    "valley pan",
+    "raised standing seams",
+    "folded edge hems",
+    "cleats",
+    "soldered end lap",
+    "fasteners",
+    "patina streaks"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    0.08,
+    0.4
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Copper standing seam valley flashing, Contemporary facade prop, 2.4 x 0.08 x 0.4 m.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

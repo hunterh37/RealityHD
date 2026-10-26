@@ -1,0 +1,38 @@
+{
+  "budget": 10000,
+  "id": "cast-iron-downpipe-shoe",
+  "kind": "prop",
+  "materials": [
+    "metal.cast-iron",
+    "metal.rust",
+    "metal.cast-iron-street"
+  ],
+  "name": "Cast iron downpipe shoe",
+  "notes": "",
+  "parts": [
+    "socket collar",
+    "bend",
+    "splayed outlet",
+    "ear lugs",
+    "bolts",
+    "paint chips and rust"
+  ],
+  "references": [],
+  "size": [
+    0.15,
+    0.3,
+    0.2
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Cast iron downpipe shoe, Victorian facade prop, 0.15 x 0.3 x 0.2 m.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

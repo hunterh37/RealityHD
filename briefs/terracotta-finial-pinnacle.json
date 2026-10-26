@@ -1,0 +1,39 @@
+{
+  "budget": 10000,
+  "id": "terracotta-finial-pinnacle",
+  "kind": "prop",
+  "materials": [
+    "ceramic.terracotta",
+    "ceramic.bisque",
+    "stone.sandstone"
+  ],
+  "name": "Terracotta finial pinnacle",
+  "notes": "",
+  "parts": [
+    "square plinth",
+    "turned baluster stem",
+    "acanthus collar",
+    "ball knop",
+    "spire top",
+    "mortar bed",
+    "glaze chips and moss"
+  ],
+  "references": [],
+  "size": [
+    0.25,
+    0.7,
+    0.25
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Terracotta finial pinnacle, Victorian facade prop, 0.25 x 0.7 x 0.25 m.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

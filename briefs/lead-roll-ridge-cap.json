@@ -1,0 +1,39 @@
+{
+  "budget": 10000,
+  "id": "lead-roll-ridge-cap",
+  "kind": "prop",
+  "materials": [
+    "metal.steel",
+    "wood.lumber-oak",
+    "metal.galvanized-aged"
+  ],
+  "name": "Lead roll ridge cap",
+  "notes": "",
+  "parts": [
+    "timber ridge roll core",
+    "lead sheet cover",
+    "welted drips",
+    "lead clips",
+    "copper nails",
+    "lap joint",
+    "oxide bloom"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    0.12,
+    0.2
+  ],
+  "style": "architectural facade customizer, Georgian",
+  "summary": "Lead roll ridge cap, Georgian facade prop, 3.0 x 0.12 x 0.2 m.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

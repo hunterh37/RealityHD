@@ -1,0 +1,39 @@
+{
+  "budget": 10000,
+  "id": "cast-lead-rainwater-hopper",
+  "kind": "prop",
+  "materials": [
+    "metal.steel",
+    "metal.cast-iron",
+    "metal.bronze-weathered"
+  ],
+  "name": "Cast lead rainwater hopper",
+  "notes": "",
+  "parts": [
+    "tapered hopper body",
+    "raised ribs and date panel",
+    "top lip",
+    "outlet spigot",
+    "wall brackets",
+    "cast cipher",
+    "oxide streaks"
+  ],
+  "references": [],
+  "size": [
+    0.4,
+    0.45,
+    0.3
+  ],
+  "style": "architectural facade customizer, Georgian",
+  "summary": "Cast lead rainwater hopper, Georgian facade prop, 0.4 x 0.45 x 0.3 m.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
