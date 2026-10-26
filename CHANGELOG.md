@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 5.13.0
+
 - Fix: `RealityHD.setup` compiles texture-synthesis shaders off the main thread (`TextureSynth.warmUp()`).
   First `environment`/`entity` call inside `RealityView` no longer blocks for seconds and no longer trips the
   visionOS scene-create watchdog (0x8BADF00D). New `RealityHD.prepare()` to await readiness before opening a space.
