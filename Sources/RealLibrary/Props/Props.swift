@@ -1044,6 +1044,16 @@ public enum Props {
         CopperDownspoutStraight.self,
         BoxGutterHopperHead.self,
         CascadiaCabInterior.self,
+        StuccoArchedNiche.self,
+        CopperBayWindowRoof.self,
+        LouveredAtticGableVent.self,
+        CastIronBootScraper.self,
+        SlattedTimberPrivacyScreen.self,
+        VerticalGardenTrellisPanel.self,
+        HammeredCopperMailboxSlot.self,
+        ArtDecoChevronFrieze.self,
+        MosaicTileEntryArch.self,
+        BrickCorbelTable.self,
         // realityhd:prop
     ]
 }

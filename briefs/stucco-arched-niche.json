@@ -1,0 +1,37 @@
+{
+  "budget": 14000,
+  "id": "stucco-arched-niche",
+  "kind": "prop",
+  "materials": [
+    "paint.stucco",
+    "stone.limestone",
+    "ceramic.terracotta"
+  ],
+  "name": "Stucco arched niche",
+  "notes": "",
+  "parts": [
+    "recessed round-arched niche",
+    "stucco reveal",
+    "limestone sill",
+    "shell hood",
+    "terracotta saint bust"
+  ],
+  "references": [],
+  "size": [
+    0.8,
+    1.4,
+    0.25
+  ],
+  "style": "architectural facade customizer, Mediterranean",
+  "summary": "Mediterranean stucco niche, 0.8 x 1.4 m: round-arched recess with thick plaster reveal, scallop shell conch, moulded stucco surround and terracotta sill.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "decor",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

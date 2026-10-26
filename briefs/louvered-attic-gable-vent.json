@@ -1,0 +1,37 @@
+{
+  "budget": 14000,
+  "id": "louvered-attic-gable-vent",
+  "kind": "prop",
+  "materials": [
+    "wood.painted-exterior",
+    "metal.galvanized",
+    "wood.trim-weathered"
+  ],
+  "name": "Louvered attic gable vent",
+  "notes": "",
+  "parts": [
+    "louver blades",
+    "frame",
+    "sloped sill",
+    "insect screen",
+    "backing"
+  ],
+  "references": [],
+  "size": [
+    0.8,
+    0.6,
+    0.08
+  ],
+  "style": "architectural facade customizer, Colonial",
+  "summary": "Colonial louvered attic gable vent, 0.8 x 0.6 m: painted timber frame with angled louver blades, galvanized insect screen behind, sloped sill.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood",
+    "trim"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

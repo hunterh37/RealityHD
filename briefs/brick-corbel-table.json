@@ -1,0 +1,38 @@
+{
+  "budget": 14000,
+  "id": "brick-corbel-table",
+  "kind": "prop",
+  "materials": [
+    "brick.red",
+    "brick.unit-red",
+    "brick.mortar-lime",
+    "stone.limestone"
+  ],
+  "name": "Brick corbel table",
+  "notes": "",
+  "parts": [
+    "brick corbel courses",
+    "arched corbel table",
+    "pilaster strips",
+    "limestone cap",
+    "mortar joints"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    0.3,
+    0.2
+  ],
+  "style": "architectural facade customizer, Romanesque Revival",
+  "summary": "Romanesque Revival corbel table, 3.0 m: stepped brick corbel courses forming a row of blind round arches under a projecting cap course, lime mortar joints.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

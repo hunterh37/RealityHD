@@ -1,0 +1,38 @@
+{
+  "budget": 15000,
+  "id": "vertical-garden-trellis-panel",
+  "kind": "prop",
+  "materials": [
+    "metal.powdercoat",
+    "wood.cedar",
+    "soil.potting",
+    "metal.galvanized"
+  ],
+  "name": "Vertical garden trellis panel",
+  "notes": "",
+  "parts": [
+    "steel frame",
+    "wire grid",
+    "planter pockets",
+    "trailing vines",
+    "wall standoffs"
+  ],
+  "references": [],
+  "size": [
+    1.2,
+    2.0,
+    0.15
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Contemporary vertical garden trellis panel, 1.2 x 2.0 m: powder coated steel frame with tensioned wire grid, three felt-lined planter troughs and climbing ivy.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

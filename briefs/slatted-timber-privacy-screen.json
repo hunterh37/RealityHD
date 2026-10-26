@@ -1,0 +1,37 @@
+{
+  "budget": 14000,
+  "id": "slatted-timber-privacy-screen",
+  "kind": "prop",
+  "materials": [
+    "wood.cedar",
+    "wood.cedar-weathered",
+    "metal.anodized-black",
+    "metal.stainless"
+  ],
+  "name": "Slatted timber privacy screen",
+  "notes": "",
+  "parts": [
+    "vertical slats",
+    "top and bottom rails",
+    "steel posts",
+    "spacers",
+    "screws"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    2.2,
+    0.1
+  ],
+  "style": "architectural facade customizer, Contemporary",
+  "summary": "Contemporary slatted timber privacy screen, 2.0 x 2.2 m: vertical cedar slats between rails with 20 mm gaps on black anodized posts, countersunk stainless screws.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
