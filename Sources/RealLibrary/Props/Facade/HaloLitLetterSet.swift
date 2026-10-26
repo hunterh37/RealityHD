@@ -7,18 +7,18 @@ public struct HaloLitLetterSet: RealAsset {
     public static let id = "halo-lit-letter-set"
     public static let summary = "Reverse channel letter set HOTEL, 1.5 m: stainless faced letters on standoff studs over a lit wall halo."
     public static let tags = ["prop", "architecture", "facade", "decor", "metal"]
-    public static let budget = 10500
+    public static let budget = 12500
     public static let author = "realityhd"
     public static let preview = PreviewHint(azimuth: 22, elevation: 8, distance: 1.2)
 
     /// Lettering (A-Z, 0-9).
     public var word = "HOTEL"
     /// Letter cap height (m).
-    public var letterHeight: Float = 0.27
-    public var face: MaterialKey = "metal.powder-white:E4E4E0"
-    public var returns: MaterialKey = "metal.anodized-black"
-    public var halo: MaterialKey = "paint.stucco:C3D6F2"
-    public var haloOuter: MaterialKey = "paint.stucco:9FB0C9"
+    public var letterHeight: Float = 0.258
+    public var face: MaterialKey = "metal.painted:16171B"
+    public var returns: MaterialKey = "metal.painted:0E0F12"
+    public var halo: MaterialKey = "paint.wall:D5E4FA"
+    public var haloOuter: MaterialKey = "paint.wall:A9BDDC"
     public var wall: MaterialKey = "paint.stucco:8E887E"
     public init() {}
 
@@ -30,6 +30,10 @@ public struct HaloLitLetterSet: RealAsset {
         FA.box(&m, V3(1.5, 0.4, 0.016), V3(0, 0.2, 0.008), wall, r: 0.003)
         FA.box(&m, V3(1.5, 0.05, 0.0006), V3(0, 0.025, 0.0163), "metal.steel:4A4338", r: 0.0003)
         FA.box(&m, V3(0.002, 0.14, 0.0006), V3(0.52, 0.31, 0.0164), "metal.steel:5B5448", r: 0.0003, rot: FA.q(12, FA.Z))
+        // Soot gradient under the wall top and a damp stain band over the footing.
+        for (k, c) in ["paint.stucco:7B7468", "paint.stucco:6E675C", "paint.stucco:61594F"].enumerated() {
+            FG.flat(&m, V3(1.5, 0.026 - Float(k) * 0.007, 0.0004), V3(0, 0.4 - 0.013 + Float(k) * 0.0035 - 0.0, 0.0166 + Float(k) * 0.00005), c)
+        }
         let w = strokeTextWidth(word, height: h)
         let pitch = 5.4 * h / 6
         for (i, ch) in word.enumerated() {
@@ -38,12 +42,12 @@ public struct HaloLitLetterSet: RealAsset {
             // Halo wash on the wall, wider than the letter so it rings the edge.
             FG.soft(&m, s, h: h * 1.02, stroke: stroke * 2.7, depth: 0.0006, at: V3(cx, cy, 0.0165), haloOuter, bevel: 0.0002)
             FG.soft(&m, s, h: h * 1.01, stroke: stroke * 1.7, depth: 0.0006, at: V3(cx, cy, 0.0171), halo, bevel: 0.0002)
-            FG.soft(&m, s, h: h, stroke: stroke, depth: 0.052, at: V3(cx, cy, 0.04), returns, bevel: 0.002)
-            FG.text(&m, s, h: h, stroke: stroke * 0.98, depth: 0.004, at: V3(cx, cy, 0.092), face)
+            FG.text(&m, s, h: h, stroke: stroke * 0.94, depth: 0.05, at: V3(cx, cy, 0.04), returns)
+            FG.soft(&m, s, h: h, stroke: stroke, depth: 0.008, at: V3(cx, cy, 0.088), face, bevel: 0.0025)
             // Rain streaks running down the render from the stud holes.
             for dx: Float in [-0.35, 0.3] {
                 let len = rng.float(0.05...0.16)
-                FA.box(&m, V3(0.011, len, 0.0006), V3(cx + dx * h * 0.5, cy - h * 0.2 - len / 2, 0.0168), "metal.steel:3E372E", r: 0.0002)
+                FA.box(&m, V3(0.011, len, 0.0006), V3(cx + dx * h * 0.5, cy - h * 0.2 - len / 2, 0.0168), "metal.steel:1F1A15", r: 0.0002)
             }
             // Threaded standoff studs with hex nuts through the return and a nylon spacer at the wall.
             for dy: Float in [-1, 1] {
