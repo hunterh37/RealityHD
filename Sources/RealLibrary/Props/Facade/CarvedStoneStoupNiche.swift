@@ -48,10 +48,10 @@ public struct CarvedStoneStoupNiche: RealAsset {
         FA.run(&m, [V2(0, 0), V2(0.2, 0), V2(0.2, 0.02), V2(0.215, 0.03), V2(0.215, 0.05), V2(0.2, 0.06), V2(0.2, 0.1), V2(0, 0.1)], length: 0.6, stone, bevel: 0.003)
         // Frame: gabled outline with the pointed opening cut through.
         let outer: [V2] = [V2(-0.3, 0.1), V2(0.3, 0.1), V2(0.3, 0.78), V2(0, 0.95), V2(-0.3, 0.78)]
-        let hole = FO.pointedArch(hw: hw, spring: spring, rise: 0, base: sill, n: n)
+        let hole = FO9.pointedArch(hw: hw, spring: spring, rise: 0, base: sill, n: n)
         m.add(HTKit.plate(outer: outer, holes: [hole], depth: fz, bevel: 0.004, segments: 1, material: stone), Xform(translation: V3(0, 0, fz / 2)))
         // Back wall of the recess and the carved trefoil on it.
-        let back = FO.pointedArch(hw: hw - 0.001, spring: spring, rise: 0, base: sill - 0.002, n: n)
+        let back = FO9.pointedArch(hw: hw - 0.001, spring: spring, rise: 0, base: sill - 0.002, n: n)
         m.add(Prim.extrude(back, depth: 0.03, bevel: 0.0005, bevelSegments: 1, material: soot), Xform(translation: V3(0, 0, 0.012)))
         for (cx, cy) in [(Float(0), Float(0.71)), (-0.04, 0.65), (0.04, 0.65)] {
             m.add(Prim.torus(major: 0.036, minor: 0.0055, segments: lite ? 10 : 18, sides: 5, material: stone), Xform(translation: V3(cx, cy, 0.031), rotation: FA.q(90, FA.X)))
@@ -97,16 +97,16 @@ public struct CarvedStoneStoupNiche: RealAsset {
             for y: Float in [0.38, 0.62, 0.84] { for s: Float in [-1, 1] { FA.box(&m, V3(0.14 - (y > 0.7 ? 0.04 : 0), 0.0026, 0.0012), V3(s * 0.23, y, fz + 0.0006), soot, r: 0.0005) } }
             for (x, y) in [(Float(0.24), Float(0.5)), (-0.26, 0.5), (0.26, 0.73), (-0.24, 0.73), (0.25, 0.3), (-0.25, 0.3)] { FA.box(&m, V3(0.0026, 0.24, 0.0012), V3(x, y, fz + 0.0006), soot, r: 0.0005) }
             // Wear: soot runs below the hood mould, moss on the sill and basin corbel, chips on the rim and hood.
-            for _ in 0..<7 { FO.patch(&m, cx: rng.float(-0.28...0.28), cy: rng.float(0.8...0.95), rx: rng.float(0.01...0.04), ry: rng.float(0.03...0.08), z: fz + 0.0008, soot, rng: &rng, depth: 0.0006) }
-            for _ in 0..<9 { FO.patch(&m, cx: rng.float(-0.28...0.28), cy: rng.float(0.11...0.25), rx: rng.float(0.025...0.06), ry: rng.float(0.015...0.04), z: fz + 0.0008, moss, rng: &rng, depth: 0.0007) }
-            for _ in 0..<7 { FO.patchTop(&m, cx: rng.float(-0.09...0.09), cz: rng.float(0.06...0.24), rx: rng.float(0.015...0.04), rz: rng.float(0.01...0.03), y: 0.2649 + 0.0, moss, rng: &rng, depth: 0.0006) }
+            for _ in 0..<7 { FO9.patch(&m, cx: rng.float(-0.28...0.28), cy: rng.float(0.8...0.95), rx: rng.float(0.01...0.04), ry: rng.float(0.03...0.08), z: fz + 0.0008, soot, rng: &rng, depth: 0.0006) }
+            for _ in 0..<9 { FO9.patch(&m, cx: rng.float(-0.28...0.28), cy: rng.float(0.11...0.25), rx: rng.float(0.025...0.06), ry: rng.float(0.015...0.04), z: fz + 0.0008, moss, rng: &rng, depth: 0.0007) }
+            for _ in 0..<7 { FO9.patchTop(&m, cx: rng.float(-0.09...0.09), cz: rng.float(0.06...0.24), rx: rng.float(0.015...0.04), rz: rng.float(0.01...0.03), y: 0.2649 + 0.0, moss, rng: &rng, depth: 0.0006) }
             for k in 0..<6 {
                 let a = Float(k) * 1.1
                 m.add(Prim.superellipsoid(V3(0.02, 0.008, 0.014), exponent: 2, subdivisions: 2, material: chip), Xform(translation: V3(cos(a) * 0.113, 0.2955, cz + sin(a) * 0.113), rotation: FA.q(-a * 180 / .pi, FA.Y)))
             }
-            for s: Float in [-1, 1] { for _ in 0..<3 { FO.patch(&m, cx: s * rng.float(0.01...0.2), cy: rng.float(0.5...0.84), rx: 0.005, ry: 0.007, z: fz + 0.0235, chip, rng: &rng, depth: 0.0005, n: 6) } }
+            for s: Float in [-1, 1] { for _ in 0..<3 { FO9.patch(&m, cx: s * rng.float(0.01...0.2), cy: rng.float(0.5...0.84), rx: 0.005, ry: 0.007, z: fz + 0.0235, chip, rng: &rng, depth: 0.0005, n: 6) } }
             // Soot band at the corbel underside and drip stain down the face under the basin.
-            FO.patch(&m, cx: 0, cy: 0.19, rx: 0.07, ry: 0.07, z: 0.0305, soot, rng: &rng, depth: 0.0005)
+            FO9.patch(&m, cx: 0, cy: 0.19, rx: 0.07, ry: 0.07, z: 0.0305, soot, rng: &rng, depth: 0.0005)
         }
         groundAO(&m, height: 0.18, floor: 0.82)
         return FC.place(m)

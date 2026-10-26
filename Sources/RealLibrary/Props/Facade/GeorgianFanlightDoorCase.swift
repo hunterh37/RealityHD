@@ -47,7 +47,7 @@ public struct GeorgianFanlightDoorCase: RealAsset {
             }
             FA.box(&m, V3(0.12, 0.02, 0.09), V3(x, 2.5, 0.045), paint, r: 0.003)
             let ech = [V2(-0.055, 0), V2(0.055, 0), V2(0.075, 0.05), V2(-0.075, 0.05)]
-            m.add(Prim.extrude(FO.ccw(ech), depth: 0.1, bevel: 0.003, bevelSegments: 1, material: paint),
+            m.add(Prim.extrude(FO7.ccw(ech), depth: 0.1, bevel: 0.003, bevelSegments: 1, material: paint),
                   Xform(translation: V3(x, 2.51, 0.05)))
             FA.box(&m, V3(0.18, 0.05, 0.12), V3(x, 2.595, 0.06), paint, r: 0.004)
         }
@@ -73,7 +73,7 @@ public struct GeorgianFanlightDoorCase: RealAsset {
             FA.rod(&m, V3(0, spring + 0.025, 0.065), V3(cos(a) * (R - 0.01), spring + 0.025 + sin(a) * (R - 0.01), 0.065), r: 0.006, paint, sides: 6)
         }
         for r in [Float(0.17), 0.31] {
-            let ring = FO.ellipse(c: V2(0, spring + 0.025), rx: r, ry: r, from: 2, to: 178, steps: 18, z: 0.067)
+            let ring = FO7.ellipse(c: V2(0, spring + 0.025), rx: r, ry: r, from: 2, to: 178, steps: 18, z: 0.067)
             FA.path(&m, ring, r: 0.0055, paint, sides: 6)
         }
         m.add(Prim.superellipsoid(V3(0.1, 0.05, 0.03), exponent: 2, subdivisions: 4, material: paint), Xform(translation: V3(0, spring + 0.04, 0.07)))
@@ -127,8 +127,8 @@ public struct GeorgianFanlightDoorCase: RealAsset {
         FA.box(&m, V3(0.78, 0.17, 0.006), V3(0, stepTop + 0.095, 0.0905), brass, r: 0.002)
         for dx: Float in [-0.35, 0.35] { for dy: Float in [0.03, 0.16] { FC.bead(&m, r: 0.004, at: V3(dx, stepTop + dy, 0.094), brass, sub: 2) } }
         // Scuffs on the kickplate and a flaking patch at the bottom of the left pilaster.
-        FO.streak(&m, x: -0.2, top: stepTop + 0.15, w: 0.2, h: 0.03, z: 0.094, "metal.cast-iron")
-        FO.streak(&m, x: -0.62, top: 0.7, w: 0.08, h: 0.38, z: 0.1045, worn)
+        FO7.streak(&m, x: -0.2, top: stepTop + 0.15, w: 0.2, h: 0.03, z: 0.094, "metal.cast-iron")
+        FO7.streak(&m, x: -0.62, top: 0.7, w: 0.08, h: 0.38, z: 0.1045, worn)
 
         // Entablature: architrave, frieze with a patera, dentil cornice.
         let ent: [[V2]] = [
@@ -138,12 +138,12 @@ public struct GeorgianFanlightDoorCase: RealAsset {
              V2(0.27, 2.865), V2(0, 2.865)]
         ]
         for p in ent { FA.run(&m, p, length: 1.4, at: .zero, paint, bevel: 0.002) }
-        FO.comb(&m, count: 17, pitch: 0.075, w: 0.04, h: 0.03, y0: 2.78, z0: 0.145, depth: 0.03, paint)
-        FO.rosette(&m, at: V3(0, 2.74, 0.155), r: 0.032, petals: 6, paint)
+        FO7.comb(&m, count: 17, pitch: 0.075, w: 0.04, h: 0.03, y0: 2.78, z0: 0.145, depth: 0.03, paint)
+        FO7.rosette(&m, at: V3(0, 2.74, 0.155), r: 0.032, petals: 6, paint)
 
         // Pediment: tympanum and two raking cornices.
         let tym = [V2(-0.69, 2.865), V2(0.69, 2.865), V2(0, 2.945)]
-        m.add(Prim.extrude(FO.ccw(tym), depth: 0.18, bevel: 0.003, bevelSegments: 1, material: paint), Xform(translation: V3(0, 0, 0.09)))
+        m.add(Prim.extrude(FO7.ccw(tym), depth: 0.18, bevel: 0.003, bevelSegments: 1, material: paint), Xform(translation: V3(0, 0, 0.09)))
         let rake: [V2] = [V2(0, 0), V2(0.27, 0), V2(0.30, 0.01), V2(0.30, 0.028), V2(0.27, 0.04), V2(0, 0.04)]
         let ang = atan2(Float(0.09), Float(0.7)) * 180 / .pi
         let len = sqrt(Float(0.7 * 0.7 + 0.09 * 0.09))
@@ -154,7 +154,7 @@ public struct GeorgianFanlightDoorCase: RealAsset {
 
         // Weathering on the cornice and pilaster faces: runs below the corona.
         for _ in 0..<6 {
-            FO.streak(&m, x: rng.float(-0.6...0.6), top: 2.83, w: rng.float(0.015...0.04), h: rng.float(0.05...0.15), z: 0.148, "wood.trim-weathered")
+            FO7.streak(&m, x: rng.float(-0.6...0.6), top: 2.83, w: rng.float(0.015...0.04), h: rng.float(0.05...0.15), z: 0.148, "wood.trim-weathered")
         }
 
         groundAO(&m, height: 0.15, floor: 0.88)

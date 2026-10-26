@@ -53,10 +53,10 @@ public struct PressedMetalStorefrontCornice: RealAsset {
 
         // Frieze centre: raised panel with pediment, large rosette with brass centre, flanking small rosettes.
         let fz = zf + 0.004
-        FO.slab(&m, 0.84, 0.17, 0.008, V3(0, 0.14, fz), paint, bevel: 0.002)
-        FO.slab(&m, 0.78, 0.13, 0.006, V3(0, 0.14, fz + 0.006), "metal.painted:456352", bevel: 0.0015)
-        FO.slab(&m, 0.84, 0.012, 0.01, V3(0, 0.222, fz + 0.001), hl, bevel: 0.002)
-        FO.slab(&m, 0.84, 0.012, 0.01, V3(0, 0.058, fz + 0.001), hl, bevel: 0.002)
+        FO8.slab(&m, 0.84, 0.17, 0.008, V3(0, 0.14, fz), paint, bevel: 0.002)
+        FO8.slab(&m, 0.78, 0.13, 0.006, V3(0, 0.14, fz + 0.006), "metal.painted:456352", bevel: 0.0015)
+        FO8.slab(&m, 0.84, 0.012, 0.01, V3(0, 0.222, fz + 0.001), hl, bevel: 0.002)
+        FO8.slab(&m, 0.84, 0.012, 0.01, V3(0, 0.058, fz + 0.001), hl, bevel: 0.002)
         m.add(Prim.extrude([V2(-0.42, 0), V2(0.42, 0), V2(0, 0.075)], depth: 0.009, bevel: 0.002, bevelSegments: 1, material: hl),
               Xform(translation: V3(0, 0.225, fz)))
         func rosette(_ x: Float, _ y: Float, _ r: Float) {
@@ -128,12 +128,12 @@ public struct PressedMetalStorefrontCornice: RealAsset {
         // Wear: rust runs below rivets, bare galvanized scrapes on edges, soot on the soffit, paint blisters on the top.
         for _ in 0..<8 {
             let nx = rng.float(-L / 2 + 0.2...L / 2 - 0.2)
-            FO.slab(&m, rng.float(0.006...0.014), rng.float(0.04...0.11), 0.0014, V3(nx, 0.09 + rng.float(-0.03...0.12), zf + 0.0004), rust, bevel: 0.0004)
+            FO8.slab(&m, rng.float(0.006...0.014), rng.float(0.04...0.11), 0.0014, V3(nx, 0.09 + rng.float(-0.03...0.12), zf + 0.0004), rust, bevel: 0.0004)
         }
         for _ in 0..<10 {
             let nx = rng.float(-L / 2 + 0.2...L / 2 - 0.2)
             let yy: Float = rng.chance(0.5) ? 0.665 : 0.315
-            FO.slab(&m, rng.float(0.03...0.09), rng.float(0.008...0.02), 0.0016, V3(nx, yy, yy > 0.5 ? 0.42 * k + 0.003 : zf + 0.019), rng.chance(0.5) ? tin : rust, bevel: 0.0004)
+            FO8.slab(&m, rng.float(0.03...0.09), rng.float(0.008...0.02), 0.0016, V3(nx, yy, yy > 0.5 ? 0.42 * k + 0.003 : zf + 0.019), rng.chance(0.5) ? tin : rust, bevel: 0.0004)
         }
         for i in 0..<11 {
             FA.box(&m, V3(0.17, 0.002, 0.22), V3(-1.0 + Float(i) * 0.2, 0.5885, 0.3 * k), "metal.painted:3F4641", r: 0.0006)
@@ -142,14 +142,14 @@ public struct PressedMetalStorefrontCornice: RealAsset {
         // Larger wear: rust runs from the cove down the frieze, a flaked cream undercoat on the cove and corona face, rust at the consoles.
         for _ in 0..<7 {
             let nx = rng.float(-L / 2 + 0.2...L / 2 - 0.2)
-            FO.slab(&m, rng.float(0.014...0.03), rng.float(0.1...0.22), 0.0016, V3(nx, 0.2, zf + 0.0012), "metal.rust:8A4A2A", bevel: 0.0004)
+            FO8.slab(&m, rng.float(0.014...0.03), rng.float(0.1...0.22), 0.0016, V3(nx, 0.2, zf + 0.0012), "metal.rust:8A4A2A", bevel: 0.0004)
         }
         for _ in 0..<10 {
             let nx = rng.float(-L / 2 + 0.2...L / 2 - 0.2)
-            FO.slab(&m, rng.float(0.05...0.14), rng.float(0.02...0.05), 0.0016, V3(nx, 0.625, 0.42 * k + 0.0045), rng.chance(0.5) ? "metal.painted:B9AE8A" : tin, bevel: 0.0005)
+            FO8.slab(&m, rng.float(0.05...0.14), rng.float(0.02...0.05), 0.0016, V3(nx, 0.625, 0.42 * k + 0.0045), rng.chance(0.5) ? "metal.painted:B9AE8A" : tin, bevel: 0.0005)
         }
         for sx: Float in [-1, 1] {
-            FO.slab(&m, 0.02, 0.12, 0.0016, V3(sx * (L / 2 - 0.06), 0.1, zf + 0.0012), "metal.rust:8A4A2A", bevel: 0.0004)
+            FO8.slab(&m, 0.02, 0.12, 0.0016, V3(sx * (L / 2 - 0.06), 0.1, zf + 0.0012), "metal.rust:8A4A2A", bevel: 0.0004)
         }
 
         // End returns.

@@ -90,7 +90,7 @@ public struct StoneCorbelTableCourse: RealAsset {
             let cx = (Float(i) - Float(n - 2) / 2) * pitch
             let outline = FC.archOutline(width: 0.14, spring: 0, pointed: false, steps: 10)
             m.add(Prim.extrude(outline, depth: 0.012, bevel: 0.0008, bevelSegments: 1, material: soot), Xform(translation: V3(cx, spring, 0.044)))
-            FO.voussoirs(&m, c: V2(cx, spring), rIn: 0.07, rOut: 0.098, from: 0, to: 180, count: 7, z0: 0.04, depth: 0.03, gap: 0.003, bevel: 0.0015) { k in
+            FO7.voussoirs(&m, c: V2(cx, spring), rIn: 0.07, rOut: 0.098, from: 0, to: 180, count: 7, z0: 0.04, depth: 0.03, gap: 0.003, bevel: 0.0015) { k in
                 k == 3 ? sands[(i + 2) % 4] : sands[(i + k) % 4]
             }
         }
@@ -111,10 +111,10 @@ public struct StoneCorbelTableCourse: RealAsset {
 
         // Weathering: soot runs under the slab nose, algae-dark streaks down the base course, damp stain at the bottom.
         for _ in 0..<10 {
-            FO.streak(&m, x: rng.float(-0.95...0.95), top: 0.09, w: rng.float(0.02...0.06), h: rng.float(0.04...0.09), z: 0.06, "stone.limestone:5F594A")
+            FO7.streak(&m, x: rng.float(-0.95...0.95), top: 0.09, w: rng.float(0.02...0.06), h: rng.float(0.04...0.09), z: 0.06, "stone.limestone:5F594A")
         }
         for _ in 0..<7 {
-            FO.streak(&m, x: rng.float(-0.95...0.95), top: 0.268, w: rng.float(0.015...0.04), h: rng.float(0.05...0.16), z: 0.04, "stone.sandstone:7B6A55")
+            FO7.streak(&m, x: rng.float(-0.95...0.95), top: 0.268, w: rng.float(0.015...0.04), h: rng.float(0.05...0.16), z: 0.04, "stone.sandstone:7B6A55")
         }
         FA.box(&m, V3(L - 0.1, 0.015, 0.002), V3(0, 0.01, 0.0615), "stone.limestone:8E866F", r: 0.0005)
 

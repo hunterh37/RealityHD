@@ -43,9 +43,9 @@ public struct LancetTripleWindow: RealAsset {
         }
         // Spandrels above each arch: polygon between the arch and the string course.
         for (i, (cx, hw, R, sp)) in lights.enumerated() {
-            var pts = FO.lancetArc(hw: hw, R: R, spring: sp, cx: cx).map { V2($0.x, $0.y) }
+            var pts = FO7.lancetArc(hw: hw, R: R, spring: sp, cx: cx).map { V2($0.x, $0.y) }
             pts += [V2(cx - hw, wallTop), V2(cx + hw, wallTop)]
-            m.add(Prim.extrude(FO.ccw(Shape2D.deduped(pts)), depth: wallD, bevel: 0.003, bevelSegments: 1, material: tones[(i + 1) % 4]),
+            m.add(Prim.extrude(FO7.ccw(Shape2D.deduped(pts)), depth: wallD, bevel: 0.003, bevelSegments: 1, material: tones[(i + 1) % 4]),
                   Xform(translation: V3(0, 0, wallD / 2)))
             // Coursing joints across the spandrel.
             var y = sp + 0.28
@@ -56,9 +56,9 @@ public struct LancetTripleWindow: RealAsset {
         }
 
         for (i, (cx, hw, R, sp)) in lights.enumerated() {
-            let apex = FO.lancetApex(hw: hw, R: R, spring: sp)
+            let apex = FO7.lancetApex(hw: hw, R: R, spring: sp)
             // Glass and leading, recessed in the reveal.
-            let outline = FO.lancetOutline(hw: hw - 0.01, R: R, spring: sp, steps: 14)
+            let outline = FO7.lancetOutline(hw: hw - 0.01, R: R, spring: sp, steps: 14)
             m.add(Prim.extrude(outline, depth: 0.008, bevel: 0.0005, bevelSegments: 1, material: "glass.tinted"),
                   Xform(translation: V3(cx, sillTop + 0.005, 0.07)))
             let top = apex - 0.04
@@ -88,15 +88,15 @@ public struct LancetTripleWindow: RealAsset {
                 m.add(Prim.superellipsoid(V3(0.075, 0.075, 0.05), exponent: 2.4, subdivisions: 4, material: tones[(i + 3) % 4]),
                       Xform(translation: V3(x + s * 0.11, sp - 0.02, 0.19)))
             }
-            let roll = FO.lancetArc(hw: hw, R: R, spring: sp, delta: 0, cx: cx, z: 0.185, steps: 9)
+            let roll = FO7.lancetArc(hw: hw, R: R, spring: sp, delta: 0, cx: cx, z: 0.185, steps: 9)
             FA.path(&m, roll, r: 0.022, tones[(i + 1) % 4], sides: 8)
             // Chamfered arch ring outside the roll.
             let ring: [V2] = [V2(0, 0), V2(0.2, 0), V2(0.2, 0.01), V2(0.23, 0.045), V2(0.23, 0.075), V2(0, 0.075)]
-            let ringPath = FO.lancetArc(hw: hw, R: R, spring: sp, delta: 0.03, cx: cx, z: 0, steps: 9)
+            let ringPath = FO7.lancetArc(hw: hw, R: R, spring: sp, delta: 0.03, cx: cx, z: 0, steps: 9)
             m.add(Prim.sweep(ring, along: ringPath, up: V3(0, 0, 1), material: tones[i % 4]))
             // Hood mould with a drip.
             let hood: [V2] = [V2(0.1, 0), V2(0.26, 0), V2(0.3, 0.014), V2(0.3, 0.036), V2(0.27, 0.05), V2(0.1, 0.05)]
-            let hoodPath = FO.lancetArc(hw: hw, R: R, spring: sp, delta: 0.11, cx: cx, z: 0, steps: 9)
+            let hoodPath = FO7.lancetArc(hw: hw, R: R, spring: sp, delta: 0.11, cx: cx, z: 0, steps: 9)
             m.add(Prim.sweep(hood, along: hoodPath, up: V3(0, 0, 1), material: tones[(i + 2) % 4]))
         }
 
@@ -112,14 +112,14 @@ public struct LancetTripleWindow: RealAsset {
         // Weathering: soot runs from the hood moulds and sill, lime wash streaks on the spandrels.
         for _ in 0..<14 {
             let x = rng.float(-0.85...0.85)
-            FO.streak(&m, x: x, top: rng.float(1.4...2.6), w: rng.float(0.02...0.05), h: rng.float(0.1...0.35), z: wallD, "stone.limestone:6F685A")
+            FO7.streak(&m, x: x, top: rng.float(1.4...2.6), w: rng.float(0.02...0.05), h: rng.float(0.1...0.35), z: wallD, "stone.limestone:6F685A")
         }
         for s: Float in [-1, 1] {
-            FO.streak(&m, x: s * 0.27, top: 2.2, w: 0.05, h: 1.6, z: wallD, "stone.limestone:827A68")
-            FO.streak(&m, x: s * 0.79, top: 1.9, w: 0.07, h: 1.2, z: wallD, "stone.limestone:766F5E")
-            FO.streak(&m, x: s * 0.5, top: sillTop + 0.35, w: 0.3, h: 0.1, z: 0.19, "stone.limestone:5E5849")
+            FO7.streak(&m, x: s * 0.27, top: 2.2, w: 0.05, h: 1.6, z: wallD, "stone.limestone:827A68")
+            FO7.streak(&m, x: s * 0.79, top: 1.9, w: 0.07, h: 1.2, z: wallD, "stone.limestone:766F5E")
+            FO7.streak(&m, x: s * 0.5, top: sillTop + 0.35, w: 0.3, h: 0.1, z: 0.19, "stone.limestone:5E5849")
         }
-        FO.streak(&m, x: 0, top: sillTop + 0.35, w: 0.38, h: 0.1, z: 0.19, "stone.limestone:5E5849")
+        FO7.streak(&m, x: 0, top: sillTop + 0.35, w: 0.38, h: 0.1, z: 0.19, "stone.limestone:5E5849")
 
         groundAO(&m, height: 0.2, floor: 0.88)
         return LODModel(FA.centerZ(FC.seatY(m)))

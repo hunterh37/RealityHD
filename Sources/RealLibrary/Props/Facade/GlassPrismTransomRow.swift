@@ -57,7 +57,7 @@ public struct GlassPrismTransomRow: RealAsset {
             let cx = x0 + (Float(i) + 0.5) * pitch
             let cy = sillH + mh / 2
             let mat = purpleTiles.contains(i) ? purple : glass
-            FO.slab(&m, tw, th, 0.007, V3(cx, cy, D / 2), mat, bevel: 0.001)
+            FO8.slab(&m, tw, th, 0.007, V3(cx, cy, D / 2), mat, bevel: 0.001)
             // 2 x 3 pyramid facets on the street face.
             let fw = tw / 2, fh = th / 3
             for cxi in 0..<2 {
@@ -71,11 +71,11 @@ public struct GlassPrismTransomRow: RealAsset {
             }
             // Putty bead around the tile, on the inside of the flange.
             let pm: MaterialKey = "metal.painted:B7AE98"
-            FO.slab(&m, tw + 0.004, 0.006, 0.006, V3(cx, cy + th / 2 + 0.001, D / 2 + 0.004), pm, bevel: 0.0012)
-            FO.slab(&m, tw + 0.004, 0.006, 0.006, V3(cx, cy - th / 2 - 0.001, D / 2 + 0.004), pm, bevel: 0.0012)
-            for s: Float in [-1, 1] { FO.slab(&m, 0.006, th, 0.006, V3(cx + s * (tw / 2 + 0.001), cy, D / 2 + 0.004), pm, bevel: 0.0012) }
+            FO8.slab(&m, tw + 0.004, 0.006, 0.006, V3(cx, cy + th / 2 + 0.001, D / 2 + 0.004), pm, bevel: 0.0012)
+            FO8.slab(&m, tw + 0.004, 0.006, 0.006, V3(cx, cy - th / 2 - 0.001, D / 2 + 0.004), pm, bevel: 0.0012)
+            for s: Float in [-1, 1] { FO8.slab(&m, 0.006, th, 0.006, V3(cx + s * (tw / 2 + 0.001), cy, D / 2 + 0.004), pm, bevel: 0.0012) }
             // Dirt line along the bottom of every tile.
-            FO.slab(&m, tw - 0.006, 0.012, 0.0014, V3(cx, cy - th / 2 + 0.012, D / 2 + 0.0092), "metal.painted:6C675B", bevel: 0.0004)
+            FO8.slab(&m, tw - 0.006, 0.012, 0.0014, V3(cx, cy - th / 2 + 0.012, D / 2 + 0.0092), "metal.painted:6C675B", bevel: 0.0004)
         }
         // Cracked tile: three hairlines radiating from a corner impact, frosted white.
         let ct = x0 + 5.5 * pitch
@@ -103,16 +103,16 @@ public struct GlassPrismTransomRow: RealAsset {
         // Wear: rust bleed from the screw heads, flaked paint on the cap rail, rain-stained sill, grime in the sill rebate.
         for _ in 0..<9 {
             let wx = rng.float(-L / 2 + 0.1...L / 2 - 0.1)
-            FO.slab(&m, rng.float(0.006...0.012), rng.float(0.02...0.05), 0.0012, V3(wx, top - 0.02, D + 0.0008), "metal.rust:7A4A2E", bevel: 0.0003)
+            FO8.slab(&m, rng.float(0.006...0.012), rng.float(0.02...0.05), 0.0012, V3(wx, top - 0.02, D + 0.0008), "metal.rust:7A4A2E", bevel: 0.0003)
         }
         for _ in 0..<8 {
             let wx = rng.float(-L / 2 + 0.1...L / 2 - 0.1)
-            FO.slab(&m, rng.float(0.03...0.08), rng.float(0.008...0.016), 0.0012, V3(wx, top + 0.022, D + 0.0003), rng.chance(0.5) ? rust : "metal.cast-iron", bevel: 0.0003)
+            FO8.slab(&m, rng.float(0.03...0.08), rng.float(0.008...0.016), 0.0012, V3(wx, top + 0.022, D + 0.0003), rng.chance(0.5) ? rust : "metal.cast-iron", bevel: 0.0003)
         }
         FA.box(&m, V3(L - 0.1, 0.004, 0.06), V3(0, sillH + 0.001 - 0.0, 0.055), "metal.painted:4A4338", r: 0.001)
         for _ in 0..<6 {
             let wx = rng.float(-L / 2 + 0.1...L / 2 - 0.1)
-            FO.slab(&m, rng.float(0.03...0.1), rng.float(0.006...0.012), 0.0012, V3(wx, 0.008, D + 0.0126), "wood.weathered:58564E", bevel: 0.0003)
+            FO8.slab(&m, rng.float(0.03...0.1), rng.float(0.006...0.012), 0.0012, V3(wx, 0.008, D + 0.0126), "wood.weathered:58564E", bevel: 0.0003)
         }
 
         groundAO(&m, height: 0.05, floor: 0.9)

@@ -34,22 +34,22 @@ public struct FederalEllipticalFanlight: RealAsset {
         for s: Float in [-1, 1] {
             FA.box(&m, V3(0.12, 0.125, 0.14), V3(s * 0.74, 0.0625, 0.07), worn, r: 0.004)
             FA.box(&m, V3(0.125, 0.012, 0.145), V3(s * 0.74, 0.125, 0.0725), paint, r: 0.003)
-            FO.rosette(&m, at: V3(s * 0.74, 0.06, 0.136), r: 0.034, petals: 8, paint)
+            FO7.rosette(&m, at: V3(s * 0.74, 0.06, 0.136), r: 0.034, petals: 8, paint)
             FC.bead(&m, r: 0.01, at: V3(s * 0.74, 0.06, 0.1385), brass, sub: 3)
         }
 
         // Moulded half-ellipse frame, swept along the opening edge (profile x projection, y outward).
-        let edge = FO.ellipse(c: V2(0, base), rx: rx, ry: ry, from: 0, to: 180, steps: 36, z: 0)
+        let edge = FO7.ellipse(c: V2(0, base), rx: rx, ry: ry, from: 0, to: 180, steps: 36, z: 0)
         let prof: [V2] = [V2(0, 0), V2(0.1, 0), V2(0.1, 0.01), V2(0.12, 0.022), V2(0.12, 0.045), V2(0.14, 0.055), V2(0.14, 0.07), V2(0, 0.07)]
         m.add(Prim.sweep(prof, along: edge, up: V3(0, 0, 1), material: paint))
         // Bead row around the rim.
-        let rim = FO.ellipse(c: V2(0, base), rx: rx + 0.0575, ry: ry + 0.0575, from: 2, to: 178, steps: 52, z: 0.1365)
+        let rim = FO7.ellipse(c: V2(0, base), rx: rx + 0.0575, ry: ry + 0.0575, from: 2, to: 178, steps: 52, z: 0.1365)
         for p in rim { FC.bead(&m, r: 0.0075, at: p, paint, sub: 2) }
 
         // Glass: half-ellipse sheet recessed in the frame.
         var outline: [V2] = [V2(-rx + 0.01, 0), V2(rx - 0.01, 0)]
-        for p in FO.ellipse(c: V2(0, 0), rx: rx - 0.01, ry: ry - 0.01, from: 0, to: 180, steps: 36, z: 0) { outline.append(V2(p.x, p.y)) }
-        m.add(Prim.extrude(FO.ccw(Shape2D.deduped(outline)), depth: 0.008, bevel: 0.0005, bevelSegments: 1, material: "glass.tinted"),
+        for p in FO7.ellipse(c: V2(0, 0), rx: rx - 0.01, ry: ry - 0.01, from: 0, to: 180, steps: 36, z: 0) { outline.append(V2(p.x, p.y)) }
+        m.add(Prim.extrude(FO7.ccw(Shape2D.deduped(outline)), depth: 0.008, bevel: 0.0005, bevelSegments: 1, material: "glass.tinted"),
               Xform(translation: V3(0, base + 0.002, 0.05)))
 
         // Radiating muntins from the hub, eleven bars.
@@ -63,7 +63,7 @@ public struct FederalEllipticalFanlight: RealAsset {
         }
         // Nested web ellipses and drooping swags between neighbouring bars.
         for sc in [Float(0.38), 0.66, 0.9] {
-            let ring = FO.ellipse(c: V2(0, base), rx: rx * sc, ry: ry * sc, from: 2, to: 178, steps: 24, z: 0.075)
+            let ring = FO7.ellipse(c: V2(0, base), rx: rx * sc, ry: ry * sc, from: 2, to: 178, steps: 24, z: 0.075)
             FA.path(&m, ring, r: 0.0065, paint, sides: 6)
         }
         for sc in [Float(0.52), 0.78] {
@@ -89,12 +89,12 @@ public struct FederalEllipticalFanlight: RealAsset {
         m.add(Prim.superellipsoid(V3(0.04, 0.05, 0.02), exponent: 2, subdivisions: 3, material: paint), Xform(translation: V3(0, base + ry + 0.04, 0.139)))
 
         // Wear: flaking paint on the lower frame, a soot run from the keystone, dirt on the glass at the bar roots.
-        FO.streak(&m, x: -0.71, top: 0.3, w: 0.05, h: 0.14, z: 0.139, "wood.trim-weathered")
-        FO.streak(&m, x: 0.69, top: 0.26, w: 0.03, h: 0.1, z: 0.139, "wood.trim-weathered")
-        FO.streak(&m, x: 0, top: base + ry, w: 0.02, h: 0.18, z: 0.0695, "wood.trim-weathered")
+        FO7.streak(&m, x: -0.71, top: 0.3, w: 0.05, h: 0.14, z: 0.139, "wood.trim-weathered")
+        FO7.streak(&m, x: 0.69, top: 0.26, w: 0.03, h: 0.1, z: 0.139, "wood.trim-weathered")
+        FO7.streak(&m, x: 0, top: base + ry, w: 0.02, h: 0.18, z: 0.0695, "wood.trim-weathered")
         for _ in 0..<5 {   // chipped paint on the impost bar front
             let x = rng.float(-0.6...0.6)
-            FO.streak(&m, x: x, top: rng.float(0.05...0.095), w: rng.float(0.03...0.09), h: rng.float(0.015...0.04), z: 0.1445, "wood.trim-weathered")
+            FO7.streak(&m, x: x, top: rng.float(0.05...0.095), w: rng.float(0.03...0.09), h: rng.float(0.015...0.04), z: 0.1445, "wood.trim-weathered")
         }
         for _ in 0..<4 {
             let k = rng.int(1...nB)

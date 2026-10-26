@@ -39,9 +39,9 @@ public struct TimberPergolaRafterEnd: RealAsset {
             prof.append(V2(tz0 + (L - tz0) * t, 0.092 * smooth(t) - 0.012 * sin(t * .pi) * 0))
         }
         prof += [V2(L, H - 0.03), V2(L - 0.03, H), V2(0, H)]
-        FO.colX(&m, prof, x0: -T / 2, x1: T / 2, timber, bevel: 0.003)
+        FO5.colX(&m, prof, x0: -T / 2, x1: T / 2, timber, bevel: 0.003)
         // Top bevel: a slight sawn wash along the top, as a thin cap tilted 5 degrees.
-        FO.colX(&m, [V2(0.02, H - 0.0016), V2(L - 0.04, H - 0.0016), V2(L - 0.04, H + 0.0008), V2(0.02, H + 0.0008)], x0: -T / 2 + 0.003, x1: T / 2 - 0.003, silver, bevel: 0.0005)
+        FO5.colX(&m, [V2(0.02, H - 0.0016), V2(L - 0.04, H - 0.0016), V2(L - 0.04, H + 0.0008), V2(0.02, H + 0.0008)], x0: -T / 2 + 0.003, x1: T / 2 - 0.003, silver, bevel: 0.0005)
 
         // End grain of the tail (vertical cut) and the nose chamfer, as slabs on the cut faces.
         FJ.slab(&m, V3(T - 0.002, H - 0.03 - 0.092, 0.0016), V3(0, 0.092 + (H - 0.03 - 0.092) / 2, L + 0.0004), "wood.endgrain-weathered")
@@ -68,8 +68,8 @@ public struct TimberPergolaRafterEnd: RealAsset {
         m.add(Prim.cylinder(radius: 0.0125, height: 0.005, bevel: 0.0008, segments: 6, bevelSegments: 1, material: "metal.bolt-bright"),
               Xform(translation: V3(-T / 2 + 0.0022, by, bz), rotation: FA.q(-90, FA.Z)))
         // Rust and water stain under the bolt head.
-        FO.patchSide(&m, V2(0.022, 0.06), V2(bz, by - 0.045), x: T / 2, "metal.rust")
-        FO.patchSide(&m, V2(0.05, 0.05), V2(bz, by - 0.02), x: T / 2 - 0.001, "wood.deadwood")
+        FO5.patchSide(&m, V2(0.022, 0.06), V2(bz, by - 0.045), x: T / 2, "metal.rust")
+        FO5.patchSide(&m, V2(0.05, 0.05), V2(bz, by - 0.02), x: T / 2 - 0.001, "wood.deadwood")
 
         // Two structural screws near the wall end, low-profile washer heads on the top.
         for (z, x) in [(0.14, -0.018), (0.26, 0.016)] as [(Float, Float)] {
@@ -107,7 +107,7 @@ public struct TimberPergolaRafterEnd: RealAsset {
         for _ in 0..<6 {                                                                                     // checks
             let fx: Float = rng.chance(0.5) ? 1 : -1
             let len = rng.float(0.08...0.3)
-            FO.patchSide(&m, V2(len, 0.0016), V2(rng.float(len / 2 + 0.05...L - len / 2 - 0.05), rng.float(0.1...0.18)), x: fx * T / 2, "wood.charred")
+            FO5.patchSide(&m, V2(len, 0.0016), V2(rng.float(len / 2 + 0.05...L - len / 2 - 0.05), rng.float(0.1...0.18)), x: fx * T / 2, "wood.charred")
         }
         FJ.slab(&m, V3(0.0016, 0.07, 0.0012), V3(0.008, 0.14, L + 0.0012), "wood.charred")                    // split in end grain
         FJ.slab(&m, V3(0.0012, 0.0016, 0.12), V3(0.01, 0.15, L - 0.06), "wood.charred", rot: FA.q(0, FA.Y))

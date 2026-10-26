@@ -139,14 +139,14 @@ public struct HaussmannBalconyContinuous: RealAsset {
         if !lite {
             // Rust bleeding from post bases onto the stone, in streaks pointing out from the wall.
             for x in postXs {
-                FO.patchTop(&m, cx: x, cz: zf, rx: rng.float(0.05...0.08), rz: rng.float(0.028...0.034), y: slabY1 + 0.0009, rust, rng: &rng, depth: 0.0008, n: 11)
-                FO.patchTop(&m, cx: x + rng.float(-0.01...0.01), cz: zf - 0.07, rx: 0.015, rz: rng.float(0.04...0.07), y: slabY1 + 0.0007, rust, rng: &rng, depth: 0.0006, n: 7)
+                FO9.patchTop(&m, cx: x, cz: zf, rx: rng.float(0.05...0.08), rz: rng.float(0.028...0.034), y: slabY1 + 0.0009, rust, rng: &rng, depth: 0.0008, n: 11)
+                FO9.patchTop(&m, cx: x + rng.float(-0.01...0.01), cz: zf - 0.07, rx: 0.015, rz: rng.float(0.04...0.07), y: slabY1 + 0.0007, rust, rng: &rng, depth: 0.0006, n: 7)
             }
             // Sooty rain-wash streaks across the slab top, and chips along the handrail cap.
-            for _ in 0..<14 { FO.patchTop(&m, cx: rng.float(-2.9...2.9), cz: rng.float(0.1...0.8), rx: rng.float(0.05...0.2), rz: rng.float(0.03...0.12), y: slabY1 + 0.0006, soot, rng: &rng, depth: 0.0005) }
-            for _ in 0..<18 { FO.patchTop(&m, cx: rng.float(-2.9...2.9), cz: zf + rng.float(-0.004...0.004), rx: rng.float(0.01...0.05), rz: 0.006, y: yTop + 0.0225, rust, rng: &rng, depth: 0.0006, n: 7) }
+            for _ in 0..<14 { FO9.patchTop(&m, cx: rng.float(-2.9...2.9), cz: rng.float(0.1...0.8), rx: rng.float(0.05...0.2), rz: rng.float(0.03...0.12), y: slabY1 + 0.0006, soot, rng: &rng, depth: 0.0005) }
+            for _ in 0..<18 { FO9.patchTop(&m, cx: rng.float(-2.9...2.9), cz: zf + rng.float(-0.004...0.004), rx: rng.float(0.01...0.05), rz: 0.006, y: yTop + 0.0225, rust, rng: &rng, depth: 0.0006, n: 7) }
             // Corbel bed joints and iron fixing bolts through the post plinths.
-            for x in postXs { for sd: Float in [-1, 1] { FO.head(&m, at: V3(x + sd * 0.018, y0 + 0.025, zf + 0.03), r: 0.0085, h: 0.005, segments: 6, (x == 0 && sd > 0) ? bolt : iron) } }
+            for x in postXs { for sd: Float in [-1, 1] { FO9.head(&m, at: V3(x + sd * 0.018, y0 + 0.025, zf + 0.03), r: 0.0085, h: 0.005, segments: 6, (x == 0 && sd > 0) ? bolt : iron) } }
         }
         groundAO(&m, height: 0.25, floor: 0.75)
         return FC.place(m)

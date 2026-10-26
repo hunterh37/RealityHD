@@ -3,7 +3,7 @@ import Foundation
 
 /// Helpers for the o9 facade props: stroke lettering, irregular wear patches, pegs and polygon plates.
 /// Same frame as `FA`: wall plane at z = 0, piece projecting toward +Z.
-enum FO {
+enum FO9 {
     /// Stroke font: unit-box polylines (x 0...1, y 0...1) for the capitals used on signs.
     static let glyphs: [Character: [[V2]]] = [
         "A": [[V2(0, 0), V2(0.5, 1), V2(1, 0)], [V2(0.2, 0.4), V2(0.8, 0.4)]],

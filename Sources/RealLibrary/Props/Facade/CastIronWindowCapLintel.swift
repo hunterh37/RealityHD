@@ -61,15 +61,15 @@ public struct CastIronWindowCapLintel: RealAsset {
         for s: Float in [-1, 1] {
             for y in [Float(0.055), 0.11] {
                 FA.cylZ(&m, r: 0.011, h: 0.008, at: V3(s * 0.4, y, face + 0.012), bare, bevel: 0.0015, segments: 6)
-                FO.streak(&m, x: s * 0.4, top: y - 0.008, w: 0.006, h: rng.float(0.02...0.04), z: face + 0.013, rust)
+                FO7.streak(&m, x: s * 0.4, top: y - 0.008, w: 0.006, h: rng.float(0.02...0.04), z: face + 0.013, rust)
             }
         }
         // Dentil band under the cap, between the consoles.
-        FO.comb(&m, count: 31, pitch: 0.03, w: 0.018, h: 0.03, bar: 0.004, y0: 0.14, z0: face, depth: 0.028, paint)
+        FO7.comb(&m, count: 31, pitch: 0.03, w: 0.018, h: 0.03, bar: 0.004, y0: 0.14, z0: face, depth: 0.028, paint)
 
         // Console brackets: scrolled outline, volute rings on the front, leaf tops.
         let half: [V2] = [V2(0.06, 0.17), V2(0.058, 0.12), V2(0.05, 0.08), V2(0.042, 0.05), V2(0.036, 0.025), V2(0.022, 0.005)]
-        let cons = FO.ccw(half.map { V2(-$0.x, $0.y) }.reversed() + half)
+        let cons = FO7.ccw(half.map { V2(-$0.x, $0.y) }.reversed() + half)
         for s: Float in [-1, 1] {
             let x = s * 0.585
             m.add(Prim.extrude(cons, depth: 0.064, bevel: 0.003, bevelSegments: 1, material: paint),
@@ -100,7 +100,7 @@ public struct CastIronWindowCapLintel: RealAsset {
 
         // Wear: rust through the paint along the cap arris and the flange, blistered patches on the panel, runs under the cap.
         for _ in 0..<9 {
-            FO.streak(&m, x: rng.float(-0.6...0.6), top: 0.14, w: rng.float(0.01...0.03), h: rng.float(0.03...0.1), z: face, rust)
+            FO7.streak(&m, x: rng.float(-0.6...0.6), top: 0.14, w: rng.float(0.01...0.03), h: rng.float(0.03...0.1), z: face, rust)
         }
         for _ in 0..<7 {
             FA.box(&m, V3(rng.float(0.02...0.07), rng.float(0.006...0.02), 0.002), V3(rng.float(-0.6...0.6), 0.082, face + 0.0125), bare, r: 0.0005)

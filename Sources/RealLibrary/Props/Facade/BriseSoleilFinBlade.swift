@@ -35,7 +35,7 @@ public struct BriseSoleilFinBlade: RealAsset {
             let t = T + rng.float(-0.0016...0.0016), off = rng.float(-0.0009...0.0009)
             let mat = rng.chance(0.22) ? aged : concrete
             let outline: [V2] = [V2(0, y0), V2(lead(y0) - 0.004, y0), V2(lead(y0), y0 + 0.004), V2(lead(y1), y1 - 0.004), V2(lead(y1) - 0.004, y1), V2(0, y1)]
-            FO.colX(&m, outline, x0: off - t / 2, x1: off + t / 2, mat, bevel: 0.0013)
+            FO5.colX(&m, outline, x0: off - t / 2, x1: off + t / 2, mat, bevel: 0.0013)
         }
         // Leading-edge arris: a soft chamfer strip down the nose.
         // (Provided by the per-lift bevels; add a faint grout line along the nose for the board-end joint.)
@@ -51,7 +51,7 @@ public struct BriseSoleilFinBlade: RealAsset {
                     m.add(Prim.cylinder(radius: 0.009, height: 0.0012, bevel: 0.0004, segments: 10, bevelSegments: 1, material: ri % 3 == 0 ? "stone.limestone" : "concrete.sidewalk"),
                           Xform(translation: p + V3(fx * 0.0004, 0, 0), rotation: FA.q(-90 * fx, FA.Z)))
                     // Rain streak below the tie.
-                    FO.patchSide(&m, V2(0.012 + rng.float(0...0.01), rng.float(0.1...0.28)), V2(z, y - 0.12), x: fx * (T / 2), "stone.limestone-sooted")
+                    FO5.patchSide(&m, V2(0.012 + rng.float(0...0.01), rng.float(0.1...0.28)), V2(z, y - 0.12), x: fx * (T / 2), "stone.limestone-sooted")
                 }
             }
         }
@@ -67,8 +67,8 @@ public struct BriseSoleilFinBlade: RealAsset {
                           Xform(translation: V3(x + fx * 0.0024, y + dy, 0.1 + dz), rotation: FA.q(-90 * fx, FA.Z)))                        // hex nut
                 }
                 let weep = min(0.3, y - 0.12)
-                FO.patchSide(&m, V2(0.05, weep), V2(0.08, y - 0.1 - weep / 2), x: fx * (T / 2 + 0.0004), "metal.rust")
-                FO.patchSide(&m, V2(0.012, weep * 0.8), V2(0.14, y - 0.1 - weep * 0.4), x: fx * (T / 2 + 0.0004), "metal.rust-grime")
+                FO5.patchSide(&m, V2(0.05, weep), V2(0.08, y - 0.1 - weep / 2), x: fx * (T / 2 + 0.0004), "metal.rust")
+                FO5.patchSide(&m, V2(0.012, weep * 0.8), V2(0.14, y - 0.1 - weep * 0.4), x: fx * (T / 2 + 0.0004), "metal.rust-grime")
             }
         }
         // Cast-in lifting socket in the head, and a steel cap plate on it.
@@ -77,9 +77,9 @@ public struct BriseSoleilFinBlade: RealAsset {
 
         // Surface defects: efflorescence, rock pocket, bug-hole cluster, soot on the top.
         for fx: Float in [-1, 1] {
-            FO.patchSide(&m, V2(0.22, 0.08), V2(0.3, 2.28), x: fx * T / 2, "stone.limestone")
+            FO5.patchSide(&m, V2(0.22, 0.08), V2(0.3, 2.28), x: fx * T / 2, "stone.limestone")
             for _ in 0..<4 {
-                FO.patchSide(&m, V2(rng.float(0.01...0.03), rng.float(0.2...0.5)), V2(rng.float(0.05...lead(1) - 0.1), rng.float(1.5...2.1)), x: fx * T / 2, "stone.limestone")
+                FO5.patchSide(&m, V2(rng.float(0.01...0.03), rng.float(0.2...0.5)), V2(rng.float(0.05...lead(1) - 0.1), rng.float(1.5...2.1)), x: fx * T / 2, "stone.limestone")
             }
         }
         for _ in 0..<14 {                                                     // rock pocket near the foot
@@ -95,7 +95,7 @@ public struct BriseSoleilFinBlade: RealAsset {
         }
         FJ.slab(&m, V3(T - 0.01, 0.0012, Dz - back - 0.04), V3(0, H + 0.0006, (Dz - back + 0.02) / 2), "stone.limestone-sooted")
         // Wall-root stain where the wall meets the foot, and a damp rise.
-        for fx: Float in [-1, 1] { FO.patchSide(&m, V2(0.5, 0.35), V2(0.3, 0.17), x: fx * T / 2, "stone.limestone-sooted") }
+        for fx: Float in [-1, 1] { FO5.patchSide(&m, V2(0.5, 0.35), V2(0.3, 0.17), x: fx * T / 2, "stone.limestone-sooted") }
 
         groundAO(&m, height: 0.4, floor: 0.6)
         return LODModel(FC.place(m))

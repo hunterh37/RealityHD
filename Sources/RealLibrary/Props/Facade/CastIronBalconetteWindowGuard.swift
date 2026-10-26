@@ -122,20 +122,20 @@ public struct CastIronBalconetteWindowGuard: RealAsset {
         if !lite {
             for (i, s) in ([Float(-1), 1]).enumerated() {
                 for (j, y) in ([Float(0.2), 0.38, 0.58]).enumerated() {
-                    FO.head(&m, at: V3(s * px + 0.0, y, 0.012), r: 0.0075, h: 0.005, segments: 6, (i == 1 && j == 1) ? bolt : cast)
+                    FO9.head(&m, at: V3(s * px + 0.0, y, 0.012), r: 0.0075, h: 0.005, segments: 6, (i == 1 && j == 1) ? bolt : cast)
                 }
             }
             // Rust runs and chips on the wall plates beneath the bolts.
             for s: Float in [-1, 1] {
                 for y in [Float(0.2), 0.38, 0.58] { FA.box(&m, V3(0.008, rng.float(0.05...0.12), 0.0016), V3(s * px + rng.float(-0.004...0.004), y - 0.07, 0.0128), rust, r: 0.0005) }
-                for _ in 0..<3 { FO.patch(&m, cx: s * px + rng.float(-0.025...0.025), cy: rng.float(0.1...0.65), rx: rng.float(0.006...0.015), ry: rng.float(0.01...0.03), z: 0.0124, rust, rng: &rng, depth: 0.0006) }
+                for _ in 0..<3 { FO9.patch(&m, cx: s * px + rng.float(-0.025...0.025), cy: rng.float(0.1...0.65), rx: rng.float(0.006...0.015), ry: rng.float(0.01...0.03), z: 0.0124, rust, rng: &rng, depth: 0.0006) }
             }
             // Weathering: paint chips along the rail top and rust at collars, the bottom rail, post plinths and bolts.
-            for _ in 0..<14 { FO.patchTop(&m, cx: rng.float(-0.64...0.64), cz: zf + rng.float(-0.006...0.006), rx: rng.float(0.01...0.04), rz: 0.004, y: yTop + 0.0225, rust, rng: &rng, depth: 0.0006, n: 7) }
+            for _ in 0..<14 { FO9.patchTop(&m, cx: rng.float(-0.64...0.64), cz: zf + rng.float(-0.006...0.006), rx: rng.float(0.01...0.04), rz: 0.004, y: yTop + 0.0225, rust, rng: &rng, depth: 0.0006, n: 7) }
             for x in bxs.prefix(8) { m.add(Prim.cylinder(radius: 0.0072, height: 0.02, bevel: 0.0004, segments: 6, bevelSegments: 1, material: rust), Xform(translation: V3(x, yBot + 0.013, zf))) }
-            for _ in 0..<8 { FO.patchTop(&m, cx: rng.float(-0.64...0.64), cz: zf + rng.float(-0.005...0.005), rx: rng.float(0.01...0.05), rz: 0.004, y: yBot + 0.0135, rust, rng: &rng, depth: 0.0006, n: 7) }
+            for _ in 0..<8 { FO9.patchTop(&m, cx: rng.float(-0.64...0.64), cz: zf + rng.float(-0.005...0.005), rx: rng.float(0.01...0.05), rz: 0.004, y: yBot + 0.0135, rust, rng: &rng, depth: 0.0006, n: 7) }
             for s: Float in [-1, 1] { FA.box(&m, V3(0.0414, 0.01, 0.0414), V3(s * px, 0.005, zf), rust, r: 0.001) }
-            for k in 0..<10 { FO.patch(&m, cx: rng.float(-0.65...0.65), cy: rng.float(0.79...0.81), rx: rng.float(0.008...0.03), ry: 0.005, z: zf + 0.0175, rust, rng: &rng, depth: 0.0006, n: 6); _ = k }
+            for k in 0..<10 { FO9.patch(&m, cx: rng.float(-0.65...0.65), cy: rng.float(0.79...0.81), rx: rng.float(0.008...0.03), ry: 0.005, z: zf + 0.0175, rust, rng: &rng, depth: 0.0006, n: 6); _ = k }
         }
         groundAO(&m, height: 0.1, floor: 0.9)
         return FC.place(m)

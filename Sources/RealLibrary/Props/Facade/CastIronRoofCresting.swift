@@ -103,9 +103,9 @@ public struct CastIronRoofCresting: RealAsset {
             let x = onShoe ? x0 + Float(rng.int(0...n)) * pitch + rng.float(-0.02...0.02) : rng.float(x0...(-x0))
             let s: Float = rng.chance(0.5) ? 1 : -1
             if onShoe {
-                FO.slab(&m, rng.float(0.012...0.026), rng.float(0.01...0.022), 0.002, V3(x, rng.float(0.012...0.04), s * 0.0335), rust, bevel: 0.0005)
+                FO8.slab(&m, rng.float(0.012...0.026), rng.float(0.01...0.022), 0.002, V3(x, rng.float(0.012...0.04), s * 0.0335), rust, bevel: 0.0005)
             } else {
-                FO.slab(&m, rng.float(0.015...0.05), rng.float(0.006...0.022), 0.002, V3(x, railY + rng.float(-0.005...0.005), s * 0.0115), rng.chance(0.5) ? bare : rust, bevel: 0.0005)
+                FO8.slab(&m, rng.float(0.015...0.05), rng.float(0.006...0.022), 0.002, V3(x, railY + rng.float(-0.005...0.005), s * 0.0115), rng.chance(0.5) ? bare : rust, bevel: 0.0005)
             }
         }
 

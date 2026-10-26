@@ -47,18 +47,18 @@ public struct CrenellatedParapetSection: RealAsset {
         // Ashlar courses on both faces: 140 mm courses up to the crenel floor, 120 mm in the merlons.
         let zc = zw + 0.002
         for s: Float in [-1, 1] {
-            FO.courses(&m, &rng, xr: -hw...hw, yr: 0.2...wallTop, course: 0.11, block: 0.4, z: s * zc, depth: 0.008, mats: stone)
-            FO.courses(&m, &rng, xr: -hw...hw, yr: wallTop...merTop, course: 0.11, block: 0.3, z: s * zc, depth: 0.008, mats: stone,
+            FO8.courses(&m, &rng, xr: -hw...hw, yr: 0.2...wallTop, course: 0.11, block: 0.4, z: s * zc, depth: 0.008, mats: stone)
+            FO8.courses(&m, &rng, xr: -hw...hw, yr: wallTop...merTop, course: 0.11, block: 0.3, z: s * zc, depth: 0.008, mats: stone,
                        skip: { x0, x1, _, _ in !isMerlon((x0 + x1) / 2) })
         }
 
         // Stepped corbel table: twelve four-step corbels under a moulded string course.
         let corbel: [V2] = [V2(0, 0), V2(0.018, 0), V2(0.018, 0.04), V2(0.034, 0.04), V2(0.034, 0.08), V2(0.05, 0.08), V2(0.05, 0.12), V2(0, 0.12)]
         for k in 0..<12 {
-            FO.runBoth(&m, corbel, length: 0.1, x: -1.1 + Float(k) * 0.2, y: 0, zWall: zw, dressed, bevel: 0.0015)
+            FO8.runBoth(&m, corbel, length: 0.1, x: -1.1 + Float(k) * 0.2, y: 0, zWall: zw, dressed, bevel: 0.0015)
         }
         let band: [V2] = [V2(0, 0), V2(0.05, 0), V2(0.05, 0.01), V2(0.044, 0.018), V2(0.044, 0.062), V2(0.05, 0.07), V2(0.05, 0.08), V2(0, 0.08)]
-        FO.runBoth(&m, band, length: length, y: 0.12, zWall: zw, dressed, bevel: 0.002)
+        FO8.runBoth(&m, band, length: length, y: 0.12, zWall: zw, dressed, bevel: 0.002)
 
         // Crenels: lead sheet over the full thickness with a drip lip folded down each face; soot streak under the lip.
         for k in 0..<4 {
@@ -103,28 +103,28 @@ public struct CrenellatedParapetSection: RealAsset {
         }
 
         // Weathering: soot, lichen and efflorescence on the ashlar.
-        FO.patches(&m, &rng, count: 10, xr: -1.1...1.1, yr: 0.24...0.6, w: 0.05...0.16, h: 0.03...0.1, zFace: zc + 0.005,
+        FO8.patches(&m, &rng, count: 10, xr: -1.1...1.1, yr: 0.24...0.6, w: 0.05...0.16, h: 0.03...0.1, zFace: zc + 0.005,
                    mats: ["stone.limestone:A9A28C", "stone.limestone:8E8F6C", "stone.limestone:BDB6A2"])
-        FO.patches(&m, &rng, count: 6, xr: -1.1...1.1, yr: 0.64...0.84, w: 0.03...0.08, h: 0.02...0.06, zFace: zc + 0.005,
+        FO8.patches(&m, &rng, count: 6, xr: -1.1...1.1, yr: 0.64...0.84, w: 0.03...0.08, h: 0.02...0.06, zFace: zc + 0.005,
                    mats: ["stone.limestone:9A9580", "stone.limestone:8E8F6C"])
 
         // Rain streaks under every coping and below the crenel lips, rising damp and a green band at the string course.
         for c in centers {
             for s: Float in [-1, 1] {
                 for _ in 0..<2 {
-                    FO.slab(&m, rng.float(0.008...0.016), rng.float(0.08...0.17), 0.0022,
+                    FO8.slab(&m, rng.float(0.008...0.016), rng.float(0.08...0.17), 0.0022,
                             V3(c + rng.float(-0.12...0.12), merTop - 0.1, s * (zc + 0.0068 + 0.0003 * Float(rng.int(0...2)))),
                             "stone.limestone:6F6B5C", bevel: 0.0006)
                 }
             }
         }
         for s: Float in [-1, 1] {
-            FO.slab(&m, length - 0.04, 0.035, 0.0024, V3(0, 0.222, s * (zc + 0.0072)), "stone.limestone:7C8160", bevel: 0.0008)
+            FO8.slab(&m, length - 0.04, 0.035, 0.0024, V3(0, 0.222, s * (zc + 0.0072)), "stone.limestone:7C8160", bevel: 0.0008)
             for k in 0..<7 {
-                FO.slab(&m, rng.float(0.05...0.14), rng.float(0.01...0.03), 0.0024, V3(-1.05 + Float(k) * 0.35, 0.2, s * (zc + 0.0085)), "stone.limestone:6B7646", bevel: 0.0006)
+                FO8.slab(&m, rng.float(0.05...0.14), rng.float(0.01...0.03), 0.0024, V3(-1.05 + Float(k) * 0.35, 0.2, s * (zc + 0.0085)), "stone.limestone:6B7646", bevel: 0.0006)
             }
             // Repair: a bright replacement ashlar and a cracked block pinned with an iron cramp.
-            FO.slab(&m, 0.3, 0.102, 0.009, V3(0.55, 0.42, s * (zc + 0.0008)), "stone.limestone:EDE6D2")
+            FO8.slab(&m, 0.3, 0.102, 0.009, V3(0.55, 0.42, s * (zc + 0.0008)), "stone.limestone:EDE6D2")
             FA.box(&m, V3(0.004, 0.1, 0.0026), V3(-0.3, 0.37, s * (zc + 0.0066)), "stone.limestone:2B2924", r: 0.0005, rot: FA.q(14, FA.Z))
             FA.box(&m, V3(0.14, 0.014, 0.006), V3(-0.3, 0.37, s * (zc + 0.0075)), iron, r: 0.002)
             for dx: Float in [-0.055, 0.055] { hexBolt(&m, at: V3(-0.3 + dx, 0.37, s * (zc + 0.0105)), normal: V3(0, 0, s), size: 0.012, material: "metal.rust") }

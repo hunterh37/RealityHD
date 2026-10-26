@@ -115,13 +115,13 @@ public struct RusticLogCornerNotch: RealAsset {
                 FA.box(&m, V3(0.006, rng.float(0.05...0.1), 0.0016), V3(x, y - 0.04, 0.0975), iron, r: 0.0005)
             }
             // Soil splash: dark band on the bottom course, damp patches climbing the first two courses.
-            for _ in 0..<7 { FO.patch(&m, cx: rng.float(0.1...0.38), cy: rng.float(0.01...0.07), rx: rng.float(0.02...0.06), ry: rng.float(0.01...0.03), z: 0.0995, "wood.deadwood", rng: &rng, depth: 0.0006) }
-            for _ in 0..<6 { FO.patch(&m, cx: rng.float(0.1...0.38), cy: rng.float(0.2...0.4), rx: rng.float(0.02...0.05), ry: rng.float(0.015...0.04), z: 0.0995, "wood.deadwood", rng: &rng, depth: 0.0005) }
+            for _ in 0..<7 { FO9.patch(&m, cx: rng.float(0.1...0.38), cy: rng.float(0.01...0.07), rx: rng.float(0.02...0.06), ry: rng.float(0.01...0.03), z: 0.0995, "wood.deadwood", rng: &rng, depth: 0.0006) }
+            for _ in 0..<6 { FO9.patch(&m, cx: rng.float(0.1...0.38), cy: rng.float(0.2...0.4), rx: rng.float(0.02...0.05), ry: rng.float(0.015...0.04), z: 0.0995, "wood.deadwood", rng: &rng, depth: 0.0005) }
             // Bark remnants on the lower courses and lime smears under each chinking line.
-            for _ in 0..<9 { FO.patch(&m, cx: rng.float(0.12...0.38), cy: rng.float(0.05...0.6), rx: rng.float(0.01...0.03), ry: rng.float(0.01...0.025), z: 0.1, "wood.deadwood", rng: &rng, depth: 0.0008, n: 8) }
-            for k in 0..<6 { FO.patch(&m, cx: rng.float(0.15...0.38), cy: R + (Float(k) + 0.5) * step - 0.045, rx: rng.float(0.03...0.08), ry: 0.008, z: 0.0985, chinking, rng: &rng, depth: 0.0006, n: 7) }
+            for _ in 0..<9 { FO9.patch(&m, cx: rng.float(0.12...0.38), cy: rng.float(0.05...0.6), rx: rng.float(0.01...0.03), ry: rng.float(0.01...0.025), z: 0.1, "wood.deadwood", rng: &rng, depth: 0.0008, n: 8) }
+            for k in 0..<6 { FO9.patch(&m, cx: rng.float(0.15...0.38), cy: R + (Float(k) + 0.5) * step - 0.045, rx: rng.float(0.03...0.08), ry: 0.008, z: 0.0985, chinking, rng: &rng, depth: 0.0006, n: 7) }
             // Sap staining and bird lime streaks on top surface of the top log.
-            for _ in 0..<4 { FO.patchTop(&m, cx: rng.float(0.05...0.35), cz: rng.float(-0.03...0.03), rx: rng.float(0.02...0.05), rz: rng.float(0.01...0.02), y: R + 6 * step + R * 1.0 - 0.0006, chinking, rng: &rng, depth: 0.0005) }
+            for _ in 0..<4 { FO9.patchTop(&m, cx: rng.float(0.05...0.35), cz: rng.float(-0.03...0.03), rx: rng.float(0.02...0.05), rz: rng.float(0.01...0.02), y: R + 6 * step + R * 1.0 - 0.0006, chinking, rng: &rng, depth: 0.0005) }
         }
         groundAO(&m, height: 0.25, floor: 0.7)
         return FC.place(m)

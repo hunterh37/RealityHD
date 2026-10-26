@@ -36,7 +36,7 @@ public struct RomanBathThermaeWindow: RealAsset {
         let stoneAlt: [MaterialKey] = [stone, "stone.limestone:CBC2AA", "stone.limestone:DDD5BF", "stone.limestone-sooted"]
 
         // Voussoir ring: 13 wedges, keystone in the middle (index 6) projects further.
-        FO.voussoirs(&m, c: V2(0, cy), rIn: hw + 0.04, rOut: rOut, from: 0, to: 180, count: 13, z0: 0, depth: 0.22, gap: 0.005, bevel: 0.003) { i in
+        FO7.voussoirs(&m, c: V2(0, cy), rIn: hw + 0.04, rOut: rOut, from: 0, to: 180, count: 13, z0: 0, depth: 0.22, gap: 0.005, bevel: 0.003) { i in
             i == 6 ? accent : stoneAlt[(i * 7 + 1) % 4]
         }
         // Keystone block standing proud with a moulded cap.
@@ -125,7 +125,7 @@ public struct RomanBathThermaeWindow: RealAsset {
             let r = a * .pi / 180
             FA.rod(&m, V3(0, cy, barZ + 0.004), V3(cos(r) * (hw - 0.008), cy + sin(r) * (hw - 0.008), barZ + 0.004), r: 0.007, iron, sides: 8)
         }
-        let ring = FO.ellipse(c: V2(0, cy), rx: 0.5, ry: 0.5, from: 8, to: 172, steps: 20, z: barZ + 0.004)
+        let ring = FO7.ellipse(c: V2(0, cy), rx: 0.5, ry: 0.5, from: 8, to: 172, steps: 20, z: barZ + 0.004)
         FA.path(&m, ring, r: 0.007, iron, sides: 8)
         let frame = FC.archPath(width: hw * 2 - 0.02, spring: cy - sillH, pointed: false, z: barZ + 0.003, steps: 24)
             .map { V3($0.x * 0.995, $0.y + sillH, $0.z) }
@@ -136,13 +136,13 @@ public struct RomanBathThermaeWindow: RealAsset {
         for _ in 0..<10 {
             let a = rng.float(0.15...2.99)
             let rc = hw + band * 0.5
-            FO.streak(&m, x: cos(a) * rc, top: cy + sin(a) * rc, w: 0.022, h: rng.float(0.05...0.16), z: 0.22, "stone.limestone:7E7766")
+            FO7.streak(&m, x: cos(a) * rc, top: cy + sin(a) * rc, w: 0.022, h: rng.float(0.05...0.16), z: 0.22, "stone.limestone:7E7766")
         }
         for s: Float in [-1, 1] {
-            FO.streak(&m, x: s * (hw + 0.05), top: sillH + 0.6, w: 0.03, h: 0.5, z: 0.22, "stone.limestone:8A826F")
-            FO.streak(&m, x: s * (hw + 0.33), top: cy - 0.1, w: 0.05, h: 0.55, z: 0.22, "stone.limestone:6F685A")
+            FO7.streak(&m, x: s * (hw + 0.05), top: sillH + 0.6, w: 0.03, h: 0.5, z: 0.22, "stone.limestone:8A826F")
+            FO7.streak(&m, x: s * (hw + 0.33), top: cy - 0.1, w: 0.05, h: 0.55, z: 0.22, "stone.limestone:6F685A")
             // Rust bleed from the lowest iron bar onto the sill.
-            FO.streak(&m, x: s * 0.5, top: sillH + 0.06, w: 0.02, h: 0.05, z: 0.27, "metal.rust")
+            FO7.streak(&m, x: s * 0.5, top: sillH + 0.06, w: 0.02, h: 0.05, z: 0.27, "metal.rust")
         }
         // Soot band along the sill front and under the impost caps.
         FA.box(&m, V3(2 * hw, 0.03, 0.002), V3(0, sillH / 2, 0.2515), "stone.limestone:5E5849", r: 0.0005)

@@ -74,11 +74,11 @@ public struct CastIronBootScraperStep: RealAsset {
         // Weathering.
         if !lite {
             // Paint worn to rust along the plate rim and the end plate edges.
-            for _ in 0..<8 { FO.patchTop(&m, cx: rng.float(-0.18...0.18), cz: rng.pick([Float(-0.0925), 0.0925]) + rng.float(-0.004...0.004), rx: rng.float(0.01...0.04), rz: 0.004, y: 0.0221, rust, rng: &rng, depth: 0.0006, n: 7) }
-            for _ in 0..<7 { FO.patchTop(&m, cx: rng.float(-0.19...0.19), cz: rng.float(-0.09...0.09), rx: rng.float(0.01...0.03), rz: rng.float(0.01...0.03), y: 0.0141, rust, rng: &rng, depth: 0.0006, n: 8) }
+            for _ in 0..<8 { FO9.patchTop(&m, cx: rng.float(-0.18...0.18), cz: rng.pick([Float(-0.0925), 0.0925]) + rng.float(-0.004...0.004), rx: rng.float(0.01...0.04), rz: 0.004, y: 0.0221, rust, rng: &rng, depth: 0.0006, n: 7) }
+            for _ in 0..<7 { FO9.patchTop(&m, cx: rng.float(-0.19...0.19), cz: rng.float(-0.09...0.09), rx: rng.float(0.01...0.03), rz: rng.float(0.01...0.03), y: 0.0141, rust, rng: &rng, depth: 0.0006, n: 8) }
             // Dried mud in the slots and a smear on the plate between them.
-            for k in 0..<5 { FO.patchTop(&m, cx: -0.13 + Float(k) * 0.065, cz: rng.float(-0.02...0.02), rx: 0.011, rz: rng.float(0.02...0.04), y: 0.0143, mud, rng: &rng, depth: 0.0008, n: 8) }
-            for _ in 0..<3 { FO.patchTop(&m, cx: rng.float(-0.17...0.17), cz: rng.float(-0.085...0.085), rx: rng.float(0.02...0.05), rz: rng.float(0.01...0.03), y: 0.0144, mud, rng: &rng, depth: 0.0008, n: 9) }
+            for k in 0..<5 { FO9.patchTop(&m, cx: -0.13 + Float(k) * 0.065, cz: rng.float(-0.02...0.02), rx: 0.011, rz: rng.float(0.02...0.04), y: 0.0143, mud, rng: &rng, depth: 0.0008, n: 8) }
+            for _ in 0..<3 { FO9.patchTop(&m, cx: rng.float(-0.17...0.17), cz: rng.float(-0.085...0.085), rx: rng.float(0.02...0.05), rz: rng.float(0.01...0.03), y: 0.0144, mud, rng: &rng, depth: 0.0008, n: 9) }
             // Rust runs below the bolts on the outer faces, and chips on the lyre rim.
             for s: Float in [-1, 1] {
                 for y in [Float(0.21), 0.095, 0.057] { FA.box(&m, V3(0.0016, rng.float(0.02...0.05), 0.006), V3(s * 0.2012, y - 0.03, 0.0), rust, r: 0.0005) }

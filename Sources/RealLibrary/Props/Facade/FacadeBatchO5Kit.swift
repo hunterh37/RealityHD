@@ -3,7 +3,7 @@ import Foundation
 
 /// Helpers for the lib-o5 facade props (door surround, fanlight, corbel, mullion window, Crittall panel,
 /// shutter box, awning, sun screens, pergola). Same frame as `FA`: wall plane at z = 0, piece projecting toward +Z.
-enum FO {
+enum FO5 {
     /// Prism whose section is given in the (x, z) plane, extruded between `y0` and `y1` (a jamb, post or fin).
     static func colY(_ m: inout Model, _ section: [V2], y0: Float, y1: Float, _ mat: MaterialKey, bevel: Float = 0.0015) {
         var local = section.map { V2($0.x, -$0.y) }

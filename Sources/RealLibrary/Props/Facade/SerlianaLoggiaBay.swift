@@ -52,7 +52,7 @@ public struct SerlianaLoggiaBay: RealAsset {
             // Capital: necking, echinus (flared), abacus.
             FA.box(&m, V3(w - 0.025, 0.02, pierD - 0.025), V3(x, shaftTop + 0.01, pierD / 2), tones[(pi + 2) % 4], r: 0.003)
             let ech = [V2(-(w - 0.025) / 2, 0), V2((w - 0.025) / 2, 0), V2((w + 0.03) / 2, 0.06), V2(-(w + 0.03) / 2, 0.06)]
-            m.add(Prim.extrude(FO.ccw(ech), depth: pierD - 0.01, bevel: 0.003, bevelSegments: 1, material: accent),
+            m.add(Prim.extrude(FO7.ccw(ech), depth: pierD - 0.01, bevel: 0.003, bevelSegments: 1, material: accent),
                   Xform(translation: V3(x, shaftTop + 0.02, pierD / 2)))
             FA.box(&m, V3(w + 0.07, 0.06, pierD + 0.04), V3(x, sp - 0.03, (pierD + 0.04) / 2), accent, r: 0.004)
             // Iron cramp at the abacus joint.
@@ -77,7 +77,7 @@ public struct SerlianaLoggiaBay: RealAsset {
             FA.cylZ(&m, r: 0.15, h: 0.02, at: rc, marble, bevel: 0.003, segments: 28)
             m.add(Prim.torus(major: 0.17, minor: 0.012, segments: 24, sides: 5, material: accent),
                   Xform(translation: rc + V3(0, 0, 0.012), rotation: FA.q(90, FA.X)))
-            FO.rosette(&m, at: rc + V3(0, 0, 0.022), r: 0.07, petals: 6, accent)
+            FO7.rosette(&m, at: rc + V3(0, 0, 0.022), r: 0.07, petals: 6, accent)
         }
         // Central spandrels: ashlar fill between the voussoir ring and the entablature (polygon with the arc cut).
         for s: Float in [-1, 1] {
@@ -87,16 +87,16 @@ public struct SerlianaLoggiaBay: RealAsset {
                 pts.append(V2(s * ra * cos(a), sp + ra * sin(a)))
             }
             pts += [V2(0, sp + 0.6), V2(s * 0.75, sp + 0.6), V2(s * 0.75, sp)]
-            m.add(Prim.extrude(FO.ccw(Shape2D.deduped(pts)), depth: 0.2, bevel: 0.003, bevelSegments: 1, material: soot),
+            m.add(Prim.extrude(FO7.ccw(Shape2D.deduped(pts)), depth: 0.2, bevel: 0.003, bevelSegments: 1, material: soot),
                   Xform(translation: V3(0, 0, 0.1)))
         }
         // Wedge voussoirs and keystone.
-        FO.voussoirs(&m, c: V2(0, sp), rIn: ra, rOut: ra + 0.13, from: 0, to: 180, count: 9, z0: 0, depth: 0.3, gap: 0.005, bevel: 0.003) { i in
+        FO7.voussoirs(&m, c: V2(0, sp), rIn: ra, rOut: ra + 0.13, from: 0, to: 180, count: 9, z0: 0, depth: 0.3, gap: 0.005, bevel: 0.003) { i in
             i == 4 ? accent : tones[(i * 5 + 1) % 4]
         }
         m.add(Prim.extrude([V2(-0.05, sp + ra), V2(0.05, sp + ra), V2(0.075, sp + ra + 0.17), V2(-0.075, sp + ra + 0.17)],
                            depth: 0.05, bevel: 0.004, bevelSegments: 1, material: accent), Xform(translation: V3(0, 0, 0.325)))
-        FO.rosette(&m, at: V3(0, sp + ra + 0.085, 0.352), r: 0.04, petals: 6, accent)
+        FO7.rosette(&m, at: V3(0, sp + ra + 0.085, 0.352), r: 0.04, petals: 6, accent)
         let archFillet = FC.archPath(width: ra * 2 + 0.002, spring: sp, pointed: false, z: 0.302, steps: 20).dropFirst().dropLast()
         FA.path(&m, Array(archFillet), r: 0.008, soot, sides: 6)
 
@@ -116,7 +116,7 @@ public struct SerlianaLoggiaBay: RealAsset {
             let nB = Int(w / 0.15)
             let pitch = w / Float(nB)
             for i in 0..<nB {
-                FO.baluster(&m, at: V3(x0 + pitch * (Float(i) + 0.5), 0.21, 0.15), h: 0.64, r: 0.034, marble)
+                FO7.baluster(&m, at: V3(x0 + pitch * (Float(i) + 0.5), 0.21, 0.15), h: 0.64, r: 0.034, marble)
             }
         }
 
@@ -131,7 +131,7 @@ public struct SerlianaLoggiaBay: RealAsset {
             FA.run(&m, Shape2D.deduped(p), length: 3.0, at: .zero, i == 1 ? tones[0] : stone, bevel: 0.002)
             _ = i
         }
-        FO.comb(&m, count: 40, pitch: 0.075, w: 0.04, h: 0.045, y0: 2.765, z0: 0.3, depth: 0.04, tones[2])
+        FO7.comb(&m, count: 40, pitch: 0.075, w: 0.04, h: 0.045, y0: 2.765, z0: 0.3, depth: 0.04, tones[2])
         // Frieze joint (mid-span) and a lead-sealed cornice joint.
         FA.box(&m, V3(0.004, 0.22, 0.003), V3(0.55, 2.63, 0.2915), soot, r: 0.0008)
         FA.box(&m, V3(0.004, 0.22, 0.003), V3(-0.8, 2.63, 0.2915), soot, r: 0.0008)
@@ -139,10 +139,10 @@ public struct SerlianaLoggiaBay: RealAsset {
         // Weathering: soot runs under the cornice and from the roundel rims, a damp patch at the plinth.
         for _ in 0..<12 {
             let x = rng.float(-1.4...1.4)
-            FO.streak(&m, x: x, top: 2.74, w: rng.float(0.03...0.07), h: rng.float(0.1...0.24), z: 0.2915, "stone.limestone:6F685A")
+            FO7.streak(&m, x: x, top: 2.74, w: rng.float(0.03...0.07), h: rng.float(0.1...0.24), z: 0.2915, "stone.limestone:6F685A")
         }
         for s: Float in [-1, 1] {
-            FO.streak(&m, x: s * 1.025, top: sp + 0.2, w: 0.04, h: 0.16, z: 0.2415, "stone.limestone:7E7766")
+            FO7.streak(&m, x: s * 1.025, top: sp + 0.2, w: 0.04, h: 0.16, z: 0.2415, "stone.limestone:7E7766")
             FA.box(&m, V3(0.3, 0.14, 0.002), V3(s * 0.6, 0.07, pierD + 0.0215), "stone.limestone:6A6454", r: 0.001)
         }
 

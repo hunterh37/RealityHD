@@ -156,8 +156,8 @@ public struct TimberFrameJettiedCorner: RealAsset {
                 wb(wall, 0, 1.0 - 0.0, 1.0 + 0.004, 1.72, 2.1, -0.0402, -0.0392, "paint.stucco:5A5448", c: 0.0005)
             }
             // Moss and splash on the plinth.
-            for _ in 0..<6 { FO.patch(&m, cx: rng.float(0.7...1.45), cy: rng.float(0.01...0.2), rx: rng.float(0.03...0.09), ry: rng.float(0.02...0.06), z: jet - 0.0005 - 0.02, moss, rng: &rng, depth: 0.0008) }
-            for _ in 0..<5 { FO.patchTop(&m, cx: rng.float(0.5...1.4), cz: jet + rng.float(0.03...0.2), rx: rng.float(0.05...0.12), rz: rng.float(0.02...0.05), y: 0.3001, moss, rng: &rng, depth: 0.0008) }
+            for _ in 0..<6 { FO9.patch(&m, cx: rng.float(0.7...1.45), cy: rng.float(0.01...0.2), rx: rng.float(0.03...0.09), ry: rng.float(0.02...0.06), z: jet - 0.0005 - 0.02, moss, rng: &rng, depth: 0.0008) }
+            for _ in 0..<5 { FO9.patchTop(&m, cx: rng.float(0.5...1.4), cz: jet + rng.float(0.03...0.2), rx: rng.float(0.05...0.12), rz: rng.float(0.02...0.05), y: 0.3001, moss, rng: &rng, depth: 0.0008) }
             // Checks (drying cracks) along the beams and silvered ends.
             for k in 0..<5 {
                 let u = 0.3 + Float(k) * 0.2 + rng.float(-0.04...0.04)

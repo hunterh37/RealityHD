@@ -36,7 +36,7 @@ public struct DentilCorniceRun: RealAsset {
         // Dentils on a dark shadow board.
         FA.box(&m, V3(L - 0.04, 0.05, 0.004), V3(0, 0.125, 0.032), worn, r: 0.001)
         let n = Int((L - 0.06) / dentilPitch)
-        FO.comb(&m, count: n, pitch: dentilPitch, w: 0.036, h: 0.05, bar: 0.005, y0: 0.1, z0: 0.03, depth: 0.045, paint)
+        FO7.comb(&m, count: n, pitch: dentilPitch, w: 0.036, h: 0.05, bar: 0.005, y0: 0.1, z0: 0.03, depth: 0.045, paint)
         // Corner blocks closing the dentil course at the ends.
         for s: Float in [-1, 1] {
             FA.box(&m, V3(0.035, 0.05, 0.05), V3(s * (L / 2 - 0.0175), 0.125, 0.055), paint, r: 0.003)
@@ -76,12 +76,12 @@ public struct DentilCorniceRun: RealAsset {
             let x = -0.875 + Float(i) * 0.25 + rng.float(-0.01...0.01)
             FC.bead(&m, r: 0.0035, at: V3(x, 0.375, 0.3505), nails, sub: 2)
             FC.bead(&m, r: 0.0035, at: V3(x + 0.02, 0.045, 0.0305), nails, sub: 2)
-            FO.streak(&m, x: x, top: 0.372, w: 0.004, h: rng.float(0.02...0.05), z: 0.35, "metal.rust")
+            FO7.streak(&m, x: x, top: 0.372, w: 0.004, h: rng.float(0.02...0.05), z: 0.35, "metal.rust")
         }
         // Flaking paint on the frieze and the corona front, grime in the groove.
         for _ in 0..<7 {
             let x = rng.float(-0.9...0.9)
-            FO.streak(&m, x: x, top: rng.float(0.05...0.095), w: rng.float(0.03...0.08), h: rng.float(0.02...0.05), z: 0.03, worn)
+            FO7.streak(&m, x: x, top: rng.float(0.05...0.095), w: rng.float(0.03...0.08), h: rng.float(0.02...0.05), z: 0.03, worn)
             FA.box(&m, V3(rng.float(0.03...0.08), rng.float(0.015...0.03), 0.002), V3(rng.float(-0.9...0.9), 0.22, 0.3155), worn, r: 0.0005)
         }
         for _ in 0..<5 {

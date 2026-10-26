@@ -78,7 +78,7 @@ public struct ModillionCorniceBlockRun: RealAsset {
             br.append(V2(c.x + r * cos(a), c.y + r * sin(a)))
         }
         br += [V2(0.272, 0.31), V2(0, 0.31)]
-        br = FO.ccw(Shape2D.deduped(br))
+        br = FO7.ccw(Shape2D.deduped(br))
         let n = Int(L / pitch)
         for i in 0..<n {
             let x = (Float(i) - Float(n - 1) / 2) * pitch
@@ -95,17 +95,17 @@ public struct ModillionCorniceBlockRun: RealAsset {
             // Rosette in the soffit coffer between this block and the next.
             if i < n - 1 {
                 var rs = Model(name: "rosette")
-                FO.rosette(&rs, at: .zero, r: 0.028, petals: 6, tones[(i + 3) % 4])
+                FO7.rosette(&rs, at: .zero, r: 0.028, petals: 6, tones[(i + 3) % 4])
                 m.add(rs, Xform(translation: V3(x + pitch / 2, 0.3095, 0.19), rotation: FA.q(90, FA.X)))
             }
         }
 
         // Weathering: soot runs under the corona and from the crown, a pale efflorescence band at the frieze foot.
         for _ in 0..<12 {
-            FO.streak(&m, x: rng.float(-0.95...0.95), top: 0.31, w: rng.float(0.03...0.07), h: rng.float(0.05...0.12), z: 0.0415 + 0.0, "stone.limestone:6F685A")
+            FO7.streak(&m, x: rng.float(-0.95...0.95), top: 0.31, w: rng.float(0.03...0.07), h: rng.float(0.05...0.12), z: 0.0415 + 0.0, "stone.limestone:6F685A")
         }
         for _ in 0..<8 {
-            FO.streak(&m, x: rng.float(-0.95...0.95), top: 0.39, w: rng.float(0.02...0.05), h: rng.float(0.04...0.1), z: 0.405, "stone.limestone:766F5E")
+            FO7.streak(&m, x: rng.float(-0.95...0.95), top: 0.39, w: rng.float(0.02...0.05), h: rng.float(0.04...0.1), z: 0.405, "stone.limestone:766F5E")
         }
         FA.box(&m, V3(L - 0.1, 0.012, 0.002), V3(0, 0.008, 0.0415), "stone.limestone:B7AF9A", r: 0.0006)
 

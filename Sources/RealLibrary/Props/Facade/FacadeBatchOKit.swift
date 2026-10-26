@@ -3,7 +3,7 @@ import Foundation
 
 /// Helpers for the roofline, cornice and storefront facade props of batch O. Same frame as `FA`: wall plane at
 /// z = 0 for wall pieces; free-standing gables are centered on z.
-enum FO {
+enum FO8 {
     /// Courses of dressed blocks standing proud of a wall face. Joints are 8 mm, courses stagger by half a block,
     /// block width varies +-20 %. `top` / `bottom` clip the field to a profile (blocks that would cross are skipped).
     static func courses(_ m: inout Model, _ rng: inout SeededRNG, xr: ClosedRange<Float>, yr: ClosedRange<Float>,

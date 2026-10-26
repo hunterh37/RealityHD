@@ -33,7 +33,7 @@ public struct StoneMullionWindowQuad: RealAsset {
 
         // Sill: weathered top, projecting nose with a drip throat.
         let sill: [V2] = [V2(0, 0), V2(P - 0.01, 0), V2(P - 0.01, 0.07), V2(P, 0.078), V2(P - 0.012, 0.09), V2(0.02, sillH), V2(0, sillH)]
-        FO.colX(&m, sill, x0: -W / 2, x1: W / 2, stone, bevel: 0.003)
+        FO5.colX(&m, sill, x0: -W / 2, x1: W / 2, stone, bevel: 0.003)
         FJ.slab(&m, V3(W - 0.02, 0.012, 0.003), V3(0, 0.054, P - 0.0035), "stone.limestone-sooted")                // throat shadow
         for x in [-0.42, 0.37] as [Float] { FA.box(&m, V3(0.0016, 0.07, P - 0.02), V3(x, 0.05, P / 2), "stone.limestone-sooted", r: 0.0006) }   // joints
 
@@ -41,19 +41,19 @@ public struct StoneMullionWindowQuad: RealAsset {
         for e: Float in [-1, 1] {
             let x1 = e * W / 2, x0 = e * hw
             let sec: [V2] = [V2(x1, 0), V2(x1, D), V2(x0 + e * ch, D), V2(x0, D - ch), V2(x0, ch), V2(x0 + e * ch, 0)]
-            FO.colY(&m, sec, y0: sillH - 0.002, y1: headY0 + 0.002, stone, bevel: 0.002)
+            FO5.colY(&m, sec, y0: sillH - 0.002, y1: headY0 + 0.002, stone, bevel: 0.002)
             for (i, y) in ([0.33, 0.55, 0.78, 0.99] as [Float]).enumerated() {
                 FA.box(&m, V3(jw + 0.002, 0.0022, 0.002), V3(e * (hw + jw / 2), y + (i % 2 == 0 ? 0 : 0.02), D + 0.0005), "stone.limestone-sooted", r: 0.0006)
             }
         }
         // Head: flat lintel with the same chamfered reveal; label moulding above, returning down in square stops.
         let head: [V2] = [V2(0, headY0), V2(D - ch, headY0), V2(D, headY0 + ch), V2(D, headY1), V2(0, headY1)]
-        FO.colX(&m, head, x0: -W / 2, x1: W / 2, stone, bevel: 0.002)
+        FO5.colX(&m, head, x0: -W / 2, x1: W / 2, stone, bevel: 0.002)
         FA.box(&m, V3(0.0018, headY1 - headY0, 0.002), V3(0.32, (headY0 + headY1) / 2, D + 0.0005), "stone.limestone-sooted", r: 0.0005)
         FA.box(&m, V3(0.0018, headY1 - headY0, 0.002), V3(-0.31, (headY0 + headY1) / 2, D + 0.0005), "stone.limestone-sooted", r: 0.0005)
         // Label: a drip-moulded course (fillet, cavetto, roll, throat) running the full width.
         let lab: [V2] = [V2(0.01, headY1), V2(D, headY1), V2(D + 0.014, headY1 + 0.012), V2(P, headY1 + 0.022), V2(P, headY1 + 0.05), V2(P - 0.014, headY1 + 0.066), V2(0.01, H)]
-        FO.colX(&m, lab, x0: -W / 2, x1: W / 2, stone, bevel: 0.002)
+        FO5.colX(&m, lab, x0: -W / 2, x1: W / 2, stone, bevel: 0.002)
         // Returns turned down each end, ending in a square label stop.
         for e: Float in [-1, 1] {
             let x = e * (W / 2 - 0.03)
@@ -63,9 +63,9 @@ public struct StoneMullionWindowQuad: RealAsset {
 
         // Mullion and transom: chamfered sections tenoned into the jambs and head.
         let mSec: [V2] = [V2(-mw / 2, ch), V2(-mw / 2 + ch, 0), V2(mw / 2 - ch, 0), V2(mw / 2, ch), V2(mw / 2, D - ch), V2(mw / 2 - ch, D), V2(-mw / 2 + ch, D), V2(-mw / 2, D - ch)]
-        FO.colY(&m, mSec, y0: sillH - 0.002, y1: headY0 + 0.002, stone, bevel: 0.0015)
+        FO5.colY(&m, mSec, y0: sillH - 0.002, y1: headY0 + 0.002, stone, bevel: 0.0015)
         let tSec: [V2] = [V2(ch, tY - tH / 2), V2(0, tY - tH / 2 + ch), V2(0, tY + tH / 2 - ch), V2(ch, tY + tH / 2), V2(D - ch, tY + tH / 2), V2(D, tY + tH / 2 - ch), V2(D, tY - tH / 2 + ch), V2(D - ch, tY - tH / 2)]
-        FO.colX(&m, tSec, x0: -hw - 0.002, x1: hw + 0.002, stone, bevel: 0.0015)
+        FO5.colX(&m, tSec, x0: -hw - 0.002, x1: hw + 0.002, stone, bevel: 0.0015)
         // Weathered drip groove under the transom nose.
         FJ.slab(&m, V3(2 * hw, 0.003, 0.003), V3(0, tY - tH / 2 + 0.004, D + 0.0005), "stone.limestone-sooted")
 

@@ -101,7 +101,7 @@ public struct SlateHungWallPanel: RealAsset {
                 if !lite && (c == 0 || k == 0 || k == xs.count - 2) {
                     for nx in [x0 + 0.03, x1 - 0.03] {
                         if w < 0.07 { continue }
-                        FO.head(&m, at: V3(nx, tail + 0.04, 0.0455), r: 0.0042, h: 0.0022, segments: 6, copper)
+                        FO9.head(&m, at: V3(nx, tail + 0.04, 0.0455), r: 0.0042, h: 0.0022, segments: 6, copper)
                     }
                 }
                 idx += 1
@@ -111,11 +111,11 @@ public struct SlateHungWallPanel: RealAsset {
         if !lite {
             // Iron nail rust streaks on three verge slates, lichen on the lower courses, water staining at the foot.
             for (k, y) in [Float(0.62), 1.12, 1.55].enumerated() {
-                FO.patch(&m, cx: xl + 0.03 + Float(k) * 0.005, cy: y, rx: 0.0035, ry: rng.float(0.03...0.07), z: 0.0482, rust, rng: &rng, depth: 0.0006, n: 6)
+                FO9.patch(&m, cx: xl + 0.03 + Float(k) * 0.005, cy: y, rx: 0.0035, ry: rng.float(0.03...0.07), z: 0.0482, rust, rng: &rng, depth: 0.0006, n: 6)
             }
-            for _ in 0..<9 { FO.patch(&m, cx: rng.float(xl + 0.05...xr - 0.05), cy: rng.float(foot + 0.02...0.6), rx: rng.float(0.015...0.05), ry: rng.float(0.01...0.03), z: 0.0475, lichen, rng: &rng, depth: 0.0006, n: 9) }
+            for _ in 0..<9 { FO9.patch(&m, cx: rng.float(xl + 0.05...xr - 0.05), cy: rng.float(foot + 0.02...0.6), rx: rng.float(0.015...0.05), ry: rng.float(0.01...0.03), z: 0.0475, lichen, rng: &rng, depth: 0.0006, n: 9) }
             // Weathering on timber trims: bare grey grain showing and a few drying checks.
-            for s: Float in [-1, 1] { for _ in 0..<4 { FO.patch(&m, cx: s * (W / 2 - trim / 2) + rng.float(-0.008...0.008), cy: rng.float(0.1...1.9), rx: 0.006, ry: rng.float(0.03...0.08), z: 0.0505, "wood.charred", rng: &rng, depth: 0.0004, n: 6) } }
+            for s: Float in [-1, 1] { for _ in 0..<4 { FO9.patch(&m, cx: s * (W / 2 - trim / 2) + rng.float(-0.008...0.008), cy: rng.float(0.1...1.9), rx: 0.006, ry: rng.float(0.03...0.08), z: 0.0505, "wood.charred", rng: &rng, depth: 0.0004, n: 6) } }
         }
         groundAO(&m, height: 0.1, floor: 0.8)
         return FC.place(m)

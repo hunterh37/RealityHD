@@ -48,7 +48,7 @@ public struct FlemishScrolledGable: RealAsset {
             while y < 0.78 {
                 var x: Float = -hw + 0.16 + (row % 2 == 0 ? 0 : 0.14)
                 while x < hw - 0.12 {
-                    FO.slab(&m, 0.1, 0.06, 0.0025, V3(x, y, z), header, bevel: 0.0006)
+                    FO8.slab(&m, 0.1, 0.06, 0.0025, V3(x, y, z), header, bevel: 0.0006)
                     x += 0.34
                 }
                 y += 0.26
@@ -59,17 +59,17 @@ public struct FlemishScrolledGable: RealAsset {
         for _ in 0..<12 {
             let y = rng.float(0.1...1.4)
             let x = rng.float(-1...1)
-            if abs(x) > FO.halfWidth(right, at: y) - 0.1 { continue }
+            if abs(x) > FO8.halfWidth(right, at: y) - 0.1 { continue }
             let s: Float = rng.chance(0.5) ? 1 : -1
-            FO.slab(&m, 0.22, 0.065, 0.0028, V3(x, y, s * (zf + 0.0022)), tones[rng.int(0...3)], bevel: 0.0006)
+            FO8.slab(&m, 0.22, 0.065, 0.0028, V3(x, y, s * (zf + 0.0022)), tones[rng.int(0...3)], bevel: 0.0006)
         }
 
         // Sandstone bands across the wall at the four stage lines (width follows the outline).
         for (y, h) in [(Float(0.46), Float(0.07)), (0.8, 0.07), (1.28, 0.06)] {
-            let w = min(FO.halfWidth(right, at: y), FO.halfWidth(right, at: y + h)) * 2 - 0.012
+            let w = min(FO8.halfWidth(right, at: y), FO8.halfWidth(right, at: y + h)) * 2 - 0.012
             for s: Float in [-1, 1] {
-                FO.slab(&m, w, h, 0.03, V3(0, y + h / 2, s * (zf + 0.005)), stone, bevel: 0.003)
-                FO.slab(&m, w - 0.01, 0.01, 0.04, V3(0, y - 0.003, s * (zf + 0.005)), "stone.limestone-sooted", bevel: 0.002)
+                FO8.slab(&m, w, h, 0.03, V3(0, y + h / 2, s * (zf + 0.005)), stone, bevel: 0.003)
+                FO8.slab(&m, w - 0.01, 0.01, 0.04, V3(0, y - 0.003, s * (zf + 0.005)), "stone.limestone-sooted", bevel: 0.002)
             }
         }
         // Corner quoins: long and short sandstone blocks up each flank.
@@ -80,7 +80,7 @@ public struct FlemishScrolledGable: RealAsset {
                 let y = 0.0 + Float(k) * 0.078
                 if y + 0.07 > 0.85 { continue }
                 for sz: Float in [-1, 1] {
-                    FO.slab(&m, w, 0.07, 0.016, V3(sx * (hw - w / 2), y + 0.035, sz * (zf + 0.0045)), stone, bevel: 0.002)
+                    FO8.slab(&m, w, 0.07, 0.016, V3(sx * (hw - w / 2), y + 0.035, sz * (zf + 0.0045)), stone, bevel: 0.002)
                 }
             }
         }
@@ -152,12 +152,12 @@ public struct FlemishScrolledGable: RealAsset {
         for (x, y) in [(Float(-0.6), Float(0.62)), (0.6, 0.62), (-0.46, 1.1), (0.46, 1.1)] {
             for s: Float in [-1, 1] {
                 let z = s * (zf + 0.009)
-                FO.slab(&m, 0.2, 0.026, 0.012, V3(x, y, z), iron, bevel: 0.003)
-                FO.slab(&m, 0.026, 0.1, 0.012, V3(x, y, z), iron, bevel: 0.003)
+                FO8.slab(&m, 0.2, 0.026, 0.012, V3(x, y, z), iron, bevel: 0.003)
+                FO8.slab(&m, 0.026, 0.1, 0.012, V3(x, y, z), iron, bevel: 0.003)
                 for (dx, dy) in [(Float(0.075), Float(0)), (-0.075, 0), (0, 0.04), (0, -0.04)] {
                     FC.bead(&m, r: 0.011, at: V3(x + dx, y + dy, z + s * 0.007), iron, sub: 2)
                 }
-                FO.slab(&m, 0.014, 0.1 + rng.float(0...0.06), 0.0022, V3(x + 0.015, y - 0.12, s * (zf + 0.0035)), "brick.red:3A2622", bevel: 0.0005)
+                FO8.slab(&m, 0.014, 0.1 + rng.float(0...0.06), 0.0022, V3(x + 0.015, y - 0.12, s * (zf + 0.0035)), "brick.red:3A2622", bevel: 0.0005)
             }
         }
 
@@ -175,28 +175,28 @@ public struct FlemishScrolledGable: RealAsset {
         }
 
         // Weathering: soot below the copings, efflorescence at the base, moss and lichen on the bands, drip stains below the sill.
-        FO.patches(&m, &rng, count: 8, xr: -0.9...0.9, yr: 0.1...0.4, w: 0.04...0.12, h: 0.04...0.14, zFace: zf + 0.0035,
+        FO8.patches(&m, &rng, count: 8, xr: -0.9...0.9, yr: 0.1...0.4, w: 0.04...0.12, h: 0.04...0.14, zFace: zf + 0.0035,
                    mats: ["brick.mortar-lime", "stone.limestone:BFB9A6", "brick.common:566B3A"])
-        FO.patches(&m, &rng, count: 6, xr: -0.7...0.7, yr: 1.3...1.75, w: 0.03...0.07, h: 0.05...0.15, zFace: zf + 0.0035,
+        FO8.patches(&m, &rng, count: 6, xr: -0.7...0.7, yr: 1.3...1.75, w: 0.03...0.07, h: 0.05...0.15, zFace: zf + 0.0035,
                    mats: ["stone.limestone:6F6B5C", "brick.red:4A2A24"])
         for s: Float in [-1, 1] {
-            FO.slab(&m, 0.05, 0.22, 0.003, V3(-0.12, 0.74, s * (zf + 0.0045)), "stone.limestone:6A665A", bevel: 0.0008)
-            FO.slab(&m, 0.04, 0.16, 0.003, V3(0.11, 0.76, s * (zf + 0.0045)), "stone.limestone:6A665A", bevel: 0.0008)
+            FO8.slab(&m, 0.05, 0.22, 0.003, V3(-0.12, 0.74, s * (zf + 0.0045)), "stone.limestone:6A665A", bevel: 0.0008)
+            FO8.slab(&m, 0.04, 0.16, 0.003, V3(0.11, 0.76, s * (zf + 0.0045)), "stone.limestone:6A665A", bevel: 0.0008)
         }
 
         // Rain streaks under the copings, spalled bricks, rising damp with a green band at the base, a bird-limed coping.
         for s: Float in [-1, 1] {
             for k in 0..<5 {
                 let x = -0.8 + Float(k) * 0.4 + rng.float(-0.05...0.05)
-                let top: Float = FO.halfWidth(right, at: 1.2) > abs(x) ? 1.25 : 0.84
-                FO.slab(&m, rng.float(0.025...0.045), rng.float(0.16...0.3), 0.0024, V3(x, top - 0.14, s * (zf + 0.0062)), "brick.red:4B2A22", bevel: 0.0005)
+                let top: Float = FO8.halfWidth(right, at: 1.2) > abs(x) ? 1.25 : 0.84
+                FO8.slab(&m, rng.float(0.025...0.045), rng.float(0.16...0.3), 0.0024, V3(x, top - 0.14, s * (zf + 0.0062)), "brick.red:4B2A22", bevel: 0.0005)
             }
-            FO.slab(&m, width - 0.12, 0.05, 0.0026, V3(0, 0.14, s * (zf + 0.0058)), "stone.limestone:7C8160", bevel: 0.0008)
+            FO8.slab(&m, width - 0.12, 0.05, 0.0026, V3(0, 0.14, s * (zf + 0.0058)), "stone.limestone:7C8160", bevel: 0.0008)
             // Plinth course: sandstone footing projecting 25 mm with a weathered chamfer top and a soot line at the foot.
-            FO.slab(&m, width + 0.02, 0.09, 0.05, V3(0, 0.045, s * zf), stone, bevel: 0.004)
-            FO.slab(&m, width + 0.0, 0.03, 0.054, V3(0, 0.015, s * (zf + 0.0)), "stone.limestone-sooted", bevel: 0.002)
+            FO8.slab(&m, width + 0.02, 0.09, 0.05, V3(0, 0.045, s * zf), stone, bevel: 0.004)
+            FO8.slab(&m, width + 0.0, 0.03, 0.054, V3(0, 0.015, s * (zf + 0.0)), "stone.limestone-sooted", bevel: 0.002)
             for k in 0..<4 {
-                FO.slab(&m, 0.1 + rng.float(0...0.05), 0.06, 0.003, V3(-0.7 + Float(k) * 0.45 + rng.float(-0.05...0.05), 0.2 + rng.float(0...0.5), s * (zf + 0.0035)), "brick.common:7D5B4A", bevel: 0.0006)
+                FO8.slab(&m, 0.1 + rng.float(0...0.05), 0.06, 0.003, V3(-0.7 + Float(k) * 0.45 + rng.float(-0.05...0.05), 0.2 + rng.float(0...0.5), s * (zf + 0.0035)), "brick.common:7D5B4A", bevel: 0.0006)
             }
         }
 

@@ -40,7 +40,7 @@ public struct OakPeggedDoorSurround: RealAsset {
 
         // Sloped threshold sill with a drip nose, worn dip and a mismatched replacement block.
         let sill: [V2] = [V2(0, 0), V2(D, 0), V2(D, 0.07), V2(D - 0.012, 0.082), V2(0.0, sillH)]
-        FO.colX(&m, sill, x0: -W / 2, x1: W / 2, stone, bevel: 0.003)
+        FO5.colX(&m, sill, x0: -W / 2, x1: W / 2, stone, bevel: 0.003)
         FJ.slab(&m, V3(0.5, 0.0016, 0.1), V3(0.0, 0.0905, 0.1), "stone.limestone-sooted")
         FJ.slab(&m, V3(0.34, 0.0015, 0.1), V3(-0.31, 0.0952, 0.07), "stone.cast-stone")
         for e: Float in [-1, 1] {
@@ -53,14 +53,14 @@ public struct OakPeggedDoorSurround: RealAsset {
             let x0 = e * hw, x1 = e * (hw + jw)
             let c = V2(x0, D)
             var sec: [V2] = [V2(x1, 0), V2(x1, D), V2(x0 + e * hc, D)]
-            sec += FO.arc(c: c, r: hc, from: e > 0 ? 0 : 180, to: e > 0 ? -90 : 270, steps: 5).dropFirst()
+            sec += FO5.arc(c: c, r: hc, from: e > 0 ? 0 : 180, to: e > 0 ? -90 : 270, steps: 5).dropFirst()
             sec.append(V2(x0, 0))
-            FO.colY(&m, sec, y0: sillH + plinthH - 0.002, y1: apex + 0.0, e > 0 ? sunSide : oak)
+            FO5.colY(&m, sec, y0: sillH + plinthH - 0.002, y1: apex + 0.0, e > 0 ? sunSide : oak)
             // Sandstone padstone under each post, dressed with a weathered top and a mortar bed line.
             FA.box(&m, V3(jw, plinthH, D - 0.004), V3(e * (hw + jw / 2), sillH + plinthH / 2 - 0.001, D / 2), "stone.slate", r: 0.004)
             FA.box(&m, V3(jw, 0.006, D - 0.002), V3(e * (hw + jw / 2), sillH + plinthH - 0.002, D / 2), "stone.limestone-sooted", r: 0.002)
-            FO.patch(&m, V2(jw, 0.1), V2(e * (hw + jw / 2), sillH + 0.06), z: D - 0.004, "stone.limestone-sooted")
-            FO.patch(&m, V2(0.05, 0.14), V2(e * (hw + jw / 2 - 0.03), sillH + 0.2), z: D - 0.004, "stone.limestone")
+            FO5.patch(&m, V2(jw, 0.1), V2(e * (hw + jw / 2), sillH + 0.06), z: D - 0.004, "stone.limestone-sooted")
+            FO5.patch(&m, V2(0.05, 0.14), V2(e * (hw + jw / 2 - 0.03), sillH + 0.2), z: D - 0.004, "stone.limestone")
             // Stop chamfers: lamb's-tongue cut at the foot and the head of the hollow chamfer.
             FA.box(&m, V3(0.04, 0.05, 0.04), V3(e * (hw + 0.02), sillH + plinthH + 0.12, D - 0.02), oak, r: 0.004, rot: FA.q(45, FA.Y))
             FA.box(&m, V3(0.04, 0.05, 0.04), V3(e * (hw + 0.02), apex - 0.18, D - 0.02), oak, r: 0.004, rot: FA.q(45, FA.Y))
@@ -70,9 +70,9 @@ public struct OakPeggedDoorSurround: RealAsset {
 
         // Lintel with a hollow chamfer along the lower front edge.
         var lin: [V2] = [V2(0, apex), V2(D - hc, apex)]
-        lin += FO.arc(c: V2(D, apex), r: hc, from: 180, to: 90 + 0, steps: 5).dropFirst().map { V2($0.x, $0.y) }
+        lin += FO5.arc(c: V2(D, apex), r: hc, from: 180, to: 90 + 0, steps: 5).dropFirst().map { V2($0.x, $0.y) }
         lin += [V2(D, H), V2(0, H)]
-        FO.colX(&m, lin, x0: -W / 2, x1: W / 2, oak, bevel: 0.002)
+        FO5.colX(&m, lin, x0: -W / 2, x1: W / 2, oak, bevel: 0.002)
 
         // Four-centred arch: corner arcs radius ra about the springing, large arcs meeting at the apex.
         let rise = apex - spring, ra: Float = 0.22
@@ -83,9 +83,9 @@ public struct OakPeggedDoorSurround: RealAsset {
         let tAng = atan2(spring - bigC.y, cxs) * 180 / .pi
         func archHalf(_ e: Float) -> [V2] {
             var pts: [V2] = []
-            let small = FO.arc(c: V2(e * cxs, spring), r: ra, from: e > 0 ? 0 : 180, to: e > 0 ? tAng : 180 - tAng, steps: 6)
+            let small = FO5.arc(c: V2(e * cxs, spring), r: ra, from: e > 0 ? 0 : 180, to: e > 0 ? tAng : 180 - tAng, steps: 6)
             pts += small
-            let big = FO.arc(c: bigC, r: R, from: e > 0 ? tAng : 180 - tAng, to: 90, steps: 8).dropFirst()
+            let big = FO5.arc(c: bigC, r: R, from: e > 0 ? tAng : 180 - tAng, to: 90, steps: 8).dropFirst()
             pts += big
             return pts
         }
@@ -107,7 +107,7 @@ public struct OakPeggedDoorSurround: RealAsset {
             FC.bead(&m, r: 0.011, at: V3(cx, cy, D + 0.009), "wood.endgrain", sub: 4)
             // Pegs through the spandrel into the jamb and lintel.
             for (px, py) in [(hw + 0.08, apex - 0.1), (hw + 0.08, spring + 0.02)] as [(Float, Float)] {
-                FO.peg(&m, at: V3(e * px, py, D - 0.002), normal: FA.Z, r: 0.011, h: 0.012, pegWood)
+                FO5.peg(&m, at: V3(e * px, py, D - 0.002), normal: FA.Z, r: 0.011, h: 0.012, pegWood)
             }
         }
 
@@ -123,13 +123,13 @@ public struct OakPeggedDoorSurround: RealAsset {
         for e: Float in [-1, 1] {
             let px = e * (hw + jw / 2)
             for _ in 0..<4 {
-                FO.patch(&m, V2(rng.float(0.03...0.07), rng.float(0.02...0.06)), V2(px + rng.float(-0.05...0.05), sillH + rng.float(0.01...0.12)), z: D - 0.004, "stone.granite-moss", rot: rng.float(-20...20))
+                FO5.patch(&m, V2(rng.float(0.03...0.07), rng.float(0.02...0.06)), V2(px + rng.float(-0.05...0.05), sillH + rng.float(0.01...0.12)), z: D - 0.004, "stone.granite-moss", rot: rng.float(-20...20))
             }
-            FO.patch(&m, V2(jw - 0.02, 0.07), V2(px, sillH + plinthH + 0.045), z: D, "wood.deadwood")
-            FO.patch(&m, V2(jw - 0.05, 0.07), V2(px, sillH + plinthH + 0.12), z: D, aged)
+            FO5.patch(&m, V2(jw - 0.02, 0.07), V2(px, sillH + plinthH + 0.045), z: D, "wood.deadwood")
+            FO5.patch(&m, V2(jw - 0.05, 0.07), V2(px, sillH + plinthH + 0.12), z: D, aged)
         }
         for _ in 0..<5 {
-            FO.patch(&m, V2(rng.float(0.04...0.12), rng.float(0.012...0.025)), V2(rng.float(-0.55...0.55), rng.float(0.05...0.095)), z: D, "stone.granite-moss", rot: rng.float(-10...10))
+            FO5.patch(&m, V2(rng.float(0.04...0.12), rng.float(0.012...0.025)), V2(rng.float(-0.55...0.55), rng.float(0.05...0.095)), z: D, "stone.granite-moss", rot: rng.float(-10...10))
         }
         // Weathered top face of the lintel (silvered by rain) and a lead-grey drip cap line.
         FJ.slab(&m, V3(W - 0.01, 0.0016, D - 0.03), V3(0, H + 0.0004, D / 2), aged)
@@ -138,7 +138,7 @@ public struct OakPeggedDoorSurround: RealAsset {
             for (i, y) in [apex + 0.07, apex + 0.18].enumerated() {
                 let draw: Float = (i == 0 ? 0.0025 : -0.0025)
                 let mat: MaterialKey = (e > 0 && i == 1) ? fresh : pegWood
-                FO.peg(&m, at: V3(e * (hw + jw / 2) + draw, y, D - 0.002), normal: FA.Z, r: 0.0115, h: 0.016, mat)
+                FO5.peg(&m, at: V3(e * (hw + jw / 2) + draw, y, D - 0.002), normal: FA.Z, r: 0.0115, h: 0.016, mat)
                 // Peg end sawn flush on the back would show from the side; chamfer ring at the head.
                 FA.cylZ(&m, r: 0.0132, h: 0.0016, at: V3(e * (hw + jw / 2) + draw, y, D - 0.0016), "wood.deadwood", bevel: 0.0004, segments: 8)
             }
@@ -151,17 +151,17 @@ public struct OakPeggedDoorSurround: RealAsset {
         // Weathering: silvered streaks, shakes, splash darkening, a rain-washed top.
         for e: Float in [-1, 1] {
             for _ in 0..<7 {
-                FO.patch(&m, V2(rng.float(0.004...0.011), rng.float(0.06...0.32)), V2(e * (hw + jw / 2) + rng.float(-0.05...0.05), rng.float(0.2...1.9)),
+                FO5.patch(&m, V2(rng.float(0.004...0.011), rng.float(0.06...0.32)), V2(e * (hw + jw / 2) + rng.float(-0.05...0.05), rng.float(0.2...1.9)),
                          z: D, rng.chance(0.6) ? aged : "wood.deadwood")
             }
             for _ in 0..<5 {
-                FO.patch(&m, V2(rng.float(0.004...0.008), rng.float(0.04...0.12)), V2(e * (hw + jw / 2) + rng.float(-0.05...0.05), rng.float(0.12...0.4)), z: D, "wood.deadwood")
+                FO5.patch(&m, V2(rng.float(0.004...0.008), rng.float(0.04...0.12)), V2(e * (hw + jw / 2) + rng.float(-0.05...0.05), rng.float(0.12...0.4)), z: D, "wood.deadwood")
             }
         }
         for _ in 0..<3 {
-            FO.patch(&m, V2(0.0022, rng.float(0.08...0.2)), V2(rng.float(-0.5...0.5), apex + 0.125), z: D, "wood.deadwood")          // shakes
+            FO5.patch(&m, V2(0.0022, rng.float(0.08...0.2)), V2(rng.float(-0.5...0.5), apex + 0.125), z: D, "wood.deadwood")          // shakes
         }
-        FO.patch(&m, V2(0.5, 0.008), V2(-0.1, H - 0.012), z: D, aged)
+        FO5.patch(&m, V2(0.5, 0.008), V2(-0.1, H - 0.012), z: D, aged)
         // Gap line between lintel and spandrel blocks, and the centre joint of the two spandrels.
         FJ.slab(&m, V3(0.0022, rise, 0.001), V3(0, apex - rise / 2 + 0.0, D + 0.0003), "wood.deadwood")
 

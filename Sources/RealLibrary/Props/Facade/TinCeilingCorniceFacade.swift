@@ -48,7 +48,7 @@ public struct TinCeilingCorniceFacade: RealAsset {
         var x: Float = -L / 2 + 0.03
         while x < L / 2 - 0.02 {
             if !mod.contains(where: { abs($0 - x) < 0.04 }) {
-                FO.slab(&m, 0.02, 0.05, 0.016, V3(x, 0.235, 0.1 * k + 0.008), paint, bevel: 0.0015)
+                FO8.slab(&m, 0.02, 0.05, 0.016, V3(x, 0.235, 0.1 * k + 0.008), paint, bevel: 0.0015)
             }
             x += 0.04
         }
@@ -74,10 +74,10 @@ public struct TinCeilingCorniceFacade: RealAsset {
 
         // Frieze: embossed raised border panels and brass-centred rosettes, one per 250 mm.
         for s in [-1, 1] as [Float] {
-            FO.slab(&m, 0.58, 0.012, 0.008, V3(s * 0.31 + (s > 0 ? 0.3 : -0.3) * 0, 0.108, 0.036), paint, bevel: 0.0015)
+            FO8.slab(&m, 0.58, 0.012, 0.008, V3(s * 0.31 + (s > 0 ? 0.3 : -0.3) * 0, 0.108, 0.036), paint, bevel: 0.0015)
         }
-        FO.slab(&m, L - 0.06, 0.012, 0.008, V3(0, 0.1, 0.0345), paint, bevel: 0.0015)
-        FO.slab(&m, L - 0.06, 0.012, 0.008, V3(0, 0.02, 0.0345), paint, bevel: 0.0015)
+        FO8.slab(&m, L - 0.06, 0.012, 0.008, V3(0, 0.1, 0.0345), paint, bevel: 0.0015)
+        FO8.slab(&m, L - 0.06, 0.012, 0.008, V3(0, 0.02, 0.0345), paint, bevel: 0.0015)
         var rx: Float = -L / 2 + 0.15
         while rx < L / 2 - 0.1 {
             FA.cylZ(&m, r: 0.034, h: 0.008, at: V3(rx, 0.06, 0.03), paint, bevel: 0.0015, segments: 16)
@@ -110,14 +110,14 @@ public struct TinCeilingCorniceFacade: RealAsset {
         // Rust bleeding from selected nails and seams, paint loss patches showing galvanized tin, a dented corona.
         for _ in 0..<10 {
             let nx = rng.float(-L / 2 + 0.1...L / 2 - 0.1)
-            FO.slab(&m, rng.float(0.006...0.014), rng.float(0.04...0.09), 0.0014, V3(nx, 0.065, 0.0398), rust, bevel: 0.0004)
+            FO8.slab(&m, rng.float(0.006...0.014), rng.float(0.04...0.09), 0.0014, V3(nx, 0.065, 0.0398), rust, bevel: 0.0004)
         }
         for _ in 0..<12 {
             let nx = rng.float(-L / 2 + 0.1...L / 2 - 0.1)
             let ys: [Float] = [0.24, 0.30, 0.37]
             let yy = ys[rng.int(0...2)]
             let zz: Float = yy < 0.33 ? 0.124 : 0.325
-            FO.slab(&m, rng.float(0.02...0.06), rng.float(0.01...0.026), 0.0016, V3(nx, yy + 0.0, zz), rng.chance(0.4) ? tin : rust, bevel: 0.0004)
+            FO8.slab(&m, rng.float(0.02...0.06), rng.float(0.01...0.026), 0.0016, V3(nx, yy + 0.0, zz), rng.chance(0.4) ? tin : rust, bevel: 0.0004)
         }
 
         // Soot on the soffit between the modillions and a dirt line under the corona drip.

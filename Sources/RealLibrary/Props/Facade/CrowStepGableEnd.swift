@@ -48,7 +48,7 @@ public struct CrowStepGableEnd: RealAsset {
         // Rubble field on both faces, clipped to the steps, with a gap left for the quoins.
         let zc = zf + 0.002
         for s: Float in [-1, 1] {
-            FO.courses(&m, &rng, xr: (-hw + 0.01)...(hw - 0.01), yr: 0.1...(stepY(steps - 1)), course: 0.125, block: 0.3, z: s * zc, depth: 0.008,
+            FO8.courses(&m, &rng, xr: (-hw + 0.01)...(hw - 0.01), yr: 0.1...(stepY(steps - 1)), course: 0.125, block: 0.3, z: s * zc, depth: 0.008,
                        mats: rubble, top: { topAt($0) - 0.012 })
         }
 
@@ -60,20 +60,20 @@ public struct CrowStepGableEnd: RealAsset {
                 let y = 0.0 + Float(k) * 0.1
                 if y + 0.1 > y0 - 0.02 { continue }
                 for sz: Float in [-1, 1] {
-                    FO.slab(&m, w, 0.092, 0.018, V3(sx * (hw - w / 2), y + 0.05, sz * (zf + 0.005)), ashlar, bevel: 0.0025)
+                    FO8.slab(&m, w, 0.092, 0.018, V3(sx * (hw - w / 2), y + 0.05, sz * (zf + 0.005)), ashlar, bevel: 0.0025)
                 }
             }
             for k in 1..<steps {
                 let ya = stepY(k - 1) + 0.03, yb = stepY(k) - 0.02
                 for sz: Float in [-1, 1] {
-                    FO.slab(&m, 0.07, yb - ya, 0.016, V3(sx * (hw - Float(k) * tread - 0.05), (ya + yb) / 2, sz * (zf + 0.0043)), ashlar, bevel: 0.0025)
+                    FO8.slab(&m, 0.07, yb - ya, 0.016, V3(sx * (hw - Float(k) * tread - 0.05), (ya + yb) / 2, sz * (zf + 0.0043)), ashlar, bevel: 0.0025)
                 }
             }
         }
 
         // String course.
         let band: [V2] = [V2(0, 0), V2(0.05, 0), V2(0.05, 0.012), V2(0.042, 0.02), V2(0.042, 0.06), V2(0.05, 0.068), V2(0.05, 0.08), V2(0, 0.08)]
-        FO.runBoth(&m, band, length: width - 0.02, y: 0.3, zWall: zf, ashlar, bevel: 0.002)
+        FO8.runBoth(&m, band, length: width - 0.02, y: 0.3, zWall: zf, ashlar, bevel: 0.002)
 
         // Corbiestep copings over lead flashing; the apex coping spans the plateau.
         let cd = T + 0.06
@@ -115,7 +115,7 @@ public struct CrowStepGableEnd: RealAsset {
         m.add(Prim.extrude(Shape2D.rect(sw, 0.26), depth: sd, bevel: 0.003, bevelSegments: 1, material: "stone.sandstone:6E6350"),
               Xform(translation: V3(0, sy + 0.13, 0)))
         for s: Float in [-1, 1] {
-            FO.courses(&m, &rng, xr: -sw / 2...sw / 2, yr: sy...(sy + 0.26), course: 0.0867, block: 0.2, z: s * (sd / 2 + 0.002), depth: 0.008, mats: rubble, top: { _ in 99 })
+            FO8.courses(&m, &rng, xr: -sw / 2...sw / 2, yr: sy...(sy + 0.26), course: 0.0867, block: 0.2, z: s * (sd / 2 + 0.002), depth: 0.008, mats: rubble, top: { _ in 99 })
         }
         let capY = sy + 0.26
         m.add(Prim.loft([Prim.ring(Shape2D.rect(sw + 0.08, sd + 0.08), y: 0), Prim.ring(Shape2D.rect(sw + 0.08, sd + 0.08), y: 0.022),
@@ -131,11 +131,11 @@ public struct CrowStepGableEnd: RealAsset {
         let wy: Float = 0.5, ww: Float = 0.3, wh: Float = 0.44
         for s: Float in [-1, 1] {
             let z = s * (zf + 0.006)
-            FO.slab(&m, ww + 0.12, wh + 0.1, 0.014, V3(0, wy + wh / 2, z), ashlar, bevel: 0.003)
-            FO.slab(&m, ww, wh, 0.01, V3(0, wy + wh / 2, s * (zf + 0.0135)), "metal.painted:1E1F20", bevel: 0.001)
-            FO.slab(&m, ww - 0.03, wh - 0.03, 0.006, V3(0, wy + wh / 2, s * (zf + 0.0175)), "glass.pane", bevel: 0.0005)
-            FO.slab(&m, 0.016, wh - 0.03, 0.01, V3(0, wy + wh / 2, s * (zf + 0.021)), "wood.painted-exterior:E8E4D8", bevel: 0.002)
-            FO.slab(&m, ww - 0.03, 0.016, 0.01, V3(0, wy + wh * 0.62, s * (zf + 0.021)), "wood.painted-exterior:E8E4D8", bevel: 0.002)
+            FO8.slab(&m, ww + 0.12, wh + 0.1, 0.014, V3(0, wy + wh / 2, z), ashlar, bevel: 0.003)
+            FO8.slab(&m, ww, wh, 0.01, V3(0, wy + wh / 2, s * (zf + 0.0135)), "metal.painted:1E1F20", bevel: 0.001)
+            FO8.slab(&m, ww - 0.03, wh - 0.03, 0.006, V3(0, wy + wh / 2, s * (zf + 0.0175)), "glass.pane", bevel: 0.0005)
+            FO8.slab(&m, 0.016, wh - 0.03, 0.01, V3(0, wy + wh / 2, s * (zf + 0.021)), "wood.painted-exterior:E8E4D8", bevel: 0.002)
+            FO8.slab(&m, ww - 0.03, 0.016, 0.01, V3(0, wy + wh * 0.62, s * (zf + 0.021)), "wood.painted-exterior:E8E4D8", bevel: 0.002)
             m.add(Prim.extrude([V2(-0.11, 0), V2(0.11, 0), V2(0, 0.075)], depth: 0.03, bevel: 0.003, bevelSegments: 1, material: ashlar),
                   Xform(translation: V3(0, wy + wh + 0.05 + 0.002, s * (zf + 0.012))))
             FA.box(&m, V3(ww + 0.16, 0.026, 0.05), V3(0, wy - 0.045, s * (zf + 0.022)), ashlar, r: 0.003)
@@ -145,12 +145,12 @@ public struct CrowStepGableEnd: RealAsset {
         for (x, y) in [(Float(-0.72), Float(0.55)), (0.72, 0.55), (-0.42, 0.86), (0.42, 0.86)] {
             for s: Float in [-1, 1] {
                 let z = s * (zf + 0.0095)
-                FO.slab(&m, 0.2, 0.026, 0.012, V3(x, y, z), iron, bevel: 0.003)
-                FO.slab(&m, 0.026, 0.1, 0.012, V3(x, y, z), iron, bevel: 0.003)
+                FO8.slab(&m, 0.2, 0.026, 0.012, V3(x, y, z), iron, bevel: 0.003)
+                FO8.slab(&m, 0.026, 0.1, 0.012, V3(x, y, z), iron, bevel: 0.003)
                 for (dx, dy) in [(Float(0.075), Float(0)), (-0.075, 0), (0, 0.04), (0, -0.04)] {
                     FC.bead(&m, r: 0.011, at: V3(x + dx, y + dy, z + s * 0.007), iron, sub: 2)
                 }
-                FO.slab(&m, 0.02, 0.1 + rng.float(0...0.08), 0.0022, V3(x + 0.01, y - 0.12, s * (zf + 0.0105)), "stone.sandstone:6B4A33", bevel: 0.0005)
+                FO8.slab(&m, 0.02, 0.1 + rng.float(0...0.08), 0.0022, V3(x + 0.01, y - 0.12, s * (zf + 0.0105)), "stone.sandstone:6B4A33", bevel: 0.0005)
             }
         }
 
@@ -159,16 +159,16 @@ public struct CrowStepGableEnd: RealAsset {
             for k in 0..<steps - 1 {
                 for sx: Float in [-1, 1] {
                     let x = sx * (hw - Float(k) * tread - 0.1)
-                    FO.slab(&m, rng.float(0.02...0.04), rng.float(0.12...0.22), 0.0022, V3(x + rng.float(-0.03...0.03), stepY(k) - 0.11, s * (zf + 0.0105)),
+                    FO8.slab(&m, rng.float(0.02...0.04), rng.float(0.12...0.22), 0.0022, V3(x + rng.float(-0.03...0.03), stepY(k) - 0.11, s * (zf + 0.0105)),
                             "stone.sandstone:5E5240", bevel: 0.0005)
                 }
             }
-            FO.slab(&m, width - 0.1, 0.05, 0.0026, V3(0, 0.145, s * (zf + 0.0106)), "stone.sandstone:6C6F4C", bevel: 0.001)
+            FO8.slab(&m, width - 0.1, 0.05, 0.0026, V3(0, 0.145, s * (zf + 0.0106)), "stone.sandstone:6C6F4C", bevel: 0.001)
             // Plinth: dressed footing course projecting 25 mm, with a sooted drip line at the foot.
-            FO.slab(&m, width + 0.02, 0.09, 0.05, V3(0, 0.045, s * zf), ashlar, bevel: 0.004)
-            FO.slab(&m, width, 0.03, 0.054, V3(0, 0.015, s * zf), "stone.sandstone:6E6350", bevel: 0.002)
+            FO8.slab(&m, width + 0.02, 0.09, 0.05, V3(0, 0.045, s * zf), ashlar, bevel: 0.004)
+            FO8.slab(&m, width, 0.03, 0.054, V3(0, 0.015, s * zf), "stone.sandstone:6E6350", bevel: 0.002)
         }
-        FO.patches(&m, &rng, count: 10, xr: -1.0...1.0, yr: 0.15...0.7, w: 0.06...0.14, h: 0.04...0.09, zFace: zf + 0.0106,
+        FO8.patches(&m, &rng, count: 10, xr: -1.0...1.0, yr: 0.15...0.7, w: 0.06...0.14, h: 0.04...0.09, zFace: zf + 0.0106,
                    mats: ["stone.sandstone:8E9266", "stone.sandstone:A59F7C", "stone.sandstone:B8AE8E"])
 
         groundAO(&m, height: 0.12, floor: 0.82)

@@ -105,29 +105,29 @@ public struct OeilDeBoeufWindow: RealAsset {
             // Soot on the upper moulding and in the crevice behind the berries, plus rain streaks under each keystone.
             for _ in 0..<10 {
                 let a = rng.float(0.5...2.6)
-                FO.patch(&m, cx: cos(a) * 0.37, cy: sin(a) * 0.37, rx: rng.float(0.012...0.025), ry: rng.float(0.01...0.02), z: 0.0762, soot, rng: &rng, depth: 0.0006)
+                FO9.patch(&m, cx: cos(a) * 0.37, cy: sin(a) * 0.37, rx: rng.float(0.012...0.025), ry: rng.float(0.01...0.02), z: 0.0762, soot, rng: &rng, depth: 0.0006)
             }
-            for dx: Float in [-0.012, 0.012] { FO.patch(&m, cx: dx, cy: -0.31, rx: 0.004, ry: rng.float(0.04...0.07), z: 0.0003, soot, rng: &rng, depth: 0.0006, n: 6) }
+            for dx: Float in [-0.012, 0.012] { FO9.patch(&m, cx: dx, cy: -0.31, rx: 0.004, ry: rng.float(0.04...0.07), z: 0.0003, soot, rng: &rng, depth: 0.0006, n: 6) }
             // Keystone faces: soot in the carving, rain streaks, chipped corners; moss on the bottom stone.
             for k in 0..<4 {
                 let ang = Float(k) * .pi / 2
                 func rp(_ u: Float, _ v: Float) -> (Float, Float) { (u * cos(ang) - v * sin(ang), u * sin(ang) + v * cos(ang)) }
                 for _ in 0..<3 {
                     let (cx, cy) = rp(rng.float(-0.03...0.03), rng.float(0.24...0.38))
-                    FO.patch(&m, cx: cx, cy: cy, rx: rng.float(0.008...0.02), ry: rng.float(0.01...0.03), z: 0.1956, soot, rng: &rng, depth: 0.0006, n: 8)
+                    FO9.patch(&m, cx: cx, cy: cy, rx: rng.float(0.008...0.02), ry: rng.float(0.01...0.03), z: 0.1956, soot, rng: &rng, depth: 0.0006, n: 8)
                 }
                 let (sx, sy) = rp(rng.float(-0.04...0.04), 0.383)
-                FO.patch(&m, cx: sx, cy: sy, rx: 0.012, ry: 0.012, z: 0.1957, "stone.sandstone", rng: &rng, depth: 0.0006, n: 6)
-                if k == 2 { for _ in 0..<4 { let (mx, my) = rp(rng.float(-0.035...0.035), rng.float(0.25...0.38)); FO.patch(&m, cx: mx, cy: my, rx: rng.float(0.01...0.02), ry: rng.float(0.01...0.02), z: 0.1958, moss, rng: &rng, depth: 0.0007, n: 8) } }
+                FO9.patch(&m, cx: sx, cy: sy, rx: 0.012, ry: 0.012, z: 0.1957, "stone.sandstone", rng: &rng, depth: 0.0006, n: 6)
+                if k == 2 { for _ in 0..<4 { let (mx, my) = rp(rng.float(-0.035...0.035), rng.float(0.25...0.38)); FO9.patch(&m, cx: mx, cy: my, rx: rng.float(0.01...0.02), ry: rng.float(0.01...0.02), z: 0.1958, moss, rng: &rng, depth: 0.0007, n: 8) } }
             }
             // Sash paint flaked at the foot and along the bars.
             for _ in 0..<7 {
                 let a = rng.float(3.6...5.8)
-                FO.patch(&m, cx: cos(a) * 0.175, cy: sin(a) * 0.175, rx: rng.float(0.008...0.02), ry: rng.float(0.006...0.014), z: 0.0745, bare, rng: &rng, depth: 0.0005, n: 7)
+                FO9.patch(&m, cx: cos(a) * 0.175, cy: sin(a) * 0.175, rx: rng.float(0.008...0.02), ry: rng.float(0.006...0.014), z: 0.0745, bare, rng: &rng, depth: 0.0005, n: 7)
             }
-            for _ in 0..<4 { FO.patch(&m, cx: rng.float(-0.15...0.15), cy: 0.0, rx: rng.float(0.01...0.025), ry: 0.0045, z: 0.0683, bare, rng: &rng, depth: 0.0005, n: 6) }
+            for _ in 0..<4 { FO9.patch(&m, cx: rng.float(-0.15...0.15), cy: 0.0, rx: rng.float(0.01...0.025), ry: 0.0045, z: 0.0683, bare, rng: &rng, depth: 0.0005, n: 6) }
             // Moss in the lower reveal.
-            for _ in 0..<5 { FO.patch(&m, cx: rng.float(-0.12...0.12), cy: -0.2 + 0.0, rx: rng.float(0.02...0.05), ry: rng.float(0.01...0.02), z: 0.0004, moss, rng: &rng, depth: 0.0007) }
+            for _ in 0..<5 { FO9.patch(&m, cx: rng.float(-0.12...0.12), cy: -0.2 + 0.0, rx: rng.float(0.02...0.05), ry: rng.float(0.01...0.02), z: 0.0004, moss, rng: &rng, depth: 0.0007) }
         }
         groundAO(&m, height: 0.05, floor: 0.9)
         return FC.place(m)

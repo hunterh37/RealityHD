@@ -38,7 +38,7 @@ public struct TerracottaRidgeFinial: RealAsset {
         // Tile joint, cracked mortar line and moss at the feet.
         FA.box(&m, V3(0.004, 0.072, 0.216), V3(0.0, 0.035, 0), "ceramic.terracotta:7A3E26", r: 0.001)
         for s: Float in [-1, 1] {
-            FO.slab(&m, 0.12, 0.012, 0.012, V3(rng.float(-0.04...0.04), 0.008, s * 0.112), "ceramic.terracotta:5E6B3A", bevel: 0.002)
+            FO8.slab(&m, 0.12, 0.012, 0.012, V3(rng.float(-0.04...0.04), 0.008, s * 0.112), "ceramic.terracotta:5E6B3A", bevel: 0.002)
         }
 
         // Lead flashing collar around the foot of the plinth.
@@ -55,10 +55,10 @@ public struct TerracottaRidgeFinial: RealAsset {
 
         // Iron cramp straps with rivets on two faces of the die.
         for s: Float in [-1, 1] {
-            FO.slab(&m, 0.026, 0.08, 0.006, V3(0, py + 0.045, s * 0.067), iron, bevel: 0.0015)
+            FO8.slab(&m, 0.026, 0.08, 0.006, V3(0, py + 0.045, s * 0.067), iron, bevel: 0.0015)
             rivet(&m, at: V3(0, py + 0.02, s * 0.0705), normal: V3(0, 0, s), radius: 0.006, segments: 6, material: iron)
             rivet(&m, at: V3(0, py + 0.07, s * 0.0705), normal: V3(0, 0, s), radius: 0.006, segments: 6, material: iron)
-            FO.slab(&m, 0.012, 0.06, 0.002, V3(0.012, py + 0.0, s * 0.0725), "ceramic.terracotta:6B4A33", bevel: 0.0004)
+            FO8.slab(&m, 0.012, 0.06, 0.002, V3(0.012, py + 0.0, s * 0.0725), "ceramic.terracotta:6B4A33", bevel: 0.0004)
         }
 
         // Turned baluster stem: ring, bell, swelling vase, neck and collar.

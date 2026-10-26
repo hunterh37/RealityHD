@@ -38,7 +38,7 @@ public struct RollingShutterBoxAluminum: RealAsset {
             prof.append(V2(D - r + r * cos(a), yt - r + r * sin(a)))
         }
         prof.append(V2(0, yt))
-        FO.colX(&m, prof, x0: -L / 2, x1: L / 2, coat, bevel: 0.0025)
+        FO5.colX(&m, prof, x0: -L / 2, x1: L / 2, coat, bevel: 0.0025)
 
         // Slot interior: dark void, brush seals on both lips, curtain emerging as a slatted strip.
         FJ.slab(&m, V3(L - 0.02, 0.001, slotZ1 - slotZ0 - 0.004), V3(0, yb + slotDepth - 0.0005, (slotZ0 + slotZ1) / 2), "plastic.black")
@@ -71,7 +71,7 @@ public struct RollingShutterBoxAluminum: RealAsset {
         // End caps: plate of the same section, fixing screws, rounded plastic shoulder.
         for e: Float in [-1, 1] {
             let x0 = e > 0 ? L / 2 : -L / 2 - capT, x1 = e > 0 ? L / 2 + capT : -L / 2
-            FO.colX(&m, prof.map { V2($0.x, $0.y) }, x0: x0, x1: x1, alu, bevel: 0.0014)
+            FO5.colX(&m, prof.map { V2($0.x, $0.y) }, x0: x0, x1: x1, alu, bevel: 0.0014)
             let xs = e * (L / 2 + capT)
             for (z, y) in [(0.03, yb + 0.03), (0.03, yt - 0.03), (D - 0.03, yb + 0.04), (D - 0.1, yt - 0.03)] as [(Float, Float)] {
                 m.add(Prim.cylinder(radius: 0.0055, height: 0.0028, bevel: 0.0009, segments: 8, bevelSegments: 1, material: "metal.screw-zinc"),

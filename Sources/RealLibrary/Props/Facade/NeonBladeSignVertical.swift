@@ -39,11 +39,11 @@ public struct NeonBladeSignVertical: RealAsset {
 
         // Cabinet can with returns, a seam line and rolled rim; face panel and border band on the front.
         FA.box(&m, V3(cw, ch, depth), V3(0, cy, zc0 + depth / 2), can, r: 0.008)
-        FO.slab(&m, cw - 0.012, ch - 0.012, 0.006, V3(0, cy, zFace + 0.002), face, bevel: 0.0015)
+        FO8.slab(&m, cw - 0.012, ch - 0.012, 0.006, V3(0, cy, zFace + 0.002), face, bevel: 0.0015)
         let bw: Float = 0.026
-        FO.slab(&m, cw - 0.012, bw, 0.004, V3(0, y0 + ch - 0.006 - bw / 2, zFace + 0.0055), "metal.painted:A82E26", bevel: 0.001)
-        FO.slab(&m, cw - 0.012, bw, 0.004, V3(0, y0 + 0.006 + bw / 2, zFace + 0.0055), "metal.painted:A82E26", bevel: 0.001)
-        for s: Float in [-1, 1] { FO.slab(&m, bw, ch - 0.012 - 2 * bw, 0.004, V3(s * (cw / 2 - 0.006 - bw / 2), cy, zFace + 0.0055), "metal.painted:A82E26", bevel: 0.001) }
+        FO8.slab(&m, cw - 0.012, bw, 0.004, V3(0, y0 + ch - 0.006 - bw / 2, zFace + 0.0055), "metal.painted:A82E26", bevel: 0.001)
+        FO8.slab(&m, cw - 0.012, bw, 0.004, V3(0, y0 + 0.006 + bw / 2, zFace + 0.0055), "metal.painted:A82E26", bevel: 0.001)
+        for s: Float in [-1, 1] { FO8.slab(&m, bw, ch - 0.012 - 2 * bw, 0.004, V3(s * (cw / 2 - 0.006 - bw / 2), cy, zFace + 0.0055), "metal.painted:A82E26", bevel: 0.001) }
         // Spot-welded seam rivets down the sides of the face.
         for s: Float in [-1, 1] {
             var ry = y0 + 0.07
@@ -58,14 +58,14 @@ public struct NeonBladeSignVertical: RealAsset {
             for y in [y0 + 0.1, y0 + ch - 0.1] {
                 FA.box(&m, V3(0.055, 0.075, 0.008), V3(s * (cw / 2 + 0.0275), y, 0.046), can, r: 0.002)
                 hexBolt(&m, at: V3(s * (cw / 2 + 0.03), y, 0.05), normal: FA.Z, size: 0.014, material: rust)
-                FO.slab(&m, 0.012, 0.09, 0.0016, V3(s * (cw / 2 + 0.034), y - 0.08, 0.0502), "metal.rust:7A4A2E", bevel: 0.0004)
+                FO8.slab(&m, 0.012, 0.09, 0.0016, V3(s * (cw / 2 + 0.034), y - 0.08, 0.0502), "metal.rust:7A4A2E", bevel: 0.0004)
             }
         }
 
         // Rooftop transformer: gray steel box with louvres, high-voltage boots, EMT conduit to the wall.
         let tx: Float = -0.06, ty = y0 + ch + 0.07
         FA.box(&m, V3(0.22, 0.14, 0.09), V3(tx, ty, 0.1), "metal.painted:6C706B", r: 0.004)
-        for i in 0..<5 { FO.slab(&m, 0.16, 0.005, 0.003, V3(tx, ty - 0.04 + Float(i) * 0.02, 0.1 + 0.0465), "metal.painted:3C3F3C", bevel: 0.0008) }
+        for i in 0..<5 { FO8.slab(&m, 0.16, 0.005, 0.003, V3(tx, ty - 0.04 + Float(i) * 0.02, 0.1 + 0.0465), "metal.painted:3C3F3C", bevel: 0.0008) }
         for dx: Float in [-0.07, 0.07] {
             m.add(Prim.lathe([V2(0, 0), V2(0.012, 0), V2(0.01, 0.02), V2(0.005, 0.03), V2(0, 0.03)], segments: 8, seamTile: 0.05, material: "rubber.insulating-black"),
                   Xform(translation: V3(tx + dx, ty - 0.07 - 0.0, 0.1), rotation: FA.q(180, FA.X)))
@@ -98,7 +98,7 @@ public struct NeonBladeSignVertical: RealAsset {
         let word: [Character] = ["H", "O", "T", "E", "L"]
         for (i, ch0) in word.enumerated() {
             let c = V2(0, 1.5 - Float(i) * 0.3 + 0.0)
-            FO.slab(&m, 0.25, 0.31, 0.012, V3(c.x, c.y, zFace + 0.0085), "metal.painted:191B1D", bevel: 0.002)
+            FO8.slab(&m, 0.25, 0.31, 0.012, V3(c.x, c.y, zFace + 0.0085), "metal.painted:191B1D", bevel: 0.002)
             switch ch0 {
             case "H":
                 tube([V2(-0.08, -0.12), V2(-0.08, 0.12)], letters, at: c)
@@ -133,14 +133,14 @@ public struct NeonBladeSignVertical: RealAsset {
         // Wear: chipped enamel on the face, rust runs under the bolts and at the can seams, grime along the bottom edge.
         for _ in 0..<12 {
             let wx = rng.float(-cw / 2 + 0.04...cw / 2 - 0.04), wy = rng.float(y0 + 0.05...y0 + ch - 0.05)
-            FO.slab(&m, rng.float(0.008...0.03), rng.float(0.006...0.02), 0.0012, V3(wx, wy, zFace + 0.0053), rng.chance(0.5) ? "metal.painted:6A6354" : "metal.rust:8A5636", bevel: 0.0003)
+            FO8.slab(&m, rng.float(0.008...0.03), rng.float(0.006...0.02), 0.0012, V3(wx, wy, zFace + 0.0053), rng.chance(0.5) ? "metal.painted:6A6354" : "metal.rust:8A5636", bevel: 0.0003)
         }
         for _ in 0..<5 {
             let wx = rng.float(-cw / 2 + 0.05...cw / 2 - 0.05)
-            FO.slab(&m, rng.float(0.01...0.02), rng.float(0.06...0.16), 0.0012, V3(wx, y0 + 0.12 + rng.float(0...0.08), zFace + 0.0053), "metal.painted:8C7C62", bevel: 0.0003)
+            FO8.slab(&m, rng.float(0.01...0.02), rng.float(0.06...0.16), 0.0012, V3(wx, y0 + 0.12 + rng.float(0...0.08), zFace + 0.0053), "metal.painted:8C7C62", bevel: 0.0003)
         }
-        FO.slab(&m, cw - 0.03, 0.028, 0.0012, V3(0, y0 + 0.04, zFace + 0.0053), "metal.painted:70675A", bevel: 0.0003)
-        for s: Float in [-1, 1] { FO.slab(&m, 0.01, ch * 0.5, 0.0012, V3(s * (cw / 2 + 0.0002), cy - ch * 0.2, zc0 + depth * 0.5), "metal.rust:7A4A2E", bevel: 0.0003) }
+        FO8.slab(&m, cw - 0.03, 0.028, 0.0012, V3(0, y0 + 0.04, zFace + 0.0053), "metal.painted:70675A", bevel: 0.0003)
+        for s: Float in [-1, 1] { FO8.slab(&m, 0.01, ch * 0.5, 0.0012, V3(s * (cw / 2 + 0.0002), cy - ch * 0.2, zc0 + depth * 0.5), "metal.rust:7A4A2E", bevel: 0.0003) }
 
         groundAO(&m, height: 0.1, floor: 0.88)
         return LODModel(FC.place(m))

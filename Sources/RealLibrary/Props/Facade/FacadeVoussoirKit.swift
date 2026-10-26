@@ -3,7 +3,7 @@ import Foundation
 
 /// Helpers for the o7 facade batch (arched heads, block runs). Same frame as `FA`: wall plane at z = 0,
 /// piece projecting toward +Z.
-enum FO {
+enum FO7 {
     /// Wedge-shaped blocks around centre `c` (x, y), angles in degrees `a0...a1` (counter-clockwise), radii
     /// `rIn...rOut`, extruded `depth` along Z from `z0`. Each block is a separate beveled solid with a joint gap.
     static func voussoirs(_ m: inout Model, c: V2, rIn: Float, rOut: Float, from a0: Float, to a1: Float, count: Int,

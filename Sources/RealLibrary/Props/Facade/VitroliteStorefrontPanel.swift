@@ -55,8 +55,8 @@ public struct VitroliteStorefrontPanel: RealAsset {
             let cy = field0 + (Float(r) + 0.5) * rowH
             for g in 0..<3 {
                 let yl = cy + (Float(g) - 1) * 0.034
-                FO.slab(&m, W - 0.1, 0.006, 0.0014, V3(0, yl, 0.0327), steel, bevel: 0.0005)
-                FO.slab(&m, W - 0.1, 0.0025, 0.0012, V3(0, yl - 0.0065, 0.0326), "metal.painted:070C0A", bevel: 0.0003)
+                FO8.slab(&m, W - 0.1, 0.006, 0.0014, V3(0, yl, 0.0327), steel, bevel: 0.0005)
+                FO8.slab(&m, W - 0.1, 0.0025, 0.0012, V3(0, yl - 0.0065, 0.0326), "metal.painted:070C0A", bevel: 0.0003)
             }
         }
 
@@ -83,7 +83,7 @@ public struct VitroliteStorefrontPanel: RealAsset {
         }
         // Mastic squeeze-out lines along the vertical reveal.
         for s: Float in [-1, 1] {
-            FO.slab(&m, 0.004, field1 - field0 - 0.01, 0.002, V3(s * (strip / 2 + 0.002), (field0 + field1) / 2, 0.0326), "metal.painted:1A1A18", bevel: 0.0005)
+            FO8.slab(&m, 0.004, field1 - field0 - 0.01, 0.002, V3(s * (strip / 2 + 0.002), (field0 + field1) / 2, 0.0326), "metal.painted:1A1A18", bevel: 0.0005)
         }
 
         // Brass screw caps along every reveal: domed, 0.2 m apart.
@@ -128,16 +128,16 @@ public struct VitroliteStorefrontPanel: RealAsset {
         // Wear on the lowest row and kick: water staining, lime deposits, rust runs, grime at the base.
         for _ in 0..<7 {
             let sx = rng.float(-W / 2 + 0.06...W / 2 - 0.06)
-            FO.slab(&m, rng.float(0.01...0.03), rng.float(0.04...0.16), 0.0012, V3(sx, field0 + rng.float(0.04...0.2), 0.0329), "glass.emerald:0F2A1E", bevel: 0.0003)
+            FO8.slab(&m, rng.float(0.01...0.03), rng.float(0.04...0.16), 0.0012, V3(sx, field0 + rng.float(0.04...0.2), 0.0329), "glass.emerald:0F2A1E", bevel: 0.0003)
         }
         for _ in 0..<9 {
             let sx = rng.float(-W / 2 + 0.06...W / 2 - 0.06)
-            FO.slab(&m, rng.float(0.03...0.09), rng.float(0.005...0.014), 0.0012, V3(sx, field0 + rng.float(0.01...0.1), 0.0331), "metal.painted:C9D2CC", bevel: 0.0003)
+            FO8.slab(&m, rng.float(0.03...0.09), rng.float(0.005...0.014), 0.0012, V3(sx, field0 + rng.float(0.01...0.1), 0.0331), "metal.painted:C9D2CC", bevel: 0.0003)
         }
         for sx: Float in [0.1, 0.3, 0.5] {
-            FO.slab(&m, 0.008, 0.07, 0.0012, V3(sx + 0.004, 0.035, 0.0407), "metal.rust:7A4A2E", bevel: 0.0003)
+            FO8.slab(&m, 0.008, 0.07, 0.0012, V3(sx + 0.004, 0.035, 0.0407), "metal.rust:7A4A2E", bevel: 0.0003)
         }
-        FO.slab(&m, W - 0.04, 0.02, 0.0012, V3(0, 0.012, 0.0409), "metal.painted:4B473F", bevel: 0.0004)
+        FO8.slab(&m, W - 0.04, 0.02, 0.0012, V3(0, 0.012, 0.0409), "metal.painted:4B473F", bevel: 0.0004)
 
         groundAO(&m, height: 0.12, floor: 0.85)
         return LODModel(FC.place(m))

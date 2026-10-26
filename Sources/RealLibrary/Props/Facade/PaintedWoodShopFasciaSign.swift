@@ -76,8 +76,8 @@ public struct PaintedWoodShopFasciaSign: RealAsset {
         let total = Float(text.count) * (w + gap) - gap - 0.05
         let x0 = -total / 2
         var rs = rng.fork(7)
-        FO.letters(&m, text, x0: x0 + 0.005, y0: 0.5 * (py0 + py1) - h / 2 - 0.005, height: h, width: w, gap: gap, stroke: st, depth: 0.004, z: bz - 0.001, "wood.painted-exterior:0B1A12", rng: &rs, loss: 0, cheap: true)
-        FO.letters(&m, text, x0: x0, y0: 0.5 * (py0 + py1) - h / 2, height: h, width: w, gap: gap, stroke: st, depth: 0.007, z: bz - 0.001, gilt, rng: &rng, loss: lite ? 0 : 0.03, cheap: true, bevel: 0.0007)
+        FO9.letters(&m, text, x0: x0 + 0.005, y0: 0.5 * (py0 + py1) - h / 2 - 0.005, height: h, width: w, gap: gap, stroke: st, depth: 0.004, z: bz - 0.001, "wood.painted-exterior:0B1A12", rng: &rs, loss: 0, cheap: true)
+        FO9.letters(&m, text, x0: x0, y0: 0.5 * (py0 + py1) - h / 2, height: h, width: w, gap: gap, stroke: st, depth: 0.007, z: bz - 0.001, gilt, rng: &rng, loss: lite ? 0 : 0.03, cheap: true, bevel: 0.0007)
         // Gilt rosette bosses at each end of the field.
         for s: Float in [-1, 1] {
             let c = V3(s * (px - 0.07), 0.5 * (py0 + py1), bz)
@@ -109,11 +109,11 @@ public struct PaintedWoodShopFasciaSign: RealAsset {
         if !lite {
             for k in 0..<7 {
                 let x = -1.2 + Float(k) * 0.4
-                FO.head(&m, at: V3(x, 0.075, bz), r: 0.0065, h: 0.0035, brass)
+                FO9.head(&m, at: V3(x, 0.075, bz), r: 0.0065, h: 0.0035, brass)
                 FA.box(&m, V3(0.009, 0.0016, 0.0012), V3(x, 0.075, bz + 0.0038), board, r: 0.0003, rot: FA.q(Float(rng.int(0...3)) * 40, FA.Z))
             }
             for k in 0..<5 {
-                FO.head(&m, at: V3(-1.15 + Float(k) * 0.575, 0.385, bz), r: 0.0065, h: 0.0035, brass)
+                FO9.head(&m, at: V3(-1.15 + Float(k) * 0.575, 0.385, bz), r: 0.0065, h: 0.0035, brass)
             }
         }
         // Iron eye plates on the skirt for hanging a flower basket, with ring.
@@ -121,24 +121,24 @@ public struct PaintedWoodShopFasciaSign: RealAsset {
             let c = V3(s * 0.9, 0.024, 0.0505)
             FA.box(&m, V3(0.05, 0.034, 0.004), V3(c.x, c.y, 0.049), iron, r: 0.0015)
             m.add(Prim.torus(major: 0.011, minor: 0.0028, segments: lite ? 8 : 14, sides: 5, material: iron), Xform(translation: V3(c.x, c.y, 0.0535), rotation: FA.q(90, FA.X)))
-            FO.head(&m, at: V3(c.x - 0.017, c.y, 0.0505), r: 0.0042, h: 0.0024, iron)
-            FO.head(&m, at: V3(c.x + 0.017, c.y, 0.0505), r: 0.0042, h: 0.0024, iron)
+            FO9.head(&m, at: V3(c.x - 0.017, c.y, 0.0505), r: 0.0042, h: 0.0024, iron)
+            FO9.head(&m, at: V3(c.x + 0.017, c.y, 0.0505), r: 0.0042, h: 0.0024, iron)
         }
         // Weathering.
         if !lite {
             // Flaked paint along the cornice top and the board foot, exposing bare timber.
-            for _ in 0..<9 { FO.patchTop(&m, cx: rng.float(-1.4...1.4), cz: rng.float(0.01...0.045), rx: rng.float(0.02...0.09), rz: rng.float(0.006...0.014), y: 0.5001, bare, rng: &rng) }
-            for _ in 0..<7 { FO.patchTop(&m, cx: rng.float(-1.4...1.4), cz: rng.float(0.01...0.03), rx: rng.float(0.02...0.08), rz: rng.float(0.006...0.012), y: 0.0001 + 0.05, bare, rng: &rng) }
-            for _ in 0..<6 { FO.patch(&m, cx: rng.float(-1.38...1.38), cy: rng.float(0.052...0.075), rx: rng.float(0.01...0.04), ry: rng.float(0.003...0.008), z: bz + 0.0004, bare, rng: &rng) }
+            for _ in 0..<9 { FO9.patchTop(&m, cx: rng.float(-1.4...1.4), cz: rng.float(0.01...0.045), rx: rng.float(0.02...0.09), rz: rng.float(0.006...0.014), y: 0.5001, bare, rng: &rng) }
+            for _ in 0..<7 { FO9.patchTop(&m, cx: rng.float(-1.4...1.4), cz: rng.float(0.01...0.03), rx: rng.float(0.02...0.08), rz: rng.float(0.006...0.012), y: 0.0001 + 0.05, bare, rng: &rng) }
+            for _ in 0..<6 { FO9.patch(&m, cx: rng.float(-1.38...1.38), cy: rng.float(0.052...0.075), rx: rng.float(0.01...0.04), ry: rng.float(0.003...0.008), z: bz + 0.0004, bare, rng: &rng) }
             // Rust streaks below the eye plate bolts.
             for s: Float in [-1, 1] { FA.box(&m, V3(0.005, 0.02, 0.0012), V3(s * 0.9 + s * 0.017, 0.006, 0.0512), rust, r: 0.0004) }
             // Dirt wash under the cornice and rain runs down the board from the screws.
-            for _ in 0..<12 { FO.patch(&m, cx: rng.float(-1.4...1.4), cy: rng.float(0.34...0.385), rx: rng.float(0.05...0.2), ry: rng.float(0.006...0.02), z: bz + 0.0003, "wood.painted-exterior:10241A", rng: &rng, depth: 0.0004) }
-            for k in 0..<5 { FO.patch(&m, cx: -1.15 + Float(k) * 0.575 + rng.float(-0.02...0.02), cy: 0.33, rx: 0.004, ry: rng.float(0.02...0.05), z: bz + 0.0003, "wood.painted-exterior:0E1D15", rng: &rng, depth: 0.0004, n: 6) }
+            for _ in 0..<12 { FO9.patch(&m, cx: rng.float(-1.4...1.4), cy: rng.float(0.34...0.385), rx: rng.float(0.05...0.2), ry: rng.float(0.006...0.02), z: bz + 0.0003, "wood.painted-exterior:10241A", rng: &rng, depth: 0.0004) }
+            for k in 0..<5 { FO9.patch(&m, cx: -1.15 + Float(k) * 0.575 + rng.float(-0.02...0.02), cy: 0.33, rx: 0.004, ry: rng.float(0.02...0.05), z: bz + 0.0003, "wood.painted-exterior:0E1D15", rng: &rng, depth: 0.0004, n: 6) }
             // Flaked paint on the panel moulding and console edges.
-            for _ in 0..<10 { FO.patch(&m, cx: rng.float(-1.3...1.3), cy: rng.pick([0.087, 0.368]), rx: rng.float(0.01...0.04), ry: 0.004, z: bz + 0.0138, bare, rng: &rng, depth: 0.0004, n: 7) }
+            for _ in 0..<10 { FO9.patch(&m, cx: rng.float(-1.3...1.3), cy: rng.pick([0.087, 0.368]), rx: rng.float(0.01...0.04), ry: 0.004, z: bz + 0.0138, bare, rng: &rng, depth: 0.0004, n: 7) }
             // Lighter sun-faded wash patch on the board between letters and panel edge.
-            FO.patch(&m, cx: -1.0, cy: 0.33, rx: 0.2, ry: 0.015, z: bz + 0.0003, faded, rng: &rng, depth: 0.0004)
+            FO9.patch(&m, cx: -1.0, cy: 0.33, rx: 0.2, ry: 0.015, z: bz + 0.0003, faded, rng: &rng, depth: 0.0004)
         }
         groundAO(&m, height: 0.12, floor: 0.9)
         return FC.place(m)

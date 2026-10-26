@@ -113,18 +113,18 @@ public struct VictorianShopfrontPilasterConsole: RealAsset {
         // Fixings: brass screw heads in the plinth panel and shaft fillets, one rusted.
         if !lite {
             for (i, p) in [V3(-0.1, 0.4, 0.0585), V3(0.1, 0.4, 0.0585), V3(-0.1, 2.095, 0.0585), V3(0.1, 2.095, 0.0585), V3(0, 0.2, 0.0875), V3(0.07, 0.065, 0.0775)].enumerated() {
-                FO.head(&m, at: p, r: 0.0055, h: 0.0035, i == 4 ? rust : brass)
+                FO9.head(&m, at: p, r: 0.0055, h: 0.0035, i == 4 ? rust : brass)
             }
             // Wear: grime on the plinth, flaked paint on the reeds near knee height and the mouldings.
-            for _ in 0..<7 { FO.patch(&m, cx: rng.float(-0.13...0.13), cy: rng.float(0.01...0.2), rx: rng.float(0.01...0.05), ry: rng.float(0.015...0.06), z: 0.0753, grime, rng: &rng, depth: 0.0005) }
-            for _ in 0..<8 { FO.patch(&m, cx: rng.float(-0.1...0.1), cy: rng.float(0.5...1.1), rx: rng.float(0.004...0.012), ry: rng.float(0.01...0.05), z: 0.0535, bare, rng: &rng, depth: 0.0006, n: 7) }
-            for _ in 0..<5 { FO.patch(&m, cx: rng.float(-0.12...0.12), cy: rng.float(0.065...0.075), rx: rng.float(0.01...0.04), ry: 0.01, z: 0.0752, bare, rng: &rng, depth: 0.0005) }
-            for _ in 0..<5 { FO.patchTop(&m, cx: rng.float(-0.12...0.12), cz: rng.float(0.1...0.18), rx: rng.float(0.01...0.04), rz: rng.float(0.01...0.03), y: 2.8001, bare, rng: &rng, depth: 0.0006) }
+            for _ in 0..<7 { FO9.patch(&m, cx: rng.float(-0.13...0.13), cy: rng.float(0.01...0.2), rx: rng.float(0.01...0.05), ry: rng.float(0.015...0.06), z: 0.0753, grime, rng: &rng, depth: 0.0005) }
+            for _ in 0..<8 { FO9.patch(&m, cx: rng.float(-0.1...0.1), cy: rng.float(0.5...1.1), rx: rng.float(0.004...0.012), ry: rng.float(0.01...0.05), z: 0.0535, bare, rng: &rng, depth: 0.0006, n: 7) }
+            for _ in 0..<5 { FO9.patch(&m, cx: rng.float(-0.12...0.12), cy: rng.float(0.065...0.075), rx: rng.float(0.01...0.04), ry: 0.01, z: 0.0752, bare, rng: &rng, depth: 0.0005) }
+            for _ in 0..<5 { FO9.patchTop(&m, cx: rng.float(-0.12...0.12), cz: rng.float(0.1...0.18), rx: rng.float(0.01...0.04), rz: rng.float(0.01...0.03), y: 2.8001, bare, rng: &rng, depth: 0.0006) }
         }
         if !lite {
             // Rain streaks: dark vertical grime lines under the capital and light chalking on the reed crests.
-            for k in 0..<9 { FO.patch(&m, cx: (Float(k) - 4) * 0.0225 + rng.float(-0.003...0.003), cy: 2.0 - rng.float(0...0.12), rx: 0.0025, ry: rng.float(0.05...0.2), z: 0.0536, grime, rng: &rng, depth: 0.0004, n: 6) }
-            for _ in 0..<6 { FO.patch(&m, cx: rng.float(-0.1...0.1), cy: rng.float(0.4...0.9), rx: rng.float(0.02...0.05), ry: rng.float(0.05...0.15), z: 0.0537, grime, rng: &rng, depth: 0.0003) }
+            for k in 0..<9 { FO9.patch(&m, cx: (Float(k) - 4) * 0.0225 + rng.float(-0.003...0.003), cy: 2.0 - rng.float(0...0.12), rx: 0.0025, ry: rng.float(0.05...0.2), z: 0.0536, grime, rng: &rng, depth: 0.0004, n: 6) }
+            for _ in 0..<6 { FO9.patch(&m, cx: rng.float(-0.1...0.1), cy: rng.float(0.4...0.9), rx: rng.float(0.02...0.05), ry: rng.float(0.05...0.15), z: 0.0537, grime, rng: &rng, depth: 0.0003) }
         }
         groundAO(&m, height: 0.3, floor: 0.8)
         return FC.place(m)

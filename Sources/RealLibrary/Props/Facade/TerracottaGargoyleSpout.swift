@@ -124,7 +124,7 @@ public struct TerracottaGargoyleSpout: RealAsset {
         // Folded bat wings: scalloped membrane between three finger tips, finger ribs and a leading bone.
         let wingPts: [(Float, Float)] = [(0.30, 0.30), (0.34, 0.42), (0.28, 0.53), (0.07, 0.50), (0.14, 0.43), (0.04, 0.36),
                                          (0.12, 0.30), (0.09, 0.22), (0.19, 0.265), (0.28, 0.25)]
-        let wingOutline = FO.ccw(Shape2D.deduped(wingPts.map { V2(-$0.0, $0.1 - 0.38) }))
+        let wingOutline = FO7.ccw(Shape2D.deduped(wingPts.map { V2(-$0.0, $0.1 - 0.38) }))
         for s: Float in [-1, 1] {
             let x = s * 0.112
             m.add(Prim.extrude(wingOutline, depth: 0.016, bevel: 0.0045, bevelSegments: 1, material: tones[s > 0 ? 3 : 1]),
@@ -144,12 +144,12 @@ public struct TerracottaGargoyleSpout: RealAsset {
 
         // Flat iron strap hugging the shoulders, bent to the body and bolted to the slab through foot plates.
         var strap: [V3] = [V3(0.126, 0.1, 0.37)]
-        strap += FO.ellipse(c: V2(0, 0.275), rx: 0.126, ry: 0.125, from: 0, to: 180, steps: 14, z: 0.37).dropFirst().dropLast().map { $0 }
+        strap += FO7.ellipse(c: V2(0, 0.275), rx: 0.126, ry: 0.125, from: 0, to: 180, steps: 14, z: 0.37).dropFirst().dropLast().map { $0 }
         strap += [V3(-0.126, 0.1, 0.37)]
         strap.insert(V3(0.126, 0.275, 0.37), at: 1)
         strap.insert(V3(-0.126, 0.275, 0.37), at: strap.count - 1)
         let band: [V2] = [V2(-0.016, 0), V2(0.016, 0), V2(0.016, 0.007), V2(-0.016, 0.007)]
-        m.add(Prim.sweep(FO.ccw(band), along: strap, up: V3(0, 0, 1), material: iron))
+        m.add(Prim.sweep(FO7.ccw(band), along: strap, up: V3(0, 0, 1), material: iron))
         for sg: Float in [-1, 1] {
             FA.box(&m, V3(0.04, 0.008, 0.05), V3(sg * 0.128, 0.104, 0.37), iron, r: 0.002)
             FA.cylZ(&m, r: 0.008, h: 0.006, at: V3(sg * 0.128, 0.104, 0.37), iron, bevel: 0.001, segments: 6)
