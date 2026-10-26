@@ -1,0 +1,36 @@
+{
+  "budget": 14000,
+  "id": "cast-iron-boot-scraper",
+  "kind": "prop",
+  "materials": [
+    "metal.cast-iron",
+    "metal.rust",
+    "metal.painted"
+  ],
+  "name": "Cast iron boot scraper",
+  "notes": "",
+  "parts": [
+    "scraper blade",
+    "side scrolls",
+    "base plate",
+    "brush slot",
+    "mounting bolts"
+  ],
+  "references": [],
+  "size": [
+    0.4,
+    0.3,
+    0.15
+  ],
+  "style": "architectural facade customizer, Victorian",
+  "summary": "Victorian cast iron boot scraper, 0.4 m: scrolled standards, sharpened blade, bristle brushes, bolted base plate.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
