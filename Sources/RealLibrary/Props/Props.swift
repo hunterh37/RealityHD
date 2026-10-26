@@ -1173,6 +1173,7 @@ public enum Props {
         PlanterBarrierConcrete.self,
         BikeHoopRack.self,
         WayfindingPylon.self,
+        CascadiaCabInterior.self,
         // realityhd:prop
     ]
 }
