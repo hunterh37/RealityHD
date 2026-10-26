@@ -1,0 +1,44 @@
+{
+  "budget": 15000,
+  "id": "serliana-loggia-bay",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.sandstone",
+    "stone.limestone-sooted",
+    "stone.marble-honed"
+  ],
+  "name": "Serliana loggia bay",
+  "notes": "",
+  "parts": [
+    "central round arch",
+    "two flanking lintelled openings",
+    "four piers",
+    "Tuscan capitals and imposts",
+    "archivolt with voussoirs",
+    "keystone",
+    "entablature",
+    "balustrade with turned balusters",
+    "plinth",
+    "spandrel roundels"
+  ],
+  "references": [],
+  "size": [
+    3.0,
+    3.0,
+    0.4
+  ],
+  "style": "architectural facade customizer, Renaissance",
+  "summary": "Renaissance Serliana (Palladian) loggia bay, 3.0 m: central arch flanked by two lintelled openings, four piers with Tuscan capitals, archivolt, entablature, balustrade.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "stone",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

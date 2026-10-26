@@ -1,0 +1,45 @@
+{
+  "budget": 15000,
+  "id": "lancet-triple-window",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "glass.tinted",
+    "metal.wrought-iron",
+    "metal.copper-patina"
+  ],
+  "name": "Lancet triple window",
+  "notes": "",
+  "parts": [
+    "three pointed lancets",
+    "taller centre light",
+    "nook shafts",
+    "moulded capitals and bases",
+    "hood mould",
+    "label stops",
+    "chamfered reveals",
+    "leaded glazing with saddle bars",
+    "stone sill with drip",
+    "ashlar jamb joints"
+  ],
+  "references": [],
+  "size": [
+    1.8,
+    2.8,
+    0.3
+  ],
+  "style": "architectural facade customizer, Early English Gothic",
+  "summary": "Early English Gothic triple lancet window, 1.8 m: three pointed lights, taller centre, nook shafts with moulded capitals, hood mould with label stops, leaded glazing, sloped sill.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "stone",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

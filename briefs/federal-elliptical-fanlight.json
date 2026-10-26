@@ -1,0 +1,43 @@
+{
+  "budget": 10000,
+  "id": "federal-elliptical-fanlight",
+  "kind": "prop",
+  "materials": [
+    "wood.barn-white",
+    "wood.painted-exterior",
+    "glass.tinted",
+    "metal.brass-aged",
+    "stone.sandstone"
+  ],
+  "name": "Federal elliptical fanlight",
+  "notes": "",
+  "parts": [
+    "half-ellipse frame",
+    "radiating bars",
+    "concentric web arcs",
+    "central fan",
+    "beaded surround",
+    "moulded impost bar",
+    "glass lights",
+    "keystone block",
+    "end blocks with patera"
+  ],
+  "references": [],
+  "size": [
+    1.6,
+    0.8,
+    0.15
+  ],
+  "style": "architectural facade customizer, Federal",
+  "summary": "Federal elliptical fanlight, 1.6 m: half-ellipse frame with fan and web tracery of lead-came style bars, beaded surround, central keystone fan, impost, glazing.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
