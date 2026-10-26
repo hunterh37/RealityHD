@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 5.14.0
+
+- `cascadia-cab-interior` articulated Freightliner Cascadia driver area; `rural-highway-tile` 12 m two-lane rural highway cell.
+
 ## 5.13.0
 
 - Fix: `RealityHD.setup` compiles texture-synthesis shaders off the main thread (`TextureSynth.warmUp()`).
