@@ -133,7 +133,7 @@ public enum FaunaMaterials {
     // MARK: ground animals
 
     public enum GroundRegion: String, CaseIterable, Sendable {
-        case body, head, tail, ear, nose, eye, claw, whisker, quill, antler, hoof, muzzle, throat, rump, mane, bristle, pinna, lid, shell, tailShell, limb, headShell
+        case body, head, tail, ear, nose, eye, claw, whisker, quill, antler, hoof, muzzle, throat, rump, mane, bristle, pinna, lid, shell, tailShell, limb, headShell, limbShell
     }
 
     public static func key(_ id: String, _ r: GroundRegion) -> MaterialKey { "fauna.\(id).\(r.rawValue)" }
@@ -172,14 +172,21 @@ public enum FaunaMaterials {
             },
             make(.limb, .furCoat) {
                 // Leg coat: body coat program, finer strands, no shells (thin limbs show shell layering).
-                $0.colorA = linear(c.back); $0.colorB = linear(c.belly); $0.colorC = linear(c.accent)
-                $0.knobs = V4(c.strands * 1.4, c.flankLine, c.pattern * 0.5, c.fuzz)
+                let dog = p.anatomy.earDrop >= 0 && GroundSpecies.dogs.contains(p.species)
+                $0.colorA = linear(dog ? c.belly : c.back); $0.colorB = linear(c.belly); $0.colorC = linear(c.accent)
+                $0.knobs = V4(c.strands * 1.4, dog ? 1.2 : c.flankLine, c.pattern * 0.5, c.fuzz)
                 $0.tileSize = 0; $0.resolution = 512; $0.normalStrength = 1.0; $0.roughness = 0.92
             },
             make(.shell, .furShell) {
                 // Shell fur over the coat: back/belly split, pale guard-hair tips.
                 $0.colorA = linear(c.back); $0.colorB = linear(c.belly); $0.colorC = linear(c.belly)
                 $0.knobs = V4(c.strands, c.flankLine, 0.55, 0.3)
+                $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 0.4; $0.roughness = 0.86; $0.mode = .cutout
+            },
+            make(.limbShell, .furShell) {
+                // Dog leg fur: one coat colour all round (the back/belly split reads as stripes on a cylinder).
+                $0.colorA = linear(c.belly); $0.colorB = linear(c.belly); $0.colorC = linear(c.accent)
+                $0.knobs = V4(c.strands, 1.2, 0.5, 0.25)
                 $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 0.4; $0.roughness = 0.86; $0.mode = .cutout
             },
             make(.headShell, .furShell) {

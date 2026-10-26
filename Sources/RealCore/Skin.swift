@@ -5,6 +5,7 @@ import simd
 public struct SkinInfluence: Sendable, Equatable {
     public var joints: SIMD4<UInt16>
     public var weights: SIMD4<Float>
+    public init(joints: SIMD4<UInt16>, weights: SIMD4<Float>) { self.joints = joints; self.weights = weights }
 }
 
 /// One continuous skinned mesh baked from a rig: skeleton joint 0 is the root, joint i + 1 is part i.
@@ -17,6 +18,10 @@ public struct Skin: Sendable {
     public var surfaces: [Surface]
     public var influences: [[SkinInfluence]]
     public var triangleCount: Int { surfaces.reduce(0) { $0 + $1.triangleCount } }
+    public init(jointNames: [String], parents: [Int], restLocal: [Xform], inverseBind: [simd_float4x4], surfaces: [Surface], influences: [[SkinInfluence]]) {
+        self.jointNames = jointNames; self.parents = parents; self.restLocal = restLocal
+        self.inverseBind = inverseBind; self.surfaces = surfaces; self.influences = influences
+    }
 }
 
 public extension Skin {
@@ -97,6 +102,7 @@ public extension Rig {
             for s in m.surfaces where !s.isEmpty && include(s.material) {
                 let cands = [own] + (own == 0 ? [] : [parents[own]]) + children[own]
                 let soft = blend(s.material)
+                if s.skinWeights.count == s.vertexCount { surfaces.append(s); infl.append(s.skinWeights); continue }
                 var out: [SkinInfluence] = []
                 out.reserveCapacity(s.vertexCount)
                 for p in s.positions {

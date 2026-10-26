@@ -125,7 +125,7 @@ public enum GroundRigBuilder {
         let tl = a.tailLength
         let tailSeg = tl / 3
         // Tail rest path: out from the rump, curling up for squirrels and chipmunks.
-        let curl: Float = p.species == .easternGraySquirrel ? 1 : (p.species == .easternChipmunk ? 0.75 : 0)
+        let curl: Float = p.species == .easternGraySquirrel ? 1 : (p.species == .easternChipmunk ? 0.75 : (p.species == .goldenRetriever ? 0.3 : 0))
         func tailPoint(_ i: Int) -> V3 {
             var pos = f.rump
             var ang = radians(-8 + a.pitch - a.tailDrop)
@@ -284,8 +284,9 @@ public enum GroundRigBuilder {
             rig.add(Loft.build(secs, segments: 20, vRange: 0.9...1.0, material: fur), to: GroundJoint.neckPitch.name)
         }
         let iT = a.throatFrom < 1 && !small ? max(2, min(NN - 3, Int(a.throatFrom * Float(NN - 1)))) : NN - 1
-        if !small { rig.add(Loft.build(neckSecs(0, iT), segments: 20, vRange: 0.9...1.0, material: limbFur), to: GroundJoint.neckPitch.name) }
-        if iT < NN - 1 {
+        let sdfDog = plan?.dog == true
+        if !small && !sdfDog { rig.add(Loft.build(neckSecs(0, iT), segments: 20, vRange: 0.9...1.0, material: limbFur), to: GroundJoint.neckPitch.name) }
+        if iT < NN - 1 && !sdfDog {
             rig.add(Loft.build(neckSecs(iT, NN - 1), segments: 20, vRange: 0.9...1.0, material: f.mat(.throat)), to: GroundJoint.neckPitch.name)
         }
         if a.maneDrop > 0 {
@@ -311,7 +312,8 @@ public enum GroundRigBuilder {
             hs.append(LoftSection(center: c, right: GroundFrame.X, up: GroundFrame.Y, halfWidth: 0.5 * a.headWidth * r,
                                   halfDorsal: kH * a.headHeight * 0.55 * r, halfVentral: kH * a.headHeight * 0.45 * r, exponent: 2.2))
         }
-        if p.palette.muzzle != nil {
+        if sdfDog {
+        } else if p.palette.muzzle != nil {
             // Skull in the face coat, snout in the muzzle coat from the cheek forward.
             let cut = 5
             rig.add(Loft.build(Array(hs[0...cut]), segments: 18, vRange: 0...0.62, material: f.mat(.head)), to: GroundJoint.headPitch.name)
@@ -326,7 +328,7 @@ public enum GroundRigBuilder {
         let jawS: Float = small ? 0.7 : 1
         let jawLoft = Loft.ellipsoid(center: jawC + (shaped ? gape + V3(0, 0, -0.14 * hl) : gape + V3(0.0, 0.0, -0.18 * hl * jawK)), axis: V3(0, 0, -1), up: GroundFrame.Y,
                                      radii: V3(0.2 * a.headWidth * (shaped ? 0.62 : 1), 0.07 * a.headHeight, (shaped ? 0.2 : 0.26 * jawK) * hl) * jawS, rings: 6, segments: 10, material: f.mat(p.palette.muzzle != nil ? .muzzle : .head), uv: { u, v in V2((small ? 0.32 : 0.5) + 0.1 * cos(u * 2 * .pi), 0.8) })
-        rig.add(jawLoft, to: GroundJoint.jaw.name)
+        if !sdfDog { rig.add(jawLoft, to: GroundJoint.jaw.name) }
         // Nose, eyes, lids.
         let nr = a.noseSize * a.headWidth
         let disc = a.snoutDisc
@@ -433,7 +435,8 @@ public enum GroundRigBuilder {
                 case .easternGraySquirrel: return tw * 0.5 * (0.8 + 0.4 * sin(.pi * min(1, t * 1.15)) - 0.15 * t)
                 case .easternChipmunk: return tw * 0.5 * (0.8 - 0.4 * t)
                 case .easternCottontail: return tw * 0.5 * sin(.pi * max(0.15, 1 - t * 0.8) * 0.9)
-                case .goldenRetriever, .germanShepherd: return tw * 0.5 * (1 - 0.8 * pow(t, 1.4))
+                case .goldenRetriever: return tw * 0.5 * (0.5 + 0.5 * sin(.pi * min(1, 0.2 + t * 0.95)) - 0.25 * t)
+                case .germanShepherd: return tw * 0.5 * (1 - 0.8 * pow(t, 1.4))
                 case .coyote: return tw * 0.5 * (0.55 + 0.45 * sin(.pi * min(1, t * 1.25)))
                 case .whitetailDeer: return tw * 0.5 * (0.7 + 0.3 * sin(.pi * min(1, t * 1.2)))
                 default: return tw * 0.5 * (1 - 0.5 * t)

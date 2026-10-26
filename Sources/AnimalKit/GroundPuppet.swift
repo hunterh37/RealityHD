@@ -121,13 +121,13 @@ public enum GroundFactory {
                 // One continuous skinned mesh; coat surfaces blend across joints.
                 let coat = [".body", ".head", ".tail", ".muzzle", ".throat", ".rump", ".limb"]
                 let isCoat: @Sendable (MaterialKey) -> Bool = { k in coat.contains { k.hasSuffix($0) } }
-                let id = s.rawValue, tw = profile.anatomy.tailWidth
+                let id = s.rawValue, tw = profile.anatomy.tailWidth, dog = GroundSpecies.dogs.contains(s)
                 let skin = await Task.detached(priority: .userInitiated) {
                     built.rig.skin(blend: isCoat, include: isCoat).withShells(count: GroundFactory.shellCount) { k in
                         if k.hasSuffix(".tail") { return ("fauna.\(id).tailShell", tw * 0.32) }
-                        if k.hasSuffix(".limb") { return ("fauna.\(id).shell", 0.0018) }
-                        if k.hasSuffix(".body") { return ("fauna.\(id).shell", 0.0045) }
-                        if k.hasSuffix(".head") || k.hasSuffix(".muzzle") { return ("fauna.\(id).headShell", 0.005) }
+                        if k.hasSuffix(".limb") { return dog ? ("fauna.\(id).limbShell", 0.004) : ("fauna.\(id).shell", 0.0018) }
+                        if k.hasSuffix(".body") { return ("fauna.\(id).shell", dog ? 0.009 : 0.0045) }
+                        if k.hasSuffix(".head") || k.hasSuffix(".muzzle") { return ("fauna.\(id).headShell", dog ? 0.006 : 0.005) }
                         return nil
                     }
                 }.value
