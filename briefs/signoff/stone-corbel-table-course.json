@@ -1,0 +1,22 @@
+{
+  "automated" : 0.99974954,
+  "date" : "2026-10-26",
+  "final" : 0.8520374,
+  "fingerprint" : "31441beb876085b3",
+  "id" : "stone-corbel-table-course",
+  "iterations" : 1,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 8,
+    "edges" : 8,
+    "grounding" : 8,
+    "materials" : 7,
+    "proportion" : 8,
+    "silhouette" : 8,
+    "wear" : 7
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.77250004
+}

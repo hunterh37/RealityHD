@@ -1099,6 +1099,16 @@ public enum Props {
         CantileveredConcreteBalconySlab.self,
         EspalieredFruitTreeWireTrellis.self,
         CedarWindowBoxPlanter.self,
+        RomanBathThermaeWindow.self,
+        SerlianaLoggiaBay.self,
+        LancetTripleWindow.self,
+        GeorgianFanlightDoorCase.self,
+        FederalEllipticalFanlight.self,
+        DentilCorniceRun.self,
+        ModillionCorniceBlockRun.self,
+        CastIronWindowCapLintel.self,
+        TerracottaGargoyleSpout.self,
+        StoneCorbelTableCourse.self,
         // realityhd:prop
     ]
 }

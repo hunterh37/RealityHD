@@ -1,0 +1,43 @@
+{
+  "budget": 12000,
+  "id": "dentil-cornice-run",
+  "kind": "prop",
+  "materials": [
+    "wood.barn-white",
+    "wood.trim-weathered",
+    "wood.painted-exterior",
+    "metal.galvanized-aged"
+  ],
+  "name": "Dentil cornice run",
+  "notes": "",
+  "parts": [
+    "frieze board",
+    "bed mould",
+    "dentil course",
+    "ovolo",
+    "corona with drip groove",
+    "cyma recta crown",
+    "fascia",
+    "scarf joint",
+    "nail heads",
+    "end return"
+  ],
+  "references": [],
+  "size": [
+    2.0,
+    0.4,
+    0.35
+  ],
+  "style": "architectural facade customizer, Neoclassical",
+  "summary": "Neoclassical dentil cornice run, 2.0 m: frieze, 60 mm dentils, egg-and-dart ovolo, corona with drip, cyma crown, fascia, scarf joint.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "wood"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
