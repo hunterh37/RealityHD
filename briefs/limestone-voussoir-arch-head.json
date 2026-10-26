@@ -1,0 +1,38 @@
+{
+  "budget": 12000,
+  "id": "limestone-voussoir-arch-head",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "stone.sandstone"
+  ],
+  "name": "Limestone voussoir arch head",
+  "notes": "",
+  "parts": [
+    "voussoirs",
+    "keystone",
+    "roll moulding",
+    "impost blocks",
+    "mortar joints",
+    "arris chips"
+  ],
+  "references": [],
+  "size": [
+    1.4,
+    0.6,
+    0.3
+  ],
+  "style": "architectural facade customizer, Romanesque Revival",
+  "summary": "Limestone arch head, 1.4 m: eleven voussoirs, projecting keystone, roll moulding, moulded imposts, open joints.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

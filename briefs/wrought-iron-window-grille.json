@@ -1,0 +1,40 @@
+{
+  "budget": 14000,
+  "id": "wrought-iron-window-grille",
+  "kind": "prop",
+  "materials": [
+    "metal.wrought-iron",
+    "metal.rust",
+    "metal.rust-grime"
+  ],
+  "name": "Wrought iron window grille",
+  "notes": "",
+  "parts": [
+    "outer frame",
+    "bellied bars",
+    "twisted section",
+    "crest scrolls",
+    "collars",
+    "crossbar",
+    "wall lugs"
+  ],
+  "references": [],
+  "size": [
+    1.0,
+    1.2,
+    0.1
+  ],
+  "style": "architectural facade customizer, Spanish Colonial",
+  "summary": "Wrought-iron reja, 1.0 x 1.2 m: bellied square bars, twisted midsection, scroll crest, collars, wall lugs.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal",
+    "decor"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

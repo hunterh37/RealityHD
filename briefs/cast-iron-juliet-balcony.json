@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "cast-iron-juliet-balcony",
+  "kind": "prop",
+  "materials": [
+    "metal.cast-iron",
+    "metal.cast-iron-worn",
+    "metal.rust"
+  ],
+  "name": "Cast iron Juliet balcony",
+  "notes": "",
+  "parts": [
+    "top handrail",
+    "bottom rail",
+    "cast balusters",
+    "scroll medallions",
+    "fleur-de-lis finials",
+    "end posts",
+    "wall plates",
+    "bolts"
+  ],
+  "references": [],
+  "size": [
+    1.4,
+    1.1,
+    0.3
+  ],
+  "style": "architectural facade customizer, French Colonial",
+  "summary": "Cast-iron Juliet balcony rail, 1.4 m: bowed panel with cast scroll medallions, balusters, fleur-de-lis finials, wall plates.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "trim",
+    "metal"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

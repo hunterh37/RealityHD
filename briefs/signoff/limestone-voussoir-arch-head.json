@@ -1,0 +1,22 @@
+{
+  "automated" : 0.99917114,
+  "date" : "2026-10-26",
+  "final" : 0.8518349,
+  "fingerprint" : "5f967973eb40c2c2",
+  "id" : "limestone-voussoir-arch-head",
+  "iterations" : 4,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 8,
+    "edges" : 7,
+    "grounding" : 8,
+    "materials" : 7,
+    "proportion" : 8,
+    "silhouette" : 8,
+    "wear" : 8
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.7725
+}
