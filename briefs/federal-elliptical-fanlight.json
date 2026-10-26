@@ -3,11 +3,11 @@
   "id": "federal-elliptical-fanlight",
   "kind": "prop",
   "materials": [
-    "wood.barn-white",
     "wood.painted-exterior",
+    "wood.barn-white",
     "glass.tinted",
     "metal.brass-aged",
-    "stone.sandstone"
+    "wood.trim-weathered"
   ],
   "name": "Federal elliptical fanlight",
   "notes": "",
