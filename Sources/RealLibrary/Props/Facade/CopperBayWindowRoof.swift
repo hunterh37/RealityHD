@@ -41,10 +41,15 @@ public struct CopperBayWindowRoof: RealAsset {
         let leftTone = (0..<5).map { _ in tones[tr.int(0...3)] }
         let rightTone = (0..<5).map { _ in tones[tr.int(0...3)] }
         FL.pans(&m, a0: e1, a1: e2, b0: w1, b1: w2, count: 9, thick: 0.0035,
-                { $0 == bright ? freshPan : frontTone[$0] }, seam: pan, seamR: 0.005)
-        FL.pans(&m, a0: e0, a1: e1, b0: w1, b1: w1, count: 5, thick: 0.0035, { leftTone[$0] }, seam: pan, seamR: 0.005)
-        FL.pans(&m, a0: e2, a1: e3, b0: w2, b1: w2, count: 5, thick: 0.0035, { rightTone[$0] }, seam: pan, seamR: 0.005)
+                { $0 == bright ? freshPan : frontTone[$0] }, seam: pan, seamR: 0.0075)
+        FL.pans(&m, a0: e0, a1: e1, b0: w1, b1: w1, count: 5, thick: 0.0035, { leftTone[$0] }, seam: pan, seamR: 0.0075)
+        FL.pans(&m, a0: e2, a1: e3, b0: w2, b1: w2, count: 5, thick: 0.0035, { rightTone[$0] }, seam: pan, seamR: 0.0075)
 
+        // Timber sheathing under the pans so the hips read as a built roof from every side.
+        let dn = V3(0, -0.011, 0)
+        FL.pans(&m, a0: e1 + dn, a1: e2 + dn, b0: w1 + dn, b1: w2 + dn, count: 1, thick: 0.01, { _ in timber }, seam: timber, seamR: 0.001)
+        FL.pans(&m, a0: e0 + dn, a1: e1 + dn, b0: w1 + dn, b1: w1 + dn, count: 1, thick: 0.01, { _ in timber }, seam: timber, seamR: 0.001)
+        FL.pans(&m, a0: e2 + dn, a1: e3 + dn, b0: w2 + dn, b1: w2 + dn, count: 1, thick: 0.01, { _ in timber }, seam: timber, seamR: 0.001)
         // Rolled hips with copper roll over a batten and cleat clips.
         let lift = V3(0, 0.012, 0)
         for (a, b) in [(e1, w1), (e2, w2)] {
@@ -131,7 +136,8 @@ public struct CopperBayWindowRoof: RealAsset {
             let ry = simd_quatf(angle: -atan2(d.z, d.x), axis: V3(0, 1, 0))
             for _ in 0..<5 {
                 let p = a + (b - a) * pw.float(0.05...0.95) + out * 0.0138
-                FA.box(&m, V3(pw.float(0.03...0.09), pw.float(0.02...0.05), 0.0016), V3(p.x, pw.float(-0.02...0.06), p.z), "wood.trim-weathered", r: 0.0005, rot: ry)
+                let bare = pw.chance(0.35)
+                FA.box(&m, V3(pw.float(0.03...0.09), pw.float(0.02...0.05), 0.0016), V3(p.x, pw.float(-0.02...0.06), p.z), bare ? "wood.weathered:6B6350" : "wood.painted-exterior:5A7360", r: 0.0005, rot: ry)
             }
         }
         // Gutter outlet at the left front corner with a copper downspout stub.

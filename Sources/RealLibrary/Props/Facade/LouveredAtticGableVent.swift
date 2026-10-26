@@ -15,7 +15,7 @@ public struct LouveredAtticGableVent: RealAsset {
     /// Painted frame and blades.
     public var paint: MaterialKey = "wood.painted-exterior:D9D1B8"
     /// Weathered trim where paint has failed.
-    public var worn: MaterialKey = "wood.trim-weathered"
+    public var worn: MaterialKey = "wood.weathered:7D7360"
     /// Insect screen.
     public var screen: MaterialKey = "glass.wire-mesh"
     /// Fasteners.
@@ -27,7 +27,7 @@ public struct LouveredAtticGableVent: RealAsset {
     public func build(seed: UInt64) -> LODModel {
         var rng = SeededRNG(seed: seed)
         var m = Model(name: Self.id)
-        let W: Float = 0.8, H: Float = 0.6, D: Float = 0.075
+        let W: Float = 0.8, H: Float = 0.6, D: Float = 0.08
         let fw: Float = 0.062, t: Float = 0.042
         let iw = W - fw * 2, ih = H - fw * 2 - 0.02
         let y0: Float = 0.02   // sill slope sits below
@@ -45,6 +45,13 @@ public struct LouveredAtticGableVent: RealAsset {
         }
         FA.box(&m, V3(iw, fw, D - 0.02), V3(0, y0 + H - 0.02 - fw / 2, (D - 0.02) / 2 + 0.01), paint, r: 0.003)
         FA.box(&m, V3(iw, fw, D - 0.02), V3(0, y0 + fw / 2, (D - 0.02) / 2 + 0.01), paint, r: 0.003)
+        // Bead mould round the opening on the top and bottom rails, and a cove-and-fillet drip cap over the head
+        // with end returns, so the frame reads as joined joinery rather than a flat border.
+        for yy in [y0 + fw + 0.006, y0 + H - 0.02 - fw - 0.006] {
+            FA.box(&m, V3(iw, 0.012, 0.016), V3(0, yy, D - 0.02 + 0.012), paint, r: 0.005)
+        }
+        let capProfile: [V2] = [V2(0, 0), V2(D - 0.004, 0), V2(D - 0.004, 0.006), V2(D - 0.012, 0.01), V2(D - 0.012, 0.016), V2(D - 0.026, 0.02), V2(D - 0.026, 0.026), V2(0, 0.026)]
+        FA.run(&m, capProfile, length: W - 0.01, at: V3(0, y0 + H - 0.02 - 0.026, 0), paint, bevel: 0.0015)
         // Mitre joint lines at the four inner corners.
         for sx: Float in [-1, 1] { for top in [false, true] {
             let y = top ? y0 + H - 0.02 - fw : y0 + fw
@@ -58,6 +65,8 @@ public struct LouveredAtticGableVent: RealAsset {
             let mat = rng.chance(0.12) ? worn : paint
             let bl = V3(iw + 0.016, 0.0125, 0.062)
             FA.box(&m, bl, V3(0, y, D / 2 + 0.003), mat, r: 0.002, rot: FA.q(-38, FA.X))
+            // Grime streak along the blade top where dust and rain collect.
+            FA.box(&m, V3(iw * rng.float(0.35...0.8), 0.0014, 0.02), V3(rng.float(-0.12...0.12), y + 0.0045, D / 2 - 0.004), "wood.painted-exterior:9A9078", r: 0.0003, rot: FA.q(-38, FA.X))
             // Drip lip beneath the leading edge.
             FA.box(&m, V3(iw + 0.012, 0.006, 0.008), V3(0, y - 0.024, D / 2 + 0.024), mat, r: 0.0015, rot: FA.q(-38, FA.X))
         }
@@ -68,7 +77,7 @@ public struct LouveredAtticGableVent: RealAsset {
         } }
         // Sloped sill under the frame with a drip kerf.
         let sill: [V2] = [V2(0, 0), V2(D, 0), V2(D, 0.014), V2(0.0, 0.045), V2(0, 0.0)]
-        FA.run(&m, Shape2D.deduped([V2(0, 0), V2(D, 0.0), V2(D, 0.012), V2(D - 0.018, 0.016), V2(0.0, 0.034)]), length: W,
+        FA.run(&m, Shape2D.deduped([V2(0, 0), V2(D, 0.0), V2(D, 0.012), V2(D - 0.018, 0.016), V2(0.0, 0.034)]), length: W - 0.01,
                at: V3(0, 0, 0), paint, bevel: 0.002)
         _ = sill
         // Drip kerf groove line and a rotted corner.
@@ -82,14 +91,27 @@ public struct LouveredAtticGableVent: RealAsset {
         } }
         // Weathering: failed paint patches on frame and lower blades, rust streaks under each stile screw, dirt on the sill.
         var wr = rng.fork(11)
-        for _ in 0..<40 {
-            let low = wr.float(0...1) < 0.65
-            let x = wr.float(-W / 2 + 0.02...W / 2 - 0.02)
-            let y = low ? y0 + wr.float(0.03...0.22) : y0 + wr.float(0.05...H - 0.06)
-            let onStile = abs(x) > W / 2 - fw
-            let zf: Float = onStile ? D - 0.0105 : (y < y0 + fw ? D - 0.0105 : D / 2 + 0.03)
-            if !onStile && y >= y0 + fw && y <= y0 + H - 0.02 - fw { continue }
-            FA.box(&m, V3(wr.float(0.02...0.09), wr.float(0.012...0.045), 0.0018), V3(x, y, zf), worn, r: 0.0006)
+        func blob(_ cx: Float, _ cy: Float, _ rx: Float, _ ry: Float, _ mat: MaterialKey, _ z: Float, _ depth: Float) {
+            var pts: [V2] = []
+            for k in 0..<9 {
+                let a = Float(k) / 9 * 2 * .pi
+                let j = wr.float(0.6...1.2)
+                pts.append(V2(cx + cos(a) * rx * j, cy + sin(a) * ry * j))
+            }
+            m.add(Prim.extrude(Shape2D.deduped(pts), depth: depth, bevel: 0.0004, bevelSegments: 1, material: mat), Xform(translation: V3(0, 0, z)))
+        }
+        let zf: Float = D - 0.0098
+        for k in 0..<10 {
+            // Peeled paint on the stiles, biased to the lower third where splash and sun reach.
+            let sx: Float = k % 2 == 0 ? -1 : 1
+            let y = y0 + wr.float(0.05...0.45)
+            blob(sx * (W / 2 - fw / 2) + wr.float(-0.012...0.012), y, wr.float(0.008...0.018), wr.float(0.014...0.04), worn, zf, 0.0014)
+        }
+        for k in 0..<5 {
+            blob(wr.float(-0.3...0.3), y0 + fw / 2, wr.float(0.015...0.04), wr.float(0.008...0.016), worn, zf, 0.0014)
+        }
+        for k in 0..<3 {
+            blob(wr.float(-0.3...0.3), y0 + H - 0.02 - fw / 2, wr.float(0.015...0.03), wr.float(0.01...0.016), worn, zf, 0.0014)
         }
         for s: Float in [-1, 1] { for k in 0..<4 {
             let y = y0 + 0.06 + Float(k) * (H - 0.14) / 3

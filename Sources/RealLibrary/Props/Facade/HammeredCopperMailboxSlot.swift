@@ -10,7 +10,7 @@ public struct HammeredCopperMailboxSlot: RealAsset {
     public static let tags = ["prop", "architecture", "facade", "metal", "decor"]
     public static let budget = 14000
     public static let author = "realityhd"
-    public static let preview = PreviewHint(azimuth: 24, elevation: 14, distance: 0.55)
+    public static let preview = PreviewHint(azimuth: 24, elevation: 14, distance: 0.85)
 
     /// Copper face plate.
     public var plateMat: MaterialKey = "metal.copper"
@@ -71,8 +71,8 @@ public struct HammeredCopperMailboxSlot: RealAsset {
         var hood: [V3] = []
         for i in 0...10 {
             let u = Float(i) / 10
-            let y = H / 2 + slotH / 2 + 0.014 - u * (slotH + 0.032)
-            let z = 0.008 + 0.046 * sin(u * .pi * 0.62) * (1 - 0.15 * u)
+            let y = H / 2 + slotH / 2 + 0.014 - u * (slotH + 0.012)
+            let z = 0.008 + 0.050 * sin(u * .pi * 0.62) * (1 - 0.15 * u)
             hood.append(V3(0, y, z))
         }
         let hprof: [V2] = [V2(-slotW / 2 - 0.012, -0.0016), V2(slotW / 2 + 0.012, -0.0016), V2(slotW / 2 + 0.012, 0.0016), V2(-slotW / 2 - 0.012, 0.0016)]
@@ -90,7 +90,8 @@ public struct HammeredCopperMailboxSlot: RealAsset {
                   Xform(translation: V3(s * (slotW / 2 + 0.0135), hy - 0.034, 0), rotation: FA.q(-90, FA.Y)))
         }
         // Brass pull strip across the lip with two rivets.
-        FA.box(&m, V3(0.12, 0.007, 0.004), V3(0, H / 2 - slotH / 2 - 0.0085, 0.047), brass, r: 0.001)
+        FA.rod(&m, V3(-0.115, 0.041, 0.0485), V3(0.115, 0.041, 0.0485), r: 0.0032, brass, sides: 8)
+        for sx: Float in [-1, 1] { FC.bead(&m, r: 0.0042, at: V3(sx * 0.118, 0.041, 0.0485), brass, sub: 3) }
         // Corner rivets (eight, domed copper), plus four brass mounting screws.
         for sx: Float in [-1, 1] { for sy: Float in [-1, 1] {
             rivet(&m, at: V3(sx * (W / 2 - 0.012), H / 2 + sy * (H / 2 - 0.012), t), normal: V3(0, 0, 1), radius: 0.0042, material: brass)
@@ -98,6 +99,32 @@ public struct HammeredCopperMailboxSlot: RealAsset {
         for sx: Float in [-1, 1] {
             rivet(&m, at: V3(sx * 0.09, H / 2 - 0.0396 + 0.0, t), normal: V3(0, 0, 1), radius: 0.003, material: plateMat)
             rivet(&m, at: V3(sx * 0.09, H / 2 + 0.0396, t), normal: V3(0, 0, 1), radius: 0.003, material: plateMat)
+        }
+        // Brass LETTERS plate under the slot: riveted label with seven engraved letter blocks.
+        FA.box(&m, V3(0.1, 0.02, 0.0025), V3(0, 0.0185, t + 0.001), brass, r: 0.0006)
+        for k in 0..<7 {
+            let lx = -0.036 + Float(k) * 0.012
+            FA.box(&m, V3(0.006, 0.01, 0.0008), V3(lx, 0.0185, t + 0.0024), "metal.parkerized", r: 0.0002)
+            if k % 2 == 0 { FA.box(&m, V3(0.006, 0.0018, 0.0008), V3(lx, 0.0185 + (k % 4 == 0 ? 0.004 : -0.004), t + 0.0026), "metal.parkerized", r: 0.0002) }
+        }
+        rivet(&m, at: V3(-0.0475, 0.0185, t + 0.0022), normal: V3(0, 0, 1), radius: 0.0022, material: brass)
+        rivet(&m, at: V3(0.0475, 0.0185, t + 0.0022), normal: V3(0, 0, 1), radius: 0.0022, material: brass)
+        // Verdigris blooms: irregular patina blobs on the plate and hood, heavier near the lower edge where water sits.
+        var wr = rng.fork(17)
+        func blob(_ cx: Float, _ cy: Float, _ rx: Float, _ ry: Float, _ z: Float) {
+            var pts: [V2] = []
+            for k in 0..<9 {
+                let a = Float(k) / 9 * 2 * .pi
+                let j = wr.float(0.6...1.2)
+                pts.append(V2(cx + cos(a) * rx * j, cy + sin(a) * ry * j))
+            }
+            m.add(Prim.extrude(Shape2D.deduped(pts), depth: 0.0009, bevel: 0.0002, bevelSegments: 1, material: patina), Xform(translation: V3(0, 0, z)))
+        }
+        for _ in 0..<22 {
+            let x = wr.float(-0.16...0.16)
+            let y = wr.chance(0.6) ? wr.float(0.004...0.03) : wr.float(0.07...0.096)
+            if abs(x) < 0.056 && y < 0.037 { continue }
+            blob(x, y, wr.float(0.006...0.018), wr.float(0.004...0.01), t + 0.0003)
         }
         // Verdigris in the lower border groove.
         FA.box(&m, V3(0.18, 0.003, 0.0015), V3(0.03, 0.006, 0.0041), patina, r: 0.0005)

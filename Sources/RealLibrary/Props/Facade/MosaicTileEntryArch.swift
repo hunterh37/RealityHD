@@ -30,7 +30,7 @@ public struct MosaicTileEntryArch: RealAsset {
         let W: Float = 1.6, H: Float = 2.6, D: Float = 0.2
         let jamb: Float = 0.25
         let openW: Float = W - jamb * 2     // 1.1 m clear
-        let R: Float = openW / 2 * 1.08       // horseshoe radius > half span
+        let R: Float = openW / 2 * 1.04       // horseshoe radius > half span
         let spring: Float = 1.45
         let hw = openW / 2
         // Backing mass: piers and head wall (mortar), behind the tiles.
@@ -50,7 +50,7 @@ public struct MosaicTileEntryArch: RealAsset {
         for i in 0..<vN {
             let u0 = a0 + (a1 - a0) * Float(i) / Float(vN), u1 = a0 + (a1 - a0) * Float(i + 1) / Float(vN)
             let um = (u0 + u1) / 2
-            let band: Float = 0.2
+            let band: Float = 0.19
             let chord = (R + band / 2) * (u1 - u0) - 0.008
             let mat = (i == vN / 2) ? stone : (i % 2 == 0 ? cobalt : celadon)
             let c = archPoint(um, R + band / 2)
@@ -64,8 +64,8 @@ public struct MosaicTileEntryArch: RealAsset {
         var ring: [V3] = []
         for i in 0...28 {
             let u = a0 + (a1 - a0) * Float(i) / 28
-            let p = archPoint(u, R + 0.215)
-            ring.append(V3(p.x, p.y, D - 0.01))
+            let p = archPoint(u, R + 0.2)
+            ring.append(V3(p.x, p.y, D - 0.016))
         }
         let rp: [V2] = [V2(-0.014, 0), V2(0.014, 0), V2(0.014, 0.009), V2(0.006, 0.014), V2(-0.006, 0.014), V2(-0.014, 0.009)]
         m.add(Prim.sweep(rp.map { V2($0.y, $0.x) }, along: ring, up: FA.Z, caps: true, material: stone))
