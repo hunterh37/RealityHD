@@ -12,12 +12,13 @@
   "name": "Glass block window panel",
   "notes": "",
   "parts": [
-    "16 hollow glass blocks with moulded edge rim and wave pattern",
+    "36 hollow glass blocks 180 mm with moulded edge rim and wave pattern",
     "white mortar joints with recessed tooling",
     "stainless steel perimeter channel",
     "anchor clips and sealant bead at the frame",
     "cast stone sill with drip",
     "dirt streaking below the sill",
+    "mildew in the lower joints",
     "one block with a dust haze"
   ],
   "references": [],
@@ -27,7 +28,7 @@
     0.1
   ],
   "style": "architectural facade customizer, Streamline Moderne",
-  "summary": "Streamline Moderne glass block window: 4 x 4 grid of pillowed glass blocks in mortar joints, framed by an aluminium channel and a cast sill.",
+  "summary": "Streamline Moderne glass block window: 6 x 6 grid of 180 mm wave-pattern glass blocks in tooled mortar joints, framed by a stainless channel on a cast stone sill.",
   "tags": [
     "prop",
     "architecture",
