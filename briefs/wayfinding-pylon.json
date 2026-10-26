@@ -3,12 +3,17 @@
   "id": "wayfinding-pylon",
   "kind": "prop",
   "materials": [
-    "metal.powdercoat",
+    "metal.anodized-black",
+    "metal.anodized-worn",
+    "metal.satin-aluminum",
     "metal.anodized",
     "metal.powder-white",
     "glass.clear",
     "emissive.warm",
-    "metal.stainless"
+    "metal.stainless",
+    "metal.steel",
+    "concrete.sealed-void",
+    "metal.painted"
   ],
   "name": "Wayfinding pylon",
   "notes": "",
