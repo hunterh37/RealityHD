@@ -1,0 +1,46 @@
+{
+  "budget": 15000,
+  "id": "flemish-scrolled-gable",
+  "kind": "prop",
+  "materials": [
+    "brick.red",
+    "brick.common",
+    "stone.sandstone",
+    "stone.limestone-sooted",
+    "metal.wrought-iron",
+    "glass.pane"
+  ],
+  "name": "Flemish scrolled gable",
+  "notes": "",
+  "parts": [
+    "brick gable body with Flemish bond",
+    "S-curved scrolled shoulders",
+    "sandstone coping on curves",
+    "sandstone banding courses",
+    "volute scrolls",
+    "attic window with stone surround",
+    "segmental pediment cap",
+    "ball and obelisk finials",
+    "iron anchor plates",
+    "sandstone sills and quoins"
+  ],
+  "references": [],
+  "size": [
+    2.2,
+    2.0,
+    0.4
+  ],
+  "style": "architectural facade customizer, Dutch Renaissance",
+  "summary": "Dutch Renaissance Flemish gable, 2.2 x 2.0 m: brick body, scrolled S-curve shoulders, sandstone bands, volutes, attic window, pediment, finials, iron anchors.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roof",
+    "brick",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

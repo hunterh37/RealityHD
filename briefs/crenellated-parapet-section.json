@@ -1,0 +1,45 @@
+{
+  "budget": 15000,
+  "id": "crenellated-parapet-section",
+  "kind": "prop",
+  "materials": [
+    "stone.limestone",
+    "stone.limestone-sooted",
+    "stone.sandstone",
+    "metal.verdigris-roof",
+    "metal.wrought-iron",
+    "stone.granite-moss"
+  ],
+  "name": "Crenellated parapet section",
+  "notes": "",
+  "parts": [
+    "ashlar limestone wall courses",
+    "six merlons with chamfered tops",
+    "five crenel embrasures",
+    "projecting corbel table with corbels",
+    "moulded string course",
+    "sandstone coping caps",
+    "lead flashing in crenels",
+    "cross-shaped arrow loop",
+    "iron cramps and pins",
+    "lichen and soot staining"
+  ],
+  "references": [],
+  "size": [
+    2.4,
+    0.9,
+    0.4
+  ],
+  "style": "architectural facade customizer, Castellated Gothic",
+  "summary": "Castellated Gothic crenellated parapet, 2.4 x 0.9 m: limestone ashlar with merlons, crenels, corbel table, arrow loop, lead flashing, iron cramps.",
+  "tags": [
+    "prop",
+    "architecture",
+    "facade",
+    "roof",
+    "stone"
+  ],
+  "theme": "Facade",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

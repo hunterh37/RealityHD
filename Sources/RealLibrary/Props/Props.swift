@@ -1044,6 +1044,9 @@ public enum Props {
         CopperDownspoutStraight.self,
         BoxGutterHopperHead.self,
         CascadiaCabInterior.self,
+        CrenellatedParapetSection.self,
+        FlemishScrolledGable.self,
+        CrowStepGableEnd.self,
         // realityhd:prop
     ]
 }
