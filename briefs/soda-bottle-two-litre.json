@@ -1,0 +1,50 @@
+{
+  "budget": 14500,
+  "id": "soda-bottle-two-litre",
+  "kind": "prop",
+  "materials": [
+    "food.cream",
+    "food.soy-sauce",
+    "glass.clear",
+    "plastic.clear",
+    "plastic.frosted",
+    "plastic.gloss",
+    "plastic.white"
+  ],
+  "name": "Soda bottle two litre",
+  "notes": "",
+  "parts": [
+    "PET body",
+    "petaloid base",
+    "ribbed waist",
+    "shrink label",
+    "lap seam",
+    "neck ring",
+    "thread",
+    "red cap",
+    "tamper band",
+    "cola fill",
+    "foam",
+    "condensation",
+    "torn label corner"
+  ],
+  "references": [],
+  "size": [
+    0.11,
+    0.33,
+    0.11
+  ],
+  "style": "everyday pantry, PET plastic",
+  "summary": "PET two-litre soda bottle, 33 cm: petaloid base, ribbed waist, wrapped label, threaded neck, red cap, condensation.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "plastic",
+    "container",
+    "food"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

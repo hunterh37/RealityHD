@@ -1352,6 +1352,16 @@ public enum Props {
         SpiceJar.self,
         CoffeeBag.self,
         PotatoChipBag.self,
+        SodaBottleTwoLitre.self,
+        WaterBottlePlastic.self,
+        BeerBottle.self,
+        BeerCan.self,
+        YogurtCup.self,
+        CheeseBlock.self,
+        ButterStick.self,
+        DeliMeatPack.self,
+        FrozenPizzaBox.self,
+        WineBottle.self,
         // realityhd:prop
     ]
 }
