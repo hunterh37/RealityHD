@@ -1347,6 +1347,8 @@ public enum Props {
         TunaCan.self,
         OliveOilBottle.self,
         VinegarBottle.self,
+        MayonnaiseJar.self,
+        SaltCanister.self,
         // realityhd:prop
     ]
 }
