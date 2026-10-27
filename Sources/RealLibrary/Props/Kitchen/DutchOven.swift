@@ -7,7 +7,7 @@ public struct DutchOven: RealAsset {
     public static let id = "dutch-oven"
     public static let summary = "Enamelled cast-iron Dutch oven: bare iron rim with chip, cast ear handles, heavy lid, brass knob."
     public static let tags = ["prop", "interior", "kitchen", "enamel", "cast-iron", "metal"]
-    public static let budget = 18000
+    public static let budget = 15000
     public static let author = "realityhd"
     public static let preview = PreviewHint(azimuth: 35, elevation: 32, distance: 0.9, studio: true)
 
