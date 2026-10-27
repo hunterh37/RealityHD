@@ -1292,6 +1292,16 @@ public enum Props {
         SlowCooker.self,
         RiceCooker.self,
         PressureCooker.self,
+        StickBlender.self,
+        JuicerCitrus.self,
+        SaladSpinner.self,
+        PizzaCutter.self,
+        SaladPlate.self,
+        SidePlate.self,
+        SoupBowl.self,
+        CerealBowl.self,
+        PastaBowl.self,
+        TeacupAndSaucer.self,
         // realityhd:prop
     ]
 }

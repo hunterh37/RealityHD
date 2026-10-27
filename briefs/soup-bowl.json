@@ -1,0 +1,35 @@
+{
+  "budget": 11000,
+  "id": "soup-bowl",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "ceramic.bisque"
+  ],
+  "name": "Soup bowl",
+  "notes": "",
+  "parts": [
+    "deep curved wall",
+    "rolled rim",
+    "unglazed foot ring",
+    "glaze crazing",
+    "spoon scratch marks"
+  ],
+  "references": [],
+  "size": [
+    0.18,
+    0.06,
+    0.18
+  ],
+  "style": "everyday tableware, glazed ceramic",
+  "summary": "Soup bowl, 18 cm: glazed ceramic, deep curved wall, rolled rim, foot ring.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "ceramic"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
