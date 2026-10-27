@@ -1,0 +1,38 @@
+{
+  "budget": 13000,
+  "id": "teacup-and-saucer",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "ceramic.bisque",
+    "metal.gold"
+  ],
+  "name": "Teacup and saucer",
+  "notes": "",
+  "parts": [
+    "cup bowl",
+    "looped handle",
+    "foot ring",
+    "saucer well",
+    "saucer rim",
+    "tea stain ring",
+    "gilt rim line"
+  ],
+  "references": [],
+  "size": [
+    0.14,
+    0.07,
+    0.14
+  ],
+  "style": "everyday tableware, bone china",
+  "summary": "Teacup and saucer, 14 cm: translucent bone china, looped handle, saucer well, thin gilt rim, tea stain ring.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "ceramic"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

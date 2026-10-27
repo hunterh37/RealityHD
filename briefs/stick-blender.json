@@ -1,0 +1,41 @@
+{
+  "budget": 11000,
+  "id": "stick-blender",
+  "kind": "prop",
+  "materials": [
+    "plastic.white",
+    "plastic.black",
+    "metal.stainless",
+    "rubber.silicone",
+    "metal.steel"
+  ],
+  "name": "Stick blender",
+  "notes": "",
+  "parts": [
+    "plastic motor housing",
+    "rubber grip band",
+    "speed button",
+    "steel shaft",
+    "bell guard blade housing",
+    "cord",
+    "chipped paint wear on button"
+  ],
+  "references": [],
+  "size": [
+    0.06,
+    0.4,
+    0.06
+  ],
+  "style": "everyday kitchen, plastic and steel",
+  "summary": "Immersion stick blender, 40 cm: white plastic motor body with grip band and speed button, brushed steel shaft ending in a vented bell guard over the blade.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "plastic",
+    "metal"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

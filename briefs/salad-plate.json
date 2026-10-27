@@ -1,0 +1,36 @@
+{
+  "budget": 9000,
+  "id": "salad-plate",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "ceramic.bisque"
+  ],
+  "name": "Salad plate",
+  "notes": "",
+  "parts": [
+    "flat well",
+    "coved rise",
+    "rim",
+    "rolled edge",
+    "unglazed foot ring",
+    "utensil scuff marks"
+  ],
+  "references": [],
+  "size": [
+    0.21,
+    0.02,
+    0.21
+  ],
+  "style": "everyday tableware, glazed ceramic",
+  "summary": "Salad plate, 21 cm: glazed white ceramic, shallow well, rolled rim, unglazed foot ring.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "ceramic"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

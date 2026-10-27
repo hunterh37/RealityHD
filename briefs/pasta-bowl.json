@@ -1,0 +1,35 @@
+{
+  "budget": 9000,
+  "id": "pasta-bowl",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "ceramic.bisque"
+  ],
+  "name": "Pasta bowl",
+  "notes": "",
+  "parts": [
+    "wide shallow well",
+    "broad flat rim",
+    "rolled edge",
+    "unglazed foot ring",
+    "sauce stain on rim"
+  ],
+  "references": [],
+  "size": [
+    0.24,
+    0.05,
+    0.24
+  ],
+  "style": "everyday tableware, glazed ceramic",
+  "summary": "Pasta bowl, 24 cm: glazed ceramic, wide shallow well, broad rim, foot ring.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "ceramic"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

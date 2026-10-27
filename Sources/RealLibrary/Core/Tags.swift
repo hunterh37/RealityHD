@@ -26,7 +26,7 @@ public enum AssetTag {
         // ceiling-mounted: authored in place below a ceiling at y = mount height; y = 0 is the floor under it
         "ceiling",
         // RealityHD 6: kitchen and cooking
-        "appliance", "cookware",
+        "appliance", "cookware", "tableware",
         // landscaping: yard props, hardscape, planting
         "landscaping", "archery",
         // architecture: facade openings and building elements sized per bay by building generators
