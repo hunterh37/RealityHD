@@ -1,0 +1,37 @@
+{
+  "budget": 9000,
+  "id": "cake-stand",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "ceramic.vitreous:EFE9DA",
+    "ceramic.bisque:E6E0D2",
+    "metal.brass-aged"
+  ],
+  "name": "Cake stand",
+  "notes": "",
+  "parts": [
+    "28 cm plate with rolled rim",
+    "pedestal stem with turned beads",
+    "foot ring unglazed",
+    "brass-aged rivet nut under plate",
+    "hairline chip on rim"
+  ],
+  "references": [],
+  "size": [
+    0.28,
+    0.14,
+    0.28
+  ],
+  "style": "everyday tableware, porcelain",
+  "summary": "Porcelain cake stand: 28 cm plate on a turned beaded pedestal with unglazed foot ring and a chipped rim.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "ceramic"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,39 @@
+{
+  "budget": 12000,
+  "id": "sliced-bread-bag",
+  "kind": "prop",
+  "materials": [
+    "plastic.clear",
+    "plastic.matte:D9B36A",
+    "food.bread-crust",
+    "food.bread-crumb",
+    "plastic.matte:2F6DB3"
+  ],
+  "name": "Sliced bread bag",
+  "notes": "",
+  "parts": [
+    "gusseted bag body",
+    "crimped end seam",
+    "twisted bag closure",
+    "bread slices visible through film",
+    "printed label band as geometry"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    0.12,
+    0.11
+  ],
+  "style": "everyday pantry, plastic bag",
+  "summary": "Plastic bag of sliced bread with crimped seam, gathered neck and a colored tag clip.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "plastic",
+    "food"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

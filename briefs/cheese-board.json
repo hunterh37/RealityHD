@@ -1,0 +1,36 @@
+{
+  "budget": 9000,
+  "id": "cheese-board",
+  "kind": "prop",
+  "materials": [
+    "stone.slate",
+    "wood.walnut-oiled",
+    "metal.stainless"
+  ],
+  "name": "Cheese board",
+  "notes": "",
+  "parts": [
+    "slate slab with chamfered edge",
+    "rubber feet",
+    "chalk cheese label marks",
+    "cheese wedge on board",
+    "knife"
+  ],
+  "references": [],
+  "size": [
+    0.35,
+    0.04,
+    0.22
+  ],
+  "style": "everyday tableware, slate",
+  "summary": "Slate cheese board with chamfered edge, rubber feet, chalk marks and a wedge of cheese.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "stone"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,38 @@
+{
+  "budget": 9000,
+  "id": "milk-carton",
+  "kind": "prop",
+  "materials": [
+    "paper.sheet",
+    "paper.sheet:2F6DB3",
+    "plastic.white",
+    "plastic.matte"
+  ],
+  "name": "Milk carton",
+  "notes": "",
+  "parts": [
+    "gable top with fin seam",
+    "folded pour spout",
+    "plastic screw cap",
+    "label panels as geometry",
+    "scuffed corners"
+  ],
+  "references": [],
+  "size": [
+    0.075,
+    0.24,
+    0.073
+  ],
+  "style": "everyday pantry, paperboard",
+  "summary": "Paperboard gable-top milk carton with fin seam, folded spout and screw cap.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "paper",
+    "plastic"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

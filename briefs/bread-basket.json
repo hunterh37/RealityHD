@@ -1,0 +1,36 @@
+{
+  "budget": 15000,
+  "id": "bread-basket",
+  "kind": "prop",
+  "materials": [
+    "wicker.willow",
+    "wood.rattan",
+    "fabric.linen"
+  ],
+  "name": "Bread basket",
+  "notes": "",
+  "parts": [
+    "oval woven base",
+    "weave courses",
+    "rolled rim binding",
+    "bound rim cane",
+    "linen liner with folded edge"
+  ],
+  "references": [],
+  "size": [
+    0.29,
+    0.1,
+    0.2
+  ],
+  "style": "everyday tableware, woven wicker",
+  "summary": "Oval willow bread basket with woven courses, bound rim and a folded linen liner.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "fabric"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
