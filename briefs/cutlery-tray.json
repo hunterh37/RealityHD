@@ -1,0 +1,36 @@
+{
+  "budget": 10000,
+  "id": "cutlery-tray",
+  "kind": "prop",
+  "materials": [
+    "plastic.white",
+    "plastic.matte",
+    "plastic.medical-grey-worn"
+  ],
+  "name": "Cutlery tray",
+  "notes": "Static. No brand marks.",
+  "parts": [
+    "rounded tray with raised rim",
+    "four dividers with fillets",
+    "finger notch",
+    "corner feet",
+    "scuffed floor and one chipped divider edge"
+  ],
+  "references": [],
+  "size": [
+    0.35,
+    0.05,
+    0.28
+  ],
+  "style": "everyday tableware, plastic",
+  "summary": "Cutlery tray, plastic: rounded tray with raised rim, four dividers with fillets, finger notch.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "plastic"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

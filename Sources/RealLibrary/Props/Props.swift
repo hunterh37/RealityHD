@@ -1322,6 +1322,11 @@ public enum Props {
         Fork.self,
         DinnerKnife.self,
         Teaspoon.self,
+        CutleryTray.self,
+        ClothNapkinRing.self,
+        Placemat.self,
+        CoasterSet.self,
+        Trivet.self,
         // realityhd:prop
     ]
 }
