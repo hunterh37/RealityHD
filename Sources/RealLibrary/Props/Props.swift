@@ -1312,6 +1312,16 @@ public enum Props {
         Carafe.self,
         Teapot.self,
         CreamerJug.self,
+        SugarBowl.self,
+        ServingPlatter.self,
+        ServingBowl.self,
+        GravyBoat.self,
+        ButterDish.self,
+        SaltShaker.self,
+        PepperMill.self,
+        Fork.self,
+        DinnerKnife.self,
+        Teaspoon.self,
         // realityhd:prop
     ]
 }

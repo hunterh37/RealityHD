@@ -1,0 +1,37 @@
+{
+  "budget": 12000,
+  "id": "serving-bowl",
+  "kind": "prop",
+  "materials": [
+    "ceramic.celadon",
+    "ceramic.bisque",
+    "ceramic.porcelain-fracture"
+  ],
+  "name": "Serving Bowl",
+  "notes": "",
+  "parts": [
+    "wide thrown bowl with flared wall",
+    "rolled rim",
+    "bare clay foot and lower body",
+    "wavy glaze dip line",
+    "throwing rings on the wall",
+    "chips on rim"
+  ],
+  "references": [],
+  "size": [
+    0.28,
+    0.11,
+    0.28
+  ],
+  "style": "everyday tableware, glazed ceramic",
+  "summary": "Celadon stoneware serving bowl, 28 cm: wavy glaze line over bare clay, throwing rings, and rim chips.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "ceramic"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
