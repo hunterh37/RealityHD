@@ -1,0 +1,39 @@
+{
+  "budget": 10000,
+  "id": "blender",
+  "kind": "prop",
+  "materials": [
+    "glass.clear",
+    "plastic.black",
+    "metal.stainless",
+    "rubber.silicone-gray"
+  ],
+  "name": "Blender",
+  "notes": "",
+  "parts": [
+    "jar",
+    "handle",
+    "lid",
+    "base",
+    "blade assembly"
+  ],
+  "references": [],
+  "size": [
+    0.17,
+    0.42,
+    0.19
+  ],
+  "style": "everyday kitchen, glass jar",
+  "summary": "Countertop blender: glass jar with handle and lid on a plastic motor base with dial.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "glass",
+    "plastic",
+    "metal"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

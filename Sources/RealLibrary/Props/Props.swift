@@ -1287,6 +1287,11 @@ public enum Props {
         BottleOpener.self,
         Corkscrew.self,
         RollingPin.self,
+        Blender.self,
+        MicrowaveOven.self,
+        SlowCooker.self,
+        RiceCooker.self,
+        PressureCooker.self,
         // realityhd:prop
     ]
 }
