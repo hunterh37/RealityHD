@@ -1,0 +1,39 @@
+{
+  "budget": 8000,
+  "id": "dinner-knife",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless",
+    "metal.stainless-smudged",
+    "metal.mirror-polish",
+    "metal.rust-grime"
+  ],
+  "name": "Dinner Knife",
+  "notes": "",
+  "parts": [
+    "rounded wedge blade with spine and thin edge",
+    "bolster collar",
+    "thick oval handle with swollen end",
+    "fingerprint-smudged handle",
+    "hairline scratches on the blade",
+    "rust fleck beside the bolster"
+  ],
+  "references": [],
+  "size": [
+    0.02,
+    0.01,
+    0.23
+  ],
+  "style": "everyday tableware, stainless steel",
+  "summary": "Stainless dinner knife, 23 cm: rounded wedge blade, bolster, oval handle, smudged finish, scratches and a rust fleck.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "metal",
+    "handheld"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

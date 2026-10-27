@@ -1,0 +1,40 @@
+{
+  "budget": 8000,
+  "id": "fork",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless-smudged",
+    "metal.mirror-polish",
+    "food.egg-curd"
+  ],
+  "name": "Fork",
+  "notes": "",
+  "parts": [
+    "four slotted tines with rounded tips",
+    "head with neck",
+    "tapered handle with rounded swelling end",
+    "handle lifted at the neck",
+    "raised centre ridge",
+    "fingerprint-smudged finish",
+    "dried food fleck at a tine root",
+    "water spots on handle"
+  ],
+  "references": [],
+  "size": [
+    0.03,
+    0.01,
+    0.2
+  ],
+  "style": "everyday tableware, stainless steel",
+  "summary": "Stainless steel dinner fork, 20 cm: four slotted tines, tapered handle, smudged finish, dried food fleck and water spots.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "metal",
+    "handheld"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

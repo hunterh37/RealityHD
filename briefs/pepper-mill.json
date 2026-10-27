@@ -1,0 +1,44 @@
+{
+  "budget": 10000,
+  "id": "pepper-mill",
+  "kind": "prop",
+  "materials": [
+    "wood.beech-spoon-stained",
+    "metal.steel",
+    "metal.stainless",
+    "metal.stainless-smudged",
+    "metal.parkerized",
+    "plastic.black"
+  ],
+  "name": "Pepper Mill",
+  "notes": "",
+  "parts": [
+    "turned beech body with flared foot, waist and shoulder",
+    "turned grooves",
+    "stainless collar",
+    "mushroom knob",
+    "washer and hex crown nut",
+    "steel grinder ring with burr hole",
+    "hand-darkened waist and knob",
+    "spilled peppercorns"
+  ],
+  "references": [],
+  "size": [
+    0.06,
+    0.2,
+    0.06
+  ],
+  "style": "everyday tableware, beech wood",
+  "summary": "Turned beech pepper mill with stainless collar, steel crown nut, grinder base, hand-darkened knob and spilled peppercorns.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "wood",
+    "metal",
+    "handheld"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

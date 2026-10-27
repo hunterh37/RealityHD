@@ -1,0 +1,40 @@
+{
+  "budget": 8000,
+  "id": "teaspoon",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless-smudged",
+    "metal.mirror-polish",
+    "food.sugar"
+  ],
+  "name": "Teaspoon",
+  "notes": "",
+  "parts": [
+    "oval thin-walled bowl",
+    "tapered neck joining the bowl back",
+    "paddle handle end",
+    "raised handle ridge",
+    "handle curls off the table",
+    "smudged finish",
+    "dried sugar crust in the bowl",
+    "scratches on handle"
+  ],
+  "references": [],
+  "size": [
+    0.03,
+    0.01,
+    0.15
+  ],
+  "style": "everyday tableware, stainless steel",
+  "summary": "Stainless steel teaspoon, 15 cm: oval bowl, tapered neck, paddle handle, smudged finish and dried sugar in the bowl.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "metal",
+    "handheld"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
