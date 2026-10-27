@@ -1,0 +1,22 @@
+{
+  "automated" : 0.99668217,
+  "date" : "2026-10-27",
+  "final" : 0.90540123,
+  "fingerprint" : "ab53b9834ef5ed91",
+  "id" : "ladle",
+  "iterations" : 1,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 9,
+    "construction" : 8,
+    "edges" : 9,
+    "grounding" : 9,
+    "materials" : 8,
+    "proportion" : 9,
+    "silhouette" : 9,
+    "wear" : 8
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.85625
+}

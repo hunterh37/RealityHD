@@ -1,0 +1,38 @@
+{
+  "budget": 10000,
+  "id": "tongs",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless",
+    "metal.satin-aluminum"
+  ],
+  "name": "Tongs",
+  "notes": "",
+  "parts": [
+    "two arms",
+    "spring hinge",
+    "scalloped tips",
+    "locking ring",
+    "grip ribs"
+  ],
+  "references": [],
+  "size": [
+    0.05,
+    0.02,
+    0.3
+  ],
+  "style": "everyday kitchen, stainless steel",
+  "summary": "Tongs, stainless steel, with real construction: two arms, spring hinge, scalloped tips, locking ring.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "metal",
+    "tool",
+    "handheld",
+    "cookware"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

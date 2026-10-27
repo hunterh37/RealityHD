@@ -1,0 +1,37 @@
+{
+  "budget": 10000,
+  "id": "corkscrew",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless",
+    "wood.walnut"
+  ],
+  "name": "Corkscrew",
+  "notes": "",
+  "parts": [
+    "helix worm",
+    "pivot shank",
+    "walnut scales",
+    "pivot rivet",
+    "lever"
+  ],
+  "references": [],
+  "size": [
+    0.05,
+    0.02,
+    0.15
+  ],
+  "style": "everyday kitchen, steel",
+  "summary": "Corkscrew, steel, with real construction: helix worm, shank, T handle, folding foil cutter.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "metal",
+    "tool",
+    "handheld"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

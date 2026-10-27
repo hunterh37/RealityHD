@@ -1268,6 +1268,16 @@ public enum Props {
         BikeHoopRack.self,
         WayfindingPylon.self,
         CascadiaCabInterior.self,
+        ChefsKnife.self,
+        Whisk.self,
+        Spatula.self,
+        Ladle.self,
+        Tongs.self,
+        VegetablePeeler.self,
+        BoxGrater.self,
+        CanOpener.self,
+        BottleOpener.self,
+        Corkscrew.self,
         // realityhd:prop
     ]
 }

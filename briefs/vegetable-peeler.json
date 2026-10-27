@@ -1,0 +1,38 @@
+{
+  "budget": 10000,
+  "id": "vegetable-peeler",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless",
+    "metal.knife-blade",
+    "metal.satin-aluminum"
+  ],
+  "name": "Vegetable peeler",
+  "notes": "",
+  "parts": [
+    "Y frame",
+    "swivel blade",
+    "potato eye scoop",
+    "handle"
+  ],
+  "references": [],
+  "size": [
+    0.04,
+    0.02,
+    0.17
+  ],
+  "style": "everyday kitchen, stainless steel",
+  "summary": "Vegetable peeler, stainless steel, with real construction: Y frame, swivel blade, potato eye scoop, handle.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "metal",
+    "tool",
+    "handheld",
+    "cookware"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

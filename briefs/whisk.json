@@ -1,0 +1,37 @@
+{
+  "budget": 10000,
+  "id": "whisk",
+  "kind": "prop",
+  "materials": [
+    "metal.surgical",
+    "metal.stainless"
+  ],
+  "name": "Whisk",
+  "notes": "",
+  "parts": [
+    "wire loops",
+    "ferrule",
+    "handle",
+    "end cap"
+  ],
+  "references": [],
+  "size": [
+    0.06,
+    0.06,
+    0.3
+  ],
+  "style": "everyday kitchen, stainless steel",
+  "summary": "Whisk, stainless steel, with real construction: wire loops, ferrule, handle, end cap.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "metal",
+    "tool",
+    "handheld",
+    "cookware"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

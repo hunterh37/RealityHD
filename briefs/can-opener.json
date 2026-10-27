@@ -1,0 +1,38 @@
+{
+  "budget": 10000,
+  "id": "can-opener",
+  "kind": "prop",
+  "materials": [
+    "metal.steel",
+    "metal.stainless",
+    "plastic.black"
+  ],
+  "name": "Can opener",
+  "notes": "",
+  "parts": [
+    "two handles",
+    "cutting wheel",
+    "drive gear",
+    "turning key",
+    "pivot rivet"
+  ],
+  "references": [],
+  "size": [
+    0.07,
+    0.03,
+    0.19
+  ],
+  "style": "everyday kitchen, steel",
+  "summary": "Can opener, steel, with real construction: two handles, cutting wheel, drive gear, turning key.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "metal",
+    "tool",
+    "handheld"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
