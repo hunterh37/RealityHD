@@ -1,0 +1,38 @@
+{
+  "budget": 18000,
+  "id": "dutch-oven",
+  "kind": "prop",
+  "materials": [
+    "metal.enamel",
+    "metal.cast-iron-seasoned",
+    "metal.cast-iron-worn"
+  ],
+  "name": "Dutch oven",
+  "notes": "",
+  "parts": [
+    "pot body",
+    "enamelled shell",
+    "lid",
+    "knob",
+    "side loop handles",
+    "chipped rim"
+  ],
+  "references": [],
+  "size": [
+    0.32,
+    0.17,
+    0.38
+  ],
+  "style": "everyday kitchen, enamelled cast iron",
+  "summary": "Dutch oven, enamelled cast iron: real seams, rims, rivets and baked-in wear.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "enamel",
+    "cast-iron"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
