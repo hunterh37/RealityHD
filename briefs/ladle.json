@@ -1,0 +1,38 @@
+{
+  "budget": 10000,
+  "id": "ladle",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless",
+    "metal.satin-aluminum"
+  ],
+  "name": "Ladle",
+  "notes": "",
+  "parts": [
+    "bowl",
+    "pouring rim",
+    "handle",
+    "hanging hook",
+    "rolled edge"
+  ],
+  "references": [],
+  "size": [
+    0.1,
+    0.08,
+    0.33
+  ],
+  "style": "everyday kitchen, stainless steel",
+  "summary": "Ladle, stainless steel, with real construction: bowl, pouring rim, handle, hanging hook.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "metal",
+    "tool",
+    "handheld",
+    "cookware"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

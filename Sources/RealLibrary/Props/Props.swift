@@ -1276,6 +1276,16 @@ public enum Props {
         MuffinTin.self,
         LoafPan.self,
         CakePan.self,
+        ChefsKnife.self,
+        Whisk.self,
+        Spatula.self,
+        Ladle.self,
+        Tongs.self,
+        VegetablePeeler.self,
+        BoxGrater.self,
+        CanOpener.self,
+        BottleOpener.self,
+        Corkscrew.self,
         // realityhd:prop
     ]
 }
