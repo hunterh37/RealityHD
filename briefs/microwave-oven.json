@@ -1,0 +1,37 @@
+{
+  "budget": 10000,
+  "id": "microwave-oven",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless",
+    "metal.stainless-smudged",
+    "plastic.black",
+    "rubber.silicone-gray"
+  ],
+  "name": "Microwave Oven",
+  "notes": "",
+  "parts": [
+    "body",
+    "lid or door",
+    "handle",
+    "controls",
+    "feet"
+  ],
+  "references": [],
+  "size": [
+    0.5,
+    0.3,
+    0.4
+  ],
+  "style": "everyday kitchen, stainless steel",
+  "summary": "Microwave Oven: countertop appliance with stainless steel construction, seams, handle, controls and rubber feet.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "metal"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

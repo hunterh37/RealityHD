@@ -1,0 +1,39 @@
+{
+  "budget": 10000,
+  "id": "slow-cooker",
+  "kind": "prop",
+  "materials": [
+    "ceramic.stoneware",
+    "plastic.black",
+    "glass.clear",
+    "metal.stainless"
+  ],
+  "name": "Slow Cooker",
+  "notes": "",
+  "parts": [
+    "body",
+    "lid or door",
+    "handle",
+    "controls",
+    "feet"
+  ],
+  "references": [],
+  "size": [
+    0.38,
+    0.26,
+    0.3
+  ],
+  "style": "everyday kitchen, ceramic insert",
+  "summary": "Slow Cooker: countertop appliance with ceramic insert construction, seams, handle, controls and rubber feet.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "ceramic",
+    "plastic",
+    "glass"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
