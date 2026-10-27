@@ -1286,6 +1286,7 @@ public enum Props {
         CanOpener.self,
         BottleOpener.self,
         Corkscrew.self,
+        RollingPin.self,
         // realityhd:prop
     ]
 }
