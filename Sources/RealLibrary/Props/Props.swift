@@ -1337,6 +1337,16 @@ public enum Props {
         BreadLoaf.self,
         Baguette.self,
         SlicedBreadBag.self,
+        CerealBox.self,
+        RiceBag.self,
+        PastaBox.self,
+        SpaghettiJarSauce.self,
+        CannedSoup.self,
+        CannedBeans.self,
+        CannedTomatoes.self,
+        TunaCan.self,
+        OliveOilBottle.self,
+        VinegarBottle.self,
         // realityhd:prop
     ]
 }

@@ -1,0 +1,37 @@
+{
+  "budget": 10000,
+  "id": "spaghetti-jar-sauce",
+  "kind": "prop",
+  "materials": [
+    "glass.clear",
+    "food.tomato-sauce",
+    "metal.galvanized-aged"
+  ],
+  "name": "Spaghetti sauce jar",
+  "notes": "",
+  "parts": [
+    "glass jar with shoulder",
+    "tomato sauce fill",
+    "twist-off metal lid with lugs",
+    "wrap label with overlap",
+    "safety button"
+  ],
+  "references": [],
+  "size": [
+    0.08,
+    0.14,
+    0.08
+  ],
+  "style": "everyday pantry, glass jar",
+  "summary": "Glass spaghetti sauce jar filled with tomato sauce, lugged twist-off lid with safety button and wrapped paper label.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "glass",
+    "metal"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
