@@ -1,0 +1,37 @@
+{
+  "budget": 9000,
+  "id": "milk-jug",
+  "kind": "prop",
+  "materials": [
+    "plastic.matte:EDEDE6",
+    "plastic.matte:2B5FA8",
+    "plastic.white",
+    "paper.sheet"
+  ],
+  "name": "Milk jug",
+  "notes": "",
+  "parts": [
+    "blow-moulded body",
+    "handle with finger grip",
+    "ribbed panels",
+    "foil seal ring and screw cap",
+    "pinch-off seam at base"
+  ],
+  "references": [],
+  "size": [
+    0.15,
+    0.25,
+    0.1
+  ],
+  "style": "everyday pantry, HDPE plastic",
+  "summary": "HDPE milk jug with handle, ribbed panels, tamper ring cap and base seam.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "plastic"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

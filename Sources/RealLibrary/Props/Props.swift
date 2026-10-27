@@ -1327,6 +1327,16 @@ public enum Props {
         Placemat.self,
         CoasterSet.self,
         Trivet.self,
+        CakeStand.self,
+        BreadBasket.self,
+        CandleHolderTable.self,
+        CheeseBoard.self,
+        MilkCarton.self,
+        MilkJug.self,
+        EggCarton.self,
+        BreadLoaf.self,
+        Baguette.self,
+        SlicedBreadBag.self,
         // realityhd:prop
     ]
 }

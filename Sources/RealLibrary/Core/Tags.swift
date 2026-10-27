@@ -11,7 +11,7 @@ public enum AssetTag {
         // material families
         "wood", "metal", "concrete", "stone", "brick", "plastic", "glass", "ceramic", "fabric", "paper", "rubber",
         // settings
-        "urban", "street", "road", "park", "outdoor", "interior", "kitchen", "office", "garden", "farm", "camp",
+        "urban", "street", "road", "park", "outdoor", "interior", "kitchen", "tableware", "pantry", "office", "garden", "farm", "camp",
         "beach", "desert", "snow", "harbor", "rail", "construction", "industrial", "playground", "sports",
         // function
         "container", "furniture", "light", "sign", "barrier", "fence", "wall", "vehicle", "tool", "food", "decor",
