@@ -1,0 +1,36 @@
+{
+  "budget": 14000,
+  "id": "cake-pan",
+  "kind": "prop",
+  "materials": [
+    "metal.aluminum",
+    "metal.sheet-pan-light",
+    "metal.aluminum-cast"
+  ],
+  "name": "Cake pan",
+  "notes": "",
+  "parts": [
+    "round wall",
+    "rolled rim",
+    "base seam",
+    "baked patina"
+  ],
+  "references": [],
+  "size": [
+    0.24,
+    0.05,
+    0.24
+  ],
+  "style": "everyday kitchen, aluminium",
+  "summary": "Round aluminium cake pan: straight wall, rolled bead rim, stamped base ring, baked patina.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "aluminium",
+    "metal"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

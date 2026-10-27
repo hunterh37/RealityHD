@@ -1,0 +1,40 @@
+{
+  "budget": 12000,
+  "id": "teapot",
+  "kind": "prop",
+  "materials": [
+    "ceramic.celadon",
+    "ceramic.bisque:E6E0D2",
+    "ceramic.porcelain-fracture"
+  ],
+  "name": "Teapot",
+  "notes": "Spout +X, handle -X.",
+  "parts": [
+    "round glazed body",
+    "unglazed foot ring",
+    "lid with knob and gallery seat",
+    "curved spout",
+    "pulled loop handle",
+    "strainer holes inside",
+    "chipped lid rim and tea-stained spout tip"
+  ],
+  "references": [],
+  "size": [
+    0.22,
+    0.15,
+    0.15
+  ],
+  "style": "everyday tableware, glazed ceramic",
+  "summary": "Glazed ceramic teapot: round body, seated lid with knob, curved spout, loop handle, chipped lid and stained spout tip.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "ceramic",
+    "kitchen",
+    "container"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

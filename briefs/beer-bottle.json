@@ -1,0 +1,53 @@
+{
+  "budget": 12000,
+  "id": "beer-bottle",
+  "kind": "prop",
+  "materials": [
+    "food.cream",
+    "glass.clear",
+    "glass.frosted",
+    "glass.tinted",
+    "metal.aluminum-brushed",
+    "metal.nickel-worn",
+    "metal.painted",
+    "plastic.amber",
+    "plastic.frosted",
+    "plastic.white"
+  ],
+  "name": "Beer bottle",
+  "notes": "",
+  "parts": [
+    "brown glass body",
+    "moulded heel",
+    "mould seams",
+    "crown cap",
+    "foil neck label",
+    "body label",
+    "peeling label corner",
+    "beer fill",
+    "foam",
+    "scuffed shoulder",
+    "condensation"
+  ],
+  "references": [],
+  "size": [
+    0.06,
+    0.24,
+    0.06
+  ],
+  "style": "everyday pantry, brown glass",
+  "summary": "Brown glass longneck beer bottle, 24 cm: crown cap, foil neck label, body label with peeling corner, condensation.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "glass",
+    "metal",
+    "paper",
+    "container",
+    "food"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

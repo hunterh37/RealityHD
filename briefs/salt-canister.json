@@ -1,0 +1,44 @@
+{
+  "budget": 9000,
+  "id": "salt-canister",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Salt canister",
+  "size": [
+    0.08,
+    0.14,
+    0.08
+  ],
+  "parts": [
+    "cardboard body",
+    "label wrap",
+    "crimped rims",
+    "top disc",
+    "pour spout",
+    "hinged flap",
+    "dent",
+    "spilled salt"
+  ],
+  "materials": [
+    "food.sugar",
+    "metal.galvanized-aged",
+    "metal.nickel-worn",
+    "metal.steel",
+    "paper.sheet"
+  ],
+  "style": "everyday pantry, cardboard",
+  "summary": "Cardboard salt canister, 14 cm: crimped metal rims, pour spout with open flap, wrapped label, dent, spilled salt.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "paper",
+    "metal",
+    "container",
+    "food"
+  ],
+  "theme": "Pantry"
+}

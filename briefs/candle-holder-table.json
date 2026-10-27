@@ -1,0 +1,36 @@
+{
+  "budget": 9000,
+  "id": "candle-holder-table",
+  "kind": "prop",
+  "materials": [
+    "metal.brass",
+    "metal.brass-aged",
+    "plastic.white:EFE6CF"
+  ],
+  "name": "Table candle holder",
+  "notes": "",
+  "parts": [
+    "turned stem with rings",
+    "domed foot",
+    "drip cup",
+    "taper candle",
+    "wax drip and burnt wick"
+  ],
+  "references": [],
+  "size": [
+    0.08,
+    0.25,
+    0.08
+  ],
+  "style": "everyday tableware, brass",
+  "summary": "Brass taper candle holder with turned stem, drip cup and a partly burnt candle.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "metal"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

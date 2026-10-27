@@ -1,0 +1,45 @@
+{
+  "budget": 14500,
+  "id": "deli-meat-pack",
+  "kind": "prop",
+  "materials": [
+    "food.cream",
+    "glass.clear",
+    "paper.screwbox-kraft",
+    "plastic.clear",
+    "plastic.frosted",
+    "plastic.white"
+  ],
+  "name": "Deli meat pack",
+  "notes": "",
+  "parts": [
+    "vacuum film",
+    "wrinkles",
+    "sliced ham stack",
+    "fat rims",
+    "backing board",
+    "crimped seals",
+    "label card",
+    "price sticker",
+    "condensation"
+  ],
+  "references": [],
+  "size": [
+    0.2,
+    0.03,
+    0.15
+  ],
+  "style": "everyday pantry, vacuum pack",
+  "summary": "Vacuum-packed sliced ham, 20 cm: shrunk film with wrinkles, fanned slices with fat rim, crimped seals, label, sticker.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "plastic",
+    "paper",
+    "food"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

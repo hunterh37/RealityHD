@@ -1,0 +1,45 @@
+{
+  "budget": 14000,
+  "id": "sugar-bowl",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "ceramic.bisque",
+    "ceramic.cobalt",
+    "ceramic.porcelain-fracture",
+    "food.sugar",
+    "food.stock"
+  ],
+  "name": "Sugar Bowl",
+  "notes": "",
+  "parts": [
+    "lidded bowl body with rolled rim",
+    "thrown foot ring, unglazed",
+    "two small loop side handles",
+    "domed lid with inner flange seated in the bowl",
+    "ball knob",
+    "cobalt line on the body",
+    "grey rub band under the lid rim",
+    "glaze chip on lid rim exposing bisque",
+    "tea drip down the wall",
+    "spilled sugar grains on the table"
+  ],
+  "references": [],
+  "size": [
+    0.1,
+    0.09,
+    0.1
+  ],
+  "style": "everyday tableware, porcelain",
+  "summary": "White glazed porcelain sugar bowl: lidded, two loop handles, foot ring, chipped lid rim, tea drip and spilled sugar.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "ceramic",
+    "handheld"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

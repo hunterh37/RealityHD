@@ -1,0 +1,43 @@
+{
+  "budget": 12000,
+  "id": "salt-shaker",
+  "kind": "prop",
+  "materials": [
+    "glass.clear",
+    "metal.stainless-smudged",
+    "metal.nickel-worn",
+    "metal.parkerized",
+    "food.sugar"
+  ],
+  "name": "Salt Shaker",
+  "notes": "",
+  "parts": [
+    "panelled glass body with thick base",
+    "threaded neck",
+    "stainless screw cap with domed top",
+    "five shaker holes",
+    "worn nickel skirt band",
+    "salt fill visible through glass",
+    "salt crust at the cap thread",
+    "loose grains on the table"
+  ],
+  "references": [],
+  "size": [
+    0.04,
+    0.09,
+    0.04
+  ],
+  "style": "everyday tableware, glass and steel",
+  "summary": "Glass salt shaker with a stainless domed screw cap with five holes, salt fill, salt crust at the thread and spilled grains.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "glass",
+    "metal",
+    "handheld"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

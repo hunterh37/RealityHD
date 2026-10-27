@@ -1,0 +1,37 @@
+{
+  "budget": 10000,
+  "id": "frying-pan",
+  "kind": "prop",
+  "materials": [
+    "metal.pan-interior",
+    "metal.powdercoat-worn",
+    "metal.stainless"
+  ],
+  "name": "Frying pan",
+  "notes": "",
+  "parts": [
+    "pan body",
+    "nonstick floor",
+    "riveted handle",
+    "rivets",
+    "hang hole"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    0.06,
+    0.52
+  ],
+  "style": "everyday kitchen, nonstick aluminium",
+  "summary": "Nonstick aluminium frying pan: sloped wall, coated floor with heat spot, riveted handle with hang loop.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "nonstick",
+    "aluminium"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

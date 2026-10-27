@@ -1,0 +1,44 @@
+{
+  "budget": 9000,
+  "id": "cheese-block",
+  "kind": "prop",
+  "materials": [
+    "food.cream",
+    "paper.sheet",
+    "plastic.gloss",
+    "plastic.matte",
+    "plastic.white"
+  ],
+  "name": "Cheese block",
+  "notes": "",
+  "parts": [
+    "wax coat",
+    "cut end",
+    "cheese paste",
+    "knife marks",
+    "wax lip",
+    "mould seam",
+    "chipped corner",
+    "thumbprint dent",
+    "wax drips",
+    "crumbs"
+  ],
+  "references": [],
+  "size": [
+    0.12,
+    0.05,
+    0.08
+  ],
+  "style": "everyday pantry, wax rind",
+  "summary": "Wax-rind cheddar block, 12 cm: red wax coat, cut end with knife marks, chipped corner, wax drips, dent.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "food",
+    "container"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

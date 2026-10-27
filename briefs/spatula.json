@@ -1,0 +1,37 @@
+{
+  "budget": 10000,
+  "id": "spatula",
+  "kind": "prop",
+  "materials": [
+    "rubber.silicone",
+    "metal.stainless"
+  ],
+  "name": "Silicone spatula",
+  "notes": "",
+  "parts": [
+    "silicone head with beveled edge",
+    "neck",
+    "handle",
+    "hanging hole"
+  ],
+  "references": [],
+  "size": [
+    0.06,
+    0.01,
+    0.32
+  ],
+  "style": "everyday kitchen, silicone",
+  "summary": "Silicone spatula: beveled flexible head with center rib, stainless collar, ribbed grip, hanging eye.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "plastic",
+    "tool",
+    "handheld",
+    "cookware"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

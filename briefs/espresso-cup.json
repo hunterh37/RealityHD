@@ -1,0 +1,41 @@
+{
+  "budget": 9000,
+  "id": "espresso-cup",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "ceramic.bisque:E6E0D2",
+    "ceramic.porcelain-fracture",
+    "plastic.gloss:6B3F1E",
+    "plastic.gloss:3A1E0C",
+    "plastic.gloss:7A4A28"
+  ],
+  "name": "Espresso cup",
+  "notes": "Handle on +Z; cup centred.",
+  "parts": [
+    "thick-walled porcelain cup with rolled rim",
+    "recessed foot ring, unglazed",
+    "pulled loop handle with thumb rest",
+    "crema coffee surface",
+    "small rim chip"
+  ],
+  "references": [],
+  "size": [
+    0.06,
+    0.05,
+    0.09
+  ],
+  "style": "everyday tableware, porcelain",
+  "summary": "Porcelain espresso cup: thick wall, rolled rim, unglazed foot ring, loop handle, crema inside, one small rim chip.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "ceramic",
+    "kitchen",
+    "handheld"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

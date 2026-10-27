@@ -1,0 +1,37 @@
+{
+  "budget": 10000,
+  "id": "pasta-box",
+  "kind": "prop",
+  "materials": [
+    "paper.screwbox-kraft",
+    "glass.clear",
+    "food.pasta-dry"
+  ],
+  "name": "Pasta box",
+  "notes": "",
+  "parts": [
+    "tall carton body",
+    "clear plastic window with pasta",
+    "top and bottom flaps",
+    "glue seam",
+    "printed band panels"
+  ],
+  "references": [],
+  "size": [
+    0.06,
+    0.28,
+    0.04
+  ],
+  "style": "everyday pantry, printed cardboard",
+  "summary": "Tall printed cardboard spaghetti box with a clear window showing dry strands, folded flaps and glue seam.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "paper",
+    "glass"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

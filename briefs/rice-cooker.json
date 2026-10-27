@@ -1,0 +1,37 @@
+{
+  "budget": 10000,
+  "id": "rice-cooker",
+  "kind": "prop",
+  "materials": [
+    "plastic.white",
+    "plastic.matte",
+    "metal.stainless",
+    "rubber.silicone-gray"
+  ],
+  "name": "Rice Cooker",
+  "notes": "",
+  "parts": [
+    "body",
+    "lid or door",
+    "handle",
+    "controls",
+    "feet"
+  ],
+  "references": [],
+  "size": [
+    0.28,
+    0.23,
+    0.28
+  ],
+  "style": "everyday kitchen, white plastic",
+  "summary": "Rice cooker: white body, domed hinged lid with steam vent and latch, side handles, cook lever and lamps.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "plastic"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

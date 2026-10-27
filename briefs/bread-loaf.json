@@ -1,0 +1,36 @@
+{
+  "budget": 9000,
+  "id": "bread-loaf",
+  "kind": "prop",
+  "materials": [
+    "food.bread-crust",
+    "food.bread-crumb",
+    "food.bread-crust-toasted"
+  ],
+  "name": "Bread loaf",
+  "notes": "",
+  "parts": [
+    "domed crust with score slashes",
+    "flour dusting",
+    "oven spring ear",
+    "cut end showing crumb",
+    "heel torn"
+  ],
+  "references": [],
+  "size": [
+    0.28,
+    0.12,
+    0.12
+  ],
+  "style": "everyday pantry, bakery",
+  "summary": "Scored crusty loaf with oven-spring ears and a cut end showing crumb.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "food"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,35 @@
+{
+  "budget": 10000,
+  "id": "trivet",
+  "kind": "prop",
+  "materials": [
+    "metal.cast-iron-worn",
+    "metal.cast-iron-seasoned"
+  ],
+  "name": "Cast iron trivet",
+  "notes": "Static. No brand marks.",
+  "parts": [
+    "round openwork frame with scrolled spokes",
+    "raised rim and three feet",
+    "casting seam",
+    "rust-worn edges",
+    "one chipped foot"
+  ],
+  "references": [],
+  "size": [
+    0.2,
+    0.02,
+    0.2
+  ],
+  "style": "everyday tableware, cast iron",
+  "summary": "Cast iron trivet: round openwork frame with scrolled spokes, raised rim, three feet, casting seam, rust-worn edges, one chipped foot.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "metal"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

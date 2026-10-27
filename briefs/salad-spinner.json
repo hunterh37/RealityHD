@@ -1,0 +1,39 @@
+{
+  "budget": 14500,
+  "id": "salad-spinner",
+  "kind": "prop",
+  "materials": [
+    "plastic.clear",
+    "plastic.white",
+    "plastic.orange",
+    "rubber.silicone"
+  ],
+  "name": "Salad spinner",
+  "notes": "",
+  "parts": [
+    "clear bowl",
+    "perforated colander basket",
+    "pump lid",
+    "top button",
+    "rim lugs",
+    "rubber foot ring",
+    "water residue ring"
+  ],
+  "references": [],
+  "size": [
+    0.27,
+    0.2,
+    0.27
+  ],
+  "style": "everyday kitchen, clear plastic",
+  "summary": "Salad spinner, 27 cm: clear plastic bowl, perforated basket, pump-knob lid with rim latches and a non-slip foot.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "plastic"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

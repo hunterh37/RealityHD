@@ -1,0 +1,36 @@
+{
+  "budget": 3000,
+  "id": "loaf-pan",
+  "kind": "prop",
+  "materials": [
+    "metal.sheet-pan",
+    "metal.sheet-pan-light",
+    "metal.powdercoat-worn"
+  ],
+  "name": "Loaf pan",
+  "notes": "",
+  "parts": [
+    "tapered body",
+    "rolled rim",
+    "corner folds",
+    "baked patina"
+  ],
+  "references": [],
+  "size": [
+    0.26,
+    0.07,
+    0.13
+  ],
+  "style": "everyday kitchen, nonstick steel",
+  "summary": "loaf-pan: flared walls, rolled wire rim, baked-in patina.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "nonstick",
+    "steel"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

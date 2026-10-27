@@ -1,0 +1,22 @@
+{
+  "automated" : 0.98619354,
+  "date" : "2026-10-27",
+  "final" : 0.8667927,
+  "fingerprint" : "09096a6035e40fd0",
+  "id" : "rice-bag",
+  "iterations" : 2,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 8,
+    "edges" : 7,
+    "grounding" : 8,
+    "materials" : 8,
+    "proportion" : 9,
+    "silhouette" : 8,
+    "wear" : 8
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.8025
+}

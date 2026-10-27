@@ -1,0 +1,36 @@
+{
+  "budget": 10000,
+  "id": "rolling-pin",
+  "kind": "prop",
+  "materials": [
+    "wood.maple-natural",
+    "wood.beech-stained"
+  ],
+  "name": "Rolling pin",
+  "notes": "",
+  "parts": [
+    "cylindrical barrel",
+    "two turned handles",
+    "shoulder grooves",
+    "end caps with rounded edges",
+    "wear ring"
+  ],
+  "references": [],
+  "size": [
+    0.06,
+    0.06,
+    0.45
+  ],
+  "style": "everyday kitchen, maple wood",
+  "summary": "Straight maple rolling pin with a lathe-turned barrel and two tapered end handles, flour dust and a dark ring at the handle.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "wood",
+    "maple"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

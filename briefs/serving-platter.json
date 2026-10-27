@@ -1,0 +1,39 @@
+{
+  "budget": 12000,
+  "id": "serving-platter",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "ceramic.bisque",
+    "ceramic.cobalt",
+    "ceramic.porcelain-fracture"
+  ],
+  "name": "Serving Platter",
+  "notes": "",
+  "parts": [
+    "oval platter body",
+    "sloping rim with rolled edge",
+    "shallow well",
+    "oval unglazed foot ring",
+    "cobalt rim line",
+    "glaze chips on rim",
+    "grey cutlery scuff marks in the well"
+  ],
+  "references": [],
+  "size": [
+    0.4,
+    0.03,
+    0.28
+  ],
+  "style": "everyday tableware, porcelain",
+  "summary": "Oval white porcelain serving platter, 40 cm: rolled rim, shallow well, foot ring, rim chip and cutlery scuffs.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "ceramic"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

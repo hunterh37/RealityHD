@@ -1,0 +1,39 @@
+{
+  "budget": 12000,
+  "id": "spice-jar",
+  "kind": "prop",
+  "materials": [
+    "glass.clear",
+    "metal.galvanized-aged",
+    "paper.sheet:E9DFC8",
+    "plastic.matte:A8431F"
+  ],
+  "name": "Spice jar",
+  "notes": "Static.",
+  "parts": [
+    "glass body with shoulder and threaded neck",
+    "tin lid with rolled rim and sifter holes",
+    "label wrap with seam overlap",
+    "ground spice fill with settled slope",
+    "one scuffed lid edge"
+  ],
+  "references": [],
+  "size": [
+    0.05,
+    0.1,
+    0.05
+  ],
+  "style": "everyday pantry, glass and tin",
+  "summary": "Glass spice jar with threaded tin shaker lid, paper label wrap and ground paprika inside, 5 cm wide.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "glass",
+    "metal",
+    "paper"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

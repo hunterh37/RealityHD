@@ -1,0 +1,37 @@
+{
+  "budget": 8000,
+  "id": "whiskey-tumbler",
+  "kind": "prop",
+  "materials": [
+    "glass.clear",
+    "glass.frosted"
+  ],
+  "name": "Whiskey tumbler",
+  "notes": "",
+  "parts": [
+    "heavy solid base",
+    "faceted cut lower body",
+    "round upper rim",
+    "star cut on the underside",
+    "chipped rim spot"
+  ],
+  "references": [],
+  "size": [
+    0.08,
+    0.09,
+    0.08
+  ],
+  "style": "everyday tableware, cut crystal",
+  "summary": "Cut crystal rocks glass: heavy base, 10 faceted cut flats on the lower body, round rim, one small rim chip.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "glass",
+    "container",
+    "handheld"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}
