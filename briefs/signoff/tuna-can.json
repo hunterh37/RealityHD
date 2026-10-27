@@ -1,0 +1,22 @@
+{
+  "automated" : 0.963013,
+  "date" : "2026-10-27",
+  "final" : 0.856242,
+  "fingerprint" : "62434cc8a7ef932c",
+  "id" : "tuna-can",
+  "iterations" : 2,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 7,
+    "construction" : 9,
+    "edges" : 9,
+    "grounding" : 8,
+    "materials" : 7,
+    "proportion" : 9,
+    "silhouette" : 8,
+    "wear" : 7
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.79875
+}
