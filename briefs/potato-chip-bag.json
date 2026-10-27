@@ -1,0 +1,37 @@
+{
+  "budget": 13000,
+  "id": "potato-chip-bag",
+  "kind": "prop",
+  "materials": [
+    "metal.aluminum-brushed:D4A21E",
+    "plastic.gloss:B3261E",
+    "plastic.matte:EDEBE4"
+  ],
+  "name": "Potato chip bag",
+  "notes": "Static.",
+  "parts": [
+    "pillow body with air bulge",
+    "crimped top seal",
+    "crimped bottom seal",
+    "back fin seam",
+    "creased wrinkles and tear notch"
+  ],
+  "references": [],
+  "size": [
+    0.2,
+    0.3,
+    0.07
+  ],
+  "style": "everyday pantry, foil bag",
+  "summary": "Foil potato chip bag 30 cm tall, pillow shape with crimped top and bottom seals, back fin seam and air-filled bulge.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "plastic",
+    "metal"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

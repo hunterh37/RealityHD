@@ -55,6 +55,8 @@ public enum AssetTag {
         "lunar",
         // terawatt: data center, semiconductor fab and chip lab equipment; `space` for orbital/solar hardware
         "datacenter", "cooling", "semiconductor", "chiplab", "micro-scale", "solar", "space", "tableware",
+        "datacenter", "cooling", "semiconductor", "chiplab", "micro-scale", "solar", "space",
+        "pantry",
     ])
 
     /// Scene tags: any vocabulary tag plus these.
