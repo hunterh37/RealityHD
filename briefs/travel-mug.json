@@ -1,0 +1,46 @@
+{
+  "budget": 13000,
+  "id": "travel-mug",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless",
+    "metal.stainless-smudged",
+    "plastic.black",
+    "rubber.silicone",
+    "plastic.matte:2A2D31",
+    "metal.nickel-worn",
+    "plastic.matte:5B5F66",
+    "rubber.silicone:6E7278"
+  ],
+  "name": "Travel mug",
+  "notes": "Handle on +Z.",
+  "parts": [
+    "double-wall stainless body with rolled bottom seam",
+    "screw-on plastic lid with sip opening",
+    "sliding seal switch",
+    "rubber base ring",
+    "silicone grip band",
+    "loop handle",
+    "fingerprint-worn patch and scuffed base rim"
+  ],
+  "references": [],
+  "size": [
+    0.08,
+    0.19,
+    0.1
+  ],
+  "style": "everyday tableware, insulated steel",
+  "summary": "Insulated stainless travel mug: screw lid with slide switch, silicone grip band, rubber foot, side handle, scuffed from daily use.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "metal",
+    "plastic",
+    "handheld",
+    "container"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}
