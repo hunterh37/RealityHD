@@ -1,0 +1,40 @@
+{
+  "budget": 14000,
+  "id": "water-pitcher",
+  "kind": "prop",
+  "materials": [
+    "glass.clear",
+    "glass.water-clear",
+    "glass.frosted",
+    "glass.ice"
+  ],
+  "name": "Water pitcher",
+  "notes": "Spout +Z, handle -Z.",
+  "parts": [
+    "glass body with thick base",
+    "pulled pouring spout lip",
+    "applied loop handle with thumb rest",
+    "water fill",
+    "limescale ring at the waterline",
+    "ice cubes"
+  ],
+  "references": [],
+  "size": [
+    0.12,
+    0.25,
+    0.17
+  ],
+  "style": "everyday tableware, glass",
+  "summary": "Glass water pitcher: thick base, spout lip, applied handle, half full of water with ice and a limescale ring.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "glass",
+    "container",
+    "kitchen"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

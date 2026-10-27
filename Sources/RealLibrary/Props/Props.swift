@@ -1302,6 +1302,16 @@ public enum Props {
         CerealBowl.self,
         PastaBowl.self,
         TeacupAndSaucer.self,
+        EspressoCup.self,
+        TravelMug.self,
+        WineGlass.self,
+        ChampagneFlute.self,
+        BeerMug.self,
+        WhiskeyTumbler.self,
+        WaterPitcher.self,
+        Carafe.self,
+        Teapot.self,
+        CreamerJug.self,
         // realityhd:prop
     ]
 }

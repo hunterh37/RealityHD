@@ -1,0 +1,36 @@
+{
+  "budget": 14000,
+  "id": "wine-glass",
+  "kind": "prop",
+  "materials": [
+    "glass.clear",
+    "plastic.matte:4A1620"
+  ],
+  "name": "Wine glass",
+  "notes": "",
+  "parts": [
+    "stemmed crystal bowl with thin rim",
+    "drawn stem",
+    "flat disc foot with folded edge",
+    "dried wine residue ring inside the bowl"
+  ],
+  "references": [],
+  "size": [
+    0.08,
+    0.21,
+    0.08
+  ],
+  "style": "everyday tableware, stemmed crystal",
+  "summary": "Stemmed crystal wine glass: tulip bowl, thin lip, drawn stem, disc foot, one dried wine ring.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "glass",
+    "container",
+    "handheld"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

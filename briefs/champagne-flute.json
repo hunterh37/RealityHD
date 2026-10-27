@@ -1,0 +1,39 @@
+{
+  "budget": 14000,
+  "id": "champagne-flute",
+  "kind": "prop",
+  "materials": [
+    "glass.clear",
+    "glass.frosted",
+    "plastic.matte:B39A52"
+  ],
+  "name": "Champagne flute",
+  "notes": "",
+  "parts": [
+    "tall tapered flute bowl",
+    "thin rim",
+    "drawn stem with knop",
+    "disc foot",
+    "etched nucleation dot at the bowl base",
+    "dried champagne ring at the old pour line"
+  ],
+  "references": [],
+  "size": [
+    0.06,
+    0.23,
+    0.06
+  ],
+  "style": "everyday tableware, stemmed crystal",
+  "summary": "Stemmed crystal flute: narrow bowl, knopped stem, disc foot, etched bubble point inside the base.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "glass",
+    "container",
+    "handheld"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}
