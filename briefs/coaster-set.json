@@ -1,0 +1,37 @@
+{
+  "budget": 10000,
+  "id": "coaster-set",
+  "kind": "prop",
+  "materials": [
+    "cork.grip",
+    "cork.grip-worn",
+    "metal.stainless-smudged"
+  ],
+  "name": "Coaster set",
+  "notes": "Static. No brand marks.",
+  "parts": [
+    "4 stacked square cork coasters with rounded corners",
+    "holder rim",
+    "slightly offset stack",
+    "ring stain on top coaster",
+    "chipped corner"
+  ],
+  "references": [],
+  "size": [
+    0.1,
+    0.04,
+    0.1
+  ],
+  "style": "everyday tableware, cork",
+  "summary": "Coaster set, cork: 4 stacked square cork coasters with rounded corners, holder rim, slightly offset stack.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "wood",
+    "metal"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
