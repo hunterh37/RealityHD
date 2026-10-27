@@ -1,0 +1,47 @@
+{
+  "budget": 9000,
+  "id": "mayonnaise-jar",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Mayonnaise jar",
+  "size": [
+    0.08,
+    0.13,
+    0.08
+  ],
+  "parts": [
+    "glass jar",
+    "mould seams",
+    "scuffed heel",
+    "threaded neck",
+    "enamel lid",
+    "safety button",
+    "wrapped label",
+    "mayo smear"
+  ],
+  "materials": [
+    "food.cream",
+    "glass.clear",
+    "glass.frosted",
+    "metal.enamel",
+    "metal.nickel-worn",
+    "metal.steel",
+    "paper.sheet"
+  ],
+  "style": "everyday pantry, glass jar",
+  "summary": "Glass mayonnaise jar, 13 cm: threaded neck, blue enamel lid with safety button, wrapped label, mayo smear.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "glass",
+    "metal",
+    "paper",
+    "container",
+    "food"
+  ],
+  "theme": "Pantry"
+}

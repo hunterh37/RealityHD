@@ -1268,6 +1268,8 @@ public enum Props {
         BikeHoopRack.self,
         WayfindingPylon.self,
         CascadiaCabInterior.self,
+        MayonnaiseJar.self,
+        SaltCanister.self,
         // realityhd:prop
     ]
 }
