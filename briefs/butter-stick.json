@@ -1,0 +1,41 @@
+{
+  "budget": 9000,
+  "id": "butter-stick",
+  "kind": "prop",
+  "materials": [
+    "food.cream",
+    "paper.sheet",
+    "plastic.white"
+  ],
+  "name": "Butter stick",
+  "notes": "",
+  "parts": [
+    "butter core",
+    "wrapper",
+    "printed band",
+    "tucked end folds",
+    "peeled wrapper lip",
+    "cut face",
+    "shaved pat",
+    "grease stain",
+    "crumbs"
+  ],
+  "references": [],
+  "size": [
+    0.12,
+    0.04,
+    0.04
+  ],
+  "style": "everyday pantry, wrapped",
+  "summary": "Wrapped butter stick, 12 cm: waxed paper with tucked folds, printed band, peeled end, cut face, grease stain.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "paper",
+    "food"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

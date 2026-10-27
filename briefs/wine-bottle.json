@@ -1,0 +1,50 @@
+{
+  "budget": 12000,
+  "id": "wine-bottle",
+  "kind": "prop",
+  "materials": [
+    "food.soy-sauce",
+    "glass.frosted",
+    "glass.tinted",
+    "metal.brass-aged",
+    "plastic.gloss",
+    "plastic.white",
+    "wood.pine"
+  ],
+  "name": "Wine bottle",
+  "notes": "",
+  "parts": [
+    "green glass body",
+    "punt base",
+    "mould seams",
+    "foil capsule",
+    "torn capsule top",
+    "cork",
+    "front label",
+    "back label",
+    "neck label",
+    "dried wine drip",
+    "shoulder dust"
+  ],
+  "references": [],
+  "size": [
+    0.08,
+    0.3,
+    0.08
+  ],
+  "style": "everyday pantry, green glass",
+  "summary": "Green glass Bordeaux wine bottle, 30 cm: punt base, foil capsule, front and back labels, dried drip.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "glass",
+    "metal",
+    "paper",
+    "container",
+    "food"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
