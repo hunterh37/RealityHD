@@ -1,0 +1,37 @@
+{
+  "budget": 12000,
+  "id": "pressure-cooker",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless",
+    "metal.stainless-smudged",
+    "plastic.black",
+    "rubber.silicone-gray"
+  ],
+  "name": "Pressure Cooker",
+  "notes": "",
+  "parts": [
+    "body",
+    "lid or door",
+    "handle",
+    "controls",
+    "feet"
+  ],
+  "references": [],
+  "size": [
+    0.34,
+    0.3,
+    0.3
+  ],
+  "style": "everyday kitchen, stainless steel",
+  "summary": "Stovetop pressure cooker: stainless pot, riveted side handles, locking lid handle, pressure regulator weight.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "metal"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

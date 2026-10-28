@@ -1,0 +1,39 @@
+{
+  "budget": 12000,
+  "id": "beer-mug",
+  "kind": "prop",
+  "materials": [
+    "glass.clear",
+    "glass.frosted",
+    "plastic.amber",
+    "plastic.matte:F3EBD2"
+  ],
+  "name": "Beer mug",
+  "notes": "Handle on +Z.",
+  "parts": [
+    "heavy glass body with thick base",
+    "slightly tapered thick wall with rolled rim",
+    "applied sweep handle with thumb curve",
+    "beer fill with foam head",
+    "scuffed foot ring"
+  ],
+  "references": [],
+  "size": [
+    0.09,
+    0.15,
+    0.13
+  ],
+  "style": "everyday tableware, heavy glass",
+  "summary": "Heavy glass beer mug: thick base, tapered wall, applied handle, beer and foam, scuffed foot ring.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "glass",
+    "container",
+    "handheld"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

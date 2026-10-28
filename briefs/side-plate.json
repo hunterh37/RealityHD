@@ -1,0 +1,36 @@
+{
+  "budget": 9000,
+  "id": "side-plate",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "ceramic.bisque"
+  ],
+  "name": "Side plate",
+  "notes": "",
+  "parts": [
+    "flat well",
+    "coved rise",
+    "rim",
+    "rolled edge",
+    "unglazed foot ring",
+    "edge chip"
+  ],
+  "references": [],
+  "size": [
+    0.17,
+    0.02,
+    0.17
+  ],
+  "style": "everyday tableware, glazed ceramic",
+  "summary": "Side plate, 17 cm: glazed ceramic, shallow well, rolled rim, foot ring, one small edge chip.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "ceramic"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

@@ -1,0 +1,36 @@
+{
+  "budget": 10000,
+  "id": "bottle-opener",
+  "kind": "prop",
+  "materials": [
+    "metal.brushed-nickel",
+    "metal.nickel-worn"
+  ],
+  "name": "Bottle opener",
+  "notes": "",
+  "parts": [
+    "flat steel body",
+    "lift slot",
+    "hanging hole",
+    "rolled edge"
+  ],
+  "references": [],
+  "size": [
+    0.03,
+    0.01,
+    0.12
+  ],
+  "style": "everyday kitchen, steel",
+  "summary": "Stamped steel bottle opener: tapered handle with hanging hole, slotted head, formed lip.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "metal",
+    "tool",
+    "handheld"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

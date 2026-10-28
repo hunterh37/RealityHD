@@ -1,0 +1,46 @@
+{
+  "budget": 13000,
+  "id": "water-bottle-plastic",
+  "kind": "prop",
+  "materials": [
+    "glass.clear",
+    "glass.water-clear",
+    "plastic.clear",
+    "plastic.frosted",
+    "plastic.gloss",
+    "plastic.white"
+  ],
+  "name": "Water bottle plastic",
+  "notes": "",
+  "parts": [
+    "PET body",
+    "ribbed grip",
+    "crushed waist",
+    "label",
+    "neck ring",
+    "thread",
+    "white sport cap",
+    "tamper band",
+    "water fill",
+    "scuffed heel",
+    "condensation"
+  ],
+  "references": [],
+  "size": [
+    0.07,
+    0.22,
+    0.07
+  ],
+  "style": "everyday pantry, PET plastic",
+  "summary": "Half-litre PET water bottle, 22 cm: ribbed grip, blue label, threaded neck, white cap, condensation.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "plastic",
+    "container"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

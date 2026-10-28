@@ -1,0 +1,41 @@
+{
+  "budget": 12000,
+  "id": "gravy-boat",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "ceramic.bisque",
+    "ceramic.cobalt",
+    "ceramic.porcelain-fracture",
+    "food.stock"
+  ],
+  "name": "Gravy Boat",
+  "notes": "",
+  "parts": [
+    "boat shaped oval body",
+    "pinched pouring spout",
+    "loop handle on the opposite end",
+    "round pedestal foot with unglazed ring",
+    "rolled rim",
+    "cobalt line below the rim",
+    "dried gravy drip on the spout",
+    "chips on handle"
+  ],
+  "references": [],
+  "size": [
+    0.2,
+    0.1,
+    0.09
+  ],
+  "style": "everyday tableware, porcelain",
+  "summary": "White porcelain gravy boat: pinched spout, loop handle, pedestal foot, cobalt rim line, dried gravy drip and a handle chip.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "ceramic"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

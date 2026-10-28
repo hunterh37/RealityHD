@@ -1,0 +1,36 @@
+{
+  "budget": 10000,
+  "id": "canned-tomatoes",
+  "kind": "prop",
+  "materials": [
+    "metal.galvanized-aged",
+    "paper.screwbox-kraft"
+  ],
+  "name": "Canned tomatoes",
+  "notes": "",
+  "parts": [
+    "wide tin body with beads",
+    "double-seam rims",
+    "pull-tab lid",
+    "wrapped paper label with seam",
+    "scuffed rim"
+  ],
+  "references": [],
+  "size": [
+    0.1,
+    0.12,
+    0.1
+  ],
+  "style": "everyday pantry, tin can",
+  "summary": "Wide tin tomato can with double-seam rims, beads, ring-pull lid and wrapped paper label.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "metal",
+    "paper"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,41 @@
+{
+  "budget": 10000,
+  "id": "chefs-knife",
+  "kind": "prop",
+  "materials": [
+    "metal.knife-blade",
+    "metal.stainless",
+    "wood.walnut",
+    "metal.brass-aged"
+  ],
+  "name": "Chef's knife",
+  "notes": "",
+  "parts": [
+    "forged blade with belly and tip",
+    "bolster",
+    "riveted handle scales",
+    "three rivets",
+    "tang spine",
+    "edge bevel"
+  ],
+  "references": [],
+  "size": [
+    0.05,
+    0.02,
+    0.34
+  ],
+  "style": "everyday kitchen, forged steel",
+  "summary": "Chef's knife, forged steel: 21 cm blade with belly, bolster, walnut scales on a stainless tang, three brass rivets.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "metal",
+    "tool",
+    "handheld",
+    "cookware"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

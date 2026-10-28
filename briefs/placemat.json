@@ -1,0 +1,35 @@
+{
+  "budget": 10000,
+  "id": "placemat",
+  "kind": "prop",
+  "materials": [
+    "wood.rattan",
+    "wood.pine-aged"
+  ],
+  "name": "Rattan placemat",
+  "notes": "Static. No brand marks.",
+  "parts": [
+    "woven weft strands over warp",
+    "bound rim cord",
+    "stitched binding wraps",
+    "frayed strand",
+    "worn dark scuff near the front edge"
+  ],
+  "references": [],
+  "size": [
+    0.45,
+    0.01,
+    0.33
+  ],
+  "style": "everyday tableware, woven rattan",
+  "summary": "Rattan placemat, woven: weft strands over warp, bound rim cord, wraps, frayed strand, worn dark scuff near the front edge.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "wood"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

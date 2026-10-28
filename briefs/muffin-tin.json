@@ -1,0 +1,36 @@
+{
+  "budget": 24000,
+  "id": "muffin-tin",
+  "kind": "prop",
+  "materials": [
+    "metal.sheet-pan",
+    "metal.sheet-pan-light",
+    "metal.powdercoat-worn"
+  ],
+  "name": "Muffin tin",
+  "notes": "",
+  "parts": [
+    "12 cups",
+    "flange",
+    "rolled edge",
+    "baked patina"
+  ],
+  "references": [],
+  "size": [
+    0.35,
+    0.04,
+    0.27
+  ],
+  "style": "everyday kitchen, nonstick steel",
+  "summary": "12-cup nonstick muffin tin: tapered cups, flat flange, rolled perimeter bead.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "nonstick",
+    "steel"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

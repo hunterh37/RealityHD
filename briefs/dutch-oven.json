@@ -1,0 +1,38 @@
+{
+  "budget": 18000,
+  "id": "dutch-oven",
+  "kind": "prop",
+  "materials": [
+    "metal.enamel",
+    "metal.cast-iron-seasoned",
+    "metal.cast-iron-worn"
+  ],
+  "name": "Dutch oven",
+  "notes": "",
+  "parts": [
+    "pot body",
+    "enamelled shell",
+    "lid",
+    "knob",
+    "side loop handles",
+    "chipped rim"
+  ],
+  "references": [],
+  "size": [
+    0.32,
+    0.17,
+    0.38
+  ],
+  "style": "everyday kitchen, enamelled cast iron",
+  "summary": "Enamelled cast-iron Dutch oven: bare iron rim with chip, cast ear handles, heavy lid, brass knob.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "enamel",
+    "cast-iron"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

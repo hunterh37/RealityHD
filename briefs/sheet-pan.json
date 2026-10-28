@@ -1,0 +1,37 @@
+{
+  "budget": 3000,
+  "id": "sheet-pan",
+  "kind": "prop",
+  "materials": [
+    "metal.sheet-pan",
+    "metal.sheet-pan-light",
+    "metal.aluminum"
+  ],
+  "name": "Sheet pan",
+  "notes": "",
+  "parts": [
+    "flat bed",
+    "rolled rim",
+    "wire-rolled edge",
+    "corner folds",
+    "baked patina"
+  ],
+  "references": [],
+  "size": [
+    0.46,
+    0.02,
+    0.33
+  ],
+  "style": "everyday kitchen, aluminium",
+  "summary": "sheet-pan: flared walls, rolled wire rim, baked-in patina.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "aluminium",
+    "metal"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

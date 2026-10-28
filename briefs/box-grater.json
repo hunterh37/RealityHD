@@ -1,0 +1,39 @@
+{
+  "budget": 14000,
+  "id": "box-grater",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless-smudged",
+    "metal.stainless",
+    "plastic.black"
+  ],
+  "name": "Box grater",
+  "notes": "",
+  "parts": [
+    "four-sided body",
+    "coarse holes",
+    "fine rasp",
+    "slicing slot",
+    "top handle",
+    "rolled base rim"
+  ],
+  "references": [],
+  "size": [
+    0.1,
+    0.24,
+    0.07
+  ],
+  "style": "everyday kitchen, stainless steel",
+  "summary": "Stainless box grater: coarse, fine, slicer and punched faces, rolled base and top rims, riveted arch handle.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "metal",
+    "tool",
+    "cookware"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,38 @@
+{
+  "budget": 9000,
+  "id": "pizza-cutter",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless",
+    "metal.steel",
+    "metal.nickel-worn"
+  ],
+  "name": "Pizza cutter",
+  "notes": "",
+  "parts": [
+    "stamped steel handle",
+    "finger loop",
+    "wheel blade",
+    "riveted fork",
+    "thumb guard",
+    "rivets",
+    "food residue on blade"
+  ],
+  "references": [],
+  "size": [
+    0.08,
+    0.01,
+    0.2
+  ],
+  "style": "everyday kitchen, steel",
+  "summary": "Pizza wheel, 20 cm, lying flat: stamped stainless handle, riveted fork holding a 7 cm wheel.",
+  "tags": [
+    "prop",
+    "interior",
+    "kitchen",
+    "metal"
+  ],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

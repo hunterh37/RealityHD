@@ -1,0 +1,35 @@
+{
+  "budget": 11000,
+  "id": "cereal-bowl",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "ceramic.bisque"
+  ],
+  "name": "Cereal bowl",
+  "notes": "",
+  "parts": [
+    "deep curved wall",
+    "rolled rim",
+    "unglazed foot ring",
+    "dried milk ring",
+    "spoon scratch marks"
+  ],
+  "references": [],
+  "size": [
+    0.16,
+    0.07,
+    0.16
+  ],
+  "style": "everyday tableware, glazed ceramic",
+  "summary": "Cereal bowl, 16 cm: glazed ceramic, deep curved wall, rolled rim, foot ring.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "ceramic"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

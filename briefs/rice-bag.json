@@ -1,0 +1,36 @@
+{
+  "budget": 10000,
+  "id": "rice-bag",
+  "kind": "prop",
+  "materials": [
+    "fabric.canvas",
+    "paper.sheet"
+  ],
+  "name": "Rice bag",
+  "notes": "",
+  "parts": [
+    "pillow bag body",
+    "stitched top seam",
+    "woven fabric",
+    "paper label patch",
+    "fold creases"
+  ],
+  "references": [],
+  "size": [
+    0.22,
+    0.32,
+    0.08
+  ],
+  "style": "everyday pantry, woven bag",
+  "summary": "Woven polypropylene rice bag with a stitched folded top seam, pillow body folds, label patch and one scuffed corner.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "fabric",
+    "paper"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

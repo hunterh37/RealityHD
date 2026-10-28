@@ -11,7 +11,7 @@ public enum AssetTag {
         // material families
         "wood", "metal", "concrete", "stone", "brick", "plastic", "glass", "ceramic", "fabric", "paper", "rubber",
         // settings
-        "urban", "street", "road", "park", "outdoor", "interior", "kitchen", "office", "garden", "farm", "camp",
+        "urban", "street", "road", "park", "outdoor", "interior", "kitchen", "tableware", "pantry", "office", "garden", "farm", "camp",
         "beach", "desert", "snow", "harbor", "rail", "construction", "industrial", "playground", "sports",
         // function
         "container", "furniture", "light", "sign", "barrier", "fence", "wall", "vehicle", "tool", "food", "decor",
@@ -26,7 +26,7 @@ public enum AssetTag {
         // ceiling-mounted: authored in place below a ceiling at y = mount height; y = 0 is the floor under it
         "ceiling",
         // RealityHD 6: kitchen and cooking
-        "appliance", "cookware",
+        "appliance", "cookware", "tableware",
         // landscaping: yard props, hardscape, planting
         "landscaping", "archery",
         // architecture: facade openings and building elements sized per bay by building generators
@@ -40,9 +40,9 @@ public enum AssetTag {
         // insects: life-size articulated bugs; locomotion tags for spawners and behaviors
         "insect", "flying", "crawling", "jumping", "glowing",
         // aerospace: launch range, hangar and flight-course obstacles
-        "aerospace",
+        "aerospace", "tableware",
         // floor planning: room-scale furnishing, fixtures and building interior elements; `floorplan` marks every asset in the pack
-        "floorplan", "living", "dining", "bedroom", "bathroom", "laundry", "home", "hvac", "plumbing", "stair", "commercial", "retail",
+        "pantry", "floorplan", "living", "dining", "bedroom", "bathroom", "laundry", "home", "hvac", "plumbing", "stair", "commercial", "retail",
         // river pack: Ozark river settings and small boats
         "river", "boat",
         // fishing: life-size articulated freshwater fish
@@ -54,7 +54,9 @@ public enum AssetTag {
         // lunar: regolith ground, boulders and craters
         "lunar",
         // terawatt: data center, semiconductor fab and chip lab equipment; `space` for orbital/solar hardware
+        "datacenter", "cooling", "semiconductor", "chiplab", "micro-scale", "solar", "space", "tableware",
         "datacenter", "cooling", "semiconductor", "chiplab", "micro-scale", "solar", "space",
+        "pantry",
     ])
 
     /// Scene tags: any vocabulary tag plus these.

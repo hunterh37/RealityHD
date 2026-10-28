@@ -1,0 +1,22 @@
+{
+  "automated" : 0.9444317,
+  "date" : "2026-10-27",
+  "final" : 0.85623854,
+  "fingerprint" : "eac2eed91e84df12",
+  "id" : "canned-soup",
+  "iterations" : 2,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 9,
+    "edges" : 9,
+    "grounding" : 8,
+    "materials" : 7,
+    "proportion" : 8,
+    "silhouette" : 8,
+    "wear" : 8
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.80875
+}

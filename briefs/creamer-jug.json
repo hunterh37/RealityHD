@@ -1,0 +1,38 @@
+{
+  "budget": 9000,
+  "id": "creamer-jug",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "ceramic.bisque:E6E0D2",
+    "ceramic.porcelain-fracture"
+  ],
+  "name": "Creamer jug",
+  "notes": "Lip +X, handle -X.",
+  "parts": [
+    "pot-bellied porcelain body",
+    "unglazed foot ring",
+    "pinched pouring lip",
+    "pulled loop handle",
+    "small glaze chip on the foot"
+  ],
+  "references": [],
+  "size": [
+    0.1,
+    0.09,
+    0.07
+  ],
+  "style": "everyday tableware, porcelain",
+  "summary": "Porcelain creamer jug: pot belly, pinched lip, loop handle, unglazed foot ring, small foot chip.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "ceramic",
+    "kitchen",
+    "container"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}

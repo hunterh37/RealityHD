@@ -1,0 +1,22 @@
+{
+  "automated" : 0.95151603,
+  "date" : "2026-10-27",
+  "final" : 0.8668431,
+  "fingerprint" : "8e309db428fa4108",
+  "id" : "canned-tomatoes",
+  "iterations" : 2,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 9,
+    "edges" : 9,
+    "grounding" : 8,
+    "materials" : 7,
+    "proportion" : 9,
+    "silhouette" : 8,
+    "wear" : 8
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.82125
+}

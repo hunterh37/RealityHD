@@ -1,0 +1,36 @@
+{
+  "budget": 12000,
+  "id": "egg-carton",
+  "kind": "prop",
+  "materials": [
+    "paper.sheet:B9AE98",
+    "paper.sheet:A89D88",
+    "food.egg-shell"
+  ],
+  "name": "Egg carton",
+  "notes": "",
+  "parts": [
+    "12 cups in two rows",
+    "cone separators",
+    "hinged lid with latch tab",
+    "lid flaps",
+    "two eggs in cups"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    0.13,
+    0.115
+  ],
+  "style": "everyday pantry, moulded pulp",
+  "summary": "Moulded pulp egg carton with 12 cups, cone separators and latched lid, two eggs inside.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "paper"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

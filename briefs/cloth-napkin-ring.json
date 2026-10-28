@@ -1,0 +1,35 @@
+{
+  "budget": 10000,
+  "id": "cloth-napkin-ring",
+  "kind": "prop",
+  "materials": [
+    "metal.brushed-nickel",
+    "metal.nickel-worn"
+  ],
+  "name": "Napkin ring",
+  "notes": "Static. No brand marks.",
+  "parts": [
+    "band with rolled rims",
+    "brazed seam",
+    "engraved ring groove",
+    "worn polished high points",
+    "one dent"
+  ],
+  "references": [],
+  "size": [
+    0.05,
+    0.05,
+    0.04
+  ],
+  "style": "everyday tableware, brushed metal",
+  "summary": "Napkin ring, brushed metal: band with rolled rims, brazed seam, raised bands, worn polished high points, one dent.",
+  "tags": [
+    "prop",
+    "interior",
+    "tableware",
+    "metal"
+  ],
+  "theme": "Tableware",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,22 @@
+{
+  "automated" : 0.9193021,
+  "date" : "2026-10-27",
+  "final" : 0.8888807,
+  "fingerprint" : "bb9b27cea319235a",
+  "id" : "whisk",
+  "iterations" : 1,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 9,
+    "construction" : 9,
+    "edges" : 9,
+    "grounding" : 9,
+    "materials" : 8,
+    "proportion" : 9,
+    "silhouette" : 9,
+    "wear" : 8
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.8725
+}
