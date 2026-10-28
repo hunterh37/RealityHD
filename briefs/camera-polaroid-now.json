@@ -1,0 +1,58 @@
+{
+  "budget": 15000,
+  "id": "camera-polaroid-now",
+  "kind": "prop",
+  "materials": [
+    "plastic.gloss",
+    "plastic.white",
+    "plastic.matte",
+    "plastic.black",
+    "rubber",
+    "glass.lens-coated",
+    "metal.satin-aluminum",
+    "plastic.sharps-red",
+    "screen.off"
+  ],
+  "name": "Polaroid Now",
+  "notes": "Polaroid Now 2nd gen ~150 x 110 x 95 mm. Square 40x40 mm rear screen (app live view).",
+  "parts": [
+    "shutter",
+    "power",
+    "menu",
+    "play",
+    "dpad",
+    "dpad-ok",
+    "main-dial",
+    "zoom-in",
+    "zoom-out",
+    "screen",
+    "evf",
+    "film-slot",
+    "lens barrel",
+    "shutter ring",
+    "flash window",
+    "self-timer window",
+    "rainbow stripe",
+    "film door latch",
+    "strap lug",
+    "tripod socket"
+  ],
+  "references": [],
+  "size": [
+    0.15,
+    0.11,
+    0.095
+  ],
+  "style": "Glossy white plastic body with black front panel, rainbow stripe, coated lens glass, red shutter button.",
+  "summary": "Polaroid Now 2nd gen i-Type instant camera: white glossy body, black front face, rainbow stripe, big lens barrel, flash, viewfinder, film slot, articulated controls.",
+  "tags": [
+    "prop",
+    "electronics",
+    "camera",
+    "articulated",
+    "handheld"
+  ],
+  "theme": "Camera",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

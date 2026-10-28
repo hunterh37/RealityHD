@@ -1,0 +1,37 @@
+{
+  "budget": 10000,
+  "id": "red-carpet-runner",
+  "kind": "prop",
+  "materials": [
+    "carpet.rug",
+    "metal.brass",
+    "fabric.velvet"
+  ],
+  "name": "Red carpet runner",
+  "notes": "",
+  "parts": [
+    "pile field",
+    "gold border bands",
+    "bound edge",
+    "seam strip",
+    "footprint wear",
+    "tape tacks"
+  ],
+  "references": [],
+  "size": [
+    1.6,
+    0.02,
+    6.0
+  ],
+  "style": "Premiere night runner, deep crimson cut pile, gold braid borders, new with light foot wear",
+  "summary": "Red carpet runner, 1.6 x 6 m: crimson cut pile, gold border bands, bound edges, gaffer-taped seams.",
+  "tags": [
+    "prop",
+    "decor",
+    "fabric",
+    "interior"
+  ],
+  "theme": "Plaza",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

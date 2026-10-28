@@ -1,0 +1,41 @@
+{
+  "budget": 9000,
+  "id": "velvet-rope-stanchion",
+  "kind": "prop",
+  "materials": [
+    "metal.brass",
+    "fabric.velvet",
+    "metal.brass-aged",
+    "rubber"
+  ],
+  "name": "Velvet rope stanchion",
+  "notes": "",
+  "parts": [
+    "weighted base",
+    "pole",
+    "ball finial",
+    "collar",
+    "rope hook",
+    "velvet rope",
+    "rope end clip",
+    "rope tassel"
+  ],
+  "references": [],
+  "size": [
+    1.3,
+    0.96,
+    0.3
+  ],
+  "style": "Hollywood premiere stanchion, polished brass, crimson velvet rope, light fingerprint wear",
+  "summary": "Brass stanchion 0.96 m with weighted base, ball finial and crimson velvet rope hanging to a second post.",
+  "tags": [
+    "prop",
+    "barrier",
+    "metal",
+    "fabric",
+    "decor"
+  ],
+  "theme": "Plaza",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

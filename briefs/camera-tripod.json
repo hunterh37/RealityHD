@@ -1,0 +1,43 @@
+{
+  "budget": 9000,
+  "id": "camera-tripod",
+  "kind": "prop",
+  "materials": [
+    "metal.anodized-black",
+    "plastic.black",
+    "rubber",
+    "metal.satin-aluminum",
+    "metal.steel"
+  ],
+  "name": "Camera tripod",
+  "notes": "",
+  "parts": [
+    "three legs",
+    "leg locks",
+    "center column",
+    "crank",
+    "pan head",
+    "pan handle",
+    "quick release plate",
+    "rubber feet",
+    "spreader"
+  ],
+  "references": [],
+  "size": [
+    0.9,
+    1.45,
+    0.9
+  ],
+  "style": "Broadcast video tripod, black anodized legs, fluid head, in use",
+  "summary": "Video tripod 1.45 m: three telescoping legs with locks, geared column, fluid pan head with handle, plate.",
+  "tags": [
+    "prop",
+    "camera",
+    "metal",
+    "plastic",
+    "tool"
+  ],
+  "theme": "Camera",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

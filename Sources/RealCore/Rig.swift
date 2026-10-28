@@ -134,6 +134,8 @@ public struct Rig: Sendable {
     public var parts: [RigPart] = []
     public var lights: [RigLight] = []
     public var states: [RigState] = []
+    /// False keeps every part live at all distances (rigs whose options an app flips by entity name, such as a lamp bulb).
+    public var restProxy = true
     /// Options driven by joint values (`setJoints` and taps switch them; states set them explicitly).
     public var optionLinks: [RigOptionLink] = []
     /// State used by `posed()` and by new entities. Defaults to the first state.

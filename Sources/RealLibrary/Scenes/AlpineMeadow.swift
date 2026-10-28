@@ -23,11 +23,17 @@ public struct AlpineMeadow: RealSceneBuilder {
     /// Stream centerline x at z.
     func streamX(_ z: Float) -> Float { 5 + 2.6 * sin(z * 0.085 + 0.5) + 0.8 * sin(z * 0.23 + 2) }
 
+    /// Meadow ground height at (x, z), before the stream channel and the cliff bench. Matches the built ground
+    /// anywhere between the cliff and the camera, so callers can sit props on it.
+    public func meadowHeight(x: Float, z: Float, seed: UInt64) -> Float {
+        let patch = GroundPatch().with { $0.relief = 0.7; $0.featureSize = 14; $0.flatCenter = 0 }
+        return patch.height(x: x, z: z, seed: seed) + rise * (1 - smoothstep(cliffZ, 12, z))
+    }
+
     public func build(seed: UInt64) -> RealScene {
         var scene = RealScene(name: Self.id)
         var rng = SeededRNG(seed: seed &+ 99)
         let ns = UInt32(truncatingIfNeeded: seed)
-        let patch = GroundPatch().with { $0.relief = 0.7; $0.featureSize = 14; $0.flatCenter = 0 }
         let half = size / 2
 
         // Base height without the stream channel: rolling relief plus a rise toward the cliff, both fading
@@ -35,9 +41,7 @@ public struct AlpineMeadow: RealSceneBuilder {
         // The cliff band follows an arc of radius `arcR`; `cliffLine(x)` is its center line.
         let arcR: Float = 45, bandHalf: Float = 21
         func cliffLine(_ x: Float) -> Float { cliffZ + arcR - sqrt(max(0, arcR * arcR - x * x)) }
-        func meadow(_ x: Float, _ z: Float) -> Float {
-            patch.height(x: x, z: z, seed: seed) + rise * (1 - smoothstep(cliffZ, 12, z))
-        }
+        func meadow(_ x: Float, _ z: Float) -> Float { meadowHeight(x: x, z: z, seed: seed) }
         func base(_ x: Float, _ z: Float) -> Float {
             let edge = 1 - smoothstep(half * 0.72, half * 0.98, max(abs(x), abs(z)))
             // Bench behind the cliff at the height of its top, tapering past the ends of the band.

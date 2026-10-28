@@ -20,6 +20,10 @@ public struct BankerLamp: RealArticulated {
     public var brass: MaterialKey = "metal.brass"
     public init() {}
 
+    /// Where the pull chain leaves the socket (rig space) and how long it hangs; apps that simulate the chain start here.
+    public static let chainLength: Float = 0.105
+    public var chainAnchor: V3 { V3(-0.05 + 0.006, rimHeight + shade.y - 0.036 - 0.012, 0.036 + 0.006) }
+
     /// Plan outline of the hood at half-depth `r`: two superelliptic end arcs `straight` apart joined by straight
     /// sides, counter-clockwise in (x, z-up) outline space.
     private func plan(_ r: Float, straight: Float, exponent n: Float, arc m: Int, sides q: Int) -> [V2] {
@@ -87,6 +91,9 @@ public struct BankerLamp: RealArticulated {
         // MARK: shade (tilts on the knuckle)
         rig.part("shade", pivot: pivot, joint: .hinge(axis: V3(1, 0, 0), -12...20, duration: 0.7))
         rig.part("bulb", parent: "shade", pivot: pivot, joint: .fixed, options: 2)
+        // Pull chain (option 0 drawn, option 1 empty so an app can hang its own simulated chain) and the lit shade interior.
+        rig.part("chain", parent: "shade", pivot: pivot, joint: .fixed, options: 2)
+        rig.part("glow", parent: "shade", pivot: pivot, joint: .fixed, options: 2)
         let center = V3(0, rimHeight, shadeZ)
         for l in 0..<2 {
             let lod = l...l
@@ -98,6 +105,9 @@ public struct BankerLamp: RealArticulated {
             let rim = Prim.ring(plan(D / 2 - wall / 2, straight: L - D, exponent: n, arc: l == 0 ? 12 : 6, sides: l == 0 ? 4 : 2), y: 0)
             rig.add(Prim.sweep(Shape2D.circle(wall * 0.62, segments: l == 0 ? 8 : 5), along: rim, up: .up, closedPath: true, caps: false, material: "plastic.diffuser"),
                     Xform(translation: center), to: "shade", lods: lod)
+            // Opal glow 1 mm inside the diffuser layer, shown with the bulb on.
+            rig.add(hood(length: L - 2 * wall - 0.002, height: H - wall - 0.001, depth: D - 2 * wall - 0.002, exponent: n, lod: l, material: "emissive.bulb").flipped(),
+                    Xform(translation: center), to: "glow", option: 1, lods: lod)
         }
         // Strap from the knuckle onto the shade crown, with a brass crown plate.
         rig.add(Prim.roundedBox(V3(0.018, 0.006, 0.04), radius: 0.002, bevelSegments: 1, material: brass),
@@ -112,13 +122,13 @@ public struct BankerLamp: RealArticulated {
                 Xform(translation: socket + V3(0, 0.01, 0)), to: "shade", lods: 0...0)
         var beads = Surface(material: "metal.brass-aged")
         let ball = Prim.superellipsoid(V3(repeating: 0.0024), exponent: 2, subdivisions: 1, material: "metal.brass-aged")
-        let chainTop = socket + V3(0.006, -0.012, 0.006), chainLen: Float = 0.105
+        let chainTop = socket + V3(0.006, -0.012, 0.006), chainLen = Self.chainLength
         var y: Float = 0
         while y < chainLen { beads.append(ball, Xform(translation: chainTop - V3(0, y, 0))); y += 0.0034 }
-        rig.add(beads, to: "shade", lods: 0...0)
-        rig.add(Prim.tube([chainTop, chainTop - V3(0, chainLen, 0)], radii: [0.0004, 0.0004], sides: 3, seamTile: 0.01, material: "metal.brass-aged"), to: "shade", lods: 1...1)
+        rig.add(beads, to: "chain", option: 0, lods: 0...0)
+        rig.add(Prim.tube([chainTop, chainTop - V3(0, chainLen, 0)], radii: [0.0004, 0.0004], sides: 3, seamTile: 0.01, material: "metal.brass-aged"), to: "chain", option: 0, lods: 1...1)
         rig.add(turned([(0, -0.012), (0.003, -0.011), (0.0045, -0.007), (0.0042, -0.003), (0.0016, 0), (0, 0.0005)], segments: 12, material: brass),
-                Xform(translation: chainTop - V3(0, chainLen, 0)), to: "shade")
+                Xform(translation: chainTop - V3(0, chainLen, 0)), to: "chain", option: 0)
         // Bulb: tubular lamp along X off the socket; option 1 lit.
         let bulbProfile: [V2] = [V2(0, 0), V2(0.009, 0.002), V2(0.0145, 0.012), V2(0.0155, 0.06), V2(0.0135, 0.085), V2(0.007, 0.094), V2(0, 0.096)]
         let bulbX = Xform(translation: socket + V3(0.0, 0, 0), rotation: simd_quatf(degrees: -90, axis: V3(0, 0, 1)))
@@ -127,7 +137,8 @@ public struct BankerLamp: RealArticulated {
         rig.lights = [RigLight(name: "lamp", kind: .spot(inner: 40, outer: 70), part: "bulb", option: 1, position: socket + V3(0.05, -0.01, 0),
                                direction: V3(0, -1, 0.05), intensity: 450, attenuationRadius: 3, castsShadow: true)]
         groundAO(&rig, height: 0.03, floor: 0.6)
-        rig.states = [RigState("off"), RigState("on", options: ["bulb": 1]), RigState("tilted-on", ["shade": 15], options: ["bulb": 1])]
+        rig.restProxy = false
+        rig.states = [RigState("off"), RigState("on", options: ["bulb": 1, "glow": 1]), RigState("tilted-on", ["shade": 15], options: ["bulb": 1, "glow": 1])]
         return rig
     }
 }

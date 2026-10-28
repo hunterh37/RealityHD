@@ -37,6 +37,33 @@ public struct RealLivePacer: Sendable {
 }
 
 extension RealPreview {
+    /// Cheapest settings for a small live secondary render (a camera LCD, a mirror): no directional
+    /// shadow pass and no MSAA. Shadow casting dominates the pass on shadowed exteriors (roadmap phase 1).
+    /// Stills should call `restoreFullQuality()` first.
+    public func applyLiveProfile() {
+        renderer.cameraSettings.antialiasing = .none
+        for root in renderer.entities { Self.setShadows(false, in: root) }
+    }
+
+    public func restoreFullQuality() {
+        renderer.cameraSettings.antialiasing = .multisample4X
+        for root in renderer.entities { Self.setShadows(true, in: root) }
+    }
+
+    private static var stashedShadows: [ObjectIdentifier: DirectionalLightComponent.Shadow] = [:]
+
+    private static func setShadows(_ on: Bool, in e: Entity) {
+        if e.components.has(DirectionalLightComponent.self) {
+            let id = ObjectIdentifier(e)
+            if on, let sh = stashedShadows.removeValue(forKey: id) { e.components.set(sh) }
+            else if !on, let sh = e.components[DirectionalLightComponent.Shadow.self] {
+                stashedShadows[id] = sh
+                e.components.remove(DirectionalLightComponent.Shadow.self)
+            }
+        }
+        for c in e.children { setShadows(on, in: c) }
+    }
+
     /// Renders one frame into `target` (rgba16Float, render-target usage) and waits for the GPU
     /// completion callback without blocking the main actor.
     public func renderLive(into target: MTLTexture, deltaTime: Double = 1.0 / 30) async {

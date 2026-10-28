@@ -209,7 +209,7 @@ public extension Rig {
         }
         let proxyLevel = restProxyLevel(interactive: interactive)
         var proxied = false
-        if multiLOD || proxyLevel == 0 {
+        if restProxy, multiLOD || proxyLevel == 0 {
             let posedRest = posed(values: vals, options: opts)
             let l = proxyLevel
             func draws(_ m: Model) -> Int { m.triangleCount > 0 ? m.surfaces.filter { !$0.isEmpty }.count : 0 }

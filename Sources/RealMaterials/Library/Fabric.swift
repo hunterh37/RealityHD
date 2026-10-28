@@ -33,6 +33,12 @@ public extension MaterialLibrary {
             $0.knobs = V4(34, 0.55, 0.88, 0); $0.seed = 25; $0.tileSize = 0.05; $0.normalStrength = 2
             $0.roughness = 0.88; $0.translucency = 0.45
         },
+        // Cotton velvet (premiere ropes, theater seats): dense short pile, deep crimson, strong grazing sheen. Tint for color.
+        MaterialSpec(key: "fabric.velvet", program: .fabricWeave).with {
+            $0.colorA = linear(0x8A0F1E); $0.colorB = linear(0x5E0912, 0.6); $0.colorC = linear(0xC0303C, 0.08)
+            $0.knobs = V4(120, 0.9, 0.7, 0); $0.seed = 26; $0.tileSize = 0.02; $0.normalStrength = 1.2
+            $0.roughness = 0.62
+        },
         // realityhd:material.fabric
     ]
 }
