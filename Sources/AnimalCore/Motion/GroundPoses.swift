@@ -70,6 +70,10 @@ public struct GroundMotionInput: Sendable, Equatable {
     public var tailSway: Float = 0
     /// Nose twitch phase in radians.
     public var twitch: Float = 0
+    /// Idle layer weight 0...1 (breathing, weight shift, ear and tail twitches driven by `phase`).
+    public var idle: Float = 0
+    /// Jump over `phase` 0...1 instead of a gait.
+    public var jump = false
     public init() {}
 }
 
@@ -86,7 +90,9 @@ public enum GroundMotion {
     public static func pose(_ p: GroundProfile, _ i: GroundMotionInput) -> GroundPose {
         var q = GroundPose.blend(GroundPoses.stand(p), GroundPoses.sit(p), saturate(i.sit))
         let sp = saturate(i.speed)
-        if sp > 0.01 && i.sit < 0.5 {
+        if i.jump && i.sit < 0.5 && p.behavior.gait == .stride {
+            GroundMotion.jumpLegs(&q, p, i.phase)
+        } else if sp > 0.01 && i.sit < 0.5 {
             switch p.behavior.gait {
             case .walk:
                 let A: Float = 16 + 12 * sp
@@ -134,7 +140,7 @@ public enum GroundMotion {
             q[.neckPitch] += g.neck * k
             q[.headPitch] = lerp(q[.headPitch], g.head, k)
         }
-        q[.headYaw] = i.headYaw
+        q[.headYaw] += i.headYaw
         q[.headPitch] += i.headPitch
         q[.jaw] = saturate(i.jaw) * 25
         let a = saturate(i.alert)
@@ -144,6 +150,7 @@ public enum GroundMotion {
         let r = saturate(i.tailRaise)
         q[.tail0] = -30 * r; q[.tail1] = -20 * r; q[.tail2] = -12 * r
         q[.lidL] = 125 * (1 - saturate(i.blink)); q[.lidR] = 125 * (1 - saturate(i.blink))
+        if i.idle > 0 && sp < 0.01 && i.sit < 0.5 && p.behavior.gait == .stride { GroundMotion.idleLayer(&q, p, i.phase, saturate(i.idle)) }
         q.clamp()
         return q
     }

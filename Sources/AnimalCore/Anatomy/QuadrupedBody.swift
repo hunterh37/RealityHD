@@ -31,6 +31,14 @@ public struct QuadrupedPlan: Sendable {
     public var feather = 0
     /// Scale of the leg segments below the upper leg (cannon, gaskin, pastern).
     public var lowerScale: Float = 1
+    /// Scale of the scapula and thigh muscle masses and paw toes (1 for a dog, about 2.4 for a polar bear).
+    public var massScale: Float = 1
+    /// SDF mesh cell in meters when the default (sized for dogs) is too coarse, as for slim deer cannons.
+    public var cell: Float?
+    /// Toes drawn per paw.
+    public var toes = 4
+    /// Scale of the hind thigh mass alone (massScale also scales the shoulder blade).
+    public var thighMass: Float = 1
 
     public static func plan(for p: GroundProfile) -> QuadrupedPlan? {
         switch p.species {
@@ -38,21 +46,23 @@ public struct QuadrupedPlan: Sendable {
         case .goldenRetriever: return golden
         case .germanShepherd: return shepherd
         case .pembrokeCorgi: return corgi
+        case .polarBear: return polar
         default: return nil
         }
     }
 
     static let whitetail = QuadrupedPlan(
-        torso: [(0.00, 0.34, 0.34, 0.40, 0.10), (0.06, 0.78, 0.74, 0.80, 0.08), (0.17, 0.98, 0.90, 0.92, 0.06),
-                (0.30, 0.94, 0.82, 0.70, 0.05), (0.40, 0.88, 0.80, 0.74, 0.03), (0.52, 0.96, 0.84, 0.92, 0.01),
-                (0.66, 1.00, 0.88, 1.04, 0.01), (0.78, 0.94, 1.00, 1.10, 0.04), (0.88, 0.82, 0.96, 1.06, 0.04),
-                (0.96, 0.62, 0.78, 0.92, 0.02), (1.02, 0.36, 0.52, 0.62, 0.00)],
-        foreUpper: [(0, 0.060, 0.080, 0.090), (0.3, 0.048, 0.060, 0.066), (0.62, 0.028, 0.030, 0.032), (1, 0.017, 0.018, 0.019)],
-        foreCannon: [(0, 0.016, 0.017, 0.016), (0.2, 0.011, 0.013, 0.012), (0.85, 0.010, 0.012, 0.011), (1, 0.014, 0.016, 0.015)],
+        torso: [(0.00, 0.30, 0.34, 0.40, 0.10), (0.06, 0.70, 0.74, 0.84, 0.08), (0.17, 0.90, 0.90, 0.98, 0.06),
+                (0.30, 0.94, 0.86, 0.86, 0.05), (0.40, 0.90, 0.82, 0.70, 0.03), (0.52, 0.96, 0.86, 0.78, 0.01),
+                (0.66, 0.96, 0.92, 0.86, 0.01), (0.78, 0.84, 0.94, 0.80, 0.03), (0.88, 0.80, 0.90, 0.72, 0.03),
+                (0.96, 0.56, 0.70, 0.50, 0.04), (1.02, 0.30, 0.40, 0.30, 0.05)],
+        foreUpper: [(0, 0.050, 0.062, 0.068), (0.3, 0.036, 0.046, 0.050), (0.62, 0.024, 0.026, 0.028), (1, 0.015, 0.016, 0.017)],
+        foreCannon: [(0, 0.016, 0.017, 0.016), (0.2, 0.010, 0.012, 0.011), (0.85, 0.0072, 0.0085, 0.0078), (1, 0.012, 0.014, 0.013)],
         forePastern: [(0, 0.013, 0.014, 0.014), (0.5, 0.010, 0.011, 0.011), (1, 0.011, 0.012, 0.012)],
-        hindUpper: [(0, 0.075, 0.150, 0.100), (0.35, 0.070, 0.140, 0.090), (0.7, 0.050, 0.090, 0.065), (1, 0.026, 0.035, 0.032)],
-        hindGaskin: [(0, 0.026, 0.035, 0.032), (0.35, 0.022, 0.034, 0.024), (0.8, 0.014, 0.024, 0.014), (1, 0.014, 0.026, 0.015)],
-        hindCannon: [(0, 0.013, 0.016, 0.013), (0.15, 0.011, 0.012, 0.012), (0.88, 0.010, 0.011, 0.011), (1, 0.013, 0.014, 0.014)])
+        hindUpper: [(0, 0.063, 0.115, 0.086), (0.35, 0.069, 0.132, 0.092), (0.7, 0.058, 0.104, 0.075), (1, 0.030, 0.040, 0.037)],
+        hindGaskin: [(0, 0.041, 0.053, 0.046), (0.35, 0.030, 0.046, 0.032), (0.8, 0.013, 0.024, 0.013), (1, 0.012, 0.024, 0.013)],
+        hindCannon: [(0, 0.013, 0.016, 0.013), (0.15, 0.010, 0.011, 0.011), (0.88, 0.0072, 0.0078, 0.0078), (1, 0.011, 0.012, 0.012)],
+        legScale: 1.75, furCards: 0, cardLength: 0.04, dog: true, tailBrush: false, haunchFore: V2(0.004, 0.004), haunchHind: V2(0.004, 0.004), lowerScale: 1.35, massScale: 1.1, cell: 0.009, thighMass: 0.62)
 }
 
 enum QuadrupedBody {
@@ -121,13 +131,33 @@ enum QuadrupedBody {
     /// Dog paw: pad-rounded paw with four toes and claws, plus feather fringe down the back of the leg.
     static func pawAndFeather(_ rig: inout Rig, _ f: GroundFrame, _ plan: QuadrupedPlan, _ l: GroundJoint.Leg, _ c: Chain,
                               ankle: String, hipPart: String, top: V3, material: MaterialKey) {
-        let a = f.a, r = a.legRadius * plan.legScale
-        let pc = c.toe + V3(0, r * 0.55, -r * 0.5)
-        for k in 0..<4 {
-            let off = (Float(k) - 1.5) * r * 0.62
-            let tc = pc + V3(off, -r * 0.18, -r * (1.55 - 0.14 * abs(Float(k) - 1.5)))
+        let a = f.a, r = a.legRadius * plan.legScale * (a.earRound ? (l.isFore ? 1.2 : 1.1) : 1)
+        let pc = c.toe + V3(a.earRound && l.isFore ? 0.16 * l.side.sign * r : 0, r * 0.55, -r * 0.5)
+        if a.hooves {
+            let hc = c.toe + V3(0, 0.018, -0.006)
+            for sx in [Float(-1), 1] {
+                rig.add(Loft.ellipsoid(center: hc + V3(sx * 0.0068 * plan.legScale, 0, -0.008), axis: V3(0, -0.35, -1), up: GroundFrame.Y,
+                                       radii: V3(0.0075, 0.019, 0.026) * plan.legScale, rings: 7, segments: 10, material: f.mat(.hoof)), to: ankle)
+                rig.add(Loft.ellipsoid(center: c.toe + V3(sx * 0.008, 0.06, 0.016) * plan.legScale, axis: V3(0, -1, 0.3), up: V3(0, 0, 1),
+                                       radii: V3(0.004, 0.004, 0.008) * plan.legScale, rings: 4, segments: 6, material: f.mat(.hoof)), to: ankle)
+            }
+            return
+        }
+        let mid = Float(plan.toes - 1) / 2, sp = 0.62 * 4 / Float(plan.toes)
+        for k in 0..<plan.toes {
+            let off = (Float(k) - mid) * r * sp
+            let fz = (a.earRound ? 1.8 : 1.55) - 0.14 * abs(Float(k) - mid) * (a.earRound ? 1.6 : 1)
+            let tc = pc + V3((off + (a.earRound && l.isFore ? 0.2 * l.side.sign * r * fz : 0)), -r * 0.18, -r * fz)
             let cl = tc + V3(0, -r * 0.1, -r * 0.45)
-            rig.add(Prim.tube([cl, cl + V3(0, -r * 0.1, -r * 0.5)], radii: [r * 0.12, r * 0.03], sides: 4, seamTile: 0.01, material: f.mat(.claw)), to: ankle)
+            if a.earRound {
+                // Short, thick, dark claw.
+                let len: Float = l.isFore ? 0.9 : 0.75
+                let p2 = cl + V3(0, -r * 0.05 * len, -r * 0.3 * len)
+                rig.add(Prim.tube([cl, p2], radii: [r * 0.16, r * 0.05], sides: 5, seamTile: 0.01, material: f.mat(.claw)), to: ankle)
+                continue
+            }
+            let big: Float = a.earRound ? 1.6 : 1
+            rig.add(Prim.tube([cl, cl + V3(0, -r * 0.1 * big, -r * 0.5 * big)], radii: [r * 0.12 * (a.earRound ? 1.4 : 1), r * 0.03], sides: 4, seamTile: 0.01, material: f.mat(.claw)), to: ankle)
         }
         guard plan.feather > 0 else { return }
         var rng = SplitMix(seed: 91 + UInt64(l.isFore ? 0 : 1) + (l.side == .left ? 0 : 2))
@@ -149,7 +179,7 @@ enum QuadrupedBody {
             let secs = (0..<n).map { torsoSection(f, plan, t0 + (t1 - t0) * Float($0) / Float(n - 1)) }
             return Loft.build(secs, segments: 28, vRange: t0...t1, material: fur)
         }
-        if plan.dog { dogCoat(&rig, f, plan, chains: chains) } else {
+        if plan.dog { dogCoat(&rig, f, plan, chains: chains, cell: plan.cell) } else {
             rig.base[0].add(torso(0.46, 1.02, 12))
             rig.add(torso(0, 0.56, 12), to: spine)
         }
@@ -220,6 +250,17 @@ enum QuadrupedBody {
             rig.add(Loft.ellipsoid(center: noseTip + V3(sd.sign * hw * (slit ? 0.065 : 0.09), slit ? -0.001 : 0.0, -hw * (slit ? 0.065 : 0.085)), axis: V3(sd.sign * 0.6, 0.3, -1), up: GroundFrame.Y,
                                    radii: slit ? V3(hw * 0.016, hw * 0.034, hw * 0.012) : V3(hw * 0.03, hw * 0.045, hw * 0.02), rings: 5, segments: 8, material: f.mat(.eye)), to: GroundJoint.headPitch.name)
         }
+        if a.earRound {
+            // Black lip line from the nose pad back to the mouth corner, and dark skin around the eyes.
+            let hl = a.headLength
+            for sd in Side.allCases {
+                let pts = [V3(sd.sign * hw * 0.09, -0.044, 0.014), V3(sd.sign * hw * 0.25, -0.057, 0.06 * hl), V3(sd.sign * hw * 0.3, -0.067, 0.2 * hl), V3(sd.sign * hw * 0.27, -0.06, 0.33 * hl)].map { noseTip + $0 }
+                rig.add(Prim.tube(pts, radii: [0.003, 0.0068, 0.0068, 0.0005], sides: 6, seamTile: 0.01, material: f.mat(.nose)), to: GroundJoint.headPitch.name)
+                let e = f.eye(sd)
+                rig.add(Loft.ellipsoid(center: e - V3(sd.sign * 0.006, 0, 0), axis: V3(0, 0.1, -1), up: V3(sd.sign, 0, 0),
+                                       radii: V3(a.eyeRadius * 0.55, a.eyeRadius * 1.25, a.eyeRadius * 1.7), rings: 6, segments: 10, material: f.mat(.nose)), to: GroundJoint.headPitch.name)
+            }
+        }
         if !plan.dog {
             rig.add(Loft.ellipsoid(center: noseTip + V3(0, -0.004, 0.034), axis: V3(0, 0, -1), up: GroundFrame.Y,
                                    radii: V3(hw * 0.22, hw * 0.16, hw * 0.07), rings: 7, segments: 14, material: white), to: GroundJoint.headPitch.name)
@@ -237,7 +278,7 @@ enum QuadrupedBody {
             let normal = simd_normalize(fwd - dir * simd_dot(fwd, dir))
             let side = simd_normalize(simd_cross(normal, dir))
             let part = sd == .left ? GroundJoint.earL.name : GroundJoint.earR.name
-            for (i, srf) in ear(base: base - dir * 0.004, dir: dir, side: side, normal: normal, len: a.earLength, width: a.earWidth, outer: f.mat(.head), inner: drop < 0.5 ? f.mat(.head) : f.mat(.pinna), soft: true, erect: drop < 0.5).enumerated() where drop < 0.5 || i == 0 {
+            for (i, srf) in ear(base: base - dir * 0.004, dir: dir, side: side, normal: normal, len: a.earLength, width: a.earWidth, outer: f.mat(.head), inner: drop < 0.5 ? f.mat(.head) : f.mat(.pinna), soft: !a.earRound, erect: drop < 0.5 && !a.earRound).enumerated() where drop < 0.5 || i == 0 {
                 rig.add(srf, to: part)
             }
         }
