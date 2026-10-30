@@ -36,6 +36,7 @@ func run() async throws {
     case "bake-scene": try bakeSceneCommand(args)
     case "bake-buck": try await bakeBuckCommand(args)
     case "hash": hashCommand(args.rest)
+    case "shadowtest": try await shadowTestCommand(args)
     default: print(usage)
     }
 }

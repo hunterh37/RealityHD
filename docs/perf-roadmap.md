@@ -286,6 +286,10 @@ Items, in order. Each lists the measure that proves it and the sim bench that cl
 1. B1 Shadow caster test on device. Phase 1 is the widest gap (14 scenes) and every fix depends on
    whether `OpacityComponent(opacity: 0)` keeps a cast. Proof: one-entity A/B in the demo, shadow visible
    in a sim still. Close: hospital shadow tris 343k -> < 100k with thumbnail diff under 0.1 %.
+   Status 2026-10-28: `realityhd shadowtest` (macOS RealityRenderer, box over ground, afternoon sun, 512 px):
+   cast 11301 px darker than the no-caster baseline; `OpacityComponent(opacity: 0)` with cast 0; hidden (`isEnabled = false`)
+   with cast 0. An opacity-0 caster keeps no shadow, so a shadow-only proxy is not available through opacity. Visionos device
+   still unchecked. B2 needs another route (separate caster entity set per LOD with the main-pass mesh at that LOD).
 2. B2 Tree canopy shadow proxy (needs B1). autumn-woods, lakeside-camp, winter-forest shadow tris sit at
    95-105 % of main, mostly trees. Proof: `perf --breakdown` caster tris by field. Close: shadow/main
    < 0.4 in those three, walk p99 11.1 ms.
