@@ -16,6 +16,7 @@ public enum GroundSpecies: String, CaseIterable, Codable, Sendable, Identifiable
     case goldenRetriever = "golden-retriever"
     case germanShepherd = "german-shepherd"
     case pembrokeCorgi = "pembroke-corgi"
+    case polarBear = "polar-bear"
 
     public var id: String { rawValue }
     /// The standard variant (doe, cow, sow or the only form).
@@ -126,6 +127,13 @@ public struct GroundAnatomy: Sendable {
     public var withers: Float = 0
     /// Ear fold 0 (erect) ... 1 (hanging against the cheek).
     public var earDrop: Float = 0
+    /// Ear base offset from the head center as fractions of head width (sideways) and height (up).
+    public var earSpread: Float = 0.26
+    public var earUp: Float = 0.2
+    /// Round fur-lined ear (bears) instead of the tapered erect dog ear.
+    public var earRound = false
+    /// Eye position across the skull as a fraction of the half width at the eye station.
+    public var eyeSeat: Float = 0.9
     /// Height of the body center above the feet.
     public var standHeight: Float { rideHeight ?? (max(foreLeg, hindLeg) * 0.74 + bodyDepth * 0.32) }
 }
@@ -194,7 +202,7 @@ public struct GroundProfile: Sendable {
 }
 
 extension GroundProfile {
-    static let table: [GroundSpecies: GroundProfile] = Dictionary(uniqueKeysWithValues: ([rabbit, squirrel, chipmunk, hedgehog, fennec] + huntingProfiles + dogProfiles).map { ($0.species, $0) })
+    static let table: [GroundSpecies: GroundProfile] = Dictionary(uniqueKeysWithValues: ([rabbit, squirrel, chipmunk, hedgehog, fennec] + huntingProfiles + dogProfiles + wildProfiles).map { ($0.species, $0) })
 
     private static let allSeasons: Set<AnimalSeason> = [.spring, .summer, .autumn, .winter]
 

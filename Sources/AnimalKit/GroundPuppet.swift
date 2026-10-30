@@ -46,7 +46,7 @@ public final class GroundPuppet {
         if skin != nil { skinIndex = specs.map { template.schema.index($0.name)! + 1 } }
         last = [Float](repeating: .nan, count: specs.count)
         holder.name = "ground:\(species.rawValue)"
-        model.position = [0, -built.comHeight, 0]
+        model.position = [0, -built.comHeight - (built.profile.species == .polarBear || built.profile.species == .whitetailDeer ? 0.005 : 0), 0]
         holder.addChild(model)
     }
 
@@ -57,17 +57,17 @@ public final class GroundPuppet {
     /// (head turns, tail sway, chewing). Use `animate(_:dt:)` to advance both automatically.
     public func play(_ action: GroundAction, phase: Float = 0, time: Float = 0) {
         var i = GroundMotion.input(action, built.profile, phase: phase)
-        let still = action == .idle || action == .graze || action == .alert
+        let still = action == .graze || action == .alert
         if still { i.headYaw = (action == .alert ? 8 : 16) * sin(time * 0.55) }
-        i.tailSway = (action.isLocomotion ? 3 : 7) * sin(time * 1.7)
+        i.tailSway = action == .idle || action == .jump ? 0 : (action.isLocomotion ? 3 : 7) * sin(time * 1.7)
         i.twitch = time * 20
         if action == .graze { i.jaw = 0.3 + 0.3 * sin(time * 9) }
-        if action == .idle { i.alert = 0.2 + 0.2 * max(0, sin(time * 0.9)) }
+        if action == .idle && built.profile.behavior.gait != .stride { i.alert = 0.2 + 0.2 * max(0, sin(time * 0.9)) }
         i.blink = max(0, sin(time * 1.3 + 2)) > 0.985 ? 1 : 0
         apply(GroundMotion.pose(built.profile, i))
         let q = simd_quatf(angle: -GroundMotion.bodyPitch(action, built.profile) * .pi / 180, axis: [1, 0, 0])
         model.orientation = q
-        model.position = q.act([0, -built.comHeight, 0])
+        model.position = q.act([0, -built.comHeight, 0]) + [0, GroundMotion.bodyLift(action, built.profile, phase: phase), 0]
     }
 
     /// Advances the gait cycle and idle clock by `dt` seconds and poses the animal.
@@ -121,13 +121,13 @@ public enum GroundFactory {
                 // One continuous skinned mesh; coat surfaces blend across joints.
                 let coat = [".body", ".head", ".tail", ".muzzle", ".throat", ".rump", ".limb"]
                 let isCoat: @Sendable (MaterialKey) -> Bool = { k in coat.contains { k.hasSuffix($0) } }
-                let id = s.rawValue, tw = profile.anatomy.tailWidth, dog = GroundSpecies.dogs.contains(s)
+                let id = s.rawValue, tw = profile.anatomy.tailWidth, dog = GroundSpecies.dogs.contains(s), polar = s == .polarBear, deer = s == .whitetailDeer
                 let skin = await Task.detached(priority: .userInitiated) {
-                    built.rig.skin(blend: isCoat, include: isCoat).withShells(count: GroundFactory.shellCount) { k in
+                    built.rig.skin(blend: isCoat, include: isCoat).withShells(count: polar ? 16 : (deer ? 12 : GroundFactory.shellCount)) { k in
                         if k.hasSuffix(".tail") { return ("fauna.\(id).tailShell", tw * 0.32) }
-                        if k.hasSuffix(".limb") { return dog ? ("fauna.\(id).limbShell", 0.004) : ("fauna.\(id).shell", 0.0018) }
-                        if k.hasSuffix(".body") { return ("fauna.\(id).shell", dog ? 0.009 : 0.0045) }
-                        if k.hasSuffix(".head") || k.hasSuffix(".muzzle") { return ("fauna.\(id).headShell", dog ? 0.006 : 0.005) }
+                        if k.hasSuffix(".limb") { return dog ? ("fauna.\(id).limbShell", 0.004) : ("fauna.\(id).shell", polar ? 0.014 : (deer ? 0.004 : 0.0018)) }
+                        if k.hasSuffix(".body") { return ("fauna.\(id).shell", dog ? 0.009 : (polar ? 0.021 : (deer ? 0.006 : 0.0045))) }
+                        if k.hasSuffix(".head") || k.hasSuffix(".muzzle") { return ("fauna.\(id).headShell", dog ? 0.006 : (polar ? 0.016 : (deer ? 0.004 : 0.005))) }
                         return nil
                     }
                 }.value

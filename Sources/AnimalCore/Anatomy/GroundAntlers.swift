@@ -16,9 +16,9 @@ extension GroundRigBuilder {
         switch style {
         case .whitetail:
             return Antler(
-                beam: [V3(0, 0, 0), V3(0.025, 0.09, 0.035), V3(0.06, 0.19, 0.07), V3(0.085, 0.29, 0.06), V3(0.08, 0.37, -0.03), V3(0.055, 0.42, -0.15), V3(0.035, 0.435, -0.27)],
-                beamRadius: (0.022, 0.0045),
-                tines: [(0.13, V3(-0.15, 0.7, -0.7), 0.11, 0.011), (0.42, V3(0.05, 1, -0.12), 0.17, 0.011), (0.62, V3(0.0, 1, 0.0), 0.15, 0.0095), (0.80, V3(0.0, 1, -0.2), 0.085, 0.0075)])
+                beam: [V3(0, 0, 0), V3(0.015, 0.06, 0.0), V3(0.04, 0.12, -0.02), V3(0.07, 0.17, -0.05), V3(0.09, 0.21, -0.10), V3(0.09, 0.24, -0.17), V3(0.07, 0.26, -0.25), V3(0.05, 0.27, -0.33), V3(0.03, 0.27, -0.40)],
+                beamRadius: (0.026, 0.005),
+                tines: [(0.10, V3(-0.1, 0.5, -0.9), 0.10, 0.012), (0.36, V3(0.0, 1, -0.25), 0.14, 0.012), (0.56, V3(0.0, 1, -0.1), 0.13, 0.011), (0.74, V3(0.0, 1, 0.0), 0.10, 0.0095), (0.90, V3(0.0, 1, 0.1), 0.05, 0.007)])
         case .elk:
             return Antler(
                 beam: [V3(0, 0, 0), V3(0.04, 0.11, 0.05), V3(0.10, 0.25, 0.12), V3(0.14, 0.39, 0.26), V3(0.14, 0.51, 0.48), V3(0.12, 0.59, 0.74), V3(0.10, 0.63, 0.97), V3(0.08, 0.60, 1.14)],
@@ -50,12 +50,13 @@ extension GroundRigBuilder {
             for (t, d, len, r0) in ant.tines {
                 let base = dense[min(dense.count - 1, Int(t * Float(dense.count - 1)))]
                 let dir = simd_normalize(V3(s.sign * d.x, d.y, d.z))
-                let pts = [base - dir * 0.004, base + dir * (len * 0.45) + V3(0, 0, -len * 0.04), base + dir * (len * 0.8) + V3(0, 0, -len * 0.08), base + dir * len + V3(0, 0, -len * 0.1)]
-                rig.add(Prim.tube(pts, radii: [r0, r0 * 0.8, r0 * 0.5, r0 * 0.12], sides: 5, seamTile: 0.04, material: mat), to: part)
+                let inw = V3(-s.sign * len * 0.12, 0, 0)
+                let pts = [base - dir * 0.004, base + dir * (len * 0.45) + V3(0, 0, -len * 0.08) + inw * 0.25, base + dir * (len * 0.8) + V3(0, 0, -len * 0.18) + inw * 0.7, base + dir * len + V3(0, 0, -len * 0.3) + inw * 1.3]
+                rig.add(Prim.tube(pts, radii: [r0 * 1.3, r0 * 1.0, r0 * 0.6, r0 * 0.15], sides: 6, seamTile: 0.04, material: mat), to: part)
             }
             // Burr: the ridged base where the antler meets the skull.
             let b = world(ant.beam[0])
-            rig.add(Loft.ellipsoid(center: b + V3(0, 0.004, 0), axis: V3(0, 1, 0), up: V3(0, 0, 1), radii: V3(ant.beamRadius.0 * 1.5, ant.beamRadius.0 * 1.5, 0.014), rings: 5, segments: 10, material: mat), to: part)
+            rig.add(Loft.ellipsoid(center: b + V3(0, 0.004, 0), axis: V3(0, 1, 0), up: V3(0, 0, 1), radii: V3(ant.beamRadius.0 * 1.22, ant.beamRadius.0 * 1.22, 0.03), rings: 5, segments: 10, material: mat), to: part)
         }
     }
 }
