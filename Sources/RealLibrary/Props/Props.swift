@@ -1380,6 +1380,7 @@ public enum Props {
         SchoolChair.self,
         LunchBox.self,
         WaterBottleSteel.self,
+        CompassDrawing.self,
         // realityhd:prop
     ]
 }
