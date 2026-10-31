@@ -1367,6 +1367,7 @@ public enum Props {
         CompositionNotebook.self,
         Ruler30cm.self,
         Eraser.self,
+        PencilSharpener.self,
         // realityhd:prop
     ]
 }
