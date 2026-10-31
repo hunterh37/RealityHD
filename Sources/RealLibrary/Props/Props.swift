@@ -1366,6 +1366,10 @@ public enum Props {
         WineBottle.self,
         Apple.self,
         Orange.self,
+        Pear.self,
+        Tomato.self,
+        Potato.self,
+        Onion.self,
         // realityhd:prop
     ]
 }
