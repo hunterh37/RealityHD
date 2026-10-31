@@ -1368,6 +1368,7 @@ public enum Props {
         Ruler30cm.self,
         Eraser.self,
         PencilSharpener.self,
+        Protractor.self,
         // realityhd:prop
     ]
 }
