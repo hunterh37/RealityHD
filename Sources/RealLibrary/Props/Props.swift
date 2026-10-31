@@ -1370,6 +1370,9 @@ public enum Props {
         Tomato.self,
         Potato.self,
         Onion.self,
+        BellPepper.self,
+        Cucumber.self,
+        Pumpkin.self,
         // realityhd:prop
     ]
 }
