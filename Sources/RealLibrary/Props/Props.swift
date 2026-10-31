@@ -1365,8 +1365,6 @@ public enum Props {
         FrozenPizzaBox.self,
         WineBottle.self,
         TowelRing.self,
-        TowelFoldedStack.self,
-        BathMat.self,
         // realityhd:prop
     ]
 }
