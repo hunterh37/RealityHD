@@ -1373,6 +1373,7 @@ public enum Props {
         BellPepper.self,
         Cucumber.self,
         Pumpkin.self,
+        CarrotBunch.self,
         // realityhd:prop
     ]
 }

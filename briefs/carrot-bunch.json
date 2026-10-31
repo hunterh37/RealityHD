@@ -1,0 +1,35 @@
+{
+  "budget": 7000,
+  "id": "carrot-bunch",
+  "kind": "prop",
+  "materials": [
+    "food.carrot",
+    "food.scallion-green"
+  ],
+  "name": "Carrot bunch",
+  "notes": "",
+  "parts": [
+    "carrot bunch main form",
+    "characteristic surface detail",
+    "secondary parts",
+    "base contact"
+  ],
+  "references": [],
+  "size": [
+    0.2,
+    0.04,
+    0.28
+  ],
+  "style": "everyday pantry, vegetable",
+  "summary": "Carrot bunch, pantry prop.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "food",
+    "vegetable"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
