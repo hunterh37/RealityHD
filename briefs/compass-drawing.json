@@ -1,0 +1,37 @@
+{
+  "budget": 9000,
+  "id": "compass-drawing",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Drawing Compass",
+  "size": [
+    0.03,
+    0.13,
+    0.02
+  ],
+  "style": "everyday school, steel",
+  "theme": "School",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "metal"
+  ],
+  "parts": [
+    "two tubular legs",
+    "hinge head",
+    "knurled top knob",
+    "needle point",
+    "pencil holder with lead",
+    "hinge pin"
+  ],
+  "materials": [
+    "metal.nickel",
+    "metal.steel",
+    "plastic.matte"
+  ],
+  "summary": "Drawing compass with a needle leg, pencil leg, hinge head and knurled top knob."
+}

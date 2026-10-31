@@ -1,0 +1,35 @@
+{
+  "budget": 6000,
+  "id": "ruler-30cm",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Ruler 30cm",
+  "size": [
+    0.03,
+    0.003,
+    0.3
+  ],
+  "style": "everyday school, plastic",
+  "theme": "School",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "plastic"
+  ],
+  "parts": [
+    "clear acrylic bar",
+    "beveled edge",
+    "graduation marks cm and mm",
+    "numerals",
+    "hang hole"
+  ],
+  "materials": [
+    "plastic.gloss",
+    "plastic.matte"
+  ],
+  "summary": "30 cm clear plastic ruler with printed graduations and a hang hole."
+}

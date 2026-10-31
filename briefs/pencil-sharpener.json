@@ -1,0 +1,36 @@
+{
+  "budget": 8000,
+  "id": "pencil-sharpener",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Pencil Sharpener",
+  "size": [
+    0.03,
+    0.02,
+    0.03
+  ],
+  "style": "everyday school, metal",
+  "theme": "School",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "metal"
+  ],
+  "parts": [
+    "magnesium wedge body",
+    "steel blade",
+    "blade screw",
+    "conical bore",
+    "blade slot"
+  ],
+  "materials": [
+    "metal.magnesium-worn",
+    "metal.steel",
+    "plastic.matte"
+  ],
+  "summary": "Single-hole pencil sharpener with a magnesium body, steel blade and screw."
+}

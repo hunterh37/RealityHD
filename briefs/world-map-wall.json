@@ -1,0 +1,39 @@
+{
+  "budget": 14000,
+  "id": "world-map-wall",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "World Map Wall",
+  "size": [
+    1.2,
+    0.8,
+    0.01
+  ],
+  "style": "everyday school, printed",
+  "theme": "School",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "paper",
+    "wood"
+  ],
+  "parts": [
+    "printed paper sheet",
+    "ocean field",
+    "continent polygons",
+    "lat lon grid",
+    "title band",
+    "legend",
+    "wood hanging rods"
+  ],
+  "materials": [
+    "paper.sheet",
+    "wood.walnut",
+    "plastic.matte"
+  ],
+  "summary": "Printed wall world map with continents, graticule, title band, legend and wood rods."
+}

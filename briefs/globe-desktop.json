@@ -1,0 +1,39 @@
+{
+  "budget": 14000,
+  "id": "globe-desktop",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Desktop Globe",
+  "size": [
+    0.3,
+    0.4,
+    0.3
+  ],
+  "style": "everyday school, printed",
+  "theme": "School",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "plastic",
+    "metal"
+  ],
+  "parts": [
+    "ocean sphere",
+    "continents",
+    "graticule",
+    "half meridian arm",
+    "tilted axis pins",
+    "wood base"
+  ],
+  "materials": [
+    "plastic.gloss",
+    "plastic.matte",
+    "metal.brass-aged",
+    "wood.walnut"
+  ],
+  "summary": "Desktop world globe tilted 23.5 degrees in a half meridian arm on a wood base."
+}

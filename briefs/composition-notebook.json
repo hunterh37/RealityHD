@@ -1,0 +1,37 @@
+{
+  "budget": 6000,
+  "id": "composition-notebook",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Composition Notebook",
+  "size": [
+    0.19,
+    0.01,
+    0.24
+  ],
+  "style": "everyday school, cardboard cover",
+  "theme": "School",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "cardboard",
+    "paper"
+  ],
+  "parts": [
+    "marbled cardboard cover",
+    "cloth tape binding",
+    "stitched page block",
+    "name label panel"
+  ],
+  "materials": [
+    "paper.pages",
+    "paper.sheet",
+    "plastic.matte",
+    "fabric.wool"
+  ],
+  "summary": "Marbled composition notebook with a taped spine and a blank name label."
+}

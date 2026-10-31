@@ -1,0 +1,38 @@
+{
+  "budget": 6000,
+  "id": "three-ring-binder",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Three Ring Binder",
+  "size": [
+    0.28,
+    0.05,
+    0.3
+  ],
+  "style": "everyday school, vinyl",
+  "theme": "School",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "vinyl",
+    "metal"
+  ],
+  "parts": [
+    "vinyl-wrapped boards",
+    "spine with label sleeve",
+    "three-ring steel mechanism",
+    "page block",
+    "inside pocket"
+  ],
+  "materials": [
+    "plastic.matte",
+    "metal.steel",
+    "paper.pages",
+    "paper.sheet"
+  ],
+  "summary": "Vinyl 3-ring binder with 1 in rings on a steel mounting plate and punched paper."
+}
