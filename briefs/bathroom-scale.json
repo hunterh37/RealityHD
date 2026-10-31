@@ -1,0 +1,36 @@
+{
+  "id": "bathroom-scale",
+  "kind": "prop",
+  "name": "Bathroom scale",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.3,
+    0.03,
+    0.3
+  ],
+  "parts": [
+    "glass top",
+    "base shell",
+    "rubber feet",
+    "display window"
+  ],
+  "materials": [
+    "plastic.gloss",
+    "plastic.black",
+    "plastic.matte"
+  ],
+  "style": "everyday bathroom, glass top",
+  "summary": "Square digital bathroom scale: glass platform, white base shell, four rubber feet, display window.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "glass",
+    "plastic"
+  ],
+  "budget": 8000
+}
