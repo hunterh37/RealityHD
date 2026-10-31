@@ -5,7 +5,7 @@ import Foundation
 public struct SaladBowl: RealAsset {
     public static let id = "salad-bowl"
     public static let summary = "SaladBowl, 0.24 x 0.09 x 0.24 m, pantry prop with real proportions and surface detail."
-    public static let tags = ["prop", "interior", "pantry", "food", "pantry"]
+    public static let tags = ["prop", "interior", "pantry", "food"]
     public static let budget = 12000
     public static let author = "realityhd"
 

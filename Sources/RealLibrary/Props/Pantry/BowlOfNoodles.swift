@@ -5,7 +5,7 @@ import Foundation
 public struct BowlOfNoodles: RealAsset {
     public static let id = "bowl-of-noodles"
     public static let summary = "BowlOfNoodles, 0.20 x 0.09 x 0.20 m, pantry prop with real proportions and surface detail."
-    public static let tags = ["prop", "interior", "pantry", "food", "pantry"]
+    public static let tags = ["prop", "interior", "pantry", "food"]
     public static let budget = 10000
     public static let author = "realityhd"
 
