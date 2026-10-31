@@ -1,0 +1,34 @@
+{
+  "id": "soap-bar-dish",
+  "kind": "prop",
+  "name": "Soap bar dish",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.12,
+    0.03,
+    0.09
+  ],
+  "parts": [
+    "ceramic dish tray",
+    "raised rim",
+    "drainage ridges",
+    "soap bar"
+  ],
+  "materials": [
+    "ceramic.vitreous",
+    "plastic.gloss"
+  ],
+  "style": "everyday bathroom, ceramic",
+  "summary": "Rectangular ceramic soap dish with rim and ridges holding a worn soap bar.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "ceramic"
+  ],
+  "budget": 5000
+}
