@@ -1375,6 +1375,7 @@ public enum Props {
         GlueStick.self,
         Abacus.self,
         Chalkboard.self,
+        WorldMapWall.self,
         // realityhd:prop
     ]
 }
