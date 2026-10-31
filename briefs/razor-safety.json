@@ -1,0 +1,36 @@
+{
+  "id": "razor-safety",
+  "kind": "prop",
+  "name": "Safety razor",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.125,
+    0.012,
+    0.045
+  ],
+  "parts": [
+    "knurled chrome handle",
+    "neck",
+    "head cap and base plate",
+    "blade"
+  ],
+  "materials": [
+    "metal.chrome",
+    "metal.stainless",
+    "metal.steel"
+  ],
+  "style": "everyday bathroom, chrome",
+  "summary": "Double-edge safety razor lying flat: knurled chrome handle, neck, head with blade.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "metal",
+    "chrome"
+  ],
+  "budget": 6000
+}

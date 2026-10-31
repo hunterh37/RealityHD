@@ -1,0 +1,37 @@
+{
+  "id": "hair-dryer",
+  "kind": "prop",
+  "name": "Hair dryer",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.22,
+    0.09,
+    0.2
+  ],
+  "parts": [
+    "barrel",
+    "nozzle",
+    "rear grille",
+    "angled handle",
+    "switches",
+    "cord"
+  ],
+  "materials": [
+    "plastic.gloss",
+    "metal.stainless",
+    "plastic.matte"
+  ],
+  "style": "everyday bathroom, plastic",
+  "summary": "Hair dryer lying on its side: round barrel with nozzle and rear grille, angled handle with switches.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "plastic"
+  ],
+  "budget": 8000
+}

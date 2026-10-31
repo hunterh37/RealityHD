@@ -1,0 +1,22 @@
+{
+  "automated" : 0.9772256,
+  "date" : "2026-10-31",
+  "final" : 0.8604039,
+  "fingerprint" : "0f052d4392b31771",
+  "id" : "cotton-swab-box",
+  "iterations" : 1,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 8,
+    "edges" : 7,
+    "grounding" : 8,
+    "materials" : 8,
+    "proportion" : 9,
+    "silhouette" : 9,
+    "wear" : 6
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.7975
+}

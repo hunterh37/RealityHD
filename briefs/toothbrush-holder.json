@@ -1,0 +1,34 @@
+{
+  "id": "toothbrush-holder",
+  "kind": "prop",
+  "name": "Toothbrush holder",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.08,
+    0.11,
+    0.08
+  ],
+  "parts": [
+    "ceramic cup body",
+    "foot ring",
+    "rolled lip",
+    "glazed band"
+  ],
+  "materials": [
+    "ceramic.vitreous",
+    "ceramic.cobalt"
+  ],
+  "style": "everyday bathroom, ceramic",
+  "summary": "Ceramic toothbrush cup with foot ring, rolled lip and a glazed band.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "ceramic"
+  ],
+  "budget": 5000
+}
