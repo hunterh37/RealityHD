@@ -1371,6 +1371,10 @@ public enum Props {
         LotionBottle.self,
         SoapDispenser.self,
         ToiletPaperRoll.self,
+        DeodorantStick.self,
+        BathroomTrashCan.self,
+        ToothbrushHolder.self,
+        PerfumeBottle.self,
         // realityhd:prop
     ]
 }
