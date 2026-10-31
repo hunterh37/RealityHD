@@ -1382,6 +1382,10 @@ public enum Props {
         WaterBottleSteel.self,
         CompassDrawing.self,
         GlobeDesktop.self,
+        Textbook.self,
+        ThreeRingBinder.self,
+        ScissorsSchool.self,
+        TelescopeTabletop.self,
         // realityhd:prop
     ]
 }
