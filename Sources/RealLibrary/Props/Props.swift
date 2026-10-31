@@ -1380,6 +1380,7 @@ public enum Props {
         PieWhole.self,
         PizzaWhole.self,
         IceCreamTub.self,
+        HotDog.self,
         // realityhd:prop
     ]
 }

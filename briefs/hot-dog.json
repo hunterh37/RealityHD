@@ -1,0 +1,35 @@
+{
+  "budget": 8000,
+  "id": "hot-dog",
+  "kind": "prop",
+  "materials": [
+    "food.bun-crust",
+    "food.beef-seared:B5533A"
+  ],
+  "name": "Hot dog",
+  "notes": "",
+  "parts": [
+    "hot dog main form",
+    "characteristic surface detail",
+    "secondary parts",
+    "base contact"
+  ],
+  "references": [],
+  "size": [
+    0.06,
+    0.05,
+    0.18
+  ],
+  "style": "everyday pantry, baked",
+  "summary": "Hot dog, pantry prop.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "food",
+    "baked"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
