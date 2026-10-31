@@ -1381,6 +1381,7 @@ public enum Props {
         LunchBox.self,
         WaterBottleSteel.self,
         CompassDrawing.self,
+        GlobeDesktop.self,
         // realityhd:prop
     ]
 }
