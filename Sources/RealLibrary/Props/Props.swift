@@ -1377,6 +1377,7 @@ public enum Props {
         Chalkboard.self,
         WorldMapWall.self,
         SchoolDesk.self,
+        SchoolChair.self,
         // realityhd:prop
     ]
 }
