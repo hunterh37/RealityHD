@@ -1372,6 +1372,7 @@ public enum Props {
         WatercolorSet.self,
         ColoredPencilTin.self,
         CrayonBox.self,
+        Abacus.self,
         // realityhd:prop
     ]
 }
