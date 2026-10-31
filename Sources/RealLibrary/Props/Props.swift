@@ -1369,6 +1369,8 @@ public enum Props {
         ConditionerBottle.self,
         BodyWashBottle.self,
         LotionBottle.self,
+        SoapDispenser.self,
+        ToiletPaperRoll.self,
         // realityhd:prop
     ]
 }
