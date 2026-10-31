@@ -1370,6 +1370,7 @@ public enum Props {
         PencilSharpener.self,
         Protractor.self,
         WatercolorSet.self,
+        ColoredPencilTin.self,
         // realityhd:prop
     ]
 }
