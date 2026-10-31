@@ -16,4 +16,17 @@ enum Toiletry {
         let rot: simd_quatf = axis == 0 ? simd_quatf(angle: -Float.pi / 2, axis: V3(0, 0, 1)) : axis == 2 ? simd_quatf(angle: Float.pi / 2, axis: V3(1, 0, 0)) : simd_quatf(angle: 0, axis: V3(0, 1, 0))
         m.add(Prim.cylinder(radius: r, height: length, bevel: 0.0003, segments: seg, material: mat), Xform(translation: at, rotation: rot))
     }
+    /// Hanging cloth panel: a sine-rippled thin sheet, `width` across X, `height` tall from `at.y - height / 2`, ripple on absolute X so panels line up.
+    static func wavyPanel(_ m: inout Model, width: Float, height: Float, thickness: Float, amp: Float, wavelength: Float, samples: Int = 96, _ mat: MaterialKey, at: V3) {
+        var top: [V2] = [], bot: [V2] = []
+        for i in 0...samples {
+            let u = Float(i) / Float(samples)
+            let x = (u - 0.5) * width + at.x
+            let z = amp * sin(2 * Float.pi * x / wavelength)
+            top.append(V2(x - at.x, z + thickness / 2))
+            bot.append(V2(x - at.x, z - thickness / 2))
+        }
+        m.add(Prim.extrude(bot + top.reversed(), depth: height, bevel: 0.0003, bevelSegments: 1, material: mat),
+              Xform(translation: at, rotation: simd_quatf(angle: Float.pi / 2, axis: V3(1, 0, 0))))
+    }
 }

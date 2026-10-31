@@ -1388,9 +1388,11 @@ public enum Props {
         ToiletBrushSet.self,
         BathroomScale.self,
         MakeupBrushSet.self,
-        HairStraightener.self,
         WallHeaterTowelRail.self,
         BathroomMirror.self,
+        ElectricRazor.self,
+        HandheldShower.self,
+        HairDryer.self,
         // realityhd:prop
     ]
 }
