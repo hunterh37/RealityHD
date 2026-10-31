@@ -1,0 +1,34 @@
+{
+  "id": "toilet-paper-roll",
+  "kind": "prop",
+  "name": "Toilet paper roll",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.11,
+    0.1,
+    0.11
+  ],
+  "parts": [
+    "paper roll body",
+    "cardboard core",
+    "loose end flap",
+    "embossed edge rings"
+  ],
+  "materials": [
+    "paper.sheet",
+    "paper.screwbox-kraft"
+  ],
+  "style": "everyday bathroom, paper",
+  "summary": "Upright toilet paper roll: soft rounded wound paper, cardboard core, loose end flap.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "paper"
+  ],
+  "budget": 3500
+}

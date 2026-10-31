@@ -1,0 +1,35 @@
+{
+  "id": "cotton-swab-box",
+  "kind": "prop",
+  "name": "Cotton swab box",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.06,
+    0.09,
+    0.03
+  ],
+  "parts": [
+    "clear plastic box",
+    "hinged lid",
+    "cotton swabs",
+    "label"
+  ],
+  "materials": [
+    "glass.polycarbonate",
+    "plastic.gloss",
+    "plastic.matte"
+  ],
+  "style": "everyday bathroom, plastic",
+  "summary": "Clear plastic box of cotton swabs with the hinged lid open and a front label.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "plastic"
+  ],
+  "budget": 7000
+}

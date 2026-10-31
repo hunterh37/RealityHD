@@ -1,0 +1,35 @@
+{
+  "budget": 11000,
+  "id": "watercolor-set",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Watercolor Set",
+  "size": [
+    0.22,
+    0.02,
+    0.1
+  ],
+  "style": "everyday school, plastic",
+  "theme": "School",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "plastic"
+  ],
+  "parts": [
+    "white plastic tray",
+    "twelve half-pan colors",
+    "mixing wells",
+    "thumb notch",
+    "tray rim"
+  ],
+  "materials": [
+    "plastic.matte",
+    "plastic.gloss"
+  ],
+  "summary": "Twelve-color watercolor half-pan tray with three mixing wells."
+}

@@ -1,0 +1,36 @@
+{
+  "id": "hairbrush",
+  "kind": "prop",
+  "name": "Hairbrush",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.07,
+    0.03,
+    0.23
+  ],
+  "parts": [
+    "wooden handle",
+    "brass ferrule",
+    "paddle back",
+    "rubber cushion pad",
+    "bristle pins"
+  ],
+  "materials": [
+    "wood.walnut",
+    "metal.brass",
+    "plastic.matte"
+  ],
+  "style": "everyday bathroom, wood",
+  "summary": "Oval paddle hairbrush lying flat: walnut handle and back, brass ferrule, rubber cushion with ball-tip pins.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "wood"
+  ],
+  "budget": 12000
+}

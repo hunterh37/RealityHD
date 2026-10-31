@@ -1,0 +1,22 @@
+{
+  "automated" : 0.97578377,
+  "date" : "2026-10-31",
+  "final" : 0.91352427,
+  "fingerprint" : "bef0947f59399244",
+  "id" : "strawberry-punnet",
+  "iterations" : 1,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 9,
+    "construction" : 9,
+    "edges" : 9,
+    "grounding" : 9,
+    "materials" : 9,
+    "proportion" : 9,
+    "silhouette" : 9,
+    "wear" : 7
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.88
+}

@@ -1,0 +1,34 @@
+{
+  "id": "deodorant-stick",
+  "kind": "prop",
+  "name": "Deodorant stick",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.04,
+    0.11,
+    0.03
+  ],
+  "parts": [
+    "oval body",
+    "twist knob base",
+    "domed cap",
+    "label band"
+  ],
+  "materials": [
+    "plastic.gloss",
+    "plastic.matte"
+  ],
+  "style": "everyday bathroom, plastic",
+  "summary": "Oval stick deodorant: gloss body, twist base knob, domed cap, label band.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "plastic"
+  ],
+  "budget": 4000
+}

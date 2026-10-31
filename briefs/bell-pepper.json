@@ -1,0 +1,35 @@
+{
+  "budget": 7000,
+  "id": "bell-pepper",
+  "kind": "prop",
+  "materials": [
+    "food.pepper-red",
+    "food.stem-green:4E7A2E"
+  ],
+  "name": "Bell pepper",
+  "notes": "",
+  "parts": [
+    "bell pepper body with accurate silhouette",
+    "characteristic surface detail",
+    "stem or secondary parts",
+    "base contact"
+  ],
+  "references": [],
+  "size": [
+    0.08,
+    0.09,
+    0.08
+  ],
+  "style": "everyday pantry, vegetable",
+  "summary": "Bell pepper, pantry prop.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "food",
+    "vegetable"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,35 @@
+{
+  "budget": 7000,
+  "id": "pumpkin",
+  "kind": "prop",
+  "materials": [
+    "food.tomato:D8701B",
+    "food.stem-green:6A5A2E"
+  ],
+  "name": "Pumpkin",
+  "notes": "",
+  "parts": [
+    "pumpkin body with accurate silhouette",
+    "characteristic surface detail",
+    "stem or secondary parts",
+    "base contact"
+  ],
+  "references": [],
+  "size": [
+    0.28,
+    0.22,
+    0.28
+  ],
+  "style": "everyday pantry, vegetable",
+  "summary": "Pumpkin, pantry prop.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "food",
+    "vegetable"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
