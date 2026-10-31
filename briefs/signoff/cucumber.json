@@ -1,0 +1,22 @@
+{
+  "automated" : 0.96271825,
+  "date" : "2026-10-31",
+  "final" : 0.87726384,
+  "fingerprint" : "e82ac8fe0c7a792f",
+  "id" : "cucumber",
+  "iterations" : 1,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 9,
+    "construction" : 8,
+    "edges" : 9,
+    "grounding" : 9,
+    "materials" : 8,
+    "proportion" : 9,
+    "silhouette" : 8,
+    "wear" : 7
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.83125
+}

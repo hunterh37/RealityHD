@@ -1,0 +1,38 @@
+{
+  "budget": 14000,
+  "id": "telescope-tabletop",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Tabletop Telescope",
+  "size": [
+    0.15,
+    0.4,
+    0.45
+  ],
+  "style": "everyday school, steel",
+  "theme": "School",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "metal"
+  ],
+  "parts": [
+    "optical tube",
+    "dew shield",
+    "focuser and eyepiece",
+    "finder scope",
+    "tube rings",
+    "mount head with pan handle",
+    "three tripod legs"
+  ],
+  "materials": [
+    "metal.powdercoat",
+    "metal.stainless",
+    "plastic.matte"
+  ],
+  "summary": "Tabletop refractor telescope with focuser, finder and a three-leg tabletop tripod."
+}

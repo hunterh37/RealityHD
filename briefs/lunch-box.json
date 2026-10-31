@@ -1,0 +1,36 @@
+{
+  "budget": 9000,
+  "id": "lunch-box",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Lunch Box",
+  "size": [
+    0.22,
+    0.16,
+    0.1
+  ],
+  "style": "everyday school, plastic",
+  "theme": "School",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "plastic"
+  ],
+  "parts": [
+    "molded body",
+    "lid",
+    "seam",
+    "front latches",
+    "carry handle",
+    "printed stripe"
+  ],
+  "materials": [
+    "plastic.gloss",
+    "plastic.matte"
+  ],
+  "summary": "Hard plastic lunch box with two front latches and a folding carry handle."
+}

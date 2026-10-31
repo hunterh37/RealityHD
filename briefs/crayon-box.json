@@ -1,0 +1,36 @@
+{
+  "budget": 9000,
+  "id": "crayon-box",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Crayon Box",
+  "size": [
+    0.12,
+    0.04,
+    0.09
+  ],
+  "style": "everyday school, wax",
+  "theme": "School",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "wax",
+    "paper"
+  ],
+  "parts": [
+    "cardboard tray",
+    "hinged lid standing open",
+    "two rows of wax crayons",
+    "paper wrappers",
+    "tip cones"
+  ],
+  "materials": [
+    "paper.sheet",
+    "plastic.matte"
+  ],
+  "summary": "Cardboard crayon box with the lid open over two rows of wrapped wax crayons."
+}

@@ -1,0 +1,36 @@
+{
+  "id": "makeup-brush-set",
+  "kind": "prop",
+  "name": "Makeup brush set",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.08,
+    0.18,
+    0.08
+  ],
+  "parts": [
+    "ceramic cup",
+    "five brushes",
+    "gold ferrules",
+    "fur heads"
+  ],
+  "materials": [
+    "ceramic.vitreous",
+    "plastic.gloss",
+    "metal.brass"
+  ],
+  "style": "everyday bathroom, cup and brushes",
+  "summary": "Cup holding five makeup brushes with black handles, gold ferrules and soft fur heads.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "ceramic",
+    "plastic"
+  ],
+  "budget": 12000
+}

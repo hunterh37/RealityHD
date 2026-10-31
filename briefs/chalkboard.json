@@ -1,0 +1,39 @@
+{
+  "budget": 14000,
+  "id": "chalkboard",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Chalkboard",
+  "size": [
+    1.8,
+    1.2,
+    0.03
+  ],
+  "style": "everyday school, slate",
+  "theme": "School",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "stone",
+    "wood"
+  ],
+  "parts": [
+    "oak frame",
+    "slate writing surface",
+    "chalk tray with lip",
+    "chalk pieces",
+    "felt eraser",
+    "chalk writing and wipe marks"
+  ],
+  "materials": [
+    "wood.oak",
+    "stone.slate",
+    "plastic.matte",
+    "fabric.wool"
+  ],
+  "summary": "Wall chalkboard in an oak frame with a chalk tray, chalk, eraser and chalk writing."
+}

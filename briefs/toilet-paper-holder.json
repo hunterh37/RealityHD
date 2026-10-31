@@ -1,0 +1,35 @@
+{
+  "id": "toilet-paper-holder",
+  "kind": "prop",
+  "name": "Toilet paper holder",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.15,
+    0.08,
+    0.12
+  ],
+  "parts": [
+    "two wall flanges",
+    "two arms",
+    "spring roller bar",
+    "screw heads"
+  ],
+  "materials": [
+    "metal.chrome",
+    "metal.stainless"
+  ],
+  "style": "everyday bathroom, chrome",
+  "summary": "Wall toilet paper holder: two chrome flanges and arms with a roller bar between.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "metal",
+    "chrome"
+  ],
+  "budget": 4000
+}

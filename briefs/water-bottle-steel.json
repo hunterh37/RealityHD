@@ -1,0 +1,37 @@
+{
+  "budget": 9000,
+  "id": "water-bottle-steel",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Steel Water Bottle",
+  "size": [
+    0.07,
+    0.25,
+    0.07
+  ],
+  "style": "everyday school, steel",
+  "theme": "School",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "metal"
+  ],
+  "parts": [
+    "powder-coated steel body",
+    "steel base ring",
+    "screw cap with ribs",
+    "carry loop",
+    "seal ring",
+    "grip bands"
+  ],
+  "materials": [
+    "metal.powdercoat",
+    "metal.stainless",
+    "plastic.matte"
+  ],
+  "summary": "Insulated steel bottle with a powder-coated body, ribbed screw cap and carry loop."
+}

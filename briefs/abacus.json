@@ -1,0 +1,37 @@
+{
+  "budget": 14000,
+  "id": "abacus",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Abacus",
+  "size": [
+    0.25,
+    0.02,
+    0.2
+  ],
+  "style": "everyday school, wood",
+  "theme": "School",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "wood"
+  ],
+  "parts": [
+    "wood frame",
+    "ten steel rods",
+    "one hundred beads",
+    "red and natural bead halves",
+    "gap divider"
+  ],
+  "materials": [
+    "wood.walnut",
+    "wood.barn-red",
+    "wood.beech-stained",
+    "metal.steel"
+  ],
+  "summary": "Ten-rod wooden counting frame with ten beads per rod in two colors."
+}

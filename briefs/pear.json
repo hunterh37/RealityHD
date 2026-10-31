@@ -1,0 +1,35 @@
+{
+  "budget": 6000,
+  "id": "pear",
+  "kind": "prop",
+  "materials": [
+    "food.tomato:B9B84A",
+    "food.stem-green:5A4A2A"
+  ],
+  "name": "Pear",
+  "notes": "",
+  "parts": [
+    "pear body with accurate silhouette",
+    "stem detail",
+    "skin surface variation",
+    "base contact"
+  ],
+  "references": [],
+  "size": [
+    0.07,
+    0.11,
+    0.07
+  ],
+  "style": "everyday pantry, fruit",
+  "summary": "Pear, pantry prop.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "food",
+    "fruit"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

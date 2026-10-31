@@ -1,0 +1,35 @@
+{
+  "budget": 8000,
+  "id": "ice-cream-tub",
+  "kind": "prop",
+  "materials": [
+    "plastic.matte:EFE3C8",
+    "plastic.matte:C8507A"
+  ],
+  "name": "Ice cream tub",
+  "notes": "",
+  "parts": [
+    "ice cream tub main form",
+    "characteristic surface detail",
+    "secondary parts",
+    "base contact"
+  ],
+  "references": [],
+  "size": [
+    0.14,
+    0.13,
+    0.14
+  ],
+  "style": "everyday pantry, pantry",
+  "summary": "Ice cream tub, pantry prop.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "food",
+    "pantry"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
