@@ -1380,6 +1380,9 @@ public enum Props {
         Toothbrush.self,
         Comb.self,
         ToiletPaperHolder.self,
+        CottonSwabBox.self,
+        RazorSafety.self,
+        Hairbrush.self,
         // realityhd:prop
     ]
 }
