@@ -1,0 +1,35 @@
+{
+  "budget": 7000,
+  "id": "broccoli-head",
+  "kind": "prop",
+  "materials": [
+    "food.broccoli",
+    "food.broccoli-stem"
+  ],
+  "name": "Broccoli head",
+  "notes": "",
+  "parts": [
+    "broccoli head main form",
+    "characteristic surface detail",
+    "secondary parts",
+    "base contact"
+  ],
+  "references": [],
+  "size": [
+    0.12,
+    0.12,
+    0.12
+  ],
+  "style": "everyday pantry, vegetable",
+  "summary": "Broccoli head, pantry prop.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "food",
+    "vegetable"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
