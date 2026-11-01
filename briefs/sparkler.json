@@ -1,0 +1,36 @@
+{
+  "budget": 5000,
+  "id": "sparkler",
+  "kind": "prop",
+  "materials": [
+    "metal.steel",
+    "plastic.matte:6A6C6E",
+    "emissive.ember",
+    "emissive.amber"
+  ],
+  "name": "Sparkler",
+  "notes": "",
+  "parts": [
+    "Steel wire stick",
+    "Grey coated end",
+    "Glowing ember head"
+  ],
+  "references": [],
+  "size": [
+    0.029,
+    0.3,
+    0.022
+  ],
+  "style": "Thin wire, dull grey pyrotechnic coating, orange ember head",
+  "summary": "Wire sparkler, 30 cm: steel stick, grey coated end, glowing ember head. Grip origin at the handle center, head along +Y.",
+  "tags": [
+    "prop",
+    "handheld",
+    "fx",
+    "metal",
+    "light"
+  ],
+  "theme": "FX",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

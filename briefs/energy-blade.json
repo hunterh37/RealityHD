@@ -1,0 +1,39 @@
+{
+  "budget": 11000,
+  "id": "energy-blade",
+  "kind": "prop",
+  "materials": [
+    "metal.anodized-gunmetal",
+    "metal.chrome",
+    "rubber",
+    "emissive.signal-white",
+    "emissive.thruster-cyan"
+  ],
+  "name": "Energy blade",
+  "notes": "",
+  "parts": [
+    "Machined hilt 28 cm with grip ridges",
+    "Pommel cap",
+    "Guard ring and emitter shroud",
+    "Core blade 0.9 m, emissive",
+    "Soft outer glow shell"
+  ],
+  "references": [],
+  "size": [
+    0.045,
+    1.18,
+    0.045
+  ],
+  "style": "Clean machined anodized metal, hot white core with cyan shell",
+  "summary": "Sci-fi energy sword: 28 cm machined hilt, 0.9 m glowing blade. Grip origin at handle center, blade along +Y.",
+  "tags": [
+    "prop",
+    "handheld",
+    "fx",
+    "metal",
+    "light"
+  ],
+  "theme": "FX",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

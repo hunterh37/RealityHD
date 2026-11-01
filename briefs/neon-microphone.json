@@ -1,0 +1,38 @@
+{
+  "budget": 8000,
+  "id": "neon-microphone",
+  "kind": "prop",
+  "materials": [
+    "plastic.matte:121214",
+    "metal.chrome",
+    "metal.basket-mesh",
+    "emissive.thruster-cyan"
+  ],
+  "name": "Neon microphone",
+  "notes": "",
+  "parts": [
+    "Black matte handle",
+    "Chrome mesh grille ball",
+    "Grille collar",
+    "Thin emissive ring",
+    "Pop-grid band"
+  ],
+  "references": [],
+  "size": [
+    0.055,
+    0.19,
+    0.055
+  ],
+  "style": "Matte black body, chrome mesh head, cyan neon ring",
+  "summary": "Handheld stage microphone, 19 cm: matte black handle, chrome mesh grille, thin emissive ring. Grip origin at handle center, grille along +Y.",
+  "tags": [
+    "prop",
+    "handheld",
+    "fx",
+    "metal",
+    "light"
+  ],
+  "theme": "FX",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

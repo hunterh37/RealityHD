@@ -1364,6 +1364,10 @@ public enum Props {
         DeliMeatPack.self,
         FrozenPizzaBox.self,
         WineBottle.self,
+        EnergyBlade.self,
+        MagicWand.self,
+        NeonMicrophone.self,
+        Sparkler.self,
         // realityhd:prop
     ]
 }

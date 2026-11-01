@@ -1,0 +1,36 @@
+{
+  "budget": 6000,
+  "id": "magic-wand",
+  "kind": "prop",
+  "materials": [
+    "wood.walnut:2A1A10",
+    "wood.walnut:1C120A",
+    "emissive.thruster-cyan"
+  ],
+  "name": "Magic wand",
+  "notes": "",
+  "parts": [
+    "Turned dark wood shaft",
+    "Carved handle bands",
+    "Pommel bulb",
+    "Crystal tip, emissive"
+  ],
+  "references": [],
+  "size": [
+    0.03,
+    0.35,
+    0.03
+  ],
+  "style": "Dark oiled wood, faceted glowing crystal",
+  "summary": "Turned dark wood wand, 35 cm, carved handle bands and a small glowing crystal tip. Grip origin at handle center, tip along +Y.",
+  "tags": [
+    "prop",
+    "handheld",
+    "fx",
+    "wood",
+    "light"
+  ],
+  "theme": "FX",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
