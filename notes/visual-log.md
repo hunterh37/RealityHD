@@ -145,3 +145,16 @@ without the deer muzzle band, erect or hanging ears (`GroundAnatomy.earDrop`), s
 - it2: plan path. Fur cards read as white spikes, torso narrow, floppy ears hidden in the skull. Cards 420 to 170/110, card length 0.05 to 0.03/0.022, feather fringe off, bodyWidth up, ears base 0.3 head widths outward.
 - it3: legScale 1.5/1.4/1.15, tail core full width for dogs, haunch mass uses the limb coat (white belly coat showed on corgi).
 Remaining: shoulder and haunch masses read as separate blobs, golden has no feathering, corgi hind legs kink, tail is a tapered slab, coat still shows furCoat banding.
+
+## 2026-10-31 dino joints, jaw, mass
+
+it0 baseline (idle/walk/pulled, 6-view sheets): legs are separate rigid tubes, gap between thigh top and flank,
+seams at knee and ankle, Triceratops mandible a boxy slab below the head, T-rex and raptor torsos thin.
+it1 fixes: thigh root mass on pelvis/chest part, thigh ellipsoid 1.2x radius, knee and ankle filler spheres
+on the child part, shin/metatarsus start inside the filler; `DinoProfile.bulk` torso girth (trex 0.3, raptor 0.4,
+tri 0.08); Triceratops jaw rebuilt from head sections (tucked, tapers to predentary).
+it1 result: knee seams gone in walk/pulled, thighs blend into flank, jaw tucked; raptor body and neck still thin,
+predentary pokes past the snout.
+it2 fixes: bulk trex 0.45, raptor 0.7; raptor neck sections thicker; Triceratops predentary moved behind the snout tip.
+it2 result: no leg-body gap or knee seam in idle/walk/pulled for all three; Triceratops jaw tucked under the beak;
+T-rex and raptor torsos read heavy. Open: faint ring at the pelvis/chest loft boundary on T-rex.

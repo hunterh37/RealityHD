@@ -54,6 +54,8 @@ public struct DinoProfile: Sendable {
     public var teeth: Int
     /// Scale rows across the body length for the skin atlas.
     public var scaleRows: Float
+    /// Extra torso girth over chest and hips (0 = sections as listed).
+    public var bulk: Float = 0
 
     public var isBiped: Bool { stance == .biped }
     public var hasSickleClaw: Bool { species == .velociraptor }
@@ -76,7 +78,7 @@ public struct DinoProfile: Sendable {
                 hind: DinoLeg(hip: V3(0.55, 3.9, 0.1), knee: V3(0.6, 2.4, -0.45), ankle: V3(0.5, 0.95, 0.25), ball: V3(0.48, 0.14, -0.3), toe: 0.75, radii: V4(0.5, 0.28, 0.16, 0.09)),
                 fore: DinoLeg(hip: V3(0.55, 3.0, -2.3), knee: V3(0.62, 2.68, -2.5), ankle: V3(0.6, 2.55, -2.82), ball: V3(0.6, 2.5, -2.9), toe: 0.14, radii: V4(0.11, 0.08, 0.05, 0.03)),
                 colors: DinoColors(back: 0x4A4231, belly: 0xB9A783, stripe: 0x2B261C, claw: 0x2A2420, horn: 0x5A5040, eye: 0xB07818, mouth: 0x8A3A3A),
-                feathered: false, teeth: 12, scaleRows: 160)
+                feathered: false, teeth: 12, scaleRows: 160, bulk: 0.45)
         case .triceratops:
             return DinoProfile(
                 species: s, stance: .quadruped, targetLength: 8, targetHipHeight: 2,
@@ -92,14 +94,14 @@ public struct DinoProfile: Sendable {
                 hind: DinoLeg(hip: V3(0.6, 2.0, 0.3), knee: V3(0.65, 1.15, -0.1), ankle: V3(0.65, 0.4, 0.15), ball: V3(0.65, 0.12, -0.1), toe: 0.28, radii: V4(0.4, 0.23, 0.18, 0.08)),
                 fore: DinoLeg(hip: V3(0.75, 1.6, -1.9), knee: V3(0.88, 0.95, -1.75), ankle: V3(0.86, 0.35, -1.85), ball: V3(0.86, 0.1, -1.95), toe: 0.2, radii: V4(0.3, 0.19, 0.15, 0.07)),
                 colors: DinoColors(back: 0x5B5236, belly: 0xC2B28A, stripe: 0x6E3A22, claw: 0x2E2822, horn: 0xD8CDB0, eye: 0x6A4A14, mouth: 0x7A3A34),
-                feathered: false, teeth: 0, scaleRows: 110)
+                feathered: false, teeth: 0, scaleRows: 110, bulk: 0.08)
         case .velociraptor:
             return DinoProfile(
                 species: s, stance: .biped, targetLength: 2, targetHipHeight: 0.55,
                 spine: [
                     .init(1.15, 0.62, 0.015, 0.015, 0.015), .init(0.8, 0.6, 0.03, 0.03, 0.035), .init(0.4, 0.6, 0.05, 0.045, 0.055),
                     .init(0.12, 0.6, 0.08, 0.07, 0.09), .init(0, 0.6, 0.1, 0.08, 0.12), .init(-0.2, 0.58, 0.11, 0.08, 0.14),
-                    .init(-0.38, 0.6, 0.09, 0.07, 0.1), .init(-0.5, 0.68, 0.05, 0.05, 0.06), .init(-0.56, 0.78, 0.045, 0.045, 0.05),
+                    .init(-0.38, 0.6, 0.09, 0.07, 0.1), .init(-0.5, 0.68, 0.065, 0.06, 0.075), .init(-0.56, 0.78, 0.055, 0.052, 0.058),
                     .init(-0.6, 0.82, 0.05, 0.05, 0.045), .init(-0.68, 0.81, 0.04, 0.04, 0.025), .init(-0.78, 0.79, 0.025, 0.028, 0.015),
                     .init(-0.85, 0.78, 0.012, 0.014, 0.008),
                 ],
@@ -108,7 +110,7 @@ public struct DinoProfile: Sendable {
                 hind: DinoLeg(hip: V3(0.07, 0.56, 0.02), knee: V3(0.08, 0.38, -0.1), ankle: V3(0.075, 0.17, 0.05), ball: V3(0.075, 0.02, -0.02), toe: 0.1, radii: V4(0.055, 0.03, 0.02, 0.011)),
                 fore: DinoLeg(hip: V3(0.07, 0.53, -0.38), knee: V3(0.09, 0.45, -0.3), ankle: V3(0.09, 0.44, -0.45), ball: V3(0.09, 0.43, -0.48), toe: 0.05, radii: V4(0.02, 0.015, 0.01, 0.005)),
                 colors: DinoColors(back: 0x7A5634, belly: 0xD4C29E, stripe: 0x2E2216, claw: 0x1E1A16, horn: 0x3A3028, eye: 0xC89018, mouth: 0x9A4A44),
-                feathered: true, teeth: 10, scaleRows: 60)
+                feathered: true, teeth: 10, scaleRows: 60, bulk: 0.7)
         }
     }
 

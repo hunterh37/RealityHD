@@ -71,6 +71,13 @@ public enum DinoRigBuilder {
             declare(DinoJoint.tails[k], k == 0 ? DinoJoint.tailYaw : DinoJoint.tails[k - 1], center(z), X, -35...35)
         }
 
+        // Torso mass multiplier: full over chest and hips, fading into the neck and the tail.
+        func bulk(_ z: Float) -> Float {
+            let back = p.tailRoot + (tip - p.tailRoot) * 0.35, front = p.neckZ
+            func ss(_ x: Float) -> Float { let t = min(max(x, 0), 1); return t * t * (3 - 2 * t) }
+            let w = ss((back - z) / max(0.001, back - p.tailRoot)) * ss((z - front) / max(0.001, p.chestZ - front))
+            return 1 + p.bulk * w
+        }
         // Midline body: one loft per part, overlapping its neighbours a little.
         func trunk(_ z0: Float, _ z1: Float, _ part: String, _ m: MaterialKey, n: Int, headUV: Bool = false) {
             let ov = 0.025 * L
@@ -79,11 +86,12 @@ public enum DinoRigBuilder {
             for i in 0..<n {
                 let z = za + (zb - za) * Float(i) / Float(n - 1)
                 let s = p.section(at: z)
+                let m = girth * bulk(z)
                 let dz = 0.01 * L
                 let t = simd_normalize(center(z - dz) - center(z + dz))
                 let up = simd_normalize(simd_cross(X, t))
-                secs.append(LoftSection(center: V3(0, s.y, z), right: X, up: up, halfWidth: s.halfWidth * girth,
-                                        halfDorsal: s.halfDorsal * girth, halfVentral: s.halfVentral * girth, exponent: 2.2))
+                secs.append(LoftSection(center: V3(0, s.y, z), right: X, up: up, halfWidth: s.halfWidth * m,
+                                        halfDorsal: s.halfDorsal * m, halfVentral: s.halfVentral * m, exponent: 2.2))
             }
             let v: ClosedRange<Float> = headUV ? 0...1 : ((tip - za) / L)...((tip - zb) / L)
             rig.add(Loft.build(secs, segments: 28, vRange: v, material: m, caps: true), to: part)
@@ -98,7 +106,20 @@ public enum DinoRigBuilder {
 
         // Lower jaw, mouth lining and teeth.
         var jsecs: [LoftSection] = []
-        for i in 0..<8 {
+        if p.species == .triceratops {
+            // Beak-shaped mandible: deep at the hinge, tucked under the head, tapering to the predentary.
+            let z0 = p.jawHinge.z, z1 = p.chin.z
+            for i in 0..<10 {
+                let t = Float(i) / 9
+                let z = z0 + (z1 - z0) * t
+                let hs = p.section(at: z)
+                let w = hs.halfWidth * girth * (0.86 - 0.2 * t)
+                let d = hs.halfVentral * (0.75 - 0.15 * t)
+                let cy = hs.y - hs.halfVentral * 0.55
+                jsecs.append(LoftSection(center: V3(0, cy, z), right: X, up: Y, halfWidth: w, halfDorsal: d * 0.9, halfVentral: d * 0.6, exponent: 2.0))
+            }
+        }
+        for i in 0..<(p.species == .triceratops ? 0 : 8) {
             let t = Float(i) / 7
             let c = p.jawHinge + (p.chin - p.jawHinge) * t
             let w = p.jawHinges.x + (p.jawTip.x - p.jawHinges.x) * t, d = p.jawHinges.y + (p.jawTip.y - p.jawHinges.y) * t
@@ -154,7 +175,8 @@ public enum DinoRigBuilder {
             rig.add(Prim.tube([nb, nb + V3(0, 0.2, -0.08), nb + V3(0, 0.32, -0.04)], radii: [0.09, 0.05, 0.004], sides: 8, seamTile: 0.1, material: mat(.horn)), to: DinoJoint.head)
             let bk = center(snout + 0.25)
             rig.add(Loft.ellipsoid(center: bk + V3(0, -0.04, -0.12), axis: V3(0, -0.4, -1), up: Y, radii: V3(0.07, 0.14, 0.2), rings: 7, segments: 12, material: mat(.horn)), to: DinoJoint.head)
-            rig.add(Loft.ellipsoid(center: p.chin + V3(0, 0.02, 0.05), axis: V3(0, 0.3, -1), up: Y, radii: V3(0.06, 0.08, 0.16), rings: 6, segments: 10, material: mat(.horn)), to: DinoJoint.jaw)
+            let cs = p.section(at: p.chin.z + 0.1)
+            rig.add(Loft.ellipsoid(center: V3(0, cs.y - cs.halfVentral * 0.6, p.chin.z + 0.14), axis: V3(0, 0.45, -1), up: Y, radii: V3(0.07, 0.07, 0.15), rings: 7, segments: 12, material: mat(.horn)), to: DinoJoint.jaw)
         }
 
         // Limbs.
@@ -184,11 +206,20 @@ public enum DinoRigBuilder {
             declare(DinoJoint.name(limb, .ankle), DinoJoint.name(limb, .knee), ankle, X, -80...80)
             declare(DinoJoint.name(limb, .toe), DinoJoint.name(limb, .ankle), ball, X, -70...70)
             // Thigh: a heavy muscle mass that blends into the flank.
-            let tc = hip + (knee - hip) * 0.42 + V3(0, r.x * 0.2, 0)
-            rig.add(Loft.ellipsoid(center: tc, axis: knee - hip, up: V3(0, 0, -1), radii: V3(r.x * 0.75, r.x, simd_distance(hip, knee) * 0.62), rings: 10, segments: 18,
-                                   material: mat(.limb), uv: { u, v in V2(u, v * 2) }), to: DinoJoint.name(limb, .hip))
-            segment(knee, ankle, V3(r.y, r.y * 1.1, r.y * 1.1), V3(r.y * 0.7, r.y * 0.75, r.y * 0.75), to: DinoJoint.name(limb, .knee))
-            segment(ankle, ball, V3(r.z, r.z * 1.1, r.z * 1.1), V3(r.z * 0.85, r.z * 0.8, r.z * 0.8), to: DinoJoint.name(limb, .ankle))
+            // Its top is buried in the flank: a root mass on the parent body plus a thigh that starts above the hip.
+            let tl = simd_distance(hip, knee)
+            let pm = mat(.limb)
+            rig.add(Loft.ellipsoid(center: hip + V3(-sx * r.x * 0.25, -r.x * 0.1, 0), axis: V3(0, -1, 0), up: V3(0, 0, -1), radii: V3(r.x * 1.05, r.x * 1.25, r.x * 1.25),
+                                   rings: 10, segments: 18, material: pm), to: parent)
+            let tc = hip + (knee - hip) * 0.4 + V3(0, r.x * 0.15, 0)
+            rig.add(Loft.ellipsoid(center: tc, axis: knee - hip, up: V3(0, 0, -1), radii: V3(r.x * 0.95, r.x * 1.2, tl * 0.72), rings: 12, segments: 18,
+                                   material: pm, uv: { u, v in V2(u, v * 2) }), to: DinoJoint.name(limb, .hip))
+            // Joint fillers: spheres on the child part sized to cover both neighbours through the full bend.
+            rig.add(Loft.ellipsoid(center: knee, axis: V3(0, -1, 0), up: V3(0, 0, -1), radii: V3(r.y * 1.3, r.y * 1.35, r.y * 1.4), rings: 8, segments: 16, material: pm), to: DinoJoint.name(limb, .knee))
+            rig.add(Loft.ellipsoid(center: ankle, axis: V3(0, -1, 0), up: V3(0, 0, -1), radii: V3(r.z * 1.2, r.z * 1.25, r.z * 1.25), rings: 8, segments: 14, material: pm), to: DinoJoint.name(limb, .ankle))
+            let kd = simd_normalize(ankle - knee), ad = simd_normalize(ball - ankle)
+            segment(knee - kd * r.y * 0.6, ankle, V3(r.y * 1.25, r.y * 1.3, r.y * 1.3), V3(r.y * 0.75, r.y * 0.8, r.y * 0.8), to: DinoJoint.name(limb, .knee))
+            segment(ankle - ad * r.z * 0.5, ball, V3(r.z * 1.1, r.z * 1.15, r.z * 1.15), V3(r.z * 0.9, r.z * 0.85, r.z * 0.85), to: DinoJoint.name(limb, .ankle))
             rig.add(Loft.ellipsoid(center: ball, axis: V3(0, 0, -1), up: Y, radii: V3(r.z * 1.2, r.z * 0.7, r.z * 1.1), rings: 6, segments: 12, material: mat(.limb)), to: DinoJoint.name(limb, .toe))
             digits(ball + V3(0, -r.w * 0.2, 0), count: toes, spread: toes == 2 ? 0.18 : 0.32, length: l.toe, r: r.w, down: true, to: DinoJoint.name(limb, .toe))
         }
