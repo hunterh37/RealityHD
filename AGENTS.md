@@ -55,7 +55,7 @@ briefs/<id>.json, briefs/signoff/<id>.json   prop briefs and gate sign-offs (tes
 .claude/skills/  realityhd-prop, realityhd-brief, realityhd-gate, realityhd-material
 Scripts/vision_judge.py   headless vision verdict via the Claude API
 Tests/RealityHDTests/  AssetContractTests, SceneTests, MaterialTests, CoreTests
-docs/assets/<id>.png, docs/scenes/<id>.png   thumbnails (tests require them)
+(thumbnails live in the RealityHD-Thumbs repo; `realityhd thumbs <id> --out <dir>`)
 Demo/              visionOS demo app (xcodegen)
 ```
 

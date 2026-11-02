@@ -116,12 +116,13 @@ func renderCommand(_ args: Args) async throws {
 /// Catalog thumbnails used by README, CATALOG.md and the PR checklist.
 @MainActor
 func thumbsCommand(_ args: Args) async throws {
-    let root = try repoRoot().path
+    // --out <dir> writes <dir>/assets|scenes/<id>.png outside the package repo (previews live in RealityHD-Thumbs).
+    let root = try args.opt("--out") ?? "\(repoRoot().path)/docs"
     let missingOnly = args.flag("--missing")
     let ids = args.rest.isEmpty ? Catalog.assets.map { $0.id } + SceneCatalog.ids : args.rest
     for id in ids {
         let isScene = SceneCatalog.type(id) != nil
-        let path = "\(root)/docs/\(isScene ? "scenes" : "assets")/\(id).png"
+        let path = "\(root)/\(isScene ? "scenes" : "assets")/\(id).png"
         if missingOnly && FileManager.default.fileExists(atPath: path) { continue }
         var o = RenderOptions(hint: Catalog.type(id)?.preview ?? PreviewHint())
         (o.width, o.height) = isScene ? (1280, 800) : (640, 480)
