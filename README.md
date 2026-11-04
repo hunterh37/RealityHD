@@ -261,9 +261,9 @@ Material keys accept a hex tint: `"metal.painted:1F4E8C"`. All keys are listed i
 
 | `forest-glade` | `park-path` |
 |---|---|
-| ![forest-glade](docs/scenes/forest-glade.png) | ![park-path](docs/scenes/park-path.png) |
+| ![forest-glade](https://raw.githubusercontent.com/hunterh37/RealityHD-Thumbs/main/scenes/forest-glade.jpg) | ![park-path](https://raw.githubusercontent.com/hunterh37/RealityHD-Thumbs/main/scenes/park-path.jpg) |
 | `park-path`, golden hour | `prop-yard` |
-| ![park-path golden hour](docs/park-golden.png) | ![prop-yard](docs/scenes/prop-yard.png) |
+| ![park-path golden hour](docs/park-golden.png) | ![prop-yard](https://raw.githubusercontent.com/hunterh37/RealityHD-Thumbs/main/scenes/prop-yard.jpg) |
 
 ### Nature
 
@@ -297,9 +297,9 @@ monitors showing the `screen.ui` display material, sun through the ribbon window
 
 | | |
 |---|---|
-| ![open-office](docs/v4/open-office.png)<br>`open-office` | ![executive-office](docs/scenes/executive-office.png)<br>`executive-office` |
-| ![office-lobby](docs/scenes/office-lobby.png)<br>`office-lobby` | ![conference-room](docs/scenes/conference-room.png)<br>`conference-room` |
-| ![office-plaza](docs/scenes/office-plaza.png)<br>`office-plaza` | ![laptop on](docs/v4/laptop-on.png)<br>`laptop` state `on` |
+| ![open-office](docs/v4/open-office.png)<br>`open-office` | ![executive-office](https://raw.githubusercontent.com/hunterh37/RealityHD-Thumbs/main/scenes/executive-office.jpg)<br>`executive-office` |
+| ![office-lobby](https://raw.githubusercontent.com/hunterh37/RealityHD-Thumbs/main/scenes/office-lobby.jpg)<br>`office-lobby` | ![conference-room](https://raw.githubusercontent.com/hunterh37/RealityHD-Thumbs/main/scenes/conference-room.jpg)<br>`conference-room` |
+| ![office-plaza](https://raw.githubusercontent.com/hunterh37/RealityHD-Thumbs/main/scenes/office-plaza.jpg)<br>`office-plaza` | ![laptop on](docs/v4/laptop-on.png)<br>`laptop` state `on` |
 
 Every state of every articulated asset, rendered through the live rig (`realityhd states`):
 
@@ -347,7 +347,7 @@ A regulation baseball field built from code: 90 ft base paths, a 10 in mound wit
 track, padded walls, foul poles, a hooded backstop, block dugouts, aluminum bleachers and six light
 towers. The `ballpark` camera, and the Demo app viewer, stand in the right-handed batter's box.
 
-![ballpark from the batter's box](docs/scenes/ballpark.png)
+![ballpark from the batter's box](https://raw.githubusercontent.com/hunterh37/RealityHD-Thumbs/main/scenes/ballpark.jpg)
 
 | | |
 |---|---|
@@ -373,12 +373,12 @@ treatment room and an operating room, furnished with 50 articulated medical asse
 handheld devices can be picked up by hand in the Demo app (`ManipulationComponent`), and every
 door, drawer, rail, lid, screen and lamp has named states. See docs/V5.md.
 
-![hospital corridor with the ER room and OR doors](docs/scenes/hospital.png)
+![hospital corridor with the ER room and OR doors](https://raw.githubusercontent.com/hunterh37/RealityHD-Thumbs/main/scenes/hospital.jpg)
 
 | | |
 |---|---|
-| ![er-room](docs/scenes/er-room.png)<br>`er-room` | ![operating-room](docs/scenes/operating-room.png)<br>`operating-room` |
-| ![hospital-lobby](docs/scenes/hospital-lobby.png)<br>`hospital-lobby` | ![intake](docs/v5/lobby-intake.png)<br>Intake desk, kiosks and treatment doors |
+| ![er-room](https://raw.githubusercontent.com/hunterh37/RealityHD-Thumbs/main/scenes/er-room.jpg)<br>`er-room` | ![operating-room](https://raw.githubusercontent.com/hunterh37/RealityHD-Thumbs/main/scenes/operating-room.jpg)<br>`operating-room` |
+| ![hospital-lobby](https://raw.githubusercontent.com/hunterh37/RealityHD-Thumbs/main/scenes/hospital-lobby.jpg)<br>`hospital-lobby` | ![intake](docs/v5/lobby-intake.png)<br>Intake desk, kiosks and treatment doors |
 | ![back table](docs/v5/or-back-table.png)<br>Back table: opened container and instrument set | ![ER counter](docs/v5/er-counter.png)<br>ER counter: stethoscope, BP set, otoscope, oximeter, glucometer |
 | ![OR from the head](docs/v5/or-head.png)<br>Anesthesia boom, workstation and the table | ![monitor](docs/v5/vitals.png)<br>`patient-monitor` state `alarm` |
 
@@ -422,7 +422,7 @@ Also: hand anatomy (`RealHandAnatomy`, x-ray graph, `realityhd anatomy`), `rooft
 
 | | |
 |---|---|
-| ![cooking-counter](docs/scenes/cooking-counter.png)<br>`cooking-counter` | ![woodshop](docs/scenes/woodshop.png)<br>`woodshop` |
+| ![cooking-counter](https://raw.githubusercontent.com/hunterh37/RealityHD-Thumbs/main/scenes/cooking-counter.jpg)<br>`cooking-counter` | ![woodshop](https://raw.githubusercontent.com/hunterh37/RealityHD-Thumbs/main/scenes/woodshop.jpg)<br>`woodshop` |
 
 ### Backyard landscape (5.2)
 
@@ -432,7 +432,7 @@ retaining wall, mulch and river rock beds, steel edging, fire pit, pergola, pick
 fountain) and yard props (path light, spotlight and umbrella rigs, birdbath, adirondack chair, hose reel,
 sprinkler, trellis, planters). Tag `landscaping`. Test props `terracotta-pot`, `brass-candlestick`.
 
-![backyard-landscape](docs/scenes/backyard-landscape.png)
+![backyard-landscape](https://raw.githubusercontent.com/hunterh37/RealityHD-Thumbs/main/scenes/backyard-landscape.jpg)
 
 ### Lineman
 
@@ -442,7 +442,7 @@ Tools such as `hot-stick` are articulated (sliding hook head). Material library 
 
 | | |
 |---|---|
-| ![lineman-yard](docs/scenes/lineman-yard.png)<br>`lineman-yard` | ![lineman-district](docs/scenes/lineman-district.png)<br>`lineman-district` |
+| ![lineman-yard](https://raw.githubusercontent.com/hunterh37/RealityHD-Thumbs/main/scenes/lineman-yard.jpg)<br>`lineman-yard` | ![lineman-district](https://raw.githubusercontent.com/hunterh37/RealityHD-Thumbs/main/scenes/lineman-district.jpg)<br>`lineman-district` |
 
 Tools and PPE:
 
@@ -477,7 +477,7 @@ Material libraries `Architecture`, `Facade`, `City`. Tags `architecture`, `facad
 
 | | |
 |---|---|
-| ![city-block](docs/scenes/city-block.png)<br>`city-block` | `generated-building` |
+| ![city-block](https://raw.githubusercontent.com/hunterh37/RealityHD-Thumbs/main/scenes/city-block.jpg)<br>`city-block` | `generated-building` |
 
 Trim and ornament:
 
@@ -615,3 +615,8 @@ Coding agents read [AGENTS.md](AGENTS.md); IDEAS.md ends with prompts to paste i
 ## License
 
 RealityHD is available under the MIT license. See [LICENSE](LICENSE).
+
+## Preview images
+
+Thumbnails live in [RealityHD-Thumbs](https://github.com/hunterh37/RealityHD-Thumbs), not in this package.
+Apps that show previews add it as a submodule. `realityhd thumbs <id> --out <dir>` renders into any folder.

@@ -11,3 +11,7 @@ showcase/
 .build-*/
 notes/refs/
 Demo/demo/raw/
+
+# Previews live in hunterh37/RealityHD-Thumbs (submodule in apps), not in this package.
+docs/assets/
+docs/scenes/
