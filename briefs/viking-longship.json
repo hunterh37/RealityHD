@@ -1,0 +1,17 @@
+{
+  "budget" : 30000,
+  "id" : "viking-longship",
+  "kind" : "prop",
+  "materials" : ["wood.oak", "metal.iron", "metal.bronze-weathered", "wood.painted-exterior", "fabric.canvas", "fabric.burlap", "emissive.ember", "emissive.flame"],
+  "name" : "Viking longship",
+  "notes" : "Origin at the waterline centre, bow +Z, port +X. Joints oars 0...1 (stroke cycle; 32 oars mimic it, alternating oars carry an offset), sail 0...1 (furled bundle to set sail), sway -1...1 (roll 4 degrees). Brazier light on the hull.",
+  "parts" : ["clinker hull of ten overlapping oak strakes per side over a keel", "ribs, cross beams, keelson, mast partner and lined interior", "carved dragon prow swept from a tapered neck with bronze collars, jaw, teeth, horns", "curled stern post", "12 round shields per side with iron bosses and rims on a shield rail", "16 oars per side on iron thole pins", "starboard steering oar", "mast with fore and back stays", "striped square sail on a yard, furled bundle option", "iron fire brazier with coals and flame"],
+  "references" : [],
+  "size" : [12.8, 12.5, 24.7],
+  "style" : "Gokstad-type Viking longship, weathered oak and tarred planks, red and cream striped sail, painted round shields, dawn-river realism.",
+  "summary" : "22 m clinker-built oak longship: carved dragon prow, round shields, 32 oars, striped square sail, steering oar and fire brazier.",
+  "tags" : ["prop", "vehicle", "boat", "river", "wood", "articulated"],
+  "theme" : "Boats",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}
