@@ -1,0 +1,35 @@
+{
+  "budget": 4000,
+  "id": "towel-ring",
+  "kind": "prop",
+  "materials": [
+    "metal.chrome",
+    "metal.stainless"
+  ],
+  "name": "Towel ring",
+  "notes": "",
+  "parts": [
+    "round wall plate",
+    "post arm",
+    "open ring hoop",
+    "mounting screw caps"
+  ],
+  "references": [],
+  "size": [
+    0.18,
+    0.18,
+    0.07
+  ],
+  "style": "everyday bathroom, chrome",
+  "summary": "Wall-mounted chrome towel ring: round escutcheon plate, short post, open torus hoop.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "metal",
+    "chrome"
+  ],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

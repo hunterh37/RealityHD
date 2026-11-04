@@ -1,0 +1,35 @@
+{
+  "budget": 13000,
+  "id": "glue-stick",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Glue Stick",
+  "size": [
+    0.03,
+    0.09,
+    0.03
+  ],
+  "style": "everyday school, plastic",
+  "theme": "School",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "plastic"
+  ],
+  "parts": [
+    "plastic tube body",
+    "printed label band",
+    "twist knob base",
+    "ribbed cap",
+    "dome top"
+  ],
+  "materials": [
+    "plastic.matte",
+    "plastic.gloss"
+  ],
+  "summary": "Glue stick with a printed label band, ribbed cap and twist base."
+}

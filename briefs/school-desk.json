@@ -1,0 +1,39 @@
+{
+  "budget": 12000,
+  "id": "school-desk",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "School Desk",
+  "size": [
+    0.6,
+    0.75,
+    0.45
+  ],
+  "style": "everyday school, laminate and steel",
+  "theme": "School",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "wood",
+    "metal"
+  ],
+  "parts": [
+    "laminate top with edge band",
+    "steel tube frame",
+    "book rack",
+    "inkwell hole",
+    "pencil groove",
+    "rubber glides"
+  ],
+  "materials": [
+    "wood.veneer-oak",
+    "metal.powdercoat",
+    "metal.steel",
+    "plastic.matte"
+  ],
+  "summary": "Classroom desk with a laminate top, tube frame and under-top book rack."
+}

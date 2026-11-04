@@ -1,0 +1,38 @@
+{
+  "budget": 6000,
+  "id": "textbook",
+  "kind": "prop",
+  "materials": [
+    "paper.pages",
+    "paper.sheet",
+    "fabric.wool",
+    "plastic.matte"
+  ],
+  "name": "Textbook",
+  "notes": "",
+  "parts": [
+    "cloth-wrapped board cover",
+    "rounded spine",
+    "page block",
+    "head and tail band",
+    "cover label panel"
+  ],
+  "references": [],
+  "size": [
+    0.21,
+    0.04,
+    0.28
+  ],
+  "style": "everyday school, hardcover",
+  "summary": "Hardcover school textbook with cloth-wrapped boards, rounded spine and a page block.",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "hardcover",
+    "paper"
+  ],
+  "theme": "School",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

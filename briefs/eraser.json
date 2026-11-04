@@ -1,0 +1,34 @@
+{
+  "budget": 6000,
+  "id": "eraser",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Eraser",
+  "size": [
+    0.05,
+    0.012,
+    0.02
+  ],
+  "style": "everyday school, rubber",
+  "theme": "School",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "rubber"
+  ],
+  "parts": [
+    "rubber block",
+    "card sleeve",
+    "worn corner",
+    "bevel edges"
+  ],
+  "materials": [
+    "rubber.silicone-gray",
+    "plastic.matte"
+  ],
+  "summary": "Block eraser with a printed card sleeve and a worn end."
+}

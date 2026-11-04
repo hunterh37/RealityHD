@@ -17,6 +17,8 @@ public enum AssetTag {
         "container", "furniture", "light", "sign", "barrier", "fence", "wall", "vehicle", "tool", "food", "decor",
         // RealityHD 3
         "leather", "workshop", "travel", "antique",
+        // daily-de1
+        "school", "fruit", "vegetable", "baked", "aluminium", "carbon-steel", "cardboard", "cast-iron", "enamel", "hardcover", "maple", "nonstick", "stainless", "steel", "vinyl", "wax",
         // camera bodies and lenses
         "camera",
         // RealityHD 4

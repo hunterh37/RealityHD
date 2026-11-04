@@ -1,0 +1,35 @@
+{
+  "budget": 6000,
+  "id": "orange",
+  "kind": "prop",
+  "materials": [
+    "food.lime:E8851C",
+    "food.stem-green:6E6A34"
+  ],
+  "name": "Orange",
+  "notes": "",
+  "parts": [
+    "round citrus with pitted peel",
+    "navel-free stem button",
+    "calyx scar at base",
+    "thick peel over flesh"
+  ],
+  "references": [],
+  "size": [
+    0.08,
+    0.08,
+    0.08
+  ],
+  "style": "everyday pantry, fruit",
+  "summary": "Orange, 8 cm fruit, pantry prop.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "food",
+    "fruit"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

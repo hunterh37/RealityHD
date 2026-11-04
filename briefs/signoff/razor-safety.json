@@ -1,0 +1,22 @@
+{
+  "automated" : 0.9841237,
+  "date" : "2026-10-31",
+  "final" : 0.85956836,
+  "fingerprint" : "a18d50f4e556694e",
+  "id" : "razor-safety",
+  "iterations" : 1,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 8,
+    "edges" : 8,
+    "grounding" : 8,
+    "materials" : 8,
+    "proportion" : 9,
+    "silhouette" : 8,
+    "wear" : 6
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.7925001
+}

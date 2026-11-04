@@ -1,0 +1,33 @@
+{
+  "id": "comb",
+  "kind": "prop",
+  "name": "Comb",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.03,
+    0.01,
+    0.18
+  ],
+  "parts": [
+    "spine",
+    "fine teeth",
+    "coarse teeth",
+    "spine ridge"
+  ],
+  "materials": [
+    "plastic.matte"
+  ],
+  "style": "everyday bathroom, plastic",
+  "summary": "Black pocket comb lying flat: thick spine, fine and coarse teeth, one chipped tooth.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "plastic"
+  ],
+  "budget": 6000
+}

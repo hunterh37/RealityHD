@@ -1,0 +1,37 @@
+{
+  "id": "bathroom-mirror",
+  "kind": "prop",
+  "name": "Bathroom mirror",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.6,
+    0.8,
+    0.03
+  ],
+  "parts": [
+    "walnut frame",
+    "mirror glass",
+    "back panel",
+    "hanging cleat"
+  ],
+  "materials": [
+    "wood.walnut",
+    "metal.mirror-polish",
+    "wood.plywood",
+    "wood.oak"
+  ],
+  "style": "everyday bathroom, framed",
+  "summary": "Wall mirror in a walnut frame with beveled glass.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "wood",
+    "glass"
+  ],
+  "budget": 5000
+}

@@ -1,0 +1,38 @@
+{
+  "budget": 12000,
+  "id": "school-chair",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "School Chair",
+  "size": [
+    0.4,
+    0.8,
+    0.42
+  ],
+  "style": "everyday school, plastic",
+  "theme": "School",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "plastic",
+    "metal"
+  ],
+  "parts": [
+    "molded seat shell",
+    "molded back shell",
+    "steel tube legs",
+    "cross stretchers",
+    "back posts",
+    "rubber feet"
+  ],
+  "materials": [
+    "plastic.matte",
+    "metal.powdercoat",
+    "plastic.gloss"
+  ],
+  "summary": "Stacking classroom chair with molded plastic seat and back on a steel tube frame."
+}

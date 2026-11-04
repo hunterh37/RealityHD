@@ -1,0 +1,35 @@
+{
+  "budget": 12000,
+  "id": "birthday-cake",
+  "kind": "prop",
+  "materials": [
+    "food.cream:F6DDE6",
+    "food.chocolate"
+  ],
+  "name": "Birthday cake",
+  "notes": "",
+  "parts": [
+    "birthday cake main form",
+    "characteristic surface detail",
+    "secondary parts",
+    "base contact"
+  ],
+  "references": [],
+  "size": [
+    0.24,
+    0.12,
+    0.24
+  ],
+  "style": "everyday pantry, baked",
+  "summary": "Birthday cake, pantry prop.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "food",
+    "baked"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

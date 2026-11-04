@@ -1,0 +1,35 @@
+{
+  "budget": 10000,
+  "id": "bowl-of-noodles",
+  "kind": "prop",
+  "materials": [
+    "ceramic.stoneware:EDE8DC",
+    "food.pasta-cooked:E8D08A"
+  ],
+  "name": "Bowl of noodles",
+  "notes": "",
+  "parts": [
+    "bowl of noodles main form",
+    "characteristic surface detail",
+    "secondary parts",
+    "base contact"
+  ],
+  "references": [],
+  "size": [
+    0.2,
+    0.09,
+    0.2
+  ],
+  "style": "everyday pantry, pantry",
+  "summary": "Bowl of noodles, pantry prop.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "food",
+    "pantry"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

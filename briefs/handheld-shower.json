@@ -1,0 +1,35 @@
+{
+  "id": "handheld-shower",
+  "kind": "prop",
+  "name": "Handheld shower",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.06,
+    0.28,
+    0.06
+  ],
+  "parts": [
+    "head with nozzle rings",
+    "grip handle",
+    "hose nipple",
+    "wall bracket"
+  ],
+  "materials": [
+    "metal.chrome",
+    "plastic.matte"
+  ],
+  "style": "everyday bathroom, chrome",
+  "summary": "Chrome handheld shower in a wall clamp: round head with nozzle rings, ringed handle, hose nipple.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "metal",
+    "chrome"
+  ],
+  "budget": 6000
+}

@@ -1,0 +1,35 @@
+{
+  "id": "toothbrush",
+  "kind": "prop",
+  "name": "Toothbrush",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.02,
+    0.02,
+    0.19
+  ],
+  "parts": [
+    "handle",
+    "rubber grip insert",
+    "neck",
+    "head",
+    "bristle tufts"
+  ],
+  "materials": [
+    "plastic.gloss",
+    "plastic.matte"
+  ],
+  "style": "everyday bathroom, nylon bristle",
+  "summary": "Toothbrush lying flat: tapered handle with rubber grip, slim neck, head with bristle tufts.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "plastic"
+  ],
+  "budget": 9000
+}

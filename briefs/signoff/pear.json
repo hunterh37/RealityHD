@@ -1,0 +1,22 @@
+{
+  "automated" : 0.9809245,
+  "date" : "2026-10-31",
+  "final" : 0.91126096,
+  "fingerprint" : "cea9ffb322638acf",
+  "id" : "pear",
+  "iterations" : 1,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 9,
+    "construction" : 8,
+    "edges" : 9,
+    "grounding" : 9,
+    "materials" : 9,
+    "proportion" : 9,
+    "silhouette" : 9,
+    "wear" : 8
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.87375
+}

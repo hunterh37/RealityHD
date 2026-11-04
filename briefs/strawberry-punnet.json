@@ -1,0 +1,35 @@
+{
+  "budget": 7000,
+  "id": "strawberry-punnet",
+  "kind": "prop",
+  "materials": [
+    "food.strawberry",
+    "food.stem-green:3E7A2E"
+  ],
+  "name": "Strawberry punnet",
+  "notes": "",
+  "parts": [
+    "strawberry punnet main form",
+    "characteristic surface detail",
+    "secondary parts",
+    "base contact"
+  ],
+  "references": [],
+  "size": [
+    0.13,
+    0.07,
+    0.13
+  ],
+  "style": "everyday pantry, fruit",
+  "summary": "Strawberry punnet, pantry prop.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "food",
+    "fruit"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

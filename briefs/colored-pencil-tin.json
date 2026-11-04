@@ -1,0 +1,37 @@
+{
+  "budget": 8000,
+  "id": "colored-pencil-tin",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Colored Pencil Tin",
+  "size": [
+    0.2,
+    0.02,
+    0.1
+  ],
+  "style": "everyday school, wood",
+  "theme": "School",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "wood",
+    "metal"
+  ],
+  "parts": [
+    "painted steel tin",
+    "twelve hex pencils",
+    "sharpened tips",
+    "lead points",
+    "tin rim"
+  ],
+  "materials": [
+    "metal.painted",
+    "plastic.pencil-lacquer",
+    "wood.pencil-cedar"
+  ],
+  "summary": "Open flat tin holding twelve sharpened colored pencils in a row."
+}

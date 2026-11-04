@@ -57,7 +57,7 @@ struct GroundFrame {
         let t: Float = 0.42
         let hw = 0.5 * a.headWidth * headProfile(t)
         let up: Float = p.species == .easternGraySquirrel ? 0.26 : 0.14
-        return headCenter + V3(s.sign * hw * (p.species == .easternGraySquirrel ? 0.84 : 0.9), up * a.headHeight, (0.5 - t) * a.headLength)
+        return headCenter + V3(s.sign * hw * (p.species == .easternGraySquirrel ? 0.84 : a.eyeSeat), up * a.headHeight, (0.5 - t) * a.headLength)
     }
     var rump: V3 { C - A * (0.5 * a.bodyLength) + U * (0.1 * a.bodyDepth) }
 }
@@ -100,10 +100,10 @@ public enum GroundRigBuilder {
             if a.digitigrade {
                 // Toe walker: hip, stifle or carpus, then fetlock (front) or hock (behind) over the hoof or paw.
                 let ankleH = l.isFore ? a.foreAnkle : a.hindAnkle
-                let tz = l.isFore ? hip.z - 0.015 : hip.z + 0.07 * a.bodyLength
+                let tz = l.isFore ? hip.z - 0.015 : hip.z + (p.species == .whitetailDeer ? 0.09 : 0.07) * a.bodyLength
                 let target = V2(tz, ankleH)
                 let chord = simd_length(V2(hip.z, hip.y) - target)
-                let kk: Float = l.isFore ? 0.53 : 0.66
+                let kk: Float = l.isFore ? 0.53 : (p.species == .whitetailDeer ? 0.72 : 0.66)
                 let knee = twoBone(hip: V2(hip.z, hip.y), foot: target, l1: chord * kk, l2: chord * kk, forward: true)
                 let an = V3(hip.x, ankleH, tz)
                 let toe = l.isFore ? an + V3(0, -(ankleH - a.legRadius * 0.4), -ankleH * 0.28) : an + V3(0, -(ankleH - a.legRadius * 0.4), -ankleH * 0.05)
@@ -146,7 +146,7 @@ public enum GroundRigBuilder {
         declare(.headPitch, parent: .headYaw, pivot: headPivot, axis: GroundFrame.X)
         let gape = f.headCenter + V3(0, -0.28 * a.headHeight, -0.15 * a.headLength)
         declare(.jaw, parent: .headPitch, pivot: gape, axis: -GroundFrame.X)
-        let earBase: (Side) -> V3 = { s in f.headCenter + V3(s.sign * 0.26 * a.headWidth, 0.2 * a.headHeight, 0.16 * a.headLength) }
+        let earBase: (Side) -> V3 = { s in f.headCenter + V3(s.sign * a.earSpread * a.headWidth, a.earUp * a.headHeight, 0.16 * a.headLength) }
         declare(.earL, parent: .headPitch, pivot: earBase(.left), axis: GroundFrame.X)
         declare(.earR, parent: .headPitch, pivot: earBase(.right), axis: GroundFrame.X)
         let noseTip = f.headCenter + V3(0, -0.04 * a.headHeight, -0.5 * a.headLength)
@@ -440,7 +440,7 @@ public enum GroundRigBuilder {
                 case .goldenRetriever: return tw * 0.5 * (0.5 + 0.5 * sin(.pi * min(1, 0.2 + t * 0.95)) - 0.25 * t)
                 case .germanShepherd: return tw * 0.5 * (1 - 0.8 * pow(t, 1.4))
                 case .coyote: return tw * 0.5 * (0.55 + 0.45 * sin(.pi * min(1, t * 1.25)))
-                case .whitetailDeer: return tw * 0.5 * (0.7 + 0.3 * sin(.pi * min(1, t * 1.2)))
+                case .whitetailDeer: return tw * 0.5 * (0.62 + 0.38 * sin(.pi * (0.15 + 0.8 * t))) * (1 - 0.5 * t * t * t) * max(0.06, (1 - pow(t, 7)).squareRoot())
                 default: return tw * 0.5 * (1 - 0.5 * t)
                 }
             }
@@ -448,7 +448,7 @@ public enum GroundRigBuilder {
             let coreK: Float = fluffy && plan?.dog != true ? 0.62 : 1
             let pm = lerp(p0, p1, 0.5) + V3(0, curl * tailSeg * 0.07, 0)
             let seg = Loft.along([p0 - (p1 - p0) * 0.1, pm, p1 + (p1 - p0) * 0.06], up: GroundFrame.Y, count: 5, segments: 14, vRange: t0...t1, exponent: 2, material: tailMaterial()) { t in
-                let r = wTail(lerp(t0, t1, t)) * coreK; return V3(r, r * (p.species == .easternGraySquirrel ? 0.8 : 1), r * (p.species == .easternGraySquirrel ? 0.8 : 1))
+                let r = wTail(lerp(t0, t1, t)) * coreK; return V3(r, r * (p.species == .easternGraySquirrel ? 0.8 : p.species == .whitetailDeer ? 0.4 : 1), r * (p.species == .easternGraySquirrel ? 0.8 : 1))
             }
             let partName = [GroundJoint.tail0, .tail1, .tail2][i].name
             rig.add(seg, to: partName)

@@ -1,0 +1,36 @@
+{
+  "id": "lotion-bottle",
+  "kind": "prop",
+  "name": "Lotion bottle",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.06,
+    0.18,
+    0.05
+  ],
+  "parts": [
+    "oval plastic bottle body",
+    "shoulder and neck",
+    "pump head and nozzle",
+    "label band",
+    "base"
+  ],
+  "materials": [
+    "plastic.gloss",
+    "plastic.white",
+    "plastic.matte"
+  ],
+  "style": "everyday bathroom, plastic",
+  "summary": "Lotion bottle: oval blow-moulded plastic body, shoulder taper, pump, wrap label band.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "plastic"
+  ],
+  "budget": 3500
+}

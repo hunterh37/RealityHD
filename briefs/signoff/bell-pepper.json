@@ -1,0 +1,22 @@
+{
+  "automated" : 0.9211237,
+  "date" : "2026-10-31",
+  "final" : 0.86595577,
+  "fingerprint" : "c00f9b47bb57e829",
+  "id" : "bell-pepper",
+  "iterations" : 1,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 9,
+    "construction" : 8,
+    "edges" : 9,
+    "grounding" : 9,
+    "materials" : 9,
+    "proportion" : 8,
+    "silhouette" : 8,
+    "wear" : 7
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.83624995
+}

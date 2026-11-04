@@ -1,0 +1,35 @@
+{
+  "id": "nail-clipper",
+  "kind": "prop",
+  "name": "Nail clipper",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.01,
+    0.01,
+    0.06
+  ],
+  "parts": [
+    "lower jaw plate",
+    "upper lever",
+    "cutting tip",
+    "pivot pin",
+    "file lever"
+  ],
+  "materials": [
+    "metal.stainless",
+    "metal.chrome"
+  ],
+  "style": "everyday bathroom, steel",
+  "summary": "Steel nail clipper lying flat: jaw plates, curved upper lever, pivot pin and file lever.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "metal"
+  ],
+  "budget": 4000
+}

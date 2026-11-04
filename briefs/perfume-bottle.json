@@ -1,0 +1,35 @@
+{
+  "id": "perfume-bottle",
+  "kind": "prop",
+  "name": "Perfume bottle",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.05,
+    0.1,
+    0.04
+  ],
+  "parts": [
+    "glass body",
+    "liquid",
+    "collar",
+    "cap"
+  ],
+  "materials": [
+    "glass.clear",
+    "plastic.gloss",
+    "metal.chrome"
+  ],
+  "style": "everyday bathroom, glass",
+  "summary": "Rectangular glass perfume bottle with liquid, chrome collar and gloss cap.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "glass"
+  ],
+  "budget": 5000
+}

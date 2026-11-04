@@ -1,0 +1,35 @@
+{
+  "id": "plunger",
+  "kind": "prop",
+  "name": "Plunger",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.15,
+    0.5,
+    0.15
+  ],
+  "parts": [
+    "rubber cup",
+    "neck collar",
+    "wooden handle",
+    "end cap"
+  ],
+  "materials": [
+    "plastic.matte",
+    "wood.pine"
+  ],
+  "style": "everyday bathroom, rubber and wood",
+  "summary": "Toilet plunger: red rubber bell cup on a wooden handle.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "rubber",
+    "wood"
+  ],
+  "budget": 6000
+}

@@ -1,0 +1,35 @@
+{
+  "budget": 6000,
+  "id": "potato",
+  "kind": "prop",
+  "materials": [
+    "food.potato",
+    "food.potato"
+  ],
+  "name": "Potato",
+  "notes": "",
+  "parts": [
+    "potato body with accurate silhouette",
+    "none detail",
+    "skin surface variation",
+    "base contact"
+  ],
+  "references": [],
+  "size": [
+    0.1,
+    0.06,
+    0.07
+  ],
+  "style": "everyday pantry, vegetable",
+  "summary": "Potato, pantry prop.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "food",
+    "vegetable"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

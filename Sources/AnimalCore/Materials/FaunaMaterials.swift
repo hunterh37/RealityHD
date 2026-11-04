@@ -151,6 +151,9 @@ public enum FaunaMaterials {
             MaterialSpec(key: key(id, r), program: program).with {
                 $0.seed = seed(id, r); edit(&$0)
                 if program == .furCoat || program == .furShell, c.markings != 0 || GroundSpecies.dogs.contains(p.species) { $0.coatPattern = c.markings | (GroundSpecies.dogs.contains(p.species) ? 16 : 0) }
+                if program == .furCoat || program == .furShell, p.species == .whitetailDeer { $0.coatPattern |= 32 }
+                if program == .furCoat || program == .furShell, p.species == .polarBear || p.species == .whitetailDeer { $0.coatPattern |= 64; $0.normalStrength *= 0.5 }
+                if p.species == .polarBear || p.species == .whitetailDeer, program == .furCoat || program == .furShell { $0.resolution = min(4096, $0.resolution * 2) }
             }
         }
         return [
@@ -166,7 +169,7 @@ public enum FaunaMaterials {
             },
             make(.tail, .furCoat) {
                 $0.colorA = linear(c.tail); $0.colorB = linear(c.tailTip); $0.colorC = linear(c.accent)
-                $0.knobs = V4(c.strands, 0.32, 0.25, 0.9)
+                $0.knobs = V4(c.strands, p.species == .whitetailDeer ? 0.68 : 0.32, 0.25, 0.9)
                 $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 1.2; $0.roughness = 0.92
             },
             make(.ear, .plastic) {
@@ -177,13 +180,13 @@ public enum FaunaMaterials {
                 // Leg coat: body coat program, finer strands, no shells (thin limbs show shell layering).
                 let dog = p.anatomy.earDrop >= 0 && GroundSpecies.dogs.contains(p.species)
                 $0.colorA = linear(dog ? (c.limb ?? c.belly) : c.back); $0.colorB = linear(c.belly); $0.colorC = linear(c.accent)
-                $0.knobs = V4(c.strands * 1.4, dog ? 1.2 : c.flankLine, c.pattern * 0.5, c.fuzz)
+                $0.knobs = V4(c.strands * (p.species == .polarBear ? 1.0 : 1.4), dog ? 1.2 : c.flankLine, c.pattern * 0.5, c.fuzz)
                 $0.tileSize = 0; $0.resolution = 512; $0.normalStrength = 1.0; $0.roughness = 0.92
             },
             make(.shell, .furShell) {
                 // Shell fur over the coat: back/belly split, pale guard-hair tips.
                 $0.colorA = linear(c.back); $0.colorB = linear(c.belly); $0.colorC = linear(c.belly)
-                $0.knobs = V4(c.strands, c.flankLine, 0.55, 0.3)
+                $0.knobs = V4(p.species == .polarBear ? 75 : p.species == .whitetailDeer ? 105 : c.strands, c.flankLine, p.species == .whitetailDeer ? 0.15 : 0.55, 0.3)
                 $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 0.4; $0.roughness = 0.86; $0.mode = .cutout
             },
             make(.limbShell, .furShell) {
@@ -195,13 +198,13 @@ public enum FaunaMaterials {
             make(.headShell, .furShell) {
                 // Head atlas spans a short loft: fewer strand cells so strands stay above texel size.
                 $0.colorA = linear(c.face); $0.colorB = linear(c.belly); $0.colorC = linear(c.belly)
-                $0.knobs = V4(c.strands * 0.35, c.flankLine + 0.04, 0.5, 0.3)
+                $0.knobs = V4(p.species == .polarBear ? 68 : p.species == .whitetailDeer ? 95 : c.strands * 0.35, c.flankLine + 0.04, p.species == .whitetailDeer ? 0.15 : 0.5, 0.3)
                 $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 0.4; $0.roughness = 0.86; $0.mode = .cutout
             },
             make(.tailShell, .furShell) {
                 // Tail brush: coat-coloured strands, many white frosted guard-hair tips.
-                $0.colorA = linear(c.tail); $0.colorB = linear(c.tail); $0.colorC = linear(c.tailTip)
-                $0.knobs = V4(c.strands * 0.8, 2, 0.9, 0.45)
+                $0.colorA = linear(c.tail); $0.colorB = linear(p.species == .whitetailDeer ? c.tailTip : c.tail); $0.colorC = linear(c.tailTip)
+                $0.knobs = p.species == .whitetailDeer ? V4(110, 0.68, 0.22, 0.18) : V4(c.strands * 0.8, 2, 0.9, 0.45)
                 $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 0.4; $0.roughness = 0.86; $0.mode = .cutout
             },
             make(.pinna, .plastic) {
@@ -211,13 +214,14 @@ public enum FaunaMaterials {
             },
             make(.lid, .plastic) {
                 // Dark rim skin around the eye.
-                $0.colorA = linear(0x3A2326); $0.knobs = V4(0.3, 0.3, 0.3, 0)
+                $0.colorA = linear(p.species == .whitetailDeer ? 0xCDBFA8 : 0x3A2326); $0.knobs = V4(0.3, 0.3, 0.3, 0)
                 $0.tileSize = 0.01; $0.resolution = 128; $0.normalStrength = 0.2; $0.roughness = 0.5
             },
             make(.nose, .plastic) {
                 let dog = GroundSpecies.dogs.contains(p.species)
                 $0.colorA = linear(c.nose); $0.knobs = V4(0.4, 0.3, 0.3, 0)
                 $0.tileSize = 0.02; $0.resolution = 128; $0.normalStrength = dog ? 1.4 : 0.3; $0.roughness = p.anatomy.snoutDisc ? 0.6 : (dog ? 0.5 : 0.35); $0.clearcoat = p.anatomy.snoutDisc ? 0.04 : (dog ? 0.12 : 0.3)
+                if p.species == .polarBear { $0.roughness = 0.18; $0.clearcoat = 0.9; $0.normalStrength = 0.15 }  // wet leather
             },
             make(.eye, .plastic) {
                 // Dark brown iris under a clear cornea: tiny roughness, full clearcoat for the wet highlight.

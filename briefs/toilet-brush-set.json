@@ -1,0 +1,36 @@
+{
+  "id": "toilet-brush-set",
+  "kind": "prop",
+  "name": "Toilet brush set",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.13,
+    0.4,
+    0.13
+  ],
+  "parts": [
+    "ceramic holder",
+    "rolled rim",
+    "brush handle",
+    "handle cap",
+    "grip rings"
+  ],
+  "materials": [
+    "ceramic.vitreous",
+    "plastic.gloss"
+  ],
+  "style": "everyday bathroom, plastic",
+  "summary": "Toilet brush in a round holder: white holder with rim, handle with grip rings and cap.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "plastic",
+    "ceramic"
+  ],
+  "budget": 7000
+}

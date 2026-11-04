@@ -1,0 +1,35 @@
+{
+  "id": "toothpaste-tube",
+  "kind": "prop",
+  "name": "Toothpaste tube",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.04,
+    0.03,
+    0.18
+  ],
+  "parts": [
+    "flattened laminate tube body",
+    "crimped end",
+    "shoulder",
+    "screw cap",
+    "printed stripes"
+  ],
+  "materials": [
+    "plastic.gloss",
+    "plastic.matte"
+  ],
+  "style": "everyday bathroom, laminate",
+  "summary": "Toothpaste tube lying flat: flattened body, crimped end with ridges, shoulder, ringed screw cap.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "plastic"
+  ],
+  "budget": 5000
+}

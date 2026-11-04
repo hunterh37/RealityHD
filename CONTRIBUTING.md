@@ -45,7 +45,7 @@ Add `--author <github-handle>` to `realityhd new` to be credited in `CATALOG.md`
   (add new tags there in the same PR).
 - Deterministic for a seed, finite geometry, base at y = 0, centered on X/Z, LOD0 within `budget`.
 - Only `MaterialLibrary` keys. No image, mesh or USD files under `Sources/`.
-- `docs/assets/<id>.png` or `docs/scenes/<id>.png` from `realityhd thumbs <id>`.
+- A thumbnail PR to RealityHD-Thumbs from `realityhd thumbs <id> --out <dir>` (not in this repo).
 - `CATALOG.md` regenerated (`realityhd catalog`). CI fails when it is stale.
 - Rendered and inspected: scale against a 1.8 m person, grounding, material scale, grain direction,
   bevels, no z-fighting, at two angles and the `golden` sky.

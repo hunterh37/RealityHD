@@ -1,0 +1,35 @@
+{
+  "budget": 8000,
+  "id": "protractor",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Protractor",
+  "size": [
+    0.12,
+    0.002,
+    0.063
+  ],
+  "style": "everyday school, plastic",
+  "theme": "School",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "plastic"
+  ],
+  "parts": [
+    "clear semicircle plate",
+    "degree ticks 0-180",
+    "numerals every 10 degrees",
+    "center crosshair",
+    "base line"
+  ],
+  "materials": [
+    "plastic.gloss",
+    "plastic.matte"
+  ],
+  "summary": "Clear 180 degree protractor with one-degree ticks, numerals and a base line."
+}

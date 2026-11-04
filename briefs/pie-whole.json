@@ -1,0 +1,35 @@
+{
+  "budget": 10000,
+  "id": "pie-whole",
+  "kind": "prop",
+  "materials": [
+    "food.bread-crust",
+    "metal.aluminum-brushed"
+  ],
+  "name": "Pie whole",
+  "notes": "",
+  "parts": [
+    "pie whole main form",
+    "characteristic surface detail",
+    "secondary parts",
+    "base contact"
+  ],
+  "references": [],
+  "size": [
+    0.24,
+    0.05,
+    0.24
+  ],
+  "style": "everyday pantry, baked",
+  "summary": "Pie whole, pantry prop.",
+  "tags": [
+    "prop",
+    "interior",
+    "pantry",
+    "food",
+    "baked"
+  ],
+  "theme": "Pantry",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

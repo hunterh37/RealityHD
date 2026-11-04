@@ -319,11 +319,18 @@ S furCoat(float2 uv, constant RFParams &P) {
     float sw = P.f.z * (1.0 - smoothstep(0.08, 0.30, lum));            // stripes only with a dark colorC
     // Coat-wide colour variation: broad light/dark patches plus a warm/cool drift.
     // Dog charts (pad0 bit 16) cover u 0..0.5 per half circumference but v 0..1, so halve the u frequency for round blotches.
-    bool dg = int(P.pad0) >= 16;
+    bool dg = (int(P.pad0) & 16) != 0;
+    bool dr = (int(P.pad0) & 32) != 0;   // deer coat: soft belly fade, dorsal stripe, flank light, rim tint
+    float dtone = 1.0;
+    if (dr) dtone = (0.70 + 0.30 * smoothstep(0.0, 0.30, t)) * (1.0 + 0.14 * smoothstep(0.30, 0.50, t) * (1.0 - smoothstep(0.60, 0.80, t)));
+    bool pb = (int(P.pad0) & 64) != 0;   // polar bear: brighter cream coat, warm undercoat, lifted occlusion
+    float3 drim = dr ? float3(1.0 + 0.05 * smoothstep(0.5, 0.9, t), 1.0, 1.0 - 0.04 * smoothstep(0.5, 0.9, t)) : float3(1.0);
     int2 fP = dg ? int2(3, 6) : int2(5, 7), fD = dg ? int2(6, 12) : int2(9, 13);
     float patch = fbm(uv, fP, 3, P.seed + 111u);
     float drift = fbm(uv, fD, 2, P.seed + 211u);
     float3 tint = float3(1.0 + 0.06 * drift, 1.0, 1.0 - 0.06 * drift) * (1.0 + 0.14 * patch);
+    float3 tintB = tint;
+    tint *= dtone * drim;
     // Low-frequency domain warp breaks strand-row alignment (tile banding). Mirror safe: t stays >= 0.
     float2 wp = float2(fbm(uv, dg ? int2(4, 8) : int2(6, 9), 2, P.seed + 301u), fbm(uv, dg ? int2(3, 6) : int2(7, 5), 2, P.seed + 303u));
     float tw = fabs(t + 0.006 * wp.x), vw = uv.y + 0.008 * wp.y;
@@ -339,8 +346,10 @@ S furCoat(float2 uv, constant RFParams &P) {
         if (gl && st.h1 < 0.55) continue;                                  // guard hairs are a sparse subset
         got = true;
         float front = 1.0 - float(l) / 4.0;
-        bool under = (st.cxn + (st.h3 - 0.5) * 0.12 + zn) > P.f.y;
-        float3 baseC = (under ? P.colorB.rgb : P.colorA.rgb) * tint;
+        float ux = st.cxn + (st.h3 - 0.5) * 0.12 + zn;
+        float uw = dr ? smoothstep(P.f.y - 0.2, P.f.y + 0.2, ux + 0.08 * (st.h1 - 0.5)) : (ux > P.f.y ? 1.0 : 0.0);
+        bool under = uw > 0.5;
+        float3 baseC = mix(P.colorA.rgb * tint, P.colorB.rgb * (dr ? tintB : tint), uw);
         float3 uc = baseC * 0.66;
         float tone = 0.86 + 0.28 * st.h2;
         float3 band = under ? baseC * tone : baseC * (0.92 + 0.22 * st.h2);
@@ -359,6 +368,7 @@ S furCoat(float2 uv, constant RFParams &P) {
             float3 gc = mix(baseC * 0.45, P.colorC.rgb * 0.8 + baseC * 0.15, 0.6);
             c = mix(gc * (0.8 + 0.4 * st.h2), uc, smoothstep(0.6, 0.9, sl));
         }
+        if (pb) c = gl ? baseC * (1.08 + 0.1 * st.h2) : mix(c, baseC * float3(1.0, 0.95, 0.82), 0.7 * smoothstep(0.2, 0.8, sl));
         // Chipmunk stripes on the back (u about 0.075..0.142).
         if (sw > 0.001) {
             float dd = st.cxn * 0.5 + (st.h3 - 0.5) * 0.010;
@@ -378,8 +388,8 @@ S furCoat(float2 uv, constant RFParams &P) {
         break;
     }
     if (!got) {
-        bool under = (t + zn) > P.f.y;
-        float3 baseC = (under ? P.colorB.rgb : P.colorA.rgb) * tint;
+        float uw0 = dr ? smoothstep(P.f.y - 0.2, P.f.y + 0.2, t + zn) : ((t + zn) > P.f.y ? 1.0 : 0.0);
+        float3 baseC = mix(P.colorA.rgb * tint, P.colorB.rgb * (dr ? tintB : tint), uw0);
         outC = baseC * 0.72 * (0.85 + 0.3 * fbm(uv, int2(120, 120), 2, P.seed + 31u));
         hgt = 0.03; ao = 0.08;
     }
@@ -387,22 +397,24 @@ S furCoat(float2 uv, constant RFParams &P) {
     outC *= 1.0 + (0.06 + 0.10 * fuzz) * soft;
     // Soften strand contrast toward the local coat colour so the coat reads as fur, not grain.
     bool underM = (t + zn) > P.f.y;
-    float3 coat = (underM ? P.colorB.rgb : P.colorA.rgb) * tint * (0.92 + 0.12 * soft);
-    outC = mix(outC, coat, 0.45);
+    float uwM = dr ? smoothstep(P.f.y - 0.2, P.f.y + 0.2, t + zn) : (underM ? 1.0 : 0.0);
+    float3 coat = mix(P.colorA.rgb * tint, P.colorB.rgb * (dr ? tintB : tint), uwM) * (0.92 + 0.12 * soft);
+    outC = mix(outC, coat, pb ? 0.95 : 0.45);
     float mk = coatMark(uv, int(P.pad0), P.seed);
     if (mk > 0.001) {
         float dr = clamp(dot(outC, float3(0.3, 0.55, 0.15)) / max(dot(coat, float3(0.3, 0.55, 0.15)), 0.02), 0.55, 1.5);
         outC = mix(outC, P.colorC.rgb * dr, mk * 0.94);
         coat = mix(coat, P.colorC.rgb, mk * 0.94);
     }
+    if (pb) { outC = min(outC * 1.28, float3(1.0)) * float3(1.03, 1.0, 0.95) * (1.0 + 0.0 * smoothstep(0.0, 0.03, t) * smoothstep(0.0, 0.03, 1.0 - t)); ao = mix(ao, 1.0, 0.7); }
     // Guard every channel: a NaN height turns the derived normal map NaN, which renders black under IBL.
     if (!all(isfinite(outC))) outC = coat;
     if (!isfinite(hgt)) hgt = 0.2;
     if (!isfinite(ao)) ao = 0.6;
     if (!isfinite(soft)) soft = 0.0;
     s.albedo = outC;
-    s.height = hgt;
-    s.ao = clamp(ao, 0.0, 1.0);
+    s.height = pb ? 0.5 : hgt;
+    s.ao = pb ? 0.82 + 0.18 * clamp(ao, 0.0, 1.0) : clamp(ao, 0.0, 1.0);
     s.rough = 0.88 + 0.06 * soft;
     return s;
 }
@@ -426,11 +438,26 @@ S furShell(float2 uv, constant RFParams &P) {
     }
     float clump = fbm(uv, int2(14, 20), 2, P.seed + 17u);
     float len = saturate(0.45 + 0.4 * h1 + 0.35 * clump);
-    float strand = 1.0 - smoothstep(0.22, 0.42, best);
+    bool pb = (int(P.pad0) & 64) != 0;   // polar bear: thicker, longer strands that overlap into a dense coat
+    float strand = pb ? 1.0 - smoothstep(0.34, 0.62, best) : 1.0 - smoothstep(0.22, 0.42, best);
+    float pclump = 0.0;
+    if (pb) {
+        // Tufts of 5-15 strands (2-4 cm) with gaps between, and sparse long guard hairs that reach the top shells.
+        pclump = fbm(uv, int2(30, 42), 2, P.seed + 29u);
+        float tuft = smoothstep(0.30, 0.62, pclump);
+        len = saturate(0.55 + 0.25 * tuft + 0.1 * h1);
+        if (h1 > 0.9) len = 1.0;
+    }
+    if (pb) strand *= 0.9 + 0.1 * smoothstep(0.0, 0.012, t) * smoothstep(0.0, 0.012, 1.0 - t);   // no mirrored strand cells on the atlas seam
     s.alpha = strand * len;
     float zn = 0.06 * fbm(float2(t, uv.y), int2(4, 6), 3, P.seed + 3u);
+    bool dd = (int(P.pad0) & 32) != 0;   // deer: soft belly fade, dorsal saddle, light flank, no cream lift
     bool under = (t + zn) > P.f.y;
-    float3 base = (under ? P.colorB.rgb : P.colorA.rgb) * (0.86 + 0.28 * h2);
+    float uwd = dd ? smoothstep(P.f.y - 0.2, P.f.y + 0.2, t + zn) : (under ? 1.0 : 0.0);
+    float3 base = mix(P.colorA.rgb, P.colorB.rgb, uwd) * (0.86 + 0.28 * h2);
+    if (dd) base *= (0.70 + 0.30 * smoothstep(0.0, 0.30, t)) * (1.0 + 0.14 * smoothstep(0.30, 0.50, t) * (1.0 - smoothstep(0.60, 0.80, t)));
+    if (pb) base *= 0.94 + 0.12 * smoothstep(0.25, 0.7, pclump) + 0.06 * h2;
+    if (pb) base = dd ? min(base * float3(1.05, 1.03, 1.0), float3(1.0)) : min(base * float3(1.3, 1.26, 1.18), float3(1.0));   // lift shade: cream white
     bool guard = h1 > 1.0 - P.f.w;
     float mk = coatMark(uv, int(P.pad0), P.seed);
     base = mix(base, P.colorC.rgb * (0.86 + 0.28 * h2), mk * 0.94);

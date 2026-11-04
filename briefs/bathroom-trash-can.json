@@ -1,0 +1,33 @@
+{
+  "id": "bathroom-trash-can",
+  "kind": "prop",
+  "name": "Bathroom trash can",
+  "notes": "",
+  "references": [],
+  "theme": "Bathroom",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    0.2,
+    0.28,
+    0.2
+  ],
+  "parts": [
+    "tapered bin body",
+    "rolled rim",
+    "plastic liner folded over rim",
+    "base foot ring"
+  ],
+  "materials": [
+    "plastic.matte"
+  ],
+  "style": "everyday bathroom, plastic",
+  "summary": "Tapered round bathroom bin with rolled rim, folded liner bag and foot ring.",
+  "tags": [
+    "prop",
+    "interior",
+    "bathroom",
+    "plastic"
+  ],
+  "budget": 5000
+}

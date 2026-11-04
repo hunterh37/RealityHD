@@ -1,0 +1,37 @@
+{
+  "budget": 9000,
+  "id": "scissors-school",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "School Scissors",
+  "size": [
+    0.07,
+    0.01,
+    0.14
+  ],
+  "style": "everyday school, steel and plastic",
+  "theme": "School",
+  "tags": [
+    "prop",
+    "interior",
+    "school",
+    "metal",
+    "plastic"
+  ],
+  "parts": [
+    "two steel blades",
+    "blunt rounded tips",
+    "two plastic finger loops",
+    "pivot screw",
+    "shanks"
+  ],
+  "materials": [
+    "metal.stainless",
+    "plastic.gloss",
+    "metal.steel"
+  ],
+  "summary": "Blunt-tip school scissors with stainless blades, plastic loop handles and a pivot screw."
+}
