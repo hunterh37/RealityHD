@@ -84,6 +84,36 @@ func run() async throws {
         exit(0)
     }
     let sheet = args.contains("--sheet")
+    let dinos = names.compactMap { DinoSpecies(rawValue: $0) }
+    if !dinos.isEmpty {
+        // Dinosaurs: `animalpreview trex --pose roar` renders six views of one clip frame.
+        RealityHD_setup()
+        let env = try RealEnvironment(.afternoon, skybox: true)
+        for s in dinos {
+            let d = try await DinoFactory.puppet(s)
+            let anim = DinoAnimation(rawValue: globalPose) ?? .idle
+            d.play(anim, time: DinoMotion.period(anim, s.profile) * 0.45)
+            let preview = try RealPreview(environment: env)
+            let root = Entity()
+            root.addChild(d.entity)
+            let L = s.profile.targetLength
+            var floor = Prim.terrain(size: V2(L * 2, L * 2), segments: 4, material: "concrete.smooth") { _ in 0 }
+            floor.uvs = floor.uvs.map { $0 * L }
+            root.addChild(try await Model(name: "g", surfaces: [floor]).modelEntityAsync())
+            env.illuminate(root)
+            preview.add(root)
+            let aim = SIMD3<Float>(0, s.profile.targetHipHeight * 0.75, -L * 0.05)
+            var frames: [CGImage] = []
+            for (az, el) in [(Float(90), Float(6)), (0, 8), (35, 16), (145, 14), (-50, 22), (-90, 40)] {
+                let a = az * .pi / 180, e = el * .pi / 180
+                preview.look(from: aim + SIMD3(sin(a) * cos(e), sin(e), -cos(a) * cos(e)) * L * 1.25, at: aim, fov: 40)
+                if let img = try await preview.render(width: w, height: h, frames: 4) { frames.append(img) }
+            }
+            if let sheet = tile(frames, cols: 3) { writePNG(sheet, "\(out)/\(s.rawValue)-\(anim.rawValue).png") }
+            print("\(s.rawValue) \(anim.rawValue): \(d.built.triangleCount) tris")
+        }
+        return
+    }
     var targets: [(AnimalKind, GroundVariant)] = []
     if names.contains("all") { targets += AnimalKind.all.map { ($0, .standard) } }
     if names.contains("hunting") {
