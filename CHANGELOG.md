@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## 5.21.0
+
+- Merged props: signal-lantern, capybara, arc-armor, beskar-armor, hunter-armor, bronze-panoply, warden-armor, sky-jellyfish, tesla-tower, monster-truck, chevron-gate, lunar-lander, trex, fire-phoenix, battleship, light-cycle, coaster-train.
+- Fix: HunterArmor plate argument order, FirePhoenix static lerpV calls. Draft props are compiled but not gated.
+
 - Five environment scenes: `volcano-eruption` (three lava rivers, fountain bombs, instanced splatter, spatter cones, scoria), `rope-bridge-gorge`,
   `glacier-crevasse`, `sea-cliff-ledge`, `crystal-cavern-abyss`. Shared helpers in `Scenes/EnvKit.swift`.
 - Materials (`Library/Environment.swift`): `lava.*` (new `lavaFlow` unlit emitter program), `ice.glacier`, `ice.serac` (`glacierIce` program),
