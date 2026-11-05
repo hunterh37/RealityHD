@@ -1449,6 +1449,9 @@ public enum Props {
         IceCreamCone.self,
         BalloonBunch.self,
         DragonbornArmor.self,
+        EndoskeletonArmor.self,
+        SlayerArmor.self,
+        EnforcerArmor.self,
         // realityhd:prop
     ]
 }
