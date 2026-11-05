@@ -1,0 +1,17 @@
+{
+  "budget" : 22000,
+  "id" : "colonial-brig",
+  "kind" : "prop",
+  "materials" : ["wood.weathered", "wood.lumber-oak", "wood.painted-exterior", "wood.pine-aged", "metal.cast-iron", "metal.brass-aged", "fabric.canvas", "rope.hemp", "tar.pine", "glass.lamp", "glass.pane"],
+  "name" : "Colonial brig",
+  "notes" : "Origin at waterline center, bow +Z, hull cut flat at the waterline (y = 0). 1:2 scale model of a 1773 merchant brig of the Boston Tea Party type; detail kept readable. Full LOD plus lite LOD.",
+  "parts" : ["tumblehome hull lofted from 60-point rings with plank seams, tarred black strake, ochre wale stripe", "deck with hatch coamings, windlass, bulwarks and rail", "foremast and mainmast with yards and tops", "bowsprit with jib boom", "furled square sails with folds and gaskets", "shrouds and ratlines, 8+ lines per side", "stern windows, taffrail and rudder", "two deck lanterns with emissive glass"],
+  "references" : [],
+  "size" : [4.0, 5.2, 14.0],
+  "style" : "Weathered oak and pine, black tarred hull, ochre wale, tan canvas, hemp rigging, brass lanterns.",
+  "summary" : "1773 colonial merchant brig at 1:2 scale: tumblehome planked hull, two masts with furled square sails, shrouds with ratlines, bowsprit, stern windows, rudder and lanterns.",
+  "tags" : ["prop", "vehicle", "boat", "harbor", "wood", "antique"],
+  "theme" : "Harbor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}

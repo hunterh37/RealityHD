@@ -1457,6 +1457,7 @@ public enum Props {
         Cinema3dGlasses.self,
         DinerSaltShaker.self,
         ChefToque.self,
+        ColonialBrig.self,
         // realityhd:prop
     ]
 }
