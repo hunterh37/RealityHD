@@ -121,6 +121,16 @@ public extension MaterialLibrary {
             $0.colorA = linear(0xECE6D6); $0.colorB = linear(0x9C9280); $0.colorC = linear(0xB4A88E)
             $0.knobs = V4(100, 0.35, 1, 0.5); $0.seed = 416; $0.tileSize = 0.01; $0.normalStrength = 0.8; $0.roughness = 0.9
         },
+        // Printed banknote face: one 156 x 66 mm note per 0.16 m tile (UVs planar in meters from the note corner).
+        MaterialSpec(key: "paper.banknote", program: .banknote).with {
+            $0.colorA = linear(0xC9D6B2); $0.colorB = linear(0x2C4A32); $0.colorC = linear(0x3A5A44)
+            $0.knobs = V4(1, 0.5, 0, 0); $0.seed = 9011; $0.tileSize = 0.16; $0.resolution = 2048; $0.normalStrength = 0.5; $0.roughness = 0.84
+        },
+        // Banknote stack edge: about 400 sheets per 4 cm, faded green-white, grime between sheets.
+        MaterialSpec(key: "paper.bill-edge", program: .pageEdge).with {
+            $0.colorA = linear(0xBFCCA8); $0.colorB = linear(0x6E7C5C); $0.colorC = linear(0x8F9A74)
+            $0.knobs = V4(100, 0.3, 0.8, 0.2); $0.seed = 9012; $0.tileSize = 0.04; $0.normalStrength = 0.9; $0.roughness = 0.88
+        },
         // Bookcloth over board covers: fine sized plain weave. Tint for color.
         MaterialSpec(key: "book.cloth", program: .fabricWeave).with {
             $0.colorA = linear(0x2E4A6A); $0.colorB = linear(0x26405C, 0.5); $0.colorC = linear(0x1A1410, 0.1)

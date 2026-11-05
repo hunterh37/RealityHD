@@ -1441,6 +1441,8 @@ public enum Props {
         SteamLocomotive.self,
         WesternDragon.self,
         TitanMech.self,
+        CrystalBall.self,
+        CashBrick.self,
         // realityhd:prop
     ]
 }

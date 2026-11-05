@@ -38,6 +38,7 @@ public enum TextureProgram: Int32, Sendable, CaseIterable {
     case pinstripe
     case dinoScale
     case lavaFlow, glacierIce
+    case banknote
 }
 
 /// A fully specified PBR material: which texture program, its colors/knobs, and how RealityKit should
