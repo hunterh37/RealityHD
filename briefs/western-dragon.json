@@ -1,0 +1,44 @@
+{
+  "budget": 15000,
+  "id": "western-dragon",
+  "kind": "prop",
+  "notes": "Origin at body centre, head +Z. Joints flap, jaw, neck, tail. Scales via dino.dragon-scale (new, tuned for a 16 m body).",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Western dragon",
+  "size": [
+    22.0,
+    7.0,
+    16.0
+  ],
+  "style": "fantasy creature, charcoal scales, ember glow",
+  "theme": "Fantasy",
+  "tags": [
+    "prop",
+    "fantasy",
+    "creature",
+    "outdoor",
+    "articulated"
+  ],
+  "parts": [
+    "lofted scaled body",
+    "horned head with brow ridges",
+    "hinged lower jaw",
+    "glowing slit-pupil eyes",
+    "glowing throat plates and tongue",
+    "dorsal spines",
+    "tucked fore and hind legs with claws",
+    "barbed tail spade",
+    "two membrane wings with arm, finger bones and scalloped trailing edge"
+  ],
+  "materials": [
+    "dino.dragon-scale",
+    "leather.oxblood-worn",
+    "plastic.gloss",
+    "emissive.ember",
+    "plastic.black",
+    "fish.mouth"
+  ],
+  "summary": "Western dragon, 16 m with a 22 m wingspan: charcoal and ember scales, horned head, glowing eyes, throat and tongue, spines, membrane wings, joints flap, jaw, neck, tail."
+}

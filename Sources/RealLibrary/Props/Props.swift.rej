@@ -1,0 +1,9 @@
+diff a/Sources/RealLibrary/Props/Props.swift b/Sources/RealLibrary/Props/Props.swift	(rejected hunks)
+@@ -1436,6 +1436,7 @@ public enum Props {
+         ThreeRingBinder.self,
+         ScissorsSchool.self,
+         TelescopeTabletop.self,
++        WesternDragon.self,
+         // realityhd:prop
+     ]
+ }

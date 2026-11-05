@@ -61,6 +61,8 @@ public enum AssetTag {
         "pantry",
         // rail: steam locomotives and rolling stock
         "locomotive", "steam",
+        // fantasy: articulated mythical creatures
+        "fantasy", "creature",
     ])
 
     /// Scene tags: any vocabulary tag plus these.

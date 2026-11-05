@@ -1,0 +1,10 @@
+diff a/Sources/RealLibrary/Core/Tags.swift b/Sources/RealLibrary/Core/Tags.swift	(rejected hunks)
+@@ -59,6 +59,8 @@ public enum AssetTag {
+         "datacenter", "cooling", "semiconductor", "chiplab", "micro-scale", "solar", "space", "tableware",
+         "datacenter", "cooling", "semiconductor", "chiplab", "micro-scale", "solar", "space",
+         "pantry",
++        // fantasy: articulated mythical creatures
++        "fantasy", "creature",
+     ])
+ 
+     /// Scene tags: any vocabulary tag plus these.
