@@ -1439,6 +1439,7 @@ public enum Props {
         TelescopeTabletop.self,
         VikingLongship.self,
         ArcArmor.self,
+        BronzePanoply.self,
         SteamLocomotive.self,
         WesternDragon.self,
         TitanMech.self,

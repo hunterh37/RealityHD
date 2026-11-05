@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "bronze-panoply",
+  "kind" : "prop",
+  "materials" : ["metal.brass-aged", "metal.iron", "fabric.wool", "fabric.velvet", "leather.tan", "wood.oak"],
+  "name" : "Bronze panoply",
+  "notes" : "Articulated armor kit authored assembled on a 1.75 m body. Origin at the neck base, +Y up, face toward +Z, kit +X = person left. Parts: helmet, crest, chest, back, shoulderL, shoulderR, gauntletL, gauntletR, shield, spear, cape. Joints cape -1...1 (sway 20 degrees), crest -1...1 (sway 12 degrees), shield 0...1 (raise 0.2 m), spear 0...1 (tilt 77 degrees, push 0.55 m). Greaves omitted.",
+  "parts" : ["hammered bronze muscle cuirass with pecs, sternal groove and abs, rolled edges, side rivets and waist seam", "back plate with spine groove and scapulae", "leather pteruges and belt", "Corinthian helm with cut face opening, nose bar, inner liner and rolled rims", "bronze crest stand and horsehair crest", "three-lame pauldrons per shoulder", "banded vambraces with wrist flare and elbow cops", "red wool cape lofted as a folded strip with hem trim and collar roll", "round hoplon with rolled rim, ridges, raised lambda, rivets and arm straps", "2.1 m spear with ash shaft, leather grip, iron socket and leaf blade, bronze butt spike"],
+  "references" : [],
+  "size" : [1.0, 1.62, 0.61],
+  "style" : "Hoplite bronze panoply, hammered bronze with warm tarnish, crimson wool, tan leather, cinematic realism.",
+  "summary" : "Hoplite bronze panoply: hammered muscle cuirass, crested Corinthian helm, red cape, pauldrons, vambraces, hoplon shield and spear.",
+  "tags" : ["prop", "fantasy", "metal", "fabric", "leather", "articulated"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}
