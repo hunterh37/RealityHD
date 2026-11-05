@@ -1,0 +1,46 @@
+{
+  "budget": 15000,
+  "id": "monster-truck",
+  "kind": "prop",
+  "materials": [
+    "paint.car-clearcoat",
+    "glass.tinted",
+    "rubber.truck-tire",
+    "metal.chrome",
+    "metal.painted",
+    "metal.steel",
+    "plastic.matte",
+    "plastic.gloss",
+    "emissive.signal-white",
+    "emissive.signal-red"
+  ],
+  "name": "Monster truck",
+  "notes": "nose +Z, driver side +X, origin at centre of mass, ground at y = -1.55. 6 m long, 3.8 m wide, 2.7 m tyres (48 radial, 48 tread blocks).",
+  "parts": [
+    "pitch (hinge -25...25, nose up positive): tube frame, body, rollcage, roof lights, exhaust stacks, shock bodies",
+    "suspension (slide 0...0.4 m): chrome shock rods",
+    "steer and steer.right (hinge -35...35, mimic): front knuckles",
+    "spin (hinge 0...360) with mimics spin.rr, spin.fl, spin.fr: tread-block tyres on beadlock rims"
+  ],
+  "references": [],
+  "size": [
+    3.8,
+    4.9,
+    6.0
+  ],
+  "style": "Fibreglass pickup body in red clearcoat with orange and yellow flame livery, chrome shocks and stacks, black tube frame.",
+  "summary": "Monster truck: 2.7 m tread-block tyres, tube frame, chrome coilover shocks, flame-livery pickup body, rollcage and roof light bar.",
+  "tags": [
+    "prop",
+    "vehicle",
+    "articulated",
+    "outdoor",
+    "road",
+    "metal",
+    "rubber",
+    "glass"
+  ],
+  "theme": "Vehicle",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
