@@ -1438,6 +1438,7 @@ public enum Props {
         TelescopeTabletop.self,
         VikingLongship.self,
         SteamLocomotive.self,
+        WesternDragon.self,
         // realityhd:prop
     ]
 }
