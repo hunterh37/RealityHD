@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "sky-jellyfish",
+  "kind": "prop",
+  "notes": "Origin at bell centre, opening faces -Y. Joints pulse, glow, drift, arms.",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Sky Jellyfish",
+  "size": [
+    22,
+    39,
+    22
+  ],
+  "style": "fantasy creature, translucent, bioluminescent",
+  "theme": "Fantasy",
+  "tags": [
+    "prop",
+    "creature",
+    "fantasy",
+    "glowing",
+    "glass",
+    "articulated"
+  ],
+  "parts": [
+    "translucent bell",
+    "radial canals",
+    "frilled rim lappets",
+    "gonad ring",
+    "cyan and violet spots",
+    "four oral arms",
+    "forty tentacles"
+  ],
+  "materials": [
+    "plastic.translucent",
+    "emissive.die-tensor",
+    "emissive.holo-grid",
+    "emissive.holo-plane"
+  ],
+  "summary": "Giant sky jellyfish, 22 m translucent bell with glowing gonad ring, spots, oral arms and trailing tentacles."
+}
