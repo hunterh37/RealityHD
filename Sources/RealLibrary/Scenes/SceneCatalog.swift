@@ -52,6 +52,11 @@ public enum SceneCatalog {
                 MulberryRiverReach.self,
                 TimberlineBackcountry.self,
                 ArcheryRange.self,
+                VolcanoEruption.self,
+                RopeBridgeGorge.self,
+                GlacierCrevasse.self,
+                SeaCliffLedge.self,
+                CrystalCavernAbyss.self,
                 // realityhd:scene
     ]
 

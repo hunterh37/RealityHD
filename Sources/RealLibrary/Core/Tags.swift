@@ -62,5 +62,5 @@ public enum AssetTag {
     ])
 
     /// Scene tags: any vocabulary tag plus these.
-    public static let sceneExtras: Set<String> = ["forest", "test", "showcase"]
+    public static let sceneExtras: Set<String> = ["forest", "test", "showcase", "volcano", "glacier", "cave", "cliff", "gorge", "ocean"]
 }

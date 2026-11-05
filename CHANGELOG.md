@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Five environment scenes: `volcano-eruption` (three lava rivers, fountain bombs, instanced splatter, spatter cones, scoria), `rope-bridge-gorge`,
+  `glacier-crevasse`, `sea-cliff-ledge`, `crystal-cavern-abyss`. Shared helpers in `Scenes/EnvKit.swift`.
+- Materials (`Library/Environment.swift`): `lava.*` (new `lavaFlow` unlit emitter program), `ice.glacier`, `ice.serac` (`glacierIce` program),
+  scoria, obsidian, ash, ocean, foam, hemp rope, cavern crystals. Scene tags `volcano`, `glacier`, `cave`, `cliff`, `gorge`, `ocean`.
+- Fix: removed the `MovieCamera` registry entry whose source file never landed.
+
 ## 5.16.0
 
 - `RealLivePacer` and `RealPreview.renderLive(into:)` (RealKit/LiveRender.swift): pacing for live secondary renders
