@@ -1468,6 +1468,7 @@ public enum Props {
         TeslaTower.self,
         MonsterTruck.self,
         ChevronGate.self,
+        LunarLander.self,
         // realityhd:prop
     ]
 }
