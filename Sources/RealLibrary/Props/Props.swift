@@ -1459,6 +1459,7 @@ public enum Props {
         DinerSaltShaker.self,
         ChefToque.self,
         SignalLantern.self,
+        Capybara.self,
         // realityhd:prop
     ]
 }
