@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "dragonborn-armor",
+  "kind" : "prop",
+  "materials" : ["metal.steel", "metal.iron", "leather.tan", "fauna.fur", "emissive.thruster-cyan"],
+  "name" : "Dragonborn armor",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts helmet, chest, back, shoulderL, shoulderR, gauntletL, gauntletR (pivots at neck base, sternum, between shoulder blades, shoulder joints, elbows; forearm along -Y). Joints eyes, rune, shout 0...1 switch follower options at 0.05; fur -1...1 is a hinge about Z on the cloak part.",
+  "parts" : ["horned steel helm with brow band, nose guard, cheek guards and glowing eye slits", "steel cuirass plates over a leather undersuit with belt and fur collar", "fur-trimmed domed pauldrons with two hanging lames", "vambraces with etched glowing runes and knuckle plates", "leather cloak with fur lining and hem"],
+  "references" : [],
+  "size" : [0.76, 1.1, 0.5],
+  "style" : "Nordic steel armour with chamfered plates, rivets, curved horns, thick fur trim and cyan rune glow.",
+  "summary" : "Dragonborn Nordic armour kit: horned steel helm with glowing eye slits, fur-trimmed pauldrons, rune-etched gauntlets and a leather and fur cloak.",
+  "tags" : ["prop", "metal", "leather", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}
