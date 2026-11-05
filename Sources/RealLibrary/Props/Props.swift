@@ -1461,6 +1461,7 @@ public enum Props {
         SignalLantern.self,
         Capybara.self,
         BeskarArmor.self,
+        HunterArmor.self,
         // realityhd:prop
     ]
 }
