@@ -1473,6 +1473,7 @@ public enum Props {
         FirePhoenix.self,
         Battleship.self,
         LightCycle.self,
+        CoasterTrain.self,
         // realityhd:prop
     ]
 }
