@@ -59,6 +59,8 @@ public enum AssetTag {
         "datacenter", "cooling", "semiconductor", "chiplab", "micro-scale", "solar", "space", "tableware",
         "datacenter", "cooling", "semiconductor", "chiplab", "micro-scale", "solar", "space",
         "pantry",
+        // rail: steam locomotives and rolling stock
+        "locomotive", "steam",
     ])
 
     /// Scene tags: any vocabulary tag plus these.

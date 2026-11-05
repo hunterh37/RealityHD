@@ -1,0 +1,54 @@
+{
+  "budget": 30000,
+  "id": "steam-locomotive",
+  "kind": "prop",
+  "materials": [
+    "metal.painted",
+    "metal.steel",
+    "metal.stainless",
+    "metal.brass",
+    "metal.copper",
+    "glass.cabin",
+    "ablative.char-heavy",
+    "metal.grate-iron",
+    "emissive.lamp-white",
+    "emissive.flame"
+  ],
+  "name": "Steam locomotive",
+  "notes": "",
+  "parts": [
+    "lofted boiler with smokebox and firebox",
+    "lagging bands",
+    "brass steam dome, sand dome, safety valve",
+    "copper-capped chimney",
+    "spoked 2 m drivers with counterweights",
+    "coupling and connecting rods",
+    "cylinders and valve gear",
+    "cab with window glass",
+    "firebox door with glow",
+    "whistle",
+    "headlamp",
+    "tender with coal bunker and coal load",
+    "buffers and beams"
+  ],
+  "references": [],
+  "size": [
+    3.2,
+    4.45,
+    22.0
+  ],
+  "style": "British main-line express, 1930s, green boiler, black smokebox, red buffer beams, polished rods, light coal dust and soot.",
+  "summary": "Steam locomotive, 22 m 4-6-2 with tender: lofted boiler, brass domes, spoked drivers with rods, cab, headlamp, whistle, firebox door, coal load.",
+  "tags": [
+    "prop",
+    "vehicle",
+    "rail",
+    "locomotive",
+    "steam",
+    "outdoor",
+    "articulated"
+  ],
+  "theme": "Rail",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
