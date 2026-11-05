@@ -1438,6 +1438,7 @@ public enum Props {
         ScissorsSchool.self,
         TelescopeTabletop.self,
         VikingLongship.self,
+        BronzePanoply.self,
         SteamLocomotive.self,
         WesternDragon.self,
         TitanMech.self,
