@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "enforcer-armor",
+  "kind" : "prop",
+  "materials" : ["metal.chrome", "metal.steel", "metal.blued-steel", "metal.iron", "leather.black", "emissive.led-red", "emissive.flame"],
+  "name" : "Enforcer armor",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts helmet, chest, back, shoulderL, shoulderR, gauntletL, gauntletR (pivots at neck base, sternum, between shoulder blades, shoulder joints, elbows; forearm along -Y) plus holsterRig at the right thigh. Joints visor, holster, muzzle, scan 0...1; followers visorGlow, holsterRig, muzzleFlash, scanRing switch option at 0.05.",
+  "parts" : ["domed chrome helmet with black T-visor slit in a raised frame, cheek plates, open chin, ridge", "layered pectoral, clavicle and abdomen plates over a black undersuit, hip belt", "rear spine plate with battery pack", "domed pauldrons with three hanging lames", "vambraces with elbow cops, gloves and knuckle plates", "leather thigh holster with chunky auto pistol", "red T-slit glow, muzzle flash cone and chest scan ring"],
+  "references" : [],
+  "size" : [0.76, 1.05, 0.4],
+  "style" : "Polished chrome plate armour, chamfered curved plates with panel seams and rivets, black T-visor, red scan glow.",
+  "summary" : "Chrome Enforcer armour kit: polished chrome plate, T-visor slit helmet, layered chest and shoulder plates, thigh holster with auto pistol, muzzle flash and scan ring.",
+  "tags" : ["prop", "metal", "leather", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}

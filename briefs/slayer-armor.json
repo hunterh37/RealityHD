@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "slayer-armor",
+  "kind" : "prop",
+  "materials" : ["metal.painted", "metal.iron", "metal.blued-steel", "leather.black", "emissive.led-green", "emissive.led-red", "emissive.flame"],
+  "name" : "Slayer armor",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts helmet, chest, back, shoulderL, shoulderR, gauntletL, gauntletR (pivots at neck base, sternum, between shoulder blades, shoulder joints, elbows; forearm along -Y). Joints visor, chainsaw, bfg, rage 0...1; followers visorGlow, sawHeat, bfgGlow, rageGlow switch option at 0.05.",
+  "parts" : ["wide domed helmet with dark glass visor slit in a heavy frame, jaw guard, cheek plates, brow and ridge", "thick layered pectoral, clavicle and belly plates over a black undersuit", "oversized domed pauldrons with three hanging lames, studs on the left", "vambraces with elbow cops, gloves and knuckle plates", "forearm chainsaw with guide bar, chain rail and 28 teeth on the right gauntlet", "shoulder BFG cannon with housing, barrel, coil rings and muzzle on the right pauldron", "back plate with twin power cells"],
+  "references" : [],
+  "size" : [0.84, 0.95, 0.5],
+  "style" : "Doom-style green heavy plate armour, painted alloy plates with chamfered edges, panel seams and rivets, glowing green visor, blued-steel chainsaw and cannon.",
+  "summary" : "Slayer heavy plate armour kit: green plated helmet with glowing visor slit, layered chest and pauldrons, forearm chainsaw and shoulder BFG cannon.",
+  "tags" : ["prop", "metal", "leather", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}
