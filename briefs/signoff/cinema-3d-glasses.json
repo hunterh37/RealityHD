@@ -1,0 +1,22 @@
+{
+  "automated" : 0.990832,
+  "date" : "2026-11-05",
+  "final" : 0.8537911,
+  "fingerprint" : "7bb4d9a292b563f2",
+  "id" : "cinema-3d-glasses",
+  "iterations" : 2,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 7,
+    "construction" : 8,
+    "edges" : 7,
+    "grounding" : 8,
+    "materials" : 8,
+    "proportion" : 9,
+    "silhouette" : 8,
+    "wear" : 7
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.78
+}

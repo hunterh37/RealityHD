@@ -1,0 +1,17 @@
+{
+  "budget" : 9000,
+  "id" : "cinema-3d-glasses",
+  "kind" : "prop",
+  "materials" : ["paper.sheet:F0ECE0", "glass.tinted:E0201C", "glass.tinted:10C8E0", "plastic.matte:1E3A8A"],
+  "name" : "Cinema 3D glasses",
+  "notes" : "",
+  "parts" : ["folded white card front frame with rounded corners and nose notch", "printed edge stripe", "red film lens", "cyan film lens", "two card temple arms with fold hinge", "arm tip tabs"],
+  "references" : [],
+  "size" : [0.15, 0.05, 0.16],
+  "style" : "retro 1950s-style cardboard anaglyph glasses, slightly worn white card, red and cyan film",
+  "summary" : "Cardboard anaglyph 3D glasses, 15 cm wide: white folded card frame with printed edge stripe, red and cyan film lenses, fold-out card temple arms.",
+  "tags" : ["prop", "paper", "cardboard", "antique", "handheld"],
+  "theme" : "Theatre",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}

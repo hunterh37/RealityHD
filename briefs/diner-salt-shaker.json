@@ -1,0 +1,26 @@
+{
+  "budget" : 12000,
+  "id" : "diner-salt-shaker",
+  "kind" : "prop",
+  "materials" : ["glass.clear", "metal.stainless-smudged:EEF2F8", "metal.parkerized", "food.sugar:F2F0EA"],
+  "name" : "Diner salt shaker",
+  "notes" : "Id salt-shaker is taken by the Tableware prop; this is the Kitchen diner variant.",
+  "parts" : [
+    "smooth lathed glass body with thick base and rounded foot",
+    "glass neck lip under the cap",
+    "chrome-finish screw cap with ribbed skirt and flat perforated top",
+    "seven real holes through the cap top plate",
+    "dark cap liner visible through the holes",
+    "salt fill with a mounded surface",
+    "salt crystals against the glass wall",
+    "small spilled grain scatter at the base"
+  ],
+  "references" : [],
+  "size" : [0.055, 0.09, 0.054],
+  "style" : "classic American diner tableware, pressed glass and chrome, lightly used",
+  "summary" : "Classic diner glass salt shaker, 9 cm tall, 5 cm across, with a chrome perforated cap, salt fill and crystals, and a few spilled grains.",
+  "tags" : ["prop", "kitchen", "tableware", "glass", "metal", "interior", "handheld"],
+  "theme" : "Kitchen",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}
