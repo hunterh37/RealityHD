@@ -244,7 +244,7 @@ public struct HunterArmor: RealArticulated {
                     Xform(translation: base + V3(0, 0, -0.004), rotation: simd_quatf(from: Y, to: V3(0, 0, -1))))
                 if hi {
                     let mid = path[path.count / 2], dir = simd_normalize(path[path.count / 2 + 1] - mid)
-                    add(plate(mid + V3(s * 0.011, 0.002, 0), n: V3(s, 0.1, 0), u: dir, w: 0.05, h: 0.013, bulge: 0.003, thick: 0.003, bevel: 0.002, nu: 6, nv: 3, plateMetal), m.0)
+                    add(plate(mid + V3(s * 0.011, 0.002, 0), n: V3(s, 0.1, 0), u: dir, w: 0.05, h: 0.013, bulge: 0.003, bevel: 0.002, thick: 0.003, nu: 6, nv: 3, plateMetal), m.0)
                 }
             }
 
@@ -355,7 +355,7 @@ public struct HunterArmor: RealArticulated {
                 finish(&shell)
                 add(shell, part)
                 // Outer plates, elbow cop and wrist cuff.
-                add(plate(e + V3(s * 0.034, -0.12, 0.0), n: V3(s, 0, 0), u: Z, w: 0.085, h: 0.2, bulge: 0.012, curl: 4, taper: V2(0.7, 1), bevel: 0.005, nu: hi ? 8 : 4, nv: hi ? 12 : 5, plateMetal), part)
+                add(plate(e + V3(s * 0.034, -0.12, 0.0), n: V3(s, 0, 0), u: Z, w: 0.085, h: 0.2, bulge: 0.012, curl: 4, bevel: 0.005, taper: V2(0.7, 1), nu: hi ? 8 : 4, nv: hi ? 12 : 5, plateMetal), part)
                 add(plate(e + V3(0, -0.10, 0.034), n: V3(0, 0, 1), u: X, w: 0.07, h: 0.17, bulge: 0.008, curl: 4, taper: V2(1, 0.7), nu: hi ? 6 : 3, nv: hi ? 10 : 4, plateMetal), part)
                 add(Prim.lathe([V2(0.001, 0), V2(0.058, 0.0), V2(0.062, 0.02), V2(0.05, 0.04), V2(0.001, 0.044)], segments: hi ? 40 : 14, seamTile: 0.05, material: trim), part,
                     Xform(translation: e + V3(0, 0.025, 0), scale: V3(1, 1, 0.85)))
