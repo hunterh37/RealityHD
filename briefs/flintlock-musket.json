@@ -1,0 +1,17 @@
+{
+  "budget" : 12000,
+  "id" : "flintlock-musket",
+  "kind" : "prop",
+  "materials" : ["wood.walnut-stock", "metal.blued-steel", "metal.steel", "metal.brass-aged", "leather.tan"],
+  "name" : "Flintlock musket",
+  "notes" : "Origin at the lock plate center, barrel along +Z, butt toward -Z, lock on the +X side. Joint cock 0...50 degrees swings the hammer forward onto the frizzen.",
+  "parts" : ["walnut full stock with wrist swell and cheek relief", "brass butt plate, trigger guard, side plate and three barrel bands", "1.0 m round blued steel barrel with brass sights", "flintlock with frizzen, pan, cock, flint in leather jaws, mainspring and screws", "ramrod in pipes and sling swivels"],
+  "references" : [],
+  "size" : [0.072, 0.18, 1.45],
+  "style" : "1775 British Land Pattern musket, oiled walnut, aged brass, blued steel with wear.",
+  "summary" : "1775 British Land Pattern flintlock musket, 1.45 m: walnut full stock, blued steel barrel, brass furniture, flintlock with flint in leather jaws, ramrod and sling swivels.",
+  "tags" : ["prop", "antique", "handheld", "wood", "metal"],
+  "theme" : "Antique",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}
