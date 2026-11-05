@@ -1453,6 +1453,10 @@ public enum Props {
         EndoskeletonArmor.self,
         SlayerArmor.self,
         EnforcerArmor.self,
+        Hourglass.self,
+        Cinema3dGlasses.self,
+        DinerSaltShaker.self,
+        ChefToque.self,
         // realityhd:prop
     ]
 }

@@ -1,0 +1,17 @@
+{
+  "budget" : 12000,
+  "id" : "hourglass",
+  "kind" : "prop",
+  "materials" : ["glass.clear", "wood.walnut", "metal.brass", "food.sugar:C48E3E"],
+  "name" : "Desk hourglass",
+  "notes" : "",
+  "parts" : ["top and bottom walnut end plates with brass rim", "three turned brass posts with finials", "two blown-glass bulbs lathed 64 segments", "neck with brass collar", "sand mound in the lower bulb", "thin falling sand stream", "residual sand in upper bulb"],
+  "references" : [],
+  "size" : [0.085, 0.2, 0.085],
+  "style" : "classic desk hourglass, polished walnut and brass, blown glass, fine golden sand",
+  "summary" : "Desk hourglass, 20 cm: two blown-glass bulbs between turned walnut end plates held by three brass posts, fine sand mound and thin stream.",
+  "tags" : ["prop", "decor", "glass", "wood", "metal", "antique"],
+  "theme" : "Decor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}
