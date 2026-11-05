@@ -1437,6 +1437,7 @@ public enum Props {
         ScissorsSchool.self,
         TelescopeTabletop.self,
         VikingLongship.self,
+        SkyJellyfish.self,
         // realityhd:prop
     ]
 }

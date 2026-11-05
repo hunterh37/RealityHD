@@ -59,6 +59,8 @@ public enum AssetTag {
         "datacenter", "cooling", "semiconductor", "chiplab", "micro-scale", "solar", "space", "tableware",
         "datacenter", "cooling", "semiconductor", "chiplab", "micro-scale", "solar", "space",
         "pantry",
+        // creatures: fantasy animals and airborne beasts
+        "creature", "fantasy",
     ])
 
     /// Scene tags: any vocabulary tag plus these.
