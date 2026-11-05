@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "endoskeleton-armor",
+  "kind" : "prop",
+  "materials" : ["metal.chrome", "metal.steel", "metal.titanium", "metal.blued-steel", "metal.iron", "rubber.tubing", "emissive.led-red", "emissive.thruster-cyan", "emissive.flame"],
+  "name" : "Endoskeleton armor",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts helmet, chest, back, shoulderL, shoulderR, gauntletL, gauntletR (pivots at neck base, sternum, between shoulder blades, shoulder joints, elbows; forearm along -Y). Joints eye, piston, plasma, damage 0...1; followers eyeGlow, pistonL, pistonR, plasmaCell, exposed switch option at 0.05.",
+  "parts" : ["chrome skull helmet with deep eye sockets, brow ridge, nasal cavity, jaw bar, teeth and crest", "ribcage of curved chrome ribs on a vertebral spine with sternum bar", "chest plasma cell housing with glass core and cyan plasma", "ball shoulders with plate and humerus bone", "double-bone forearms with hydraulic cylinder, extendable piston rod and skeletal hand", "exposed wiring and spark prongs on the chest", "back brace plate with hydraulic hoses"],
+  "references" : [],
+  "size" : [0.62, 0.9, 0.3],
+  "style" : "Terminator-style polished chrome skeletal exo-armour, mirror finish with dark gunmetal joints, red eyes and cyan plasma.",
+  "summary" : "Endoskeleton chrome exo-armour kit: skull helmet with red eye sockets, ribcage chest with plasma cell, hydraulic forearm pistons, skeletal hands and ball shoulders.",
+  "tags" : ["prop", "metal", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}
