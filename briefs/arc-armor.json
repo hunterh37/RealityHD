@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "arc-armor",
+  "kind" : "prop",
+  "materials" : ["metal.painted", "metal.gold", "metal.iron", "metal.titanium", "emissive.panel", "emissive.indicator"],
+  "name" : "Arc armor",
+  "notes" : "Origin at the neck base with the kit assembled, face and chest toward +Z, left = +X. Parts helmet, chest, back, shoulderL, shoulderR, gauntletL, gauntletR, bootL, bootR at contract pivots. Joints faceplate 0...1 (opens faceplate 70 degrees), repulsor 0...1 (palm glow discs), reactor 0...1.5 (chest glow ring), thruster 0...1 (sole flame cones). Lights reactor, repulsorL/R, thrusterL/R.",
+  "parts" : ["helmet skull with gold collar, ear discs", "hinged gold faceplate with emissive eye slits and mouth seam", "thick riveted chest plate with gold rims, panel seams, arc reactor flange and emissive ring", "back plate with gold spine and two thruster bells", "pauldron domes with gold rims, two hanging lames and rivets", "forearm gauntlets with gold bands, elbow cops, back fins", "hands with four fingers, thumb and palm repulsor housing and emissive disc", "greaves, boots with toe cap, heel guard, sole thruster bell and flame cone"],
+  "references" : [],
+  "size" : [0.62, 1.79, 0.46],
+  "style" : "Red and gold powered armor, glossy painted plate over polished gold trim, cool white arc reactor glow.",
+  "summary" : "Red and gold powered armor kit in nine articulated pieces: helmet with hinged faceplate, riveted chest and back plates, pauldrons, gauntlets with palm repulsors, boots, glowing arc reactor.",
+  "tags" : ["prop", "metal", "mech", "articulated"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}
