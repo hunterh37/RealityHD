@@ -10,7 +10,7 @@
   "size" : [0.62, 1.79, 0.46],
   "style" : "Red and gold powered armor, glossy painted plate over polished gold trim, cool white arc reactor glow.",
   "summary" : "Red and gold powered armor kit in nine articulated pieces: helmet with hinged faceplate, riveted chest and back plates, pauldrons, gauntlets with palm repulsors, boots, glowing arc reactor.",
-  "tags" : ["prop", "armor", "costume", "scifi", "metal", "articulated"],
+  "tags" : ["prop", "metal", "mech", "articulated"],
   "theme" : "Armor",
   "threshold" : 0.85,
   "tolerance" : 0.08

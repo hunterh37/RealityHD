@@ -16,7 +16,7 @@ import Foundation
 public struct ArcArmor: RealArticulated {
     public static let id = "arc-armor"
     public static let summary = "Red and gold powered armor kit in nine articulated pieces: helmet with hinged faceplate, riveted chest and back plates, pauldrons, gauntlets with palm repulsors, boots, glowing arc reactor."
-    public static let tags = ["prop", "armor", "costume", "scifi", "metal", "articulated"]
+    public static let tags = ["prop", "metal", "mech", "articulated"]
     public static let budget = 20_000
     public static let author = "realityhd"
     public static let preview = PreviewHint(azimuth: 28, elevation: 8, distance: 1.5)
