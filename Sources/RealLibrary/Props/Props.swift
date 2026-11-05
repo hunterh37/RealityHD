@@ -1444,6 +1444,7 @@ public enum Props {
         CrystalBall.self,
         CashBrick.self,
         PlushCat.self,
+        MannequinBust.self,
         // realityhd:prop
     ]
 }

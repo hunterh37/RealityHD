@@ -1,0 +1,17 @@
+{
+  "budget": 14000,
+  "id": "mannequin-bust",
+  "kind": "prop",
+  "materials": ["plastic.gloss", "plastic.black", "metal.stainless"],
+  "name": "Mannequin Bust",
+  "notes": "Head and shoulders display bust.",
+  "parts": ["sculpted head", "neck", "shoulder caps", "seam lines", "steel pole", "round base"],
+  "references": [],
+  "size": [0.36, 0.6, 0.26],
+  "style": "photoreal retail display",
+  "summary": "Mannequin bust: 60 cm glossy white plastic head and shoulders, sculpted face, seam lines, brushed steel stand with round base.",
+  "tags": ["prop", "retail", "furniture"],
+  "theme": "Retail",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
