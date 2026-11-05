@@ -8,9 +8,9 @@ import Foundation
 /// base center.
 public struct MolassesTank: RealAsset {
     public static let id = "molasses-tank"
-    public static let summary = "1919 riveted steel molasses storage tank (Boston Great Molasses Flood), 1:3 scale: lapped plate courses, rivet rows, butt straps, conical roof, spiral stair, inlet valve and a bulging weeping seam."
+    public static let summary = "1919 riveted steel molasses tank (Boston Great Molasses Flood), 1:3 scale: lapped courses, rivets, spiral stair, valve, bulging weeping seam."
     public static let tags = ["prop", "industrial", "metal", "container", "harbor", "antique"]
-    public static let budget = 20_000
+    public static let budget = 15_000
     public static let author = "realityhd"
     public static let preview = PreviewHint(azimuth: 28, elevation: 10, distance: 1.2, studio: true)
 
@@ -59,7 +59,7 @@ public struct MolassesTank: RealAsset {
     func model(seed: UInt64, hi: Bool) -> Model {
         var rng = SeededRNG(seed: seed)
         var m = Model(name: Self.id)
-        let R = Self.radius, segs = hi ? 80 : 40
+        let R = Self.radius, segs = hi ? 64 : 32
         let pt = Self.pt, rad = Self.rad
         let Y = V3(0, 1, 0)
         func yaw(_ a: Float) -> simd_quatf { simd_quatf(angle: a, axis: Y) }
@@ -90,8 +90,8 @@ public struct MolassesTank: RealAsset {
         m.add(cuboid(V3(0.62, 0.1, 0.62), material: galvanized), Xform(translation: hatchAt + V3(0, 0.04, 0), rotation: yaw(rad(20))))
         m.add(cuboid(V3(0.56, 0.025, 0.56), material: steel), Xform(translation: hatchAt + V3(0, 0.105, 0), rotation: yaw(rad(20))))
         // Radial roof rib seams.
-        for k in 0..<(hi ? 16 : 8) {
-            let a = Float(k) / Float(hi ? 16 : 8) * 2 * .pi + 0.1
+        for k in 0..<(hi ? 8 : 4) {
+            let a = Float(k) / Float(hi ? 8 : 4) * 2 * .pi + 0.1
             let len = R * 0.92
             m.add(cuboid(V3(len, 0.012, 0.09), material: iron), Xform().adjusted(a: a, len: len, roofY: roofY, rise: Self.roofRise))
         }
@@ -101,7 +101,7 @@ public struct MolassesTank: RealAsset {
         var rowYs: [Float] = [Self.baseHeight + 0.05, Self.wallTop - 0.05]
         for i in 1..<Self.courses { rowYs.append(Self.baseHeight + Float(i) * Self.courseHeight) }
         for y in rowYs {
-            let count = 30
+            let count = 20
             for k in 0..<count {
                 let a = (Float(k) + (y > 2 ? 0.5 : 0)) / Float(count) * 2 * .pi
                 let r = Self.wallRadius(at: min(max(y, Self.baseHeight + 0.01), Self.wallTop - 0.01))
@@ -116,8 +116,8 @@ public struct MolassesTank: RealAsset {
                 let a = (Float(k) + (i % 2 == 0 ? 0 : 0.5)) / Float(n) * 2 * .pi + 0.07
                 m.add(cuboid(V3(0.012, Self.courseHeight - 0.03, 0.2), material: steel),
                       Xform(translation: pt(a, y0 + Self.courseHeight / 2, r), rotation: yaw(a)))
-                for t: Float in [-0.07, 0.07] { for j in 0..<2 {
-                    let y = y0 + 0.2 + Float(j) * 0.4
+                for t: Float in [-0.07, 0.07] { for j in 0..<1 {
+                    let y = y0 + 0.4
                     let aa = a - t / r
                     rivet(&m, pt(aa, y, r + 0.006), out(aa), r: 0.013)
                 }}
@@ -153,8 +153,8 @@ public struct MolassesTank: RealAsset {
         let path = (0...steps).map { pt(a0 + (a1 - a0) * Float($0) / Float(steps), bandY, bandR) }
         m.add(Prim.sweep(Shape2D.rect(0.004, 0.5), along: path, up: out(a0), caps: true, material: band))
         if !lite {
-            for k in 0..<18 {
-                let a = a0 + (a1 - a0) * (Float(k) + 0.5) / 18
+            for k in 0..<12 {
+                let a = a0 + (a1 - a0) * (Float(k) + 0.5) / 12
                 let w = rng.float(0.14...0.2)
                 m.add(cuboid(V3(0.004, rng.float(0.2...0.3), w), material: steel),
                       Xform(translation: pt(a, bandY + rng.float(-0.03...0.03), bandR + 0.003), rotation: simd_quatf(angle: a, axis: Y)))
@@ -186,7 +186,7 @@ public struct MolassesTank: RealAsset {
         m.add(Prim.sweep(Shape2D.circle(0.04, ry: 0.0045, segments: 6), along: runPath, up: V3(0, 1, 0), scales: [0.9, 1, 1.1, 1.2, 1.1, 1, 1, 0.9], caps: true, material: molasses))
         guard !lite else { return }
         // Thin weeps from the seams, tapering as they run down.
-        for k in 0..<12 {
+        for k in 0..<8 {
             let seamI = rng.int(1...4)
             let a = rng.float(-Float.pi...Float.pi)
             let y0 = Self.baseHeight + Float(seamI) * Self.courseHeight
@@ -208,7 +208,7 @@ public struct MolassesTank: RealAsset {
         let R = Self.radius, pt = Self.pt, rad = Self.rad
         let Y = V3(0, 1, 0)
         func yaw(_ a: Float) -> simd_quatf { simd_quatf(angle: a, axis: Y) }
-        let treads = lite ? 18 : 36
+        let treads = lite ? 18 : 30
         let a0 = rad(-170), turn = rad(300), y0: Float = 0.15, y1 = Self.wallTop
         let tw: Float = 0.42, rOut = R + 0.012 + tw
         var rail: [V3] = [], mid: [V3] = []
@@ -241,8 +241,8 @@ public struct MolassesTank: RealAsset {
             for j in 0..<15 {
                 m.add(cuboid(V3(0.02, 0.02, 0.44), material: galvanized), Xform(translation: pt(ladderA, 0.35 + Float(j) * 0.3, lr), rotation: yaw(ladderA)))
             }
-            for k in 0..<5 {
-                let y = 2.3 + Float(k) * 0.55
+            for k in 0..<3 {
+                let y = 2.5 + Float(k) * 0.9
                 let arcLen: Float = 1.55 * .pi
                 m.add(Prim.torus(major: 0.4, minor: 0.012, segments: 12, sides: 5, arc: arcLen, material: galvanized),
                       Xform(translation: pt(ladderA, y, lr + 0.2), rotation: yaw(ladderA - arcLen / 2)))
@@ -257,7 +257,7 @@ public struct MolassesTank: RealAsset {
         let a = rad(-112), y: Float = 0.52, r0 = Self.courseRadius(0) - 0.1
         func yaw(_ ang: Float) -> simd_quatf { simd_quatf(angle: ang, axis: Y) }
         let dir = V3(cos(a), 0, -sin(a))
-        let sides = lite ? 10 : 24
+        let sides = lite ? 10 : 16
         // Run out from the wall, then elbow down to ground level.
                 var path = [pt(a, y, r0), pt(a, y, Self.radius + 0.2), pt(a, y, Self.radius + 0.42)]
         let elbow = (0...6).map { k -> V3 in
@@ -270,9 +270,9 @@ public struct MolassesTank: RealAsset {
         // Gate valve: flange pair around a body, stem and handwheel.
         let vp = pt(a, y, Self.radius + 0.28)
         let q = facing(dir)
-        m.add(Prim.cylinder(radius: 0.19, height: 0.035, bevel: 0.004, segments: lite ? 12 : 28, material: iron), Xform(translation: vp - dir * 0.2, rotation: q))
-        m.add(Prim.cylinder(radius: 0.19, height: 0.035, bevel: 0.004, segments: lite ? 12 : 28, material: iron), Xform(translation: vp + dir * 0.17, rotation: q))
-        m.add(Prim.lathe([V2(0.12, 0), V2(0.14, 0.05), V2(0.15, 0.18), V2(0.14, 0.31), V2(0.12, 0.36)], segments: lite ? 12 : 28, seamTile: 0.2, material: iron),
+        m.add(Prim.cylinder(radius: 0.19, height: 0.035, bevel: 0.004, segments: lite ? 12 : 20, material: iron), Xform(translation: vp - dir * 0.2, rotation: q))
+        m.add(Prim.cylinder(radius: 0.19, height: 0.035, bevel: 0.004, segments: lite ? 12 : 20, material: iron), Xform(translation: vp + dir * 0.17, rotation: q))
+        m.add(Prim.lathe([V2(0.12, 0), V2(0.14, 0.05), V2(0.15, 0.18), V2(0.14, 0.31), V2(0.12, 0.36)], segments: lite ? 12 : 20, seamTile: 0.2, material: iron),
               Xform(translation: vp - dir * 0.17, rotation: q))
         guard !lite else { return }
         for k in 0..<8 {

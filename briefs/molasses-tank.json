@@ -1,5 +1,5 @@
 {
-  "budget" : 20000,
+  "budget" : 15000,
   "id" : "molasses-tank",
   "kind" : "prop",
   "materials" : ["metal.painted", "metal.rust", "metal.rust-grime", "metal.iron", "metal.galvanized-aged"],
@@ -9,7 +9,7 @@
   "references" : [],
   "size" : [9, 5, 9],
   "style" : "Riveted early 20th century steel storage tank, worn painted steel, rust bloom at seams, sticky brown weeps.",
-  "summary" : "1919 riveted steel molasses storage tank (Boston Great Molasses Flood), 1:3 scale: lapped plate courses, rivet rows, butt straps, conical roof, spiral stair, inlet valve and a bulging weeping seam.",
+  "summary" : "1919 riveted steel molasses tank (Boston Great Molasses Flood), 1:3 scale: lapped courses, rivets, spiral stair, valve, bulging weeping seam.",
   "tags" : ["prop", "industrial", "metal", "container", "harbor", "antique"],
   "theme" : "Industrial",
   "threshold" : 0.85,
