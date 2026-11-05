@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "molasses-tank",
+  "kind" : "prop",
+  "materials" : ["metal.painted", "metal.rust", "metal.rust-grime", "metal.iron", "metal.galvanized-aged"],
+  "name" : "Molasses tank",
+  "notes" : "1:3 scale of the 1919 Boston molasses tank (27 m x 15 m real), modelled 9 m across and 5 m tall. Origin at base center. Story detail: one seam bulging near the base with a dark drip puddle.",
+  "parts" : ["stacked lapped steel plate courses with domed rivet rows", "vertical butt straps", "shallow conical roof with vent stack and roof hatch", "ladder cage and spiral stair from base to roof", "base ring", "inlet pipe with flanged valve at the bottom", "brown molasses weep stains running down from seams", "bulging seam near the base with a dark drip puddle", "painted-out faded stencil sign band"],
+  "references" : [],
+  "size" : [9, 5, 9],
+  "style" : "Riveted early 20th century steel storage tank, worn painted steel, rust bloom at seams, sticky brown weeps.",
+  "summary" : "1919 riveted steel molasses storage tank (Boston Great Molasses Flood), 1:3 scale: lapped plate courses, rivet rows, butt straps, conical roof, spiral stair, inlet valve and a bulging weeping seam.",
+  "tags" : ["prop", "industrial", "metal", "container", "harbor", "antique"],
+  "theme" : "Industrial",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}
