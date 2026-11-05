@@ -63,6 +63,8 @@ public enum AssetTag {
         "locomotive", "steam",
         // fantasy: articulated mythical creatures
         "fantasy", "creature",
+        // creatures: dinosaurs
+        "dinosaur",
         // robots: articulated mechs and humanoid machines
         "robot", "mech",
     ])
