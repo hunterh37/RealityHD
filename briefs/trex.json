@@ -1,0 +1,43 @@
+{
+  "budget": 15000,
+  "id": "trex",
+  "kind": "prop",
+  "notes": "Origin on the ground between the feet, nose +Z. Joints stride, jaw, head, tail, roar. Hide via dino.scale-skin.",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "T-Rex",
+  "size": [
+    2.2,
+    6.6,
+    12.0
+  ],
+  "style": "realistic tyrannosaur, countershaded scale skin, amber eyes",
+  "theme": "Creatures",
+  "tags": [
+    "prop",
+    "creature",
+    "dinosaur",
+    "outdoor",
+    "articulated"
+  ],
+  "parts": [
+    "lofted scaled body",
+    "skull with brow ridges and cheek bulges",
+    "hinged lower jaw",
+    "58 conical teeth",
+    "amber eyes with dark pupils",
+    "muscular hind legs with three clawed toes",
+    "tiny two-fingered arms",
+    "tail tapering over 12 stations",
+    "chest swell part"
+  ],
+  "materials": [
+    "dino.scale-skin",
+    "plastic.gloss",
+    "emissive.ember",
+    "plastic.black",
+    "fish.mouth"
+  ],
+  "summary": "Tyrannosaur, 12 m long and 5.5 m at the hip: scaled skin, serrated-tooth skull, deep jaw, heavy hind legs, tiny two-fingered arms, tapering tail, amber eyes, joints stride, jaw, head, tail, roar."
+}

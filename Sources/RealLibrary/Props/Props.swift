@@ -1469,6 +1469,7 @@ public enum Props {
         MonsterTruck.self,
         ChevronGate.self,
         LunarLander.self,
+        TRex.self,
         // realityhd:prop
     ]
 }
