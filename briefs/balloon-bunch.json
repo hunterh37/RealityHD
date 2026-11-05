@@ -1,0 +1,23 @@
+{
+  "budget": 15000,
+  "id": "balloon-bunch",
+  "kind": "prop",
+  "notes": "Five helium balloons floating about 0.9 m above a 3 cm brass washer weight. Latex 0.28 m teardrops in red, teal, pink and white pearl, one gold foil star with crimped edges. Curled ribbons gather through the washer.",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.1,
+  "name": "Balloon Bunch",
+  "size": [0.49, 1.18, 0.4],
+  "style": "party decor, glossy latex and foil",
+  "theme": "Decor",
+  "tags": ["prop", "decor", "plastic", "handheld"],
+  "parts": [
+    "four teardrop latex balloons",
+    "pinched necks with rolled lips and tied knots",
+    "gold foil star balloon with crimped edge",
+    "curled ribbons",
+    "brass washer weight"
+  ],
+  "materials": ["plastic.gloss", "metal.gold-leaf", "metal.brass"],
+  "summary": "Bunch of five helium balloons on curled ribbons tied to a small brass washer weight."
+}
