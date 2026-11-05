@@ -314,7 +314,7 @@ public struct FirePhoenix: RealArticulated {
             let len: Float = 0.75 + 0.25 * (1 - abs(k) / 2) + 0.06 * rng.f()
             let base = V3(0.07 * k, P(4.5).c + 0.20, 4.5 - 0.02 * abs(k))
             let tip = base + V3(0.12 * k, len * 0.72, -len * 0.62)
-            let mid = lerpV(base, tip, 0.5) + V3(0.05 * k, 0.10, 0.06)
+            let mid = Self.lerpV(base, tip, 0.5) + V3(0.05 * k, 0.10, 0.06)
             let sm = Self.smoothPath([base, mid, tip], radii: [0.045, 0.03, 0.006], count: 7)
             rig.add(Prim.tube(sm.path, radii: sm.r, sides: 6, seamTile: 0.3, material: i == 2 ? gold : ember), to: "head")
         }
@@ -340,11 +340,11 @@ public struct FirePhoenix: RealArticulated {
             let foot = m(V3(0.48, -1.90, -0.40))
             for c in -1...1 {
                 let tip = foot + V3(Float(c) * 0.16 * side, -0.30, 0.55)
-                let sm = Self.smoothPath([foot, lerpV(foot, tip, 0.5) + V3(0, 0.03, 0), tip], radii: [0.05, 0.035, 0.008], count: 5)
+                let sm = Self.smoothPath([foot, Self.lerpV(foot, tip, 0.5) + V3(0, 0.03, 0), tip], radii: [0.05, 0.035, 0.008], count: 5)
                 rig.base[0].add(Prim.tube(sm.path, radii: sm.r, sides: 6, seamTile: 0.3, material: talon))
             }
             let hind = foot + V3(0, -0.25, -0.42)
-            let hm = Self.smoothPath([foot, lerpV(foot, hind, 0.5) + V3(0, 0.02, 0), hind], radii: [0.045, 0.03, 0.008], count: 5)
+            let hm = Self.smoothPath([foot, Self.lerpV(foot, hind, 0.5) + V3(0, 0.02, 0), hind], radii: [0.045, 0.03, 0.008], count: 5)
             rig.base[0].add(Prim.tube(hm.path, radii: hm.r, sides: 6, seamTile: 0.3, material: talon))
         }
 
