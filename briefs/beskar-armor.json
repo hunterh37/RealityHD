@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "beskar-armor",
+  "kind" : "prop",
+  "materials" : ["metal.stainless", "metal.titanium", "metal.iron", "leather.black", "metal.chrome", "metal.painted", "glass.lens-coated", "emissive.warm", "emissive.flame"],
+  "name" : "Beskar armor",
+  "notes" : "Origin at the neck base on a 1.75 m wearer, +Z front, +X wearer's left. Parts helmet, chest, back, shoulderL, shoulderR, gauntletL, gauntletR pivot at their body joints. Joints 0...1: visor (T-visor glow), thrust (jet flames), flame (wrist flamethrower), rocket (shoulder rocket rises 0.2 m). Lights on visor, jet and wrist.",
+  "parts" : ["bucket helmet with T-visor, dorsal ridge, brow band, cheek seams and ear caps", "curved chest plates, rib plates and three abdomen bands with beveled rims", "belt with buckle plate and pouches", "back plate with jetpack housing, twin tanks and bell nozzles", "three-lame pauldrons per shoulder", "shoulder rocket in a launcher tube", "bracers with cuff rings", "wrist flamethrower nozzle on the left gauntlet", "rivets and panel seams"],
+  "references" : [],
+  "size" : [0.70, 0.95, 0.40],
+  "style" : "Brushed silver beskar steel, beveled plates with chrome rivets, dark seam grooves, black leather belt, warm emissive T-visor.",
+  "summary" : "Brushed silver beskar armor kit: T-visor helmet, chest and abdomen plates, pauldrons, gauntlets, jetpack, wrist flamethrower and shoulder rocket.",
+  "tags" : ["prop", "fantasy", "metal", "articulated"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}

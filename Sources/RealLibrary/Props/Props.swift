@@ -1460,6 +1460,7 @@ public enum Props {
         ChefToque.self,
         SignalLantern.self,
         Capybara.self,
+        BeskarArmor.self,
         // realityhd:prop
     ]
 }
