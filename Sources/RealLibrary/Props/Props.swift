@@ -1443,6 +1443,7 @@ public enum Props {
         TitanMech.self,
         CrystalBall.self,
         CashBrick.self,
+        PlushCat.self,
         // realityhd:prop
     ]
 }
