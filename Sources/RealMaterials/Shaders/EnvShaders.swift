@@ -58,4 +58,69 @@ S glacierIce(float2 uv, constant RFParams &P) {
     s.ao = 1.0 - 0.4 * crack;
     return s;
 }
+// banknote: printed note face, one note per tile (u along the length, v across, note height = 0.4375 of the
+// tile). Cream-green paper, guilloche border, oval portrait with engraved hatching, corner denomination
+// blocks, serial numbers, seal and fine micro-lines. colorA paper, colorB ink, colorC seal and serial tint.
+// knobs: x guilloche density, y wear, z unused, w unused.
+S banknote(float2 uv, constant RFParams &P) {
+    S s = defaults(); uint sd = P.seed;
+    float2 q = float2(fract(uv.x), uv.y / 0.4375);
+    float inNote = step(0.0, q.y) * step(q.y, 1.0);
+    q.y = fract(q.y);
+    float2 p = float2(q.x * 2.3636, q.y);            // aspect 156:66, p.x 0...2.3636
+    float fib = fbm(uv, int2(48, 48), 3, sd + 1u);
+    float form = fbm(uv, int2(6, 6), 4, sd + 2u);
+    float3 paper = P.colorA.rgb * (0.96 + 0.05 * form + 0.03 * fib);
+    float ink = 0.0;
+    // border: two frame lines plus a woven guilloche band
+    float2 e = float2(min(p.x, 2.3636 - p.x), min(p.y, 1.0 - p.y));
+    float d = min(e.x, e.y);
+    float frame = smoothstep(0.012, 0.006, abs(d - 0.045)) + smoothstep(0.008, 0.004, abs(d - 0.115));
+    float band = step(0.045, d) * step(d, 0.115);
+    float along = (e.x < e.y) ? p.y : p.x;
+    float gui = 0.5 + 0.5 * sin(along * 60.0 * max(P.f.x, 1.0) / 6.2831853 + sin(d * 220.0) * 2.2);
+    gui *= 0.5 + 0.5 * sin(along * 38.0 + d * 140.0);
+    ink += frame * 0.9 + band * smoothstep(0.55, 0.9, gui) * 0.7;
+    // fine background micro-lines inside the border
+    float inner = step(0.12, d);
+    float ml = smoothstep(0.55, 0.9, 0.5 + 0.5 * sin(p.y * 520.0 + sin(p.x * 21.0) * 3.0));
+    ink += inner * ml * 0.14;
+    // oval portrait with radial hatching
+    float2 po = (p - float2(1.1818, 0.5)) / float2(0.34, 0.36);
+    float ro = length(po);
+    float ring = smoothstep(0.03, 0.01, abs(ro - 1.0)) + smoothstep(0.03, 0.01, abs(ro - 1.12)) * 0.6;
+    float hatch = smoothstep(0.35, 0.8, 0.5 + 0.5 * sin((po.x * 0.8 + po.y) * 240.0 + fbm(uv, int2(10, 10), 3, sd + 3u) * 10.0));
+    float shade = (1.0 - smoothstep(0.0, 1.0, ro)) * (0.35 + 0.65 * fbm(uv, int2(5, 7), 4, sd + 4u) + 0.5);
+    float portrait = step(ro, 0.98) * hatch * sat(shade);
+    ink += ring + portrait * 0.75;
+    // corner denomination blocks
+    float2 c0 = float2(min(p.x, 2.3636 - p.x), min(p.y, 1.0 - p.y));
+    float cornerBox = step(0.16, c0.x) * step(c0.x, 0.42) * step(0.16, c0.y) * step(c0.y, 0.34);
+    float digits = step(0.5, h01(int2(int(c0.x * 70.0), int(c0.y * 70.0)), sd + 5u)) * step(0.35, fract(c0.x * 70.0)) * step(0.35, fract(c0.y * 70.0));
+    ink += cornerBox * (0.25 + 0.65 * digits);
+    // serial numbers, upper right and lower left
+    float2 sr = float2(p.x - 1.7, p.y - 0.2);
+    float sn = step(0.0, sr.x) * step(sr.x, 0.5) * step(0.0, sr.y) * step(sr.y, 0.06);
+    float sdg = step(0.4, h01(int2(int(sr.x * 90.0), 0), sd + 6u)) * step(0.2, fract(sr.x * 90.0)) * step(fract(sr.x * 90.0), 0.8);
+    float2 sl = float2(p.x - 0.46, p.y - 0.78);
+    float sn2 = step(0.0, sl.x) * step(sl.x, 0.5) * step(0.0, sl.y) * step(sl.y, 0.06);
+    float sdg2 = step(0.4, h01(int2(int(sl.x * 90.0), 1), sd + 7u)) * step(0.2, fract(sl.x * 90.0)) * step(fract(sl.x * 90.0), 0.8);
+    float serials = sn * sdg + sn2 * sdg2;
+    // seals, left and right of the portrait
+    float2 sp = float2(min(abs(p.x - 0.62), abs(p.x - 1.74)), p.y - 0.5);
+    float sealR = length(float2(sp.x, sp.y)) / 0.1;
+    float sealMask = step(abs(p.x - 0.62), 0.12) + step(abs(p.x - 1.74), 0.12);
+    float seal = sat(sealMask) * (smoothstep(0.1, 0.0, abs(sealR - 1.0)) + step(sealR, 0.75) * smoothstep(0.4, 0.9, 0.5 + 0.5 * sin(atan2(sp.y, sp.x) * 18.0)));
+    float3 c = paper;
+    c = mix(c, P.colorB.rgb, sat(ink) * 0.88);
+    c = mix(c, P.colorC.rgb, sat(serials + seal * 0.8) * 0.9);
+    // wear: creases and handling grime
+    float crease = smoothstep(0.012, 0.0, abs(fbm(uv, int2(3, 2), 3, sd + 8u))) * 0.35 * P.f.y;
+    c *= 1.0 - crease - 0.08 * P.f.y * fbm(uv, int2(4, 4), 4, sd + 9u);
+    s.albedo = mix(P.colorA.rgb * 0.8, c, inNote);
+    s.height = 0.5 + sat(ink) * 0.15;
+    s.rough = 0.84 - sat(ink) * 0.12;
+    s.ao = 1.0 - crease * 0.3;
+    return s;
+}
 """#

@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "crystal-ball",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Crystal Ball",
+  "size": [
+    0.13,
+    0.145,
+    0.13
+  ],
+  "style": "photoreal handheld",
+  "theme": "Fantasy",
+  "tags": [
+    "prop",
+    "decor",
+    "fantasy",
+    "glass",
+    "metal",
+    "handheld"
+  ],
+  "parts": [
+    "12 cm glass sphere",
+    "nebula core",
+    "turned brass pedestal",
+    "base ring",
+    "three curved claws"
+  ],
+  "materials": [
+    "glass.clear",
+    "glass.quartz",
+    "metal.brass-aged",
+    "emissive.flux-coil"
+  ],
+  "summary": "12 cm clear glass sphere with a glowing nebula core on a turned brass claw stand."
+}

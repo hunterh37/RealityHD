@@ -1,0 +1,38 @@
+{
+  "budget": 15000,
+  "id": "plush-cat",
+  "kind": "prop",
+  "materials": [
+    "fabric.plush-white",
+    "fabric.plush-orange",
+    "fabric.plush-pink",
+    "plastic.gloss"
+  ],
+  "name": "Plush Cat",
+  "notes": "",
+  "parts": [
+    "fuzzy body",
+    "head",
+    "triangular ears",
+    "glossy eyes",
+    "pink nose",
+    "curled tail",
+    "front paws"
+  ],
+  "references": [],
+  "size": [
+    0.17,
+    0.3,
+    0.2
+  ],
+  "style": "photoreal handheld plush",
+  "summary": "Plush cat toy: 30 cm sitting, fuzzy white and orange pile, glossy eyes, pink nose, triangular ears, curled tail.",
+  "tags": [
+    "prop",
+    "toy",
+    "handheld"
+  ],
+  "theme": "Toys",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
