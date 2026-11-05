@@ -63,6 +63,8 @@ public enum AssetTag {
         "locomotive", "steam",
         // fantasy: articulated mythical creatures
         "fantasy", "creature",
+        // robots: articulated mechs and humanoid machines
+        "robot", "mech",
     ])
 
     /// Scene tags: any vocabulary tag plus these.

@@ -1,0 +1,36 @@
+{
+  "budget": 28000,
+  "id": "titan-mech",
+  "kind": "prop",
+  "materials": [
+    "metal.painted",
+    "metal.anodized-gunmetal",
+    "metal.chrome",
+    "rubber.tubing",
+    "glass.lens-coated",
+    "emissive.thruster-cyan",
+    "emissive.amber"
+  ],
+  "name": "Titan mech",
+  "notes": "Original design, no brand marks. Walk joint is a linear sweep (0.5 neutral); drive 0 to 1 to 0 for a stride cycle.",
+  "parts": [
+    "white chamfered armour plates",
+    "orange accent plates",
+    "hydraulic pistons with chrome rods",
+    "glowing chest reactor",
+    "amber eye visor",
+    "cockpit canopy glass",
+    "shoulder missile pods with six missiles each",
+    "left forearm cannon",
+    "backpack engine block",
+    "articulated legs with knee and ankle joints"
+  ],
+  "references": [],
+  "size": [10.0, 19.5, 11.0],
+  "style": "heavy industrial combat robot, painted metal",
+  "summary": "Titan mech, 18 m: white and orange chamfered armour, hydraulic pistons, glowing chest reactor, amber visor, missile pods, arm cannon, walking rig.",
+  "theme": "Robots",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "tags": ["prop", "vehicle", "robot", "mech", "metal", "outdoor", "articulated"]
+}
