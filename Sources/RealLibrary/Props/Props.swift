@@ -1471,6 +1471,7 @@ public enum Props {
         LunarLander.self,
         TRex.self,
         FirePhoenix.self,
+        Battleship.self,
         // realityhd:prop
     ]
 }
