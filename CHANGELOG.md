@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 5.21.1
+
+- Merged props: tea-chest, old-north-steeple.
+
 ## 5.21.0
 
 - Merged props: signal-lantern, capybara, arc-armor, beskar-armor, hunter-armor, bronze-panoply, warden-armor, sky-jellyfish, tesla-tower, monster-truck, chevron-gate, lunar-lander, trex, fire-phoenix, battleship, light-cycle, coaster-train.
