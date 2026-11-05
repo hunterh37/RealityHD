@@ -1470,6 +1470,7 @@ public enum Props {
         ChevronGate.self,
         LunarLander.self,
         TRex.self,
+        FirePhoenix.self,
         // realityhd:prop
     ]
 }
