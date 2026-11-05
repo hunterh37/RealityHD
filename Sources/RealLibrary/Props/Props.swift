@@ -1466,6 +1466,7 @@ public enum Props {
         WardenArmor.self,
         SkyJellyfish.self,
         TeslaTower.self,
+        MonsterTruck.self,
         // realityhd:prop
     ]
 }
