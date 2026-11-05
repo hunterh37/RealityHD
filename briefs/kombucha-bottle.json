@@ -1,0 +1,36 @@
+{
+  "budget": 15000,
+  "id": "kombucha-bottle",
+  "kind": "prop",
+  "materials": [
+    "glass.clear",
+    "fluid.tap-water",
+    "food.batter",
+    "ceramic.vitreous",
+    "rubber.seal",
+    "metal.stainless",
+    "label.canister",
+    "glass.water-clear"
+  ],
+  "name": "Kombucha bottle",
+  "notes": "Handheld, EZ-cap style swing-top, base at y=0.",
+  "parts": [
+    "amber glass body with shoulder and neck bead",
+    "thick punted glass base",
+    "cloudy golden-brown tea",
+    "pale SCOBY disc floating near the top",
+    "hanging yeast strands",
+    "porcelain stopper with rubber gasket",
+    "steel wire bail with hinge pins",
+    "paper label",
+    "condensation beads"
+  ],
+  "references": [],
+  "size": [0.082, 0.28, 0.082],
+  "style": "amber swing-top glass bottle, half full of cloudy tea with SCOBY",
+  "summary": "Amber swing-top kombucha bottle, 0.5 l: porcelain stopper with wire bail, paper label, cloudy tea with SCOBY and yeast strands.",
+  "tags": ["prop", "kitchen", "glass", "handheld"],
+  "theme": "Kitchen",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

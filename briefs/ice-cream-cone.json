@@ -1,0 +1,40 @@
+{
+  "budget": 14800,
+  "id": "ice-cream-cone",
+  "kind": "prop",
+  "materials": [
+    "food.batter-cooked",
+    "food.onion-skin",
+    "food.mozzarella-melted",
+    "food.stem-green",
+    "food.cheddar-melted",
+    "food.chocolate"
+  ],
+  "name": "Ice cream cone",
+  "notes": "Tip at y = 0 as handheld props do; standing knob adds nothing.",
+  "parts": [
+    "waffle cone lathe with diamond grid emboss",
+    "paper sleeve collar with pleats and flared lip",
+    "three stacked scoops: vanilla, strawberry, pistachio",
+    "scalloped melting skirt under each scoop",
+    "two thick drips with end bulbs running down the cone",
+    "rainbow sprinkles",
+    "twisted chocolate flake stick"
+  ],
+  "references": [],
+  "size": [
+    0.07,
+    0.222,
+    0.07
+  ],
+  "style": "glossy wet gelato scoops on a golden waffle cone",
+  "summary": "Ice cream cone, 22 cm: diamond waffle cone with paper collar, three wet scoops with scalloped skirts, two drips, sprinkles and a flake stick.",
+  "tags": [
+    "prop",
+    "food",
+    "handheld"
+  ],
+  "theme": "Food",
+  "threshold": 0.85,
+  "tolerance": 0.1
+}
