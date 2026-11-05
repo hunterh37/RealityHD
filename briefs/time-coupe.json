@@ -1,0 +1,52 @@
+{
+  "budget": 30000,
+  "id": "time-coupe",
+  "kind": "prop",
+  "name": "Time Coupe",
+  "notes": "Generic original gullwing flux coupe. Nose +Z, left +X, origin at ground under centre. Joints: hover (body lift 0...0.25 m), door-l/door-r gullwing, steer-fl/fr, wheel-fl spin master with mimics, fold-* hover-conversion folds.",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "size": [
+    1.85,
+    1.16,
+    4.2
+  ],
+  "style": "brushed stainless body, tinted glass, exposed flux conduits, glowing coils and vents, rubber tyres on 15 in wheels",
+  "theme": "Roadster",
+  "tags": [
+    "prop",
+    "vehicle",
+    "articulated",
+    "metal",
+    "stainless",
+    "glass",
+    "rubber",
+    "light"
+  ],
+  "parts": [
+    "lofted stainless body",
+    "gullwing doors",
+    "louvered rear window",
+    "flux coil module",
+    "flux conduits",
+    "rear vents",
+    "headlamps",
+    "four wheels with hover hubs",
+    "seats and dash"
+  ],
+  "materials": [
+    "metal.stainless",
+    "glass.lens-coated",
+    "rubber.tire-worn",
+    "metal.copper",
+    "metal.chrome",
+    "emissive.flux-coil",
+    "emissive.flux-vent",
+    "emissive.lamp-white",
+    "emissive.tail-bar-red",
+    "leather.black",
+    "plastic.matte"
+  ],
+  "summary": "Gullwing stainless time coupe: louvered rear glass, exposed flux conduits, glowing coils and rear vents, folding hover wheels."
+}

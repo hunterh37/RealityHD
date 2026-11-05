@@ -524,6 +524,7 @@ public enum Props {
         CanonR50.self,
         FujiX100VI.self,
         Roadster2026.self,
+        TimeCoupe.self,
         Longboard.self,
         AllotmentDugOverClods.self,
         AllotmentOnionSetRows.self,
