@@ -65,6 +65,8 @@ public enum AssetTag {
         "fantasy", "creature",
         // robots: articulated mechs and humanoid machines
         "robot", "mech",
+        // amusement: park rides and ride vehicles
+        "amusement", "coaster",
     ])
 
     /// Scene tags: any vocabulary tag plus these.
