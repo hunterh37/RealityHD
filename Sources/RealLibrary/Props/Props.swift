@@ -1474,6 +1474,7 @@ public enum Props {
         Battleship.self,
         LightCycle.self,
         CoasterTrain.self,
+        TeaChest.self,
         // realityhd:prop
     ]
 }
