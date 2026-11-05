@@ -4,7 +4,7 @@ import Foundation
 /// Light cycle, 2.6 m nose to tail: one lofted carbon fairing (64 stations, 48 radial points) under deep clearcoat, a lifting
 /// smoked canopy, two solid-disc wheels with a glowing rim torus (128 by 8, see the handoff for the triangle budget), forks,
 /// handlebar, cyan rim lines along the flanks and a rear light-wall emitter slot. Origin at the centre of the wheelbase on the
-/// ground, nose toward +Z, up +Y. Wheel radius 0.46 m, wheelbase 1.9 m.
+/// ground, nose toward +Z, up +Y. Wheel radius 0.46 m, wheelbase 1.7 m.
 /// Joints: `spin` 0...1 (one wheel turn per unit, both wheels), `lean` -1...1 (body banks 35 degrees about the ground line,
 /// positive toward +X), `glow` 0...1 (rim lines, wheel rims and emitter switch dim to bright at 0.5), `canopy` 0...1 (canopy
 /// lifts 38 degrees at the nose).
@@ -39,7 +39,7 @@ public struct LightCycle: RealArticulated {
     private static let pt: [Float] = [0.03, 0.10, 0.20, 0.26, 0.24, 0.14, 0.08, 0.03]
     private static let pb: [Float] = [0.03, 0.10, 0.16, 0.20, 0.20, 0.14, 0.08, 0.03]
     private static let pc: [Float] = [0.62, 0.60, 0.58, 0.60, 0.62, 0.66, 0.62, 0.55]
-    private static let wheelZ: Float = 0.95
+    private static let wheelZ: Float = 0.85
     private static let wheelR: Float = 0.46
     private static let canopyPivot = V3(0, 0.80, -0.45)
 
