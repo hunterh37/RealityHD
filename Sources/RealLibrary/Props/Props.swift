@@ -1441,6 +1441,7 @@ public enum Props {
         SteamLocomotive.self,
         WesternDragon.self,
         TitanMech.self,
+        WardenArmor.self,
         // realityhd:prop
     ]
 }
