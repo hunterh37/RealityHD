@@ -25,6 +25,11 @@ public extension MaterialLibrary {
             $0.colorA = linear(0x8A7458); $0.colorB = linear(0xD8CDB8); $0.colorC = linear(0x2A2018)
             $0.knobs = V4(120, 0.55, 0.3, 0.5); $0.seed = 8104; $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 1.5; $0.roughness = 0.9
         },
+        // Capybara coat: short coarse brown fur, soft low-contrast guard hairs, belly lightens gently.
+        MaterialSpec(key: "fauna.fur-short", program: .furCoat).with {
+            $0.colorA = linear(0x7A5B3C); $0.colorB = linear(0xA89070); $0.colorC = linear(0x5A432C)
+            $0.knobs = V4(210, 0.74, 0.12, 0.0); $0.seed = 8106; $0.tileSize = 0; $0.resolution = 1024; $0.normalStrength = 1.2; $0.roughness = 0.85
+        },
         // Hedgehog spines, meters UV.
         MaterialSpec(key: "fauna.quill", program: .quillCoat).with {
             $0.colorA = linear(0xD8C9A0); $0.colorB = linear(0x2E2218); $0.colorC = linear(0x1A1410)
