@@ -65,6 +65,8 @@ public enum AssetTag {
         "fantasy", "creature",
         // robots: articulated mechs and humanoid machines
         "robot", "mech",
+        // neon: glowing sci-fi vehicles and props
+        "neon", "scifi",
     ])
 
     /// Scene tags: any vocabulary tag plus these.
