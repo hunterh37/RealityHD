@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "proton-pack",
+  "kind" : "prop",
+  "materials" : ["fabric.canvas", "metal.painted", "metal.aluminum", "metal.blued-steel", "metal.iron", "leather.black", "fabric.webbing", "plastic.polycarbonate-tint", "plastic.translucent", "emissive.led-red", "emissive.signal-orange", "emissive.signal-white"],
+  "name" : "Proton pack",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts helmet, chest, back, shoulderL, shoulderR, gauntletL, gauntletR (pivots at neck base, sternum, between shoulder blades, shoulder joints, elbows; forearm along -Y) plus trapRig at the left hip. Joints stream, cyclotron, trap, vent 0...1; followers streamGlow, cyclotronGlow, trapRig, ventSteam switch option at 0.05.",
+  "parts" : ["round goggle helmet with headset boom", "tan canvas coverall with webbing harness and belt pouches", "alloy backpack with four-lens cyclotron ring, power cell and vent stack", "hand wand with barrel fins on the right fist and hose from the pack", "belt trap with shutting doors, cable and white light fan", "orange stream cone, red cyclotron glow and steam plumes"],
+  "references" : [],
+  "size" : [0.76, 1.1, 0.7],
+  "style" : "Tan canvas coverall, grey painted alloy pack, blued steel wand, red cyclotron lenses, orange stream glow.",
+  "summary" : "Ghost-catcher proton pack kit: tan coverall, goggle helmet, alloy backpack with cyclotron ring, vent stack, hand wand with stream and belt trap with light fan.",
+  "tags" : ["prop", "metal", "fabric", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}

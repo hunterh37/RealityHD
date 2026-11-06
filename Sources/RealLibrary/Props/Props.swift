@@ -1477,6 +1477,7 @@ public enum Props {
         TeaChest.self,
         OldNorthSteeple.self,
         SymbioteSuit.self,
+        ProtonPack.self,
         // realityhd:prop
     ]
 }
