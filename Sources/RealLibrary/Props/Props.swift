@@ -1479,6 +1479,7 @@ public enum Props {
         SymbioteSuit.self,
         ProtonPack.self,
         PilotMechArmor.self,
+        BlackKnightPlate.self,
         // realityhd:prop
     ]
 }
