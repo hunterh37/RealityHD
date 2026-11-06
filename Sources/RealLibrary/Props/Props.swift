@@ -1476,6 +1476,8 @@ public enum Props {
         CoasterTrain.self,
         TeaChest.self,
         OldNorthSteeple.self,
+        SymbioteSuit.self,
+        ProtonPack.self,
         VigilanteArmor.self,
         // realityhd:prop
     ]
