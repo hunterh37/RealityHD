@@ -1480,6 +1480,7 @@ public enum Props {
         ProtonPack.self,
         PilotMechArmor.self,
         BlackKnightPlate.self,
+        VigilanteArmor.self,
         // realityhd:prop
     ]
 }
