@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "black-knight-plate",
+  "kind" : "prop",
+  "materials" : ["metal.iron", "metal.steel", "metal.blued-steel", "leather.black", "plastic.black"],
+  "name" : "Black knight plate",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts helmet, chest, back, shoulderL, shoulderR, gauntletL, gauntletR (pivots at neck base, sternum, between shoulder blades, shoulder joints, elbows; forearm along -Y). Joints visor, armL, armR, sword 0...1 are empty drivers; followers visorSlit, socketL, socketR, swordRig switch option at 0.05. swordRig is a child of gauntletR at the fist.",
+  "parts" : ["flat-crowned great helm with banded cross reinforcement, visor slit and breath holes", "keeled breastplate with fauld lames and tassets over a leather arming coat", "back plate with lames and spine ridge", "domed pauldrons with hanging lames", "vambraces with fan couters and riveted gauntlets", "open arm sockets at the elbow", "arming sword with crossguard, fuller and pommel, low guard and raised"],
+  "references" : [],
+  "size" : [0.76, 1.15, 0.5],
+  "style" : "Dark riveted iron plate armour, chamfered curved plates with panel seams, steel bands and a plain arming sword.",
+  "summary" : "Black knight plate kit: dark iron great helm with visor slit, keeled breastplate, pauldrons, riveted gauntlets, arm sockets and a raisable arming sword.",
+  "tags" : ["prop", "metal", "leather", "articulated"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}
