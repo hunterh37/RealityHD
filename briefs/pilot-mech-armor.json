@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "pilot-mech-armor",
+  "kind" : "prop",
+  "materials" : ["metal.painted", "metal.steel", "metal.blued-steel", "metal.iron", "metal.chrome", "leather.black", "emissive.led-green", "emissive.signal-orange"],
+  "name" : "Pilot mech armor",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts helmet, chest, back, shoulderL, shoulderR, gauntletL, gauntletR (pivots at neck base, sternum, between shoulder blades, shoulder joints, elbows; forearm along -Y) plus jawArmor at the jaw hinge. Joints horn, jaw, blade, field 0...1; followers hornGlow, jawArmor, pylonKnife, fieldHex switch option at 0.05.",
+  "parts" : ["horned helm with slit eyes, green brow frame, cheek plates and ridge", "opening jaw guard with fangs", "layered pectoral and abdomen plates over a black undersuit with green core gem", "domed pauldrons with tall shoulder pylons, right pylon holds a knife", "vambraces with claw fists", "spine plate with power umbilical socket and cable", "green horn and eye glow, hex barrier field"],
+  "references" : [],
+  "size" : [0.84, 0.95, 0.5],
+  "style" : "Purple painted alloy plate with green accents and chamfered edges, black undersuit, green emissive core, orange hex barrier.",
+  "summary" : "Pilot mech armour kit: purple plate with green accents, horned helm, opening jaw guard, shoulder pylon knife, claw fists and a hex barrier field.",
+  "tags" : ["prop", "metal", "leather", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}
