@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "inflatable-rex-suit",
+  "kind" : "prop",
+  "materials" : ["fabric.nylon", "fabric.canvas", "plastic.white", "rubber.insulating-red", "plastic.yellow", "plastic.black", "plastic.orange", "metal.steel"],
+  "name" : "Inflatable rex suit",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts head, body, tailRoot, armL, armR (pivots at neck base, mid torso, tail root, shoulder stubs). Joints inflate, jaw, arms 0...1 and tail -1...1 are empty drivers; followers jawOpen and puffed switch option at 0.05.",
+  "parts" : ["puffed head with snout, brow spikes, bulging eyes, nostrils and upper teeth", "hinged lower jaw with teeth, red mouth interior and tongue when open", "seamed ripstop torso with belly panel, piping, legs and clawed feet", "back fan housing with steel grille and an outer puffed shell option", "tapered tail with ridge rings and dorsal spikes", "tiny forearms with claws"],
+  "references" : [],
+  "size" : [0.9, 1.9, 2.3],
+  "style" : "Glossy olive-green ripstop inflatable dinosaur costume with lighter belly panel, seam piping, white teeth and orange claws, original shapes only.",
+  "summary" : "Inflatable T-rex costume kit: puffed head with hinged jaw and teeth, seamed ripstop torso and legs, stubby tail, tiny clawed arms and a back fan.",
+  "tags" : ["prop", "fabric", "articulated", "creature"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}
