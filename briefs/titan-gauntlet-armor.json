@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "titan-gauntlet-armor",
+  "kind" : "prop",
+  "materials" : ["metal.gold", "metal.brass", "leather.black", "metal.steel", "glass.signal-off", "emissive.warm", "emissive.signal-red", "emissive.amber", "emissive.signal-green", "emissive.thruster-cyan", "emissive.surgical"],
+  "name" : "Titan gauntlet armor",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts helmet, chest, back, shoulderL, shoulderR, gauntletL, gauntletR (pivots at neck base, sternum, between shoulder blades, shoulder joints, elbows; forearm along -Y). Joints stones, fist, crown, dust 0...1 are empty drivers; followers gems and crownGlow switch option at 0.05, fingers at 0.5.",
+  "parts" : ["crested gold helm with cheek guards, nasal bar, swept crest fin and two horns", "layered pectoral plates with round medallion socket, banded abdomen lames, belt and tassets", "flared collar and tall pauldrons with two lames", "plain right bracer", "heavy left gauntlet with six gem sockets, open and clenched fingers"],
+  "references" : [],
+  "size" : [0.9, 1.4, 0.4],
+  "style" : "Polished gold plate over a dark undersuit, brass trim, six coloured gems that glow, original shapes only.",
+  "summary" : "Gold titan armor kit: crested helm, layered pectorals, flared collar, tall pauldrons and a left gauntlet with six gem sockets and clenching fingers.",
+  "tags" : ["prop", "metal", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}
