@@ -1483,6 +1483,7 @@ public enum Props {
         VigilanteArmor.self,
         TitanGauntletArmor.self,
         TrooperArmor.self,
+        WebSuit.self,
         // realityhd:prop
     ]
 }
