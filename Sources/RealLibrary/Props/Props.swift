@@ -1494,6 +1494,7 @@ public enum Props {
         BrassDivingSuit.self,
         RoninOyoroi.self,
         InflatableRexSuit.self,
+        LoaderExosuit.self,
         // realityhd:prop
     ]
 }

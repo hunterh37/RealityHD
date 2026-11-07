@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "loader-exosuit",
+  "kind" : "prop",
+  "materials" : ["metal.signal-yellow", "metal.steel", "metal.chrome", "plastic.black", "emissive.amber"],
+  "name" : "Loader exosuit",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts cage, chest, pelvis, shoulderL, shoulderR, clawL, clawR (pivots at roll cage, sternum, pelvis, shoulder joints, elbows; forearm along -Y). Joints clamp, hydraulic, beacon, stomp 0...1 are empty drivers; followers beaconLit (0.05) and clawsOpenL/clawsOpenR (0.5) switch options.",
+  "parts" : ["roll cage arch with amber beacon lens", "chest plate with harness bars and waist ring", "pelvis ring with two hip pistons", "shoulder bearings with arm pistons", "forearm sleeves with palm and three-finger claws, open or closed"],
+  "references" : [],
+  "size" : [0.9, 1.1, 0.5],
+  "style" : "Yellow painted steel cargo exoframe with chrome piston rods, black harness and an amber beacon, original shapes only.",
+  "summary" : "Yellow power-loader exoframe: roll cage with amber beacon, hydraulic pistons, harness chest frame and two three-finger claws.",
+  "tags" : ["prop", "metal", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}
