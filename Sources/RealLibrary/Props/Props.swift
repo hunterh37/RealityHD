@@ -1501,6 +1501,11 @@ public enum Props {
         ChromeMuscle.self,
         Stillsuit.self,
         RangerSuit.self,
+        MartianTripod.self,
+        GiantRubberDuck.self,
+        FoilingCat.self,
+        OrigamiCrane.self,
+        SiegeWalker.self,
         // realityhd:prop
     ]
 }

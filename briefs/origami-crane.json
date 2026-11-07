@@ -1,0 +1,35 @@
+{
+  "budget": 3000,
+  "id": "origami-crane",
+  "kind": "prop",
+  "materials": [
+    "paper.sheet"
+  ],
+  "name": "Origami crane",
+  "notes": "Origin at body centre, beak +Z, up +Y. Joints flap -1...1 (wings 50 deg), fold 0...1 (flat square, diagonal triangle, bird base, finished crane; finished parts appear at 0.7), neck -1...1 (25 deg pitch). Flat folded facets by design. Washi tint via the washi material hex.",
+  "parts": [
+    "diamond body with lapped side creases",
+    "two swept wings with leading-edge crease and folded-over layer",
+    "V-folded neck with head and beak",
+    "V-folded tail point",
+    "staged fold shells: flat sheet, diagonal triangle, bird base"
+  ],
+  "references": [],
+  "size": [
+    0.6,
+    0.2,
+    0.55
+  ],
+  "style": "Crisp flat paper folds, washi paper PBR with fibre normal, roughness 0.8 and translucency, pale reverse side, original shapes only.",
+  "summary": "0.6 m wingspan origami crane of washi paper with crisp folded facets and joints flap, fold, neck; fold 0 is a flat square sheet.",
+  "tags": [
+    "prop",
+    "decor",
+    "paper",
+    "articulated",
+    "outdoor"
+  ],
+  "theme": "Decor",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
