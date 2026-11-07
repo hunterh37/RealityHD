@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "ronin-oyoroi",
+  "kind" : "prop",
+  "materials" : ["paint.car-clearcoat", "fabric.grosgrain", "fabric.canvas", "leather.black", "metal.gold", "metal.brass-aged", "metal.mirror-polish", "metal.steel", "ceramic.bisque", "plastic.black", "emissive.signal-red"],
+  "name" : "Ronin o-yoroi",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts helmet, chest, back, shoulderL, shoulderR, gauntletL, gauntletR (pivots at neck base, sternum, between shoulder blades, shoulder joints, elbows; forearm along -Y). Joints menpo, katana, crest, petals 0...1 are empty drivers; followers menpoGlow, crestShine, sayaHilt, bladeDrawn switch option at 0.05. Blade held along -Y of gauntletR.",
+  "parts" : ["tiered kabuto bowl with swept neck guard, wing plates and crescent crest", "oni face mask with brow ridge, tusks and eye sockets that light up", "seven band lamellar cuirass in black and crimson lacquer with silk lacing and gold medallion", "two tier hanging plate skirt", "four plate shoulder guards and laced sleeves", "forearm splints, gold cuff rings and leather gloves", "back banner pole with a plain crimson banner and lacing bow", "scabbarded katana at the left hip that draws into the right hand"],
+  "references" : [],
+  "size" : [0.7, 1.4, 0.6],
+  "style" : "Lacquered black and crimson lamellar armor with silk cord lacing, gold trim and a mirror steel blade, original shapes only, no clan marks.",
+  "summary" : "Ronin o-yoroi kit: black and crimson lacquered lamellar cuirass with silk lacing, layered shoulder plates, kabuto with oni mask and crest, back banner pole and a drawable katana.",
+  "tags" : ["prop", "metal", "lacquer", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}
