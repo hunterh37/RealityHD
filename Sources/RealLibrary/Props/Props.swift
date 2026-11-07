@@ -1493,6 +1493,7 @@ public enum Props {
         Violin.self,
         BrassDivingSuit.self,
         RoninOyoroi.self,
+        InflatableRexSuit.self,
         // realityhd:prop
     ]
 }
