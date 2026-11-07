@@ -1492,6 +1492,7 @@ public enum Props {
         Coffin.self,
         Violin.self,
         BrassDivingSuit.self,
+        RoninOyoroi.self,
         // realityhd:prop
     ]
 }
