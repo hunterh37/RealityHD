@@ -4,36 +4,35 @@
   "kind": "prop",
   "materials": [
     "wood.mahogany",
-    "wood.walnut",
-    "metal.brass",
-    "fabric.velvet"
+    "metal.brass"
   ],
   "name": "Coffin",
   "notes": "",
   "parts": [
-    "Hexagonal body with bevelled rim",
-    "Plinth",
-    "Satin lining pad with pleats",
-    "Raised panel lid with rolled moulding",
-    "Six brass swing handles",
-    "Brass trim bands",
-    "Name plate and cross"
+    "six-sided body",
+    "plinth",
+    "rim moulding",
+    "lid part",
+    "raised panel",
+    "six brass bar handles"
   ],
   "references": [],
   "size": [
-    0.66,
-    0.69,
-    2.14
+    0.667,
+    0.442,
+    2.032
   ],
-  "style": "Polished lacquered mahogany, warm brass hardware, ivory satin lining",
-  "summary": "Hexagonal lacquered wood casket, 2.1 m: brass handles, lid raised to show pleated satin lining at the edge.",
+  "style": "lacquered dark mahogany, brass",
+  "summary": "Six-sided lacquered mahogany coffin, 1.98 m: plinth and rim mouldings, raised-panel lid part, six brass bar handles.",
   "tags": [
     "prop",
+    "interior",
+    "funeral",
     "wood",
-    "metal",
-    "decor"
+    "articulated",
+    "halloween"
   ],
-  "theme": "Meme",
+  "theme": "Funeral",
   "threshold": 0.85,
   "tolerance": 0.08
 }
