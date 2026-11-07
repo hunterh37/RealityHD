@@ -1,0 +1,44 @@
+{
+  "budget": 15000,
+  "id": "violin",
+  "kind": "prop",
+  "materials": [
+    "wood.maple-natural",
+    "wood.pine",
+    "wood.walnut",
+    "metal.steel",
+    "metal.nickel",
+    "wood.mahogany",
+    "fabric.linen"
+  ],
+  "name": "Violin",
+  "notes": "",
+  "parts": [
+    "Two-bout body with arched plates",
+    "F-holes and purfling",
+    "Ebony fingerboard and nut",
+    "Scroll and pegbox",
+    "Four ebony pegs",
+    "Bridge",
+    "Tailpiece and chinrest",
+    "Four strings",
+    "Bow (child part named bow): stick, frog, hair"
+  ],
+  "references": [],
+  "size": [
+    0.27,
+    0.07,
+    0.74
+  ],
+  "style": "Flame maple and spruce violin, ebony fittings, steel strings, pernambuco bow",
+  "summary": "Full-size violin, 59 cm, with a bow: flame maple, f-holes, ebony fingerboard, scroll, pegs, strings, bridge, chinrest.",
+  "tags": [
+    "prop",
+    "wood",
+    "handheld",
+    "articulated"
+  ],
+  "theme": "Meme",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

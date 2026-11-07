@@ -1,0 +1,35 @@
+{
+  "budget": 12000,
+  "id": "bowler-hat",
+  "kind": "prop",
+  "materials": [
+    "fabric.wool",
+    "fabric.nylon",
+    "leather.tan"
+  ],
+  "name": "Bowler hat",
+  "notes": "",
+  "parts": [
+    "Domed oval felt crown",
+    "Rolled curled brim",
+    "Silk grosgrain band",
+    "Flat bow and knot",
+    "Leather sweatband"
+  ],
+  "references": [],
+  "size": [
+    0.295,
+    0.12,
+    0.354
+  ],
+  "style": "Black wool felt with soft nap, silk grosgrain band, crisp curled brim",
+  "summary": "Black felt bowler hat, 29 cm brim: domed oval crown, silk grosgrain band and bow, curled brim, leather sweatband.",
+  "tags": [
+    "prop",
+    "fabric",
+    "decor"
+  ],
+  "theme": "Meme",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
