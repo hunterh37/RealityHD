@@ -1,0 +1,47 @@
+{
+  "budget": 20000,
+  "id": "brass-diving-suit",
+  "kind": "prop",
+  "materials": [
+    "metal.brass",
+    "metal.brass-aged",
+    "metal.copper-patina",
+    "metal.copper",
+    "fabric.canvas",
+    "metal.iron",
+    "glass.clear",
+    "glass.lamp",
+    "emissive.warm",
+    "rubber.insulating-black"
+  ],
+  "name": "Brass diving suit",
+  "notes": "Origin at the neck base, face +Z, wearer's left +X. Parts helmet, chest, back, shoulderL, shoulderR, gauntletL, gauntletR (pivots at neck base, breastplate, pump, shoulder joints, elbows; forearm along -Y). Joints lamp, bubbles, drill, rust 0...1 are empty drivers; followers lampOn, valveOpen, drillOut switch option at 0.05, patina at 0.5.",
+  "parts": [
+    "riveted brass helmet with front and side portholes and crown lamp",
+    "exhaust valve with lever",
+    "bolted breastplate collar",
+    "canvas dress with weight belt and lead weights",
+    "pump manifold with copper coil and air hose",
+    "brass cuff clamps and rubber mitts",
+    "right forearm drill, stowed or extended",
+    "verdigris patina bands"
+  ],
+  "references": [],
+  "size": [
+    0.7,
+    1.0,
+    0.6
+  ],
+  "style": "Riveted polished brass helmet and collar over a canvas dress with lead weights, copper coil, rubber hose, original shapes only.",
+  "summary": "Brass diving suit kit: riveted helmet with portholes and crown lamp, bolted collar, canvas dress, weight belt, air hose and a forearm drill.",
+  "tags": [
+    "prop",
+    "metal",
+    "fabric",
+    "articulated",
+    "glowing"
+  ],
+  "theme": "Armor",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
