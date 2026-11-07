@@ -1481,6 +1481,7 @@ public enum Props {
         PilotMechArmor.self,
         BlackKnightPlate.self,
         VigilanteArmor.self,
+        TitanGauntletArmor.self,
         // realityhd:prop
     ]
 }
