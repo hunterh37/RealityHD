@@ -1496,6 +1496,11 @@ public enum Props {
         InflatableRexSuit.self,
         LoaderExosuit.self,
         TarnishedArmor.self,
+        DriftRig.self,
+        WastelandArmor.self,
+        ChromeMuscle.self,
+        Stillsuit.self,
+        RangerSuit.self,
         // realityhd:prop
     ]
 }
