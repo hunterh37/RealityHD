@@ -1,0 +1,33 @@
+{
+  "budget": 15000,
+  "id": "knit-mittens",
+  "kind": "prop",
+  "materials": [
+    "fabric.wool"
+  ],
+  "name": "Knit mittens",
+  "notes": "",
+  "parts": [
+    "Left mitten",
+    "Right mitten",
+    "2x2 ribbed cuffs",
+    "Braided cable columns",
+    "Tapered thumbs"
+  ],
+  "references": [],
+  "size": [
+    0.3,
+    0.05,
+    0.28
+  ],
+  "style": "Chunky cable-knit wool with fuzzy fibers, cream ribbed cuffs",
+  "summary": "Pair of cable-knit wool mittens, 27 cm: 2x2 ribbed cuffs, braided cables on the hand, tapered thumbs, fuzzy wool fiber.",
+  "tags": [
+    "prop",
+    "fabric",
+    "decor"
+  ],
+  "theme": "Meme",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

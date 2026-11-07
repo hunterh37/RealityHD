@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "coffin",
+  "kind": "prop",
+  "materials": [
+    "wood.mahogany",
+    "wood.walnut",
+    "metal.brass",
+    "fabric.velvet"
+  ],
+  "name": "Coffin",
+  "notes": "",
+  "parts": [
+    "Hexagonal body with bevelled rim",
+    "Plinth",
+    "Satin lining pad with pleats",
+    "Raised panel lid with rolled moulding",
+    "Six brass swing handles",
+    "Brass trim bands",
+    "Name plate and cross"
+  ],
+  "references": [],
+  "size": [
+    0.66,
+    0.69,
+    2.14
+  ],
+  "style": "Polished lacquered mahogany, warm brass hardware, ivory satin lining",
+  "summary": "Hexagonal lacquered wood casket, 2.1 m: brass handles, lid raised to show pleated satin lining at the edge.",
+  "tags": [
+    "prop",
+    "wood",
+    "metal",
+    "decor"
+  ],
+  "theme": "Meme",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1490,6 +1490,10 @@ public enum Props {
         WebSuit.self,
         EvaSpacesuit.self,
         HellriderLeathers.self,
+        BowlerHat.self,
+        KnitMittens.self,
+        Coffin.self,
+        Violin.self,
         // realityhd:prop
     ]
 }
