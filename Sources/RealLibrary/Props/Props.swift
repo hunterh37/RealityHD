@@ -1481,6 +1481,11 @@ public enum Props {
         PilotMechArmor.self,
         BlackKnightPlate.self,
         VigilanteArmor.self,
+        BowlerHat.self,
+        WaterBottle.self,
+        KnitMittens.self,
+        Coffin.self,
+        Violin.self,
         // realityhd:prop
     ]
 }

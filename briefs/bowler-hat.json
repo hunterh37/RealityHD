@@ -1,0 +1,38 @@
+{
+  "budget": 15000,
+  "id": "bowler-hat",
+  "kind": "prop",
+  "materials": [
+    "fabric.felt",
+    "fabric.grosgrain",
+    "leather.black"
+  ],
+  "name": "Bowler hat",
+  "notes": "",
+  "parts": [
+    "oval domed felt crown",
+    "grosgrain band",
+    "side bow",
+    "curled brim",
+    "bound edge",
+    "sweatband"
+  ],
+  "references": [],
+  "size": [
+    0.277,
+    0.118,
+    0.311
+  ],
+  "style": "black fur felt, silk band",
+  "summary": "Black felt bowler hat, 30 cm: oval domed crown, silk grosgrain band with bow, side-curled bound brim, leather sweatband.",
+  "tags": [
+    "prop",
+    "interior",
+    "wardrobe",
+    "fabric",
+    "handheld"
+  ],
+  "theme": "Wardrobe",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

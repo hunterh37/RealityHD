@@ -1,0 +1,53 @@
+{
+  "budget": 15000,
+  "id": "violin",
+  "kind": "prop",
+  "materials": [
+    "wood.mahogany",
+    "wood.walnut",
+    "wood.maple-natural",
+    "metal.nickel",
+    "metal.brass-aged",
+    "fabric.bowstring",
+    "plastic.matte",
+    "plastic.white"
+  ],
+  "name": "Violin",
+  "notes": "",
+  "parts": [
+    "arched top",
+    "maple back",
+    "ribs",
+    "purfling",
+    "f-holes",
+    "bridge",
+    "neck",
+    "fingerboard",
+    "scroll",
+    "pegs",
+    "tailpiece",
+    "chinrest",
+    "4 strings",
+    "bow part with horsehair"
+  ],
+  "references": [],
+  "size": [
+    0.274,
+    0.104,
+    0.853
+  ],
+  "style": "varnished spruce and maple, ebony",
+  "summary": "4/4 violin, 59.5 cm: arched varnished spruce top, maple back, f-holes, ebony fittings, scroll, 4 strings, chinrest, separate bow part with horsehair.",
+  "tags": [
+    "prop",
+    "interior",
+    "music",
+    "wood",
+    "instrument",
+    "handheld",
+    "articulated"
+  ],
+  "theme": "Music",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
