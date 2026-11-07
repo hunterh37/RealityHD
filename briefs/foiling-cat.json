@@ -1,0 +1,44 @@
+{
+  "budget": 28000,
+  "id": "foiling-cat",
+  "kind": "prop",
+  "materials": [
+    "metal.painted",
+    "composite.carbon",
+    "fabric.webbing",
+    "fabric.nylon",
+    "rubber.plate",
+    "glass.tinted"
+  ],
+  "name": "Foiling catamaran",
+  "notes": "Origin at the centre between the hulls at the waterline, bow +Z, up +Y, hulls at x = +-3.6. Joints foil 0...1 (hulls lift 2 m, foil blades stay in the water), heel -1...1 (roll 15 deg), wing -1...1 (wing yaw 30 deg plus flap 15 deg), rudder -1...1 (rudder yaw 20 deg) are empty drivers; parts mimic them.",
+  "parts": [
+    "two lofted white hulls with graphite rubbing strakes and deck pads",
+    "graphite trampoline net with lacing on two carbon crossbeams and a bow pole",
+    "two crew pods with windscreens",
+    "24 m two-element rigid wing sail with trailing flap on a mast step",
+    "carbon L-foils on telescoping struts",
+    "carbon T-rudders on stock posts"
+  ],
+  "references": [],
+  "size": [
+    8.0,
+    26.0,
+    15.0
+  ],
+  "style": "Sponsor-free white and graphite racing catamaran, clearcoat paint, carbon foils, original shapes only.",
+  "summary": "15 m foiling racing catamaran: lofted white hulls, trampoline net, carbon crossbeams, crew pods, two-element rigid wing sail, L-foils and T-rudders.",
+  "tags": [
+    "prop",
+    "vehicle",
+    "metal",
+    "fabric",
+    "harbor",
+    "outdoor",
+    "articulated",
+    "sports"
+  ],
+  "theme": "Boats",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

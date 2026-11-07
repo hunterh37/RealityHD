@@ -1,0 +1,41 @@
+{
+  "budget": 30000,
+  "id": "martian-tripod",
+  "kind": "prop",
+  "materials": [
+    "metal.painted",
+    "metal.steel",
+    "rubber.silicone",
+    "glass.tinted",
+    "emissive.led-green"
+  ],
+  "name": "Martian tripod",
+  "notes": "Origin on the ground at the tripod centre, front +Z, up +Y, 30 m tall. Authored pose is the full stand; joint value rise 0 sinks the hood 22 m and folds the legs flat. Joints stride -1...1, rise 0...1, cowl -1...1 (yaw 50 deg), aim 0...1 (pitch down 35 deg), charge 0...1 are empty drivers; child parts mimic them. Follower lensGlow switches option at charge 0.05. Legs at azimuth +60, -60 and 180 degrees.",
+  "parts": [
+    "flattened lofted hood, 64 stations by 64 radial points, gunmetal upper shell and oiled lower shell",
+    "three legs of three 48-sided tube segments with ball knees and foot pads",
+    "articulated cowl with glass heat-ray lens, emissive green core and eight-leaf iris",
+    "six tapered whip tentacles under the hood, 64 stations each"
+  ],
+  "references": [],
+  "size": [
+    33.4,
+    30.0,
+    29.3
+  ],
+  "style": "Weathered gunmetal war machine with clearcoat, oil-dark lower shell, steel ball joints and a green glowing heat-ray lens, original shapes only.",
+  "summary": "30 m Martian tripod: lofted gunmetal hood, three jointed legs with ball knees, articulated heat-ray cowl with glass lens and iris, six whip tentacles.",
+  "tags": [
+    "prop",
+    "creature",
+    "vehicle",
+    "metal",
+    "glass",
+    "outdoor",
+    "articulated",
+    "glowing"
+  ],
+  "theme": "Creatures",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
