@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "stillsuit",
+  "kind" : "prop",
+  "materials" : ["fabric.knit", "leather.tan", "metal.brass-aged", "rubber.tubing", "emissive.nebula-blue"],
+  "name" : "Stillsuit",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts hood, torso, belt, armL, armR (pivots at neck, sternum, pelvis, shoulder joints; sleeve along -Y to the wrist). Joints spice and inhale 0...1 are empty drivers except spice, whose follower eyesLit (0.05) switches the dark eye slit to glowing blue eyes.",
+  "parts" : ["hooded cowl with face veil, eye slit and two nose tubes", "ribbed torso with collar manifold, catch-pocket harness and brass buckle", "belt with pump pouches and hip reclaim tubes", "ribbed sleeves with wrist cuffs and gloved hands"],
+  "references" : [],
+  "size" : [0.7, 1.1, 0.45],
+  "style" : "Sand-colored ribbed knit desert survival suit with tan leather straps, brass fittings and black recovery tubing, original shapes only.",
+  "summary" : "Desert stillsuit: ribbed knit torso and sleeves, hooded cowl with nose tubes, tan harness and brass catch-pocket fittings.",
+  "tags" : ["prop", "fabric", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}
