@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "eva-spacesuit",
+  "kind" : "prop",
+  "materials" : ["plastic.white", "fabric.canvas", "insulation.foil-gold", "metal.steel", "plastic.orange", "plastic.black", "emissive.signal-green", "emissive.signal-red"],
+  "name" : "EVA spacesuit",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts helmet, chest, back, shoulderL, shoulderR, gauntletL, gauntletR (pivots at neck base, sternum, between shoulder blades, shoulder joints, elbows; forearm along -Y). Joints visor, pack, pistol, earth 0...1 are empty drivers; followers visorDown, packLights, chestLights, sidearm switch option at 0.05.",
+  "parts" : ["bubble helmet with neck ring, side lamps, camera and antenna", "gold mirrored visor, stowed on the crown or lowered over the face", "hard torso with chest control box, hose ports and waist ring", "life support pack with twin tanks, status lamps and antenna", "fabric arms with accordion hose rings and orange command stripes", "steel wrist rings and gloves with fingers", "right forearm pouch and a held sidearm with muzzle along -Y"],
+  "references" : [],
+  "size" : [0.7, 1.0, 0.6],
+  "style" : "Clean white hard-shell and canvas spacesuit with gold mirrored visor, steel rings and small green and red status lamps, original shapes only.",
+  "summary" : "White EVA spacesuit kit: bubble helmet with stowable gold visor, hard torso with control box, hose-ringed arms, life support pack and a sidearm.",
+  "tags" : ["prop", "fabric", "metal", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}

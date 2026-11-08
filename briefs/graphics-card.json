@@ -1,0 +1,37 @@
+{
+  "budget": 15000,
+  "id": "graphics-card",
+  "kind": "prop",
+  "materials": [
+    "metal.anodized-black",
+    "plastic.matte",
+    "metal.aluminum-brushed",
+    "metal.aluminum-fins",
+    "plastic.pcb",
+    "copper.polished",
+    "metal.stainless",
+    "emissive.signal-white",
+    "metal.brass"
+  ],
+  "name": "Graphics card",
+  "notes": "Hero prop for the Upscaled lens. No brand marks or logos. Fans and fin stack must read at 0.6 m.",
+  "parts": [
+    "black shroud",
+    "three 86 mm fans with 11 blades each",
+    "aluminium fin stack",
+    "four copper heatpipes",
+    "PCB",
+    "vented backplate",
+    "two-slot bracket with three display ports",
+    "12-pin power socket",
+    "RGB light bar"
+  ],
+  "references": [],
+  "size": [0.309, 0.115, 0.102],
+  "style": "clean new consumer hardware, black anodised metal, silver trim, white RGB",
+  "summary": "Triple-fan graphics card, 30 cm: black shroud, 86 mm fans, aluminium fin stack, four copper heatpipes, vented backplate, bracket.",
+  "tags": ["prop", "electronics", "computer", "metal", "plastic"],
+  "theme": "Electronics",
+  "threshold": 0.85,
+  "tolerance": 0.10
+}

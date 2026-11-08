@@ -1,0 +1,50 @@
+{
+  "budget": 15000,
+  "id": "tesla-tower",
+  "kind": "prop",
+  "notes": "Origin at ground centre of the base, up +Y. Rest pose is collapsed (12 m); default state standing is 40 m. Joints rise, charge, spin, spikes.",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Tesla Tower",
+  "size": [
+    24,
+    40,
+    24
+  ],
+  "style": "Wardenclyffe-style, brick, copper and brass, emissive coil bands",
+  "theme": "Structures",
+  "tags": [
+    "prop",
+    "structure",
+    "metal",
+    "brick",
+    "ceramic",
+    "electrical",
+    "glowing",
+    "outdoor",
+    "articulated"
+  ],
+  "parts": [
+    "octagonal brick base",
+    "lattice shaft stages",
+    "copper toroid",
+    "ceramic insulators",
+    "ground ring coil",
+    "eight spike electrodes",
+    "emissive coil bands"
+  ],
+  "materials": [
+    "brick.unit-red-dark",
+    "concrete.smooth",
+    "metal.copper-patina",
+    "metal.cast-iron-worn",
+    "metal.galvanized-aged",
+    "metal.copper",
+    "metal.brass",
+    "metal.brass-aged",
+    "ceramic.porcelain-gray",
+    "emissive.thruster-cyan"
+  ],
+  "summary": "Wardenclyffe-style 40 m Tesla tower with brick base, telescoping lattice shaft, copper toroid, ground coil and spike electrodes."
+}

@@ -1,0 +1,38 @@
+{
+  "budget": 15000,
+  "id": "coffin",
+  "kind": "prop",
+  "materials": [
+    "wood.mahogany",
+    "metal.brass"
+  ],
+  "name": "Coffin",
+  "notes": "",
+  "parts": [
+    "six-sided body",
+    "plinth",
+    "rim moulding",
+    "lid part",
+    "raised panel",
+    "six brass bar handles"
+  ],
+  "references": [],
+  "size": [
+    0.667,
+    0.442,
+    2.032
+  ],
+  "style": "lacquered dark mahogany, brass",
+  "summary": "Six-sided lacquered mahogany coffin, 1.98 m: plinth and rim mouldings, raised-panel lid part, six brass bar handles.",
+  "tags": [
+    "prop",
+    "interior",
+    "funeral",
+    "wood",
+    "articulated",
+    "halloween"
+  ],
+  "theme": "Funeral",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

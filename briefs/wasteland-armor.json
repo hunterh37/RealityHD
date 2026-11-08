@@ -1,0 +1,17 @@
+{
+  "budget" : 24000,
+  "id" : "wasteland-armor",
+  "kind" : "prop",
+  "materials" : ["metal.corten", "metal.chrome", "metal.cast-iron-worn", "leather.black", "emissive.flame"],
+  "name" : "Wasteland armor",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts collar, chest, pelvis, shoulderL, shoulderR, pipeL, pipeR (pivots at neck collar, sternum, pelvis, shoulder joints, back pipe roots). Joints belch, spray, rev 0...1 are empty drivers; followers flameL/flameR (0.05) switch the lit flame tongues and sprayLit (0.05) the wet chrome mouth.",
+  "parts" : ["spiked collar with chrome mouth guard", "scrap plate chest with leather straps", "pelvis ring with hanging plates", "riveted scrap shoulder plates with spikes", "twin exhaust pipes rising behind the shoulders with flame tongues"],
+  "references" : [],
+  "size" : [0.9, 1.3, 0.5],
+  "style" : "Rusted corten scrap armor with polished chrome trim, black leather straps and hot orange exhaust flame, original shapes only.",
+  "summary" : "Wasteland raider armor: spiked collar with chrome mouth guard, scrap shoulder plates and two exhaust pipes that belch flame.",
+  "tags" : ["prop", "metal", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}

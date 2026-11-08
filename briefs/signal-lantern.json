@@ -1,0 +1,17 @@
+{
+  "budget" : 9000,
+  "id" : "signal-lantern",
+  "kind" : "prop",
+  "materials" : ["metal.galvanized-aged", "metal.iron", "metal.brass-aged", "plastic.matte:EFE7D4", "emissive.warm", "emissive.amber"],
+  "name" : "Signal lantern",
+  "notes" : "1775 Old North Church pierced-tin lantern. Origin base center. Joints flame 0...1 (hinge about Y, switch follower at 0.5, lights candle flame, glowing punches and point light) and door 0...100 degrees. States lit, unlit, lit-open.",
+  "parts" : ["cylindrical pierced tin body with punched star and diamond pattern", "domed conical cap with vent chimney and ring finial", "hinged side door with latch", "flat base with candle socket", "wire bail handle", "beeswax candle with teardrop flame", "seams, solder lines and tarnish"],
+  "references" : [],
+  "size" : [0.18, 0.34, 0.18],
+  "style" : "Colonial pierced tin lantern, tarnished tin, hand-punched stars and diamonds, warm candle glow through the holes.",
+  "summary" : "1775 pierced-tin signal lantern, 34 cm: punched star and diamond body, conical cap with chimney, hinged door, wire bail and a candle that glows through the holes.",
+  "tags" : ["prop", "metal", "light", "antique", "handheld", "glowing", "articulated"],
+  "theme" : "Decor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}

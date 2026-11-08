@@ -1,0 +1,49 @@
+{
+  "budget": 15000,
+  "id": "chevron-gate",
+  "kind": "prop",
+  "notes": "Origin at ground under the ring centre (centre 4.6 m up), ring faces +Z, up +Y. Rest pose is dormant. Joints spin, lock, open, ramp.",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Chevron Gate",
+  "size": [
+    9.2,
+    9.2,
+    8.0
+  ],
+  "style": "ancient ring gate, dark granite, bronze glyph ring, emissive amber chevrons, translucent event horizon",
+  "theme": "Structures",
+  "tags": [
+    "prop",
+    "structure",
+    "stone",
+    "rock",
+    "metal",
+    "glowing",
+    "water",
+    "outdoor",
+    "articulated"
+  ],
+  "parts": [
+    "dark granite outer ring",
+    "bronze inner ring",
+    "nine glyph panels",
+    "nine chevron locks",
+    "event-horizon disc",
+    "iron tripod stand",
+    "granite platform",
+    "extending ramp"
+  ],
+  "materials": [
+    "rock.granite",
+    "rock.granite-bare",
+    "metal.bronze-weathered",
+    "metal.iron",
+    "emissive.amber",
+    "glass.water-clear",
+    "emissive.thruster-cyan",
+    "concrete.ramp-cast"
+  ],
+  "summary": "8 m dark granite ring gate with glyph ring, nine amber chevron locks, translucent event horizon, tripod stand and ramp."
+}

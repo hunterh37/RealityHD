@@ -1,0 +1,36 @@
+{
+  "budget": 15000,
+  "id": "knit-mittens",
+  "kind": "prop",
+  "materials": [
+    "fabric.knit"
+  ],
+  "name": "Knit mittens",
+  "notes": "",
+  "parts": [
+    "mitten body",
+    "thumb",
+    "ribbed cuff",
+    "cable columns",
+    "stripe",
+    "second mitten offset"
+  ],
+  "references": [],
+  "size": [
+    0.346,
+    0.041,
+    0.325
+  ],
+  "style": "red and white cable knit wool",
+  "summary": "Pair of red and white cable-knit wool mittens, 27 cm, ribbed cuffs and thumbs, lying offset.",
+  "tags": [
+    "prop",
+    "interior",
+    "wardrobe",
+    "fabric",
+    "winter"
+  ],
+  "theme": "Wardrobe",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

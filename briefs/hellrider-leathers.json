@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "hellrider-leathers",
+  "kind" : "prop",
+  "materials" : ["leather.black", "metal.chrome", "anatomy.bone", "anatomy.muscle", "metal.steel", "emissive.led-red", "emissive.ember"],
+  "name" : "Hell rider leathers",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts helmet (the head), chest, back, shoulderL, shoulderR, gauntletL, gauntletR (pivots at neck base, sternum, between shoulder blades, shoulder joints, elbows; forearm along -Y). Joints skull, flame, chain, stare 0...1 are empty drivers; followers fleshHead, socketGlow, crownCracks, chainLash switch option at 0.05. chainLash hangs from the right wrist along -Y.",
+  "parts" : ["chrome-bone skull with brow ridge, cheekbones, nose cavity, jaw and chrome teeth", "removable flesh shell over the skull", "blazing eye sockets", "black leather jacket with folded lapels, chrome studs and zipper", "belt with buckle and coiled chain", "studded back panel", "pauldrons with chrome spike clusters", "studded sleeves with chrome cuffs and elbow spikes", "right fist chain whip with torus links"],
+  "references" : [],
+  "size" : [0.9, 1.4, 0.4],
+  "style" : "Worn black leather with chrome studs and spikes over a pale chrome-bone skull, red-orange ember glow, original shapes only.",
+  "summary" : "Hell rider biker leathers kit: studded black leather jacket, shoulder spikes, chrome cuffs, belt chain, and a chrome-bone skull head with blazing eye sockets.",
+  "tags" : ["prop", "metal", "leather", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}

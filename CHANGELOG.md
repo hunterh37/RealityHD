@@ -2,6 +2,23 @@
 
 ## Unreleased
 
+- Grocery pack (`Props/Grocery/`, tag `grocery`): fixtures `grocery-gondola` (double-sided 1.2 x 1.8 x 0.9 m),
+  `gondola-endcap`, `refrigerated-case`, `freezer-case` (articulated doors), `produce-display-table`, `checkout-lane`,
+  `shopping-cart` (articulated child seat), `shopping-basket`, `grocery-aisle-sign`, `sale-sign`, `floor-tile-grocery`;
+  items `banana-bunch`, `grapes-bunch`, `lettuce-head`, `bell-pepper-green`, `soda-can`, `water-bottle-pack`, `ketchup-bottle`,
+  `peanut-butter-jar`, `juice-carton`, `cookie-pack`, `ice-cream-pint`, `cleaning-spray`, `paper-towel-pack`. Invented brands only.
+- Material `floor.grocery-vct` (`Library/Grocery.swift`).
+- Scene `grocery-store`: 20 x 14 m supermarket; layout constants in `docs/scenes/grocery-store.md`.
+
+## 5.21.1
+
+- Merged props: tea-chest, old-north-steeple.
+
+## 5.21.0
+
+- Merged props: signal-lantern, capybara, arc-armor, beskar-armor, hunter-armor, bronze-panoply, warden-armor, sky-jellyfish, tesla-tower, monster-truck, chevron-gate, lunar-lander, trex, fire-phoenix, battleship, light-cycle, coaster-train.
+- Fix: HunterArmor plate argument order, FirePhoenix static lerpV calls. Draft props are compiled but not gated.
+
 - Five environment scenes: `volcano-eruption` (three lava rivers, fountain bombs, instanced splatter, spatter cones, scoria), `rope-bridge-gorge`,
   `glacier-crevasse`, `sea-cliff-ledge`, `crystal-cavern-abyss`. Shared helpers in `Scenes/EnvKit.swift`.
 - Materials (`Library/Environment.swift`): `lava.*` (new `lavaFlow` unlit emitter program), `ice.glacier`, `ice.serac` (`glacierIce` program),

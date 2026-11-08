@@ -1,0 +1,17 @@
+{
+  "budget" : 24000,
+  "id" : "drift-rig",
+  "kind" : "prop",
+  "materials" : ["metal.satin-aluminum", "metal.steel", "metal.anodized-worn", "plastic.black", "emissive.thruster-cyan", "emissive.flame"],
+  "name" : "Drift rig",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X, spine rig on -Z. Parts spine, chest, pelvis, shoulderL, shoulderR, rocketL, rocketR (pivots at neck rig, sternum, pelvis, shoulder joints, elbows; forearm along -Y, nozzle on +Y of the elbow). Joints reactor, thrustL, thrustR, punch 0...1; followers reactorLit, reactorLitChest (0.05) and flameL/flameR (0.05) switch options.",
+  "parts" : ["back spine rig with twin rails, vertebra rings and glowing core stack", "chest plate with reactor ring and core", "pelvis ring with hip skirt plates", "shoulder pauldrons with upper arm tubes", "forearm sleeves with rocket nozzle at the elbow and flame cone"],
+  "references" : [],
+  "size" : [0.9, 1.1, 0.5],
+  "style" : "Pale satin plated exo frame with dark seals, gunmetal rails, cyan reactor core and orange rocket flame, original shapes only.",
+  "summary" : "Pilot drift exo rig: plated frame, back spine rig, chest reactor and rocket-elbow forearm sleeves.",
+  "tags" : ["prop", "metal", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}

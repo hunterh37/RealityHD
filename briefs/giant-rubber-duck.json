@@ -1,0 +1,35 @@
+{
+  "budget": 70000,
+  "id": "giant-rubber-duck",
+  "kind": "prop",
+  "materials": [
+    "plastic.gloss"
+  ],
+  "name": "Giant rubber duck",
+  "notes": "Origin at the waterline under the body centre, bill +Z, up +Y. 18 m tall, 14 m long. Joints bob -1...1 (pitch 8 deg, positive dips the bill), head -1...1 (yaw 30 deg), squash 0...1 (body sinks 1.1 m, about 15 percent of height), deflate 0...1 (body sags 4.5 m, head bows 38 deg and drops 3.5 m, heavy wrinkle shell switches on at 0.05). All four are empty drivers; hull, squashSlide, sag, headDrop, headYaw, headBow follow by mimic.",
+  "parts": [
+    "smooth 128x64 deformed-sphere body with tail lift and wing swells",
+    "128x64 deformed-sphere head with cheek bulges on a flared neck",
+    "flat orange upper bill, darker lower bill, dark lip seam, nostrils",
+    "painted black eyes with white catchlights",
+    "welded seam tubes along body, waist and head",
+    "deflation wrinkle shell"
+  ],
+  "references": [],
+  "size": [
+    11.2,
+    18.0,
+    17.0
+  ],
+  "style": "Glossy yellow PVC inflatable with clearcoat, faint skin wrinkles and welded seams, orange bill, original shapes only.",
+  "summary": "Giant inflatable rubber duck, 18 m tall: glossy yellow PVC body and head with seams and faint wrinkles, flat orange bill with lip seam, painted black eyes with catchlights, joints bob, head, squash, deflate.",
+  "tags": [
+    "prop",
+    "toy",
+    "water",
+    "articulated"
+  ],
+  "theme": "Toys",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

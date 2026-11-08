@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "web-suit",
+  "kind" : "prop",
+  "materials" : ["rubber.insulating-red", "fabric.nylon", "rubber.insulating-black", "metal.steel", "metal.titanium", "emissive.surgical", "plastic.black"],
+  "name" : "Web suit",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts helmet, chest, back, shoulderL, shoulderR, gauntletL, gauntletR (pivots at neck base, sternum, between shoulder blades, shoulder joints, elbows; forearm along -Y). Joints lenses, web, cling, point 0...1 are empty drivers; followers lensGlow, senseRipple, webShot switch option at 0.05.",
+  "parts" : ["snug hood with raised web pattern and two large slanted eye lenses", "red torso with blue flank panels and an original six-spoke web star mark", "web pattern on chest, back and shoulder caps", "blue sleeves with red cuffs and gloves", "right wrist web shooter with fired strand and splat", "spider-sense ripple rings around the head"],
+  "references" : [],
+  "size" : [0.75, 1.35, 0.4],
+  "style" : "Glossy red and blue stretch suit with raised black web lines, white lens glow, original shapes only.",
+  "summary" : "Red and blue webbed suit kit: slanted-lens hood, raised web pattern, wrist web shooter with strand and splat, spider-sense ripple rings.",
+  "tags" : ["prop", "rubber", "fabric", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}
