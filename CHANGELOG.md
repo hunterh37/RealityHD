@@ -9,6 +9,13 @@
   `peanut-butter-jar`, `juice-carton`, `cookie-pack`, `ice-cream-pint`, `cleaning-spray`, `paper-towel-pack`. Invented brands only.
 - Material `floor.grocery-vct` (`Library/Grocery.swift`).
 - Scene `grocery-store`: 20 x 14 m supermarket; layout constants in `docs/scenes/grocery-store.md`.
+- Grocery items: `canned-vegetables`, `laundry-detergent-jug`, `toilet-paper-pack`, `sports-drink-bottle`, `flour-bag`,
+  `salsa-jar`, `granola-bar-box`, `tissue-box`, `dish-soap-bottle`, `pet-food-bag`, `oatmeal-canister`, `pasta-sauce-jar`,
+  `tea-box`, `energy-drink-can`, `sugar-bag`, `cracker-box`. Invented brands, printed labels, 2 LODs.
+- Stock density: `stockDepth` (1...6) and `packing` (0...1) on `grocery-gondola`, `gondola-endcap`, `refrigerated-case`,
+  `freezer-case`; `fill` on `gondola-endcap`; `GroceryGondola.realisticItems` mixes the new items into hi-LOD facings.
+- `GroceryStore`: `stockFill`, `stockDepth`, `packing`, `overstock` (top-shelf case packs, stocking carts, pallet).
+- API: `RealityHD.scene(_ builder: some RealSceneBuilder, seed:)` builds a configured scene builder.
 
 ## 5.21.1
 

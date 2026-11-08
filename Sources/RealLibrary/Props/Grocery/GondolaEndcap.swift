@@ -22,6 +22,10 @@ public struct GondolaEndcap: RealAsset {
     public var price = "2/$5"
     /// Header word.
     public var headline = "SAVE"
+    /// Stock fill (0 empty to 1 full), facings deep (1...6) and packing (0 loose, 1 shoulder to shoulder).
+    public var fill: Float = 0.98
+    public var stockDepth: Int = 6
+    public var packing: Float = 0.5
     public var steel: MaterialKey = "metal.powdercoat:E4E5E2"
     public var trim: MaterialKey = "metal.powdercoat:3A3E44"
     public init() {}
@@ -72,7 +76,8 @@ public struct GondolaEndcap: RealAsset {
                 let top = si == shelfHeights.count - 1 ? H - 0.03 : shelfHeights[si + 1] - 0.03
                 let mix: [GroceryKit.Pack] = si == 1 ? [.bag, .bag] : (si == 2 ? [.box, .tallBox] : [.bottle, .jar])
                 GroceryKit.stockShelf(&m, x0: -W / 2 + 0.035, x1: W / 2 - 0.035, y: sy, zFront: zFront - 0.015, depth: d - 0.02,
-                                      maxH: top - sy - 0.02, packs: mix, fill: 0.98, rng: &rng, hi: hi, coarseAt: 6000, boxAt: 8500)
+                                      maxH: top - sy - 0.02, packs: mix, fill: fill, rng: &rng, hi: hi, coarseAt: 6000, boxAt: 8500,
+                                      capAt: 9500, stockDepth: stockDepth, packing: packing)
             }
         }
         groundAO(&m, height: 0.12, floor: 0.7)

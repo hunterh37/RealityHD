@@ -24,6 +24,9 @@ public struct RefrigeratedCase: RealAsset {
     public var endPanels = true
     /// Stock fill, 0 empty to 1 full.
     public var fill: Float = 0.95
+    /// Facings deep (1...6) and packing (0 loose, 0.5 original, 1 shoulder to shoulder).
+    public var stockDepth: Int = 6
+    public var packing: Float = 0.5
     /// Exterior and interior finishes.
     public var shell: MaterialKey = "metal.powder-white"
     public var interior: MaterialKey = "metal.powdercoat:202327"
@@ -82,7 +85,8 @@ public struct RefrigeratedCase: RealAsset {
             }
             let top = li == 0 ? shelfHeights[0] - 0.05 : (li < levels.count - 1 ? levels[li + 1] - 0.04 : H - 0.2)
             GroceryKit.stockShelf(&m, x0: -W / 2 + 0.02, x1: W / 2 - 0.02, y: y, zFront: shelfFront - 0.015, depth: d - 0.01,
-                                  maxH: min(0.27, top - y), packs: mixes[li], fill: fill, rng: &rng, hi: hi, coarseAt: 8000, boxAt: 11000)
+                                  maxH: min(0.27, top - y), packs: mixes[li], fill: fill, rng: &rng, hi: hi, coarseAt: 8000, boxAt: 11000,
+                                  capAt: 12500, stockDepth: stockDepth, packing: packing)
         }
         groundAO(&m, height: 0.1, floor: 0.75)
         return m

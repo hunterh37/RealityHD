@@ -109,6 +109,16 @@ public enum RealityHD {
         return try await s.entity()
     }
 
+    /// A composed scene from a configured builder, e.g. `GroceryStore().with { $0.packing = 1; $0.overstock = true }`.
+    /// A preloaded prebake is used only when every parameter equals the builder's defaults.
+    public static func scene(_ builder: some RealSceneBuilder, seed: UInt64 = 1) async throws -> Entity {
+        let id = type(of: builder).id
+        if String(describing: builder) == String(describing: type(of: builder).init()),
+           let s = RealPrebake.takePreloaded(id, seed) { return try await s.entity() }
+        let s = await Task.detached(priority: .userInitiated) { builder.build(seed: seed) }.value
+        return try await s.entity()
+    }
+
     /// Registers the prebaked folder in the app bundle (`realityhd prebake` output copied as `RealityHDPrebaked`):
     /// asset geometry, scene AO and textures load from files instead of being generated. Call after `setup`.
     /// Returns what was baked, or nil when the bundle holds none (generation runs as before).

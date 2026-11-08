@@ -198,34 +198,162 @@ enum GroceryKit {
         }
     }
 
+    /// A realistic packaged item used as a shelf facing: the item's model (front +Z, base y = 0, centered),
+    /// its outer size, the generic pack and palette that stand in for it on coarse tiers and low LODs.
+    struct Hero {
+        let model: Model
+        let size: V3
+        let pack: Pack
+        let palette: (UInt32, UInt32, UInt32)
+        init(_ m: Model, _ pack: Pack, _ palette: (UInt32, UInt32, UInt32)) {
+            model = plant(m); let b = model.bounds; size = b.max - b.min; self.pack = pack; self.palette = palette
+        }
+    }
+
     /// Fills one shelf from x0 to x1 with facings whose fronts sit at `zFront` (facing +Z), `depth` deep,
-    /// at most `maxH` tall. `backRows` adds cheap stock behind each facing.
+    /// at most `maxH` tall. Stock behind each facing is one block per facing.
+    /// - `stockDepth`: facings deep, 1...6; 6 runs to the natural depth (and to the back stop when `packing` >= 0.75).
+    /// - `packing`: 0 loose gaps and skewed facings, 0.5 the original spacing, 1 shoulder to shoulder, end to end.
+    /// - `heroes`: realistic items mixed into the facings (hi detail tier only; generic stand-ins elsewhere).
+    /// Triangle tiers: full detail below `coarseAt`, coarse lathes to `boxAt`, boxes to `capAt`, then one block per group.
     static func stockShelf(_ m: inout Model, x0: Float, x1: Float, y: Float, zFront: Float, depth: Float, maxH: Float,
-                           packs: [Pack], fill: Float, rng: inout SeededRNG, hi: Bool, coarseAt: Int = 3500, boxAt: Int = 5000) {
-        var x = x0 + rng.float(0...0.015)
-        while x < x1 - 0.06 {
-            let kind = packs[rng.int(0...(packs.count - 1))]
-            var s = size(kind, &rng)
+                           packs: [Pack], fill: Float, rng: inout SeededRNG, hi: Bool, coarseAt: Int = 3500, boxAt: Int = 5000,
+                           capAt: Int? = nil, stockDepth: Int = 6, packing: Float = 0.5, heroes: [Hero] = [], heroShare: Float = 0.35) {
+        let p = max(0, min(1, packing)), loose = (1 - p) * 2
+        let cap = capAt ?? (boxAt + (boxAt - coarseAt))
+        let deep = max(1, min(6, stockDepth))
+        let fits = heroes.filter { $0.size.y <= maxH && $0.size.z <= depth && $0.size.x < (x1 - x0) / 2 }
+        let tail: Float = p > 0.5 ? 0.06 - 0.1 * (p - 0.5) : 0.06
+        var x = x0 + rng.float(0...0.015) * min(1, loose)
+        while x < x1 - tail {
+            let hero: Hero? = !fits.isEmpty && rng.chance(heroShare) ? fits[rng.int(0...(fits.count - 1))] : nil
+            let kind = hero?.pack ?? packs[rng.int(0...(packs.count - 1))]
+            var s = hero?.size ?? size(kind, &rng)
             if s.y > maxH { let k = maxH / s.y; s.y = maxH; if kind == .bag || kind == .box { s.x *= max(0.7, k) } }
-            let p = palettes[rng.int(0...(palettes.count - 1))]
+            let pal = palettes[rng.int(0...(palettes.count - 1))]
+            let pc = hero?.palette ?? pal
             let n = rng.int(2...5)
-            let rows = max(1, Int((depth - 0.01) / s.z))
-            for f in 0..<n {
+            let natural = Float(max(1, Int((depth - 0.01) / s.z)) - 1) * s.z
+            func backDepth(_ front: Float) -> Float {
+                let avail = front - s.z / 2 - (zFront - depth)
+                if deep >= 6 { return p >= 0.75 ? max(0, avail) : natural }
+                return min(max(0, avail), Float(deep - 1) * s.z)
+            }
+            if m.triangleCount > cap {
+                // Over the cap: the whole group as one block in the body color.
+                let w = min(Float(n) * s.x, x1 - x)
+                if w > 0.03 && rng.float() <= fill {
+                    let front = zFront - s.z / 2
+                    let dz = s.z + backDepth(front)
+                    flat(&m, V3(w - 0.002, s.y * 0.95, dz), V3(x + w / 2, y + s.y * 0.475, zFront - dz / 2), tint("paper.sheet", pc.0))
+                }
+                x += w + rng.float(0.006...0.02) * loose
+                continue
+            }
+            for _ in 0..<n {
                 if x + s.x > x1 { break }
-                if rng.float() > fill { x += s.x + 0.004; continue }
+                if rng.float() > fill { x += s.x + 0.004 * max(0.25, loose); continue }
                 let cx = x + s.x / 2
-                let front = zFront - s.z / 2 - rng.float(0...0.008)
+                let front = zFront - s.z / 2 - rng.float(0...0.008) * loose
                 let t = m.triangleCount
                 let tier = t > boxAt ? 2 : (t > coarseAt || !hi ? 1 : 0)
-                product(&m, kind, size: s, at: V3(cx, y, front), palette: p, hi: hi, yaw: rng.float(-1.5...1.5), tier: tier)
-                if rows > 1 {
-                    // Rest of the row behind the facing as one block in the body color.
-                    let back = s.z * Float(rows - 1)
-                    flat(&m, V3(s.x * 0.96, s.y * 0.9, back - 0.004), V3(cx, y + s.y * 0.45, front - s.z / 2 - back / 2), tint("paper.sheet", p.0))
+                let yaw = rng.float(-1.5...1.5) * min(1, loose)
+                if let h = hero, tier == 0 {
+                    m.add(h.model, Xform(translation: V3(cx, y, front), rotation: simd_quatf(degrees: yaw, axis: .up)))
+                } else {
+                    product(&m, kind, size: s, at: V3(cx, y, front), palette: pc, hi: hi, yaw: yaw, tier: tier)
                 }
-                x += s.x + rng.float(0.002...0.006)
+                let back = backDepth(front)
+                if back > 0.006 {
+                    // Rest of the row behind the facing as one block in the body color.
+                    flat(&m, V3(s.x * 0.96, s.y * 0.9, back - 0.004), V3(cx, y + s.y * 0.45, front - s.z / 2 - back / 2), tint("paper.sheet", pc.0))
+                }
+                x += s.x + rng.float(0.002...0.006) * loose + 0.0005
             }
-            x += rng.float(0.006...0.02)
+            x += rng.float(0.006...0.02) * loose
+        }
+        // Tight packing: close the last gap at the upright with a narrow facing.
+        let rem = x1 - x
+        if p >= 0.75 && fill >= 0.9 && rem > 0.03 {
+            let pal = palettes[rng.int(0...(palettes.count - 1))]
+            let s = V3(rem - 0.002, min(maxH, 0.24), min(0.05, depth))
+            let front = zFront - s.z / 2
+            product(&m, .tallBox, size: s, at: V3(x + rem / 2, y, front), palette: pal, hi: hi, tier: m.triangleCount > boxAt ? 2 : 1)
+            let back = depth - s.z - 0.004
+            if back > 0.006 { flat(&m, V3(s.x * 0.96, s.y * 0.9, back), V3(x + rem / 2, y + s.y * 0.45, front - s.z / 2 - back / 2), tint("paper.sheet", pal.0)) }
+        }
+    }
+
+    // MARK: item helpers
+
+    /// Scales an RGB color by `k`.
+    static func shade(_ c: UInt32, _ k: Float) -> UInt32 {
+        func q(_ v: UInt32) -> UInt32 { UInt32(max(0, min(255, Float(v) * k))) }
+        return (q((c >> 16) & 0xFF) << 16) | (q((c >> 8) & 0xFF) << 8) | q(c & 0xFF)
+    }
+
+    /// Printed paperboard carton, base at y = 0: beveled body, art panel, accent stripe, brand and product
+    /// line on front (and back on hi), top flap seam, side info panel and scuffed bottom corners on hi.
+    static func carton(_ m: inout Model, size s: V3, body: UInt32, panel: UInt32, accent: UInt32, ink: UInt32,
+                       brand: String, line: String, hi: Bool) {
+        box(&m, s, V3(0, s.y / 2, 0), tint("paper.sheet", body), r: 0.0018)
+        let fz = s.z / 2 + 0.0006
+        for side: Float in hi ? [1, -1] : [1] {
+            let rot = simd_quatf(degrees: side > 0 ? 0 : 180, axis: .up)
+            decal(&m, s.x * 0.86, s.y * 0.36, V3(0, s.y * 0.66, side * fz), tint("paper.sheet", panel), rot: rot)
+            decal(&m, s.x * 0.999, s.y * 0.06, V3(0, s.y * 0.38, side * fz), tint("paper.sheet", accent), rot: rot)
+            print(&m, brand, height: s.y * 0.11, at: V3(0, s.y * 0.66, side * (fz + 0.0003)), tint("paper.sheet", ink), rot: rot, maxWidth: s.x * 0.76)
+            print(&m, line, height: s.y * 0.05, at: V3(0, s.y * 0.53, side * (fz + 0.0003)), tint("paper.sheet", shade(ink, 0.8)), rot: rot, maxWidth: s.x * 0.76)
+        }
+        if hi {
+            decal(&m, s.x * 0.97, 0.0016, V3(0, s.y + 0.0004, 0), tint("paper.sheet", shade(body, 0.7)), rot: simd_quatf(degrees: -90, axis: V3(1, 0, 0)))
+            decal(&m, s.z * 0.8, s.y * 0.5, V3(s.x / 2 + 0.0006, s.y * 0.45, 0), "paper.sheet:F4F2EA", rot: simd_quatf(degrees: 90, axis: .up))
+            for e: Float in [-1, 1] {
+                decal(&m, 0.008, 0.006, V3(e * (s.x / 2 - 0.005), 0.004, fz + 0.0002), tint("paper.sheet", shade(body, 1.25)))
+            }
+        }
+    }
+
+    /// Lathe band at radius `r` from y0 to y1 (labels, sleeves), optionally squashed in Z.
+    static func band(_ m: inout Model, r: Float, _ y0: Float, _ y1: Float, seg: Int, _ key: MaterialKey, oval: Float = 1) {
+        m.add(Prim.lathe([V2(r, y0), V2(r, y1)], segments: seg, seamTile: 0.05, material: key), Xform(scale: V3(1, 1, oval)))
+    }
+
+    /// A flat panel `w` x `h` wrapped on a cylinder of radius `r` (front at +Z), bottom at `y`.
+    static func wrapPanel(_ m: inout Model, w: Float, h: Float, radius r: Float, y: Float, _ key: MaterialKey, oval: Float = 1) {
+        var s = Surface(material: key)
+        let n = V3(0, 0, 1), k = 8
+        var prev: (UInt32, UInt32)?
+        for i in 0...k {
+            let x = -w / 2 + w * Float(i) / Float(k)
+            let a = s.add(V3(x, 0, 0), n, V2(x, 0)), b = s.add(V3(x, h, 0), n, V2(x, h))
+            if let p = prev { s.quad(p.0, a, b, p.1) }
+            prev = (a, b)
+        }
+        s.computeTangents()
+        m.add(wrap(s, radius: r + 0.0009), Xform(translation: V3(0, y, 0), scale: V3(1, 1, oval)))
+    }
+
+    /// Condensation beads on the front half of a cylinder of radius `r`.
+    static func droplets(_ m: inout Model, radius r: Float, _ y0: Float, _ y1: Float, count: Int, seed: UInt64, oval: Float = 1) {
+        var rng = SeededRNG(seed: seed)
+        let drop = Prim.superellipsoid(V3(1, 1, 0.45), exponent: 2, subdivisions: 2, material: "plastic.clear")
+        var s = Surface(material: "plastic.clear")
+        for _ in 0..<count {
+            let a = rng.float(-1.4...1.4), yy = rng.float(y0...y1), d = rng.float(0.0012...0.0028)
+            s.append(drop, Xform(translation: V3(r * sin(a), yy, r * cos(a) * oval), rotation: simd_quatf(angle: a, axis: .up), scale: V3(d, d * 1.35, d)))
+        }
+        m.add(s)
+    }
+
+    /// Kraft case-pack carton with a tape seam and a printed brand, base center at `c`.
+    static func caseCarton(_ m: inout Model, size s: V3, at c: V3, brand: String, rng: inout SeededRNG) {
+        box(&m, s, c + V3(0, s.y / 2, 0), "paper.screwbox-kraft", r: 0.004)
+        flat(&m, V3(0.05, 0.0012, s.z + 0.002), c + V3(0, s.y + 0.0006, 0), "plastic.translucent:C9B48A")
+        for side: Float in [1, -1] {
+            let rot = simd_quatf(degrees: side > 0 ? 0 : 180, axis: .up)
+            print(&m, brand, height: min(0.04, s.y * 0.18), at: c + V3(0, s.y * 0.45, side * (s.z / 2 + 0.0008)), "paper.sheet:2A2622", rot: rot, maxWidth: s.x * 0.7)
+            if rng.chance(0.5) { decal(&m, 0.07, 0.045, c + V3(s.x * 0.28, s.y * 0.2, side * (s.z / 2 + 0.0008)), "paper.sheet:F6F5EE", rot: rot) }
         }
     }
 
