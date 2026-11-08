@@ -1464,6 +1464,7 @@ public enum Props {
         Cinema3dGlasses.self,
         DinerSaltShaker.self,
         ChefToque.self,
+        MolassesTank.self,
         ColonialBrig.self,
         SignalLantern.self,
         Capybara.self,
