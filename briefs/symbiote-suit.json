@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "symbiote-suit",
+  "kind" : "prop",
+  "materials" : ["plastic.black", "rubber", "plastic.white", "leather.oxblood", "emissive.surgical"],
+  "name" : "Symbiote suit",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts helmet, chest, back, shoulderL, shoulderR, gauntletL, gauntletR (pivots at neck base, sternum, between shoulder blades, shoulder joints, elbows; forearm along -Y). Joints grin, tendril, eyes 0...1 and ooze -1...1 are empty drivers; followers eyeGlow, grinOpen, tendrils switch option at 0.05.",
+  "parts" : ["bulbous glossy black helmet with slanted eye patches and closed fanged grin", "open maw with upper and lower fangs and long tongue", "swollen pectoral and abdomen masses with sinew ridges", "ridged back with four coiled tendril stubs and four long extended tendrils", "bulky deltoids and forearms with claws and goo drips"],
+  "references" : [],
+  "size" : [0.9, 1.1, 0.7],
+  "style" : "Liquid black bio-mass, glossy, lofted organic masses with sinew ridges, hanging drips, white eye patches and fangs.",
+  "summary" : "Black symbiote suit kit: glossy bio-mass sheath, slanted eye patches, fanged grin that opens, back tendrils, clawed gauntlets and goo drips.",
+  "tags" : ["prop", "metal", "leather", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}

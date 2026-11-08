@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "trooper-armor",
+  "kind" : "prop",
+  "materials" : ["plastic.white", "rubber.insulating-black", "plastic.black", "metal.steel", "emissive.led-red"],
+  "name" : "Trooper armor",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts helmet, chest, back, shoulderL, shoulderR, gauntletL, gauntletR (pivots at neck base, sternum, between shoulder blades, shoulder joints, elbows; forearm along -Y) plus blaster at the right grip (-0.215, -0.58, 0.05), barrel along +Z. Joints visor, scuff 0...1 drive followers visorGlint and scuffMarks (option switch at 0.05); blaster and recoil are empty drivers for the lens.",
+  "parts" : ["rounded dome helmet with broad black teardrop lenses, glint strip, cheek plates, ear discs and slotted mouth vent", "layered pectoral and abdomen plates over a black undersuit with utility belt", "back plate with spine tube", "bell pauldrons with rim and lames", "white vambraces with black gloves", "blast rifle with receiver, optic, barrel and status lamp", "scorch patches on the chest"],
+  "references" : [],
+  "size" : [0.75, 1.0, 0.85],
+  "style" : "Glossy white molded plate armour over a black undersuit, black lenses, original shapes only.",
+  "summary" : "Glossy white trooper armor kit: dome helmet with black lenses, layered plates over a black undersuit, bell pauldrons, vambraces and a blast rifle, with lens glint and scorch marks.",
+  "tags" : ["prop", "plastic", "armor", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}

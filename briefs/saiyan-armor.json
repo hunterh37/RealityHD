@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "saiyan-armor",
+  "kind" : "prop",
+  "materials" : ["metal.painted", "metal.gold-leaf", "metal.blued-steel", "metal.iron", "leather.black", "emissive.led-green", "emissive.amber", "emissive.thruster-cyan"],
+  "name" : "Saiyan armor",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts helmet, chest, back, shoulderL, shoulderR, gauntletL, gauntletR (pivots at neck base, sternum, between shoulder blades, shoulder joints, elbows; forearm along -Y). Joints scouter, aura, ki, surge 0...1; followers scouterGlow, auraFlames, kiOrbL, kiOrbR, surgeRings switch option at 0.05. Scouter lens on +X side of the helmet.",
+  "parts" : ["open-face white helmet cap with gold brow band and headset with green scouter lens", "layered white chest plate with gold edging, collar bar and belly lames over a black undersuit", "winged shoulder guards: shoulder cap plus three fanned gold and white feather plates", "bracers with gold cuffs, gloves and palm ki orbs", "back plate with gold ridge and aura flame crown", "power-up halo rings around the torso"],
+  "references" : [],
+  "size" : [0.9, 0.95, 0.4],
+  "style" : "Anime battle armour, warm white painted alloy plates with chamfered gold trim, winged shoulders, glowing green scouter, blue ki orbs, gold aura.",
+  "summary" : "Saiyan battle armour kit: white and gold plated chest, winged shoulder guards, helmet with glowing green scouter, bracers with palm ki orbs and a gold aura crown.",
+  "tags" : ["prop", "metal", "leather", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}

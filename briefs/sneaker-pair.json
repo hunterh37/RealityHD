@@ -1,0 +1,34 @@
+{
+  "budget": 15000,
+  "id": "sneaker-pair",
+  "kind": "prop",
+  "materials": [
+    "fabric.canvas",
+    "rubber",
+    "metal.chrome"
+  ],
+  "name": "Sneaker pair",
+  "notes": "Hero prop for the Damn Daniel lens. Blank white canvas, no brand marks, no side stripe, no wordmark.",
+  "parts": [
+    "rubber sole and midsole",
+    "lofted canvas upper",
+    "toe cap",
+    "heel counter",
+    "tongue",
+    "collar",
+    "five laces",
+    "ten metal eyelets",
+    "tonal side panels",
+    "heel tab",
+    "stitched seam",
+    "outsole grooves"
+  ],
+  "references": [],
+  "size": [0.227, 0.110, 0.290],
+  "style": "pristine white canvas low-top sneakers, studio clean, slightly worn insole",
+  "summary": "Pair of blank white canvas low-top sneakers, 28 cm: rubber sole, lofted upper, toe cap, tongue, five laces, eyelets, heel tab.",
+  "tags": ["prop", "fashion", "apparel", "handheld", "footwear"],
+  "theme": "Fashion",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

@@ -1,0 +1,48 @@
+{
+  "budget": 15000,
+  "id": "lunar-lander",
+  "kind": "prop",
+  "notes": "Origin at centre of the descent stage floor, hatch faces +Z, up +Y. Joints legs, hatch, ladder, thrust. Legs at +Z, +X, -Z, -X; ladder on the +Z leg.",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Lunar lander",
+  "size": [
+    9.4,
+    6.3,
+    9.4
+  ],
+  "style": "Apollo lunar module, gold Kapton foil, silver mylar, realistic",
+  "theme": "Aerospace",
+  "tags": [
+    "prop",
+    "aerospace",
+    "lunar",
+    "space",
+    "vehicle",
+    "metal",
+    "outdoor",
+    "articulated"
+  ],
+  "parts": [
+    "octagonal gold foil descent stage",
+    "descent engine bell with emissive lining",
+    "ascent stage with front hatch, porch and two windows",
+    "four landing legs with secondary struts and footpads",
+    "four RCS quads",
+    "ladder on the forward leg",
+    "S-band dish and rendezvous radar dish",
+    "rod antennas"
+  ],
+  "materials": [
+    "insulation.foil-gold",
+    "metal.aluminum-brushed",
+    "metal.powder-white",
+    "plastic.matte",
+    "glass.lens-coated",
+    "metal.steel",
+    "metal.heat-tint-cold",
+    "emissive.warm"
+  ],
+  "summary": "Apollo-style lunar module, 9.2 m across the footpads: gold foil octagonal descent stage, ascent stage with hatch and windows, four legs, engine bell, RCS quads, ladder, dish, joints legs, hatch, ladder, thrust."
+}

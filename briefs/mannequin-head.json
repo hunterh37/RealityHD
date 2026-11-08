@@ -1,0 +1,31 @@
+{
+  "budget": 15000,
+  "id": "mannequin-head",
+  "kind": "prop",
+  "materials": [
+    "plastic.gloss",
+    "plastic.matte"
+  ],
+  "name": "Mannequin head",
+  "notes": "Hero prop for the Distracted lens. Smooth moulded fibreglass, painted eyes and lips, visible side seam.",
+  "parts": [
+    "egg-shaped cranium",
+    "square jaw and chin",
+    "cheekbones",
+    "straight nose",
+    "painted closed lips",
+    "shallow painted eyes and lash lines",
+    "sculpted ears",
+    "neck and shoulder stub",
+    "side seam",
+    "base socket"
+  ],
+  "references": [],
+  "size": [0.187, 0.260, 0.191],
+  "style": "department-store fibreglass mannequin, warm ivory gloss, blank expression",
+  "summary": "Fibreglass mannequin head, 26 cm: smooth ivory cranium, square jaw, straight nose, painted lips and eyes, ears, neck and side seam.",
+  "tags": ["prop", "decor", "mannequin", "retail", "interior"],
+  "theme": "Decor",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}

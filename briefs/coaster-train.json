@@ -1,0 +1,35 @@
+{
+  "budget": 15000,
+  "id": "coaster-train",
+  "kind": "prop",
+  "materials": [
+    "paint.car-clearcoat",
+    "metal.chrome",
+    "metal.steel",
+    "metal.anodized-gunmetal",
+    "rubber.silicone-gray",
+    "plastic.black",
+    "leather.black",
+    "emissive.lamp-white"
+  ],
+  "name": "Coaster train",
+  "notes": "Origin at the centre of the lead car, rail top at y = 0, forward +Z, up +Y, cars trail toward -Z. Joints wheels, bars, pitch, bank. Original design, no brand marks.",
+  "parts": [
+    "three lofted open-cockpit car shells with rounded noses",
+    "four leather seats per car in two rows",
+    "chrome lap bars on hinges",
+    "steel chassis spines",
+    "two bogies per car with running, side and up-stop wheels",
+    "couplers between cars",
+    "chrome nose bumper",
+    "two headlight lenses on the lead car"
+  ],
+  "references": [],
+  "size": [1.7, 1.5, 9.5],
+  "style": "amusement park steel coaster, red clearcoat paint and chrome",
+  "summary": "Three-car roller coaster train: red clearcoat lofted car shells, leather seats, chrome lap bars, steel bogies with running, side and up-stop wheels, headlights, joints wheels, bars, pitch, bank.",
+  "tags": ["prop", "amusement", "coaster", "vehicle", "playground", "metal", "outdoor", "articulated"],
+  "theme": "Playground",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

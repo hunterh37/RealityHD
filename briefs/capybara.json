@@ -1,0 +1,28 @@
+{
+  "budget": 15000,
+  "id": "capybara",
+  "kind": "prop",
+  "notes": "Sitting posture, faces +Z. Atlas fur material: u wraps body (0 dorsal), v 0 rear to 1 front.",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Capybara",
+  "size": [0.45, 0.5, 0.9],
+  "style": "adult capybara sitting, coarse short brown fur, wet nose, jaw slightly agape",
+  "theme": "Decor",
+  "tags": ["prop", "decor", "creature", "outdoor"],
+  "parts": [
+    "barrel body",
+    "blunt boxy muzzle",
+    "nostril pads",
+    "wet nose",
+    "small rounded ears",
+    "small dark glossy eyes",
+    "open jaw with incisor pair",
+    "four short legs",
+    "webbed toes",
+    "coarse fur tufts"
+  ],
+  "materials": ["fauna.fur:8A6440", "plastic.gloss", "plastic.matte", "leather.black"],
+  "summary": "Seated adult capybara: barrel body, boxy muzzle with wet nose and agape jaw showing incisors, small ears and eyes, short legs with webbed toes, coarse brown fur."
+}

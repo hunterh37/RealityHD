@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "vigilante-armor",
+  "kind" : "prop",
+  "materials" : ["rubber.insulating-black", "leather.black", "metal.titanium", "metal.steel", "fabric.nylon", "emissive.surgical", "plastic.black"],
+  "name" : "Vigilante armor",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts helmet, chest, back, shoulderL, shoulderR, gauntletL, gauntletR (pivots at neck base, sternum, between shoulder blades, shoulder joints, elbows; forearm along -Y) plus capeMantle at (0, -0.04, -0.17). Joints cowl, emblem, grapple 0...1 and cape -1...1 are empty drivers; followers cowlGlow, emblemGlow, grappleShot switch option at 0.05.",
+  "parts" : ["pointed-ear cowl with slanted lenses, brow plates and jaw guards", "pectoral plates with hex-and-lozenge emblem, banded abdomen lames", "utility belt with buckle and pouches", "back plate with spine ridge and cape yoke", "long cloth cape with fold waves", "sloped pauldrons, scalloped-fin bracers", "right wrist grapple launcher with fired line and three-prong hook"],
+  "references" : [],
+  "size" : [0.9, 1.4, 0.5],
+  "style" : "Matte segmented dark armour over a leather undersuit, titanium trim, white lens and emblem glow, original shapes only.",
+  "summary" : "Dark vigilante armor kit: pointed-ear cowl with glowing lenses, segmented matte plates, hex chest emblem, utility belt, fin bracers, wrist grapple and long cape.",
+  "tags" : ["prop", "metal", "leather", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}

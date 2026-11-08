@@ -1,0 +1,26 @@
+{
+  "budget": 10000,
+  "id": "laurel-wreath",
+  "kind": "prop",
+  "materials": [
+    "metal.gold-leaf",
+    "metal.brass-aged",
+    "metal.brass"
+  ],
+  "name": "Laurel wreath",
+  "notes": "Hero prop for the Roman Empire lens. Worn on the head; the gap sits at the back.",
+  "parts": [
+    "two branch ribbons",
+    "48 tapered leaves",
+    "six berries",
+    "back clasp"
+  ],
+  "references": [],
+  "size": [0.310, 0.023, 0.315],
+  "style": "polished gold laurel with aged brass accents, classical, ceremonial",
+  "summary": "Gold laurel wreath, 24 cm: two branch ribbons, 48 tapered leaves in polished and aged gold, berries and a back clasp.",
+  "tags": ["prop", "decor", "jewelry", "classical", "handheld"],
+  "theme": "Decor",
+  "threshold": 0.85,
+  "tolerance": 0.10
+}

@@ -1,0 +1,25 @@
+{
+  "budget" : 14000,
+  "id" : "chef-toque",
+  "kind" : "prop",
+  "materials" : ["fabric.nylon:F6F4EE", "fabric.canvas:ECE8DF"],
+  "name" : "Chef toque",
+  "notes" : "Opening is 0.19 m across inside the band so it sits on a head. Base at y = 0.",
+  "parts" : [
+    "stiff head band, 5.5 cm tall, 0.19 m inside diameter",
+    "inner sweatband liner with a seam",
+    "pleated crown lofted with sinusoidal pleat ripples, 24 pleats",
+    "crown flaring from the band and puffing out near the top",
+    "soft puffed flat-ish top with converging pleats",
+    "inner crown skin visible from below",
+    "band top stitch line"
+  ],
+  "references" : [],
+  "size" : [0.235, 0.28, 0.235],
+  "style" : "starched white cotton chef hat, clean, soft sheen",
+  "summary" : "Tall pleated white chef toque, 28 cm tall on a 0.19 m head band, pleated lofted crown with a puffed top.",
+  "tags" : ["prop", "kitchen", "fabric", "interior", "handheld"],
+  "theme" : "Kitchen",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}

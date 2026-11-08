@@ -63,8 +63,17 @@ public enum AssetTag {
         "locomotive", "steam",
         // fantasy: articulated mythical creatures
         "fantasy", "creature", "finance",
+        "fantasy", "creature",
+        // creatures: dinosaurs
+        "dinosaur",
         // robots: articulated mechs and humanoid machines
         "robot", "mech",
+        // neon: glowing sci-fi vehicles and props
+        "neon", "scifi",
+        // amusement: park rides and ride vehicles
+        "amusement", "coaster",
+        // grocery: supermarket fixtures, packaged goods and produce
+        "grocery",
     ])
 
     /// Scene tags: any vocabulary tag plus these.

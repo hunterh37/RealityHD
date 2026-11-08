@@ -57,6 +57,7 @@ public enum SceneCatalog {
                 GlacierCrevasse.self,
                 SeaCliffLedge.self,
                 CrystalCavernAbyss.self,
+                GroceryStore.self,
                 // realityhd:scene
     ]
 

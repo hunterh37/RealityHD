@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "hunter-armor",
+  "kind" : "prop",
+  "materials" : ["metal.parkerized", "metal.blued-steel", "metal.bronze-weathered", "metal.iron", "metal.steel", "leather.black", "fabric.mesh", "emissive.led-green", "emissive.led-red"],
+  "name" : "Hunter armor",
+  "notes" : "Origin at the neck base on a 1.75 m body, face +Z, up +Y, character left +X. Kit parts helmet, chest, back, shoulderL, shoulderR, gauntletL, gauntletR. Joints mandibles 0...1 (four mandible plates open), caster -1...1 (shoulder caster yaw 40 degrees each way), blades 0...1 (four wrist blades slide 0.42 m), cloak 0...1 (emissive inlay option and light). Lights on eyes, caster lens, cloak.",
+  "parts" : ["mandible battle mask with four hinged mandible plates, eye lenses, mouth grille, breather tubes, dreadlock tubes", "netted mesh chest with lattice, pectoral, sternum and abdomen plates, collar ring", "back plate with spine beads and power cells", "lofted pauldron lames on both shoulders", "shoulder plasma caster with yawing housing, barrel and laser sight lenses", "gauntlets with sheath rails and twin retractable wrist blades each", "cloak shimmer inlays on chest, gauntlets, shoulders, back and brow"],
+  "references" : [],
+  "size" : [0.76, 0.62, 0.34],
+  "style" : "Dark parkerized and blued plate with weathered bronze trim, black leather, glowing green lenses, realistic bio-mechanical trophy hunter armor.",
+  "summary" : "Human-scale trophy hunter armor kit: mandible battle mask, shoulder plasma caster, wrist blades, netted mesh chest and cloak shimmer inlays.",
+  "tags" : ["prop", "metal", "leather", "fantasy", "articulated"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}

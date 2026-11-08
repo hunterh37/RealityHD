@@ -1,0 +1,17 @@
+{
+  "budget" : 24000,
+  "id" : "chrome-muscle",
+  "kind" : "prop",
+  "materials" : ["metal.chrome", "metal.steel", "plastic.black", "emissive.signal-white"],
+  "name" : "Chrome muscle",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts torso, belt, shoulderL, shoulderR, armL, armR, jaw (pivots at sternum, waist, shoulder joints, elbows with forearm along -Y, chin). Joints flex, shine, flash 0...1; follower jawLit (0.05) switches the jawline light strip.",
+  "parts" : ["torso with sculpted pecs, six-pack, serratus and traps", "belt ring with buckle", "deltoid caps and trapezius slopes", "upper arm with bicep bulge and forearm", "jawline chin guard with light strip, dark or lit"],
+  "references" : [],
+  "size" : [0.9, 1.0, 0.4],
+  "style" : "Mirror-polished liquid chrome muscle suit with dark steel grooves, black belt and a white jawline strip, original shapes only.",
+  "summary" : "Polished liquid-metal muscle suit: sculpted pecs and abs, deltoids, biceps, belt ring and a jawline guard with light strips.",
+  "tags" : ["prop", "metal", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}

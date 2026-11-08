@@ -1,0 +1,46 @@
+{
+  "budget": 20000,
+  "id": "tarnished-armor",
+  "kind": "prop",
+  "materials": [
+    "metal.iron",
+    "metal.cast-iron",
+    "metal.steel",
+    "fabric.wool",
+    "leather.black",
+    "metal.gold-leaf",
+    "emissive.amber",
+    "emissive.warm"
+  ],
+  "name": "Tarnished armor",
+  "notes": "Origin at the neck base, face +Z, wearer's left +X. Parts helmet, chest, back, shoulderL, shoulderR, gauntletL, gauntletR (pivots at neck base, sternum, between shoulder blades, shoulder joints, elbows; forearm along -Y) plus cloak with child cloakSway. Joints grace, blade, message 0...1 and cloak -1...1 are empty drivers; followers graceRunes, bladeGlint, messagePlaque switch option at 0.05. Sword held in right hand, tip along -Y.",
+  "parts": [
+    "closed great helm with vision slit, breath holes and plume stub",
+    "pitted breastplate with surcoat, belt and gorget",
+    "back plate",
+    "ragged double-sided cloak on a swaying joint",
+    "layered pauldrons with gold trim",
+    "riveted vambraces with elbow cops and leather gloves",
+    "long sword in right hand with golden glint overlay",
+    "golden rune lines on breastplate lit by grace",
+    "amber message plaque on the belt"
+  ],
+  "references": [],
+  "size": [
+    0.7,
+    1.0,
+    0.6
+  ],
+  "style": "Worn dark iron plate with faded wool surcoat, tattered cloak, gold leaf trim and amber rune light, original shapes only.",
+  "summary": "Weathered dark iron knight kit: great helm, pitted breastplate, tattered surcoat and cloak, pauldrons, vambraces and a long sword with golden rune lines.",
+  "tags": [
+    "prop",
+    "metal",
+    "fabric",
+    "articulated",
+    "glowing"
+  ],
+  "theme": "Armor",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

@@ -1,0 +1,17 @@
+{
+  "budget" : 24000,
+  "id" : "old-north-steeple",
+  "kind" : "prop",
+  "materials" : ["brick.red", "wood.painted-exterior", "stone.granite-curb", "screen.off", "metal.wrought-iron", "metal.copper-patina", "emissive.warm"],
+  "name" : "Old North steeple",
+  "notes" : "Old North Church, Boston (1723, 54 m) at 1:4.5, about 12 m. Faces +Z, origin at base center.",
+  "parts" : ["Flemish-bond red brick tower with white wood quoins, string courses and cornice", "arched louvered belfry openings and blind arches", "tall arched windows with keystones", "two stacked octagonal white-painted wooden stages with pilasters and balustrade", "slender tapering spire with copper-green weathervane", "lantern window at the upper belfry with two warm emissive panes"],
+  "references" : [],
+  "size" : [4.0, 12.0, 4.0],
+  "style" : "Georgian New England brick and white painted wood, crisp bevelled trim, weathered brick, patinated copper.",
+  "summary" : "Old North Church steeple, Boston 1:4.5: red brick Georgian tower with white quoins and arched windows, louvered belfry, two octagonal wooden stages, tapering spire and copper weathervane.",
+  "tags" : ["prop", "architecture", "building", "brick", "wood", "urban", "antique"],
+  "theme" : "Architecture",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}
