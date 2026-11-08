@@ -72,6 +72,8 @@ public enum AssetTag {
         "neon", "scifi",
         // amusement: park rides and ride vehicles
         "amusement", "coaster",
+        // grocery: supermarket fixtures, packaged goods and produce
+        "grocery",
     ])
 
     /// Scene tags: any vocabulary tag plus these.
