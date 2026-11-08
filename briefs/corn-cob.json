@@ -1,0 +1,29 @@
+{
+  "budget": 15000,
+  "id": "corn-cob",
+  "kind": "prop",
+  "materials": [
+    "food.lemon-flesh",
+    "food.banana-peel-section",
+    "food.stem-green",
+    "food.lemon",
+    "food.lemon-pith"
+  ],
+  "name": "Corn cob",
+  "notes": "Hero prop for the It's Corn lens. Kernels must read as individual rounded knobs at 0.5 m.",
+  "parts": [
+    "tapered pale cob core",
+    "168 golden kernels in offset rows",
+    "five curled husk leaves",
+    "cut stalk",
+    "silk tuft"
+  ],
+  "references": [],
+  "size": [0.176, 0.276, 0.165],
+  "style": "fresh sweet corn, butter-ready, warm studio light",
+  "summary": "Sweet corn ear, 26 cm: 168 golden kernels in offset rows, five curled husk leaves, cut stalk and silk tuft.",
+  "tags": ["prop", "food", "kitchen", "handheld"],
+  "theme": "Food",
+  "threshold": 0.85,
+  "tolerance": 0.12
+}
