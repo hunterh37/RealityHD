@@ -1,11 +1,12 @@
 {
-  "budget": 9000,
+  "budget": 15000,
   "id": "milk-jug",
   "kind": "prop",
   "materials": [
-    "plastic.matte:EDEDE6",
-    "plastic.matte:2B5FA8",
-    "plastic.white",
+    "pkg.hdpe-milk",
+    "pkg.carton-gloss:2A62B8",
+    "plastic.matte:1F5BB5",
+    "plastic.matte:F5F4EE",
     "paper.sheet"
   ],
   "name": "Milk jug",
@@ -24,7 +25,7 @@
     0.1
   ],
   "style": "everyday pantry, HDPE plastic",
-  "summary": "HDPE milk jug with handle, ribbed panels, tamper ring cap and base seam.",
+  "summary": "Half-gallon HDPE milk jug: hollow handle, grip ribs, printed label, knurled cap, milk fill.",
   "tags": [
     "prop",
     "interior",
