@@ -1,0 +1,48 @@
+{
+  "budget": 8000,
+  "id": "tea-chest",
+  "kind": "prop",
+  "materials": [
+    "wood.waterlogged",
+    "wood.lumber-cedar",
+    "wood.cedar",
+    "sack.jute",
+    "metal.cast-iron",
+    "metal.rust",
+    "metal.painted",
+    "metal.galvanized-aged",
+    "wood.walnut-oiled",
+    "wood.charred"
+  ],
+  "name": "Tea chest",
+  "notes": "Origin base center, front +Z. Chipped top corner +X/-Z shows lead lining; lid corner -X/+Z split with tea leaves.",
+  "parts": [
+    "thick cedar plank box with tapered sides",
+    "rebated split-plank lid with nail heads",
+    "rope-lashed lid cleats",
+    "iron corner straps",
+    "stencilled black export marks and merchant patch",
+    "lead-foil lining at chipped corner",
+    "two rope handles",
+    "split lid corner with spilled tea leaves"
+  ],
+  "references": [],
+  "size": [
+    0.5,
+    0.6,
+    0.5
+  ],
+  "style": "18th century Chinese export tea chest, salt-stained cedar, hand-stencilled ink, iron straps, rope handles.",
+  "summary": "Chinese export tea chest, 0.5 x 0.6 x 0.5 m: tapered cedar plank box, split lid with spilled tea, rope cleats and handles, iron corner straps, stencilled marks, lead lining.",
+  "tags": [
+    "prop",
+    "wood",
+    "container",
+    "harbor",
+    "antique",
+    "handheld"
+  ],
+  "theme": "Harbor",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

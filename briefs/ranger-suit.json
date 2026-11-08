@@ -1,0 +1,17 @@
+{
+  "budget" : 24000,
+  "id" : "ranger-suit",
+  "kind" : "prop",
+  "materials" : ["paint.measure-red", "plastic.white", "plastic.black", "metal.chrome", "glass.tinted", "emissive.warm"],
+  "name" : "Ranger suit",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts helmet, chest, belt, upperL, upperR, foreL, foreR, legL, legR (pivots at head centre, sternum, belt, shoulders, elbows, hips; limbs hang along -Y). Joints visor, buckle 0...1 are drivers; followers visorLit and buckleLit (0.05) switch options.",
+  "parts" : ["visor helmet with crest fin and chin guard", "torso with white V stripes and diamond emblem", "belt with chrome buckle", "upper arms with shoulder caps", "forearms with white gloves", "legs with knee guards and white boots"],
+  "references" : [],
+  "size" : [0.7, 1.7, 0.4],
+  "style" : "Glossy red armored bodysuit with white gloves and boots, black visor, chrome buckle. Original shapes only: no logos, no film marks.",
+  "summary" : "Glossy color-ranger bodysuit: visor helmet, striped torso, chrome buckle belt, white gloves and boots.",
+  "tags" : ["prop", "armor", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}

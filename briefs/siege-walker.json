@@ -1,0 +1,38 @@
+{
+  "budget": 45000,
+  "id": "siege-walker",
+  "kind": "prop",
+  "materials": [
+    "metal.painted",
+    "metal.steel",
+    "metal.cast-iron-worn",
+    "rubber.insulating-black",
+    "emissive.amber",
+    "ground.snow"
+  ],
+  "name": "Siege walker",
+  "notes": "Origin on the ground at hull centre, front +Z, up +Y. 22 m tall. Joints stride -1...1 (tripod gait), head -1...1 (cockpit yaw 40 deg), cannon 0...1 (elevation 30 deg), recoil 0...1 (barrel slide 1.5 m), crouch 0...1 (body lowers 3 m). All are empty drivers.",
+  "parts": [
+    "segmented lofted hull in chipped paint",
+    "cockpit pod with lit amber slit windows on a yawing head",
+    "six digitigrade legs with pistons, hoses and foot pads",
+    "dorsal cannon with sliding barrel and muzzle brake",
+    "bolted armor plates",
+    "snow dust on deck, cockpit brow, cannon and feet"
+  ],
+  "references": [],
+  "size": [30, 22, 17],
+  "style": "Weathered steel and chipped grey-green paint armored artillery walker with amber cockpit light and a snow-dusted top layer, original design.",
+  "summary": "22 m six-legged armored siege walker: lofted segmented hull, lit cockpit pod, six piston legs with hoses, dorsal cannon, chipped plates and snow dust.",
+  "tags": [
+    "prop",
+    "vehicle",
+    "metal",
+    "outdoor",
+    "articulated",
+    "glowing"
+  ],
+  "theme": "Vehicle",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

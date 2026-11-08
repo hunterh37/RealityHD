@@ -1,0 +1,48 @@
+{
+  "budget": 15000,
+  "id": "battleship",
+  "kind": "prop",
+  "materials": [
+    "metal.painted",
+    "metal.rust",
+    "metal.iron",
+    "metal.blued-steel",
+    "glass.tinted",
+    "wood.weathered"
+  ],
+  "name": "Battleship",
+  "notes": "Origin at waterline amidships, bow +Z. Joints turret, elevate, recoil, radar. 60 m at 1:1 hull scale. Size from construction: beam 9.2, keel -3.2 to masthead 25, length 60.",
+  "parts": [
+    "lofted hull with flared bow and clipper stern",
+    "red boot-topping",
+    "steel deck",
+    "deck rails",
+    "anchors",
+    "tower bridge with glazing",
+    "mast",
+    "rotating radar dish",
+    "oval raked funnel",
+    "three twin turrets with 48-sided barrels",
+    "rust streaks"
+  ],
+  "references": [],
+  "size": [
+    9.2,
+    28.3,
+    60.0
+  ],
+  "style": "naval gunship, haze grey paint, red boot-topping, rust streaks",
+  "summary": "Battleship, 60 m: flared lofted hull, tower bridge with radar, three twin turrets with 48-sided barrels, funnel, rails and anchors, joints turret, elevate, recoil, radar.",
+  "theme": "Boats",
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "tags": [
+    "prop",
+    "vehicle",
+    "boat",
+    "harbor",
+    "outdoor",
+    "metal",
+    "articulated"
+  ]
+}

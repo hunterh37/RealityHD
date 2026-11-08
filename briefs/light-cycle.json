@@ -1,0 +1,46 @@
+{
+  "budget": 15000,
+  "id": "light-cycle",
+  "kind": "prop",
+  "notes": "Origin at the centre of the wheelbase on the ground, nose +Z. Joints spin, lean, glow, canopy. Fairing is a 64-station, 48-radial loft; wheel rim torus is 128 x 8 to stay under the LOD0 budget.",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Light cycle",
+  "size": [
+    0.62,
+    1.08,
+    2.62
+  ],
+  "style": "neon sci-fi vehicle, dark carbon clearcoat, cyan glow",
+  "theme": "Vehicle",
+  "tags": [
+    "prop",
+    "vehicle",
+    "neon",
+    "scifi",
+    "outdoor",
+    "articulated"
+  ],
+  "parts": [
+    "lofted carbon fairing",
+    "lifting smoked canopy",
+    "two solid-disc wheels with glowing rim torus",
+    "chrome hub rings",
+    "fork legs",
+    "chrome handlebar with grips",
+    "tail engine pods",
+    "cyan flank rim lines",
+    "rear light-wall emitter slot"
+  ],
+  "materials": [
+    "paint.car-clearcoat",
+    "glass.window-tint",
+    "metal.anodized-black",
+    "metal.chrome",
+    "rubber.silicone",
+    "emissive.holo-grid",
+    "emissive.holo-plane"
+  ],
+  "summary": "Light cycle, 2.6 m: carbon clearcoat fairing, smoked canopy, solid-disc wheels with glowing rim torus, cyan rim lines, light-wall slot, joints spin, lean, glow, canopy."
+}

@@ -39,6 +39,24 @@ public extension MaterialLibrary {
             $0.knobs = V4(120, 0.9, 0.7, 0); $0.seed = 26; $0.tileSize = 0.02; $0.normalStrength = 1.2
             $0.roughness = 0.62
         },
+        // Pressed fur felt (hats): fine dense fibers, no visible weave, soft sheen. Tint for color.
+        MaterialSpec(key: "fabric.felt", program: .fabricWeave).with {
+            $0.colorA = linear(0x1A1A1C); $0.colorB = linear(0x1A1A1C, 0); $0.colorC = linear(0x3A3632, 0.04)
+            $0.knobs = V4(220, 1, 0.82, 0); $0.seed = 27; $0.tileSize = 0.03; $0.normalStrength = 0.6
+            $0.roughness = 0.82
+        },
+        // Silk grosgrain ribbon (hat bands, bows): fine horizontal ribs, satin sheen. Tint for color.
+        MaterialSpec(key: "fabric.grosgrain", program: .fabricWeave).with {
+            $0.colorA = linear(0x101012); $0.colorB = linear(0x101012, 0); $0.colorC = linear(0x000000, 0)
+            $0.knobs = V4(160, 0.1, 0.38, 0); $0.seed = 28; $0.tileSize = 0.02; $0.normalStrength = 1.4
+            $0.roughness = 0.38; $0.specular = 0.6
+        },
+        // Hand-knit wool yarn (mittens, scarves): chunky fuzzy stitches, single clean color. Tint for color.
+        MaterialSpec(key: "fabric.knit", program: .fabricWeave).with {
+            $0.colorA = linear(0xB01C24); $0.colorB = linear(0xB01C24, 0); $0.colorC = linear(0x3A2A20, 0.05)
+            $0.knobs = V4(14, 1, 0.95, 0); $0.seed = 29; $0.tileSize = 0.035; $0.normalStrength = 3.2
+            $0.roughness = 0.95
+        },
         // realityhd:material.fabric
     ]
 }

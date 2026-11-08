@@ -1,0 +1,45 @@
+{
+  "budget": 15000,
+  "id": "fire-phoenix",
+  "kind": "prop",
+  "notes": "Origin at body centre, beak +Z. Joints flap, tail, glow, neck. Feather gradient ember red to gold by three material bands per blade.",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "name": "Fire phoenix",
+  "size": [
+    14.0,
+    5.2,
+    18.7
+  ],
+  "style": "fantasy creature, crimson plumage, ember to gold glow",
+  "theme": "Fantasy",
+  "tags": [
+    "prop",
+    "fantasy",
+    "creature",
+    "outdoor",
+    "articulated",
+    "flying"
+  ],
+  "parts": [
+    "lofted plumage body with long neck",
+    "crested head with amber eyes",
+    "hooked gold beak",
+    "twelve primary feather blades per wing",
+    "eight secondary feather blades per wing",
+    "nine trailing tail plumes",
+    "tucked legs with talons",
+    "glowing breast plates"
+  ],
+  "materials": [
+    "leather.oxblood-worn",
+    "emissive.ember",
+    "emissive.warm",
+    "emissive.amber",
+    "metal.gold",
+    "plastic.gloss",
+    "plastic.black"
+  ],
+  "summary": "Fire phoenix, 14 m wingspan: crimson plumage, crested head, hooked gold beak, 24 primary and 16 secondary feather blades with an ember to gold glow, nine 10 m tail plumes, talons, joints flap, tail, glow, neck."
+}

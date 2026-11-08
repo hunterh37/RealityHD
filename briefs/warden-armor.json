@@ -1,0 +1,17 @@
+{
+  "budget" : 20000,
+  "id" : "warden-armor",
+  "kind" : "prop",
+  "materials" : ["metal.painted", "metal.gold-leaf", "metal.blued-steel", "metal.iron", "leather.black", "emissive.amber", "emissive.flame", "emissive.thruster-cyan"],
+  "name" : "Warden armor",
+  "notes" : "Origin at the neck base, face +Z, wearer's left +X. Parts helmet, chest, back, shoulderL, shoulderR, gauntletL, gauntletR (pivots at neck base, sternum, between shoulder blades, shoulder joints, elbows; forearm along -Y). Joints visor, shield, energy, jump 0...1; followers visorGlow, shieldRim, blade, jumpFlame switch option at 0.05.",
+  "parts" : ["domed helmet with gold mirror visor in a raised frame, chin guard, cheek plates, ridge", "layered pectoral, clavicle and abdomen plates over a black undersuit", "domed pauldrons with three hanging lames", "vambraces with elbow cops, gloves and knuckle plates", "forearm energy-blade emitter with plasma blade on the right gauntlet", "shield-rim emitter bracket with emissive rim on the left gauntlet", "twin-pod jump pack with bell nozzles and flames"],
+  "references" : [],
+  "size" : [0.76, 0.95, 0.45],
+  "style" : "Olive green powered supersoldier armour, painted alloy plates with chamfered edges, panel seams and rivets, gold mirror visor, cyan energy emitters.",
+  "summary" : "Warden Mk VI armour kit: olive plated helmet with gold mirror visor, layered chest and shoulder plates, forearm energy blade, shield rim emitter and twin-pod jump pack.",
+  "tags" : ["prop", "metal", "leather", "articulated", "glowing"],
+  "theme" : "Armor",
+  "threshold" : 0.85,
+  "tolerance" : 0.08
+}
