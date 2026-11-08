@@ -28,6 +28,12 @@ public struct GroceryGondola: RealAsset {
     /// Stock mix and fill (0 empty to 1 full).
     public var category: Category = .mixed
     public var fill: Float = 0.96
+    /// Facings deep behind each front facing, 1...6. 6 runs to the natural shelf depth (back stop at packing >= 0.75).
+    public var stockDepth: Int = 6
+    /// 0 loose gaps and skewed facings, 0.5 the original spacing, 1 shoulder to shoulder and end to end.
+    public var packing: Float = 0.5
+    /// Mix realistic grocery items (canned-vegetables, cracker-box, ...) into the facings on the hi LOD.
+    public var realisticItems = true
     /// Stock on the -Z face as well.
     public var doubleSided = true
     /// Powder coat colors.
@@ -47,6 +53,39 @@ public struct GroceryGondola: RealAsset {
         }
     }
 
+    /// Realistic items mixed into the stock for the current category (low LOD of each item).
+    func heroes() -> [GroceryKit.Hero] {
+        guard realisticItems else { return [] }
+        typealias H = GroceryKit.Hero
+        let can = { H(CannedVegetables().level(hi: false), .can, (0x2F7D45, 0xF3EFD9, 0x9BC45A)) }
+        let salsa = { H(SalsaJar().level(hi: false), .jar, (0xB8401E, 0xF6F0DE, 0x2F7D45)) }
+        let sauce = { H(PastaSauceJar().level(hi: false), .jar, (0x8E1E12, 0xF2E3C4, 0xC9A042)) }
+        let flour = { H(FlourBag().level(hi: false), .bag, (0xF4EFE2, 0xC8262B, 0xE3C77E)) }
+        let sugar = { H(SugarBag().level(hi: false), .bag, (0xF7F6F2, 0x1F4E96, 0xC8262B)) }
+        let cracker = { H(CrackerBox().level(hi: false), .box, (0xC8262B, 0xF6F1E4, 0xF2C230)) }
+        let granola = { H(GranolaBarBox().level(hi: false), .box, (0x6B4A2B, 0xF3E6C8, 0xD9A441)) }
+        let tea = { H(TeaBox().level(hi: false), .box, (0x2F7D45, 0xF3EFD9, 0xD9A441)) }
+        let oats = { H(OatmealCanister().level(hi: false), .jar, (0xC8262B, 0xF2E3C4, 0xD9A441)) }
+        let sport = { H(SportsDrinkBottle().level(hi: false), .bottle, (0x3FA9F5, 0xE8742A, 0xF2F2EE)) }
+        let energy = { H(EnergyDrinkCan().level(hi: false), .can, (0x101214, 0x7CFF3A, 0xB8BCC2)) }
+        let laundry = { H(LaundryDetergentJug().level(hi: false), .jug, (0xE8742A, 0xF7F6F0, 0x1F4E96)) }
+        let tp = { H(ToiletPaperPack().level(hi: false), .box, (0xF9F8F4, 0x6B9BD6, 0xFFFFFF)) }
+        let tissue = { H(TissueBox().level(hi: false), .box, (0x8EC5D6, 0xF6FAF8, 0x2E73A8)) }
+        let dish = { H(DishSoapBottle().level(hi: false), .bottle, (0x4FB04A, 0xF7F6F0, 0xF2F2EE)) }
+        let pet = { H(PetFoodBag().level(hi: false), .bag, (0x8A1F2C, 0xF6F1E4, 0xF2C230)) }
+        let pick: [() -> H]
+        switch category {
+        case .mixed: pick = [can, sauce, cracker, flour, sport, dish, tea, salsa]
+        case .dry: pick = [flour, sugar, cracker, sauce]
+        case .canned: pick = [can, salsa, sauce]
+        case .beverage: pick = [sport, energy]
+        case .snack: pick = [cracker, granola, salsa]
+        case .breakfast: pick = [oats, granola, tea]
+        case .household: pick = [laundry, tp, tissue, dish, pet]
+        }
+        return pick.map { $0() }
+    }
+
     public func build(seed: UInt64) -> LODModel {
         LODModel(levels: [level(seed, hi: true), level(seed, hi: false)], switchDistances: [8])
     }
@@ -57,6 +96,7 @@ public struct GroceryGondola: RealAsset {
         let core: Float = 0.06               // back panel and upright thickness
         let shelfD = (D - core) / 2 - 0.01   // per face
         let mix = packs()
+        let items = heroes()
         // Uprights at both ends, back panel between, header strip on top.
         for s: Float in [-1, 1] {
             GroceryKit.box(&m, V3(0.03, H - 0.01, core), V3(s * (L / 2 - 0.015), (H - 0.01) / 2, 0), steel, r: 0.003)
@@ -101,7 +141,8 @@ public struct GroceryGondola: RealAsset {
                 GroceryKit.priceRail(&face, x0: -L / 2 + 0.035, x1: L / 2 - 0.035, y: sy - 0.02, z: zFront, rng: &rng, hi: hi)
                 let top = si == shelfHeights.count - 1 ? H - 0.05 : shelfHeights[si + 1] - 0.03
                 GroceryKit.stockShelf(&face, x0: -L / 2 + 0.035, x1: L / 2 - 0.035, y: sy, zFront: zFront - 0.015, depth: d - 0.02,
-                                      maxH: top - sy - 0.02, packs: mix, fill: fill, rng: &rng, hi: hi)
+                                      maxH: top - sy - 0.02, packs: mix, fill: fill, rng: &rng, hi: hi, coarseAt: 3200, boxAt: 4600,
+                                      capAt: 5800, stockDepth: stockDepth, packing: packing, heroes: items)
             }
             // Aisle-facing header card on the top strip.
             GroceryKit.decal(&face, L - 0.1, 0.034, V3(0, H - 0.025, core / 2 + 0.0055), "paper.sheet:F7F6F0")

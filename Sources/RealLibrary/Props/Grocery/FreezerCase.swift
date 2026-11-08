@@ -21,6 +21,9 @@ public struct FreezerCase: RealArticulated {
     /// Header sign word.
     public var label = "FROZEN"
     public var fill: Float = 0.94
+    /// Facings deep (1...6) and packing (0 loose, 0.5 original, 1 shoulder to shoulder).
+    public var stockDepth: Int = 6
+    public var packing: Float = 0.5
     public var shell: MaterialKey = "metal.powder-white"
     public var frame: MaterialKey = "metal.anodized-black"
     public init() {}
@@ -65,7 +68,8 @@ public struct FreezerCase: RealArticulated {
                 let mixes: [[GroceryKit.Pack]] = [[.tray, .box], [.bag, .tray], [.cup, .cup], [.box, .tray], [.bag, .bag]]
                 let mix = mixes[si % mixes.count]
                 GroceryKit.stockShelf(&m, x0: -W / 2 + 0.05, x1: W / 2 - 0.05, y: sy, zFront: front - 0.01, depth: d - 0.04,
-                                      maxH: min(0.3, top - sy), packs: mix, fill: fill, rng: &rng, hi: hi, coarseAt: 7000, boxAt: 9500)
+                                      maxH: min(0.3, top - sy), packs: mix, fill: fill, rng: &rng, hi: hi, coarseAt: 7000, boxAt: 9500,
+                                      capAt: 11500, stockDepth: stockDepth, packing: packing)
             }
             rig.base[l] = m
         }

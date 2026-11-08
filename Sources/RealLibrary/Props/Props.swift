@@ -1538,6 +1538,22 @@ public enum Props {
         IceCreamPint.self,
         CleaningSpray.self,
         PaperTowelPack.self,
+        CannedVegetables.self,
+        LaundryDetergentJug.self,
+        ToiletPaperPack.self,
+        SportsDrinkBottle.self,
+        FlourBag.self,
+        SalsaJar.self,
+        GranolaBarBox.self,
+        TissueBox.self,
+        DishSoapBottle.self,
+        PetFoodBag.self,
+        OatmealCanister.self,
+        PastaSauceJar.self,
+        TeaBox.self,
+        EnergyDrinkCan.self,
+        SugarBag.self,
+        CrackerBox.self,
         // realityhd:prop
     ]
 }

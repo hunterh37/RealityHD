@@ -33,6 +33,34 @@ gondola lips. Department lettering: DAIRY on the back wall, PRODUCE on the west 
 Checkout spacing: the request named x 5...7 for the lanes. A lane with its cashier mat, counter and impulse rack
 is about 1.5 m wide and needs a 0.7 m customer walkway, so the lanes sit at a 2.2 m pitch from x 4.4 to 8.8.
 
+## Stock density
+
+Instance parameters on `GroceryStore` (not statics), applied to every `grocery-gondola`, `gondola-endcap`,
+`refrigerated-case` and `freezer-case`. `produce-display-table` has no fill parameter and is unchanged.
+
+| Parameter | Default | Meaning |
+|---|---|---|
+| `stockFill` | 0.96 | chance each facing is stocked (0 empty, 1 full); endcaps get `stockFill + 0.02` |
+| `stockDepth` | 6 | facings deep behind each front facing, 1...6; 6 runs to the natural shelf depth |
+| `packing` | 0.85 | facing spacing: 0 loose gaps and skewed facings, 0.5 the original spacing, 1 shoulder to shoulder |
+| `overstock` | false | case-pack cartons on the gondola tops (deck at y 1.8), two stocking carts at (-3, -10.5) and (1, -10.5), a wrapped pallet at (6.4, -10.5) |
+
+`stockFill = 1`, `stockDepth = 6`, `packing = 1` stocks every level on both faces front to back (stock runs to
+the back stop from `packing` 0.75) and end to end (the last gap at the upright is closed with a narrow facing).
+The overstock carts sit on the gondola centerlines inside the back cross aisle (z -10 to -11), so aisle centers
+x -4, -2, 0, 2, 4 stay walkable.
+
+On the hi LOD the gondolas mix realistic items into the facings by category: `canned-vegetables`, `salsa-jar`,
+`pasta-sauce-jar`, `flour-bag`, `sugar-bag`, `cracker-box`, `granola-bar-box`, `tea-box`, `oatmeal-canister`,
+`sports-drink-bottle`, `energy-drink-can`, `laundry-detergent-jug`, `toilet-paper-pack`, `tissue-box`,
+`dish-soap-bottle`, `pet-food-bag` (`GroceryGondola.realisticItems`, default on). Detail tiers keep each gondola
+under its 15k budget.
+
+```swift
+let store = GroceryStore().with { $0.stockFill = 1; $0.stockDepth = 6; $0.packing = 1; $0.overstock = true }
+let e = try await RealityHD.scene(store, seed: 1)
+```
+
 ## Lighting
 
 `InteriorLight.office` with a brighter floor and fixtures, windows toward the front (+Z), no fog, interior AO
