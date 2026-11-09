@@ -1,11 +1,14 @@
 {
-  "budget": 10000,
+  "budget": 15000,
   "id": "olive-oil-bottle",
   "kind": "prop",
   "materials": [
-    "glass.emerald",
+    "pkg.glass-oil",
+    "plastic.gloss:4A5218",
     "food.oil",
-    "metal.galvanized-aged"
+    "metal.aluminum-brushed:C8A24A",
+    "pkg.paper-label:23361F",
+    "paper.sheet"
   ],
   "name": "Olive oil bottle",
   "notes": "",
@@ -24,7 +27,7 @@
     0.08
   ],
   "style": "everyday pantry, green glass",
-  "summary": "Green glass olive oil bottle with tapered neck, ribbed pilfer-proof cap, oil fill, punt base and wrapped label.",
+  "summary": "Olive oil bottle: green glass with punt and seams, oil fill, knurled ROPP cap, wrapped printed label, drip.",
   "tags": [
     "prop",
     "interior",
