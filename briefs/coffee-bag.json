@@ -1,16 +1,18 @@
 {
-  "budget": 13000,
+  "budget": 15000,
   "id": "coffee-bag",
   "kind": "prop",
   "materials": [
+    "pkg.carton-gloss:3A2418",
     "metal.aluminum-brushed:3A2A22",
     "plastic.matte:EDEBE4",
-    "metal.galvanized-aged"
+    "paper.screwbox-kraft",
+    "paper.sheet"
   ],
   "name": "Coffee bag",
   "notes": "Static.",
   "parts": [
-    "gusseted foil body",
+    "printed gusseted film body",
     "crimped top seal with teeth",
     "folded tin tie",
     "degassing valve",
@@ -18,12 +20,12 @@
   ],
   "references": [],
   "size": [
-    0.12,
+    0.136,
     0.22,
-    0.07
+    0.067
   ],
   "style": "everyday pantry, foil bag",
-  "summary": "Foil coffee bag 22 cm tall with flat bottom gussets, crimped top seal, folded tin tie and degassing valve.",
+  "summary": "Coffee bag: printed gloss flat-bottom pouch, crinkled body, serrated top seal, tin tie, degassing valve, tear notch.",
   "tags": [
     "prop",
     "interior",
