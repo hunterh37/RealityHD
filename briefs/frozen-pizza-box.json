@@ -1,35 +1,33 @@
 {
-  "budget": 14500,
+  "budget": 15000,
   "id": "frozen-pizza-box",
   "kind": "prop",
   "materials": [
-    "paper.screwbox-kraft",
+    "pkg.carton-gloss",
     "paper.sheet",
-    "plastic.white"
+    "food.bun-crust",
+    "food.mozzarella-melted"
   ],
   "name": "Frozen pizza box",
   "notes": "",
   "parts": [
-    "carton",
-    "bowed panels",
-    "printed top panel",
-    "pepperoni print",
-    "brand banner",
-    "glue flap",
-    "tear strip",
-    "perforations",
+    "printed carton",
+    "printed pizza photo on top",
+    "printed side panels",
+    "tuck flaps",
+    "tear strip with perforations",
     "crushed corner",
     "frost patches",
-    "scuffed edge"
+    "smooth wordmark"
   ],
   "references": [],
   "size": [
-    0.32,
-    0.03,
-    0.32
+    0.33,
+    0.033,
+    0.321
   ],
-  "style": "everyday pantry, printed cardboard",
-  "summary": "Printed cardboard frozen pizza box, 32 cm: pepperoni print, tear strip, glued seam, crushed corner, frost.",
+  "style": "supermarket frozen pizza carton",
+  "summary": "Printed frozen pizza carton, 32 cm: pizza photo, printed sides, tear strip, tuck flaps, crushed corner, frost.",
   "tags": [
     "prop",
     "interior",
