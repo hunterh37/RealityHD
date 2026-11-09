@@ -1,10 +1,12 @@
 {
-  "budget": 10000,
+  "budget": 15000,
   "id": "cereal-box",
   "kind": "prop",
   "materials": [
-    "paper.screwbox-kraft",
-    "plastic.matte"
+    "pkg.carton-gloss:C8262B",
+    "paper.sheet:C42A2E",
+    "paper.sheet:F4D23C",
+    "paper.sheet"
   ],
   "name": "Cereal box",
   "notes": "",
@@ -17,12 +19,12 @@
   ],
   "references": [],
   "size": [
-    0.2,
-    0.3,
-    0.07
+    0.201,
+    0.301,
+    0.072
   ],
   "style": "everyday pantry, printed cardboard",
-  "summary": "Printed cardboard cereal carton with tucked top flaps, side glue seam, raised printed panels and one crushed corner.",
+  "summary": "Printed gloss cereal carton: bowed liner panels, rounded folds, tuck top, glue lap, nutrition side, crushed corner.",
   "tags": [
     "prop",
     "interior",

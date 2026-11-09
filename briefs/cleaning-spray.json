@@ -1,0 +1,44 @@
+{
+  "budget": 12000,
+  "id": "cleaning-spray",
+  "kind": "prop",
+  "materials": [
+    "pkg.pet-clear",
+    "plastic.translucent",
+    "pkg.carton-gloss",
+    "plastic.matte"
+  ],
+  "name": "Cleaning spray",
+  "notes": "",
+  "parts": [
+    "oval PET bottle with grip waist",
+    "blue liquid fill",
+    "dip tube",
+    "front label",
+    "ribbed closure collar",
+    "sprayer shroud",
+    "pump piston",
+    "lever trigger with finger ribs",
+    "nozzle with spray/off tip",
+    "smooth wordmark"
+  ],
+  "references": [],
+  "size": [
+    0.106,
+    0.27,
+    0.097
+  ],
+  "style": "32 oz trigger spray glass cleaner",
+  "summary": "32 oz trigger spray cleaner, 28 cm: oval PET bottle with blue liquid, dip tube, label, trigger sprayer.",
+  "tags": [
+    "prop",
+    "grocery",
+    "plastic",
+    "container",
+    "home",
+    "handheld"
+  ],
+  "theme": "Grocery",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

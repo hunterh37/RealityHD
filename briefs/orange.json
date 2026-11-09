@@ -1,18 +1,21 @@
 {
-  "budget": 6000,
+  "budget": 12000,
   "id": "orange",
   "kind": "prop",
   "materials": [
-    "food.lime:E8851C",
-    "food.stem-green:6E6A34"
+    "food.citrus-peel",
+    "food.stem-green:5E6A2C",
+    "food.stem-green:6A5A34"
   ],
   "name": "Orange",
   "notes": "",
   "parts": [
-    "round citrus with pitted peel",
-    "navel-free stem button",
-    "calyx scar at base",
-    "thick peel over flesh"
+    "oblate lopsided citrus body",
+    "dimpled peel with oil-gland pits",
+    "stem button with five-lobed green calyx and cut stub",
+    "puckered collar around the button",
+    "style scar at the blossom end",
+    "crate pressure flat spot"
   ],
   "references": [],
   "size": [

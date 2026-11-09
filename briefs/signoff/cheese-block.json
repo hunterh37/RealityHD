@@ -1,8 +1,8 @@
 {
-  "automated" : 0.96648633,
-  "date" : "2026-10-27",
-  "final" : 0.85827017,
-  "fingerprint" : "c58c3f255f6d5b8c",
+  "automated" : 0.9528247,
+  "date" : "2026-11-09",
+  "final" : 0.85755116,
+  "fingerprint" : "43ae8057882c0208",
   "id" : "cheese-block",
   "iterations" : 2,
   "judge" : "agent",
@@ -10,13 +10,13 @@
     "artifacts" : 8,
     "construction" : 8,
     "edges" : 8,
-    "grounding" : 8,
+    "grounding" : 7,
     "materials" : 8,
-    "proportion" : 8,
+    "proportion" : 9,
     "silhouette" : 8,
     "wear" : 8
   },
   "seed" : 1,
   "threshold" : 0.85,
-  "vision" : 0.8
+  "vision" : 0.80625004
 }

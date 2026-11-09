@@ -1,10 +1,13 @@
 {
-  "budget": 10000,
+  "budget": 15000,
   "id": "canned-soup",
   "kind": "prop",
   "materials": [
-    "metal.galvanized-aged",
-    "paper.screwbox-kraft"
+    "metal.steel",
+    "pkg.paper-label:B3141F",
+    "metal.aluminum",
+    "paper.sheet",
+    "metal.rust"
   ],
   "name": "Canned soup",
   "notes": "",
@@ -22,7 +25,7 @@
     0.07
   ],
   "style": "everyday pantry, tin can",
-  "summary": "Tin soup can with double-seam rims, rolling beads, pull-tab lid and wrapped paper label with overlap seam.",
+  "summary": "Soup tin: double-seam rims, ring-pull lid, printed wrap label with overlap seam, dented rim.",
   "tags": [
     "prop",
     "interior",

@@ -1,23 +1,25 @@
 {
-  "budget": 6000,
+  "budget": 12000,
   "id": "apple",
   "kind": "prop",
   "materials": [
-    "food.tomato:A8201C",
-    "food.stem-green:5A4A2A"
+    "food.apple-skin",
+    "food.stem-green:5A4026",
+    "food.stem-green:3E2E1C"
   ],
   "name": "Apple",
   "notes": "",
   "parts": [
-    "round pome fruit with shallow stem cavity",
-    "woody stem",
-    "calyx dimple at base",
-    "waxy red-over-yellow skin with lenticels"
+    "lopsided round body with five faint basal lobes",
+    "deep stem cavity with curved woody stem",
+    "calyx basin with dried sepal tips",
+    "blushed skin with lenticels",
+    "small bruise dent"
   ],
   "references": [],
   "size": [
     0.08,
-    0.08,
+    0.083,
     0.08
   ],
   "style": "everyday pantry, fruit",

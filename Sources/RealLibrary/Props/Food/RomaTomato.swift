@@ -9,10 +9,10 @@ public struct RomaTomato: RealFood {
     public static let id = "roma-tomato"
     public static let summary = "Ripe roma tomato, 7.5 cm: glossy plum-shaped fruit on its side with green star calyx; flesh shell with locular cut face."
     public static let tags = ["prop", "food", "kitchen", "handheld"]
-    public static let budget = 6000
+    public static let budget = 12000
     public static let author = "realityhd"
     public static let kind = FoodKind.vegetable
-    public static let preview = PreviewHint(azimuth: 35, elevation: 25, distance: 0.26, studio: true)
+    public static let preview = PreviewHint(azimuth: 35, elevation: 25, distance: 1.3, studio: true)
 
     /// Length stem to blossom end (m).
     public var length: Float = 0.07
@@ -21,7 +21,8 @@ public struct RomaTomato: RealFood {
     /// Sepal count.
     public var sepals = 5
     /// Material keys.
-    public var skin: MaterialKey = "food.tomato"
+    public var skin: MaterialKey = "food.tomato-skin"
+    public var scar: MaterialKey = "food.stem-green:7A6A3A"
     public var flesh: MaterialKey = "food.tomato-flesh"
     public var calyx: MaterialKey = "food.stem-green"
     public init() {}
@@ -31,6 +32,10 @@ public struct RomaTomato: RealFood {
     public func capMaterial(for key: MaterialKey) -> MaterialKey? { key == skin ? flesh : nil }
 
     public func build(seed: UInt64) -> LODModel {
+        LODModel(levels: [level(seed, edge: 0.0019, hi: true), level(seed, edge: 0.0038, hi: false)], switchDistances: [2])
+    }
+
+    func level(_ seed: UInt64, edge: Float, hi: Bool) -> Model {
         var rng = SeededRNG(seed: seed)
         let L = length, R = diameter / 2
         // Built along +Y: blossom end at y = 0, stem end at y = L.
@@ -38,7 +43,7 @@ public struct RomaTomato: RealFood {
                              V2(R * 0.98, L * 0.66), V2(R * 0.88, L * 0.84), V2(R * 0.64, L * 0.96), V2(R * 0.32, L * 0.995),
                              V2(R * 0.1, L * 0.985), V2(0, L * 0.982)]
         let curve = FoodMesh.profile(profile)
-        var body = FoodMesh.revolve(edge: 0.0034, seamTile: 0.06, material: skin, curve: curve)
+        var body = FoodMesh.revolve(edge: edge, seamTile: 0.06, material: skin, curve: curve)
         let ph = (0..<3).map { _ in rng.float(0...6.28) }
         let lobeShape: (V3) -> V3 = { p in
             let a = atan2(p.z, p.x), t = p.y / L
@@ -46,6 +51,15 @@ public struct RomaTomato: RealFood {
             return V3(p.x * k, p.y, p.z * k)
         }
         body.deform(lobeShape)
+        // Plum shape is never exact: a slight banana bend, a soft flat cheek, fine waviness.
+        let sd = UInt32(truncatingIfNeeded: seed)
+        let bendDir = ph[1]
+        body.deform { p in
+            let t = p.y / L
+            let b = 0.0022 * sin(.pi * t)
+            return V3(p.x + b * cos(bendDir), p.y, p.z + b * sin(bendDir))
+        }
+        body.displace { p, _ in 0.00035 * Noise.fbm(p * 60, octaves: 3, seed: sd &+ 5) + 0.00008 * Noise.perlin(p * 300, seed: sd &+ 6) }
         var m = Model(name: Self.id)
         // Calyx: sepals curling off the shoulder from the stem scar, then the stem stub.
         let mer = FoodMesh.Meridian(curve, fromTop: true)
@@ -55,7 +69,7 @@ public struct RomaTomato: RealFood {
             let ang = Float(i) / Float(sepals) * 2 * .pi + r.float(-0.25...0.25) + ph[2]
             let len = r.float(0.011...0.016)
             let curl = r.float(0.6...1.0)
-            var leaf = FoodMesh.sepal(length: len, thickness: 0.0003, edge: 0.0016, angle: ang, start: 0.0025, meridian: mer,
+            var leaf = FoodMesh.sepal(length: len, thickness: 0.0003, edge: hi ? 0.0009 : 0.0018, angle: ang, start: 0.0025, meridian: mer,
                                       material: calyx, width: { t in 0.0024 * pow(sin(.pi * min(1, t * 1.15 + 0.08)), 0.7) * (1 - 0.6 * t) },
                                       lift: { t, x in 0.0004 + 0.0035 * curl * pow(t, 2.5) + 0.0004 * x * x })
             leaf.deform(lobeShape)
@@ -71,11 +85,19 @@ public struct RomaTomato: RealFood {
         let stemPts = catmull([V3(0, top.y - 0.001, 0), V3(0.0005 * bend, top.y + 0.004, 0), V3(0.0018 * bend, top.y + 0.0075, 0.0006)], per: 3)
         cal.append(FoodMesh.tube(stemPts, radii: stemPts.indices.map { 0.0014 - 0.0002 * Float($0) / Float(stemPts.count) }, sides: 8,
                                  endBulge: 0.1, material: calyx))
-        m.add(FoodMesh.layAlongX(body))
+        // Blossom-end scar: a pale star-shaped dot.
+        var dot = FoodMesh.revolve(edge: hi ? 0.0004 : 0.0008, seamTile: 0.01, material: scar) { t in
+            let a = Float.pi * t
+            return V2(0.0012 * sin(a), 0.0005 - 0.0004 * cos(a))
+        }
+        dot.deform { p in let a = atan2(p.z, p.x); let k = 1 + 0.3 * cos(5 * a); return V3(p.x * k, p.y, p.z * k) }
+        m.add(ProduceKit.weldTangents(FoodMesh.layAlongX(body)))
         m.add(FoodMesh.layAlongX(cal))
-        // Lying on its side: axis at y = R (the lobes reach ~3 % further), centered on X.
+        m.add(FoodMesh.layAlongX(dot))
         m = m.transformed(Xform(translation: V3(-L / 2, R * 1.03, 0)))
+        m = GroceryKit.plant(m)
         groundAO(&m, height: 0.012, floor: 0.6)
-        return LODModel(m)
+        ProduceKit.weldAO(&m)
+        return m
     }
 }

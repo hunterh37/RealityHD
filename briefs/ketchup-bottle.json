@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "ketchup-bottle",
+  "kind": "prop",
+  "materials": [
+    "plastic.gloss:9E130E",
+    "plastic.matte:F3F1EA",
+    "pkg.carton-gloss:1E6B3A",
+    "paper.sheet"
+  ],
+  "name": "Ketchup bottle",
+  "notes": "",
+  "parts": [
+    "oval PET body with waist grip",
+    "push-up base",
+    "flip-top cap with hinge and thumb lip",
+    "printed front and back labels",
+    "dried ketchup ring"
+  ],
+  "references": [],
+  "size": [
+    0.078,
+    0.206,
+    0.05
+  ],
+  "style": "current retail squeeze bottle, glossy PET, printed gloss label",
+  "summary": "Squeeze ketchup bottle, 21 cm: oval red PET body with waist grip, flip-top cap with hinge, printed gloss labels, invented brand.",
+  "tags": [
+    "prop",
+    "grocery",
+    "food",
+    "plastic",
+    "container",
+    "kitchen",
+    "handheld"
+  ],
+  "theme": "Grocery",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

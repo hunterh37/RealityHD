@@ -1,0 +1,43 @@
+{
+  "budget": 9000,
+  "id": "soda-can",
+  "kind": "prop",
+  "materials": [
+    "pkg.can-print",
+    "metal.aluminum",
+    "metal.aluminum-brushed",
+    "plastic.gloss"
+  ],
+  "name": "Soda can",
+  "notes": "",
+  "parts": [
+    "domed base inside a stand ring",
+    "printed coated wall with rubbed rims",
+    "stepped necked shoulder",
+    "double-seamed lid with countersink",
+    "score line and stay-on tab with finger hole",
+    "rivet",
+    "smooth FIZZO wordmark",
+    "small wall dent"
+  ],
+  "references": [],
+  "size": [
+    0.066,
+    0.121,
+    0.066
+  ],
+  "style": "355 ml aluminium soda can, new retail stock, gloss printed coating",
+  "summary": "355 ml aluminum soda can, 12 cm: necked shoulder, seamed lid with stay-on tab, printed coated wall, rubbed rims.",
+  "tags": [
+    "prop",
+    "grocery",
+    "food",
+    "metal",
+    "aluminium",
+    "container",
+    "handheld"
+  ],
+  "theme": "Grocery",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

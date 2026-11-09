@@ -1,15 +1,15 @@
 {
-  "automated" : 0.98649275,
-  "date" : "2026-10-06",
-  "final" : 0.8766475,
-  "fingerprint" : "a5dab96e73729669",
+  "automated" : 0.9897099,
+  "date" : "2026-11-09",
+  "final" : 0.88427347,
+  "fingerprint" : "36118a8cb45d9d6f",
   "id" : "avocado",
-  "iterations" : 1,
+  "iterations" : 2,
   "judge" : "agent",
   "scores" : {
     "artifacts" : 8,
     "construction" : 8,
-    "edges" : 8,
+    "edges" : 9,
     "grounding" : 8,
     "materials" : 8,
     "proportion" : 9,
@@ -18,5 +18,5 @@
   },
   "seed" : 1,
   "threshold" : 0.85,
-  "vision" : 0.81750005
+  "vision" : 0.82750005
 }

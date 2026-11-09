@@ -1,34 +1,37 @@
 {
-  "budget": 10000,
+  "budget": 15000,
   "id": "rice-bag",
   "kind": "prop",
   "materials": [
-    "fabric.canvas",
-    "paper.sheet"
+    "pkg.carton-gloss:2E7D4F",
+    "plastic.gloss:2C7A4C",
+    "paper.sheet",
+    "plastic.matte:F1EDE2"
   ],
   "name": "Rice bag",
   "notes": "",
   "parts": [
-    "pillow bag body",
-    "stitched top seam",
-    "woven fabric",
-    "paper label patch",
-    "fold creases"
+    "printed film pillow body",
+    "serrated top heat seal",
+    "side fin seals",
+    "gusset base",
+    "crinkles and corner folds",
+    "product band",
+    "spilled grains"
   ],
   "references": [],
   "size": [
-    0.22,
-    0.32,
-    0.08
+    0.19,
+    0.315,
+    0.085
   ],
-  "style": "everyday pantry, woven bag",
-  "summary": "Woven polypropylene rice bag with a stitched folded top seam, pillow body folds, label patch and one scuffed corner.",
+  "style": "current retail PE pillow pack, gloss print",
+  "summary": "Rice bag: printed gloss PE pillow pack, crinkled film, serrated top heat seal, side fin seals, product band, spilled grains.",
   "tags": [
     "prop",
     "interior",
     "pantry",
-    "fabric",
-    "paper"
+    "plastic"
   ],
   "theme": "Pantry",
   "threshold": 0.85,
