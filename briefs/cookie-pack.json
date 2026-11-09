@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "cookie-pack",
+  "kind": "prop",
+  "materials": [
+    "pkg.film-bag",
+    "pkg.pet-clear",
+    "food.cookie-dough-cooked",
+    "food.chocolate-chunk",
+    "plastic.gloss"
+  ],
+  "name": "Cookie pack",
+  "notes": "",
+  "parts": [
+    "flow-wrapped printed film pack",
+    "crimped end seals with serrations",
+    "back fin seal",
+    "clear window on top",
+    "cookies standing in a brown tray",
+    "smooth wordmark"
+  ],
+  "references": [],
+  "size": [
+    0.218,
+    0.061,
+    0.13
+  ],
+  "style": "supermarket chocolate chip cookie flow-wrap pack",
+  "summary": "Flow-wrapped chocolate chip cookie pack, 21 cm: printed film, crimped end seals, clear window over cookies in a tray.",
+  "tags": [
+    "prop",
+    "grocery",
+    "food",
+    "baked",
+    "plastic",
+    "handheld"
+  ],
+  "theme": "Grocery",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

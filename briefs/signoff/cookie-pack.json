@@ -1,0 +1,22 @@
+{
+  "automated" : 0.9984899,
+  "date" : "2026-11-09",
+  "final" : 0.855659,
+  "fingerprint" : "057ccf67ec4ec39c",
+  "id" : "cookie-pack",
+  "iterations" : 1,
+  "judge" : "agent",
+  "scores" : {
+    "artifacts" : 8,
+    "construction" : 8,
+    "edges" : 7,
+    "grounding" : 7,
+    "materials" : 8,
+    "proportion" : 8,
+    "silhouette" : 9,
+    "wear" : 6
+  },
+  "seed" : 1,
+  "threshold" : 0.85,
+  "vision" : 0.77875
+}
