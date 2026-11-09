@@ -1,0 +1,38 @@
+{
+  "budget": 25000,
+  "id": "swan-boat",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.12,
+  "name": "Swan Boat",
+  "size": [
+    2.4,
+    2.6,
+    6.0
+  ],
+  "style": "photoreal PBR, Boston 2026 set",
+  "theme": "Boats",
+  "tags": [
+    "prop",
+    "vehicle",
+    "boat",
+    "wood",
+    "park"
+  ],
+  "parts": [
+    "twin white pontoons",
+    "green plank deck",
+    "five mahogany benches",
+    "swan figurehead with S-neck",
+    "raised wings",
+    "pedal housing"
+  ],
+  "materials": [
+    "plastic.gloss",
+    "wood.painted-shaker",
+    "wood.mahogany"
+  ],
+  "summary": "Boston swan boat, 6 m: twin white pontoons, green deck, five mahogany benches, stern swan with S-neck, orange beak and raised wings over the pedal housing."
+}

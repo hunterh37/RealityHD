@@ -1,0 +1,38 @@
+{
+  "budget": 12000,
+  "id": "cutlass",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.12,
+  "name": "Cutlass",
+  "size": [
+    0.12,
+    0.08,
+    0.86
+  ],
+  "style": "photoreal PBR, Boston 2026 set",
+  "theme": "Antique",
+  "tags": [
+    "prop",
+    "antique",
+    "metal",
+    "leather",
+    "handheld"
+  ],
+  "parts": [
+    "curved blade",
+    "fuller",
+    "cup guard",
+    "knuckle bow",
+    "wrapped grip",
+    "pommel"
+  ],
+  "materials": [
+    "metal.hammer-polished",
+    "metal.brass-aged",
+    "leather.black"
+  ],
+  "summary": "Naval cutlass, 0.86 m: curved steel blade with fuller, brass cup guard and knuckle bow, wrapped leather grip, brass pommel."
+}

@@ -1584,6 +1584,12 @@ public enum Props {
         AnkleWeightStrap.self,
         CowboySpur.self,
         // wearables:foot
+        SwanBoat.self,
+        FinishLineGantry.self,
+        FinisherMedal.self,
+        FreedomTrailMedallion.self,
+        PirateTricorn.self,
+        Cutlass.self,
         // realityhd:prop
     ]
 }

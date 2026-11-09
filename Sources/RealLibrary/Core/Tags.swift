@@ -46,7 +46,7 @@ public enum AssetTag {
         // floor planning: room-scale furnishing, fixtures and building interior elements; `floorplan` marks every asset in the pack
         "pantry", "floorplan", "living", "dining", "bedroom", "bathroom", "laundry", "home", "hvac", "plumbing", "stair", "commercial", "retail",
         // river pack: Ozark river settings and small boats
-        "river", "boat",
+        "river", "boat", "headwear",
         // fishing: life-size articulated freshwater fish
         "fish",
         // fishing tackle: rods, rod components, reels and lures (MulberryRiver)
