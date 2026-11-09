@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "peanut-butter-jar",
+  "kind": "prop",
+  "materials": [
+    "pkg.pet-clear",
+    "plastic.matte:9A6226",
+    "plastic.gloss:C4322A",
+    "pkg.paper-label:EFE4C8",
+    "paper.sheet"
+  ],
+  "name": "Peanut butter jar",
+  "notes": "",
+  "parts": [
+    "clear PET jar",
+    "peanut butter fill with swirled top",
+    "threaded neck finish",
+    "knurled red screw lid",
+    "printed wrap label with seam"
+  ],
+  "references": [],
+  "size": [
+    0.087,
+    0.115,
+    0.087
+  ],
+  "style": "current retail jar, clear PET, matte paper label",
+  "summary": "Peanut butter jar, 11.5 cm: clear PET jar with spread inside, knurled red lid, printed wrap label, threaded neck.",
+  "tags": [
+    "prop",
+    "grocery",
+    "food",
+    "plastic",
+    "container",
+    "pantry",
+    "handheld"
+  ],
+  "theme": "Grocery",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
