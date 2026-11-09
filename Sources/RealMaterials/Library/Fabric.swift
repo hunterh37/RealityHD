@@ -57,6 +57,24 @@ public extension MaterialLibrary {
             $0.knobs = V4(14, 1, 0.95, 0); $0.seed = 29; $0.tileSize = 0.035; $0.normalStrength = 3.2
             $0.roughness = 0.95
         },
+        // Academic gown polyester satin (graduation caps and gowns): fine twill, matte with a soft satin sheen. Tint for color.
+        MaterialSpec(key: "fabric.gown", program: .fabricWeave).with {
+            $0.colorA = linear(0x111114); $0.colorB = linear(0x0B0B0E, 0.35); $0.colorC = linear(0x34343A, 0.06)
+            $0.knobs = V4(110, 0.25, 0.6, 0); $0.seed = 30; $0.tileSize = 0.025; $0.normalStrength = 1.3
+            $0.roughness = 0.6; $0.specular = 0.55; $0.twoSided = true
+        },
+        // Covered button on a mortarboard: same satin pulled tight, slightly glossier. Tint for color.
+        MaterialSpec(key: "fabric.gown-button", program: .fabricWeave).with {
+            $0.colorA = linear(0x141417); $0.colorB = linear(0x0D0D10, 0.3); $0.colorC = linear(0x3A3A40, 0.05)
+            $0.knobs = V4(150, 0.2, 0.5, 0); $0.seed = 31; $0.tileSize = 0.012; $0.normalStrength = 1
+            $0.roughness = 0.5; $0.specular = 0.6
+        },
+        // Gown facing trim: denser satin band with stronger sheen. Tint for color.
+        MaterialSpec(key: "fabric.gown-trim", program: .fabricWeave).with {
+            $0.colorA = linear(0x16161A); $0.colorB = linear(0x101013, 0.25); $0.colorC = linear(0x44444C, 0.05)
+            $0.knobs = V4(160, 0.1, 0.45, 0); $0.seed = 32; $0.tileSize = 0.02; $0.normalStrength = 1.1
+            $0.roughness = 0.45; $0.specular = 0.65; $0.twoSided = true
+        },
         // realityhd:material.fabric
     ]
 }
