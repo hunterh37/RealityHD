@@ -1,95 +1,99 @@
 import simd
 import Foundation
 
-/// Cheese block: 12 cm long, 5 cm tall, 8 cm deep cheddar block sealed in red wax, with a cut end showing the yellow paste and knife drag
-/// marks, a chipped wax corner, a moulding seam, wax drips pooled at the base and a thumbprint dent.
+/// Cheese block: 12 cm long, 5 cm tall, 8 cm deep aged cheddar sealed in red wax. Built as a cheese core
+/// inside a 1.4 mm wax shell, so every wax wound shows real cheese under it: the knife-cut end is a flat
+/// face of paste (`food.cheddar`, knife drag ridges) framed by the wax rim, a chipped top corner lifts
+/// the wax off the paste, a thumbprint dents the top, the dip leaves a soft seam ridge round the middle
+/// and a pooled wax foot along the base. A paper sticker with a printed name sits on top.
+/// LOD1 halves both shells and drops the sticker print.
 public struct CheeseBlock: RealAsset {
     public static let id = "cheese-block"
-    public static let summary = "Wax-rind cheddar block, 12 cm: red wax coat, cut end with knife marks, chipped corner, wax drips, dent."
+    public static let summary = "Wax-sealed aged cheddar, 12 cm: red dipped wax over a cheese core, knife-cut end, chipped corner, thumb dent, seam, sticker."
     public static let tags = ["prop", "interior", "pantry", "food", "container"]
-    public static let budget = 9000
+    public static let budget = 15000
     public static let author = "realityhd"
-    public static let preview = PreviewHint(azimuth: -35, elevation: 24, distance: 0.95, studio: true)
+    public static let preview = PreviewHint(azimuth: 35, elevation: 26, distance: 1.2, studio: true)
 
     /// Overall size in meters (x length, y height, z depth).
     public var size = V3(0.12, 0.05, 0.08)
-    /// Wax coat, worn wax and cheese paste colour keys.
-    public var wax: MaterialKey = "plastic.gloss:A9171B"
-    public var waxWorn: MaterialKey = "plastic.matte:8E1B1E"
-    public var cheese: MaterialKey = "food.cream:F5BE45"
+    /// Wax shell thickness (m).
+    public var wall: Float = 0.0014
+    /// Wax coat key.
+    public var wax: MaterialKey = "plastic.gloss:A3141A"
+    /// Cheese paste key.
+    public var cheese: MaterialKey = "food.cheddar"
+    /// Sticker paper and ink keys.
+    public var paper: MaterialKey = "paper.sheet:EFE6CE"
+    public var ink: MaterialKey = "plastic.matte:2A2420"
     public init() {}
 
     public func build(seed: UInt64) -> LODModel {
+        LODModel(levels: [level(seed, edge: 0.0034, hi: true), level(seed, edge: 0.007, hi: false)], switchDistances: [2])
+    }
+
+    func level(_ seed: UInt64, edge: Float, hi: Bool) -> Model {
         var rng = SeededRNG(seed: seed)
+        let sd = UInt32(truncatingIfNeeded: seed)
+        let h = size / 2
+        let xCut = h.x
+        // Story points: thumb dent on the top, chipped wax at the far top corner.
+        let thumb = V3(rng.float(0.018...0.03), h.y, rng.float(-0.012...0.012))
+        let chip = V3(-h.x + 0.007, h.y - 0.002, h.z - 0.006)
+        let seamY = rng.float(-0.004...0.004)
+        func dents(_ p: V3) -> Float {
+            let dt = simd_length((p - thumb) * V3(1, 0, 1.25))
+            let thumbD = dt < 0.011 ? -0.0011 * pow(1 - dt / 0.011, 2) * smoothstep(h.y * 0.5, h.y, p.y) : 0
+            return thumbD
+        }
+        // Cheese core: flat knife-cut end at +X with drag ridges.
+        var core = FoodMesh.box(size - V3(0, 2 * wall, 2 * wall), radius: 0.005, edge: edge * 2.2, extra: [[], [], []], material: cheese)
+        core.deform { p in
+            var q = p
+            if p.x > xCut - 0.006 { q.x = xCut - 0.006 + (p.x - (xCut - 0.006)) * 0.02 + 0.0058 }
+            return q + V3(0, h.y, 0)
+        }
+        core.displace { p, n in
+            if n.x > 0.7 { return 0.00012 * sin(p.z * 2300 + 3 * Noise.perlin(p * 300, seed: sd)) + 0.00015 * Noise.perlin(p * 500, seed: sd &+ 1) }
+            return dents(p) * 0.6
+        }
+        // Wax shell: dipped, slightly pillowed, ends flush with the cut just behind the paste.
+        var shell = FoodMesh.box(size, radius: 0.0055, edge: edge, extra: [[], [seamY], []], material: wax)
+        shell.deform { p in
+            var q = p
+            if p.x > xCut - 0.006 { q.x = xCut - 0.006 + (p.x - (xCut - 0.006)) * 0.02 + 0.0052 }
+            // Pillowing of the dip and a slight sag along the length.
+            let bx = 1 - pow(p.x / h.x, 2)
+            q.y += 0.0008 * bx * (1 - pow(p.z / h.z, 2)) * (p.y > 0 ? 1 : 0)
+            q.z *= 1 + 0.012 * bx * (1 - pow(p.y / h.y, 2))
+            return q + V3(0, h.y, 0)
+        }
+        shell.displace { p, n in
+            var d = 0.00035 * Noise.fbm(p * 90, octaves: 3, seed: sd &+ 2)
+            // Dip seam: a soft raised line where the second dip met the first.
+            if abs(n.y) < 0.6 { d += 0.0004 * exp(-pow((p.y - h.y - seamY) / 0.0012, 2)) }
+            // Pooled wax foot along the base.
+            d += 0.0007 * (1 - smoothstep(0.0, 0.004, p.y)) * (0.6 + 0.4 * Noise.perlin(p * 120, seed: sd &+ 3))
+            d += dents(p)
+            // Chipped corner: wax flaked away down past the paste.
+            let c = simd_length((p - chip - V3(0, h.y, 0)) * V3(0.8, 1.3, 1)) + 0.0015 * Noise.perlin(p * 400, seed: sd &+ 4)
+            if c < 0.009 { d -= 0.0026 * smoothstep(0, 1, (0.009 - c) / 0.003) }
+            return d
+        }
         var m = Model(name: Self.id)
-        let cut: Float = 0.014  // length of the cut end
-        let bodyL = size.x - cut
-        // Wax-coated body: rounded block with slightly bulged faces from the wax dip.
-        var body = Prim.roundedBox(V3(bodyL, size.y, size.z), radius: 0.0045, bevelSegments: 3, material: wax).subdivided()
-        let k = rng.float(0...6)
-        body.displace { p, n in 0.00035 * sin(p.x * 160 + p.z * 90 + k) * sin(p.y * 120 + k) }
-        m.add(body, Xform(translation: V3(-cut / 2, size.y / 2, 0)))
-        // Wax lip around the cut end.
-        let xCut = size.x / 2 - cut
-        m.add(Prim.roundedBox(V3(0.0030, size.y - 0.001, size.z - 0.001), radius: 0.0014, bevelSegments: 2, material: waxWorn),
-              Xform(translation: V3(xCut + 0.0010, size.y / 2, 0)))
-        // Cheese paste at the cut end, inset behind the wax lip, with knife drag marks.
-        m.add(Prim.roundedBox(V3(cut, size.y - 0.0070, size.z - 0.0070), radius: 0.0008, bevelSegments: 2, material: cheese),
-              Xform(translation: V3(size.x / 2 - cut / 2 - 0.0008, size.y / 2, 0)))
-        for i in 0..<9 {
-            let z = -0.032 + Float(i) * 0.008 + rng.float(-0.0012...0.0012)
-            m.add(Prim.roundedBox(V3(0.0004, size.y - 0.012 - rng.float(0...0.008), 0.0007), radius: 0.0002, bevelSegments: 1, material: "food.cream:D69828"),
-                  Xform(translation: V3(size.x / 2 - 0.0007, size.y / 2, z)))
+        m.add(core)
+        m.add(shell)
+        // Sticker: thin paper card with the cheese name, slightly skewed.
+        let skew = simd_quatf(degrees: rng.float(-6...6), axis: V3(0, 1, 0))
+        let st = V3(-0.018, size.y + 0.0011, -0.008)
+        m.add(Prim.roundedBox(V3(0.05, 0.0004, 0.032), radius: 0.00015, bevelSegments: 1, material: paper), Xform(translation: st, rotation: skew))
+        if hi {
+            let face = skew * simd_quatf(angle: -.pi / 2, axis: V3(1, 0, 0))
+            GroceryKit.printSmooth(&m, "CHEDDAR", height: 0.007, at: st + skew.act(V3(0, 0.00025, 0.004)), ink, rot: face, maxWidth: 0.042, weight: 1.2)
+            GroceryKit.printSmooth(&m, "AGED 9 MO", height: 0.0035, at: st + skew.act(V3(0, 0.00025, 0.0115)), ink, rot: face, maxWidth: 0.03, weight: 1.0)
         }
-        // Cut face crumble: small flakes under the end.
-        for _ in 0..<7 {
-            let s = rng.float(0.0016...0.0032)
-            m.add(Prim.superellipsoid(V3(s, s * 0.7, s), exponent: 3, subdivisions: 1, material: cheese),
-                  Xform(translation: V3(size.x / 2 - rng.float(0.001...0.012), s * 0.35, rng.float(-0.03...0.03)), rotation: simd_quatf(degrees: rng.float(0...90), axis: .up)))
-        }
-        // Mould seam: a ridge where the wax dip met, around the middle of the block.
-        m.add(Prim.roundedBox(V3(bodyL + 0.0003, 0.0005, size.z + 0.0003), radius: 0.0002, bevelSegments: 1, material: waxWorn),
-              Xform(translation: V3(-cut / 2, size.y * 0.5, 0)))
-        // Paper label sticker on top with printed lines.
-        m.add(Prim.roundedBox(V3(0.044, 0.0006, 0.026), radius: 0.0002, bevelSegments: 1, material: "paper.sheet:EFE6CE"),
-              Xform(translation: V3(-0.020, size.y + 0.0004, 0.010), rotation: simd_quatf(degrees: 4, axis: .up)))
-        m.add(Prim.roundedBox(V3(0.044, 0.0007, 0.007), radius: 0.0001, bevelSegments: 1, material: "plastic.white:1F3F8A"),
-              Xform(translation: V3(-0.020, size.y + 0.0007, 0.0185), rotation: simd_quatf(degrees: 4, axis: .up)))
-        for r in 0..<3 {
-            m.add(Prim.roundedBox(V3(0.030 - Float(r) * 0.006, 0.0007, 0.0013), radius: 0.0001, bevelSegments: 1, material: "plastic.white:2A2420"),
-                  Xform(translation: V3(-0.026 - Float(r) * 0.003, size.y + 0.0007, 0.008 - Float(r) * 0.0035), rotation: simd_quatf(degrees: 4, axis: .up)))
-        }
-        // Story detail: chipped wax corner exposing cheese.
-        m.add(Prim.superellipsoid(V3(0.016, 0.0035, 0.012), exponent: 2.6, subdivisions: 2, material: cheese),
-              Xform(translation: V3(-bodyL / 2 - cut / 2 + 0.006, size.y - 0.0012, size.z / 2 - 0.006), rotation: simd_quatf(degrees: 35, axis: .up)))
-        for i in 0..<5 {
-            let a = Float(i) * 1.2
-            m.add(Prim.superellipsoid(V3(0.0035, 0.0006, 0.0025), exponent: 2.4, subdivisions: 1, material: waxWorn),
-                  Xform(translation: V3(-bodyL / 2 - cut / 2 + 0.006 + cos(a) * 0.006, size.y + 0.0001, size.z / 2 - 0.004 - sin(a) * 0.005), rotation: simd_quatf(angle: a, axis: .up)))
-        }
-        // Thumbprint dent: darker worn wax pad on the top.
-        m.add(Prim.superellipsoid(V3(0.020, 0.0012, 0.016), exponent: 2, subdivisions: 2, material: waxWorn), Xform(translation: V3(0.010 - cut / 2, size.y - 0.0004, -0.012)))
-        // Handling wear: dull abraded patches on the top edges and corners, and crumb pits on the cut face.
-        for _ in 0..<18 {
-            let side: Float = rng.chance(0.5) ? 1 : -1
-            let x = rng.float((-bodyL / 2 - cut / 2 + 0.006)...(bodyL / 2 - cut / 2 - 0.006))
-            m.add(Prim.superellipsoid(V3(rng.float(0.006...0.016), 0.0004, rng.float(0.003...0.008)), exponent: 2.2, subdivisions: 1, material: waxWorn),
-                  Xform(translation: V3(x, size.y + 0.0002, side * (size.z / 2 - 0.0045)), rotation: simd_quatf(degrees: rng.float(-10...10), axis: .up)))
-        }
-        for _ in 0..<14 {
-            let s = rng.float(0.0010...0.0022)
-            m.add(Prim.superellipsoid(V3(0.0006, s, s * 1.3), exponent: 2, subdivisions: 1, material: "food.cream:A87218"),
-                  Xform(translation: V3(size.x / 2 - 0.0004, rng.float(0.010...0.040), rng.float(-0.030...0.030))))
-        }
-        // Wax drips pooled along the bottom edge.
-        for i in 0..<7 {
-            let x = -bodyL / 2 - cut / 2 + 0.006 + Float(i) * 0.0125 + rng.float(-0.002...0.002)
-            let s = rng.float(0.004...0.008)
-            m.add(Prim.superellipsoid(V3(s, 0.0035, 0.004), exponent: 2, subdivisions: 1, material: wax),
-                  Xform(translation: V3(x, 0.0012, size.z / 2 + 0.0004 - rng.float(0...0.003))))
-        }
-        DD1MPantry.grounded(&m)
-        groundAO(&m)
-        return LODModel(m)
+        m = GroceryKit.plant(m)
+        groundAO(&m, height: 0.01, floor: 0.6)
+        return m
     }
 }

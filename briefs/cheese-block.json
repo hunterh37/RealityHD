@@ -1,27 +1,25 @@
 {
-  "budget": 9000,
+  "budget": 15000,
   "id": "cheese-block",
   "kind": "prop",
   "materials": [
-    "food.cream",
-    "paper.sheet",
-    "plastic.gloss",
-    "plastic.matte",
-    "plastic.white"
+    "plastic.gloss:A3141A",
+    "food.cheddar",
+    "paper.sheet:EFE6CE",
+    "plastic.matte:2A2420"
   ],
   "name": "Cheese block",
   "notes": "",
   "parts": [
-    "wax coat",
-    "cut end",
-    "cheese paste",
-    "knife marks",
-    "wax lip",
-    "mould seam",
-    "chipped corner",
+    "red dipped wax shell",
+    "cheese core",
+    "knife-cut end with drag ridges",
+    "wax rim around the cut",
+    "dip seam ridge",
+    "chipped corner exposing paste",
     "thumbprint dent",
-    "wax drips",
-    "crumbs"
+    "pooled wax foot",
+    "printed paper sticker"
   ],
   "references": [],
   "size": [
