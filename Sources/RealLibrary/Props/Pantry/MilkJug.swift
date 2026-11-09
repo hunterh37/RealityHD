@@ -74,10 +74,10 @@ public struct MilkJug: RealAsset {
                             V3(0.082, 0.137, 0), V3(0.062, 0.122, 0), V3(0.044, 0.118, 0)], per: hi ? 5 : 2)
         let sec = Shape2D.roundedRect(0.019, 0.0125, radius: 0.0055, segments: hi ? 3 : 1)
         m.add(Prim.sweep(sec, along: path, up: V3(0, 0, 1), material: hdpe))
-        // Printed label in the recess: one design, uniform scale (0.08 x 0.1176 m = tile 0.19 x 0.279).
-        let lw: Float = 0.08, lh: Float = 0.1176, ly: Float = 0.046
+        // Printed label in the recess: one texture tile (design rows 0.32...1, flipped to v-up) on 0.085 x 0.1 m.
+        let lw: Float = 0.085, lh: Float = 0.1, ly: Float = 0.054
         func fz(_ x: Float) -> Float { a * pow(max(0, 1 - pow(abs(x / a), n)), 1 / n) - 0.0011 + 0.00045 }
-        m.add(K.sheet(cols: 20, rows: 2, uSpan: 0.19, vSpan: 0.19 * 1.47, label) { s, t in
+        m.add(K.sheet(cols: 20, rows: 2, uSpan: 0.19, vSpan: -0.19, v0: 0.19, label) { s, t in
             let x = -lw / 2 + s * lw
             return V3(x, ly + t * lh, fz(x))
         })
@@ -90,8 +90,8 @@ public struct MilkJug: RealAsset {
                       Xform(translation: p + V3(-0.005, 0, 0)))
             }
             // Wordmark on the logo pill (design 0.70, 0.85) and the product line below it.
-            K.printSmooth(&m, "CLOVA", height: 0.0085, at: V3(-lw / 2 + 0.7 * lw, ly + 0.815 * lh, fz(0.016) + 0.0004), ink, maxWidth: 0.031, weight: 1.25)
-            K.printSmooth(&m, "WHOLE MILK", height: 0.005, at: V3(-lw / 2 + 0.69 * lw, ly + 0.705 * lh, fz(0.016) + 0.0004), ink, maxWidth: 0.034, weight: 1.1)
+            K.printSmooth(&m, "CLOVA", height: 0.0095, at: V3(-lw / 2 + 0.7 * lw, ly + 0.73 * lh, fz(0.0175) + 0.0004), ink, maxWidth: 0.036, weight: 1.25)
+            K.printSmooth(&m, "WHOLE MILK", height: 0.0055, at: V3(-lw / 2 + 0.69 * lw, ly + 0.575 * lh, fz(0.016) + 0.0004), "paper.sheet:FFFFFF", maxWidth: 0.036, weight: 1.1)
             // Inkjet date code on the shoulder.
             K.printSmooth(&m, "EXP 11 24", height: 0.0032, at: V3(0, 0.1905, a * 0.985 + 0.0003), "paper.sheet:2A2A2E",
                           rot: simd_quatf(angle: -0.25, axis: V3(1, 0, 0)), maxWidth: 0.03, weight: 0.8)
