@@ -1,105 +1,108 @@
 import simd
 import Foundation
 
-/// Spaghetti box, 60 x 280 x 40 mm: panel-built carton with a film window over a bundle of strands, printed bands, nutrition table and barcode, glue seam, front top flap hinged open with strands poking out.
+/// Spaghetti box, 60 x 278 x 39 mm (500 g): matte printed carton (invented brand VELLA) built from panels with
+/// rounded fold edges. A film window on the front shows the bundle of dry strands running the full length of
+/// the box; the printed design sits above it and a product band below. The top carries a perforated tear
+/// strip, one side the glue lap, the back cooking copy. The top front fold is rubbed through to bare board.
 public struct PastaBox: RealAsset {
     public static let id = "pasta-box"
-    public static let summary = "Tall printed cardboard spaghetti box with a clear window showing dry strands, folded flaps and glue seam."
+    public static let summary = "Spaghetti box: matte printed carton panels, film window over a strand bundle, tear strip, glue lap, rounded folds."
     public static let tags = ["prop", "interior", "pantry", "paper", "glass"]
-    public static let budget = 14000
+    public static let budget = 15000
     public static let author = "realityhd"
     public static let preview = PreviewHint(azimuth: 28, elevation: 16, studio: true)
 
     /// Carton width, height, depth (m).
-    public var size = V3(0.058, 0.2715, 0.038)
-    /// Printed colors (sRGB hex): box, band, window frame.
-    public var boxColor: UInt32 = 0x1F4E96
-    public var bandColor: UInt32 = 0xF2C230
-    public var inkColor: UInt32 = 0xFFF8E4
-    public var strandCount = 30
+    public var size = V3(0.06, 0.278, 0.039)
+    /// Printed face (brand field tint) and matching board.
+    public var print: MaterialKey = "pkg.carton-matte:1F4E96"
+    public var board: MaterialKey = "paper.sheet:24519A"
+    public var pasta: MaterialKey = "plastic.matte:E6C46E"
+    public var film: MaterialKey = "pkg.pet-clear"
+    public var brand = "VELLA"
+    public var line = "SPAGHETTI"
+    public var strandCount = 44
     public init() {}
 
-    func level(detail: Bool, seed: UInt64) -> Model {
-        var rng = SeededRNG(seed: seed)
-        let w = size.x, h = size.y, d = size.z, t: Float = 0.0010
-        let c = DD1JKit.Carton(w: w, h: h, d: d, crush: nil, bulge: 0)
-        let boxM = DD1JKit.tint("plastic.matte", boxColor)
-        let raw: MaterialKey = DD1JKit.tint("paper.screwbox-kraft", 0xC9A66B)
-        var m = Model(name: Self.id)
-        let wx: Float = 0.0215, wy0: Float = 0.070, wy1: Float = 0.196
-        func wall(_ size: V3, _ pos: V3, _ mat: MaterialKey? = nil) {
-            m.add(Prim.roundedBox(size, radius: 0.0003, bevelSegments: 1, material: mat ?? boxM), Xform(translation: pos))
-        }
-        // Panels around the window (no hole in a single skin, so the front is built from four strips).
-        wall(V3(w, h, t), V3(0, h / 2, -d / 2 + t / 2))
-        wall(V3(t, h, d - 2 * t), V3(-w / 2 + t / 2, h / 2, 0))
-        wall(V3(t, h, d - 2 * t), V3(w / 2 - t / 2, h / 2, 0))
-        wall(V3(w, h - wy1, t), V3(0, (h + wy1) / 2, d / 2 - t / 2))
-        wall(V3(w, wy0, t), V3(0, wy0 / 2, d / 2 - t / 2))
-        wall(V3(w / 2 - wx, wy1 - wy0, t), V3(-(w / 2 + wx) / 2, (wy0 + wy1) / 2, d / 2 - t / 2))
-        wall(V3(w / 2 - wx, wy1 - wy0, t), V3((w / 2 + wx) / 2, (wy0 + wy1) / 2, d / 2 - t / 2))
-        // Window film.
-        m.add(Prim.roundedBox(V3(2 * wx + 0.004, wy1 - wy0 + 0.004, 0.0004), radius: 0.0001, bevelSegments: 1, material: "glass.clear"),
-              Xform(translation: V3(0, (wy0 + wy1) / 2, d / 2 - t - 0.0003)))
-        // Pasta bundle behind the window: rows of strands, one front strand bowed.
-        let strand = Prim.cylinder(radius: 0.00105, height: 0.262, bevel: 0.0003, segments: detail ? 7 : 4, bevelSegments: 1, material: "food.pasta-dry")
-        let n = detail ? strandCount : 10
-        for i in 0..<n {
-            let col = i % 10, row = i / 10
-            let x = -0.0225 + Float(col) * 0.0050 + rng.float(-0.0008...0.0008)
-            let z = d / 2 - t - 0.0026 - Float(row) * 0.0095 + rng.float(-0.0008...0.0008)
-            let lean = rng.float(-0.012...0.012)
-            m.add(strand, Xform(translation: V3(x, 0.0035, z), rotation: simd_quatf(angle: lean, axis: V3(0, 0, 1)) * simd_quatf(angle: rng.float(-0.01...0.01), axis: V3(1, 0, 0))))
-        }
-        func patch(_ face: Int, _ u0: Float, _ u1: Float, _ v0: Float, _ v1: Float, _ col: UInt32, off: Float = 0.0006) {
-            m.add(DD1JKit.facePatch(c, face: face, u0: u0, u1: u1, v0: v0, v1: v1, offset: off, material: DD1JKit.tint("plastic.matte", col), detail: detail, cols: 1, rows: 1))
-        }
-        // Front print: top band, title bars, window frame lines, bottom band, small print.
-        patch(0, -w / 2 + 0.003, w / 2 - 0.003, h - 0.060, h - 0.012, bandColor)
-        for k in 0..<3 { patch(0, -0.021 + Float(k) * 0.002, 0.021 - Float(k) * 0.004, h - 0.026 - Float(k) * 0.011, h - 0.017 - Float(k) * 0.011, boxColor, off: 0.0010) }
-        for (u0, u1, v0, v1) in [(-wx - 0.0035, -wx, wy0 - 0.003, wy1 + 0.003), (wx, wx + 0.0035, wy0 - 0.003, wy1 + 0.003),
-                                 (-wx - 0.0035, wx + 0.0035, wy1, wy1 + 0.003), (-wx - 0.0035, wx + 0.0035, wy0 - 0.003, wy0)] {
-            patch(0, u0, u1, v0, v1, inkColor, off: 0.0008)
-        }
-        patch(0, -w / 2 + 0.003, w / 2 - 0.003, 0.012, 0.050, bandColor)
-        for k in 0..<2 { patch(0, -0.019, 0.019 - Float(k) * 0.007, 0.036 - Float(k) * 0.012, 0.043 - Float(k) * 0.012, boxColor, off: 0.0010) }
-        patch(0, -w / 2 + 0.003, w / 2 - 0.003, 0, 0.0045, 0x5A4A32, off: 0.0005)
-        patch(0, 0.006, 0.0225, 0.054, 0.0575, inkColor, off: 0.0008)
-        // Sides: full-height stripe and nutrition table; back: barcode and glue seam.
-        patch(2, -0.012, 0.012, 0.030, h - 0.030, bandColor)
-        patch(3, -0.015, 0.015, 0.040, 0.230, inkColor)
-        for k in 0..<(detail ? 14 : 5) { patch(3, -0.012, 0.012 - (k % 3 == 0 ? 0 : 0.006), 0.215 - Float(k) * 0.0125, 0.2175 - Float(k) * 0.0125, 0x2A2420, off: 0.0010) }
-        patch(1, -0.020, 0.020, 0.030, 0.080, inkColor)
-        for k in 0..<(detail ? 14 : 5) { patch(1, -0.012 + Float(k) * 0.0018, -0.012 + Float(k) * 0.0018 + (k % 3 == 0 ? 0.0011 : 0.0006), 0.038, 0.066, 0x1C1A18, off: 0.0010) }
-        patch(1, 0.0215, 0.0222, 0.002, h - 0.002, 0x0A2A55, off: 0.0010)
-        m.add(DD1JKit.facePatch(c, face: 1, u0: 0.0222, u1: 0.0255, v0: 0.002, v1: h - 0.002, offset: 0.0010, material: raw, detail: false))
-        // Top: closed back and side flaps, front flap hinged open with strands poking out; bottom plate seam.
-        wall(V3(w - 0.002, 0.0008, d * 0.52), V3(0, h + 0.0001, -d * 0.24), raw)
-        wall(V3(w - 0.002, 0.0008, d - 2 * t), V3(0, h - 0.0011, 0), raw)
-        let hinge = V3(0, h + 0.0002, d / 2 - 0.0005)
-        let flapLen = d * 0.40
-        m.add(Prim.roundedBox(V3(w - 0.002, 0.0008, flapLen), radius: 0.0003, bevelSegments: 1, material: boxM),
-              Xform(translation: hinge + V3(0, sin(0.32) * flapLen / 2, -cos(0.32) * flapLen / 2), rotation: simd_quatf(angle: 0.32, axis: V3(1, 0, 0))))
-        for (i, x) in [Float(-0.012), -0.006, 0.0, 0.007].enumerated() {
-            let ext: Float = 0.0015 + 0.0015 * Float(i % 2)
-            m.add(Prim.cylinder(radius: 0.00105, height: ext + 0.004, bevel: 0.0003, segments: detail ? 7 : 4, bevelSegments: 1, material: "food.pasta-dry"),
-                  Xform(translation: V3(x, h - 0.004, d / 2 - 0.0095), rotation: simd_quatf(angle: Float(i) * 0.05 - 0.07, axis: V3(0, 0, 1))))
-        }
-        // Crease: a light vertical scuff on the front stripe plus a dented bottom corner mark.
-        patch(0, w / 2 - 0.010, w / 2 - 0.0085, 0.080, 0.190, 0xE9E4D8, off: 0.0011)
-        patch(2, -d / 2 + 0.003, -d / 2 + 0.014, 0.0, 0.014, 0xDCD3BC, off: 0.0010)
-        // Water stain creeping up from the base, a worn-through front corner and a crushed bottom edge.
-        patch(0, -w / 2 + 0.003, 0.004, 0.0, 0.016, 0xB9B1A0, off: 0.0011)
-        patch(0, -w / 2 + 0.003, -w / 2 + 0.010, 0.004, 0.030, 0xCBC3AE, off: 0.0012)
-        patch(3, -0.012, 0.012, 0.0, 0.020, 0xC9C0AA, off: 0.0011)
-        patch(1, -0.020, 0.020, h - 0.050, h - 0.012, 0x16396F, off: 0.0010)
-        patch(0, w / 2 - 0.016, w / 2 - 0.003, h - 0.018, h - 0.002, 0xE6D7A5, off: 0.0012)
-        groundAO(&m, height: 0.02, floor: 0.6)
-        let bb = m.bounds
-        return m.transformed(Xform(translation: V3(-(bb.min.x + bb.max.x) / 2, -bb.min.y, -(bb.min.z + bb.max.z) / 2)))
+    public func build(seed: UInt64) -> LODModel {
+        LODModel(levels: [make(seed: seed, hi: true), make(seed: seed, hi: false)], switchDistances: [3])
     }
 
-    public func build(seed: UInt64) -> LODModel {
-        LODModel(levels: [level(detail: true, seed: seed), level(detail: false, seed: seed)], switchDistances: [3])
+    func make(seed: UInt64, hi: Bool) -> Model {
+        typealias K = GroceryKit
+        var rng = SeededRNG(seed: seed &+ 7)
+        var m = Model(name: Self.id)
+        let w = size.x, h = size.y, d = size.z, e: Float = 0.0009
+        let wy0: Float = 0.052, wy1: Float = 0.168, wx: Float = 0.021, fz = d / 2
+        func panel(_ key: MaterialKey, _ x0: Float, _ x1: Float, _ y0: Float, _ y1: Float, z: Float, u: (Float, Float) = (0, 0), v: (Float, Float) = (0, 0), back: Bool = false) {
+            let us = u.1 == 0 ? x1 - x0 : u.1, vs = v.1 == 0 ? y1 - y0 : v.1
+            m.add(K.sheet(cols: 1, rows: 1, uSpan: us, vSpan: vs, u0: u.0, v0: v.0, key) { s, t in
+                back ? V3(x1 - s * (x1 - x0), y0 + t * (y1 - y0), z) : V3(x0 + s * (x1 - x0), y0 + t * (y1 - y0), z)
+            })
+        }
+        let L = -w / 2 + e, R = w / 2 - e
+        // Front: product band, window margins, printed design above (design x 0.45...1, rows 0.45...1).
+        panel(board, L, R, e, wy0, z: fz)
+        panel(board, L, -wx, wy0, wy1, z: fz)
+        panel(board, wx, R, wy0, wy1, z: fz)
+        panel(board, L, R, wy1, wy1 + 0.004, z: fz)
+        panel(print, L, R, wy1 + 0.004, h - e, z: fz, u: (0.0675, 0.0825), v: (0.121, -0.121))
+        // Back: design on top, cooking copy board below.
+        m.add(K.sheet(cols: 1, rows: 1, uSpan: 0.0825, vSpan: -0.121, u0: 0.0675, v0: 0.121, print) { s, t in V3(R - s * (R - L), wy1 + 0.004 + t * (h - e - wy1 - 0.004), -fz) })
+        panel(board, L, R, e, wy1 + 0.004, z: -fz, back: true)
+        // Sides, top, bottom.
+        for side: Float in [1, -1] {
+            m.add(K.sheet(cols: 1, rows: 1, uSpan: d, vSpan: h, board) { s, t in V3(side * w / 2, e + t * (h - 2 * e), side * (d / 2 - e - s * (d - 2 * e))) })
+        }
+        m.add(K.sheet(cols: 1, rows: 1, uSpan: w, vSpan: d, board) { s, t in V3(L + s * (R - L), h, d / 2 - e - t * (d - 2 * e)) })
+        m.add(K.sheet(cols: 1, rows: 1, uSpan: w, vSpan: d, board) { s, t in V3(R - s * (R - L), 0, d / 2 - e - t * (d - 2 * e)) })
+        // Rounded folds.
+        let hw = w / 2 - e, hd = d / 2 - e
+        var edges: [(V3, V3)] = []
+        for sx: Float in [-1, 1] { for sz: Float in [-1, 1] { edges.append((V3(sx * hw, e, sz * hd), V3(sx * hw, h - e, sz * hd))) } }
+        for y in [e, h - e] { for sz: Float in [-1, 1] { edges.append((V3(-hw, y, sz * hd), V3(hw, y, sz * hd))) }
+            for sx: Float in [-1, 1] { edges.append((V3(sx * hw, y, -hd), V3(sx * hw, y, hd))) } }
+        for (i, (a, b)) in edges.enumerated() {
+            // Top front fold rubbed to bare board.
+            let key: MaterialKey = i == 9 && hi ? "paper.screwbox-kraft" : board
+            m.add(Prim.tube([a, b], radii: [e, e], sides: hi ? 8 : 4, seamTile: 0.02, material: key))
+        }
+        // Inside back wall seen through the window, film over the window, strand bundle.
+        panel("paper.sheet:C9B48A", -wx - 0.002, wx + 0.002, wy0 - 0.002, wy1 + 0.002, z: -fz + 0.001)
+        m.add(K.sheet(cols: 6, rows: 10, uSpan: 0.05, vSpan: 0.12, film) { s, t in
+            let x = -wx + s * 2 * wx, y = wy0 + t * (wy1 - wy0)
+            return V3(x, y, fz - 0.0004 + 0.0006 * sin(s * .pi) * sin(t * .pi) + 0.0002 * sin(t * 40 + s * 9))
+        })
+        let n = hi ? strandCount : 14
+        for k in 0..<n {
+            let x = rng.float(-0.024...0.024), z = rng.float(-0.012...(fz - 0.0045))
+            let lean = rng.float(-0.003...0.003), r: Float = hi ? 0.0009 : 0.0016
+            m.add(Prim.tube([V3(x, 0.006, z), V3(x + lean, h - 0.006, z + lean * 0.5)], radii: [r, r], sides: hi ? 5 : 3, seamTile: 0.01, material: pasta))
+            _ = k
+        }
+        if hi {
+            // Window keyline, wordmark on the pill, product band copy.
+            let kp: [V3] = [V3(-wx, wy0, fz + 0.0003), V3(wx, wy0, fz + 0.0003), V3(wx, wy1, fz + 0.0003), V3(-wx, wy1, fz + 0.0003)]
+            m.add(Prim.sweep(Shape2D.rect(0.0005, 0.0014), along: kp, up: V3(0, 0, 1), closedPath: true, material: "paper.sheet:E8C24A"))
+            let dy = wy1 + 0.004, dh = h - e - dy
+            K.printSmooth(&m, brand, height: 0.011, at: V3(-w / 2 + 0.4545 * w, dy + 0.66 * dh, fz + 0.0005), "paper.sheet:FFFFFF", maxWidth: 0.044, weight: 1.35)
+            K.printSmooth(&m, line, height: 0.0065, at: V3(0, 0.03, fz + 0.0005), "paper.sheet:FFFFFF", maxWidth: 0.05, weight: 1.2)
+            K.printSmooth(&m, "N 5", height: 0.009, at: V3(0, 0.012, fz + 0.0005), "paper.sheet:E8C24A", weight: 1.3)
+            K.printSmooth(&m, "500 G", height: 0.0045, at: V3(0, 0.043, fz + 0.0005), "paper.sheet:DCE4F2", weight: 1.0)
+            // Perforated tear strip on the top.
+            for k in 0..<14 {
+                m.add(Prim.roundedBox(V3(0.0022, 0.0003, 0.0005), radius: 0.0001, bevelSegments: 1, material: "paper.sheet:10284F"),
+                      Xform(translation: V3(L + 0.003 + Float(k) * 0.0039, h + 0.0001, d / 2 - 0.008)))
+            }
+            // Glue lap on the left side, cooking copy rules on the back.
+            m.add(Prim.roundedBox(V3(0.0004, h - 0.008, 0.01), radius: 0.0001, bevelSegments: 1, material: board), Xform(translation: V3(-w / 2 - 0.0002, h / 2, -d / 2 + 0.007)))
+            for k in 0..<9 {
+                m.add(Prim.roundedBox(V3(0.04 - Float(k % 3) * 0.006, 0.0012, 0.0003), radius: 0.0001, bevelSegments: 1, material: "paper.sheet:DCE4F2"),
+                      Xform(translation: V3(0, 0.15 - Float(k) * 0.009, -fz - 0.0002)))
+            }
+        }
+        groundAO(&m, height: 0.02, floor: 0.75)
+        return m
     }
 }
