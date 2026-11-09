@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "water-bottle-pack",
+  "kind": "prop",
+  "materials": [
+    "pkg.pet-clear",
+    "food.water",
+    "pkg.paper-label",
+    "pkg.shrink-film",
+    "plastic.gloss"
+  ],
+  "name": "Water bottle pack",
+  "notes": "",
+  "parts": [
+    "12 ribbed PET bottles in a 4 x 3 grid",
+    "water fill",
+    "knurled caps with tamper rings",
+    "wrap labels",
+    "shrink film with bullseye end openings",
+    "printed film panel",
+    "carry strap"
+  ],
+  "references": [],
+  "size": [
+    0.277,
+    0.209,
+    0.201
+  ],
+  "style": "12 x 500 ml spring water case in shrink film",
+  "summary": "Twelve-pack of 500 ml water bottles in shrink film, 27 cm: ribbed PET bottles, caps, labels, bullseye ends.",
+  "tags": [
+    "prop",
+    "grocery",
+    "food",
+    "plastic",
+    "container",
+    "handheld"
+  ],
+  "theme": "Grocery",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

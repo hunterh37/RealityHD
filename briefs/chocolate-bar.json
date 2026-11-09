@@ -1,25 +1,29 @@
 {
-  "budget": 5000,
+  "budget": 12000,
   "id": "chocolate-bar",
   "kind": "prop",
   "materials": [
-    "food.chocolate"
+    "food.chocolate",
+    "pkg.foil-wrapper",
+    "pkg.carton-matte",
+    "paper.sheet"
   ],
   "name": "Chocolate bar",
   "notes": "",
   "parts": [
-    "dark chocolate tablet with a 3 x 6 grid of scored squares",
-    "beveled V grooves between pieces",
-    "flat back, glossy face"
+    "dark chocolate tablet with scored squares",
+    "crinkled foil inner wrap torn open",
+    "printed paper sleeve slid back",
+    "smooth wordmark"
   ],
   "references": [],
   "size": [
-    0.155,
-    0.009,
-    0.075
+    0.158,
+    0.014,
+    0.079
   ],
-  "style": "70 percent dark chocolate bar, unwrapped",
-  "summary": "Dark chocolate bar, 15.5 x 7.5 cm: scored 3 x 6 tablet with beveled V grooves, glossy face and flat back.",
+  "style": "70 percent dark chocolate bar, half unwrapped",
+  "summary": "Dark chocolate bar, 16 cm: scored tablet in torn foil with a printed paper sleeve slid back.",
   "tags": [
     "prop",
     "food",

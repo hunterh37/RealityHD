@@ -1,0 +1,41 @@
+{
+  "budget": 12000,
+  "id": "paper-towel-pack",
+  "kind": "prop",
+  "materials": [
+    "paper.exam",
+    "paper.screwbox-kraft",
+    "pkg.shrink-film",
+    "pkg.paper-label",
+    "plastic.gloss"
+  ],
+  "name": "Paper towel pack",
+  "notes": "",
+  "parts": [
+    "six embossed paper towel rolls 2 x 3",
+    "brown cores at the ends",
+    "shrink film overwrap with folded end seals",
+    "printed front panel",
+    "carry handle",
+    "smooth wordmark"
+  ],
+  "references": [],
+  "size": [
+    0.391,
+    0.305,
+    0.263
+  ],
+  "style": "six double rolls of paper towels in printed poly wrap",
+  "summary": "Six-roll paper towel pack, 40 cm: embossed rolls with cores, poly overwrap with folded ends, printed panel, handle.",
+  "tags": [
+    "prop",
+    "grocery",
+    "paper",
+    "plastic",
+    "home",
+    "handheld"
+  ],
+  "theme": "Grocery",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

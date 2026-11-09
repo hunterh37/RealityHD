@@ -1,0 +1,39 @@
+{
+  "budget": 9000,
+  "id": "juice-carton",
+  "kind": "prop",
+  "materials": [
+    "pkg.carton-gloss",
+    "plastic.gloss",
+    "paper.sheet"
+  ],
+  "name": "Juice carton",
+  "notes": "",
+  "parts": [
+    "printed coated board body",
+    "gable roof panels",
+    "folded gable ends with creases",
+    "sealed top fin",
+    "screw cap with tamper ring on the front slope",
+    "smooth wordmark"
+  ],
+  "references": [],
+  "size": [
+    0.1,
+    0.258,
+    0.101
+  ],
+  "style": "64 oz gable-top orange juice carton",
+  "summary": "64 oz gable-top juice carton, 27 cm: printed board, folded gable ends, sealed fin, screw cap spout.",
+  "tags": [
+    "prop",
+    "grocery",
+    "food",
+    "paper",
+    "container",
+    "handheld"
+  ],
+  "theme": "Grocery",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

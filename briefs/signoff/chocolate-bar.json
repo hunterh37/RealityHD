@@ -1,8 +1,8 @@
 {
-  "automated" : 0.9958527,
-  "date" : "2026-10-05",
-  "final" : 0.87992346,
-  "fingerprint" : "78ab02f0a7b81f90",
+  "automated" : 0.99819386,
+  "date" : "2026-11-09",
+  "final" : 0.8766804,
+  "fingerprint" : "3fc584354b28a998",
   "id" : "chocolate-bar",
   "iterations" : 1,
   "judge" : "agent",
@@ -10,7 +10,7 @@
     "artifacts" : 8,
     "construction" : 8,
     "edges" : 8,
-    "grounding" : 8,
+    "grounding" : 7,
     "materials" : 8,
     "proportion" : 9,
     "silhouette" : 9,
@@ -18,5 +18,5 @@
   },
   "seed" : 1,
   "threshold" : 0.85,
-  "vision" : 0.81750005
+  "vision" : 0.81125003
 }

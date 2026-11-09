@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "ice-cream-pint",
+  "kind": "prop",
+  "materials": [
+    "pkg.paper-label",
+    "pkg.carton-gloss",
+    "paper.sheet"
+  ],
+  "name": "Ice cream pint",
+  "notes": "",
+  "parts": [
+    "tapered printed paperboard cup",
+    "rolled bottom bead",
+    "slip-on lid with skirt",
+    "printed lid top",
+    "tamper strip",
+    "smooth wordmark"
+  ],
+  "references": [],
+  "size": [
+    0.096,
+    0.1,
+    0.096
+  ],
+  "style": "premium pint of ice cream",
+  "summary": "Pint of ice cream, 10 cm: tapered printed paperboard cup, slip-on lid with printed top and tamper strip.",
+  "tags": [
+    "prop",
+    "grocery",
+    "food",
+    "paper",
+    "container",
+    "handheld"
+  ],
+  "theme": "Grocery",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
