@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "skate-elbow-pad",
+  "kind": "prop",
+  "materials": [
+    "fabric.nylon",
+    "plastic.gloss",
+    "fabric.webbing",
+    "metal.nickel-worn"
+  ],
+  "name": "Skate Elbow Pad",
+  "notes": "Worn pose, origin at left_forearm_joint (elbow), +Z front. See briefs/wearables.md.",
+  "parts": [
+    "neoprene sleeve",
+    "hard cap",
+    "cap ribs",
+    "rivets",
+    "elastic straps",
+    "hook and loop closure",
+    "frayed rims"
+  ],
+  "references": [],
+  "size": [
+    0.14,
+    0.197,
+    0.136
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "Worn skate elbow pad with scuffed cap and velcro straps.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "plastic",
+    "fabric"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

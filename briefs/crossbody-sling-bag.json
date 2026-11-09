@@ -1,0 +1,47 @@
+{
+  "budget": 15000,
+  "id": "crossbody-sling-bag",
+  "kind": "prop",
+  "materials": [
+    "fabric.nylon",
+    "fabric.webbing",
+    "leather.tan",
+    "metal.nickel-worn",
+    "plastic.black"
+  ],
+  "name": "Crossbody Sling Bag",
+  "notes": "Worn pose, origin at spine_7 (sternum), +Z front, chest surface ~12 cm in front. See briefs/wearables.md.",
+  "parts": [
+    "nylon shell",
+    "piped gusset seam",
+    "zip front pocket",
+    "metal zip teeth and pull",
+    "leather label patch",
+    "carry handle",
+    "D-ring end tabs",
+    "webbing strap",
+    "padded shoulder section",
+    "slider adjuster with tail and keeper",
+    "side-release buckle"
+  ],
+  "references": [],
+  "size": [
+    0.412,
+    0.488,
+    0.336
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "Worn nylon sling bag on a webbing strap, stitched, with hardware.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "fabric",
+    "leather",
+    "metal",
+    "plastic"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "cowboy-spur",
+  "kind": "prop",
+  "materials": [
+    "metal.blued-steel",
+    "metal.nickel",
+    "metal.rust-grime",
+    "metal.brass-aged",
+    "leather.oxblood-worn"
+  ],
+  "name": "Cowboy Spur",
+  "notes": "Worn pose, origin at left_foot_joint (ankle), toes +Z. See briefs/wearables.md.",
+  "parts": [
+    "heel band",
+    "silver inlay",
+    "shank",
+    "yoke",
+    "rowel",
+    "buttons",
+    "leather straps",
+    "buckle",
+    "concho"
+  ],
+  "references": [],
+  "size": [
+    0.099,
+    0.113,
+    0.28
+  ],
+  "style": "Worn cowboy spur with rusted rowel and leather instep straps, PBR",
+  "summary": "Worn cowboy spur with rusted rowel and leather instep straps, PBR",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

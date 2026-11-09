@@ -1,0 +1,36 @@
+{
+  "budget": 15000,
+  "id": "bandana-headwrap",
+  "kind": "prop",
+  "notes": "Worn pose, origin at head centre, +Z front. See briefs/wearables.md.",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.12,
+  "name": "Bandana Headwrap",
+  "size": [
+    0.179,
+    0.177,
+    0.252
+  ],
+  "style": "everyday, dyed cotton",
+  "theme": "Wearables",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "headwear",
+    "fabric"
+  ],
+  "parts": [
+    "pleated folded band",
+    "printed border lines",
+    "dashed centre line",
+    "hem stitching",
+    "back knot",
+    "two tapering tails"
+  ],
+  "materials": [
+    "fabric.canvas"
+  ],
+  "summary": "Red cotton bandana tied as a headwrap with printed borders, back knot and two tails."
+}

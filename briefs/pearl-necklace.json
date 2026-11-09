@@ -1,0 +1,37 @@
+{
+  "budget": 15000,
+  "id": "pearl-necklace",
+  "kind": "prop",
+  "notes": "Worn pose, origin at neck base (neck_1_joint), +Z front. See briefs/wearables.md.",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.12,
+  "name": "Pearl Necklace",
+  "size": [
+    0.153,
+    0.089,
+    0.153
+  ],
+  "style": "classic jewelry, cultured pearl",
+  "theme": "Wearables",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "jewelry",
+    "pearl",
+    "gold"
+  ],
+  "parts": [
+    "graduated pearls",
+    "silk knots",
+    "baroque pearl",
+    "gold box clasp"
+  ],
+  "materials": [
+    "plastic.gloss",
+    "metal.gold",
+    "fabric.nylon"
+  ],
+  "summary": "Worn graduated pearl necklace with knotted pearls and gold box clasp."
+}

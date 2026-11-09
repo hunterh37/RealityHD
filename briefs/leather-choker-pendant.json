@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "leather-choker-pendant",
+  "kind": "prop",
+  "notes": "Worn pose, origin at neck base (neck_1_joint), +Z front. See briefs/wearables.md.",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.12,
+  "name": "Leather Choker Pendant",
+  "size": [
+    0.13,
+    0.05,
+    0.135
+  ],
+  "style": "boutique leather goods, worn",
+  "theme": "Wearables",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "jewelry",
+    "leather",
+    "metal"
+  ],
+  "parts": [
+    "leather strap",
+    "brass roller buckle",
+    "punched tail",
+    "keeper loop",
+    "crescent pendant",
+    "stitched edges"
+  ],
+  "materials": [
+    "leather.black",
+    "metal.brass-aged",
+    "metal.nickel-worn",
+    "glass.emerald"
+  ],
+  "summary": "Worn black leather choker with brass buckle and silver crescent pendant."
+}

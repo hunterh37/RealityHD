@@ -1554,6 +1554,36 @@ public enum Props {
         EnergyDrinkCan.self,
         SugarBag.self,
         CrackerBox.self,
+        KnitBeanieWorn.self, BucketHatWorn.self, WirelessHeadphonesWorn.self, CowboyHatWorn.self, BandanaHeadwrap.self,
+        // wearables:head
+        CubanLinkChain.self, PearlNecklace.self, KnitScarfWorn.self, LeatherChokerPendant.self, DogTagChain.self,
+        // wearables:neck
+        CrossbodySlingBag.self, LanyardIdBadge.self, LeatherChestHarness.self, ActionCamChestMount.self, BoutonniereFlower.self,
+        // wearables:chest
+        WesternBeltBuckle.self,
+        WaistPack.self,
+        CarabinerKeys.self,
+        LeatherToolBelt.self,
+        WalletChain.self,
+        // wearables:hips
+        SteelPauldron.self, GoldEpaulette.self, MessengerBagWorn.self, CanvasToteShoulder.self, DslrShoulderStrap.self,
+        // wearables:shoulder
+        LeatherBracer.self, SkateElbowPad.self, PhoneArmband.self, CaptainArmband.self, GoldArmCuff.self,
+        // wearables:arm
+        DiveWatchWorn.self, SmartwatchWorn.self, GoldLinkBracelet.self, BeadedMalaBracelet.self, GoldSignetRing.self,
+        // wearables:wrist
+        HingedKneeBrace.self,
+        SkateKneePad.self,
+        NeopreneKneeSleeve.self,
+        TacticalThighPouch.self,
+        SoccerShinGuard.self,
+        // wearables:knee
+        HighTopSneakerWorn.self,
+        ChelseaBootWorn.self,
+        GoldAnklet.self,
+        AnkleWeightStrap.self,
+        CowboySpur.self,
+        // wearables:foot
         SwanBoat.self,
         FinishLineGantry.self,
         FinisherMedal.self,

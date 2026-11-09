@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "gold-arm-cuff",
+  "kind": "prop",
+  "materials": [
+    "metal.gold",
+    "metal.brass-aged",
+    "glass.emerald"
+  ],
+  "name": "Gold Arm Cuff",
+  "notes": "Worn pose, origin at left_forearm_joint (elbow), +Z front. See briefs/wearables.md.",
+  "parts": [
+    "hammered band",
+    "beaded cord",
+    "edge rails",
+    "engraved patina lines",
+    "emerald cabochon in bezel",
+    "barrel finials",
+    "dent"
+  ],
+  "references": [],
+  "size": [
+    0.112,
+    0.038,
+    0.111
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "Worn gold arm cuff with bezel-set emerald and engraved patina.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "jewelry",
+    "metal",
+    "glass"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

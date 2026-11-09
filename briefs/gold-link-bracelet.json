@@ -1,0 +1,37 @@
+{
+  "budget": 15000,
+  "id": "gold-link-bracelet",
+  "kind": "prop",
+  "materials": [
+    "metal.gold",
+    "metal.brass",
+    "metal.brass-aged",
+    "metal.nickel-worn"
+  ],
+  "name": "Gold Link Bracelet",
+  "notes": "Worn pose, origin at left_hand_joint (wrist), +Z front. See briefs/wearables.md.",
+  "parts": [
+    "figaro links",
+    "lobster clasp",
+    "extension chain",
+    "teardrop",
+    "heart charm",
+    "repaired link"
+  ],
+  "references": [],
+  "size": [
+    0.078,
+    0.019,
+    0.062
+  ],
+  "style": "Worn gold figaro link bracelet with heart charm, PBR",
+  "summary": "Worn gold figaro link bracelet with heart charm, PBR",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

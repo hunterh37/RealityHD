@@ -74,6 +74,8 @@ public enum AssetTag {
         "amusement", "coaster",
         // grocery: supermarket fixtures, packaged goods and produce
         "grocery",
+        // wearables: accessories authored in the worn pose on a body anchor (see briefs/wearables.md)
+        "wearable", "worn", "jewelry", "headwear",
     ])
 
     /// Scene tags: any vocabulary tag plus these.

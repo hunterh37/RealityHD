@@ -1,0 +1,50 @@
+{
+  "budget": 15000,
+  "id": "action-cam-chest-mount",
+  "kind": "prop",
+  "materials": [
+    "fabric.webbing",
+    "plastic.black",
+    "plastic.soft-touch",
+    "glass.lens-coated",
+    "glass.display",
+    "metal.nickel-worn"
+  ],
+  "name": "Action Cam Chest Mount",
+  "notes": "Worn pose, origin at spine_7 (sternum), +Z front, chest surface ~12 cm in front. See briefs/wearables.md.",
+  "parts": [
+    "webbing shoulder straps",
+    "chest band",
+    "side-release buckle",
+    "tri-glide adjusters",
+    "rear slide",
+    "chest plate with strap slots",
+    "three-prong mount base",
+    "knurled thumbscrew",
+    "action camera body",
+    "coated lens",
+    "front status screen",
+    "shutter button",
+    "side hatch"
+  ],
+  "references": [],
+  "size": [
+    0.356,
+    0.299,
+    0.288
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "Worn action camera on a webbing chest harness with plate and three-prong mount.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "electronics",
+    "camera",
+    "plastic",
+    "fabric"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

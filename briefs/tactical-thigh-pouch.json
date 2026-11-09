@@ -1,0 +1,35 @@
+{
+  "budget": 10000,
+  "id": "tactical-thigh-pouch",
+  "kind": "prop",
+  "materials": [
+    "fabric.webbing",
+    "plastic.black"
+  ],
+  "name": "Tactical Thigh Pouch",
+  "notes": "Worn pose, origin at left_leg_joint (knee), +Z front. See briefs/wearables.md.",
+  "parts": [
+    "flap pouch",
+    "MOLLE rows",
+    "backing panel",
+    "elastic leg straps",
+    "buckles",
+    "duct tape repair"
+  ],
+  "references": [],
+  "size": [
+    0.258,
+    0.335,
+    0.195
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "Worn tactical drop-leg thigh pouch with MOLLE rows and leg straps.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.3
+}

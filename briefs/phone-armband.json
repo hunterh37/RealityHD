@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "phone-armband",
+  "kind": "prop",
+  "materials": [
+    "fabric.nylon",
+    "glass.display",
+    "plastic.black",
+    "plastic.white"
+  ],
+  "name": "Phone Armband",
+  "notes": "Worn pose, origin at left_forearm_joint (elbow), +Z front. See briefs/wearables.md.",
+  "parts": [
+    "neoprene band",
+    "padded pouch",
+    "window with phone",
+    "reflective stripes",
+    "hook and loop closure",
+    "earphone cable"
+  ],
+  "references": [],
+  "size": [
+    0.115,
+    0.25,
+    0.103
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "Worn neoprene phone armband with window pouch and earphone cable.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "fabric",
+    "plastic",
+    "electronics",
+    "sports"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

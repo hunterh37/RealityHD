@@ -1,0 +1,44 @@
+{
+  "budget": 15000,
+  "id": "dive-watch-worn",
+  "kind": "prop",
+  "materials": [
+    "metal.stainless",
+    "metal.nickel-worn",
+    "metal.stainless-smudged",
+    "metal.anodized-worn",
+    "plastic.gloss",
+    "plastic.white",
+    "glass.pane",
+    "plastic.grime"
+  ],
+  "name": "Dive Watch Worn",
+  "notes": "Worn pose, origin at left_hand_joint (wrist), +Z front. See briefs/wearables.md.",
+  "parts": [
+    "knurled bezel",
+    "domed sapphire crystal",
+    "applied lume indices",
+    "sword hands",
+    "date window",
+    "screw-down crown",
+    "Oyster bracelet",
+    "clasp",
+    "case nick"
+  ],
+  "references": [],
+  "size": [
+    0.069,
+    0.049,
+    0.067
+  ],
+  "style": "Stainless dive watch on bracelet, worn, brushed and polished steel, faded bezel insert, grime in hinge gaps, PBR",
+  "summary": "Stainless dive watch on bracelet, worn, brushed and polished steel, faded bezel insert, grime in hinge gaps, PBR",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

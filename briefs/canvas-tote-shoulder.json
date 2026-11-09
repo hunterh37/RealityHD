@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "canvas-tote-shoulder",
+  "kind": "prop",
+  "materials": [
+    "fabric.canvas",
+    "fabric.webbing",
+    "fabric.knit",
+    "metal.brass"
+  ],
+  "name": "Canvas Tote Shoulder",
+  "notes": "Worn pose, origin at left_shoulder_1_joint (top of shoulder), +X outward, +Z front. See briefs/wearables.md.",
+  "parts": [
+    "canvas body",
+    "turned hem with double stitching",
+    "piped side seams",
+    "lining",
+    "two webbing handles over shoulder",
+    "box-X handle stitching",
+    "printed ring graphic",
+    "enamel pins",
+    "rolled sweater"
+  ],
+  "references": [],
+  "size": [
+    0.212,
+    0.569,
+    0.391
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "TODO: one sentence, what it is and how it's built.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "fabric"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.2
+}

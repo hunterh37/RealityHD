@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "leather-chest-harness",
+  "kind": "prop",
+  "materials": [
+    "leather.black",
+    "leather.oxblood-worn",
+    "metal.nickel-worn",
+    "fabric.canvas"
+  ],
+  "name": "Leather Chest Harness",
+  "notes": "Worn pose, origin at spine_7 (sternum), +Z front, chest surface ~12 cm in front. See briefs/wearables.md.",
+  "parts": [
+    "sternum O-ring",
+    "back O-ring",
+    "shoulder straps",
+    "under-chest band",
+    "roller buckle with punched tail",
+    "keeper loop",
+    "centre strap with rivets",
+    "domed studs",
+    "saddle stitching"
+  ],
+  "references": [],
+  "size": [
+    0.366,
+    0.336,
+    0.252
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "Worn black leather chest harness with nickel rings, buckle, studs and stitching.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "leather",
+    "metal"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "ankle-weight-strap",
+  "kind": "prop",
+  "materials": [
+    "fabric.nylon",
+    "fabric.grosgrain",
+    "fabric.felt",
+    "metal.nickel-worn"
+  ],
+  "name": "Ankle Weight Strap",
+  "notes": "Worn pose, origin at left_foot_joint (ankle), toes +Z. See briefs/wearables.md.",
+  "parts": [
+    "quilted pockets",
+    "binding",
+    "loop panel",
+    "closing strap",
+    "hook pad",
+    "lint",
+    "D-ring hang tab",
+    "stitching"
+  ],
+  "references": [],
+  "size": [
+    0.1,
+    0.086,
+    0.123
+  ],
+  "style": "Worn neoprene and nylon ankle weight with lifted hook strap, PBR",
+  "summary": "Worn neoprene and nylon ankle weight with lifted hook strap, PBR",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

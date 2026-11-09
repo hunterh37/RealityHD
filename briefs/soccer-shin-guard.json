@@ -1,0 +1,36 @@
+{
+  "budget": 10000,
+  "id": "soccer-shin-guard",
+  "kind": "prop",
+  "materials": [
+    "plastic.gloss",
+    "plastic.pad",
+    "fabric.webbing"
+  ],
+  "name": "Soccer Shin Guard",
+  "notes": "Worn pose, origin at left_leg_joint (knee), +Z front. See briefs/wearables.md.",
+  "parts": [
+    "ABS shell",
+    "foam apron",
+    "straps",
+    "badge",
+    "vents",
+    "sock tape"
+  ],
+  "references": [],
+  "size": [
+    0.133,
+    0.213,
+    0.149
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "Worn soccer shin guard with scuffed shell, foam rim and elastic straps.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.3
+}

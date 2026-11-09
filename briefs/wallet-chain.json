@@ -1,0 +1,42 @@
+{
+  "budget": 10000,
+  "id": "wallet-chain",
+  "kind": "prop",
+  "materials": [
+    "fabric.canvas",
+    "leather.black",
+    "leather.oxblood-worn",
+    "metal.stainless",
+    "metal.copper"
+  ],
+  "name": "Wallet Chain",
+  "notes": "Worn pose, origin at hips_joint, +Z front, waist oval 84 cm. See briefs/wearables.md.",
+  "parts": [
+    "indigo denim jeans",
+    "belt loops",
+    "slant pocket and fly stitching",
+    "black leather belt",
+    "belt clip with eye",
+    "interlocked chain links",
+    "D-ring on leather tab",
+    "bifold wallet",
+    "cards",
+    "denim back pocket with rivets"
+  ],
+  "references": [],
+  "size": [
+    0.348,
+    0.247,
+    0.273
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "Worn wallet chain: interlocked steel links from a belt clip to a bifold wallet in a denim back pocket.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

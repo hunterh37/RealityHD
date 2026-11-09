@@ -1,0 +1,34 @@
+{
+  "budget": 10000,
+  "id": "neoprene-knee-sleeve",
+  "kind": "prop",
+  "materials": [
+    "fabric.knit",
+    "fabric.webbing"
+  ],
+  "name": "Neoprene Knee Sleeve",
+  "notes": "Worn pose, origin at left_leg_joint (knee), +Z front. See briefs/wearables.md.",
+  "parts": [
+    "neoprene tube",
+    "red binding",
+    "flatlock seams",
+    "printed mark",
+    "chalk handprint"
+  ],
+  "references": [],
+  "size": [
+    0.175,
+    0.298,
+    0.17
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "Worn weightlifting neoprene knee sleeve with red binding and chalk.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.3
+}

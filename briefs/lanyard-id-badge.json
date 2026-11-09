@@ -1,0 +1,42 @@
+{
+  "budget": 15000,
+  "id": "lanyard-id-badge",
+  "kind": "prop",
+  "materials": [
+    "fabric.grosgrain",
+    "metal.nickel-worn",
+    "plastic.clear",
+    "plastic.white",
+    "plastic.black"
+  ],
+  "name": "Lanyard ID Badge",
+  "notes": "Worn pose, origin at spine_7 (sternum), +Z front, chest surface ~12 cm in front. See briefs/wearables.md.",
+  "parts": [
+    "grosgrain lanyard with printed dashes",
+    "breakaway buckle",
+    "crimp sleeve",
+    "swivel lobster hook",
+    "clear rigid holder with slot",
+    "CR80 photo ID card",
+    "barcode and name lines"
+  ],
+  "references": [],
+  "size": [
+    0.133,
+    0.383,
+    0.205
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "Worn navy lanyard with swivel hook and photo ID badge in a clear holder.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "fabric",
+    "metal",
+    "plastic"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

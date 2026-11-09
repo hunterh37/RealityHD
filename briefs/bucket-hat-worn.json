@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "bucket-hat-worn",
+  "kind": "prop",
+  "notes": "Worn pose, origin at head centre, +Z front. See briefs/wearables.md.",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.12,
+  "name": "Bucket Hat Worn",
+  "size": [
+    0.299,
+    0.253,
+    0.377
+  ],
+  "style": "everyday streetwear, canvas",
+  "theme": "Wearables",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "headwear",
+    "fabric",
+    "leather"
+  ],
+  "parts": [
+    "tapered crown",
+    "quilted drooping brim",
+    "stitched flat top",
+    "six metal eyelets",
+    "leather patch",
+    "chin cord with cord lock"
+  ],
+  "materials": [
+    "fabric.canvas",
+    "metal.brass-aged",
+    "leather.tan",
+    "fabric.nylon"
+  ],
+  "summary": "Worn khaki canvas bucket hat with quilted brim, eyelets, leather patch and chin cord."
+}
