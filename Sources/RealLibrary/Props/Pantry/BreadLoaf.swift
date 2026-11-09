@@ -113,51 +113,161 @@ enum DD1IPantry {
     }
 }
 
-/// Bread loaf: everyday pantry, bakery. A 28 cm batard, 12 cm wide and 12 cm tall: domed crust with three
-/// diagonal scores that opened into raised ears, flour dusting, darker blistered patches on the crown and a
-/// cut end showing crumb. A few crumbs sit by the cut.
+/// Bread loaf: everyday pantry, bakery. A 28 cm sourdough batard, 12 cm wide and 11 cm tall, resting on
+/// a flattened, scorched belly. One lofted crust shell carries the whole surface story in displacement:
+/// three diagonal scores opened by oven spring into grooves with a raised ear on one lip, blistered
+/// bubbles, fine shoulder cracks and banneton ridges on the flanks. The groove floors are lighter blond
+/// crust strips, flour lies in specks along the banneton lines and the crown, and the loaf is cut at one
+/// end to show an open crumb face, with crumbs fallen beside it. LOD1 drops flour and crumbs.
 public struct BreadLoaf: RealAsset {
     public static let id = "bread-loaf"
-    public static let summary = "Scored crusty loaf with oven-spring ears and a cut end showing crumb."
+    public static let summary = "Sourdough batard, 28 cm: lofted crust with three opened scores and ears, blisters, flour specks, cut end showing crumb, crumbs."
     public static let tags = ["prop", "interior", "pantry", "food"]
-    public static let budget = 9000
+    public static let budget = 15000
     public static let author = "realityhd"
-    public static let preview = PreviewHint(azimuth: 35, elevation: 28, distance: 0.62, studio: true)
+    public static let preview = PreviewHint(azimuth: 35, elevation: 28, distance: 1.15, studio: true)
 
+    /// Loaf length, width and height (m).
+    public var size = V3(0.28, 0.14, 0.12)
     /// Crust.
     public var crust: MaterialKey = "food.bread-crust"
-    /// Darker blistered crust and ears.
-    public var crustDark: MaterialKey = "food.bread-crust-toasted"
-    /// Crumb.
+    /// Lighter crust inside the opened scores.
+    public var crustBlond: MaterialKey = "food.bun-crust"
+    /// Crumb face.
     public var crumb: MaterialKey = "food.bread-crumb"
+    /// Flour specks.
+    public var flour: MaterialKey = "food.flour"
     public init() {}
 
     public func build(seed: UInt64) -> LODModel {
+        LODModel(levels: [level(seed, edge: 0.0042, hi: true), level(seed, edge: 0.0085, hi: false)], switchDistances: [3])
+    }
+
+    func level(_ seed: UInt64, edge: Float, hi: Bool) -> Model {
         var rng = SeededRNG(seed: seed)
-        var m = DD1IPantry.bakery(length: 0.26, hUp: 0.105, hDown: 0.015, w: 0.06, nTop: 3.0, start: .cut, end: .closed(0.2),
-                                  slashes: 3, slashHalfLen: 0.026, slashHalfSpan: 0.036, slashRange: 0.38...0.8,
-                                  flour: 46, crust: crust, crustDark: crustDark, crumb: crumb, flourKey: "food.flour", seed: seed)
-        // Blistered dark patches on the crown.
-        for _ in 0..<8 {
-            let x = rng.float(-0.09...0.09), z = rng.float(-0.03...0.03)
-            m.add(Prim.superellipsoid(V3(rng.float(0.014...0.026), 0.002, rng.float(0.01...0.02)), exponent: 3, subdivisions: 3, material: crustDark),
-                  Xform(translation: V3(x, 0.118 - 0.0016 - 0.00003 * z, z)))
+        let sd = UInt32(truncatingIfNeeded: seed)
+        let L = size.x, H = size.y, W = size.z / 2
+        // Built along +Y (s = 0 tapered heel, s = 1 cut end), then laid along +X.
+        let cutS: Float = 0.93
+        var shell = FoodMesh.sections(edge: edge, length: L, seamTile: 0.1, material: crust) { s in
+            let u = s * cutS
+            let taper = pow(sin(Float.pi * u), 0.42)
+            return (H * 0.5 * max(0.04, taper), W * max(0.04, pow(sin(Float.pi * u), 0.36)), 2.5, .zero)
         }
-        for _ in 0..<7 {
-            m.add(Prim.superellipsoid(V3(rng.float(0.002...0.005), 0.002, rng.float(0.002...0.004)), exponent: 3, subdivisions: 2, material: crumb),
-                  Xform(translation: V3(rng.float(0.131...0.14), 0.001, rng.float(-0.06...0.06)), rotation: simd_quatf(degrees: rng.float(0...360), axis: .up)))
+        // Scores: three diagonal slashes across the crown (center x along, angle across).
+        struct Score { var c: Float; var half: Float; var ang: Float }
+        let scores = (0..<3).map { k in Score(c: L * (0.3 + 0.2 * Float(k)) + rng.float(-0.006...0.006), half: 0.034, ang: rng.float(0.35...0.5)) }
+        func scoreField(_ y: Float, _ z: Float) -> (Float, Float) {
+            // Returns (groove depth 0...1, ear lift 0...1) for a point on the crown (y along, z across).
+            var g: Float = 0, e: Float = 0
+            for sc in scores {
+                let dy = y - sc.c, ca = cos(sc.ang), sa = sin(sc.ang)
+                let along = dy * ca + z * sa, across = -dy * sa + z * ca
+                let lenF = 1 - smoothstep(sc.half * 0.75, sc.half, abs(along))
+                let width = 0.0065 * (1 - pow(along / sc.half, 2))
+                g = max(g, lenF * exp(-pow(across / max(width, 0.0008), 2)))
+                e = max(e, lenF * exp(-pow((across - width * 1.6) / 0.0035, 2)))
+            }
+            return (g, e)
         }
-        // Scorched underside and shallow crust cracks along the shoulders.
-        m.add(Prim.superellipsoid(V3(0.2, 0.0035, 0.07), exponent: 4, subdivisions: 4, material: "food.bread-crust-toasted"), Xform(translation: V3(0, 0.0018, 0)))
-        for sz: Float in [-1, 1] {
-            for _ in 0..<3 {
-                let x0 = rng.float(-0.1...0.05)
-                m.add(Prim.tube([V3(x0, 0.075, sz * 0.054), V3(x0 + 0.02, 0.071, sz * 0.057), V3(x0 + 0.04, 0.066, sz * 0.059)], radii: [0.0007, 0.0012, 0.0006], sides: 4, seamTile: 0.02, material: crumb))
+        shell.deform { p in
+            var q = p
+            // Flattened belly: compress everything below the waist.
+            if q.x > H * 0.1 { q.x = H * 0.1 + (q.x - H * 0.1) * 0.42 }
+            return q
+        }
+        shell.displace { p, n in
+            // Local frame: p.y along, -p.x up, p.z across.
+            let up = -n.x
+            var d: Float = 0
+            if up > 0.25 {
+                let (g, e) = scoreField(p.y, p.z)
+                d += -0.0065 * g + 0.0032 * e
+            }
+            // Blisters: small domed bubbles on the upper crust.
+            let w = Noise.worley(p * 160, seed: sd &+ 3)
+            d += 0.0007 * max(0, 0.35 - w.f1) * smoothstep(0.0, 0.6, up)
+            // Banneton ridges on the flanks and fine cracks on the shoulders.
+            let side = 1 - abs(up)
+            d += 0.0005 * sin(p.y * 260 + 2 * Noise.perlin(p * 40, seed: sd &+ 4)) * side * side
+            d += 0.0009 * Noise.fbm(p * 45, octaves: 4, seed: sd &+ 5)
+            return d
+        }
+        var m = Model(name: Self.id)
+        m.add(FoodMesh.layAlongX(shell))
+        // Groove floors: blond crust strips laid along each score.
+        var blond = Surface(material: crustBlond)
+        func crownPoint(_ y: Float, _ z: Float) -> V3 {
+            let u = y / L * cutS
+            let hh = H * 0.5 * pow(sin(Float.pi * u), 0.42), ww = W * pow(sin(Float.pi * u), 0.36)
+            let zz = min(abs(z) / max(ww, 1e-4), 0.999)
+            let x = hh * pow(1 - pow(zz, 2.5), 1 / 2.5)
+            return V3(-x, y, z)
+        }
+        for sc in scores {
+            let pts = (0...8).map { k -> V3 in
+                let a = (Float(k) / 8 * 2 - 1) * sc.half * 0.82
+                let y = sc.c + a * cos(sc.ang), z = a * sin(sc.ang)
+                return crownPoint(y, z) + V3(0.0042, 0, 0)
+            }
+            let strip = FoodMesh.tube(pts, radii: pts.indices.map { 0.0045 * sqrt(max(0.15, 1 - pow(Float($0) / 4 - 1, 2))) }, sides: hi ? 10 : 6,
+                                      endBulge: 0.6, seamTile: 0.03, material: crustBlond)
+            blond.append(strip)
+        }
+        m.add(FoodMesh.layAlongX(blond))
+        // Cut end: crumb face just inside the crust rim.
+        let face = Shape2D.superellipse(H * 0.5 * pow(sin(Float.pi * cutS), 0.42) * 2 - 0.004, W * pow(sin(Float.pi * cutS), 0.36) * 2 - 0.004, exponent: 2.5)
+        var cf = Prim.extrude(face, depth: 0.004, bevel: 0.0008, bevelSegments: 1, material: crumb)
+        cf.deform { q in
+            var r = q
+            if r.x > H * 0.1 { r.x = H * 0.1 + (r.x - H * 0.1) * 0.42 }
+            return r
+        }
+        cf.displace { q, n in n.z < -0.7 ? 0.0006 * Noise.fbm(q * 220, octaves: 2, seed: sd &+ 6) : 0 }
+        // Extrude runs along Z; turn it so the face looks along the loaf axis (+Y local), then lay along X.
+        var cfY = cf
+        cfY.positions = cf.positions.map { V3($0.x, -$0.z + L - 0.0016, $0.y) }
+        cfY.normals = cf.normals.map { V3($0.x, -$0.z, $0.y) }
+        cfY.computeTangents()
+        m.add(FoodMesh.layAlongX(cfY))
+        // Flour: flat specks on the crown and along the banneton ridges.
+        if hi {
+            var fl = Surface(material: flour)
+            let src = shell
+            for _ in 0..<700 {
+                let i = rng.int(0...(src.positions.count - 1))
+                let p = src.positions[i], n = src.normals[i]
+                let up = -n.x
+                if up < 0.1 || rng.chance(up > 0.7 ? 0.5 : 0.2) { continue }
+                let (g, _) = scoreField(p.y, p.z)
+                if g > 0.2 { continue }
+                let r = rng.float(0.0003...0.0009)
+                let t = simd_normalize(simd_cross(n, V3(0, 0, 1)) + V3(0, 1e-4, 0)), b = simd_cross(n, t)
+                let c = p + n * 0.00035 + t * rng.float(-0.002...0.002) + b * rng.float(-0.002...0.002)
+                let k = fl.positions.count
+                for j in 0..<5 {
+                    let a = Float(j) / 5 * 2 * .pi + rng.float(-0.3...0.3)
+                    _ = fl.add(c + (t * cos(a) + b * sin(a)) * r * rng.float(0.6...1.2), n, V2(Float(j) * 0.001, 0))
+                }
+                let cc = fl.add(c + n * 0.0001, n, V2(0, 0))
+                for j in 0..<5 { fl.tri(cc, UInt32(k + j), UInt32(k + (j + 1) % 5)) }
+            }
+            fl.computeTangents()
+            m.add(FoodMesh.layAlongX(fl))
+        }
+        m = GroceryKit.plant(m)
+        // Crumbs fallen by the cut end.
+        if hi {
+            let bb = m.bounds
+            for i in 0..<6 {
+                var r = rng.fork(i + 40)
+                let s = r.float(0.0018...0.0045)
+                m.add(Prim.superellipsoid(V3(s, s * 0.7, s * 0.85), exponent: 2.6, subdivisions: 1, material: i < 2 ? crust : crumb),
+                      Xform(translation: V3(bb.max.x + r.float(0.003...0.025), s * 0.33, r.float(-0.04...0.04)),
+                            rotation: simd_quatf(angle: r.float(0...6.28), axis: V3(0, 1, 0))))
             }
         }
-        let b = m.bounds
-        m = m.transformed(Xform(translation: V3(0, -b.min.y, 0)))
-        groundAO(&m, height: 0.03, floor: 0.7)
-        return LODModel(m)
+        groundAO(&m, height: 0.03, floor: 0.65)
+        return m
     }
 }

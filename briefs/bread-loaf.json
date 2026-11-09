@@ -1,25 +1,28 @@
 {
-  "budget": 9000,
+  "budget": 15000,
   "id": "bread-loaf",
   "kind": "prop",
   "materials": [
     "food.bread-crust",
+    "food.bun-crust",
     "food.bread-crumb",
-    "food.bread-crust-toasted"
+    "food.flour"
   ],
   "name": "Bread loaf",
   "notes": "",
   "parts": [
-    "domed crust with score slashes",
-    "flour dusting",
-    "oven spring ear",
+    "lofted batard crust with flattened belly",
+    "three diagonal scores opened with raised ears",
+    "blond crust in the score grooves",
+    "blistered crust and fine shoulder cracks",
+    "flour specks along banneton ridges",
     "cut end showing crumb",
-    "heel torn"
+    "crumbs beside the cut"
   ],
   "references": [],
   "size": [
-    0.28,
-    0.12,
+    0.3,
+    0.11,
     0.12
   ],
   "style": "everyday pantry, bakery",

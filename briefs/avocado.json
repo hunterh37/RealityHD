@@ -1,5 +1,5 @@
 {
-  "budget": 7000,
+  "budget": 12000,
   "id": "avocado",
   "kind": "prop",
   "materials": [
@@ -11,10 +11,11 @@
   "name": "Avocado",
   "notes": "",
   "parts": [
-    "pear-shaped pebbled dark skin",
-    "stem nub",
-    "yellow-green flesh",
-    "large brown seed"
+    "pebbled near-black Hass skin",
+    "leaning neck",
+    "stem nub with dried calyx star",
+    "handling dent",
+    "yellow-green flesh around a large seed"
   ],
   "references": [],
   "size": [

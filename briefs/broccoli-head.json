@@ -1,24 +1,27 @@
 {
-  "budget": 7000,
+  "budget": 15000,
   "id": "broccoli-head",
   "kind": "prop",
   "materials": [
     "food.broccoli",
-    "food.broccoli-stem"
+    "food.broccoli:7A8A3A",
+    "food.broccoli-stem",
+    "food.broccoli-flesh"
   ],
   "name": "Broccoli head",
   "notes": "",
   "parts": [
-    "broccoli head main form",
-    "characteristic surface detail",
-    "secondary parts",
-    "base contact"
+    "thick ridged stalk with cut base",
+    "trimmed leaf stubs",
+    "forked primary branches",
+    "twelve lumpy floret clusters in a dome",
+    "one yellowing cluster"
   ],
   "references": [],
   "size": [
-    0.12,
-    0.12,
-    0.12
+    0.13,
+    0.13,
+    0.13
   ],
   "style": "everyday pantry, vegetable",
   "summary": "Broccoli head, pantry prop.",

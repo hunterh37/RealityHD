@@ -1,22 +1,22 @@
 {
-  "automated" : 0.91292924,
-  "date" : "2026-10-31",
-  "final" : 0.8980252,
-  "fingerprint" : "d605512c0698e1f0",
+  "automated" : 0.99681836,
+  "date" : "2026-11-09",
+  "final" : 0.8761989,
+  "fingerprint" : "af69d4b11c9985bf",
   "id" : "orange",
   "iterations" : 1,
   "judge" : "agent",
   "scores" : {
-    "artifacts" : 9,
-    "construction" : 9,
+    "artifacts" : 7,
+    "construction" : 8,
     "edges" : 9,
-    "grounding" : 9,
+    "grounding" : 7,
     "materials" : 9,
     "proportion" : 9,
-    "silhouette" : 9,
-    "wear" : 8
+    "silhouette" : 8,
+    "wear" : 7
   },
   "seed" : 1,
   "threshold" : 0.85,
-  "vision" : 0.89
+  "vision" : 0.81125
 }

@@ -1,0 +1,39 @@
+{
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "theme": "Grocery",
+  "id": "banana-bunch",
+  "name": "Banana bunch",
+  "budget": 15000,
+  "materials": [
+    "food.banana-peel",
+    "food.stem-green:6E6A38",
+    "food.stem-green:B0A276",
+    "food.banana-tip",
+    "food.banana-peel:B4B44A"
+  ],
+  "parts": [
+    "five curved five-ridged fingers in two nested rows",
+    "pedicels rooted in a crown band",
+    "cut peduncle stalk with fibrous face",
+    "dark dried blossom tips",
+    "ripe peel with sugar flecks"
+  ],
+  "size": [
+    0.23,
+    0.08,
+    0.145
+  ],
+  "style": "ripe Cavendish hand, grocery produce",
+  "summary": "Hand of five ripe bananas, 21 cm.",
+  "tags": [
+    "prop",
+    "grocery",
+    "food",
+    "fruit",
+    "handheld"
+  ]
+}

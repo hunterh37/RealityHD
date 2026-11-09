@@ -1,19 +1,22 @@
 {
-  "budget": 6000,
+  "budget": 12000,
   "id": "roma-tomato",
   "kind": "prop",
   "materials": [
-    "food.tomato",
+    "food.tomato-skin",
     "food.tomato-flesh",
-    "food.stem-green"
+    "food.stem-green",
+    "food.stem-green:7A6A3A"
   ],
   "name": "Roma tomato",
   "notes": "",
   "parts": [
-    "plum-shaped elongated fruit lying on its side",
-    "glossy red skin",
-    "green star calyx with stem stub",
-    "pericarp, locules with gel and seeds in cross section"
+    "plum-shaped glossy fruit lying on its side",
+    "three-lobe shoulders and slight bend",
+    "star calyx of five curled sepals",
+    "short stem stub",
+    "blossom-end star scar",
+    "locular cross section when cut"
   ],
   "references": [],
   "size": [
