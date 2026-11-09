@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "cowboy-hat-worn",
+  "kind": "prop",
+  "notes": "Worn pose, origin at head centre, +Z front. See briefs/wearables.md.",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.12,
+  "name": "Cowboy Hat Worn",
+  "size": [
+    0.365,
+    0.16,
+    0.459
+  ],
+  "style": "western, worn felt",
+  "theme": "Wearables",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "headwear",
+    "fabric",
+    "leather",
+    "metal"
+  ],
+  "parts": [
+    "creased felt crown",
+    "curled bound brim",
+    "leather hat band",
+    "sweat stain",
+    "band buckle",
+    "four conchos"
+  ],
+  "materials": [
+    "fabric.felt",
+    "fabric.grosgrain",
+    "leather.oxblood-worn",
+    "metal.nickel-worn"
+  ],
+  "summary": "Worn cattleman cowboy hat with creased felt crown, curled brim, leather band, buckle and conchos."
+}

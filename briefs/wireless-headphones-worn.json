@@ -1,0 +1,44 @@
+{
+  "budget": 15000,
+  "id": "wireless-headphones-worn",
+  "kind": "prop",
+  "notes": "Worn pose, origin at head centre, +Z front. See briefs/wearables.md.",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.12,
+  "name": "Wireless Headphones Worn",
+  "size": [
+    0.248,
+    0.188,
+    0.09
+  ],
+  "style": "premium consumer electronics",
+  "theme": "Wearables",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "headwear",
+    "electronics",
+    "metal",
+    "leather"
+  ],
+  "parts": [
+    "gunmetal headband",
+    "stitched leatherette pad",
+    "notched aluminium sliders",
+    "forked yokes",
+    "ear cups",
+    "face plates",
+    "ear cushions with mesh baffle",
+    "USB-C port",
+    "power button and LED"
+  ],
+  "materials": [
+    "metal.anodized-gunmetal",
+    "metal.aluminum-brushed",
+    "plastic.matte",
+    "plastic.soft-touch"
+  ],
+  "summary": "Worn over-ear wireless headphones with gunmetal band, graphite cups and leatherette cushions."
+}

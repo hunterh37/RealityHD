@@ -1,0 +1,44 @@
+{
+  "budget": 15000,
+  "id": "boutonniere-flower",
+  "kind": "prop",
+  "materials": [
+    "fabric.velvet",
+    "fabric.wool",
+    "fabric.grosgrain",
+    "plastic.gloss",
+    "metal.nickel"
+  ],
+  "name": "Boutonniere Flower",
+  "notes": "Worn pose, origin at spine_7 (sternum), +Z front, chest surface ~12 cm in front. See briefs/wearables.md.",
+  "parts": [
+    "ivory spray rose with spiral petals",
+    "calyx and sepals",
+    "eucalyptus leaves",
+    "baby's breath",
+    "taped stem",
+    "ribbon wrap",
+    "pearl-headed pin",
+    "wool lapel with pick stitching",
+    "buttonhole"
+  ],
+  "references": [],
+  "size": [
+    0.095,
+    0.238,
+    0.114
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "Worn ivory rose boutonniere pinned to a navy wool lapel.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "flower",
+    "plant",
+    "fabric"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

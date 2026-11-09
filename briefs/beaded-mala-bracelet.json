@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "beaded-mala-bracelet",
+  "kind": "prop",
+  "materials": [
+    "wood.mahogany",
+    "wood.walnut-oiled",
+    "wood.lumber-maple",
+    "metal.brass-aged",
+    "thread.red",
+    "thread.white"
+  ],
+  "name": "Beaded Mala Bracelet",
+  "notes": "Worn pose, origin at left_hand_joint (wrist), +Z front. See briefs/wearables.md.",
+  "parts": [
+    "wood beads",
+    "elastic cord",
+    "brass rondelles",
+    "guru bead",
+    "knotted cap",
+    "silk tassel",
+    "replacement bead"
+  ],
+  "references": [],
+  "size": [
+    0.08,
+    0.049,
+    0.065
+  ],
+  "style": "Worn wooden mala bracelet with silk tassel, polished beads, PBR",
+  "summary": "Worn wooden mala bracelet with silk tassel, polished beads, PBR",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

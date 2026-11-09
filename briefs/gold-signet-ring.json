@@ -1,0 +1,37 @@
+{
+  "budget": 15000,
+  "id": "gold-signet-ring",
+  "kind": "prop",
+  "materials": [
+    "metal.gold",
+    "metal.brass-aged"
+  ],
+  "name": "Gold Signet Ring",
+  "notes": "Worn pose, origin at left_hand_joint (wrist), +Z front. See briefs/wearables.md.",
+  "parts": [
+    "tapered shank",
+    "oval pad",
+    "raised rim",
+    "patina field",
+    "raised monogram",
+    "beaded edge",
+    "hallmark",
+    "dent"
+  ],
+  "references": [],
+  "size": [
+    0.023,
+    0.018,
+    0.028
+  ],
+  "style": "Worn gold signet ring on the ring finger, PBR",
+  "summary": "Worn gold signet ring on the ring finger, PBR",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

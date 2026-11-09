@@ -1,0 +1,37 @@
+{
+  "budget": 10000,
+  "id": "skate-knee-pad",
+  "kind": "prop",
+  "materials": [
+    "plastic.gloss",
+    "plastic.pad",
+    "fabric.knit",
+    "fabric.webbing"
+  ],
+  "name": "Skate Knee Pad",
+  "notes": "Worn pose, origin at left_leg_joint (knee), +Z front. See briefs/wearables.md.",
+  "parts": [
+    "hard cap",
+    "foam apron",
+    "neoprene sleeve",
+    "elastic straps",
+    "rivets",
+    "sticker"
+  ],
+  "references": [],
+  "size": [
+    0.162,
+    0.214,
+    0.178
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "Worn skate knee pad with scraped cap, foam apron and elastic straps.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.3
+}

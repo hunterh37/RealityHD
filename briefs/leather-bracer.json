@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "leather-bracer",
+  "kind": "prop",
+  "materials": [
+    "leather.oxblood-worn",
+    "leather.tan",
+    "metal.brass-aged",
+    "fabric.canvas"
+  ],
+  "name": "Leather Bracer",
+  "notes": "Worn pose, origin at left_forearm_joint (elbow), +Z front. See briefs/wearables.md.",
+  "parts": [
+    "leather bracer shell",
+    "brass eyelets",
+    "lacing cord with bow",
+    "tooled border",
+    "saddle stitching",
+    "brass medallion with studs",
+    "burnished edges"
+  ],
+  "references": [],
+  "size": [
+    0.11,
+    0.165,
+    0.109
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "Worn oxblood leather forearm bracer with laced back, brass medallion and burnished edges.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "leather",
+    "metal"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

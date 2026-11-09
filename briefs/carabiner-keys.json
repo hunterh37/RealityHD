@@ -1,0 +1,40 @@
+{
+  "budget": 10000,
+  "id": "carabiner-keys",
+  "kind": "prop",
+  "materials": [
+    "leather.black",
+    "metal.nickel-worn",
+    "metal.brass-aged",
+    "metal.anodized"
+  ],
+  "name": "Carabiner Keys",
+  "notes": "Worn pose, origin at hips_joint, +Z front, waist oval 84 cm. See briefs/wearables.md.",
+  "parts": [
+    "black leather belt",
+    "prong buckle",
+    "punched tail",
+    "belt tab",
+    "D-ring",
+    "screw-gate carabiner",
+    "split key ring",
+    "five cut keys",
+    "leather fob"
+  ],
+  "references": [],
+  "size": [
+    0.339,
+    0.229,
+    0.242
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "Worn belt with a screw-gate carabiner on a D-ring tab carrying a split ring of five keys and a leather fob.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

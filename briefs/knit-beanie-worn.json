@@ -1,0 +1,38 @@
+{
+  "budget": 15000,
+  "id": "knit-beanie-worn",
+  "kind": "prop",
+  "notes": "Worn pose, origin at head centre, +Z front. See briefs/wearables.md.",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.12,
+  "name": "Knit Beanie Worn",
+  "size": [
+    0.188,
+    0.205,
+    0.237
+  ],
+  "style": "everyday streetwear, worn knit",
+  "theme": "Wearables",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "headwear",
+    "fabric",
+    "leather"
+  ],
+  "parts": [
+    "ribbed folded cuff",
+    "slouched stockinette crown",
+    "yarn pom-pom with loose strands",
+    "stitched leather label",
+    "snagged yarn loop"
+  ],
+  "materials": [
+    "fabric.knit",
+    "fabric.plush-white",
+    "leather.tan"
+  ],
+  "summary": "Worn ribbed knit beanie with folded cuff, slouched crown, yarn pom-pom and stitched leather label."
+}

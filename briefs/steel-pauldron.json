@@ -1,0 +1,41 @@
+{
+  "budget": 15000,
+  "id": "steel-pauldron",
+  "kind": "prop",
+  "materials": [
+    "metal.hammer-polished",
+    "metal.hammer-forged",
+    "metal.brass-aged",
+    "leather.oxblood-worn",
+    "metal.nickel-worn"
+  ],
+  "name": "Steel Pauldron",
+  "notes": "Worn pose, origin at left_shoulder_1_joint (top of shoulder), +X outward, +Z front. See briefs/wearables.md.",
+  "parts": [
+    "fluted dome cap",
+    "brass rolled brim with engraved border",
+    "brass rosette boss",
+    "four telescoping lames",
+    "brass rivets",
+    "leather arm strap",
+    "roller buckle with tail"
+  ],
+  "references": [],
+  "size": [
+    0.16,
+    0.244,
+    0.173
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "TODO: one sentence, what it is and how it's built.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "metal",
+    "leather"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.2
+}

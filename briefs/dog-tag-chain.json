@@ -1,0 +1,38 @@
+{
+  "budget": 15000,
+  "id": "dog-tag-chain",
+  "kind": "prop",
+  "notes": "Worn pose, origin at neck base (neck_1_joint), +Z front. See briefs/wearables.md.",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.12,
+  "name": "Dog Tag Chain",
+  "size": [
+    0.155,
+    0.241,
+    0.168
+  ],
+  "style": "military surplus, worn stainless",
+  "theme": "Wearables",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "jewelry",
+    "metal",
+    "stainless"
+  ],
+  "parts": [
+    "ball chain beads",
+    "bead connector",
+    "two stamped tags",
+    "rubber silencer",
+    "embossed text"
+  ],
+  "materials": [
+    "metal.stainless",
+    "metal.stainless-smudged",
+    "rubber.silicone-gray"
+  ],
+  "summary": "Worn dog tags on a stainless ball chain with rubber silencer."
+}

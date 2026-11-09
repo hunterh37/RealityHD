@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "gold-epaulette",
+  "kind": "prop",
+  "materials": [
+    "fabric.wool",
+    "metal.gold",
+    "metal.brass-aged"
+  ],
+  "name": "Gold Epaulette",
+  "notes": "Worn pose, origin at left_shoulder_1_joint (top of shoulder), +X outward, +Z front. See briefs/wearables.md.",
+  "parts": [
+    "padded wool board",
+    "red piping",
+    "twisted gold cord border",
+    "soutache lattice",
+    "brass rank stars",
+    "domed gold button",
+    "heading bar",
+    "bullion fringe"
+  ],
+  "references": [],
+  "size": [
+    0.165,
+    0.114,
+    0.088
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "TODO: one sentence, what it is and how it's built.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "fabric",
+    "metal"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.2
+}

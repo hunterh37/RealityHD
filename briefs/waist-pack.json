@@ -1,0 +1,40 @@
+{
+  "budget": 10000,
+  "id": "waist-pack",
+  "kind": "prop",
+  "materials": [
+    "fabric.nylon",
+    "fabric.webbing",
+    "plastic.black",
+    "metal.nickel-worn",
+    "leather.tan"
+  ],
+  "name": "Waist Pack",
+  "notes": "Worn pose, origin at hips_joint, +Z front, waist oval 84 cm. See briefs/wearables.md.",
+  "parts": [
+    "nylon body",
+    "top zipper with slider and paracord pull",
+    "front zipped pocket",
+    "leather patch",
+    "webbing waist strap",
+    "side-release buckle",
+    "tri-glide adjuster",
+    "webbing keepers"
+  ],
+  "references": [],
+  "size": [
+    0.353,
+    0.123,
+    0.326
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "Worn nylon waist pack: zipped body and front pocket, webbing strap, side-release buckle and adjuster.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

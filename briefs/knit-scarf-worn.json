@@ -1,0 +1,36 @@
+{
+  "budget": 15000,
+  "id": "knit-scarf-worn",
+  "kind": "prop",
+  "notes": "Worn pose, origin at neck base (neck_1_joint), +Z front. See briefs/wearables.md.",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.12,
+  "name": "Knit Scarf Worn",
+  "size": [
+    0.25,
+    0.5,
+    0.25
+  ],
+  "style": "winter knitwear, worn",
+  "theme": "Wearables",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "fabric",
+    "knit",
+    "wool"
+  ],
+  "parts": [
+    "two neck wraps",
+    "long striped tail",
+    "short striped tail",
+    "knotted fringe",
+    "twisted fringe strand"
+  ],
+  "materials": [
+    "fabric.knit"
+  ],
+  "summary": "Worn chunky rib-knit scarf with two wraps, striped tails and fringe."
+}

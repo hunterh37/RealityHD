@@ -1,0 +1,39 @@
+{
+  "budget": 15000,
+  "id": "chelsea-boot-worn",
+  "kind": "prop",
+  "materials": [
+    "leather.oxblood-worn",
+    "leather.tan",
+    "fabric.grosgrain",
+    "rubber.tire-worn"
+  ],
+  "name": "Chelsea Boot Worn",
+  "notes": "Worn pose, origin at left_foot_joint (ankle), toes +Z. See briefs/wearables.md.",
+  "parts": [
+    "leather upper",
+    "elastic gussets",
+    "welted sole",
+    "stacked heel",
+    "rubber heel lift",
+    "pull tab",
+    "tan lining",
+    "welt stitching"
+  ],
+  "references": [],
+  "size": [
+    0.108,
+    0.18,
+    0.301
+  ],
+  "style": "Worn brown leather chelsea boot with elastic gussets and worn heel lift, PBR",
+  "summary": "Worn brown leather chelsea boot with elastic gussets and worn heel lift, PBR",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

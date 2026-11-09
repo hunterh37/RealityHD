@@ -1,0 +1,35 @@
+{
+  "budget": 15000,
+  "id": "cuban-link-chain",
+  "kind": "prop",
+  "notes": "Worn pose, origin at neck base (neck_1_joint), +Z front. See briefs/wearables.md.",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.12,
+  "name": "Cuban Link Chain",
+  "size": [
+    0.164,
+    0.19,
+    0.164
+  ],
+  "style": "gold jewelry, worn",
+  "theme": "Wearables",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "jewelry",
+    "metal",
+    "gold"
+  ],
+  "parts": [
+    "interlocked curb links",
+    "lobster clasp",
+    "hallmark tag",
+    "misaligned link"
+  ],
+  "materials": [
+    "metal.gold"
+  ],
+  "summary": "Worn gold Cuban link chain with individual interlocked links, lobster clasp and hallmark tag."
+}

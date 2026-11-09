@@ -1,0 +1,48 @@
+{
+  "budget": 15000,
+  "id": "dslr-shoulder-strap",
+  "kind": "prop",
+  "materials": [
+    "plastic.matte",
+    "plastic.soft-touch",
+    "metal.nickel-worn",
+    "glass.lens-coated",
+    "fabric.webbing",
+    "fabric.nylon"
+  ],
+  "name": "DSLR Shoulder Strap",
+  "notes": "Worn pose, origin at left_shoulder_1_joint (top of shoulder), +X outward, +Z front. See briefs/wearables.md.",
+  "parts": [
+    "camera body with leatherette grip",
+    "pentaprism with hot shoe",
+    "mode dial",
+    "shutter button",
+    "rear LCD and eyecup",
+    "side lugs with triangle rings",
+    "ribbed zoom and focus lens",
+    "coated front element",
+    "petal hood",
+    "neoprene padded strap",
+    "diamond quilting",
+    "slider adjusters"
+  ],
+  "references": [],
+  "size": [
+    0.262,
+    0.43,
+    0.21
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "TODO: one sentence, what it is and how it's built.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "plastic",
+    "fabric",
+    "metal"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.2
+}

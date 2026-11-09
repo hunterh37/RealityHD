@@ -1,0 +1,45 @@
+{
+  "budget": 15000,
+  "id": "messenger-bag-worn",
+  "kind": "prop",
+  "materials": [
+    "fabric.canvas",
+    "fabric.webbing",
+    "fabric.nylon",
+    "leather.oxblood-worn",
+    "metal.brass-aged"
+  ],
+  "name": "Messenger Bag Worn",
+  "notes": "Worn pose, origin at left_shoulder_1_joint (top of shoulder), +X outward, +Z front. See briefs/wearables.md.",
+  "parts": [
+    "waxed canvas shell",
+    "flap with leather binding",
+    "two buckle straps with brass roller buckles",
+    "box-pleat front pocket",
+    "leather label patch",
+    "grab handle",
+    "D-ring end tabs",
+    "strap over shoulder",
+    "padded shoulder section",
+    "slider adjuster"
+  ],
+  "references": [],
+  "size": [
+    0.186,
+    0.637,
+    0.478
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "TODO: one sentence, what it is and how it's built.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "fabric",
+    "leather",
+    "metal"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.2
+}

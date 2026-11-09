@@ -1,0 +1,43 @@
+{
+  "budget": 15000,
+  "id": "smartwatch-worn",
+  "kind": "prop",
+  "materials": [
+    "metal.anodized-gunmetal-worn",
+    "glass.display",
+    "screen.ui",
+    "rubber.silicone",
+    "metal.aluminum",
+    "plastic.grime"
+  ],
+  "name": "Smartwatch Worn",
+  "notes": "Worn pose, origin at left_hand_joint (wrist), +Z front. See briefs/wearables.md.",
+  "parts": [
+    "aluminium case",
+    "curved cover glass",
+    "lit display",
+    "digital crown",
+    "side button",
+    "sport band",
+    "hole row",
+    "keeper",
+    "pin closure",
+    "scuffed corner"
+  ],
+  "references": [],
+  "size": [
+    0.072,
+    0.044,
+    0.066
+  ],
+  "style": "Aluminium smartwatch on fluoroelastomer sport band, worn, scuffed corner, PBR",
+  "summary": "Aluminium smartwatch on fluoroelastomer sport band, worn, scuffed corner, PBR",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

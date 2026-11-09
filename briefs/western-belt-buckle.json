@@ -1,0 +1,43 @@
+{
+  "budget": 10000,
+  "id": "western-belt-buckle",
+  "kind": "prop",
+  "materials": [
+    "leather.tan",
+    "metal.nickel-worn",
+    "metal.brass-aged",
+    "leather.oxblood"
+  ],
+  "name": "Western Belt Buckle",
+  "notes": "Worn pose, origin at hips_joint, +Z front, waist oval 84 cm. See briefs/wearables.md.",
+  "parts": [
+    "cast nickel trophy buckle oval",
+    "raised rim",
+    "border studs",
+    "brass centre plate",
+    "scroll engraving",
+    "raised star",
+    "rear belt hooks",
+    "tooled tan leather belt",
+    "saddle stitching",
+    "punched tail",
+    "keepers",
+    "nickel tip"
+  ],
+  "references": [],
+  "size": [
+    0.32,
+    0.066,
+    0.245
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "Worn western belt: cast nickel trophy buckle with brass scroll plate and star, tooled tan leather belt.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

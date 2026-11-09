@@ -1,0 +1,38 @@
+{
+  "budget": 15000,
+  "id": "captain-armband",
+  "kind": "prop",
+  "materials": [
+    "fabric.nylon",
+    "fabric.felt",
+    "fabric.canvas"
+  ],
+  "name": "Captain Armband",
+  "notes": "Worn pose, origin at left_forearm_joint (elbow), +Z front. See briefs/wearables.md.",
+  "parts": [
+    "elastic band",
+    "black binding",
+    "stitched C",
+    "hook and loop closure",
+    "stains",
+    "frayed edges"
+  ],
+  "references": [],
+  "size": [
+    0.11,
+    0.077,
+    0.125
+  ],
+  "style": "product photography, worn, stitched, bevelled, PBR",
+  "summary": "Worn yellow football captain armband with stitched C.",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn",
+    "fabric",
+    "sports"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

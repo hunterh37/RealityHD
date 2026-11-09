@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "high-top-sneaker-worn",
+  "kind": "prop",
+  "materials": [
+    "fabric.canvas",
+    "rubber.tire-worn",
+    "metal.nickel-worn",
+    "plastic.black"
+  ],
+  "name": "High-Top Sneaker Worn",
+  "notes": "Worn pose, origin at left_foot_joint (ankle), toes +Z. See briefs/wearables.md.",
+  "parts": [
+    "canvas upper",
+    "creased toe box",
+    "rubber foxing",
+    "toe bumper",
+    "eyelets",
+    "laces",
+    "tongue",
+    "ankle patch",
+    "outsole"
+  ],
+  "references": [],
+  "size": [
+    0.109,
+    0.149,
+    0.302
+  ],
+  "style": "Worn canvas high-top sneaker with grime line, yellowed foxing and untied laces, PBR",
+  "summary": "Worn canvas high-top sneaker with grime line, yellowed foxing and untied laces, PBR",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}

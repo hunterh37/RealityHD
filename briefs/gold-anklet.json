@@ -1,0 +1,40 @@
+{
+  "budget": 15000,
+  "id": "gold-anklet",
+  "kind": "prop",
+  "materials": [
+    "metal.gold",
+    "metal.brass",
+    "metal.brass-aged",
+    "metal.nickel-worn",
+    "plastic.gloss"
+  ],
+  "name": "Gold Anklet",
+  "notes": "Worn pose, origin at left_foot_joint (ankle), toes +Z. See briefs/wearables.md.",
+  "parts": [
+    "cable chain links",
+    "lobster clasp",
+    "extension chain",
+    "teardrop",
+    "star charm",
+    "coin charm",
+    "pearl charm",
+    "brass repair ring"
+  ],
+  "references": [],
+  "size": [
+    0.084,
+    0.033,
+    0.097
+  ],
+  "style": "Worn gold cable anklet with three charms, PBR",
+  "summary": "Worn gold cable anklet with three charms, PBR",
+  "tags": [
+    "prop",
+    "wearable",
+    "worn"
+  ],
+  "theme": "Wearables",
+  "threshold": 0.85,
+  "tolerance": 0.15
+}
