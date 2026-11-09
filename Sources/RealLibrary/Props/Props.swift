@@ -1554,6 +1554,8 @@ public enum Props {
         EnergyDrinkCan.self,
         SugarBag.self,
         CrackerBox.self,
+        GraduationCap.self,
+        GraduationGown.self,
         // realityhd:prop
     ]
 }

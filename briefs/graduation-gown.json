@@ -1,0 +1,34 @@
+{
+  "budget": 32000,
+  "id": "graduation-gown",
+  "kind": "prop",
+  "materials": [
+    "fabric.gown",
+    "fabric.gown-trim"
+  ],
+  "name": "Graduation Gown",
+  "notes": "",
+  "parts": [
+    "gown.yoke: shoulder yoke around a 160 mm neck opening",
+    "gown.body: upper chest with front opening and falling pleats, bell sleeve tops",
+    "gown.trim: front facing bands and neck binding"
+  ],
+  "references": [],
+  "size": [
+    0.674,
+    0.457,
+    0.32
+  ],
+  "style": "photoreal academic regalia, matte polyester satin, black",
+  "summary": "Upper section of a graduation gown, 0.55 m shoulders: yoke, front opening with facings, falling pleats, bell sleeve tops. Neck anchor gown.neck.",
+  "tags": [
+    "prop",
+    "fashion",
+    "apparel",
+    "graduation",
+    "garment"
+  ],
+  "theme": "Fashion",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

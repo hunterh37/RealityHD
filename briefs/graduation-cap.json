@@ -1,0 +1,35 @@
+{
+  "budget": 16000,
+  "id": "graduation-cap",
+  "kind": "prop",
+  "materials": [
+    "fabric.gown",
+    "fabric.gown-button"
+  ],
+  "name": "Graduation Cap",
+  "notes": "",
+  "parts": [
+    "cap.board: 245 mm square fabric-covered mortarboard, 3 mm thick, 2 mm rounded edges",
+    "cap.skull: fabric crown 190 x 200 x 75 mm, open bottom, elastic hem band, stitched seams",
+    "cap.button: 18 mm covered button on the board centre (tassel anchor)"
+  ],
+  "references": [],
+  "size": [
+    0.248,
+    0.084,
+    0.248
+  ],
+  "style": "photoreal academic regalia, matte polyester satin, black",
+  "summary": "Graduation mortarboard: fabric-covered 245 mm board, stitched skull cap with elastic hem, covered centre button; no tassel (anchor cap.button).",
+  "tags": [
+    "prop",
+    "fashion",
+    "apparel",
+    "handheld",
+    "graduation",
+    "headwear"
+  ],
+  "theme": "Fashion",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
