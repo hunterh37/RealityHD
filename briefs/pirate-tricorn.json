@@ -1,0 +1,37 @@
+{
+  "budget": 12000,
+  "id": "pirate-tricorn",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.12,
+  "name": "Pirate Tricorn",
+  "size": [
+    0.36,
+    0.14,
+    0.32
+  ],
+  "style": "photoreal PBR, Boston 2026 set",
+  "theme": "Fashion",
+  "tags": [
+    "prop",
+    "headwear",
+    "fabric",
+    "antique"
+  ],
+  "parts": [
+    "felt crown",
+    "turned-up brim",
+    "gold braid",
+    "band",
+    "cockade button"
+  ],
+  "materials": [
+    "fabric.felt",
+    "fabric.grosgrain",
+    "metal.gold",
+    "metal.brass-aged"
+  ],
+  "summary": "Pirate tricorn hat: black wool felt crown and three-sided turned-up brim, gold braid trim, ribbon band and brass cockade button."
+}

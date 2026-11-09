@@ -1554,6 +1554,12 @@ public enum Props {
         EnergyDrinkCan.self,
         SugarBag.self,
         CrackerBox.self,
+        SwanBoat.self,
+        FinishLineGantry.self,
+        FinisherMedal.self,
+        FreedomTrailMedallion.self,
+        PirateTricorn.self,
+        Cutlass.self,
         // realityhd:prop
     ]
 }

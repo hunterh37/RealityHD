@@ -1,0 +1,36 @@
+{
+  "budget": 9000,
+  "id": "finisher-medal",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.12,
+  "name": "Finisher Medal",
+  "size": [
+    0.07,
+    0.1,
+    0.008
+  ],
+  "style": "photoreal PBR, Boston 2026 set",
+  "theme": "Sports",
+  "tags": [
+    "prop",
+    "sports",
+    "metal",
+    "handheld"
+  ],
+  "parts": [
+    "cast disc",
+    "beaded rim",
+    "star boss",
+    "bail ring",
+    "ribbon"
+  ],
+  "materials": [
+    "metal.gold",
+    "metal.brass",
+    "fabric.grosgrain"
+  ],
+  "summary": "Marathon finisher medal: 64 mm cast gold disc with beaded rim and star boss, bail ring and blue grosgrain ribbon with gold stripe."
+}

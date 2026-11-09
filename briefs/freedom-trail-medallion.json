@@ -1,0 +1,35 @@
+{
+  "budget": 12000,
+  "id": "freedom-trail-medallion",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.12,
+  "name": "Freedom Trail Medallion",
+  "size": [
+    0.2,
+    0.02,
+    0.2
+  ],
+  "style": "photoreal PBR, Boston 2026 set",
+  "theme": "Ground",
+  "tags": [
+    "prop",
+    "ground",
+    "metal",
+    "outdoor",
+    "urban"
+  ],
+  "parts": [
+    "bronze disc",
+    "raised rim",
+    "bead ring",
+    "star relief"
+  ],
+  "materials": [
+    "metal.bronze-cast",
+    "metal.bronze-weathered"
+  ],
+  "summary": "Freedom Trail ground medallion: 0.2 m cast bronze disc with raised rim, bead ring, recessed field and eight-point star boss."
+}

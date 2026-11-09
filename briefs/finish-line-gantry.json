@@ -1,0 +1,37 @@
+{
+  "budget": 15000,
+  "id": "finish-line-gantry",
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.12,
+  "name": "Finish Line Gantry",
+  "size": [
+    12,
+    6.5,
+    1.2
+  ],
+  "style": "photoreal PBR, Boston 2026 set",
+  "theme": "Sports",
+  "tags": [
+    "prop",
+    "sports",
+    "metal",
+    "outdoor"
+  ],
+  "parts": [
+    "truss posts",
+    "overhead truss beam",
+    "banner",
+    "clock panel",
+    "seven-segment digits"
+  ],
+  "materials": [
+    "metal.aluminum-brushed",
+    "fabric.nylon",
+    "metal.powdercoat",
+    "plastic.orange"
+  ],
+  "summary": "Marathon finish gantry, 12 m: aluminum box-truss posts and beam, blue banner, race clock panel with seven-segment digits."
+}
