@@ -1,0 +1,38 @@
+{
+  "kind": "prop",
+  "notes": "",
+  "references": [],
+  "threshold": 0.85,
+  "tolerance": 0.08,
+  "theme": "Grocery",
+  "id": "lettuce-head",
+  "name": "Lettuce head",
+  "budget": 15000,
+  "materials": [
+    "food.lettuce-leaf:B4D484",
+    "food.lettuce-leaf",
+    "food.broccoli-stem:E2ECC4",
+    "food.broccoli-flesh:D2C690"
+  ],
+  "parts": [
+    "pale tight heart with overlapping leaf margins",
+    "raised midribs from the base",
+    "five cupped veined outer leaves",
+    "torn outer leaf edge",
+    "trimmed core with browned cut"
+  ],
+  "size": [
+    0.155,
+    0.158,
+    0.155
+  ],
+  "style": "iceberg lettuce, grocery produce",
+  "summary": "Iceberg lettuce head, 15 cm.",
+  "tags": [
+    "prop",
+    "grocery",
+    "food",
+    "vegetable",
+    "handheld"
+  ]
+}
