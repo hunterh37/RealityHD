@@ -1,68 +1,98 @@
 import simd
 import Foundation
 
-/// Yogurt cup: 7 cm wide, 8 cm tall tapered plastic cup with a rolled rim, stacking ring, printed wrap with lap seam, and a crimped foil
-/// lid with a lifted pull tab, a printed centre disc and a streak of yogurt running down the outside.
+/// Yogurt cup, 150 g: tapered polypropylene cup 7.4 cm across the rim and 7.8 cm tall with a stacking
+/// shoulder near the foot, a rolled rim flange, an in-mould printed wrap (invented brand SKYLA) with a lap
+/// seam at the back, and a printed foil lid peeled back from the front: the pull tab curls up and over,
+/// showing the yogurt surface inside. A streak of yogurt runs down the outside under the peel.
 public struct YogurtCup: RealAsset {
     public static let id = "yogurt-cup"
-    public static let summary = "Plastic yogurt cup, 8 cm: rolled rim, printed wrap, foil lid with pull tab, printed disc, yogurt streak."
+    public static let summary = "Yogurt cup, 8 cm: tapered PP cup, rolled rim, printed IML wrap with lap seam, foil lid peeled back over the yogurt."
     public static let tags = ["prop", "interior", "pantry", "plastic", "metal", "container", "food"]
-    public static let budget = 9000
+    public static let budget = 15000
     public static let author = "realityhd"
     public static let preview = PreviewHint(azimuth: 30, elevation: 28, distance: 1.0, studio: true)
 
-    /// Overall size in meters (x width, y height, z depth).
-    public var size = V3(0.07, 0.08, 0.07)
-    /// Cup plastic, yogurt, foil and print colour keys.
-    public var plastic: MaterialKey = "plastic.white:F2F2EE"
-    public var yogurt: MaterialKey = "food.cream:F6EEDD"
-    public var foil: MaterialKey = "plastic.gloss:C9CDD0"
-    public var print: MaterialKey = "plastic.white:D6336C"
+    /// Cup plastic.
+    public var plastic: MaterialKey = "plastic.matte:F4F3EE"
+    /// Yogurt.
+    public var yogurt: MaterialKey = "plastic.matte:F7F3E8"
+    /// Foil lid.
+    public var foil: MaterialKey = "pkg.foil-wrapper"
+    /// Printed wrap (brand field tint).
+    public var label: MaterialKey = "pkg.paper-label:D6336C"
+    public var ink: MaterialKey = "paper.sheet:FFFFFF"
+    public var brand = "SKYLA"
+    public var line = "STRAWBERRY"
     public init() {}
 
+    /// Outer wall radius at height y (taper from the stacking shoulder to the rim).
+    func wall(_ y: Float) -> Float { 0.0272 + (0.0336 - 0.0272) * (y - 0.0075) / (0.07 - 0.0075) }
+
     public func build(seed: UInt64) -> LODModel {
-        var rng = SeededRNG(seed: seed)
+        LODModel(levels: [make(hi: true), make(hi: false)], switchDistances: [3])
+    }
+
+    func make(hi: Bool) -> Model {
+        typealias K = GroceryKit
         var m = Model(name: Self.id)
-        let outer: [V2] = [V2(0.0260, 0.0015), V2(0.0272, 0.0050), V2(0.0300, 0.0300), V2(0.0338, 0.0690), V2(0.0348, 0.0770), V2(0.0352, 0.0790)]
-        DD1MPantry.shell(&m, outer: outer, wall: 0.0009, baseThick: 0.003, material: plastic, seg: 56, tile: 0.1)
-        // Rolled rim bead and stacking ring.
-        m.add(Prim.torus(major: 0.0356, minor: 0.0014, segments: 56, sides: 8, minorY: 0.0016, material: plastic), Xform(translation: V3(0, 0.0786, 0)))
-        m.add(Prim.torus(major: 0.0348, minor: 0.0008, segments: 56, sides: 6, minorY: 0.0008, material: plastic), Xform(translation: V3(0, 0.0705, 0)))
-        // Base stacking foot.
-        m.add(Prim.torus(major: 0.0258, minor: 0.0010, segments: 40, sides: 6, minorY: 0.0014, material: plastic), Xform(translation: V3(0, 0.0014, 0)))
-        // Printed wrap: tapered band with a lap seam and a fruit disc.
-        let w0: Float = 0.012, w1: Float = 0.062
-        let rw0 = DD1MPantry.radius(outer, at: w0) + 0.0003, rw1 = DD1MPantry.radius(outer, at: w1) + 0.0003
-        m.add(Prim.lathe([V2(rw0, w0), V2(rw0 + 0.0004, w0 + 0.0003), V2(rw1 + 0.0004, w1 - 0.0003), V2(rw1, w1)], segments: 56, seamTile: 0.1, material: print))
-        m.add(Prim.lathe([V2(rw0 + 0.0004, w0 + 0.034), V2(rw0 + 0.0010, w0 + 0.0345), V2(rw1 + 0.0010, w1 - 0.0005), V2(rw1 + 0.0004, w1)], segments: 56, seamTile: 0.1, material: "plastic.white:F7F4EA"))
-        m.add(Prim.roundedBox(V3(0.0055, 0.050, 0.0005), radius: 0.00015, bevelSegments: 1, material: print), Xform(translation: V3(0, 0.037, -(DD1MPantry.radius(outer, at: 0.037) + 0.0006))))
-        // Yogurt surface just below the rim.
-        m.add(Prim.lathe([V2(0, 0.0705), V2(0.0318, 0.0707), V2(0.0338, 0.0715), V2(0, 0.0713)], segments: 56, seamTile: 0.1, material: yogurt))
-        // Foil lid: sealed disc crimped to the rim, with a lifted pull tab and a printed centre disc.
-        var lid = Prim.extrude(Shape2D.circle(0.0368, ry: 0.0368, segments: 64), depth: 0.0003, bevel: 0.0001, bevelSegments: 1, material: foil)
-        lid.displace { p, _ in 0.00028 * sin(atan2(p.z, p.x) * 28) * min(1, hypot(p.x, p.z) / 0.030) + 0.0004 * sin(p.x * 140) * sin(p.y * 120) }
-        m.add(lid, Xform(translation: V3(0, 0.0802, 0), rotation: simd_quatf(degrees: -90, axis: V3(1, 0, 0))))
-        m.add(Prim.cylinder(radius: 0.0225, height: 0.0004, bevel: 0.0001, segments: 40, bevelSegments: 1, material: print), Xform(translation: V3(0, 0.0805, 0)))
-        m.add(Prim.cylinder(radius: 0.0150, height: 0.0004, bevel: 0.0001, segments: 40, bevelSegments: 1, material: "plastic.white:F7F4EA"), Xform(translation: V3(0, 0.0809, 0)))
-        // Pull tab: a rounded foil ear hinged on the rim, lifted about 10 degrees, with a finger hole.
-        m.add(Prim.roundedBox(V3(0.018, 0.0004, 0.012), radius: 0.0003, bevelSegments: 1, material: foil),
-              Xform(translation: V3(0, 0.0814, 0.0318), rotation: simd_quatf(degrees: 10, axis: V3(1, 0, 0))))
-        m.add(Prim.torus(major: 0.0032, minor: 0.0005, segments: 20, sides: 5, minorY: 0.0005, material: "plastic.gloss:B9BDC0"),
-              Xform(translation: V3(0, 0.0821, 0.0334), rotation: simd_quatf(degrees: 10, axis: V3(1, 0, 0))))
-        // Yogurt crusted on the underside of the tab where it was pulled through the pot.
-        m.add(Prim.superellipsoid(V3(0.010, 0.0006, 0.0050), exponent: 2, subdivisions: 3, material: yogurt), Xform(translation: V3(0.002, 0.0803, 0.0290)))
-        // Yogurt streak running down the outside from the rim, flush with the tapered wall.
-        let ys: Float = 0.0640
-        let ang: Float = 0.30
-        let rr = DD1MPantry.radius(outer, at: ys) + 0.0003
-        m.add(Prim.superellipsoid(V3(0.0046, 0.0300, 0.0013), exponent: 2, subdivisions: 3, material: yogurt),
-              Xform(translation: V3(sin(ang) * rr, ys, cos(ang) * rr), rotation: simd_quatf(angle: ang, axis: .up) * simd_quatf(degrees: -6, axis: V3(1, 0, 0))))
-        m.add(Prim.superellipsoid(V3(0.0062, 0.0058, 0.0030), exponent: 2, subdivisions: 3, material: yogurt),
-              Xform(translation: V3(sin(ang) * (rr + 0.0004), ys - 0.0155, cos(ang) * (rr + 0.0004)), rotation: simd_quatf(angle: ang, axis: .up)))
-        // Uniform trim so the cup with its lid lands on the brief envelope.
-        DD1MPantry.grounded(&m)
-        for i in m.surfaces.indices { m.surfaces[i].positions = m.surfaces[i].positions.map { $0 * 0.95 } }
-        groundAO(&m)
-        return LODModel(m)
+        let segs = hi ? 72 : 24, top: Float = 0.0762, rimR: Float = 0.037
+        // Cup: recessed base, foot ring, stacking shoulder, tapered wall, rolled rim, inner wall down to the yogurt.
+        var prof: [V2] = [V2(0, 0.0016), V2(0.022, 0.0014), V2(0.0245, 0), V2(0.0262, 0.0008), V2(0.0263, 0.0058), V2(0.0272, 0.0075)]
+        for k in 1...8 { let y = 0.0075 + (0.07 - 0.0075) * Float(k) / 8; prof.append(V2(wall(y), y)) }
+        prof += [V2(0.0348, 0.0712), V2(0.0362, 0.0722), V2(rimR, 0.0738), V2(0.0366, 0.0752), V2(0.0356, top - 0.0003), V2(0.0336, top - 0.0004),
+                 V2(0.0326, 0.0745), V2(0.0322, 0.071)]
+        m.add(Prim.lathe(prof, segments: segs, seamTile: 0.05, material: plastic))
+        // Yogurt surface with a soft swirl.
+        var yog = Prim.lathe([V2(0.0323, 0.0712), V2(0.031, 0.0716), V2(0.02, 0.0719), V2(0.008, 0.0722), V2(0, 0.0723)], segments: hi ? 48 : 16, seamTile: 0.05, material: yogurt)
+        if hi { yog.displace { p, nn in nn.y > 0.5 ? 0.0006 * sin(atan2(p.z, p.x) * 2 + simd_length(V2(p.x, p.z)) * 320) : 0 } }
+        m.add(yog)
+        // Printed wrap: one design around, lap seam at the back.
+        let ly0: Float = 0.0095, ly1: Float = 0.0675, over: Float = 0.14
+        let span = 0.25 * (1 + over / (2 * .pi))
+        m.add(K.revSheet(cols: hi ? 72 : 24, rows: 3, y0: ly0, y1: ly1, a0: -.pi, a1: .pi + over, uSpan: span, vSpan: -0.09, u0: 0.03, v0: 0.09, label) { y, a in
+            wall(y) + 0.0004 + (a > .pi ? 0.00026 : 0) })
+        // Foil lid: disc on the rim with a pull tab at the front; the front part peels back in a curl.
+        let zp: Float = 0.006, kappa: Float = 1 / 0.011
+        func foilPos(_ s: Float, _ t: Float, lift: Float) -> V3 {
+            let a = -s * 2 * .pi
+            let tab = 0.0085 * exp(-a.remainder(dividingBy: 2 * .pi) * a.remainder(dividingBy: 2 * .pi) / 0.04)
+            let rho = t * (rimR + tab)
+            let x = rho * sin(a), z = rho * cos(a)
+            let y = top + lift + (rho < 0.0345 ? 0 : 0.0002) - 0.0003 * smoothstep(0.034, rimR, rho)
+            if z <= zp { return V3(x, y, z) }
+            let d = z - zp, th = kappa * d
+            return V3(x, y + (1 - cos(th)) / kappa + lift * (cos(th) - 1), zp + sin(th) / kappa - lift * sin(th))
+        }
+        let fc = hi ? 64 : 24, fr = hi ? 12 : 4
+        m.add(K.sheet(cols: fc, rows: fr, uSpan: 0.23, vSpan: 0.04, foil) { s, t in foilPos(s, t, lift: 0.0002) })
+        m.add(K.sheet(cols: fc, rows: fr, uSpan: 0.23, vSpan: 0.04, foil) { s, t in foilPos(1 - s, t, lift: -0.0001) })
+        if hi {
+            // Crimp ripples pressed into the foil over the rim.
+            for k in 0..<36 {
+                let a = Float(k) / 36 * 2 * .pi
+                guard cos(a) * 0.0355 < zp - 0.002 else { continue }
+                m.add(Prim.roundedBox(V3(0.0006, 0.00025, 0.0022), radius: 0.0001, bevelSegments: 1, material: foil),
+                      Xform(translation: V3(0.0355 * sin(a), top + 0.0002, 0.0355 * cos(a)), rotation: simd_quatf(angle: a, axis: .up)))
+            }
+            // Print on the foil: brand and a keyline ring on the flat part.
+            K.printSmooth(&m, brand, height: 0.0085, at: V3(0, top + 0.0005, -0.004), "paper.sheet:B8264F",
+                          rot: simd_quatf(angle: -.pi / 2, axis: V3(1, 0, 0)), maxWidth: 0.045, weight: 1.3)
+            K.printSmooth(&m, "150 G", height: 0.0042, at: V3(0, top + 0.0005, -0.022), "paper.sheet:3A3A40",
+                          rot: simd_quatf(angle: -.pi / 2, axis: V3(1, 0, 0)), weight: 1.0)
+            // Wordmark on the wrap's logo pill and the flavour line under it.
+            let aPill = (0.7 * 0.25 - 0.03) / span * (2 * .pi + over) - .pi
+            K.wrapText(&m, brand, height: 0.0062, y: ly0 + 0.81 * (ly1 - ly0), at: aPill, ink, maxWidth: 0.06, weight: 1.3, lift: 0.0012) { wall($0) }
+            K.wrapText(&m, line, height: 0.0045, y: ly0 + 0.69 * (ly1 - ly0), at: aPill, ink, maxWidth: 0.055, weight: 1.1, lift: 0.0012) { wall($0) }
+            // Yogurt streak down the outside, under the peeled tab.
+            let sp = (0...6).map { k -> V3 in
+                let y = 0.0705 - Float(k) * 0.0035, a: Float = 0.25 + 0.015 * sin(Float(k) * 1.3)
+                return V3((wall(min(y, 0.07)) + 0.0006) * sin(a), y, (wall(min(y, 0.07)) + 0.0006) * cos(a))
+            }
+            m.add(Prim.tube(sp, radii: [0.0024, 0.0016, 0.0013, 0.0012, 0.0013, 0.0018, 0.0021], sides: 8, seamTile: 0.01, material: yogurt),
+                  Xform(scale: V3(1, 1, 1)))
+        }
+        groundAO(&m, height: 0.015, floor: 0.75)
+        return m
     }
 }
