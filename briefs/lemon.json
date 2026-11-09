@@ -1,5 +1,5 @@
 {
-  "budget": 6000,
+  "budget": 12000,
   "id": "lemon",
   "kind": "prop",
   "materials": [
@@ -13,7 +13,8 @@
     "ovoid fruit lying on its side with a nipple tip",
     "pitted oil-gland rind",
     "stem end button",
-    "thick white pith around segmented flesh in cross section"
+    "thick white pith around segmented flesh in cross section",
+    "stem button in a dimple, bent nipple"
   ],
   "references": [],
   "size": [
