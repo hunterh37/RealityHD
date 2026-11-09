@@ -1,110 +1,145 @@
 import simd
 import Foundation
 
-/// Egg carton: everyday pantry, moulded pulp. Twelve-cup tray, 30 x 10 cm, with thin-walled conical cups,
-/// a flange frame, five tall cone separators between cups and a hinged lid propped open 62 degrees with a
-/// latch tab, ribbed top panel and an ink date stamp. Two eggs (one white, one brown) sit in cups, one
-/// empty cup holds a damp stain and a shell shard.
+/// Egg carton: dozen-size moulded pulp carton, 29 x 10.5 cm. The tray is one moulded sheet with twelve
+/// rounded cups in two rows, five tall separator cones on the centre line, a rolled perimeter rim and outer
+/// walls that bulge over each cup. The lid is hinged at the back and stands open past vertical, showing its
+/// hollow underside, with a rolled rim, two stiffening ribs and a printed label (invented brand HENLOW) on
+/// its top. Ten brown eggs sit in the cups; one empty cup holds a damp stain and a shell shard.
 public struct EggCarton: RealAsset {
     public static let id = "egg-carton"
-    public static let summary = "Moulded pulp egg carton with 12 cups, cone separators and latched lid, two eggs inside."
+    public static let summary = "Moulded pulp egg carton: 12 cups, separator cones, rolled rims, open hinged lid with printed label, ten eggs, stain."
     public static let tags = ["prop", "interior", "pantry", "paper"]
-    public static let budget = 12000
+    public static let budget = 15000
     public static let author = "realityhd"
     public static let preview = PreviewHint(azimuth: 28, elevation: 32, distance: 0.82, studio: true)
 
-    /// Tray pulp.
-    public var tray: MaterialKey = "paper.sheet:B9AE98"
-    /// Lid pulp, a shade darker.
-    public var lid: MaterialKey = "paper.sheet:A89D88"
-    /// Water-stained pulp.
-    public var stain: MaterialKey = "paper.sheet:8F8470"
+    /// Moulded pulp.
+    public var pulp: MaterialKey = "pkg.pulp-carton"
+    /// Damp stain in the empty cup.
+    public var stain: MaterialKey = "pkg.pulp-carton:6E6A5E"
+    /// Lid label (brand field tint).
+    public var label: MaterialKey = "pkg.carton-matte:2F6E3A"
+    /// Lid opening angle in degrees (0 closed).
+    public var lidAngle: Float = 108
     public init() {}
 
-    public func build(seed: UInt64) -> LODModel {
-        var rng = SeededRNG(seed: seed)
-        var m = Model(name: Self.id)
-        let rimY: Float = 0.0365
-        let cup: [V2] = [V2(0, 0.0), V2(0.008, 0.0), V2(0.0105, 0.002), V2(0.0135, 0.014), V2(0.0175, 0.028), V2(0.0215, 0.0345), V2(0.0224, 0.0365),
-                         V2(0.0208, 0.0364), V2(0.0165, 0.028), V2(0.0122, 0.014), V2(0.0096, 0.004), V2(0, 0.0032)]
-        for i in 0..<6 { for j in 0..<2 {
-            let x = (Float(i) - 2.5) * 0.05, z = (Float(j) - 0.5) * 0.05
-            var c = Prim.lathe(cup, segments: 14, seamTile: 0.08, material: ((i == 3 && j == 0) || (i == 0 && j == 1) || (i == 5 && j == 0)) ? stain : ((i + j) % 3 == 0 ? "paper.sheet:AEA38D" : tray))
-            c.recomputeNormals()
-            m.add(c, Xform(translation: V3(x, 0, z), rotation: simd_quatf(degrees: Float(i * 40 + j * 70), axis: .up)))
-        }}
-        // Flange frame and cross strips between cups.
-        let fy = rimY - 0.0006
-        for sz: Float in [-1, 1] {
-            m.add(Prim.roundedBox(V3(0.3, 0.0012, 0.006), radius: 0.0004, bevelSegments: 1, material: tray), Xform(translation: V3(0, fy, sz * 0.047)))
-        }
-        for sx: Float in [-1, 1] {
-            m.add(Prim.roundedBox(V3(0.006, 0.0012, 0.1), radius: 0.0004, bevelSegments: 1, material: tray), Xform(translation: V3(sx * 0.147, fy, 0)))
-        }
-        m.add(Prim.roundedBox(V3(0.3, 0.0012, 0.0045), radius: 0.0004, bevelSegments: 1, material: tray), Xform(translation: V3(0, fy, 0)))
-        for k in 1...5 {
-            m.add(Prim.roundedBox(V3(0.0048, 0.0012, 0.1), radius: 0.0004, bevelSegments: 1, material: tray), Xform(translation: V3((Float(k) - 3) * 0.05, fy, 0)))
-        }
-        // Cone separators at the cup junctions, with a rolled tip.
-        let post: [V2] = [V2(0, 0.02), V2(0.0112, 0.02), V2(0.0105, 0.03), V2(0.0078, 0.04), V2(0.005, 0.0475), V2(0.0032, 0.0518), V2(0.0015, 0.0535), V2(0, 0.0538)]
-        for k in 1...5 {
-            m.add(Prim.lathe(post, segments: 10, seamTile: 0.08, material: tray), Xform(translation: V3((Float(k) - 3) * 0.05, 0, 0)))
-        }
-        // Hinge strip and hinged lid.
-        m.add(Prim.roundedBox(V3(0.3, 0.0013, 0.007), radius: 0.0004, bevelSegments: 1, material: lid), Xform(translation: V3(0, rimY + 0.0003, -0.0485)))
-        var lidM = Model(name: "lid")
-        lidM.add(Prim.roundedBox(V3(0.3, 0.0016, 0.1), radius: 0.0006, bevelSegments: 1, material: lid), Xform(translation: V3(0, 0.0168, 0.05)))
-        for sz: Float in [0, 1] {
-            lidM.add(Prim.roundedBox(V3(0.3, 0.0165, 0.0014), radius: 0.0004, bevelSegments: 1, material: lid), Xform(translation: V3(0, 0.0085, sz * 0.0993 + 0.0007)))
-        }
-        for sx: Float in [-1, 1] {
-            lidM.add(Prim.roundedBox(V3(0.0014, 0.0165, 0.1), radius: 0.0004, bevelSegments: 1, material: lid), Xform(translation: V3(sx * 0.1493, 0.0085, 0.05)))
-        }
-        lidM.add(Prim.roundedBox(V3(0.2, 0.0008, 0.056), radius: 0.0003, bevelSegments: 1, material: tray), Xform(translation: V3(0, 0.0178, 0.05)))
-        for k in 0..<5 {
-            lidM.add(Prim.roundedBox(V3(0.2, 0.0006, 0.0016), radius: 0.0002, bevelSegments: 1, material: lid), Xform(translation: V3(0, 0.0185, 0.03 + Float(k) * 0.01)))
-        }
-        // Latch tab on the front and ink date stamp.
-        lidM.add(Prim.roundedBox(V3(0.022, 0.016, 0.0016), radius: 0.0005, bevelSegments: 1, material: lid), Xform(translation: V3(0, 0.003, 0.1008)))
-        var x: Float = -0.045
-        for _ in 0..<7 {
-            let w = rng.float(0.002...0.004)
-            lidM.add(Prim.roundedBox(V3(w, 0.0004, rng.float(0.004...0.007)), radius: 0.0001, bevelSegments: 1, material: "paper.sheet:3A3F66"),
-                     Xform(translation: V3(x, 0.0185, 0.085), rotation: simd_quatf(degrees: rng.float(-10...10), axis: .up)))
-            x += 0.0065
-        }
-        for k in 0..<12 {
-            lidM.add(Prim.roundedBox(V3(rng.float(0.006...0.02), 0.0017, 0.0022), radius: 0.0005, bevelSegments: 1, material: "paper.sheet:CFC5AE"),
-                     Xform(translation: V3(rng.float(-0.14...0.14), 0.0168, 0.0993 + 0.0013), rotation: simd_quatf(degrees: rng.float(-8...8), axis: .up)))
-        }
-        for k in 0..<5 {
-            lidM.add(Prim.roundedBox(V3(0.012, 0.0006, 0.009), radius: 0.0002, bevelSegments: 1, material: stain),
-                     Xform(translation: V3(rng.float(-0.12...0.12), 0.0188, rng.float(0.015...0.04)), rotation: simd_quatf(degrees: rng.float(0...180), axis: .up)))
-        }
-        m.add(lidM, Xform(translation: V3(0, rimY, -0.05), rotation: simd_quatf(degrees: -62, axis: V3(1, 0, 0))))
-        // Eggs, pointed end down.
-        for (i, j, key) in [(1, 0, "food.egg-shell"), (4, 1, "food.egg-shell:C99C6E")] as [(Int, Int, MaterialKey)] {
-            var prof: [V2] = []
-            for s in 0...16 {
-                let t = Float(s) / 16
-                let r = s == 0 || s == 16 ? 0 : 0.0214 * pow(sin(Float.pi * t), 0.6) * (0.85 + 0.3 * t)
-                prof.append(V2(r, t * 0.057))
-            }
-            var e = Prim.lathe(prof, segments: 16, seamTile: 0.05, material: key)
-            e.recomputeNormals()
-            m.add(e, Xform(translation: V3((Float(i) - 2.5) * 0.05, 0.0042, (Float(j) - 0.5) * 0.05), rotation: simd_quatf(degrees: rng.float(-3...3), axis: V3(1, 0, 1))))
-        }
-        // Shell shard in the stained cup.
-        var shard = Prim.superellipsoid(V3(0.009, 0.0008, 0.006), exponent: 3, subdivisions: 3, material: "food.egg-shell")
-        shard.deform { p in V3(p.x, p.y + 0.0025 * p.x * p.x * 400, p.z) }
-        m.add(shard, Xform(translation: V3(0.0, 0.005, -0.025), rotation: simd_quatf(degrees: 25, axis: .up)).translatedBy(V3(0.025, 0, 0)))
-        let b = m.bounds
-        m = m.transformed(Xform(translation: V3(0, -b.min.y, 0)))
-        groundAO(&m, height: 0.03, floor: 0.7)
-        return LODModel(m)
-    }
-}
+    let pitchX: Float = 0.046, pitchZ: Float = 0.05, hx: Float = 0.145, hz: Float = 0.0525
+    let yr: Float = 0.046, yb: Float = 0.011, rc: Float = 0.0215
 
-private extension Xform {
-    func translatedBy(_ v: V3) -> Xform { var x = self; x.translation += v; return x }
+    func cup(_ i: Int, _ j: Int) -> V2 { V2((Float(i) - 2.5) * pitchX, (Float(j) - 0.5) * pitchZ) }
+
+    /// Tray top surface height.
+    func trayH(_ x: Float, _ z: Float) -> Float {
+        var b: Float = 0
+        for i in 0..<6 { for j in 0..<2 {
+            let c = cup(i, j), dx = abs(x - c.x) / rc, dz = abs(z - c.y) / rc
+            let d = pow(pow(dx, 2.6) + pow(dz, 2.6), 1 / 2.6)
+            if d < 1 { b = max(b, pow(1 - d * d, 1.3)) }
+        } }
+        var h = yr - (yr - yb) * b
+        for k in 0..<5 {
+            let d = simd_length(V2(x - (Float(k) - 2) * pitchX, z))
+            h = max(h, 0.066 - 1.6 * sqrt(d * d + 0.000016))
+        }
+        // Flange dips slightly toward the rim.
+        let e = min(hx - abs(x), hz - abs(z))
+        return h - 0.002 * (1 - smoothstep(0, 0.006, e))
+    }
+
+    /// Lid outer surface height in the closed frame.
+    func lidH(_ x: Float, _ z: Float) -> Float {
+        let e = min(hx + 0.002 - abs(x), hz + 0.002 - abs(z))
+        let rib = 0.0016 * (exp(-pow((abs(z) - 0.034) / 0.003, 2)) * smoothstep(0.02, 0.03, e))
+        return yr + 0.028 * pow(smoothstep(0, 0.016, e), 0.6) + rib
+    }
+
+    public func build(seed: UInt64) -> LODModel {
+        LODModel(levels: [make(seed: seed, hi: true), make(seed: seed, hi: false)], switchDistances: [3])
+    }
+
+    func make(seed: UInt64, hi: Bool) -> Model {
+        typealias K = GroceryKit
+        var rng = SeededRNG(seed: seed &+ 41)
+        var m = Model(name: Self.id)
+        // Tray sheet.
+        m.add(K.sheet(cols: hi ? 66 : 30, rows: hi ? 24 : 10, uSpan: 2 * hx, vSpan: 2 * hz, pulp) { s, t in
+            let x = -hx + s * 2 * hx, z = hz - t * 2 * hz
+            return V3(x, trayH(x, z), z)
+        })
+        // Outer walls: front and back bulge over each cup and taper toward the foot.
+        let edgeY = yr - 0.002
+        for side: Float in [1, -1] {
+            m.add(K.sheet(cols: hi ? 48 : 12, rows: 4, uSpan: 2 * hx, vSpan: edgeY, pulp) { s, t in
+                let x = side * (-hx + s * 2 * hx), y = t * edgeY
+                let bump = 0.5 + 0.5 * cos((x / pitchX - 0.5) * 2 * .pi)
+                let z = hz - 0.007 * (1 - t) - 0.0035 * (1 - bump) * (1 - 0.6 * t)
+                return V3(x, y, side * z)
+            })
+            m.add(K.sheet(cols: hi ? 12 : 4, rows: 4, uSpan: 2 * hz, vSpan: edgeY, pulp) { s, t in
+                let z = side * (hz - s * 2 * hz), y = t * edgeY
+                let bump = 0.5 + 0.5 * cos((z / pitchZ - 0.5) * 2 * .pi)
+                return V3(side * (hx - 0.007 * (1 - t) - 0.003 * (1 - bump) * (1 - 0.6 * t)), y, z)
+            })
+        }
+        // Rolled rim around the tray.
+        let rimPath = Shape2D.roundedRect(2 * hx, 2 * hz, radius: 0.006, segments: hi ? 4 : 2).map { V3($0.x, edgeY, -$0.y) }
+        m.add(Prim.sweep(Shape2D.circle(0.0016, segments: hi ? 8 : 4), along: rimPath, closedPath: true, material: pulp))
+        // Latch nubs on the front rim.
+        for x: Float in [-0.06, 0.06] {
+            m.add(Prim.superellipsoid(V3(0.014, 0.008, 0.006), exponent: 2.6, subdivisions: hi ? 4 : 2, material: pulp), Xform(translation: V3(x, edgeY + 0.001, hz + 0.001)))
+        }
+        // Lid, built closed relative to the hinge line and swung open.
+        let hinge = V3(0, edgeY, -hz - 0.002)
+        var lid = Model(name: "lid")
+        let lc = hi ? 36 : 16, lr = hi ? 14 : 6
+        lid.add(K.sheet(cols: lc, rows: lr, uSpan: 2 * hx, vSpan: 2 * hz, pulp) { s, t in
+            let x = -hx - 0.002 + s * (2 * hx + 0.004), z = hz + 0.002 - t * (2 * hz + 0.004)
+            return V3(x, lidH(x, z), z) - hinge
+        })
+        lid.add(K.sheet(cols: lc, rows: lr, uSpan: 2 * hx, vSpan: 2 * hz, pulp) { s, t in
+            let x = hx + 0.002 - s * (2 * hx + 0.004), z = hz + 0.002 - t * (2 * hz + 0.004)
+            return V3(x * 0.985, lidH(x, z) - 0.0025, z * 0.96) - hinge
+        })
+        let lidRim = Shape2D.roundedRect(2 * hx + 0.004, 2 * hz + 0.004, radius: 0.007, segments: hi ? 4 : 2).map { V3($0.x, edgeY + 0.0008, -$0.y) - hinge }
+        lid.add(Prim.sweep(Shape2D.circle(0.0018, segments: hi ? 8 : 4), along: lidRim, closedPath: true, material: pulp))
+        // Printed label on the lid top: carton-matte design rows 0.6...1 on 0.15 x 0.054 m.
+        let lw: Float = 0.15, lh: Float = 0.054, top = yr + 0.028 + 0.0004
+        lid.add(K.sheet(cols: 2, rows: 2, uSpan: 0.15, vSpan: -0.088, v0: 0.088, label) { s, t in
+            V3(-lw / 2 + s * lw, top, lh / 2 - t * lh) - hinge
+        })
+        if hi {
+            K.printSmooth(&lid, "HENLOW", height: 0.011, at: V3(-lw / 2 + 0.7 * lw, top + 0.0004, lh / 2 - 0.5 * lh) - hinge, "paper.sheet:FFFFFF",
+                          rot: simd_quatf(angle: -.pi / 2, axis: V3(1, 0, 0)), maxWidth: 0.06, weight: 1.3)
+            K.printSmooth(&lid, "12 LARGE EGGS", height: 0.006, at: V3(-lw / 2 + 0.7 * lw, top + 0.0004, lh / 2 - 0.16 * lh) - hinge, "paper.sheet:FFFFFF",
+                          rot: simd_quatf(angle: -.pi / 2, axis: V3(1, 0, 0)), maxWidth: 0.06, weight: 1.1)
+        }
+        m.add(lid, Xform(translation: hinge, rotation: simd_quatf(angle: -lidAngle * .pi / 180, axis: V3(1, 0, 0))))
+        // Folded hinge.
+        m.add(Prim.tube([V3(-hx, edgeY - 0.0005, -hz - 0.002), V3(hx, edgeY - 0.0005, -hz - 0.002)], radii: [0.0022, 0.0022], sides: hi ? 8 : 4, seamTile: 0.02, material: pulp))
+        // Eggs: ten in the cups, front cup 2 and back cup 5 empty.
+        for i in 0..<6 { for j in 0..<2 {
+            let c = cup(i, j)
+            if (i == 1 && j == 1) || (i == 4 && j == 0) { continue }
+            let shade = rng.float(0.9...1.06)
+            let col = GroceryKit.shade(0xB48A66, shade)
+            let egg = Prim.superellipsoid(V3(0.0435, 0.0565, 0.0435), exponent: 2, subdivisions: hi ? 4 : 2, material: GroceryKit.tint("paper.sheet", col)) { d in 1 - 0.07 * d.y }
+            let tilt = simd_quatf(angle: rng.float(-0.12...0.12), axis: V3(1, 0, 0)) * simd_quatf(angle: rng.float(-0.12...0.12), axis: V3(0, 0, 1))
+            m.add(egg, Xform(translation: V3(c.x, yb + 0.0365, c.y), rotation: tilt))
+        } }
+        if hi {
+            // Damp stain and a shell shard in the empty front cup.
+            let c = cup(1, 1)
+            m.add(K.sheet(cols: 12, rows: 12, uSpan: 0.03, vSpan: 0.03, stain) { s, t in
+                let x = c.x - 0.014 + s * 0.028, z = c.y + 0.014 - t * 0.028
+                return V3(x, trayH(x, z) + 0.0004, z)
+            })
+            m.add(Prim.superellipsoid(V3(0.013, 0.0016, 0.009), exponent: 2.2, subdivisions: 3, material: "paper.sheet:EFE6D6") { d in 1 + 0.25 * d.x * d.x },
+                  Xform(translation: V3(c.x + 0.003, yb + 0.006, c.y - 0.002), rotation: simd_quatf(angle: 0.5, axis: V3(0, 0, 1)) * simd_quatf(angle: 0.7, axis: .up)))
+            // Inkjet date stamp on the front wall.
+            K.printSmooth(&m, "BEST BY 11 30", height: 0.0045, at: V3(0.07, 0.022, hz - 0.0035), "paper.sheet:4A3A7A", maxWidth: 0.05, weight: 0.85)
+        }
+        groundAO(&m, height: 0.02, floor: 0.7)
+        return m
+    }
 }
