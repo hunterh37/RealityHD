@@ -1,0 +1,32 @@
+{
+  "budget": 28000,
+  "id": "crystal-stag",
+  "kind": "prop",
+  "materials": [
+    "stone.quartz",
+    "glass.ice",
+    "glass.quartz",
+    "glass.frosted",
+    "glass.tinted",
+    "crystal.cyan"
+  ],
+  "name": "Crystal stag",
+  "notes": "Origin on the ground between the hooves, face +Z, up +Y, 7 m to the antler tips. Joints walk -1...1 (diagonal leg pairs swing 22 deg about X, positive swings front-left forward), head -1...1 (neck and head yaw 35 deg, positive toward +X), rear 0...1 (body pitches up 38 deg about the hind hooves), glow 0...1 are empty drivers; child parts mimic them. Option parts lamps (veins) and tips (antler crystal tips) switch at glow 0.05, with two cyan point lights.",
+  "parts": [
+    "lofted quartz barrel, 40 stations by 64 radial points",
+    "faceted ice-glass shell over the barrel, flat-shaded jittered facets",
+    "seven cyan veins under the shell",
+    "four legs as 48-sided tapered tubes with hip muscle masses and frosted glass hooves",
+    "48-sided neck with a ring of crystal shell plates, head, muzzle, nose, ears, glossy eyes",
+    "hex crystal ridge along the spine",
+    "antler tree of 48 tapered branches with a hex crystal tip on each"
+  ],
+  "references": [],
+  "size": [2.9, 7.0, 4.6],
+  "style": "Stag of faceted ice crystal: pale quartz body under clear faceted ice glass, glowing cyan veins, crystal antler tree with glowing tips, frosted hooves. Original design.",
+  "summary": "7 m crystal stag: quartz body under a faceted ice-glass shell, cyan veins, 48-branch crystal antler tree, frosted hooves.",
+  "tags": ["prop", "creature", "fantasy", "glass", "snow", "outdoor", "articulated", "glowing"],
+  "theme": "Creatures",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

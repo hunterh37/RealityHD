@@ -1,0 +1,45 @@
+{
+  "budget": 28000,
+  "id": "storm-roc",
+  "kind": "prop",
+  "materials": [
+    "dino.feather-coat",
+    "fauna.feather",
+    "plastic.gloss",
+    "dino.scale-skin",
+    "glass.clear",
+    "glass.tinted",
+    "metal.enamel"
+  ],
+  "name": "Storm roc",
+  "notes": "Origin at the body centre, beak +Z, up +Y, 30 m wingspan. Joints flap -1...1 (positive raises the wings: shoulder 32 deg, wrist 20 deg more), fold 0...1 (shoulder 55 deg back, elbow 25 deg more), talons 0...1 (legs swing down 80 deg from the tucked rest, front toes open 40 deg, hind toe 40 deg), beak 0...1 (lower mandible 28 deg), head -1...1 (head yaw 40 deg, positive toward +X) are empty drivers; child parts mimic them.",
+  "parts": [
+    "lofted torso, 40 stations by 64 radial points, dark brown plumage",
+    "white lofted head and neck with a ruff of white hackles",
+    "hooked yellow upper bill, hinged lower mandible, cere",
+    "glass eye domes over amber irises with black pupils, white brow ridges",
+    "two wings of three bone segments: leading-edge tubes and covert panels",
+    "feather cards: 10 primaries, 14 secondaries, 8 tertials, greater and lesser coverts per wing",
+    "white tail fan of 12 feathers",
+    "feathered thighs, scaled yellow tarsi, four toes per foot with black keratin talons"
+  ],
+  "references": [],
+  "size": [
+    30.4,
+    5.2,
+    13.8
+  ],
+  "style": "Giant storm eagle: dark brown and gold plumage, white head and tail, hooked yellow beak, black talons. Original design.",
+  "summary": "30 m wingspan storm roc: lofted brown plumage body, white head, hooked yellow beak, layered feather cards, white tail fan, yellow tarsi with black talons.",
+  "tags": [
+    "prop",
+    "creature",
+    "fantasy",
+    "flying",
+    "outdoor",
+    "articulated"
+  ],
+  "theme": "Creatures",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
