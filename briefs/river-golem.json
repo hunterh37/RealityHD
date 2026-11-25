@@ -1,0 +1,47 @@
+{
+  "budget": 30000,
+  "id": "river-golem",
+  "kind": "prop",
+  "materials": [
+    "rock.granite-weathered",
+    "rock.granite-bare",
+    "rock.river-wet",
+    "rock.slate",
+    "moss.cushion",
+    "rubber.silicone",
+    "metal.wrought-iron",
+    "glass.tinted",
+    "emissive.thruster-cyan"
+  ],
+  "name": "River golem",
+  "notes": "Origin on the riverbed under the pelvis, face +Z, up +Y, 26 m tall. Authored pose is the full stand with arms hanging and hands open; the character's right arm is at -X. Joints rise 0...1 (0 = crouched, pelvis sunk 9 m, torso leaning 35 deg, legs folded), stride -1...1 (legs swing 25 deg, arms counter-swing 20 deg), arm -1...1 (right arm raise forward 150 deg), fist 0...1 (right hand closes 95 deg), glow 0...1 are empty drivers; child parts mimic them. Followers core and runesBody, runesTorso, runesArmR, runesArmL, runesLegR, runesLegL switch option at glow 0.05.",
+  "parts": [
+    "stacked displaced granite boulder lofts for pelvis, torso, head, arms and legs, 64 and 48 radial",
+    "moss cushions and tapered river weed strands on shoulders, head, belt and elbows",
+    "riveted iron bands at both wrists",
+    "emissive cyan rune seams laid on the stone, dark slate cracks when unlit",
+    "chest lantern core with glass dome and iron ring",
+    "right hand with four fingers and a thumb that close"
+  ],
+  "references": [],
+  "size": [
+    18.86,
+    21.4,
+    17.53
+  ],
+  "style": "Weathered river granite giant, wet lower limbs, moss and weed, iron bands, cyan rune glow, original design.",
+  "summary": "26 m river golem: stacked displaced granite boulders, moss and river weed, riveted iron wrist bands, emissive cyan rune seams, glass lantern core, joints rise, stride, arm, fist, glow.",
+  "tags": [
+    "prop",
+    "creature",
+    "stone",
+    "metal",
+    "glass",
+    "outdoor",
+    "articulated",
+    "glowing"
+  ],
+  "theme": "Creatures",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

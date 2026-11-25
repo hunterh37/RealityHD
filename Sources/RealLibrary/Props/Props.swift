@@ -1590,6 +1590,11 @@ public enum Props {
         FreedomTrailMedallion.self,
         PirateTricorn.self,
         Cutlass.self,
+        ClockworkKoi.self,
+        IslandTurtle.self,
+        RiverGolem.self,
+        Ornithopter.self,
+        ColossusCrab.self,
         // realityhd:prop
     ]
 }

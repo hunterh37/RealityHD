@@ -1,0 +1,46 @@
+{
+  "budget": 28000,
+  "id": "clockwork-koi",
+  "kind": "prop",
+  "materials": [
+    "metal.enamel",
+    "metal.brass",
+    "metal.copper",
+    "metal.perforated",
+    "glass.clear",
+    "glass.tinted",
+    "emissive.amber"
+  ],
+  "name": "Clockwork koi",
+  "notes": "Origin at the body centre, nose +Z, up +Y, 14 m long. Joints swim -1...1 (S-wave through four tail segments, 6/10/14/18 deg, positive toward +X), fins 0...1 (pectorals out 45 deg, dorsal up 35 deg), jaw 0...1 (lower jaw 28 deg), glow 0...1 are empty drivers; child parts mimic them. Follower lamps switches option at glow 0.05 (eye irises and gill slits emissive amber, two amber point lights).",
+  "parts": [
+    "lofted kohaku enamel body, 64 stations by 64 radial points, white with red panels and head spot",
+    "overlapping brass and copper scale plates on the flanks",
+    "gear ring with 28 brass teeth at the gill line",
+    "glass eye domes over amber irises with black pupils, brass barbels",
+    "hinged lower jaw with dark mouth lining",
+    "four chained tail segments and a forked caudal fin",
+    "perforated metal fin membranes on brass spines: pectorals, dorsal, pelvics, anal"
+  ],
+  "references": [],
+  "size": [
+    3.61,
+    5.92,
+    13.43
+  ],
+  "style": "Brass and copper clockwork koi: glossy baked enamel red and white body, polished metal scale plates, brass gears, perforated metal fins, glowing amber eyes. Original design.",
+  "summary": "14 m clockwork koi: lofted kohaku enamel body, brass and copper scale plates, gill gear ring, glass eyes with amber irises, jaw, segmented tail, mesh fins.",
+  "tags": [
+    "prop",
+    "creature",
+    "fish",
+    "metal",
+    "glass",
+    "outdoor",
+    "articulated",
+    "glowing"
+  ],
+  "theme": "Creatures",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
