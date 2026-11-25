@@ -1,0 +1,39 @@
+{
+  "budget": 30000,
+  "id": "colossus-crab",
+  "kind": "prop",
+  "materials": [
+    "metal.painted",
+    "ceramic.bisque",
+    "rock.granite-weathered",
+    "rubber.silicone",
+    "ceramic.porcelain-black"
+  ],
+  "name": "Colossus crab",
+  "notes": "Origin on the ground under the carapace centre, face +Z, up +Y, 20 m leg span. Authored pose is the full stand with claws lowered and open and eyes forward. The crusher claw is on the character's right (-X) and is larger. Legs 0 to 3 are on +X front to back, 4 to 7 on -X. Joints walk -1...1 (alternate legs lift 14 deg and swing 10 deg), claws 0...1 (arms raise 65 deg), pinch 0...1 (dactyls close 42 deg), eyes -1...1 (stalks swivel 35 deg), crouch 0...1 (body lowers 3 m, knees flex 22 deg) are empty drivers; child parts mimic them.",
+  "parts": [
+    "carapace loft 64 stations by 64 radial, cream belly, amber flanks, red-orange back, clearcoat",
+    "lateral, front and dorsal spines, barnacle clusters",
+    "crusher claw (large) and cutter claw with arm tube, palm, fixed finger, jointed dactyl",
+    "eight walking legs, four 48-sided tube segments with ball joints",
+    "two stalked glossy black eyes",
+    "kelp strands draped on the shell and crusher arm"
+  ],
+  "references": [],
+  "size": [
+    22.37,
+    8.52,
+    22.73
+  ],
+  "style": "Wet red-orange to cream colossal crab, spined carapace, barnacles and kelp, original design.",
+  "summary": "20 m colossus crab: wet red-orange to cream carapace with spines and barnacles, crusher and cutter claws, eight segmented legs with ball joints, stalked black eyes, kelp, joints walk, claws, pinch, eyes, crouch.",
+  "tags": [
+    "prop",
+    "creature",
+    "outdoor",
+    "articulated"
+  ],
+  "theme": "Creatures",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

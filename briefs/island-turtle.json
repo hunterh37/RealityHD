@@ -1,0 +1,45 @@
+{
+  "budget": 30000,
+  "id": "island-turtle",
+  "kind": "prop",
+  "materials": [
+    "rock.river-wet",
+    "dino.scale-skin",
+    "rock.limestone",
+    "moss.cushion",
+    "rock.mossy",
+    "bark.oak",
+    "leaf.plain",
+    "glass.tinted"
+  ],
+  "name": "Island turtle",
+  "notes": "Origin at the waterline under the shell centre, head +Z, up +Y, 40 m long. Authored pose has the neck fully out and eyes open; joint value neck 0 pulls the head 7 m into the shell, blink 0 is open. Joints swim -1...1 (front flippers 32 deg with lagging tip, hind flippers 18 deg), head -1...1 (yaw 35 deg, positive toward +X), neck 0...1, rise 0...1 (body lifts 4 m), blink 0...1 are empty drivers; child parts mimic them. The water line is owned by the lens.",
+  "parts": [
+    "lofted shell, 64 stations by 64 radial points, scute seam relief",
+    "barnacle clusters along the waterline",
+    "moss mound on the shell with rock outcrop",
+    "three trees with bark trunks and leaf cards",
+    "leathery neck and head, lofted, glass eyes with lids",
+    "two front paddle flippers with a lagging tip segment and two hind flippers",
+    "tail"
+  ],
+  "references": [],
+  "size": [
+    44.8,
+    27.85,
+    34.06
+  ],
+  "style": "Giant sea turtle in wet olive-brown plates and leathery grey-green skin, carrying a small mossy wooded island, original shapes only.",
+  "summary": "40 m island turtle: lofted scute shell with barnacles, moss mound with three trees and a rock outcrop, leathery neck and head with lids, four paddle flippers.",
+  "tags": [
+    "prop",
+    "creature",
+    "outdoor",
+    "plant",
+    "stone",
+    "articulated"
+  ],
+  "theme": "Creatures",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

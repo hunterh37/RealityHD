@@ -1,0 +1,44 @@
+{
+  "budget": 30000,
+  "id": "ornithopter",
+  "kind": "prop",
+  "materials": [
+    "wood.ash",
+    "fabric.canvas",
+    "metal.brass-aged",
+    "rope.hemp",
+    "wicker.willow"
+  ],
+  "name": "Ornithopter",
+  "notes": "Origin at the pilot cradle, nose +Z, up +Y, 18 m wingspan. Authored pose has wings open and level, tail level, drum at rest. Joints flap -1...1 (wings beat 45 deg, outer section adds 20 deg tip lag, positive lifts both tips), fold 0...1 (wings sweep back 80 deg about the vertical shoulder axis), tail -1...1 (tail fan pitch 25 deg, positive lifts the fan), crank 0...1 (gear drum one full turn about X) are empty drivers; child parts mimic them. Rigging ropes on the wings are rigid with the wing, so the mast end of each rope drifts at large flap angles. No pilot figure.",
+  "parts": [
+    "ash-wood spine, mast, A-frame and tail boom, 48-sided turned spars",
+    "two canvas wings: lofted lens sections with camber and scalloped trailing edge, in inner and outer (tip lag) sections",
+    "ash leading and mid spars and nine batten ribs per wing",
+    "brass shoulder hubs, mast pulleys, crown and nose cap",
+    "toothed brass crank drum on an axle",
+    "wicker pilot cradle with rim hoop, seat, control bar and foot rail",
+    "hemp rope rigging",
+    "bird-like tail fan of seven canvas feathers with spars"
+  ],
+  "references": [],
+  "size": [
+    18.06,
+    3.98,
+    14.22
+  ],
+  "style": "Renaissance flapping-wing flying machine in pale ash wood, cream canvas, aged brass and hemp rope, original design.",
+  "summary": "18 m ornithopter: ash-wood frame, canvas wings on ribbed spars, brass pulleys and crank drum, wicker pilot cradle, hemp rigging, tail fan.",
+  "tags": [
+    "prop",
+    "vehicle",
+    "wood",
+    "fabric",
+    "metal",
+    "outdoor",
+    "articulated"
+  ],
+  "theme": "Vehicles",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
