@@ -39,6 +39,9 @@ public extension MaterialLibrary {
             skin("channel-cat-skin", 0x52525E, 0xC8C8C8, 0x16181C, rows: 0, bnd: 0.7, pat: 6, str: 0.9, op: 0.21, seed: 9108),
             skin("flathead-skin", 0x6E6E68, 0xB8B2A4, 0x3A3424, rows: 0, bnd: 0.62, pat: 7, str: 0.8, op: 0.2, seed: 9109),
             skin("drum-skin", 0xA89A78, 0xD0C4A4, 0x5A5444, rows: 52, bnd: 0.5, pat: 0, str: 0, op: 0.26, seed: 9110),
+            // Sky manta halves: one tone per loft so the dorsal/ventral split of the atlas never bands.
+            skin("manta-top", 0x1A222C, 0x1A222C, 0x0C1016, rows: 0, bnd: 0.5, pat: 6, str: 0.35, op: 0.0, seed: 9111),
+            skin("manta-belly", 0xE4E7EA, 0xE4E7EA, 0x9AA0A6, rows: 0, bnd: 0.5, pat: 0, str: 0, op: 0.0, seed: 9112),
             fin("bass-fin", 0x3E3220, 0x5A4A30, 0x2A2014, rays: 14, margin: 0.06, seed: 9121),
             fin("largemouth-fin", 0x56603A, 0x7E8458, 0x3C4228, rays: 14, margin: 0, seed: 9122),
             fin("sunfish-fin", 0x6A5838, 0x8A7450, 0x2E2A22, rays: 12, margin: 0.05, seed: 9123),

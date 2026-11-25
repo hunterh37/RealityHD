@@ -1,0 +1,32 @@
+{
+  "budget": 30000,
+  "id": "sea-serpent",
+  "kind": "prop",
+  "materials": [
+    "dino.dragon-scale",
+    "dino.scale-skin",
+    "glass.tinted",
+    "glass.clear",
+    "plastic.gloss",
+    "plastic.black",
+    "fish.mouth"
+  ],
+  "name": "Sea serpent",
+  "notes": "Origin at the body centre on the waterline, head +Z, up +Y, 60.5 m long (z -30 tail tip to +30.5 snout). Joints coil -1...1 (alternating pitch hinges at z -6, -14, -22 (10/-18/16 deg) and z 6, 12, 18 (-10/18/-12 deg) make vertical humps), head -1...1 (head yaw 40 deg, positive toward +X), rear 0...1 (hinge at z 6 pitches up 45 deg, neck hinge at z 18 back down 30 deg, head rises about 12 m), jaw 0...1 (lower jaw 32 deg), frills 0...1 (gill frills fan 55 deg) are empty drivers; child parts mimic them.",
+  "parts": [
+    "lofted tube body, 96 stations by 64 radial points: green-bronze dragon scale dorsal arc, pale ridged belly plate arc",
+    "dorsal crest of translucent membrane frills scalloped between horn spines, tail to neck",
+    "horned head: two swept horns, two small cheek horns, brow ridges",
+    "glossy eye domes over gold irises with vertical slit pupils",
+    "hinged lower jaw with mouth lining, upper and lower rows of teeth with fangs",
+    "gill frills: membrane fans on five spines each side, folded back at rest"
+  ],
+  "references": [],
+  "size": [3.4, 6.2, 60.5],
+  "style": "Realistic giant sea serpent: wet green-bronze overlapping scales, pale belly plates, dark horn, translucent green fin membranes, gold slit-pupil eyes. Original design.",
+  "summary": "60 m sea serpent: lofted scaled body with pale belly plates, dorsal membrane crest, horned head, jaw with teeth, slit-pupil eyes, gill frills.",
+  "tags": ["prop", "creature", "fantasy", "water", "river", "outdoor", "articulated"],
+  "theme": "Creatures",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

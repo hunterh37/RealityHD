@@ -1,0 +1,32 @@
+{
+  "budget": 28000,
+  "id": "sky-manta",
+  "kind": "prop",
+  "materials": [
+    "fish.channel-cat-skin",
+    "fish.catfish-fin",
+    "fish.mouth",
+    "fish.eye-dark",
+    "emissive.thruster-cyan",
+    "glass.tinted"
+  ],
+  "name": "Sky manta",
+  "notes": "Origin at the body centre, head +Z, up +Y, 22 m wingspan, about 15 m nose to tail tip. Joints wave -1...1 (inner wing 16 deg, outer wing 10 deg more, positive lifts both tips), bank -1...1 (bank hinges at x = +-2.2 m, 15 deg each, positive drops the right wing and lifts the left), fins 0...1 (cephalic fins unroll 70 deg about X, forward and down), glow 0...1 are empty drivers; child parts mimic them. Five spot lamp parts (lampsC, lampsR1, lampsR2, lampsL1, lampsL2) follow their wing segment and switch option at glow 0.05 (emissive cyan spots, one cyan point light).",
+  "parts": [
+    "flat body lofted spanwise, 64 stations by 64 radial points, swept planform, thick central disc thinning to the wing tips",
+    "dark slate dorsal skin over a white belly (separate lofts)",
+    "wings split into inner and outer segments on hinges for tip flex",
+    "two cephalic fins either side of a wide mouth, eyes on the head sides",
+    "five gill slits per side on the underside",
+    "long whip tail",
+    "bioluminescent spot rows along the wings and a scatter over the disc"
+  ],
+  "references": [],
+  "size": [22.4, 2.6, 15.2],
+  "style": "Giant oceanic manta ray that flies: smooth wet dark skin with a white belly, bioluminescent cyan spot pattern on the back. Original design.",
+  "summary": "22 m sky manta ray: lofted flat body with flexing wing tips, cephalic fins, gill slits, dark top and white belly, bioluminescent cyan spots, whip tail.",
+  "tags": ["prop", "creature", "fish", "fantasy", "flying", "outdoor", "articulated", "glowing"],
+  "theme": "Creatures",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}

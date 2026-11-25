@@ -1595,6 +1595,11 @@ public enum Props {
         RiverGolem.self,
         Ornithopter.self,
         ColossusCrab.self,
+        SeaSerpent.self,
+        CrystalStag.self,
+        StormRoc.self,
+        SkyManta.self,
+        MechHeron.self,
         // realityhd:prop
     ]
 }

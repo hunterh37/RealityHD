@@ -1,0 +1,47 @@
+{
+  "budget": 28000,
+  "id": "mech-heron",
+  "kind": "prop",
+  "materials": [
+    "ceramic.vitreous",
+    "metal.chrome",
+    "metal.anodized-gunmetal",
+    "metal.stainless",
+    "rubber.tubing",
+    "glass.tinted",
+    "emissive.thruster-cyan"
+  ],
+  "name": "Mech heron",
+  "notes": "Origin on the ground between the feet, face +Z, up +Y, about 12 m tall. Joints walk -1...1 (hips 24 deg, positive swings the right leg back, shins counter-bend 14 deg), neck -1...1 (six chained segments, -1 coils back, +1 strikes down and forward to the waterline; rest is the midpoint, standing pose about -0.5), beak 0...1 (lower blade 30 deg), wings 0...1 (panel wings swing up and out 100 deg about Z), glow 0...1 are empty drivers; child parts mimic them. Follower lamps switches option at glow 0.05 (cyan eye strip, cyan point light).",
+  "parts": [
+    "lofted gunmetal body, 48 stations by 64 radial points, under glossy white ceramic armour panels, breast plate, tail blade fan",
+    "two chrome hydraulic piston legs (48 radial tubes) with ceramic thigh shells, twin pistons, backward knees, hoses",
+    "four-toed chrome feet",
+    "six-segment chrome S-neck with ceramic collars and twin piston rods",
+    "ceramic head with a cyan LED eye strip and a stainless blade beak with hinged lower blade",
+    "two folding wings of overlapping ceramic and chrome panels on chrome spars",
+    "jump-jet nozzles under the wing roots"
+  ],
+  "references": [],
+  "size": [
+    3.4,
+    12.0,
+    9.0
+  ],
+  "style": "Original design robotic heron: glossy white ceramic and mirror chrome, gunmetal joints, hydraulic pistons, blade beak, cyan LED eye. Clean industrial robot look.",
+  "summary": "12 m mech heron: chrome and white ceramic panels, hydraulic piston legs with backward knees, six-segment S-neck, blade beak, LED eye strip, folding panel wings.",
+  "tags": [
+    "prop",
+    "robot",
+    "mech",
+    "creature",
+    "metal",
+    "ceramic",
+    "outdoor",
+    "articulated",
+    "glowing"
+  ],
+  "theme": "Robots",
+  "threshold": 0.85,
+  "tolerance": 0.08
+}
